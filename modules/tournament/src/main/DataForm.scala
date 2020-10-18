@@ -1,13 +1,13 @@
 package lila.tournament
 
+import shogi.format.FEN
+import shogi.{ Mode, StartingPosition }
 import org.joda.time.DateTime
 import play.api.data._
 import play.api.data.Forms._
 import play.api.data.validation
-import play.api.data.validation.{ Constraint, Constraints }
+import play.api.data.validation.Constraint
 
-import shogi.Mode
-import shogi.StartingPosition
 import lila.common.Form._
 import lila.hub.LightTeam._
 import lila.user.User
@@ -27,7 +27,7 @@ final class DataForm {
       waitMinutes = waitMinuteDefault.some,
       startDate = none,
       variant = shogi.variant.Standard.id.toString.some,
-      position = StartingPosition.initial.fen.some,
+      position = None,
       password = None,
       mode = none,
       rated = true.some,
@@ -50,7 +50,11 @@ final class DataForm {
       waitMinutes = none,
       startDate = tour.startsAt.some,
       variant = tour.variant.id.toString.some,
-      position = tour.position.fen.some,
+      position = tour.position match {
+        case Left(p) if p.initial => None
+        case Left(p)              => p.fen.some
+        case Right(f)             => f.value.some
+      },
       mode = none,
       rated = tour.mode.rated.some,
       password = tour.password,
@@ -157,8 +161,10 @@ object DataForm {
       v.key == from || from.toIntOption.exists(v.id ==)
     }
 
-  def startingPosition(fen: String, variant: Variant): StartingPosition =
-    Thematic.byFen(fen).ifTrue(variant.standard) | StartingPosition.initial
+  def startingPosition(fen: String, variant: Variant): Either[StartingPosition, FEN] =
+    if (variant.standard)
+      Thematic.byFen(fen).fold[Either[StartingPosition, FEN]](Right(FEN(fen)))(Left.apply)
+    else Left(StartingPosition.initial)
 }
 
 private[tournament] case class TournamentSetup(

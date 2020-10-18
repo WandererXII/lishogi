@@ -1,5 +1,6 @@
 package lila.tournament
 
+import shogi.format.FEN
 import org.joda.time.{ DateTime, Duration, Interval }
 import lila.common.ThreadLocalRandom
 import play.api.i18n.Lang
@@ -20,7 +21,7 @@ case class Tournament(
     clock: ClockConfig,
     minutes: Int,
     variant: shogi.variant.Variant,
-    position: StartingPosition,
+    position: Either[StartingPosition, FEN],
     mode: Mode,
     password: Option[String] = None,
     conditions: Condition.All,
@@ -138,6 +139,8 @@ case class Tournament(
 
   def ratingVariant = if (variant.fromPosition) shogi.variant.Standard else variant
 
+  def initialPosition = position.left.exists(_.initial)
+
   lazy val looksLikePrize = !isScheduled && lila.common.String.looksLikePrize(s"$name $description")
 
   override def toString = s"$id $startsAt ${name()(defaultLang)} $minutes minutes, $clock, $nbPlayers players"
@@ -157,7 +160,7 @@ object Tournament {
       clock: ClockConfig,
       minutes: Int,
       variant: shogi.variant.Variant,
-      position: StartingPosition,
+      position: Either[StartingPosition, FEN],
       mode: Mode,
       password: Option[String],
       waitMinutes: Int,
@@ -170,10 +173,11 @@ object Tournament {
   ) =
     Tournament(
       id = makeId,
-      name = name | {
-        if (position.initial) Animal.randomName
-        else position.shortName
-      },
+      name = name | (position match {
+        case Left(pos) if pos.initial => Animal.randomName
+        case Left(pos)                => pos.shortName
+        case _                        => Animal.randomName
+      }),
       status = Status.Created,
       clock = clock,
       minutes = minutes,
@@ -208,7 +212,7 @@ object Tournament {
       createdAt = DateTime.now,
       nbPlayers = 0,
       variant = sched.variant,
-      position = sched.position,
+      position = Left(sched.position),
       mode = Mode.Rated,
       conditions = sched.conditions,
       schedule = Some(sched),

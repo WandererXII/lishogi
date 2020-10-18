@@ -2,7 +2,7 @@ package lila.simul
 
 import play.api.data._
 import play.api.data.Forms._
-import play.api.data.validation.{ Constraint, Constraints }
+import play.api.data.validation.Constraint
 import lila.user.User
 
 import shogi.StartingPosition
