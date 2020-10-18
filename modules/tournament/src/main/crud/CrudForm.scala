@@ -26,7 +26,7 @@ object CrudForm {
       "periods"        -> numberIn(periodsChoices),
       "minutes"        -> number(min = 20, max = 1440),
       "variant"        -> number.verifying(Variant exists _),
-      "position"       -> optional(nonEmptyText),
+      "position"       -> optional(lila.common.Form.fen.playableStrict),
       "date"           -> utcDate,
       "image"          -> stringIn(imageChoices),
       "headline"       -> text(minLength = 5, maxLength = 30),
@@ -65,7 +65,7 @@ object CrudForm {
       periods: Int,
       minutes: Int,
       variant: Int,
-      position: Option[String],
+      position: Option[FEN],
       date: DateTime,
       image: String,
       headline: String,
@@ -77,7 +77,7 @@ object CrudForm {
 
     def realVariant = Variant orDefault variant
 
-    def realPosition = position ifTrue realVariant.standard map FEN
+    def realPosition = position ifTrue realVariant.standard
 
     def validClock = (clockTime + clockIncrement) > 0 || (clockTime + clockByoyomi) > 0
 

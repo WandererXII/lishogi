@@ -8,6 +8,7 @@ import lila.db.BSON
 import lila.db.dsl._
 import lila.rating.PerfType
 import lila.user.User.lishogiId
+import shogi.format.Forsyth
 import reactivemongo.api.bson._
 
 object BSONHandlers {
@@ -61,9 +62,10 @@ object BSONHandlers {
     def reads(r: BSON.Reader) = {
       val variant = r.intO("variant").fold[Variant](Variant.default)(Variant.orDefault)
       val position: Option[FEN] = {
-        r.strO("fen").flatMap(Thematic.byFen).filterNot(_.initial).map(_.fen) orElse
-          r.strO("eco").flatMap(Thematic.byEco).map(_.fen) // for BC
-      } map FEN
+        import cats.implicits._
+        r.strO("fen").filterNot(Forsyth.initial === _).map(FEN) orElse
+          r.strO("eco").flatMap(Thematic.byEco).map(_.fen).map(FEN) // for BC
+      }
       val startsAt   = r date "startsAt"
       val conditions = r.getO[Condition.All]("conditions") getOrElse Condition.All.empty
       Tournament(

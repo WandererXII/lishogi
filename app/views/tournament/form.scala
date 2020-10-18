@@ -71,7 +71,6 @@ object form {
           postForm(cls := "form3", action := routes.Tournament.update(tour.id))(
             form3.split(fields.name, tour.isCreated option fields.startDate),
             form3.split(fields.rated, fields.variant),
-            fields.startPosition,
             fields.clock1,
             fields.clock2,
             form3.split(
@@ -81,7 +80,7 @@ object form {
                   form3.input(_)(tpe := "number")
                 )
             ),
-            fields.description(true),
+            form3.split(fields.description(true), fields.startPosition),
             form3.globalError(form),
             fieldset(cls := "conditions")(
               fields.advancedSettings,
@@ -194,7 +193,7 @@ object form {
 
   def startingPosition(field: Field, tour: Option[Tournament]) =
     form3.input(field)(
-      tour.exists(t => !t.isCreated && t.position.initial).option(disabled := true)
+      tour.exists(t => !t.isCreated && t.position.isEmpty).option(disabled := true)
     )
 }
 
