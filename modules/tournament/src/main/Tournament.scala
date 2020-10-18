@@ -7,7 +7,7 @@ import play.api.i18n.Lang
 import scala.util.chaining._
 
 import shogi.Clock.{ Config => ClockConfig }
-import shogi.{ Mode, Speed, StartingPosition }
+import shogi.{ Mode, Speed }
 import lila.common.Animal
 import lila.game.PerfPicker
 import lila.i18n.defaultLang
@@ -21,7 +21,7 @@ case class Tournament(
     clock: ClockConfig,
     minutes: Int,
     variant: shogi.variant.Variant,
-    position: Either[StartingPosition, FEN],
+    position: Option[FEN],
     mode: Mode,
     password: Option[String] = None,
     conditions: Condition.All,
@@ -139,8 +139,6 @@ case class Tournament(
 
   def ratingVariant = if (variant.fromPosition) shogi.variant.Standard else variant
 
-  def initialPosition = position.left.exists(_.initial)
-
   lazy val looksLikePrize = !isScheduled && lila.common.String.looksLikePrize(s"$name $description")
 
   override def toString = s"$id $startsAt ${name()(defaultLang)} $minutes minutes, $clock, $nbPlayers players"
@@ -160,7 +158,7 @@ object Tournament {
       clock: ClockConfig,
       minutes: Int,
       variant: shogi.variant.Variant,
-      position: Either[StartingPosition, FEN],
+      position: Option[FEN],
       mode: Mode,
       password: Option[String],
       waitMinutes: Int,
@@ -174,9 +172,8 @@ object Tournament {
     Tournament(
       id = makeId,
       name = name | (position match {
-        case Left(pos) if pos.initial => Animal.randomName
-        case Left(pos)                => pos.shortName
-        case _                        => Animal.randomName
+        case Some(pos) => Thematic.byFen(pos).fold("Custom position")(_.shortName)
+        case None      => Animal.randomName
       }),
       status = Status.Created,
       clock = clock,
@@ -212,7 +209,7 @@ object Tournament {
       createdAt = DateTime.now,
       nbPlayers = 0,
       variant = sched.variant,
-      position = Left(sched.position),
+      position = sched.position,
       mode = Mode.Rated,
       conditions = sched.conditions,
       schedule = Some(sched),

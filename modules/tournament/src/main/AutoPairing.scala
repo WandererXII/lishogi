@@ -25,7 +25,7 @@ final class AutoPairing(
       .make(
         shogi = shogi.Game(
           variantOption = Some {
-            if (tour.initialPosition) tour.variant
+            if (tour.position.isEmpty) tour.variant
             else shogi.variant.FromPosition
           },
           fen = tour.position.map(_.value)
