@@ -101,7 +101,7 @@ object PasswordHasher {
   )(username: String, req: RequestHeader)(run: RateLimit.Charge => Fu[A])(default: => Fu[A]): Fu[A] =
     if (enforce.value) {
       val cost = 1
-      val ip   = HTTPRequest lastRemoteAddress req
+      val ip   = HTTPRequest ipAddress req
       rateLimitPerUser(User normalize username, cost = cost) {
         rateLimitPerIP.chargeable(ip, cost = cost) { charge =>
           rateLimitGlobal("-", cost = cost, msg = ip.value) {

@@ -35,7 +35,7 @@ final class Importer(env: Env) extends LilaController(env) {
                     game,
                     lila.fishnet.Work.Sender(
                       userId = ctx.userId,
-                      ip = HTTPRequest.lastRemoteAddress(ctx.req).some,
+                      ip = HTTPRequest.ipAddress(ctx.req).some,
                       mod = isGranted(_.Hunter) || isGranted(_.Relay),
                       system = false
                     )

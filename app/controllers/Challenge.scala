@@ -189,7 +189,7 @@ final class Challenge(
             .fold(
               _ => funit,
               username =>
-                ChallengeIpRateLimit(HTTPRequest lastRemoteAddress req) {
+                ChallengeIpRateLimit(HTTPRequest ipAddress req) {
                   env.user.repo named username flatMap {
                     case None => Redirect(routes.Challenge.show(c.id)).fuccess
                     case Some(dest) =>
@@ -214,7 +214,7 @@ final class Challenge(
           err => BadRequest(apiFormError(err)).fuccess,
           config => {
             val cost = if (me.isApiHog) 0 else 1
-            ChallengeIpRateLimit(HTTPRequest lastRemoteAddress req, cost = cost) {
+            ChallengeIpRateLimit(HTTPRequest ipAddress req, cost = cost) {
               ChallengeUserRateLimit(me.id, cost = cost) {
                 env.user.repo enabledById userId.toLowerCase flatMap { destUser =>
                   import lila.challenge.Challenge._
@@ -292,7 +292,7 @@ final class Challenge(
         .fold(
           err => BadRequest(apiFormError(err)).fuccess,
           config =>
-            ChallengeIpRateLimit(HTTPRequest lastRemoteAddress req) {
+            ChallengeIpRateLimit(HTTPRequest ipAddress req) {
               import lila.challenge.Challenge._
               val challenge = lila.challenge.Challenge
                 .make(

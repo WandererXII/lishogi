@@ -146,7 +146,7 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
               cents = lila.plan.Cents(ipn.grossCents),
               name = ipn.name,
               txnId = ipn.txnId,
-              ip = lila.common.HTTPRequest.lastRemoteAddress(req).value,
+              ip = lila.common.HTTPRequest.ipAddress(req).value,
               key = get("key", req) | "N/A"
             ) inject Ok
         )

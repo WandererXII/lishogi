@@ -79,7 +79,7 @@ final class Setup(
   def friend(userId: Option[String]) =
     OpenBody { implicit ctx =>
       implicit val req = ctx.body
-      PostRateLimit(HTTPRequest lastRemoteAddress ctx.req) {
+      PostRateLimit(HTTPRequest ipAddress ctx.req) {
         forms
           .friend(ctx)
           .bindFromRequest()
@@ -166,7 +166,7 @@ final class Setup(
     OpenBody { implicit ctx =>
       NoBot {
         implicit val req = ctx.body
-        PostRateLimit(HTTPRequest lastRemoteAddress ctx.req) {
+        PostRateLimit(HTTPRequest ipAddress ctx.req) {
           NoPlaybanOrCurrent {
             forms
               .hook(ctx)
@@ -191,7 +191,7 @@ final class Setup(
   def like(sri: String, gameId: String) =
     Open { implicit ctx =>
       NoBot {
-        PostRateLimit(HTTPRequest lastRemoteAddress ctx.req) {
+        PostRateLimit(HTTPRequest ipAddress ctx.req) {
           NoPlaybanOrCurrent {
             env.game.gameRepo game gameId flatMap {
               _ ?? { game =>
@@ -230,7 +230,7 @@ final class Setup(
                 val uniqId = s"sri:${me.id}"
                 config.hook(Sri(uniqId), me.some, sid = uniqId.some, blocking) match {
                   case Left(hook) =>
-                    PostRateLimit(HTTPRequest lastRemoteAddress req) {
+                    PostRateLimit(HTTPRequest ipAddress req) {
                       BoardApiHookConcurrencyLimitPerUser(me.id)(
                         env.lobby.boardApiHookStream(hook.copy(boardApi = true))
                       )(apiC.sourceToNdJsonOption).fuccess
@@ -261,7 +261,7 @@ final class Setup(
   def apiAi =
     ScopedBody(_.Challenge.Write, _.Bot.Play, _.Board.Play) { implicit req => me =>
       implicit val lang = reqLang
-      PostRateLimit(HTTPRequest lastRemoteAddress req) {
+      PostRateLimit(HTTPRequest ipAddress req) {
         forms.api.ai
           .bindFromRequest()
           .fold(
@@ -276,7 +276,7 @@ final class Setup(
 
   private def process[A](form: Context => Form[A])(op: A => BodyContext[_] => Fu[Pov]) =
     OpenBody { implicit ctx =>
-      PostRateLimit(HTTPRequest lastRemoteAddress ctx.req) {
+      PostRateLimit(HTTPRequest ipAddress ctx.req) {
         implicit val req = ctx.body
         form(ctx)
           .bindFromRequest()
