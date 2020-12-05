@@ -123,7 +123,7 @@ final class Setup(
                       case true =>
                         negotiate(
                           html = fuccess(Redirect(routes.Round.watcher(challenge.id, "sente"))),
-                          api = _ => challengeC showChallenge challenge
+                          api = _ => challengeC.showChallenge(challenge, justCreated = true)
                         )
                       case false =>
                         negotiate(
