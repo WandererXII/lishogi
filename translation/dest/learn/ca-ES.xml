@@ -49,7 +49,7 @@
 	<string name="thePawn">El peó</string>
 	<string name="itMovesForwardOnly">Camina endevant!</string>
 	<string name="pawnIntro">Els peons són febles, però amaguen un munt de potencial.</string>
-	<string name="pawnsMoveOneSquareOnly">Pawns can move to the square directly in front of them, they capture the same way.</string>
+	<string name="pawnsMoveOneSquareOnly">Els peons es poden moure directament davant seu, i capturen de la mateixa forma.</string>
 	<string name="pawnPromotion">The pawn can also be promoted, the moves are once again the same as the gold general.</string>
 	<string name="pawnComplete">Felicitats! Els peons no tenen secrets per tu.</string>
 	<string name="pawnSummary">The pawn is a rather straightforward piece to understand.</string>
