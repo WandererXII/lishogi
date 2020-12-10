@@ -224,7 +224,7 @@
 	<string name="cancelRematchOffer">再対局の申し込みをキャンセルする</string>
 	<string name="viewRematch">再戦を観戦する</string>
 	<string name="confirmMove">手を確定</string>
-	<string name="play">プレイ</string>
+	<string name="play">対局</string>
 	<string name="inbox">受信箱</string>
 	<string name="chatRoom">チャットルーム</string>
 	<string name="loginToChat">（ログインが必要）</string>
@@ -546,7 +546,7 @@
 	<string name="side">先手後手</string>
 	<string name="clock">時間制限</string>
 	<string name="unauthorizedError">アクセス権限がありません。</string>
-	<string name="noInternetConnection">インターネット接続なし。メニューからオフラインでプレイできます。</string>
+	<string name="noInternetConnection">インターネット接続なし。メニューからオフラインで対局できます。</string>
 	<string name="connectedToLishogi">lishogi.org に繋がっています。</string>
 	<string name="signedOut">サインアウトしました。</string>
 	<string name="loginSuccessful">ログインしました</string>
@@ -561,7 +561,7 @@
 	<string name="increment">追加時間</string>
 	<string name="sharePGN">PGNを共有</string>
 	<string name="playOnline">オンラインでプレイする</string>
-	<string name="playOffline">オフラインでプレイする</string>
+	<string name="playOffline">オフラインで対局する</string>
 	<string name="allowAnalytics">匿名の統計を許可する</string>
 	<string name="shareGameURL">対局のURLを共有</string>
 	<string name="error.required">この欄は入力必須です</string>
@@ -667,7 +667,7 @@
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">これはあなたのアカウントにログインしたデバイスの一覧です。覚えのないセッションは削除してください。</string>
 	<string name="alternativelyYouCanX">あるいは %s こともできます。</string>
 	<string name="revokeAllSessions">すべてのセッションを取り消す</string>
-	<string name="playChessEverywhere">どこでも将棋をプレイ</string>
+	<string name="playChessEverywhere">どこでも将棋を対局</string>
 	<string name="asFreeAsLishogi">Lishogi は常に無料</string>
 	<string name="builtForTheLoveOfChessNotMoney">お金のためではなく将棋愛のために作られた</string>
 	<string name="everybodyGetsAllFeaturesForFree">誰でもすべての機能が無料です</string>
@@ -780,7 +780,7 @@
 		<item quantity="other">%s 手のプリムーブを保存</item>
 	</plurals>
 	<string name="sorry">残念です :(</string>
-	<string name="weHadToTimeYouOutForAWhile">しばらくプレイを禁止します。</string>
+	<string name="weHadToTimeYouOutForAWhile">しばらく対局を禁止します。</string>
 	<string name="timeoutExpires">禁止は %s 後に解けます。</string>
 	<string name="why">どうして？</string>
 	<string name="pleasantChessExperience">Lishogi ではすべての人に楽しい将棋体験を提供しています。</string>
