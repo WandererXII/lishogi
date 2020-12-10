@@ -11,8 +11,7 @@
 	<string name="theIntoduction">はじめに</string>
 	<string name="introBasics">基本を学びましょう。</string>
 	<string name="introIntro">あなたの旅はここから始まります。</string>
-	<string name="choosePieceDesign">伝えておくべき大事なことは、駒の区別がつくことですので正しい駒のセットを選びましょう。\n
-そうするためには歯車か（右上にある）ユーザー名をクリックし、そこから「駒のセット」をクリックします。</string>
+	<string name="choosePieceDesign">伝えておくべき大事なことは、駒の区別がつくことですので正しい駒のセットを選びましょう。そうするためには歯車か（右上にある）ユーザー名をクリックし、そこから「駒のセット」をクリックします。</string>
 	<string name="promotionZone">いくつかの駒は相手の陣地3列内に入り、または出たときに、成ることを選択して強くすることができます。</string>
 	<string name="introComplete">これで基本的なことは分かったと思いますが、チュートリアルのこの部分はまだ作成中です。今のところは、個々の駒がどのように動くかを学んでください。</string>
 	<string name="theRook">飛車</string>
