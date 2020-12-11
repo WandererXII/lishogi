@@ -21,7 +21,8 @@ object BuildSettings {
       sources in (Compile, doc) := Seq.empty,
       publishArtifact in (Compile, packageDoc) := false,
       // disable publishing the main sources jar
-      publishArtifact in (Compile, packageSrc) := false
+      publishArtifact in (Compile, packageSrc) := false,
+      javaOptions ++= Seq("-Xms64m", "-Xmx256m")
     )
 
   def defaultLibs: Seq[ModuleID] =
