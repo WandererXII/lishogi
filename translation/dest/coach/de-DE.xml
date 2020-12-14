@@ -13,7 +13,7 @@
 	<string name="availability">Verfügbarkeit</string>
 	<string name="accepting">Nimmt neue Schüler an</string>
 	<string name="notAccepting">Nimmt im Moment keine neuen Schüler an</string>
-	<string name="xCoachesStudents">%s coaches shogi students</string>
+	<string name="xCoachesStudents">%s trainiert Shogi Schüler</string>
 	<string name="viewXProfile">Lishogi-Profil von %s</string>
 	<string name="sendPM">Sende eine private Nachricht</string>
 	<string name="aboutMe">Über mich</string>
