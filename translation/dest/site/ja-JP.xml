@@ -561,7 +561,7 @@
 	<string name="increment">追加時間</string>
 	<string name="sharePGN">PGNを共有</string>
 	<string name="playOnline">オンラインでプレイする</string>
-	<string name="playOffline">オフラインで対局する</string>
+	<string name="playOffline">オフラインでプレイする</string>
 	<string name="allowAnalytics">匿名の統計を許可する</string>
 	<string name="shareGameURL">対局のURLを共有</string>
 	<string name="error.required">この欄は入力必須です</string>
