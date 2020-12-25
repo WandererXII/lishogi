@@ -17,20 +17,20 @@
 	<string name="viewXProfile">Погледај Lishogi профил од %s</string>
 	<string name="sendPM">Пошаљи приватну поруку</string>
 	<string name="aboutMe">О мени</string>
-	<string name="playingExperience">Playing experience</string>
-	<string name="teachingExperience">Teaching experience</string>
-	<string name="otherExperiences">Other experiences</string>
-	<string name="bestSkills">Best skills</string>
-	<string name="teachingMethod">Teaching methodology</string>
-	<string name="publicStudies">Public studies</string>
-	<string name="youtubeVideos">YouTube videos</string>
+	<string name="playingExperience">Играчко искуство</string>
+	<string name="teachingExperience">Искуство у подучавању</string>
+	<string name="otherExperiences">Остала искуства</string>
+	<string name="bestSkills">Најразвијеније вештине</string>
+	<string name="teachingMethod">Методологија подучавања</string>
+	<string name="publicStudies">Јавно учење</string>
+	<string name="youtubeVideos">Јутјуб снимци</string>
 	<plurals name="studentReviews">
 		<item quantity="one">One student review</item>
 		<item quantity="few">%s student reviews</item>
-		<item quantity="other">%s student reviews</item>
+		<item quantity="other">%s рецензије ученика</item>
 	</plurals>
-	<string name="thankYouForReview">Thank you for the review!</string>
-	<string name="xWillApproveIt">%s will approve it very soon, or a moderator will have a look at it.</string>
-	<string name="reviewCoach">Review this coach</string>
-	<string name="describeExperienceWith">Describe your coaching experience with %s</string>
+	<string name="thankYouForReview">Хвала на рецензији!</string>
+	<string name="xWillApproveIt">%s ће га ускоро одобрити или ће га модератор погледати</string>
+	<string name="reviewCoach">Напиши рецензију за овог тренера</string>
+	<string name="describeExperienceWith">Опиши своје искуство са %s</string>
 </resources>
