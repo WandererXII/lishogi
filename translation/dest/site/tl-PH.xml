@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="playWithAFriend">Play with a friend</string>
-	<string name="playWithTheMachine">Play with the computer</string>
-	<string name="toInviteSomeoneToPlayGiveThisUrl">To invite someone to play, give this URL</string>
+	<string name="playWithAFriend">Makipaglaro sa Kaibigan</string>
+	<string name="playWithTheMachine">Makipaglaro sa Makina</string>
+	<string name="toInviteSomeoneToPlayGiveThisUrl">Para mag-anyaya ng iba, ibigay itong URL</string>
 	<string name="gameOver">Game Over</string>
 	<string name="waitingForOpponent">Waiting for opponent</string>
 	<string name="waiting">Waiting</string>
