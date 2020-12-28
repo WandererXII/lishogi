@@ -29,9 +29,9 @@ When two or more players have the same number of points, the tournament performa
   <string name="howDoesPairingWorkAnswer">At the beginning of the tournament, players are paired based on their rating.
 As soon as you finish a game, return to the tournament lobby: you will then be paired with a player close to your ranking. This ensures minimum wait time, however you may not face all other players in the tournament.
 Play fast and return to the lobby to play more games and win more points.</string>
-  <string name="howDoesItEnd">How does it end?</string>
+  <string name="howDoesItEnd">Paano ito matatapos?</string>
   <string name="howDoesItEndAnswer">The tournament has a countdown clock. When it reaches zero, the tournament rankings are frozen, and the winner is announced. Games in progress must be finished, however they don\'t count for the tournament.</string>
-  <string name="otherRules">Other important rules</string>
+  <string name="otherRules">Mga ibang importanteng patakaran</string>
   <string name="thereIsACountdown">There is a countdown for your first move. Failing to make a move within this time will forfeit the game to your opponent.</string>
   <plurals name="drawingWithinNbMoves">
     <item quantity="one">Drawing the game within the first %s move will earn neither player any points.</item>
