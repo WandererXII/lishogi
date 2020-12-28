@@ -2,7 +2,7 @@
 <resources>
 	<string name="lishogiClasses">Klase</string>
 	<string name="teachClassesOfChessStudents">Teach classes of shogi students with the Lishogi Classes tool suite.</string>
-	<string name="features">Features</string>
+	<string name="features">Ang mga katangian</string>
 	<string name="quicklyGenerateSafeUsernames">Quickly generate safe usernames and passwords for students</string>
 	<string name="trackStudentProgress">Track student progress in games and puzzles</string>
 	<string name="messageAllStudents">Message all students about new class material</string>
@@ -37,18 +37,18 @@
 	<string name="studentCredentials">Estudyante: %1$s
 Username: %2$s
 Password: %3$s</string>
-	<string name="inviteALishogiAccount">Invite a Lishogi account</string>
+	<string name="inviteALishogiAccount">Mag-imbita ng bagong Lishogi account</string>
 	<string name="inviteDesc1">If the student already has a Lishogi account, you can invite them to the class.</string>
 	<string name="inviteDesc2">They will receive a message on Lishogi with a link to join the class.</string>
 	<string name="inviteDesc3">Important: only invite students you know, and who actively want to join the class.</string>
 	<string name="inviteDesc4">Never send unsolicited invites to arbitrary players.</string>
-	<string name="createANewLishogiAccount">Create a new Lishogi account</string>
+	<string name="createANewLishogiAccount">Gumawa ng bagong Lishogi account</string>
 	<string name="createDesc1">If the student doesn\'t have a Lishogi account yet, you can create one for them here.</string>
 	<string name="createDesc2">No email address is required. A password will be generated, and you will have to transmit it to the student, so they can log in.</string>
 	<string name="createDesc3">Important: a student must not have multiple accounts.</string>
 	<string name="createDesc4">If they already have one, use the invite form instead.</string>
 	<string name="lishogiUsername">Lishogi username</string>
-	<string name="generateANewUsername">Generate a new username</string>
+	<string name="generateANewUsername">Gumawa ng bagong username</string>
 	<string name="welcomeToClass">Welcome to your class: %s.
 Here is the link to access the class.</string>
 	<string name="invitationToClass">You are invited to join the class \"%s\" as a student.</string>
@@ -59,7 +59,7 @@ Here is the link to access the class.</string>
 	</plurals>
 	<string name="noPendingInvitations">No pending invitations</string>
 	<string name="onlyVisibleToTeachers">Only visible to the class teachers</string>
-	<string name="lastActiveDate">Active</string>
+	<string name="lastActiveDate">Aktibo</string>
 	<string name="managed">Managed</string>
 	<string name="thisStudentAccountIsManaged">This student account is managed</string>
 	<string name="upgradeFromManaged">Upgrade from managed to autonomous</string>
@@ -68,23 +68,23 @@ Here is the link to access the class.</string>
 	<string name="releaseDesc1">A released account cannot be made managed again. The student will be able to toggle kid mode and reset password themselves.</string>
 	<string name="releaseDesc2">The student will remain in the class after their account is released.</string>
 	<string name="realUniqueEmail">Real, unique email address of the student. We will send a confirmation email to it, with a link to release the account.</string>
-	<string name="teachers">Teachers</string>
+	<string name="teachers">Mga guro</string>
 	<plurals name="nbTeachers">
-		<item quantity="one">Teacher</item>
-		<item quantity="other">%s teachers</item>
+		<item quantity="one">Guro</item>
+		<item quantity="other">%s Mga guro</item>
 	</plurals>
 	<plurals name="nbStudents">
-		<item quantity="one">Student</item>
-		<item quantity="other">%s students</item>
+		<item quantity="one">Estudyante</item>
+		<item quantity="other">%s Mga estudyante</item>
 	</plurals>
-	<string name="students">Students</string>
-	<string name="progress">Progress</string>
+	<string name="students">Mga estudyante</string>
+	<string name="progress">Progreso</string>
 	<string name="noStudents">No students in the class, yet.</string>
 	<string name="noRemovedStudents">No removed students.</string>
 	<string name="overDays">Over days</string>
-	<string name="timePlaying">Time playing</string>
-	<string name="variantXOverLastY">%1$s over last %2$s</string>
-	<string name="winrate">Win rate</string>
+	<string name="timePlaying">Oras na naglalaro</string>
+	<string name="variantXOverLastY">%1$s sa loob ng %2$s</string>
+	<string name="winrate">Porsyento ng pagkapanalo</string>
 	<string name="na">N/A</string>
 	<string name="news">Class news</string>
 	<string name="editNews">Edit news</string>
