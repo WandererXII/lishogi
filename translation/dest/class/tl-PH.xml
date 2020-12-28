@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="lishogiClasses">Classes</string>
+	<string name="lishogiClasses">Klase</string>
 	<string name="teachClassesOfChessStudents">Teach classes of shogi students with the Lishogi Classes tool suite.</string>
 	<string name="features">Features</string>
 	<string name="quicklyGenerateSafeUsernames">Quickly generate safe usernames and passwords for students</string>
 	<string name="trackStudentProgress">Track student progress in games and puzzles</string>
 	<string name="messageAllStudents">Message all students about new class material</string>
-	<string name="freeForAllForever">100% free for all, forever, with no ads or trackers</string>
-	<string name="applyToBeLishogiTeacher">Apply to be a Lishogi Teacher</string>
-	<string name="noClassesYet">No classes yet.</string>
-	<string name="teachersX">Teachers: %s</string>
-	<string name="newClass">New class</string>
-	<string name="closeClass">Close class</string>
-	<string name="closedByX">Closed by %s</string>
-	<string name="reopen">Reopen</string>
+	<string name="freeForAllForever">100% libre para sa lahat, palagi, na walang mga ads o mga trackers</string>
+	<string name="applyToBeLishogiTeacher">Mag-apply upang maging guro sa Lishogi</string>
+	<string name="noClassesYet">Wala pang klase.</string>
+	<string name="teachersX">Mga guro:%s</string>
+	<string name="newClass">Bagong klase</string>
+	<string name="closeClass">Isara ang klase</string>
+	<string name="closedByX">Isinara ni %s</string>
+	<string name="reopen">Buksang muli</string>
 	<string name="removeStudent">Remove student</string>
 	<string name="removedStudents">Removed</string>
 	<string name="inviteTheStudentBack">Invite the student back</string>
