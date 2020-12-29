@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="search">Search</string>
-	<string name="advancedSearch">Advanced search</string>
+	<string name="search">Magsaliksik</string>
+	<string name="advancedSearch">Masusing pagsasaliksik</string>
 	<plurals name="searchInXGames">
 		<item quantity="one">Search in %s shogi game</item>
 		<item quantity="other">Search in %s shogi games</item>
@@ -11,8 +11,8 @@
 		<item quantity="other">%s games found</item>
 	</plurals>
 	<string name="opponentName">Opponent name</string>
-	<string name="loser">Loser</string>
-	<string name="from">From</string>
+	<string name="loser">Talunan</string>
+	<string name="from">Galing kay</string>
 	<string name="to">To</string>
 	<string name="humanOrComputer">Whether the player\'s opponent was human or a computer</string>
 	<string name="aiLevel">A.I. level</string>
