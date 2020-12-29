@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="playWithAFriend">友達と対局する</string>
-	<string name="playWithTheMachine">AIと対局する</string>
+	<string name="playWithTheMachine">コンピューターと対局する</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">対局に招待するとき、下記のリンク先を知らせてください</string>
 	<string name="gameOver">終局</string>
 	<string name="waitingForOpponent">相手を待っています</string>
@@ -51,10 +51,10 @@
 	<string name="viewTheComputerAnalysis">コンピューター解析を見る</string>
 	<string name="requestAComputerAnalysis">コンピューター解析をリクエスト</string>
 	<string name="computerAnalysis">コンピューター解析</string>
-	<string name="computerAnalysisAvailable">コンピュータ解析がされています</string>
+	<string name="computerAnalysisAvailable">コンピューター解析がされています</string>
 	<string name="analysis">棋譜解析</string>
 	<string name="depthX">深度 %s</string>
-	<string name="usingServerAnalysis">サーバ解析を使用</string>
+	<string name="usingServerAnalysis">サーバー解析を使用</string>
 	<string name="loadingEngine">エンジン読み込み中…</string>
 	<string name="cloudAnalysis">クラウド解析</string>
 	<string name="goDeeper">もっと深く</string>
@@ -319,8 +319,8 @@
 	<string name="continueFromHere">中断した所から再開</string>
 	<string name="toStudy">研究</string>
 	<string name="importGame">棋譜をインポート</string>
-	<string name="importGameExplanation">ゲームの PGN を貼りつけると、ブラウザ上でのリプレイ、
-コンピュータ解析、ゲームチャット、共有可能 URL が得られます。</string>
+	<string name="importGameExplanation">ゲームの PGN を貼りつけると、ブラウザー上でのリプレイ、
+コンピューター解析、ゲームチャット、共有可能 URL が得られます。</string>
 	<plurals name="nbImportedGames">
 		<item quantity="other">%s 局をインポート</item>
 	</plurals>
@@ -544,16 +544,16 @@
 	<string name="human">人間</string>
 	<string name="computer">コンピューター</string>
 	<string name="side">先手後手</string>
-	<string name="clock">時間制限</string>
+	<string name="clock">対局時計</string>
 	<string name="unauthorizedError">アクセス権限がありません。</string>
 	<string name="noInternetConnection">インターネット接続なし。メニューからオフラインで対局できます。</string>
 	<string name="connectedToLishogi">lishogi.org に繋がっています。</string>
 	<string name="signedOut">サインアウトしました。</string>
 	<string name="loginSuccessful">ログインしました</string>
 	<string name="playOnTheBoardOffline">オフライン（2人対局）</string>
-	<string name="playOfflineComputer">オフラインでCPUと対局する</string>
+	<string name="playOfflineComputer">オフラインで CPU と対局する</string>
 	<string name="opponent">対局相手</string>
-	<string name="learnMenu">学習</string>
+	<string name="learnMenu">学ぶ</string>
 	<string name="studyMenu">研究</string>
 	<string name="practice">練習問題</string>
 	<string name="community">コミュニティ</string>
@@ -586,7 +586,7 @@
 	<string name="webmasters">ウェブサイト運営者</string>
 	<string name="about">Lishogi の概要</string>
 	<string name="aboutX">%s について</string>
-	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s は無料 (%2$s)・ 自由・広告なし・オープンソースの将棋サーバです。</string>
+	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s は無料 (%2$s)・ 自由・広告なし・オープンソースの将棋サーバーです。</string>
 	<string name="really">本当に</string>
 	<string name="contribute">貢献する</string>
 	<string name="termsOfService">利用規約（英文）</string>
@@ -644,7 +644,7 @@
 	<string name="weHaveSentYouAnEmailTo">%sにメールを送信しました。リンクをクリックしてパスワードの変更を完了してください。</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">登録するとあなたは %s に従うと同意したことになります。</string>
 	<string name="networkLagBetweenYouAndLishogi">あなたと Lishogi の間のネットワークラグ</string>
-	<string name="timeToProcessAMoveOnLishogiServer">Lishogi サーバが手を処理する時間</string>
+	<string name="timeToProcessAMoveOnLishogiServer">Lishogi サーバーが手を処理する時間</string>
 	<string name="downloadAnnotated">解説つきダウンロード</string>
 	<string name="downloadRaw">棋譜のみダウンロード</string>
 	<string name="downloadImported">インポート分のダウンロード</string>
@@ -710,7 +710,7 @@
 	<string name="directlySupportLishogi">Lishogi を直接支援</string>
 	<string name="playChessInStyle">グッズ購入</string>
 	<string name="chessBasics">将棋の基本</string>
-	<string name="coaches">指導者</string>
+	<string name="coaches">コーチ</string>
 	<string name="invalidPgn">無効な PGN</string>
 	<string name="invalidFen">無効な FEN</string>
 	<string name="error.minLength">最小の長さは %s 文字です</string>
@@ -795,7 +795,7 @@
 	<string name="thankYouForReading">熟読ありがとう！</string>
 	<string name="lifetimeScore">通算成績</string>
 	<string name="currentMatchScore">現在のスコア</string>
-	<string name="agreementAssistance">私はいかなる場合も対局中に外部の力を借りないことに同意します（コンピュータ、書籍、データベース、別の人物）。</string>
+	<string name="agreementAssistance">私はいかなる場合も対局中に外部の力を借りないことに同意します（コンピューター、書籍、データベース、別の人物）。</string>
 	<string name="agreementNice">私は常に他のプレイヤーへの礼儀を守ることに同意します。</string>
 	<string name="agreementAccount">私は複数のアカウントを持たないことに同意します。</string>
 	<string name="agreementPolicy">私は Lishogi のすべてのポリシーに従うことに同意します。</string>
