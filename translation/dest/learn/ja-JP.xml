@@ -192,7 +192,7 @@
 	<string name="watchInstructiveChessVideos">将棋の教材動画を見る</string>
 	<string name="playPeople">対人戦</string>
 	<string name="opponentsFromAroundTheWorld">世界中に相手がいます</string>
-	<string name="playMachine">AIと対局</string>
+	<string name="playMachine">マシンと対局</string>
 	<string name="testYourSkillsWithTheComputer">コンピュータ相手に技術を試そう</string>
 	<string name="letsGo">行こう！</string>
 	<string name="stageX">ステージ %s</string>
