@@ -12,12 +12,12 @@
 	</plurals>
 	<string name="opponentName">Opponent name</string>
 	<string name="loser">Talunan</string>
-	<string name="from">Galing kay</string>
-	<string name="to">To</string>
+	<string name="from">Mula</string>
+	<string name="to">Hanggang</string>
 	<string name="humanOrComputer">Whether the player\'s opponent was human or a computer</string>
-	<string name="aiLevel">A.I. level</string>
+	<string name="aiLevel">Lebel ng A.I.</string>
 	<string name="source">Source</string>
-	<string name="nbTurns">Number of turns</string>
+	<string name="nbTurns">Bilang ng mga galaw</string>
 	<string name="result">Result</string>
 	<string name="winnerColor">Winner color</string>
 	<string name="date">Date</string>
