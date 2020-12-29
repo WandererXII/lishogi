@@ -9,8 +9,8 @@
 	<string name="hearItPronouncedBySpecialist">Pakinggan itong ibinigkas ng isang espesyalista.</string>
 	<string name="whyLiveLightLibre">Live, because games are played and watched in real-time 24/7; light and libre for the fact that Lishogi is open-source and unencumbered by proprietary junk that plagues other websites.</string>
 	<string name="whyIsLilaCalledLila">Similarly, the source code for Lishogi, %1$s, stands for li[shogi in sca]la, seeing as the bulk of Lishogi is written in %2$s, an intuitive programming language.</string>
-	<string name="howCanIContributeToLishogi">How can I contribute to Lishogi?</string>
-	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi is powered by donations from patrons and the efforts of a team of volunteers.</string>
+	<string name="howCanIContributeToLishogi">Paano ako makakapag-ambag sa Lishogi?</string>
+	<string name="lishogiPoweredByDonationsAndVolunteers">Ang Lishogi ay napapagana ng mga donasyon galing sa mga patron at mga pagsisikap ng isang grupo ng mga volunteers.%s.</string>
 	<string name="findMoreAndSeeHowHelp">You can find out more about %1$s. If you want to help Lishogi by volunteering your time and skills, there are many %2$s.</string>
 	<string name="beingAPatron">Become a patron</string>
 	<string name="breakdownOfOurCosts">breakdown of our costs</string>
@@ -71,7 +71,7 @@ See the %3$s on this move for some practice with it.</string>
 	<string name="handBookPDF">handbook (PDF)</string>
 	<string name="notRepeatedMoves">We did not repeat moves. Why was the game still drawn by repetition?</string>
 	<string name="repeatedPositionsThatMatters">Threefold repetition is about repeated %1$s, not moves. Repetition does not have to occur consecutively.</string>
-	<string name="positions">positions</string>
+	<string name="positions">Mga posisyon</string>
 	<string name="weRepeatedthreeTimesPosButNoDraw">We repeated a position three times. Why was the game not drawn?</string>
 	<string name="threeFoldHasToBeClaimed">Repetition needs to be claimed by one of the players. You can do so by pressing the button that is shown, or by offering a draw before your final repeating move, it won\'t matter if your opponent rejects the draw offer, the threefold repetition draw will be claimed anyway. You can also %1$s Lishogi to automatically claim repetitions for you. Additionally, fivefold repetition always immediately ends the game.</string>
 	<string name="configure">configure</string>
@@ -132,7 +132,7 @@ It\'s best to think of ratings as \"relative\" figures (as opposed to \"absolute
 	<string name="displayPreferences">display preferences</string>
 	<string name="connexionLostCanIGetMyRatingBack">I lost a game due to lag/disconnection. Can I get my rating points back?</string>
 	<string name="weCannotDoThatEvenIfItIsServerSideButThatsRare">Unfortunately, we cannot give back rating points for games lost due to lag or disconnection, regardless of whether the problem was at your end or our end. The latter is very rare though. Also note that when Lishogi restarts and you lose on time because of that, we abort the game to prevent an unfair loss.</string>
-	<string name="howToThreeDots">How to...</string>
+	<string name="howToThreeDots">Paano...</string>
 	<string name="enableDisableNotificationPopUps">Enable or disable notification popups?</string>
 	<string name="viewSiteInformationPopUp">View site information popup</string>
 	<string name="lishogiCanOptionnalySendPopUps">Lishogi can optionally send popup notifications, for example when it is your turn or you received a private message.
