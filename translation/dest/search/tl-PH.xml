@@ -16,12 +16,12 @@
 	<string name="to">Hanggang</string>
 	<string name="humanOrComputer">Whether the player\'s opponent was human or a computer</string>
 	<string name="aiLevel">Lebel ng A.I.</string>
-	<string name="source">Source</string>
+	<string name="source">Pinagmulan</string>
 	<string name="nbTurns">Bilang ng mga galaw</string>
-	<string name="result">Result</string>
+	<string name="result">Mga Resulta</string>
 	<string name="winnerColor">Winner color</string>
-	<string name="date">Date</string>
+	<string name="date">Petsa</string>
 	<string name="sortBy">Sort by</string>
-	<string name="analysis">Analysis</string>
+	<string name="analysis">Pagsusuri</string>
 	<string name="onlyAnalysed">Only games where a computer analysis is available</string>
 </resources>
