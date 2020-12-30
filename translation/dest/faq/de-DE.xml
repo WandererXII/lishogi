@@ -8,10 +8,10 @@
 	<string name="leechess">lee-shogi</string>
 	<string name="hearItPronouncedBySpecialist">Höre dir die Aussprache von einem Spezialisten an.</string>
 	<string name="whyLiveLightLibre">Live, denn Partien werden 24/7 in Echtzeit gespielt und angeschaut; leicht und frei aufgrund der Tatsache, dass Lishogi quelloffen und frei von proprietärem Müll ist, welcher andere Internetseiten belastet.</string>
-	<string name="whyIsLilaCalledLila">Similarly, the source code for Lishogi, %1$s, stands for li[shogi in sca]la, seeing as the bulk of Lishogi is written in %2$s, an intuitive programming language.</string>
+	<string name="whyIsLilaCalledLila">Ähnlich verhält es sich mit dem Quellcode von Lishogi, %1$s, der für li[shogi in sca]la steht. Der Großteil von Lishogi wurde in %2$s geschrieben, einer intuitiven Programmiersprache.</string>
 	<string name="howCanIContributeToLishogi">Wie kann ich zu Lishogi beitragen?</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi wird durch Spenden von Unterstützern und der Leistung eines Teams von Freiwilligen betrieben.</string>
-	<string name="findMoreAndSeeHowHelp">You can find out more about %1$s. If you want to help Lishogi by volunteering your time and skills, there are many %2$s.</string>
+	<string name="findMoreAndSeeHowHelp">Du kannst mehr herausfinden über %1$s. Falls du Lishogi durch freiwillige Arbeit unterstützen möchtest, gibt es viele %2$s.</string>
 	<string name="beingAPatron">Werde ein Patron!</string>
 	<string name="breakdownOfOurCosts">Aufschlüsselung unserer Kosten</string>
 	<string name="otherWaysToHelp">andere Wege zu helfen</string>
@@ -37,7 +37,7 @@ Zum Beispiel berechnet sich die erwartete Spieldauer einer 5+3 Partie zu 5 * 60 
 	<string name="inferiorThanXsEqualYtimeControl">≤ %1$ss = %2$s</string>
 	<string name="superiorThanXsEqualYtimeControl">≥ %1$ss = %2$s</string>
 	<string name="whatVariantsCanIplay">Welche Varianten kann ich auf Lishogi spielen?</string>
-	<string name="lishogiSupportChessAnd">Lishogi supports standard shogi and %1$s.</string>
+	<string name="lishogiSupportChessAnd">Lishogi unterstützt Standard-Shogi und %1$s.</string>
 	<string name="eightVariants">8 Schachvarianten</string>
 	<string name="whatIsACPL">Was ist \"durchschnittlicher Centipawn-Verlust\"/ACPL?</string>
 	<string name="acplExplanation">Der Zentibauer oder Hundertstelbauer ist die Maßeinheit im Schach für den Vorteil eines Spielers. Der Zentibauer entspricht dabei dem Wert von 1/100 eines regulären Bauern. Deshalb gilt 100 Zentibauern = 1 Bauer. Diese Werte spielen während der Partie keine besondere Rolle, sind jedoch für Spieler nützlich und spielen im Computerschach eine essentielle Rolle bei der Bewertung von Stellungen.
