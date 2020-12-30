@@ -137,7 +137,7 @@
 	<string name="signIn">ログイン</string>
 	<string name="youNeedAnAccountToDoThat">アカウントが必要です</string>
 	<string name="signUp">登録</string>
-	<string name="computersAreNotAllowedToPlay">コンピューターの力を借りてのプレイは禁止されています。プレイ中に将棋ソフト、データベース、他のプレイヤーの助言を利用しないでください。また複数アカウントの使用もしないでください。ひどい場合は追放されます。</string>
+	<string name="computersAreNotAllowedToPlay">コンピューターの力を借りての対局は禁止されています。対局中に将棋ソフト、データベース、他のプレイヤーの助言を利用しないでください。また複数アカウントの使用もしないでください。ひどい場合は追放されます。</string>
 	<string name="games">対局</string>
 	<string name="forum">フォーラム</string>
 	<string name="xPostedInForumY">%1$s が %2$s に投稿しました</string>
