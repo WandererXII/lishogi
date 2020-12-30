@@ -60,9 +60,9 @@ Um das zu tun, klicke auf das Zahnrad oder deinen Benutzernamen (oben recht) und
 	<string name="itMovesStraightForward">Sie kann nur geradeaus gehen.</string>
 	<string name="lanceIntro">Benutze sie klug.</string>
 	<string name="lancesAreStraighforward">Zieh einfach so weit nach vorne wie du kannst. Das sollte einfach für dich sein.</string>
-	<string name="lancePromotion">After the lance is promoted, it moves differently, but you\'ve already seen this somewhere - same as the gold general.</string>
+	<string name="lancePromotion">Nachdem die Lanze befördert wurde, bewegt sie sich anders, aber du hast das schon irgendwo gesehen - beim Goldgeneral.</string>
 	<string name="lanceSummary">Sie bewegt sich geradeaus. Wirklich einfach.</string>
-	<string name="planceSummary">It\'s the same as the gold general.</string>
+	<string name="planceSummary">Wie beim Goldgeneral.</string>
 	<string name="lanceComplete">Gute Arbeit!</string>
 	<string name="theGold">Der Goldgeneral</string>
 	<string name="itMovesInAnyDirectionExceptDiagonallyBack">Der Goldgeneral bewegt sich in eine beliebige Richtung AUẞER diagonal rückwärts</string>
@@ -75,8 +75,8 @@ Um das zu tun, klicke auf das Zahnrad oder deinen Benutzernamen (oben recht) und
 	<string name="silverIntro">Ein weitere Figur mit ungewöhnlichen Bewegungen, aber das ist die letzte. Versprochen!</string>
 	<string name="silverPromotion">Wenn Sie den Silbergeneral befördern, sind seine Bewegungen die gleichen wie die des Goldgenerals.</string>
 	<string name="silverSummary">Mit ein bisschen Übung wirst du dir diese Züge sicherlich merken.</string>
-	<string name="psilverSummary">Same as the gold general, you will see this a lot.</string>
-	<string name="silverComplete">Congratulations! You are on a roll.</string>
+	<string name="psilverSummary">Wie beim Goldgeneral, du wirst das noch oft sehen.</string>
+	<string name="silverComplete">Herzlichen Glückwunsch! Du hast einen Lauf.</string>
 	<string name="promotion">Diese Figur kann befördert werden.</string>
 	<string name="yourPieceReachedThePromotionZone">Deine Figur hat die Beförderungszone erreicht.</string>
 	<string name="itNowPromotesToAStrongerPiece">It can now be promoted to a stronger piece.</string>
