@@ -17,8 +17,8 @@
 	<string name="stalemate">ステイルメイト</string>
 	<string name="white">後手</string>
 	<string name="black">先手</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
+	<string name="shitate">下手</string>
+	<string name="uwate">上手</string>
 	<string name="randomColor">ランダム</string>
 	<string name="createAGame">対局を作成する</string>
 	<string name="whiteIsVictorious">後手の勝ちです</string>
