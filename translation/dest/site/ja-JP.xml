@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="playWithAFriend">友達と対局する</string>
-	<string name="playWithTheMachine">コンピューターと対局する</string>
+	<string name="playWithTheMachine">AI と対局する</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">対局に招待するとき、下記のリンク先を知らせてください</string>
 	<string name="gameOver">終局</string>
 	<string name="waitingForOpponent">相手を待っています</string>
@@ -240,7 +240,7 @@
 	<string name="recipient">受信者</string>
 	<string name="send">送信する</string>
 	<string name="incrementInSeconds">１手ごとに増える秒数</string>
-	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
+	<string name="byoyomiInSeconds">秒読み</string>
 	<string name="numberOfPeriods">Number of periods</string>
 	<string name="freeOnlineChess">無料オンライン将棋</string>
 	<string name="spectators">観覧者:</string>
@@ -461,7 +461,7 @@
 	<string name="thisPuzzleIsCorrect">この問題は正しくておもしろい。</string>
 	<string name="thisPuzzleIsWrong">この問題はおかしい／つまらない</string>
 	<plurals name="nbGamesInPlay">
-		<item quantity="other">%s 局プレイ中</item>
+		<item quantity="other">%s 局対局中</item>
 	</plurals>
 	<string name="automaticallyProceedToNextGameAfterMoving">指した後 自動的に次の対局に進む</string>
 	<string name="autoSwitch">自動切り替え</string>
@@ -566,8 +566,8 @@
 	<string name="community">コミュニティ</string>
 	<string name="tools">ツール</string>
 	<string name="increment">追加時間</string>
-	<string name="byoyomi">Byoyomi</string>
-	<string name="periods">Periods</string>
+	<string name="byoyomi">秒読み</string>
+	<string name="periods">考慮時間</string>
 	<string name="sharePGN">PGNを共有</string>
 	<string name="playOnline">オンラインでプレイする</string>
 	<string name="playOffline">オフラインでプレイする</string>
