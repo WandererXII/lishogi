@@ -35,8 +35,8 @@
 	<string name="joinTheGame">対局に参加する</string>
 	<string name="whitePlays">後手番です</string>
 	<string name="blackPlays">先手番です</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
+	<string name="shitatePlays">下手の番です</string>
+	<string name="uwatePlays">上手の番です</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">相手が退席したようです。%s 秒後に勝ちを宣言できます。</item>
 	</plurals>
@@ -241,7 +241,7 @@
 	<string name="send">送信する</string>
 	<string name="incrementInSeconds">１手ごとに増える秒数</string>
 	<string name="byoyomiInSeconds">秒読み</string>
-	<string name="numberOfPeriods">Number of periods</string>
+	<string name="numberOfPeriods">考慮時間</string>
 	<string name="freeOnlineChess">無料オンライン将棋</string>
 	<string name="spectators">観覧者:</string>
 	<plurals name="nbRated">
@@ -509,7 +509,7 @@
 	<string name="newPasswordAgain">新しいパスワード（確認）</string>
 	<string name="clockInitialTime">初期持ち時間</string>
 	<string name="clockIncrement">追加時間</string>
-	<string name="clockByoyomi">Clock byoyomi</string>
+	<string name="clockByoyomi">秒読み</string>
 	<string name="privacy">プライバシー（英文）</string>
 	<string name="letOtherPlayersFollowYou">他人からのフォローを可能にする</string>
 	<string name="letOtherPlayersChallengeYou">他人からの挑戦を可能にする</string>
@@ -839,6 +839,6 @@
 	<string name="whiteOffersImpasse">後手が引き分けを申し込んでいます</string>
 	<string name="notationSystem">表記方法</string>
 	<string name="officialBlog">Lishogi 公式ブログ</string>
-	<string name="previousBlogPosts">Previous blog posts</string>
-	<string name="discussBlogForum">Discuss this blog post in the forum</string>
+	<string name="previousBlogPosts">前のブログ投稿</string>
+	<string name="discussBlogForum">フォーラムでこのブログ記事を議論する</string>
 </resources>
