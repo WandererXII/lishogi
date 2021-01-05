@@ -631,7 +631,7 @@
 	<string name="keyEnterOrExitVariation">変化に入る/出る</string>
 	<string name="newTournament">新しいトーナメント</string>
 	<string name="tournamentHomeTitle">さまざまな持ち時間とルールの将棋トーナメント</string>
-	<string name="tournamentHomeDescription">早指しの将棋トーナメントに参加しよう！　定時のトーナメントに参加するほか、自分で作ることもできます。バレット、ブリッツ、クラシック、その他に選べる選択肢より無限の将棋の楽しみを。</string>
+	<string name="tournamentHomeDescription">早指しの将棋トーナメントに参加しよう！　定時のトーナメントに参加するほか、自分で作ることもできます。ブレット、ブリッツ、クラシック、その他に選べる選択肢より無限の将棋の楽しみを。</string>
 	<string name="tournamentNotFound">トーナメントが見つかりません</string>
 	<string name="tournamentDoesNotExist">このトーナメントは存在しません</string>
 	<string name="tournamentMayHaveBeenCanceled">開始前に全員が退場してキャンセルされた可能性があります。</string>
@@ -683,7 +683,7 @@
 	<string name="zeroAdvertisement">広告いっさいなし</string>
 	<string name="fullFeatured">幅広い機能</string>
 	<string name="phoneAndTablet">携帯やタブレットで</string>
-	<string name="bulletBlitzClassical">バレット、ブリッツ、クラシカル</string>
+	<string name="bulletBlitzClassical">ブレット、ブリッツ、クラシカル</string>
 	<string name="correspondenceChess">通信将棋</string>
 	<string name="onlineAndOfflinePlay">オンラインでもオフラインでも</string>
 	<string name="viewTheSolution">解答を見る</string>
