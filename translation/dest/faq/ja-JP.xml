@@ -30,7 +30,7 @@
 	<string name="isCorrespondenceDifferent">通信戦は通常の将棋と異なりますか？</string>
 	<string name="youCanUseOpeningBookNoEngine">Lishogi では、通信戦のルール上の主な違いは序盤の定跡調査が認められていることです。ソフトの使用はそれでも禁止されており、使うとソフト使用者の表示が付くことがあります。[通信戦の国際団体] ICCF は通信戦でのソフト使用を認めていますが、Lishogi は認めません。</string>
 	<string name="gameplay">対局について</string>
-	<string name="howBulletBlitzEtcDecided">バレット、ブリッツなど持ち時間の区分の基準は？</string>
+	<string name="howBulletBlitzEtcDecided">ブレット、ブリッツなど持ち時間の区分の基準は？</string>
 	<string name="basedOnGameDuration">Lishogi の持時間は推定所要時間（%1$s）で分類されています。
   たとえば 5+3 （5分＋1手3秒）の対局の推定所要時間は 5 x 60 + 40 x 3 = 420秒です。</string>
 	<string name="durationFormula">(初期持時間) + 40 x (1 手ごとの追加時間)</string>
@@ -87,7 +87,7 @@
 	<string name="uniqueTrophies">ユニークトロフィー</string>
 	<string name="ownerUniqueTrophies">このトロフィーは Lishogi の歴史で唯一のもので、与えられるのは今後を含めて %1$s だけです。</string>
 	<string name="wayOfBerserkExplanation">ユーザー hiimgosu は %s で全局バーサークして100%%の勝率を上げたのです。</string>
-	<string name="aHourlyBulletTournament">毎時のバレット・トーナメント</string>
+	<string name="aHourlyBulletTournament">毎時のブレット・トーナメント</string>
 	<string name="goldenZeeExplanation">ユーザー ZugAddict はストリーム配信をしながら 1+0 の持時間でレベル 8 の AI に勝とうと 2 時間奮闘しましたがうまくいきませんでした。Thibault は彼に、配信中に勝ったら特製のトロフィーをあげると言いました。1 時間後、彼はみごと Stockfish を破り、約束が守られたというわけです。</string>
 	<string name="lishogiRatings">Lishogi レーティング</string>
 	<string name="whichRatingSystemUsedByLishogi">Lishogi の使うレーティングシステムは何ですか？</string>
