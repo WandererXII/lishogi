@@ -410,7 +410,7 @@
 	<string name="boardEditor">盤面入力</string>
 	<string name="setTheBoard">盤面を指定</string>
 	<string name="popularOpenings">人気のオープニング</string>
-	<string name="handicaps">Handicaps</string>
+	<string name="handicaps">手合割</string>
 	<string name="startPosition">開始局面</string>
 	<string name="clearBoard">盤面をクリアする</string>
 	<string name="fillGotesHand">後手番の手を入力する</string>
