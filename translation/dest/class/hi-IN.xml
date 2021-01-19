@@ -83,16 +83,16 @@
 	<string name="noRemovedStudents">छात्रों को हटाया नहीं गया।</string>
 	<string name="overDays">दिनों के साथ</string>
 	<string name="timePlaying">खेलने का समय</string>
-	<string name="variantXOverLastY">%1$s over last %2$s</string>
-	<string name="winrate">Win rate</string>
+	<string name="variantXOverLastY">पिछले %2$s में %1$s</string>
+	<string name="winrate">जीत दर</string>
 	<string name="na">N/A</string>
-	<string name="news">Class news</string>
-	<string name="editNews">Edit news</string>
-	<string name="notifyAllStudents">Notify all students</string>
-	<string name="nothingHere">Nothing here, yet.</string>
-	<string name="newsEdit1">All class news in a single field.</string>
-	<string name="newsEdit2">Add the recent news at the top. Don\'t delete previous news.</string>
-	<string name="newsEdit3">Separate news with ---
-It will display a horizontal line.</string>
-	<string name="markdownAvailable">%s is available for more advanced syntax.</string>
+	<string name="news">कक्षा समाचार</string>
+	<string name="editNews">समाचार संपादित करें</string>
+	<string name="notifyAllStudents">सभी छात्रों को सूचित करें</string>
+	<string name="nothingHere">अभी तक यहाँ कुछ भी नहीं है</string>
+	<string name="newsEdit1">एक ही जगह सभी कक्षाओं का समाचार।</string>
+	<string name="newsEdit2">शीर्ष पर हाल की खबर जोड़ें। पिछली खबरों को डिलीट न करें।</string>
+	<string name="newsEdit3">अलग खबरें ---
+यह एक क्षैतिज रेखा प्रदर्शित करेगा।</string>
+	<string name="markdownAvailable">%s अधिक उन्नत सिंटैक्स के लिए उपलब्ध है।</string>
 </resources>
