@@ -328,6 +328,8 @@
 	<string name="importGame">棋譜をインポート</string>
 	<string name="importGameExplanation">ゲームの PGN を貼りつけると、ブラウザー上でのリプレイ、
 コンピューター解析、ゲームチャット、共有可能 URL が得られます。</string>
+	<string name="importGameKifuExplanation">Paste a game kifu to get a browsable replay,
+computer analysis, game chat and shareable URL.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="other">%s 局をインポート</item>
 	</plurals>
@@ -722,6 +724,7 @@
 	<string name="directlySupportLishogi">Lishogi を直接支援</string>
 	<string name="playChessInStyle">グッズ購入</string>
 	<string name="chessBasics">将棋の基本</string>
+	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">コーチ</string>
 	<string name="invalidPgn">無効な PGN</string>
 	<string name="invalidFen">無効な FEN</string>
