@@ -396,8 +396,8 @@
 	<string name="toStudy">Opracowanie</string>
 	<string name="importGame">Importuj partię</string>
 	<string name="importGameExplanation">Wklejenie zapisu partii daje możliwość jej odtworzenia, analizy komputerowej, rozmowy i udostępnienia.</string>
-	<string name="importGameKifuExplanation">Paste a game kifu to get a browsable replay,
-computer analysis, game chat and shareable URL.</string>
+	<string name="importGameKifuExplanation">Wklej zapis partii, aby móc ją ponownie odtworzyć,
+analizować komputerowo, dyskutować i udostępniać.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s zaimportowana partia</item>
 		<item quantity="few">%s zaimportowana partie</item>
@@ -603,7 +603,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="newPasswordAgain">Powtórz nowe hasło</string>
 	<string name="clockInitialTime">Początkowy czas zegara</string>
 	<string name="clockIncrement">Przyrost czasu</string>
-	<string name="clockByoyomi">Byoyomi na zegarze</string>
+	<string name="clockByoyomi" comment="clockByoyomi&#10;&#10;https://lishogi.org/tournament/new">Byoyomi na zegarze</string>
 	<string name="privacy">Prywatność</string>
 	<string name="letOtherPlayersFollowYou">Inni gracze mogą Cię obserwować</string>
 	<string name="letOtherPlayersChallengeYou">Zezwól na zaproszenia od innych graczy</string>
@@ -828,7 +828,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="directlySupportLishogi">Wspomóż nas!</string>
 	<string name="playChessInStyle">Graj w shogi z klasą</string>
 	<string name="chessBasics">Podstawy shogi</string>
-	<string name="shogiResources">Shogi resources</string>
+	<string name="shogiResources">Materiały o shogi</string>
 	<string name="coaches">Trenerzy</string>
 	<string name="invalidPgn">Nieprawidłowy PGN</string>
 	<string name="invalidFen">Nieprawidłowy FEN</string>
