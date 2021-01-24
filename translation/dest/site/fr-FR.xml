@@ -442,7 +442,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="handicaps">Handicaps</string>
 	<string name="startPosition">Position de départ</string>
 	<string name="clearBoard">Vider l\'échiquier</string>
-	<string name="fillGotesHand">Fill Gote\'s hand</string>
+	<string name="fillGotesHand">Remplir la main de gote</string>
 	<string name="savePosition">Enregistrer la position</string>
 	<string name="loadPosition">Charger une position</string>
 	<string name="isPrivate">Privé</string>
@@ -543,7 +543,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="newPasswordAgain">Nouveau mot de passe (encore)</string>
 	<string name="clockInitialTime">Capital temps initial à la pendule</string>
 	<string name="clockIncrement">Incrément de la pendule</string>
-	<string name="clockByoyomi">Clock byoyomi</string>
+	<string name="clockByoyomi" comment="clockByoyomi&#10;&#10;https://lishogi.org/tournament/new">Clock byoyomi</string>
 	<string name="privacy">Confidentialité</string>
 	<string name="letOtherPlayersFollowYou">Autoriser les autres joueurs à vous suivre</string>
 	<string name="letOtherPlayersChallengeYou">Autoriser les autres joueurs à vous défier</string>
