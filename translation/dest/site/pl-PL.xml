@@ -389,6 +389,7 @@
 	<string name="apply">Zastosuj</string>
 	<string name="save">Zapisz</string>
 	<string name="leaderboard">Najlepsi gracze</string>
+	<string name="selectHandicap">Select handicap</string>
 	<string name="pasteTheFenStringHere">Wklej tutaj pozycję w formacie FEN</string>
 	<string name="pasteThePgnStringHere">Wklej poniżej przebieg partii w formacie PGN</string>
 	<string name="fromPosition">Z pozycji</string>
@@ -496,6 +497,7 @@ analizować komputerowo, dyskutować i udostępniać.</string>
 	<string name="setTheBoard">Ustaw szachownicę</string>
 	<string name="popularOpenings">Popularne otwarcia</string>
 	<string name="handicaps">Fory</string>
+	<string name="handicap">Handicap</string>
 	<string name="startPosition">Ustawienie początkowe</string>
 	<string name="clearBoard">Wyczyść szachownicę</string>
 	<string name="fillGotesHand">Uzupełnij rękę gote</string>
@@ -603,7 +605,7 @@ analizować komputerowo, dyskutować i udostępniać.</string>
 	<string name="newPasswordAgain">Powtórz nowe hasło</string>
 	<string name="clockInitialTime">Początkowy czas zegara</string>
 	<string name="clockIncrement">Przyrost czasu</string>
-	<string name="clockByoyomi" comment="clockByoyomi&#10;&#10;https://lishogi.org/tournament/new">Byoyomi na zegarze</string>
+	<string name="clockByoyomi">Byoyomi na zegarze</string>
 	<string name="privacy">Prywatność</string>
 	<string name="letOtherPlayersFollowYou">Inni gracze mogą Cię obserwować</string>
 	<string name="letOtherPlayersChallengeYou">Zezwól na zaproszenia od innych graczy</string>
@@ -722,6 +724,11 @@ analizować komputerowo, dyskutować i udostępniać.</string>
 	<string name="simulClockHint">Ustawienia zegara Fischera. W przypadku większej liczby graczy możesz potrzebować więcej czasu.</string>
 	<string name="simulAddExtraTime">Aby ułatwić sobie rozegranie symultany możesz ustawić dodatkowy czas dla siebie.</string>
 	<string name="simulHostExtraTime">Dodatkowy czas dla symultanisty</string>
+	<string name="numberOfByoyomiPeriods">Number of byoyomi periods</string>
+	<string name="hostColorForEachGame">Host color for each game</string>
+	<string name="onlyMembersOfTeam">Only members of team</string>
+	<string name="simulDescription">Simul description</string>
+	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Turnieje Lishogi</string>
 	<string name="tournamentFAQ">Turnieje typu Arena FAQ</string>
 	<string name="tournamentOfficial">Oficjalny</string>
