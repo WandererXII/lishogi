@@ -3,6 +3,7 @@ package lila.game
 import shogi.Replay
 import shogi.format.kif.Kif
 import shogi.format.csa.Csa
+import shogi.format.usi.Usi
 import shogi.format.{ Notation, NotationMove, Tag, Tags }
 import shogi.{ Centis, Color }
 
@@ -42,14 +43,13 @@ final class NotationDump(
           game.initialSfen,
           game.variant
         )
-        extendedMoves.zipWithIndex.map { case (usiWithRole, index) =>
-          NotationMove(
-            moveNumber = index + 1 + game.shogi.startedAtMove,
-            usiWithRole = usiWithRole,
-            secondsSpent = clocksSpent lift (index - clockOffset) map (_.roundSeconds),
-            secondsTotal = clocksTotal lift (index - clockOffset) map (_.roundSeconds)
-          )
-        }
+        makeMoveList(
+          flags keepDelayIf game.playable applyDelay extendedMoves,
+          game.shogi.startedAtMove,
+          clockOffset,
+          clocksSpent,
+          clocksTotal
+        )
       }
       val terminationMove =
         if (flags.csa)
@@ -143,9 +143,27 @@ final class NotationDump(
         )
       }
     }
+
+  private def makeMoveList(
+      extendedMoves: List[Usi.WithRole],
+      startedAtMove: Int,
+      clockOffset: Int,
+      clocksSpent: Vector[Centis],
+      clocksTotal: Vector[Centis]
+  ): List[NotationMove] = extendedMoves.zipWithIndex.map { case (usiWithRole, index) =>
+      NotationMove(
+        moveNumber = index + 1 + startedAtMove,
+        usiWithRole = usiWithRole,
+        secondsSpent = clocksSpent lift (index - clockOffset) map (_.roundSeconds),
+        secondsTotal = clocksTotal lift (index - clockOffset) map (_.roundSeconds)
+      )
+    }
 }
 
 object NotationDump {
+
+  private val delayMovesBy         = 6
+  private val delayKeepsFirstMoves = 10
 
   case class WithFlags(
       csa: Boolean = false,
@@ -156,8 +174,18 @@ object NotationDump {
       opening: Boolean = true,
       literate: Boolean = false,
       notationInJson: Boolean = false,
-      delayMoves: Int = 0
-  )
+      delayMoves: Boolean = false
+  ) {
+    def applyDelay[M](moves: List[M]): List[M] =
+      if (!delayMoves) moves
+      else moves.take((moves.size - delayMovesBy) atLeast delayKeepsFirstMoves)
+
+    def applyDelay[M](moves: Seq[M]): Seq[M] =
+      if (!delayMoves) moves
+      else moves.take((moves.size - delayMovesBy) atLeast delayKeepsFirstMoves)
+
+    def keepDelayIf(cond: Boolean) = copy(delayMoves = delayMoves && cond)
+  }
 
   def result(game: Game) =
     if (game.finished) Color.showResult(game.winnerColor)
