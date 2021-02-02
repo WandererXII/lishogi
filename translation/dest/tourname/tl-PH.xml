@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="hourlyRapidArena">Hourly Rapid Arena</string>
+  <string name="hourlyRapidArena">Pang-oras-oras na Rapid Arena</string>
   <string name="hourlyRapid">Hourly Rapid</string>
-  <string name="hourlyXArena">Hourly %s Arena</string>
+  <string name="hourlyXArena">Pang-oras-oras na %s Arena</string>
   <string name="hourlyX">Hourly %s</string>
   <string name="dailyRapidArena">Arawang Rapid Arena</string>
   <string name="dailyRapid">Daily Rapid</string>
@@ -34,9 +34,9 @@
   <string name="yearlyClassical">Yearly Classical</string>
   <string name="yearlyXArena">Taunang %s Arena</string>
   <string name="yearlyX">Yearly %s</string>
-  <string name="rapidShieldArena">Rapid Shield Arena</string>
+  <string name="rapidShieldArena">Arenang Pang-Rapid na Kalasag</string>
   <string name="rapidShield">Rapid Shield</string>
-  <string name="classicalShieldArena">Classical Shield Arena</string>
+  <string name="classicalShieldArena">Arenang Pang-Classic na Kalasag</string>
   <string name="classicalShield">Classical Shield</string>
   <string name="xShieldArena">%s Shield Arena</string>
   <string name="xShield">%s Shield</string>
