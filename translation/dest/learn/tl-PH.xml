@@ -8,7 +8,7 @@
 	<string name="youWillLoseAllYourProgress">You will lose all your progress!</string>
 	<string name="play">play!</string>
 	<string name="shogiPieces">Shogi pieces</string>
-	<string name="theIntoduction">Introduction</string>
+	<string name="theIntoduction">Introduksyon</string>
 	<string name="introBasics">Let\'s learn some basics.</string>
 	<string name="introIntro">Your journey begins here.</string>
 	<string name="choosePieceDesign">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.
@@ -16,7 +16,7 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="promotionZone">When some of your pieces reach or leave the first three ranks in your opponent\'s territory you can choose to promote your piece and make it stronger.</string>
 	<string name="senteGoesFirst">In shogi the player who goes first is called sente and the player who goes second is called gote. Sente is sometimes represented by black color and gote by white. Make any move as sente to continue.</string>
 	<string name="introComplete">You now know some basics, but this part of tutorial is still under construction. For now learn how individual pieces move.</string>
-	<string name="theRook">The rook</string>
+	<string name="theRook">Ang rook</string>
 	<string name="itMovesInStraightLines">It moves in straight lines</string>
 	<string name="rookIntro">The rook is a powerful piece. Are you ready to command it?</string>
 	<string name="rookGoal">Click on the rook to bring it to the star!</string>
@@ -89,7 +89,7 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="takeTheBlackPiecesAndDontLoseYours">Take the black pieces!
 And don\'t lose yours.</string>
 	<string name="captureComplete">Congratulations! You know how to fight with shogi pieces!</string>
-	<string name="protection">Protection</string>
+	<string name="protection">Proteksyon</string>
 	<string name="keepYourPiecesSafe">Keep your pieces safe</string>
 	<string name="protectionIntro">Identify the pieces your opponent attacks, and defend them!</string>
 	<string name="protectionComplete">Congratulations! A piece you don\'t lose is a piece you win!</string>
@@ -105,23 +105,21 @@ any undefended piece!</string>
 	<string name="combatComplete">Congratulations! You know how to fight with shogi pieces!</string>
 	<string name="checkInOne">Check in one</string>
 	<string name="attackTheOpponentsKing">Attack the opponent\'s king</string>
-	<string name="checkInOneIntro">To check your opponent, attack their king. They must defend it!</string>
+	<string name="checkInOneIntro">Upang macheck ang iyong kalaban, atakihin ang hari nila. Dapat nilang depensahan ito!</string>
 	<string name="checkInOneGoal">Aim at the opponent\'s king
 in one move!</string>
-	<string name="checkInOneComplete">Congratulations! You checked your opponent, forcing them to defend their king!</string>
-	<string name="outOfCheck">Out of check</string>
-	<string name="defendYourKing">Defend your king</string>
-	<string name="outOfCheckIntro">You are in check! You must escape or block the attack.</string>
-	<string name="escapeWithTheKing">Escape with the king!</string>
-	<string name="theKingCannotEscapeButBlock">The king cannot escape,
-but you can block the attack!</string>
-	<string name="youCanGetOutOfCheckByTaking">You can get out of check
-by taking the attacking piece.</string>
+	<string name="checkInOneComplete">Binabati kita! Na-check mo ang iyong kalaban, pagpilit sa kanila na depensahan ang kanilang hari!</string>
+	<string name="outOfCheck">Wala sa check</string>
+	<string name="defendYourKing">Depensahan ang iyong hari</string>
+	<string name="outOfCheckIntro">Ikaw ay nasa check! Kailangan nating tumakas o harangan ang atake.</string>
+	<string name="escapeWithTheKing">Itakas ang hari!</string>
+	<string name="theKingCannotEscapeButBlock">Ang hari ay hindi makakatakas,
+pero pwede mong harangan ang atake!</string>
+	<string name="youCanGetOutOfCheckByTaking">Pwede kang makawala sa pagkacheck sa pamamagitan ng pag-atake sa umataakeng piyesa</string>
 	<string name="thisKnightIsCheckingThroughYourDefenses">This knight is checking
 through your defences!</string>
-	<string name="escapeOrBlock">Escape with the king
-or block the attack!</string>
-	<string name="outOfCheckComplete">Congratulations! Your king can never be taken, make sure you can defend against a check!</string>
+	<string name="escapeOrBlock">Itakas ang hari o harangan ang atake!</string>
+	<string name="outOfCheckComplete">Binabati kita! Ang iyong hari ay hindi kailanman makukuha, siguraduhin na ikaw ay makakadepensa sa check!</string>
 	<string name="mateInOne">Mate in one</string>
 	<string name="defeatTheOpponentsKing">Defeat the opponent\'s king</string>
 	<string name="mateInOneIntro">You win when your opponent cannot defend against a check.</string>
@@ -148,16 +146,16 @@ Right next to his queen.</string>
 	<string name="pawnsFormTheFrontLine">Pawns form the front line.
 Make any move to continue.</string>
 	<string name="boardSetupComplete">Congratulations! You know how to set up the shogi board.</string>
-	<string name="stalemate">Stalemate</string>
-	<string name="theGameIsADraw">The game is a draw</string>
-	<string name="stalemateIntro">When a player is not in check and does not have a legal move, it\'s a stalemate. The game is drawn: no one wins, no one loses.</string>
-	<string name="stalemateGoal">To stalemate black:
-- Black cannot move anywhere
-- There is no check.</string>
-	<string name="stalemateComplete">Congratulations! Better be stalemated than checkmated!</string>
+	<string name="stalemate">Tabla</string>
+	<string name="theGameIsADraw">Ang laro ay tabla</string>
+	<string name="stalemateIntro">Kapag ang isang manlalaro ay hindi nacheck at wala ng maigagalaw, ito ay tabla. Ang laro ay tabla: walang nanalo, walang natalo.</string>
+	<string name="stalemateGoal">Upang tablahin ang itim:
+-Ang itim ay hindi na makakagalaw
+-Walang nacheck.</string>
+	<string name="stalemateComplete">Binabati kita! Mas mabuting matabla kaysa matalo!</string>
 	<string name="advanced">Advanced</string>
-	<string name="pieceValue">Piece value</string>
-	<string name="evaluatePieceStrength">Evaluate piece strength</string>
+	<string name="pieceValue">Halaga ng piyesa</string>
+	<string name="evaluatePieceStrength">Suriin ang lakas ng piyesa</string>
 	<string name="pieceValueIntro">Pieces with high mobility have a higher value!
 Queen = 9
 Rook = 5
@@ -165,9 +163,8 @@ Bishop = 3
 Knight = 3
 Pawn = 1
 The king is priceless! Losing it means losing the game.</string>
-	<string name="queenOverBishop">Take the piece
-with the highest value!
-Queen &gt; Bishop</string>
+	<string name="queenOverBishop">Kunin ang piraso na may pinakamataas na halaga!
+Reyna &gt; Bishop</string>
 	<string name="takeThePieceWithTheHighestValue">Take the piece
 with the highest value!</string>
 	<string name="pieceValueComplete">Congratulations! You know the value of material!
@@ -184,7 +181,7 @@ in two moves!</string>
 	<string name="checkInTwoComplete">Congratulations! You checked your opponent, forcing them to defend their king!</string>
 	<string name="whatNext">What next?</string>
 	<string name="youKnowHowToPlayChess">You know how to play shogi, congratulations! Do you want to become a stronger player?</string>
-	<string name="register">Register</string>
+	<string name="register">I-rehistro</string>
 	<string name="getAFreeLishogiAccount">Get a free Lishogi account</string>
 	<string name="practice">Practise</string>
 	<string name="learnCommonChessPositions">Learn common shogi positions</string>
