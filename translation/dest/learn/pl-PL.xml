@@ -170,6 +170,8 @@ Pionek – 1</string>
 	<string name="learnCommonChessPositions">Poznaj częste pozycje shogi</string>
 	<string name="puzzles">Zadania shogi</string>
 	<string name="exerciseYourTacticalSkills">Ćwicz umiejętności taktyczne</string>
+	<string name="shogiResources">Shogi resources</string>
+	<string name="curatedShogiResources">See our curated list of shogi resources</string>
 	<string name="videos">Filmy</string>
 	<string name="watchInstructiveChessVideos">Oglądaj filmy instruktażowe</string>
 	<string name="playPeople">Graj z innymi</string>
