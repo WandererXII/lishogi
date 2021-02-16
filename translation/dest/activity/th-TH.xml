@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="activity">Activity</string>
+  <string name="activity">กิจกรรม</string>
   <string name="hostedALiveStream">Hosted a live stream</string>
   <plurals name="supportedNbMonths" comment="supportedNbMonths [one] [other]&#10;&#10;Supported lishogi.org for 4 months as a Patron. The second one always says &quot;Patron&quot; but it's actually a link.">
     <item quantity="other">Supported lishogi.org for %1$s months as a %2$s</item>
