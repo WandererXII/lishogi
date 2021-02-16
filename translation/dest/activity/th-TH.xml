@@ -18,7 +18,7 @@
     <item quantity="other">Posted %1$s messages in %2$s</item>
   </plurals>
   <plurals name="playedNbMoves">
-    <item quantity="other">Played %1$s moves</item>
+    <item quantity="other">เล่นไปแล้ว %1$s ตา</item>
   </plurals>
   <plurals name="inNbCorrespondenceGames">
     <item quantity="other">in %1$s correspondence games</item>
