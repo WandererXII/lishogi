@@ -2,12 +2,12 @@
 <resources>
   <string name="activity">Activity</string>
   <string name="hostedALiveStream">Hosted a live stream</string>
-  <plurals name="supportedNbMonths">
+  <plurals name="supportedNbMonths" comment="supportedNbMonths [one] [other]&#10;&#10;Supported lishogi.org for 4 months as a Patron. The second one always says &quot;Patron&quot; but it's actually a link.">
     <item quantity="one">Supported lishogi.org for %1$s month as a %2$s</item>
     <item quantity="other">Supported lishogi.org for %1$s months as a %2$s</item>
   </plurals>
   <plurals name="practicedNbPositions">
-    <item quantity="one">Practised %1$s position on %2$s</item>
+    <item quantity="one">Practiced %1$s positions on %2$s</item>
     <item quantity="other">Practised %1$s positions on %2$s</item>
   </plurals>
   <plurals name="solvedNbPuzzles">
