@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="activity">กิจกรรม</string>
-  <string name="hostedALiveStream">Hosted a live stream</string>
+  <string name="hostedALiveStream">ได้เป็นเจ้าภาพสตรีมสด</string>
   <plurals name="supportedNbMonths" comment="supportedNbMonths [one] [other]&#10;&#10;Supported lishogi.org for 4 months as a Patron. The second one always says &quot;Patron&quot; but it's actually a link.">
     <item quantity="other">Supported lishogi.org for %1$s months as a %2$s</item>
   </plurals>
@@ -18,7 +18,7 @@
     <item quantity="other">Posted %1$s messages in %2$s</item>
   </plurals>
   <plurals name="playedNbMoves">
-    <item quantity="other">เล่นไปแล้ว %1$s ตา</item>
+    <item quantity="other">เล่นไปแล้ว %1$s ตาเดิน</item>
   </plurals>
   <plurals name="inNbCorrespondenceGames">
     <item quantity="other">in %1$s correspondence games</item>
