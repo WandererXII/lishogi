@@ -125,6 +125,7 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
       captureIntro,
       takeTheBlackPieces,
       takeTheBlackPiecesAndDontLoseYours,
+      takeTheEnemyPiecesAndDontLoseYours,
       captureComplete,
       protection,
       keepYourPiecesSafe,

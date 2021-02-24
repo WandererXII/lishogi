@@ -13,46 +13,45 @@ module.exports = {
   illustration: util.roundSvg(imgUrl),
   levels: [
     {
-      // rook
-      goal: 'takeTheBlackPieces',
-      fen: '9/2p2p3/9/9/9/2R6/9/9/9 b -',
+      // lance
+      goal: 'takeTheEnemyPieces',
+      fen: '9/4n4/9/9/4p4/9/9/4L4/9 b -',
       nbMoves: 2,
       captures: 2,
-      shapes: [arrow('c4c8'), arrow('c8f8')],
-      success: assert.extinct('black'),
+      shapes: [arrow('e2e5'), arrow('e5e8')],
+      success: assert.extinct('white'),
     },
     {
-      // queen
-      goal: 'takeTheBlackPiecesAndDontLoseYours',
-      fen: '8/2r2p2/8/8/5Q2/8/8/8 b -',
+      // gold
+      goal: 'takeTheEnemyPiecesAndDontLoseYours',
+      fen: '9/9/4nr3/4G4/9/9/9/9/9 b -',
       nbMoves: 2,
       captures: 2,
-      shapes: [arrow('f4c7'), arrow('f4f7', 'red'), arrow('c7f7', 'yellow')],
-      success: assert.extinct('black'),
+      success: assert.extinct('white'),
     },
     {
       // bishop
-      goal: 'takeTheBlackPiecesAndDontLoseYours',
+      goal: 'takeTheEnemyPiecesAndDontLoseYours',
       fen: '8/5r2/8/1r3p2/8/3B4/8/8 b -',
       nbMoves: 5,
       captures: 3,
-      success: assert.extinct('black'),
+      success: assert.extinct('white'),
     },
     {
       // queen
-      goal: 'takeTheBlackPiecesAndDontLoseYours',
+      goal: 'takeTheEnemyPiecesAndDontLoseYours',
       fen: '8/5b2/5p2/3n2p1/8/6Q1/8/8 b -',
       nbMoves: 7,
       captures: 4,
-      success: assert.extinct('black'),
+      success: assert.extinct('white'),
     },
     {
       // knight
-      goal: 'takeTheBlackPiecesAndDontLoseYours',
+      goal: 'takeTheEnemyPiecesAndDontLoseYours',
       fen: '8/3b4/2p2q2/8/3p1N2/8/8/8 b -',
       nbMoves: 6,
       captures: 4,
-      success: assert.extinct('black'),
+      success: assert.extinct('white'),
     },
   ].map(function (l, i) {
     l.pointsForCapture = true;

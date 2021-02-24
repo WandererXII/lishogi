@@ -18,18 +18,18 @@ var categs = [
       require('./pawn'),
     ],
   },
-  //{
-  //  key: "fundamentals",
-  //  name: "fundamentals",
-  //  stages: [
-  //    require("./capture"),
-  //    require("./protection"),
-  //    require("./combat"),
-  //    require("./check1"),
-  //    require("./outOfCheck.js"),
-  //    require("./checkmate1"),
-  //  ],
-  //},
+  {
+    key: "fundamentals",
+    name: "fundamentals",
+    stages: [
+      require("./capture"),
+      require("./protection"),
+      //require("./combat"),
+      //require("./check1"),
+      //require("./outOfCheck.js"),
+      //require("./checkmate1"),
+    ],
+  },
   //{
   //  key: "intermediate",
   //  name: "intermediate",

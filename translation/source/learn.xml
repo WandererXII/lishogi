@@ -88,6 +88,8 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="takeTheBlackPieces">Take the black pieces!</string>
 	<string name="takeTheBlackPiecesAndDontLoseYours">Take the black pieces!
 And don't lose yours.</string>
+	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
+And don't lose yours.</string>
 	<string name="captureComplete">Congratulations! You know how to fight with shogi pieces!</string>
 	<string name="protection">Protection</string>
 	<string name="keepYourPiecesSafe">Keep your pieces safe</string>
