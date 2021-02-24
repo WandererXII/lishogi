@@ -32,24 +32,32 @@ module.exports = {
     {
       // bishop
       goal: 'takeTheEnemyPiecesAndDontLoseYours',
-      fen: '8/5r2/8/1r3p2/8/3B4/8/8 b -',
-      nbMoves: 5,
+      fen: '9/9/9/4p4/9/4B1s2/5g3/9/9 b -',
+      nbMoves: 4,
       captures: 3,
-      success: assert.extinct('white'),
-    },
-    {
-      // queen
-      goal: 'takeTheEnemyPiecesAndDontLoseYours',
-      fen: '8/5b2/5p2/3n2p1/8/6Q1/8/8 b -',
-      nbMoves: 7,
-      captures: 4,
       success: assert.extinct('white'),
     },
     {
       // knight
       goal: 'takeTheEnemyPiecesAndDontLoseYours',
-      fen: '8/3b4/2p2q2/8/3p1N2/8/8/8 b -',
-      nbMoves: 6,
+      fen: '9/3spg3/3p1p3/4N4/9/9/9/9/9 b -',
+      nbMoves: 5,
+      captures: 5,
+      success: assert.extinct('white'),
+    },
+    {
+      // rook
+      goal: 'takeTheEnemyPiecesAndDontLoseYours',
+      fen: '9/4r1s2/5n3/3R1b3/9/9/9/9/9 b -',
+      nbMoves: 5,
+      captures: 4,
+      success: assert.extinct('white'),
+    },
+    {
+      // silver
+      goal: 'takeTheEnemyPiecesAndDontLoseYours',
+      fen: '9/5lt2/4S4/4pp3/9/9/9/9/9 b -',
+      nbMoves: 7,
       captures: 4,
       success: assert.extinct('white'),
     },
