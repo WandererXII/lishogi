@@ -91,6 +91,10 @@ And don't lose yours.</string>
 	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
 And don't lose yours.</string>
 	<string name="captureComplete">Congratulations! You know how to fight with shogi pieces!</string>
+	<string name="pieceDrops">Piece drops</string>
+	<string name="reuseCapturedPieces">Reuse captured pieces!</string>
+	<string name="dropIntro">Once again, identify the opponent's undefended pieces, and capture them!</string>
+	<string name="capturedPiecesCanBeDropped">Captured pieces can be dropped back on the board on your turn!</string>
 	<string name="protection">Protection</string>
 	<string name="keepYourPiecesSafe">Keep your pieces safe</string>
 	<string name="protectionIntro">Identify the pieces your opponent attacks, and defend them!</string>

@@ -23,6 +23,7 @@ var categs = [
     name: "fundamentals",
     stages: [
       require("./capture"),
+      require("./drop"),
       require("./protection"),
       //require("./combat"),
       //require("./check1"),
