@@ -16,10 +16,10 @@ module.exports = {
     {
       // lance
       goal: "capturedPiecesCanBeDropped",
-      fen: "9/9/9/4n3p/9/9/4L4/9/9 w - 1",
+      fen: "9/9/8r/4n4/9/9/4L4/9/9 w - 1",
       nbMoves: 3,
       captures: 2,
-      shapes: [arrow("e3e6"), circle("h4"), arrow("h4i6")],
+      shapes: [arrow("e3e6"), circle("h5"), arrow("h5i7")],
       success: assert.extinct("black"),
     },
     {
@@ -64,6 +64,7 @@ module.exports = {
     },
   ].map(function (l, i) {
     l.pointsForCapture = true;
+    l.hasPocket = true;
     return util.toLevel(l, i);
   }),
   complete: "captureComplete",
