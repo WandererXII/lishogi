@@ -1,8 +1,12 @@
 var util = require('../og/main').util;
 var drag = require('../og/main').drag;
+exports.drag = function(ctrl, color, e) {
+  console.log("drag");
+};
 
-module.exports = function (cg, e) {
-  if (e.button !== undefined && e.button !== 0) return; // only touch or left click
+exports.selectToDrop = function(ctrl, color, e) {
+  console.log("selectToDrop");
+};
 
   var role = e.target.firstChild.getAttribute('data-role'),
     color = e.target.firstChild.getAttribute('data-color');
@@ -33,4 +37,6 @@ module.exports = function (cg, e) {
     newPiece: true,
   };
   drag.processDrag(cg.data);
+exports.shadowDrop = function(ctrl, color, e) {
+  console.log("shadowDrop");
 };
