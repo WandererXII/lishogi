@@ -33,7 +33,7 @@
 	<string name="realName">Gerçek isim</string>
 	<string name="privateWillNeverBeShown">Özel. Yalnızca sınıftakiler görebilir. Öğrencinin kim olduğunu hatırlamanıza yardımcı olur.</string>
 	<string name="addStudent">Öğrenci ekleyin</string>
-	<string name="lishogiProfileXCreatedForY">Lishogi profile %1$s created for %2$s.</string>
+	<string name="lishogiProfileXCreatedForY">%2$s için Lishogi profili %1$s oluşturuldu.</string>
 	<string name="studentCredentials">Öğrenci: %1$s
 Kullanıcı adı: %2$s
 Şifre: %3$s</string>
