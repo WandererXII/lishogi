@@ -28,7 +28,7 @@
 	<string name="howCanIBecomeModerator">Nasıl moderatör olabilirim?</string>
 	<string name="youCannotApply">Moderatör olmak için başvuru yapmak mümkün değildir. Moderatör olarak iyi olacağını düşündüğümüz birini görürsek, onlarla doğrudan iletişime geçeceğiz.</string>
 	<string name="isCorrespondenceDifferent">Yazışmalı oyun normal shogiden farklı mıdır?</string>
-	<string name="youCanUseOpeningBookNoEngine">On Lishogi, the main difference in rules for correspondence shogi is that an opening book is allowed. The use of engines is still prohibited and will result in being flagged for engine assistance. Although ICCF allows engine use in correspondence, Lishogi does not.</string>
+	<string name="youCanUseOpeningBookNoEngine">Lishogi\'de, yazışma shogisi kurallarındaki temel fark, bir açılış kitabına izin verilmesidir. Motorların kullanımı hala yasaktır ve motor yardımı alırsanız hesabınız işaretlenecektir. ICCF yazışmalarda motor kullanımına izin verse de, Lishogi buna izin vermez.</string>
 	<string name="gameplay">Oynanış</string>
 	<string name="howBulletBlitzEtcDecided">Bullet, blitz ve diğer zaman kontrolleri neye göre karar veriliyor?</string>
 	<string name="basedOnGameDuration">Zaman kontrolleri oyunun süresine bağlı olarak değişiyor = %1$s
