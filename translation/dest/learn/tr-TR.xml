@@ -41,7 +41,7 @@
 	<string name="theKnight">At</string>
 	<string name="itMovesInAnLShape">L şeklinde hareket eder, fakat sadece İLERİ!</string>
 	<string name="knightIntro">İşte senin için bir başka meydan okuma. At biraz... kurnaz bir taştır.</string>
-	<string name="knightsHaveAFancyWay">Knights have a fancy way of jumping around!</string>
+	<string name="knightsHaveAFancyWay">At, sürekli zıplamasıyla meşhurdur.</string>
 	<string name="knightsCanJumpOverObstacles">At, engellerin üzerinden atlayabilir!</string>
 	<string name="knightSummary">At, L şeklinde ileri zıplayabilir, fakat sadece iki kare ileri ve bir kare yana olacak şekilde. Ayrıca yapacağı hamle diğer taşlar tarafından engellenemez, üzerlerinden atlayabilir.</string>
 	<string name="pknightSummary">Promoted knight moves are completely different from the unpromoted knight, but you can notice it moves the same as the gold general, so make sure to study that one thoroughly.</string>
