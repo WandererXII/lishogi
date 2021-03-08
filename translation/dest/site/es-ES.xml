@@ -662,7 +662,7 @@ análisis por computadora, chat de juego y una URL para compartir.</string>
 	<string name="hostColorForEachGame">Colores propios para cada partida</string>
 	<string name="onlyMembersOfTeam">Solamente miembros de equipo</string>
 	<string name="simulDescription">Descripción del simultaneo</string>
-	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
+	<string name="anythingTellParticipants">¿Algo que quiera decirle a los participantes?</string>
 	<string name="lishogiTournaments">Torneos de Lishogi</string>
 	<string name="tournamentFAQ">Preguntas frecuentes de los torneos</string>
 	<string name="tournamentOfficial">Oficial</string>
@@ -765,7 +765,7 @@ análisis por computadora, chat de juego y una URL para compartir.</string>
 	<string name="directlySupportLishogi">Apoyar económicamente a Lishogi</string>
 	<string name="playChessInStyle">Juega al shogi con estilo</string>
 	<string name="chessBasics">Fundamentos de shogi</string>
-	<string name="shogiResources">Shogi resources</string>
+	<string name="shogiResources">Recursos de shogi</string>
 	<string name="coaches">Entrenadores</string>
 	<string name="invalidPgn">PGN inválido</string>
 	<string name="invalidFen">FEN inválido</string>
@@ -887,10 +887,10 @@ análisis por computadora, chat de juego y una URL para compartir.</string>
 	<string name="notationType">Notación</string>
 	<string name="whiteDeclinesImpasse">Gote rechezan impase</string>
 	<string name="whiteOffersImpasse">Gote ofrecen impase</string>
-	<string name="notationSystem">Notation</string>
-	<string name="officialBlog">Lishogi Official Blog</string>
-	<string name="blogPostsFromYear">Blog posts from %1$s</string>
-	<string name="previousBlogPosts">Previous blog posts</string>
+	<string name="notationSystem">Notación</string>
+	<string name="officialBlog">Blog Oficial de Lishogi</string>
+	<string name="blogPostsFromYear">Publicaciones de %1$s</string>
+	<string name="previousBlogPosts">Publicaciones anteriores</string>
 	<string name="continueReadingThis"> Continuar leyendo esta publicación</string>
 	<string name="discussBlogForum">Discutir esta publicación en el foro</string>
 </resources>
