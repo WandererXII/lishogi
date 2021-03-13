@@ -29,13 +29,13 @@
     <item quantity="one">%s Member</item>
     <item quantity="other">%s Members</item>
   </plurals>
-  <string name="inviteToTheStudy">Invite to the study</string>
-  <string name="pleaseOnlyInvitePeopleYouKnow">Please only invite people you know, and who actively want to join this study.</string>
+  <string name="inviteToTheStudy">Imbitahin sa pag-aaral</string>
+  <string name="pleaseOnlyInvitePeopleYouKnow">Imbitahin lamang ang mga taong iyong kilala at may kagustuhan na sumali sa pag-aaral na ito</string>
   <string name="searchByUsername">Search by username</string>
   <string name="spectator">Spectator</string>
   <string name="contributor">Contributor</string>
   <string name="kick">Kick</string>
-  <string name="leaveTheStudy">Leave the study</string>
+  <string name="leaveTheStudy">Umalis sa pag-aaral na ito</string>
   <string name="youAreNowAContributor">You are now a contributor</string>
   <string name="youAreNowASpectator">You are now a spectator</string>
   <string name="pgnTags">PGN tags</string>
@@ -45,7 +45,7 @@
   <string name="commentThisMove">Comment on this move</string>
   <string name="annotateWithGlyphs">Annotate with glyphs</string>
   <string name="theChapterIsTooShortToBeAnalysed">The chapter is too short to be analysed.</string>
-  <string name="onlyContributorsCanRequestAnalysis">Only the study contributors can request a computer analysis.</string>
+  <string name="onlyContributorsCanRequestAnalysis">Ang mga kontribyutor lamang ng pag-aaral ang maaaring manghingi ng pagsusuri galing sa kompyuter</string>
   <string name="getAFullComputerAnalysis">Get a full server-side computer analysis of the mainline.</string>
   <string name="makeSureTheChapterIsComplete">Make sure the chapter is complete. You can only request analysis once.</string>
   <string name="allSyncMembersRemainOnTheSamePosition">All SYNC members remain on the same position</string>
@@ -57,11 +57,11 @@
   <string name="last">Last</string>
   <string name="shareAndExport">Share &amp; export</string>
   <string name="cloneStudy">Clone</string>
-  <string name="studyPgn">Study PGN</string>
+  <string name="studyPgn">PGN ng pag-aaral</string>
   <string name="downloadAllGames">Download all games</string>
   <string name="chapterPgn">Chapter PGN</string>
   <string name="downloadGame">Download game</string>
-  <string name="studyUrl">Study URL</string>
+  <string name="studyUrl">URL ng pag-aaral</string>
   <string name="broadcastUrl">Broadcast URL</string>
   <string name="currentChapterUrl">Current chapter URL</string>
   <string name="currentGameUrl">Current game URL</string>
@@ -73,7 +73,7 @@
   <string name="onlyPublicStudiesCanBeEmbedded">Only public studies can be embedded!</string>
   <string name="open">Open</string>
   <string name="xBroughtToYouByY">%1$s, brought to you by %2$s</string>
-  <string name="studyNotFound">Study not found</string>
+  <string name="studyNotFound">Hindi matagpuan ang pag-aaral na ito</string>
   <string name="editChapter">Edit chapter</string>
   <string name="newChapter">New chapter</string>
   <string name="orientation">Orientation</string>
@@ -106,8 +106,8 @@
   <string name="loadAGameFromXOrY">Load games from %1$s or %2$s</string>
   <string name="createChapter">Create chapter</string>
   <string name="configureLiveBroadcast">Configure live broadcast</string>
-  <string name="createStudy">Create study</string>
-  <string name="editStudy">Edit study</string>
+  <string name="createStudy">Gumawa ng pag-aaral</string>
+  <string name="editStudy">I-edit ang pag-aaral</string>
   <string name="visibility">Visibility</string>
   <string name="public">Public</string>
   <string name="unlisted">Unlisted</string>
@@ -121,12 +121,12 @@
   <string name="enableSync">Enable sync</string>
   <string name="yesKeepEveryoneOnTheSamePosition">Yes: keep everyone on the same position</string>
   <string name="noLetPeopleBrowseFreely">No: let people browse freely</string>
-  <string name="pinnedStudyComment">Pinned study comment</string>
+  <string name="pinnedStudyComment">I-pin ang komento sa pag-aaral</string>
   <string name="start">Start</string>
   <string name="save">Save</string>
   <string name="clearChat">Clear chat</string>
-  <string name="deleteTheStudyChatHistory">Delete the study chat history? There is no going back!</string>
-  <string name="deleteStudy">Delete study</string>
-  <string name="deleteTheEntireStudy">Delete the entire study? There is no going back!</string>
-  <string name="whereDoYouWantToStudyThat">Where do you want to study that?</string>
+  <string name="deleteTheStudyChatHistory">I-delete ang chat history? Hindi na ito mababawi muli!</string>
+  <string name="deleteStudy">I-delete ang pag-aaral</string>
+  <string name="deleteTheEntireStudy">I-delete ang buong pag-aaral? Hindi na ito mababawi muli!</string>
+  <string name="whereDoYouWantToStudyThat">Saan mo nais gawin ang iyong pag-aaral?</string>
 </resources>
