@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="lishogiCoaches">Lishogi coaches</string>
+	<string name="lishogiCoaches">Mga Lishogi coach</string>
 	<string name="lishogiCoach">Lishogi coach</string>
-	<string name="areYouCoach" comment="not sure if coaches will ever be a feature in lishogi. the original text in lichess is: &quot;Are you a great chess coach with a NM or FIDE title?&#10;Confirm your title here and we will review your application.&quot;">Are you a great shogi coach with a %s?</string>
+	<string name="areYouCoach" comment="not sure if coaches will ever be a feature in lishogi. the original text in lichess is: &quot;Are you a great chess coach with a NM or FIDE title?&#10;Confirm your title here and we will review your application.&quot;">Isa ka bang magaling na shogi coach na may %s?</string>
 	<string name="nmOrFideTitle">titulo</string>
-	<string name="confirmTitle">Confirm your title here and we will review your application.</string>
-	<string name="sendApplication">Send us an email at %s and we will review your application.</string>
+	<string name="confirmTitle">Kumpirmahin ang iyong title dito at aming susuriin ang iyong aplikasyon.</string>
+	<string name="sendApplication">Magpadala ng email sa amin %s at aming susuriin ang iyong aplikasyon.</string>
 	<string name="location">Lokasyon</string>
 	<string name="languages">Lengwahe</string>
 	<string name="rating">Rating</string>
