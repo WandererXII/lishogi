@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="preferences">Preferences</string>
+	<string name="preferences">Mga preperensiya</string>
 	<string name="gameDisplay">Game display</string>
 	<string name="pieceAnimation">Piece animation</string>
 	<string name="materialDifference">Material difference</string>
@@ -20,9 +20,9 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">When time remaining &lt; 10 seconds</string>
 	<string name="horizontalGreenProgressBars">Horizontal green progress bars</string>
 	<string name="soundWhenTimeGetsCritical">Sound when time gets critical</string>
-	<string name="giveMoreTime">Give more time</string>
-	<string name="gameBehavior">Game behaviour</string>
-	<string name="howDoYouMovePieces">How do you move pieces?</string>
+	<string name="giveMoreTime">Magbigay ng karagdagang oras</string>
+	<string name="gameBehavior">Pag-uugali sa laro</string>
+	<string name="howDoYouMovePieces">Paano mo ginagalaw ang iyong mga piyesa?</string>
 	<string name="clickTwoSquares">Click two squares</string>
 	<string name="dragPiece">Drag a piece</string>
 	<string name="bothClicksAndDrag">Either</string>
