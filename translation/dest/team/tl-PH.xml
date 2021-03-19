@@ -34,8 +34,8 @@
   <string name="teamTournament">Mga torneong pangkoponan</string>
   <string name="teamTournamentOverview">Ang torneo sa Arena na tanging mga kasapi lamang ng iyong koponan ang maaaring sumali</string>
   <string name="messageAllMembers">Magbigay ng mga mensahe sa lahat ng mga miyembro</string>
-  <string name="messageAllMembersOverview">Send a private message to every member of the team</string>
-  <string name="messageAllMembersLongDescription">Maghatid ng pribadong mensahe sa LAHAT ng mga kasapi ng koponan.
+  <string name="messageAllMembersOverview">Magpadala ng pribadong mensahe sa lahat ng mga miyembro ng koponan</string>
+  <string name="messageAllMembersLongDescription">Magpadala ng pribadong mensahe sa LAHAT ng mga kasapi ng koponan.
 Maaari mong gamitin ito para tawagin ang lahat ng mga manlalaro na sumali sa isang paligsahan o kaya ay labanan sa koponan.
 Ang mga manlalaro na ayaw tumanggap ng mga mensahe mo ay maaaring lumisan sa iyong koponan.</string>
   <string name="teamsIlead">Mga koponan na pinamumunuan ko</string>
