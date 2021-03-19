@@ -135,9 +135,9 @@ It\'s best to think of ratings as \"relative\" figures (as opposed to \"absolute
 	<string name="howToThreeDots">Paano...</string>
 	<string name="enableDisableNotificationPopUps">Enable or disable notification popups?</string>
 	<string name="viewSiteInformationPopUp">View site information popup</string>
-	<string name="lishogiCanOptionnalySendPopUps">Lishogi can optionally send popup notifications, for example when it is your turn or you received a private message.
+	<string name="lishogiCanOptionnalySendPopUps">Ang Lishogi ay may opsyon na magpadala ng mga popup na mga notipikasyon, halimbawa ay kung ikaw na ang gagalaw o kaya naman ay may nakuha ka na pribadong mensahe.
 
-Click the lock icon next to the lishogi.org address in the URL bar of your browser.
+I-click ang lock icon sa tabi ng lishogi.org na address sa URL bar ng iyong browser.
 
-Then select whether to allow or block notifications from Lishogi.</string>
+Pagkatapos ay pumili kung papayagan o i-block ang mga notipikasyon sa Lishogi.</string>
 </resources>
