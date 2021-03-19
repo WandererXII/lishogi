@@ -24,11 +24,11 @@
   <string name="kickSomeone">Sibakin ang isa mula sa koponan</string>
   <string name="whoToKick">Sino ang gusto mong/ninyong sibakin mula sa koponan?</string>
   <plurals name="xJoinRequests">
-    <item quantity="one">%s join request</item>
+    <item quantity="one">%s kahilingang sumali</item>
     <item quantity="other">%s join requests</item>
   </plurals>
-  <string name="willBeReviewed">Your join request will be reviewed by the team leader.</string>
-  <string name="beingReviewed">Your join request is being reviewed by the team leader.</string>
+  <string name="willBeReviewed">Ang iyong kahilingang sumali ay susuriin ng pinuno ng koponan.</string>
+  <string name="beingReviewed">Ang iyong kahilingang sumali ay sinusuri ng pinuno ng koponan.</string>
   <string name="teamBattle">Labanan ng mga Koponan</string>
   <string name="teamBattleOverview">Ang labanan ng mga koponan, ang bawat manlalaro ay iipon ng puntos para sa kanilang koponan.</string>
   <string name="teamTournament">Mga torneong pangkoponan</string>
