@@ -449,7 +449,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="savePosition">Save position</string>
 	<string name="loadPosition">Load position</string>
 	<string name="isPrivate">Pribado</string>
-	<string name="reportXToModerators">I-report si %s sa mga moderator</string>
+	<string name="reportXToModerators">Ireport %s sa mga moderator</string>
 	<string name="profileCompletion">Pagkakompleto ng profile: %s</string>
 	<string name="xRating">%s rating</string>
 	<string name="ifNoneLeaveEmpty">If none, leave empty</string>
@@ -520,7 +520,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="reply">Reply</string>
 	<string name="message">Message</string>
 	<string name="createTheTopic">Create the topic</string>
-	<string name="reportAUser">Report a user</string>
+	<string name="reportAUser">Ireport ang isang user</string>
 	<string name="user">User</string>
 	<string name="reason">Reason</string>
 	<string name="whatIsIheMatter">What\'s the matter?</string>
