@@ -111,11 +111,14 @@ final class PostApi(
     }
 
   def get(postId: String): Fu[Option[(Topic, Post)]] =
-    env.postRepo.coll.byId[Post](postId) flatMap {
+    getPost(postId) flatMap {
       _ ?? { post =>
         env.topicRepo.coll.byId[Topic](post.topicId) dmap2 { _ -> post }
       }
     }
+
+  def getPost(postId: String): Fu[Option[Post]] =
+    env.postRepo.coll.byId[Post](postId)
 
   def react(postId: String, me: User, reaction: String, v: Boolean): Fu[Option[Post]] =
     Post.reactions(reaction) ?? {
@@ -238,7 +241,10 @@ final class PostApi(
         ReadPreference.secondaryPreferred
       )
 
-  def erase(user: User): Funit =
+  def erasePost(id: Post.ID) =
+    env.postRepo.coll.updateField($id(id), "erasedAt", DateTime.now).void
+
+  def eraseAllOf(user: User): Funit =
     env.postRepo.coll.update
       .one(
         $doc("userId" -> user.id),
