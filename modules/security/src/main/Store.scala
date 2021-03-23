@@ -13,7 +13,7 @@ import lila.common.{ ApiVersion, HTTPRequest, IpAddress, ThreadLocalRandom }
 import lila.db.dsl._
 import lila.user.User
 
-final class Store(val coll: Coll, cacheApi: lila.memo.CacheApi, localIp: IpAddress)(implicit
+final class Store(val coll: Coll, cacheApi: lila.memo.CacheApi)(implicit
     ec: scala.concurrent.ExecutionContext
 ) {
 
@@ -64,13 +64,7 @@ final class Store(val coll: Coll, cacheApi: lila.memo.CacheApi, localIp: IpAddre
         $doc(
           "_id"  -> sessionId,
           "user" -> userId,
-          "ip" -> (HTTPRequest.lastRemoteAddress(req) match {
-            // randomize stresser IPs to relieve mod tools
-            case ip if ip == localIp =>
-              IpAddress(s"127.0.${ThreadLocalRandom nextInt 256}.${ThreadLocalRandom nextInt 256}")
-            case ip => ip
-
-          }),
+          "ip"   -> HTTPRequest.ipAddress(req),
           "ua"   -> HTTPRequest.userAgent(req).|("?"),
           "date" -> DateTime.now,
           "up"   -> up,
