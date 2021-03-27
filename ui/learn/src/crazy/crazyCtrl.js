@@ -1,42 +1,27 @@
 var util = require('../og/main').util;
 var drag = require('../og/main').drag;
+var ground = require("../ground");
+var ogDrag = require("../og/drag");
+
 exports.drag = function(ctrl, color, e) {
   console.log("drag");
+  console.log("ground.instance.data", ground.instance.data);
+  if (e.button !== undefined && e.button !== 0) return; // only touch or left click
+  if (ground.instance.data.movable.color !== color) return;
+  var el = e.target,
+    role = el.getAttribute("data-role"),
+    number = el.getAttribute("data-nb");
+  console.log(el, role, number);
+  if (!role || !color || number === "0") return;
+  e.stopPropagation();
+  e.preventDefault();
+  ogDrag.dragNewPiece(ground.instance.data, { color: color, role: role }, e);
 };
 
 exports.selectToDrop = function(ctrl, color, e) {
   console.log("selectToDrop");
 };
 
-  var role = e.target.firstChild.getAttribute('data-role'),
-    color = e.target.firstChild.getAttribute('data-color');
-  if (!role || !color) return;
-  e.stopPropagation();
-  e.preventDefault();
-  var key = 'a0';
-  var coords = util.key2pos(cg.data.orientation === 'white' ? key : util.invertKey(key));
-  var piece = {
-    role: role,
-    color: color,
-  };
-  var obj = {};
-  obj[key] = piece;
-  cg.setPieces(obj);
-  var bounds = cg.data.bounds();
-  var squareBounds = e.target.parentNode.getBoundingClientRect();
-  var rel = [(coords[0] - 1) * squareBounds.width + bounds.left, (9 - coords[1]) * squareBounds.height + bounds.top];
-  cg.data.draggable.current = {
-    orig: key,
-    piece: piece.color + piece.role,
-    rel: rel,
-    epos: [e.clientX, e.clientY],
-    pos: [e.clientX - rel[0], e.clientY - rel[1]],
-    dec: [-squareBounds.width / 2, -squareBounds.height / 2],
-    bounds: bounds,
-    started: true,
-    newPiece: true,
-  };
-  drag.processDrag(cg.data);
 exports.shadowDrop = function(ctrl, color, e) {
   console.log("shadowDrop");
 };

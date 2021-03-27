@@ -65,6 +65,36 @@ function start(data, e) {
   processDrag(data);
 }
 
+function dragNewPiece(data, piece, e) {
+  var key = "a0";
+  data.pieces[key] = piece;
+  // s.dom.redraw();
+  var position = util.eventPosition(e);
+  var previouslySelected = data.selected;
+  var bounds = data.bounds();
+  var squareBounds = computeSquareBounds(data, bounds, key);
+
+  data.draggable.current = {
+    previouslySelected: previouslySelected,
+    orig: key,
+    piece: hashPiece(piece),
+    rel: position,
+    epos: position,
+    pos: [0, 0],
+    dec: data.draggable.centerPiece
+      ? [
+          position[0] - (squareBounds.left + squareBounds.width / 2),
+          position[1] - (squareBounds.top + squareBounds.height / 2),
+        ]
+      : [0, 0],
+    started: true,
+    // element: () => pieceElementByKey,
+    newPiece: true,
+    bounds: bounds,
+  }
+  processDrag(data);
+}
+
 function processDrag(data) {
   util.requestAnimationFrame(function () {
     var cur = data.draggable.current;
@@ -72,7 +102,10 @@ function processDrag(data) {
       // cancel animations while dragging
       if (data.animation.current.start && data.animation.current.anims[cur.orig]) data.animation.current = {};
       // if moving piece is gone, cancel
-      if (hashPiece(data.pieces[cur.orig]) !== cur.piece) cancel(data);
+      if (hashPiece(data.pieces[cur.orig]) !== cur.piece) {
+        console.log("moving piece is gone", hashPiece(data.pieces[cur.orig]), cur.piece)
+        cancel(data); 
+      }
       else {
         if (!cur.started && util.distance(cur.epos, cur.rel) >= data.draggable.distance) cur.started = true;
         if (cur.started) {
@@ -92,11 +125,13 @@ function move(data, e) {
 }
 
 function end(data, e) {
+  console.log('drag end', data, e);
   var cur = data.draggable.current;
   var orig = cur ? cur.orig : null;
   if (!orig) return;
   // comparing with the origin target is an easy way to test that the end event
   // has the same touch origin
+  console.log('e.type originTarget cur', e.type, originTarget, cur);
   if (e.type === 'touchend' && originTarget !== e.target && !cur.newPiece) {
     data.draggable.current = {};
     return;
@@ -119,6 +154,7 @@ function end(data, e) {
 }
 
 function cancel(data) {
+  console.log("drag cancel", data);
   if (data.draggable.current.orig) {
     data.draggable.current = {};
     board.selectSquare(data, null);
@@ -130,5 +166,6 @@ module.exports = {
   move: move,
   end: end,
   cancel: cancel,
+  dragNewPiece: dragNewPiece,
   processDrag: processDrag, // must be exposed for board editors
 };

@@ -13,6 +13,7 @@ function pieceClass(p) {
 }
 
 function renderPiece(d, key, ctx) {
+  // console.log("view renderPiece", d, key, ctx);
   var attrs = {
     key: 'p' + key,
     style: {},
@@ -148,6 +149,7 @@ function renderSquares(ctrl, ctx) {
 }
 
 function renderContent(ctrl) {
+  // console.log("view renderContent", ctrl);
   var d = ctrl.data;
   if (!d.bounds) return;
   var ctx = {
@@ -174,10 +176,11 @@ function renderContent(ctrl) {
     for (i = 0; i < 81; i++) {
       if (d.pieces[keys[i]]) children.push(renderPiece(d, keys[i], ctx));
     }
-    // the hack to drag new pieces on the board (editor and crazyhouse)
-    // is to put it on a0 then set it as being dragged
-    if (d.draggable.current && d.draggable.current.newPiece) children.push(renderPiece(d, 'a0', ctx));
   }
+  // the hack to drag new pieces on the board (editor and crazyhouse)
+  // is to put it on a0 then set it as being dragged
+  if (d.draggable.current && d.draggable.current.newPiece)
+    children.push(renderPiece(d, 'a0', ctx));
 
   if (d.draggable.showGhost) {
     var dragOrig = d.draggable.current.orig;
