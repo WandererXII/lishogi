@@ -70,7 +70,7 @@ export interface RoundOpts {
   onChange(d: RoundData): void;
   element: HTMLElement;
   crosstableEl: HTMLElement;
-  i18n: any;
+  i18n: I18nDict;
   chat?: Chat;
 }
 

@@ -35,7 +35,7 @@ interface Lishogi {
   announce(d: LishogiAnnouncement): void;
 
   // standalones/trans.js
-  trans(i18n: { [key: string]: string | undefined }): Trans;
+  trans(i18n: I18nDict): Trans;
 
   // main.js
   socket: any;
@@ -82,6 +82,8 @@ interface Lishogi {
     setMsgRead(user: string): void;
   };
 }
+
+type I18nDict = { [key: string]: string };
 
 interface LishogiSpeech {
   step(s: { notation?: string }, cut: boolean): void;

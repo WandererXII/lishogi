@@ -23,7 +23,7 @@ export interface DasherData {
   inbox: boolean;
   coach: boolean;
   streamer: boolean;
-  i18n: any;
+  i18n: I18nDict;
 }
 
 export type Mode =

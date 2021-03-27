@@ -114,7 +114,7 @@ export interface AnalyseOpts {
   relay?: RelayData;
   $side?: JQuery;
   $underboard?: JQuery;
-  i18n: any;
+  i18n: I18nDict;
   chat: any;
 }
 
