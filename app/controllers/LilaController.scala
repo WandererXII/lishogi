@@ -16,7 +16,7 @@ import lila.common.{ ApiVersion, HTTPRequest, Nonce }
 import lila.i18n.I18nLangPicker
 import lila.notify.Notification.Notifies
 import lila.oauth.{ OAuthScope, OAuthServer }
-import lila.security.{ FingerPrintedUser, Granter, Permission }
+import lila.security.{ AppealUser, FingerPrintedUser, Granter, Permission }
 import lila.user.{ User => UserModel, UserContext }
 
 abstract private[controllers] class LilaController(val env: Env)
@@ -353,11 +353,6 @@ abstract private[controllers] class LilaController(val env: Env)
       _.fold(notFoundJson())(a => fuccess(Ok(Json toJson a) as JSON))
     }
 
-  protected def JsOk(fua: Fu[String], headers: (String, String)*) =
-    fua map { a =>
-      Ok(a) as JAVASCRIPT withHeaders (headers: _*)
-    }
-
   protected def FormResult[A](form: Form[A])(op: A => Fu[Result])(implicit req: Request[_]): Fu[Result] =
     form
       .bindFromRequest()
@@ -454,7 +449,9 @@ abstract private[controllers] class LilaController(val env: Env)
   protected def authenticationFailed(implicit ctx: Context): Fu[Result] =
     negotiate(
       html = fuccess {
-        Redirect(routes.Auth.signup) withCookies env.lilaCookie
+        Redirect(
+          if (HTTPRequest.isAppeal(ctx.req)) routes.Auth.login else routes.Auth.signup
+        ) withCookies env.lilaCookie
           .session(env.security.api.AccessUri, ctx.req.uri)
       },
       api = _ =>
@@ -512,33 +509,34 @@ abstract private[controllers] class LilaController(val env: Env)
     ctx.me.fold(fuccess(PageData.anon(ctx.req, nonce, blindMode(ctx)))) { me =>
       env.pref.api.getPref(me, ctx.req) zip
         (if (isGranted(_.Teacher, me)) fuccess(true) else env.clas.api.student.isStudent(me.id)) zip {
-          if (isPage) {
-            env.user.lightUserApi preloadUser me
-            env.team.api.nbRequests(me.id) zip
-              env.challenge.api.countInFor.get(me.id) zip
-              env.notifyM.api.unreadCount(Notifies(me.id)).dmap(_.value) zip
-              env.mod.inquiryApi.forMod(me)
-          } else
-            fuccess {
-              (((0, 0), 0), none)
-            }
-        } map {
+        if (isPage) {
+          env.user.lightUserApi preloadUser me
+          val enabledId = me.enabled option me.id
+          enabledId.??(env.team.api.nbRequests) zip
+            enabledId.??(env.challenge.api.countInFor.get) zip
+            enabledId.??(id => env.notifyM.api.unreadCount(Notifies(id)).dmap(_.value)) zip
+            env.mod.inquiryApi.forMod(me)
+        } else
+          fuccess {
+            (((0, 0), 0), none)
+          }
+      } map {
           case (
                 (pref, hasClas),
                 (((teamNbRequests, nbChallenges), nbNotifications), inquiry)
               ) =>
-            PageData(
-              teamNbRequests,
-              nbChallenges,
-              nbNotifications,
-              pref,
-              blindMode = blindMode(ctx),
-              hasFingerprint = hasFingerPrint,
-              hasClas = hasClas,
-              inquiry = inquiry,
-              nonce = nonce
-            )
-        }
+        PageData(
+          teamNbRequests,
+          nbChallenges,
+          nbNotifications,
+          pref,
+          blindMode = blindMode(ctx),
+          hasFingerprint = hasFingerPrint,
+          hasClas = hasClas,
+          inquiry = inquiry,
+          nonce = nonce
+        )
+      }
     }
   }
 
@@ -551,13 +549,16 @@ abstract private[controllers] class LilaController(val env: Env)
   type RestoredUser = (Option[FingerPrintedUser], Option[UserModel])
   private def restoreUser(req: RequestHeader): Fu[RestoredUser] =
     env.security.api restoreUser req dmap {
-      case Some(d) if !env.isProd =>
+      case Some(Left(AppealUser(user))) if HTTPRequest.isAppeal(req) =>
+        FingerPrintedUser(user, true).some
+      case Some(Right(d)) if !env.isProd =>
         d.copy(user =
           d.user
             .addRole(lila.security.Permission.Beta.dbKey)
             .addRole(lila.security.Permission.Prismic.dbKey)
         ).some
-      case d => d
+      case Some(Right(d)) => d.some
+      case _              => none
     } flatMap {
       case None => fuccess(None -> None)
       case Some(d) =>

@@ -279,7 +279,7 @@ object layout {
               wrapClass -> wrapClass.nonEmpty
             )
           )(body),
-          ctx.isAuth option div(
+          ctx.me.exists(_.enabled) option div(
             id          := "friend_box",
             dataPreload := safeJsonValue(Json.obj("i18n" -> i18nJsObject(i18nKeys)))
           )(
@@ -348,16 +348,21 @@ object layout {
             )
           ),
           ctx.blind option h2("Navigation"),
-          topnav()
+          !ctx.isAppealUser option topnav()
         ),
         div(cls := "site-buttons")(
           if (ctx.req.path == "/") switchLanguage else "",
-          clinput,
+          !ctx.isAppealUser option clinput,
           reports,
           teamRequests,
-          ctx.me map { me =>
-            frag(allNotifications, dasher(me))
-          } getOrElse { !ctx.pageData.error option anonDasher(playing) }
+          if (ctx.isAppealUser)
+            postForm(action := routes.Auth.logout)(
+              submitButton(cls := "button button-red link")(trans.logOut())
+            )
+          else
+            ctx.me map { me =>
+              frag(allNotifications, dasher(me))
+            } getOrElse { !ctx.pageData.error option anonDasher(playing) }
         )
       )
   }
