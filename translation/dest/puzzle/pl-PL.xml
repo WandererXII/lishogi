@@ -14,12 +14,12 @@
   <string name="didYouLikeThisPuzzle">Czy podobało Ci się to zadanie?</string>
   <string name="voteToLoadNextOne">Zagłosuj, by wczytać następne!</string>
   <string name="yourPuzzleRatingX">Twój ranking treningowy: %s</string>
-  <string name="findTheBestMoveForWhite">Find the best move for white.</string>
-  <string name="findTheBestMoveForBlack">Find the best move for black.</string>
+  <string name="findTheBestMoveForWhite">Znajdź najlepszy ruch.</string>
+  <string name="findTheBestMoveForBlack">Znajdź najlepszy ruch.</string>
   <string name="toGetPersonalizedPuzzles">Aby uzyskać spersonalizowane zadania:</string>
   <string name="puzzleId">Zadanie %s</string>
   <string name="puzzleOfTheDay">Zadanie dnia</string>
-  <string name="clickToSolve">Click to solve</string>
+  <string name="clickToSolve">Kliknij, aby zobaczyć rozwiązanie</string>
   <string name="goodMove">Dobry ruch</string>
   <string name="bestMove">Najlepszy ruch!</string>
   <string name="keepGoing">Kontynuuj…</string>
