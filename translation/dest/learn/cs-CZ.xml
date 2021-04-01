@@ -45,7 +45,7 @@ Chcete-li tak učinit, klikněte na ozubené kolo nebo vašem uživatelském jm�
 	<string name="knightsHaveAFancyWay">Rytíři mají skvělý způsob, jak skákat kolem!</string>
 	<string name="knightsCanJumpOverObstacles">Rytíři mohou skákat přes překážky!</string>
 	<string name="knightSummary">Rytíř může skákat ve tvaru L vpřed, ale pouze dvěma čtverečky dopředu a jednu do boku. Jeho pohyb není omezen jinými kameny - jen je přeskočí.</string>
-	<string name="pknightSummary">Promoted knight moves are completely different from the unpromoted knight, but you can notice it moves the same as the gold general, so make sure to study that one thoroughly.</string>
+	<string name="pknightSummary">Povýšené rytířské pohyby se zcela liší od nepovýšeného, ale můžete si všimnout, že se pohybuje stejně jako zlatý generál, takže se ujistěte že to důkladně prostudujete.</string>
 	<string name="knightPromotion">The knight can also be promoted. His movements change a lot after that, so pay attention.</string>
 	<string name="knightComplete">Gratulace! Zvládáte manipulovat s jezdcem.</string>
 	<string name="thePawn">Pěšec</string>
