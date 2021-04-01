@@ -2,8 +2,8 @@
 <resources>
 	<string name="faqAbbreviation">Často kladené dotazy (FAQ)</string>
 	<string name="frequentlyAskedQuestions">Často kladené otázky</string>
-	<string name="whyIsLishogiCalledLishogi">Why is Lishogi called Lishogi?</string>
-	<string name="forkedFromLichess">Lishogi is open source project forked from liсhess, but since it\'s for playing shogi, it\'s called lishogi.</string>
+	<string name="whyIsLishogiCalledLishogi">Proč se Lishogi nazývá Lishogi?</string>
+	<string name="forkedFromLichess">Lishogi je projekt s otevřeným zdrojovým kódem vycházející z liShessu, ale protože je určen k hraní shogi, nazývá se lishogi.</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Because it\'s derived from Liсhess. And Liсhess is called Liсhess because it\'s a combination of live/light/libre and chess. Lishogi is pronounced %1$s.</string>
 	<string name="leechess">lee-shogi</string>
 	<string name="hearItPronouncedBySpecialist">Poslechněte si, jak je vyslovováno profesionálem.</string>
