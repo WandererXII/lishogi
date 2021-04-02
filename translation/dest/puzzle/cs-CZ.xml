@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">Puzzles</string>
-  <string name="puzzleThemes">Puzzle themes</string>
-  <string name="recommended">Recommended</string>
-  <string name="phases">Phases</string>
+  <string name="puzzles">Hádanky</string>
+  <string name="puzzleThemes">Témata hádanek</string>
+  <string name="recommended">Doporučené</string>
+  <string name="phases">Pozice</string>
   <string name="motifs">Motifs</string>
   <string name="advanced">Advanced</string>
   <string name="lengths">Lengths</string>
