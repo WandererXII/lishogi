@@ -6,14 +6,6 @@
     <item quantity="one">Supported lishogi.org for %1$s month as a %2$s</item>
     <item quantity="other">Supported lishogi.org for %1$s months as a %2$s</item>
   </plurals>
-  <plurals name="practicedNbPositions">
-    <item quantity="one">Practised %1$s position on %2$s</item>
-    <item quantity="other">Practised %1$s positions on %2$s</item>
-  </plurals>
-  <plurals name="solvedNbPuzzles">
-    <item quantity="one">Solved %s tactical puzzle</item>
-    <item quantity="other">Solved %s tactical puzzles</item>
-  </plurals>
   <plurals name="playedNbGames">
     <item quantity="one">Played %1$s %2$s game</item>
     <item quantity="other">Played %1$s %2$s games</item>
