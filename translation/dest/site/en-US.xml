@@ -332,7 +332,7 @@
 	<string name="mustBeInTeam">Must be in team %s</string>
 	<string name="youAreNotInTeam">You are not in the team %s</string>
 	<string name="backToGame">Back to game</string>
-	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play chess with the computer, friends or random opponents.</string>
+	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
 	<string name="xJoinedTeamY">%1$s joined team %2$s</string>
 	<string name="xCreatedTeamY">%1$s created team %2$s</string>
 	<string name="xStartedStreaming">%s started streaming</string>
@@ -591,7 +591,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="computer">Computer</string>
 	<string name="side">Side</string>
 	<string name="clock">Clock</string>
-	<string name="unauthorizedError">Access is unauthorised.</string>
+	<string name="unauthorizedError">Access is unauthorized.</string>
 	<string name="noInternetConnection">No internet connection. You can still play offline from the menu.</string>
 	<string name="connectedToLishogi">You are now connected to lishogi.org</string>
 	<string name="signedOut">You have been signed out</string>
@@ -642,7 +642,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="sourceCode">Source Code</string>
 	<string name="simultaneousExhibitions">Simultaneous exhibitions</string>
 	<string name="host">Host</string>
-	<string name="hostColorX">Host colour: %s</string>
+	<string name="hostColorX">Host color: %s</string>
 	<string name="createdSimuls">Newly created simuls</string>
 	<string name="hostANewSimul">Host a new simul</string>
 	<string name="noSimulFound">Simul not found</string>
@@ -850,7 +850,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="playEveryGame">Play every game you start.</string>
 	<string name="tryToWin">Try to win (or at least draw) every game you play.</string>
 	<string name="resignLostGames">Resign lost games (don\'t let the clock run down).</string>
-	<string name="temporaryInconvenience">We apologise for the temporary inconvenience,</string>
+	<string name="temporaryInconvenience">We apologize for the temporary inconvenience,</string>
 	<string name="wishYouGreatGames">and wish you great games on lishogi.org.</string>
 	<string name="thankYouForReading">Thank you for reading!</string>
 	<string name="lifetimeScore">Lifetime score</string>
@@ -892,6 +892,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="officialBlog">Lishogi Official Blog</string>
 	<string name="blogPostsFromYear">Blog posts from %1$s</string>
 	<string name="previousBlogPosts">Previous blog posts</string>
-	<string name="continueReadingThis"> Continue reading this post</string>
+	<string name="continueReadingThis"> Continue reading this story</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
 </resources>
