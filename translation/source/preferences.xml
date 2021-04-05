@@ -29,17 +29,9 @@
 	<string name="premovesPlayingDuringOpponentTurn">Premoves (playing during opponent turn)</string>
 	<string name="takebacksWithOpponentApproval">Takebacks (with opponent approval)</string>
 	<string name="inCasualGamesOnly">In casual games only</string>
-	<string name="promoteToQueenAutomatically">Promote to Queen automatically</string>
-	<string name="whenPremoving">When premoving</string>
-	<string name="claimDrawOnThreefoldRepetitionAutomatically">Claim draw on threefold repetition automatically</string>
-	<string name="whenTimeRemainingLessThanThirtySeconds">When time remaining &lt; 30 seconds</string>
 	<string name="moveConfirmation">Move confirmation</string>
 	<string name="inCorrespondenceGames">Correspondence games</string>
 	<string name="correspondenceAndUnlimited">Correspondence and unlimited</string>
 	<string name="confirmResignationAndDrawOffers">Confirm resignation and draw offers</string>
-	<string name="castleByMovingTheKingTwoSquaresOrOntoTheRook">Castling method</string>
-	<string name="castleByMovingTwoSquares">Move king two squares</string>
-	<string name="castleByMovingOntoTheRook">Move king onto rook</string>
-	<string name="inputMovesWithTheKeyboard">Input moves with the keyboard</string>
 	<string name="yourPreferencesHaveBeenSaved">Your preferences have been saved.</string>
 </resources>
