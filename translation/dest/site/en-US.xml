@@ -176,7 +176,7 @@
 	<string name="time">Time</string>
 	<string name="rating">Rating</string>
 	<string name="ratingStats">Rating stats</string>
-	<string name="username">User name</string>
+	<string name="username">User Name</string>
 	<string name="usernameOrEmail">User name or email</string>
 	<string name="changeUsername">Change username</string>
 	<string name="changeUsernameNotSame">Only the case of the letters can change. For example \"johndoe\" to \"JohnDoe\".</string>
@@ -332,7 +332,7 @@
 	<string name="mustBeInTeam">Must be in team %s</string>
 	<string name="youAreNotInTeam">You are not in the team %s</string>
 	<string name="backToGame">Back to game</string>
-	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
+	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play chess with the computer, friends or random opponents.</string>
 	<string name="xJoinedTeamY">%1$s joined team %2$s</string>
 	<string name="xCreatedTeamY">%1$s created team %2$s</string>
 	<string name="xStartedStreaming">%s started streaming</string>
@@ -719,7 +719,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="enableKidMode">Enable Kid mode</string>
 	<string name="disableKidMode">Disable Kid mode</string>
 	<string name="security">Security</string>
-	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">This is a list of devices that have logged into your account. Revoke any sessions that you do not recognise.</string>
+	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">This is a list of devices that have logged into your account. Revoke any sessions that you do not recognize.</string>
 	<string name="alternativelyYouCanX">Alternatively you can %s.</string>
 	<string name="revokeAllSessions">revoke all sessions</string>
 	<string name="playChessEverywhere">Play shogi everywhere</string>
