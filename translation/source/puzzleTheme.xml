@@ -2,8 +2,6 @@
 <resources>
   <string name="advantage">Advantage</string>
   <string name="advantageDescription">Seize your chance to get a decisive advantage. (200cp ≤ eval ≤ 600cp)</string>
-  <string name="castling">Castling</string>
-  <string name="castlingDescription">Bring the king to safety.</string>
   <string name="crushing">Crushing</string>
   <string name="crushingDescription">Spot the opponent blunder to obtain a crushing advantage. (eval ≥ 600cp)</string>
   <string name="equality">Equality</string>
