@@ -61,9 +61,9 @@
   <string name="tsume">Tsume</string>
   <string name="tsumeDescription">Your goal is to checkmate your opponent. Every move you make has to be a check.</string>
   <string name="strikingPawn">Striking pawn</string>
-  <string name="strikingPawnDescription">A tactitc involving dropping a pawn in front of opponent\'s piece and attacking it.</string>
+  <string name="strikingPawnDescription">A tactic involving dropping a pawn in front of opponent\'s piece and attacking it.</string>
   <string name="joiningPawn">Joining pawn</string>
-  <string name="joiningPawnDescription">A tactic in which a pawn is sacrificially dropped in front of opponent\'s piece.</string>
+  <string name="joiningPawnDescription">A tactic in which a pawn is sacrificially dropped in front opponent\'s piece.</string>
   <string name="dancingPawns">Dancing pawns</string>
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
   <string name="edgeAttack">Edge attack</string>
@@ -73,5 +73,5 @@
   <string name="lishogiGames">From lishogi games</string>
   <string name="lishogiGamesDescription">Puzzles generated from games played on lishogi.</string>
   <string name="otherSources">From other sources</string>
-  <string name="otherSourcesDescription">Many thanks to everyone who submitted or allowed lishogi to use these puzzles!</string>
+  <string name="otherSourcesDescription">Many thanks to everyone who submitted or allowed shogi to use these puzzles!</string>
 </resources>
