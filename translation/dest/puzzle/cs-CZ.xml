@@ -36,10 +36,10 @@
     <item quantity="other">Hráno %s x</item>
   </plurals>
   <plurals name="xMovesLeft">
-    <item quantity="one">%s move left</item>
-    <item quantity="few">%s moves left</item>
-    <item quantity="many">%s moves left</item>
-    <item quantity="other">%s moves left</item>
+    <item quantity="one">%s tah vlevo</item>
+    <item quantity="few">%s tahy vlevo</item>
+    <item quantity="many">%s tahy vlevo</item>
+    <item quantity="other">%s tahy vlevo</item>
   </plurals>
   <string name="fromGameLink">Z partie %s</string>
   <string name="puzzleSource">Zdroj: %s</string>
