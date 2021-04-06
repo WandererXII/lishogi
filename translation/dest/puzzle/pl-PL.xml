@@ -35,6 +35,12 @@
     <item quantity="many">Rozwiązywane %s razy</item>
     <item quantity="other">Rozwiązywane %s razy</item>
   </plurals>
+  <plurals name="xMovesLeft">
+    <item quantity="one">%s move left</item>
+    <item quantity="few">%s moves left</item>
+    <item quantity="many">%s moves left</item>
+    <item quantity="other">%s moves left</item>
+  </plurals>
   <string name="fromGameLink">Z partii %s</string>
   <string name="puzzleSource">Źródło: %s</string>
   <string name="continueTraining">Kontynuuj trening</string>
