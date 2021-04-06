@@ -32,6 +32,9 @@
   <plurals name="playedXTimes">
     <item quantity="other">%s 回プレイ</item>
   </plurals>
+  <plurals name="xMovesLeft">
+    <item quantity="other">%s moves left</item>
+  </plurals>
   <string name="fromGameLink">ゲーム %s から</string>
   <string name="puzzleSource">出典: %s</string>
   <string name="continueTraining">トレーニングを続ける</string>
