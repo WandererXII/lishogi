@@ -35,6 +35,12 @@
     <item quantity="many">Hráno %s x</item>
     <item quantity="other">Hráno %s x</item>
   </plurals>
+  <plurals name="xMovesLeft">
+    <item quantity="one">%s move left</item>
+    <item quantity="few">%s moves left</item>
+    <item quantity="many">%s moves left</item>
+    <item quantity="other">%s moves left</item>
+  </plurals>
   <string name="fromGameLink">Z partie %s</string>
   <string name="puzzleSource">Zdroj: %s</string>
   <string name="continueTraining">Pokračovat v tréninku</string>
