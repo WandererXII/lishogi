@@ -6,10 +6,6 @@
     <item quantity="one">Het lishogi.org vir %1$s maand ondersteun as \'n %2$s</item>
     <item quantity="other">Het lishogi.org vir %1$s maande ondersteun as \'n %2$s</item>
   </plurals>
-  <plurals name="practicedNbPositions">
-    <item quantity="one">Het %1$s posisie op %2$s geoefen</item>
-    <item quantity="other">Het %1$s posisies op %2$s geoefen</item>
-  </plurals>
   <plurals name="solvedNbPuzzles">
     <item quantity="one">Het %s taktiese kopkrapper opgelos</item>
     <item quantity="other">Het %s taktiese kopkrappers opgelos</item>
