@@ -67,7 +67,7 @@
   <string name="dancingPawns">Dancing pawns</string>
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
   <string name="edgeAttack">端攻め</string>
-  <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
+  <string name="edgeAttackDescription">相手の 1 筋、または 9 筋を攻撃する問題。</string>
   <string name="veryLong">超長手数問題</string>
   <string name="veryLongDescription">7 手以上で勝ちになります。</string>
   <string name="lishogiGames">Lishogiの対局から</string>
