@@ -46,8 +46,8 @@
   <string name="oneMoveDescription">1 手だけ動かす問題。</string>
   <string name="opening">序盤</string>
   <string name="openingDescription">ゲームの終盤でのタクティクス。</string>
-  <string name="pin">Pin</string>
-  <string name="pinDescription">A tactic involving pins, where a piece is unable to move without revealing an attack on a higher value piece.</string>
+  <string name="pin">ピン</string>
+  <string name="pinDescription">ピンを含む問題。ラインピースに狙われた駒が動くと、より価値の高い駒が取られてしまう状況。</string>
   <string name="quietMove">Quiet move</string>
   <string name="quietMoveDescription">A move that does not make a check or capture, but does prepare an unavoidable threat for a later move.</string>
   <string name="rookEndgame">Rook endgame</string>
@@ -66,7 +66,7 @@
   <string name="joiningPawnDescription">A tactic in which a pawn is sacrificially dropped in front of opponent\'s piece.</string>
   <string name="dancingPawns">Dancing pawns</string>
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
-  <string name="edgeAttack">Edge attack</string>
+  <string name="edgeAttack">端攻め</string>
   <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
   <string name="veryLong">超長手数問題</string>
   <string name="veryLongDescription">7 手以上で勝ちになります。</string>
