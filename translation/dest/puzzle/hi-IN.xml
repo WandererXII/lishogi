@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">Puzzles</string>
-  <string name="puzzleThemes">Puzzle themes</string>
-  <string name="recommended">Recommended</string>
-  <string name="phases">Phases</string>
-  <string name="motifs">Motifs</string>
-  <string name="advanced">Advanced</string>
+  <string name="puzzles">पहेलियाँ</string>
+  <string name="puzzleThemes">पहेली विषयों</string>
+  <string name="recommended">अनुशंसित</string>
+  <string name="phases">चरणों</string>
+  <string name="motifs">रूपांकनों</string>
+  <string name="advanced">उन्नत</string>
   <string name="lengths">Lengths</string>
   <string name="mates">Mates</string>
   <string name="goals">Goals</string>
