@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="team">Team</string>
-  <string name="teams">Teams</string>
+  <string name="team">टीम</string>
+  <string name="teams">टीम</string>
   <plurals name="nbMembers">
-    <item quantity="one">%s member</item>
-    <item quantity="other">%s members</item>
+    <item quantity="one">%s सदस्य</item>
+    <item quantity="other">%s सदस्य</item>
   </plurals>
-  <string name="allTeams">All teams</string>
+  <string name="allTeams">सभी समूह</string>
   <string name="newTeam">New team</string>
   <string name="myTeams">My teams</string>
   <string name="noTeamFound">No team found</string>
