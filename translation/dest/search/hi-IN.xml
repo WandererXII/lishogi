@@ -12,7 +12,7 @@
 	</plurals>
 	<string name="opponentName">प्रतिद्वंद्वी का नाम</string>
 	<string name="loser">हारनेवाला</string>
-	<string name="from">द्वारा</string>
+	<string name="from">से</string>
 	<string name="to">तक</string>
 	<string name="humanOrComputer">खिलाड़ी का प्रतिद्वंद्वी मानव था या कंप्यूटर</string>
 	<string name="aiLevel">A.I. स्तर</string>
