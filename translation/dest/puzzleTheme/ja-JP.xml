@@ -57,7 +57,7 @@
   <string name="short">短手数問題</string>
   <string name="shortDescription">3 手で勝ちになります。</string>
   <string name="healthyMix">混合</string>
-  <string name="healthyMixDescription">いろいろな問題を少しずつ。どんな問題が来るかわからないので油断しないで！　実戦と同じです。</string>
+  <string name="healthyMixDescription">いろいろな問題を少しずつ。どんな問題が来るかわからないので油断しないで！実戦と同じです。</string>
   <string name="tsume">詰将棋</string>
   <string name="tsumeDescription">Your goal is to checkmate your opponent. Every move you make has to be a check.</string>
   <string name="strikingPawn">叩きの歩</string>
