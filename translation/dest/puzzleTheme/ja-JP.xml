@@ -60,9 +60,9 @@
   <string name="healthyMixDescription">いろいろな問題を少しずつ。どんな問題が来るかわからないので油断しないで！　実戦と同じです。</string>
   <string name="tsume">詰将棋</string>
   <string name="tsumeDescription">Your goal is to checkmate your opponent. Every move you make has to be a check.</string>
-  <string name="strikingPawn">Striking pawn</string>
+  <string name="strikingPawn">叩きの歩</string>
   <string name="strikingPawnDescription">A tactitc involving dropping a pawn in front of opponent\'s piece and attacking it.</string>
-  <string name="joiningPawn">Joining pawn</string>
+  <string name="joiningPawn">継ぎ歩</string>
   <string name="joiningPawnDescription">A tactic in which a pawn is sacrificially dropped in front of opponent\'s piece.</string>
   <string name="dancingPawns">Dancing pawns</string>
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
