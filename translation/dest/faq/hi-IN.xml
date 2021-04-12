@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="faqAbbreviation">FAQ</string>
-	<string name="frequentlyAskedQuestions">Frequently Asked Questions</string>
-	<string name="whyIsLishogiCalledLishogi">Why is Lishogi called Lishogi?</string>
-	<string name="forkedFromLichess">Lishogi is open source project forked from liсhess, but since it\'s for playing shogi, it\'s called lishogi.</string>
-	<string name="lishogiCombinationLiveLightLibrePronounced">Because it\'s derived from Liсhess. And Liсhess is called Liсhess because it\'s a combination of live/light/libre and chess. Lishogi is pronounced %1$s.</string>
-	<string name="leechess">lee-shogi</string>
-	<string name="hearItPronouncedBySpecialist">Hear it pronounced by a specialist.</string>
-	<string name="whyLiveLightLibre">Live, because games are played and watched in real-time 24/7; light and libre for the fact that Lishogi is open-source and unencumbered by proprietary junk that plagues other websites.</string>
-	<string name="whyIsLilaCalledLila">Similarly, the source code for Lishogi, %1$s, stands for li[shogi in sca]la, seeing as the bulk of Lishogi is written in %2$s, an intuitive programming language.</string>
+	<string name="faqAbbreviation">फऐक्यू (FAQ)</string>
+	<string name="frequentlyAskedQuestions">अक्सर पूछे जाने वाले प्रश्न</string>
+	<string name="whyIsLishogiCalledLishogi">Lishogi को Lishogi क्यों कहा जाता है?</string>
+	<string name="forkedFromLichess">Lishogi ओपन सोर्स प्रोजेक्ट (Open Source Project) है, जो Lichess से लिया गया है, लेकिन चूंकि यह shogi खेलने के लिए है, इसलिए इसे Lishogi कहा जाता है।</string>
+	<string name="lishogiCombinationLiveLightLibrePronounced">क्योंकि यह Liсhess से लिया गया है। और Liсhess को Liсhess कहा जाता है क्योंकि यह लाइव (live)/ लाइट(light) / लिबर्रे(libre) और शतरंज का संयोजन है। Lishogi का उच्चारण %1$s है।</string>
+	<string name="leechess">ली-शोगी (lee-shogi)</string>
+	<string name="hearItPronouncedBySpecialist">किसी विशेषज्ञ द्वारा उच्चारित इसे सुनें।</string>
+	<string name="whyLiveLightLibre">लाइव, क्योंकि गेम वास्तविक समय 24/7 में खेले और देखे जाते हैं; इस तथ्य के लिए कि Lishogi ओपन-सोर्स है और स्वामित्व वाली कबाड़ से अप्रभावित है जो अन्य वेबसाइटों को नुकसान पहुंचाती है।</string>
+	<string name="whyIsLilaCalledLila">इसी तरह, lishogi के लिए सोर्स कोड, %1$s, li[shogi in sca]la हे, यह देखते हुए कि lishogi के थोक को %2$s मे हे, एक सहज ज्ञान युक्त प्रोग्रामिंग भाषा में लिखा गया है।</string>
 	<string name="howCanIContributeToLishogi">How can I contribute to Lishogi?</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi is powered by donations from patrons and the efforts of a team of volunteers.</string>
 	<string name="findMoreAndSeeHowHelp">You can find out more about %1$s. If you want to help Lishogi by volunteering your time and skills, there are many %2$s.</string>
