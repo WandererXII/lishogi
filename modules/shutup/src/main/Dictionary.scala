@@ -36,7 +36,7 @@ buk?kake
 bull?shit
 cancer
 cheat(ing|ed|er|s|)
-chess(|-|_)bot(.?com)?
+shogi(|-|_)bot(.?com)?
 chicken
 chink
 clit
