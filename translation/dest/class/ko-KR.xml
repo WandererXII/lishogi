@@ -24,7 +24,7 @@
 	<string name="visibleByBothStudentsAndTeachers">수업의 교사와 학생 모두에게 표시</string>
 	<string name="teachersOfTheClass">선생님</string>
 	<string name="addLishogiUsernames">Lishogi 사용자 이름을 추가하여 선생님으로 초대하세요. 한 줄에 하나씩</string>
-	<string name="theyMustFirstApply">They must first apply to be Lishogi Teachers.</string>
+	<string name="theyMustFirstApply">먼저 Lishogi Teacher로 지원해야합니다.</string>
 	<string name="resetPassword">Reset password</string>
 	<string name="makeSureToCopy">Make sure to copy or write down the password now. You won’t be able to see it again!</string>
 	<string name="passwordX">비밀번호: %s</string>
