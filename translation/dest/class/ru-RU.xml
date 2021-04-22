@@ -42,12 +42,12 @@
 	<string name="inviteDesc2">Они получат сообщение в Lishogi со ссылкой для вступления в класс.</string>
 	<string name="inviteDesc3">Важно: приглашайте только тех учеников, которых вы знаете и которые действительно хотят заниматься в классе.</string>
 	<string name="inviteDesc4">Никогда не отправляйте нежелательные приглашения случайным игрокам.</string>
-	<string name="createANewLishogiAccount">Create a new Lishogi account</string>
+	<string name="createANewLishogiAccount">Создать новый аккаунт в Lishogi</string>
 	<string name="createDesc1">Если у ученика ещё нет учётной записи Lishogi, вы можете создать её здесь.</string>
 	<string name="createDesc2">Email адрес не требуется. Будет сгенерирован пароль, который вы передадите ученику, чтобы он мог войти в систему.</string>
 	<string name="createDesc3">Важно: ученик не должен иметь несколько учётных записей.</string>
 	<string name="createDesc4">Если у них уже есть, используйте форму приглашения.</string>
-	<string name="lishogiUsername">Lishogi username</string>
+	<string name="lishogiUsername">Имя пользователя Lishogi</string>
 	<string name="generateANewUsername">Создать новое имя пользователя</string>
 	<string name="welcomeToClass">Добро пожаловать в ваш класс: %s.
 Вот ссылка для входа в класс.</string>
