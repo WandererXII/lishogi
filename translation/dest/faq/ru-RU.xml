@@ -8,10 +8,10 @@
 	<string name="leechess">ли-сёги</string>
 	<string name="hearItPronouncedBySpecialist"> Прослушайте это в исполнении диктора.</string>
 	<string name="whyLiveLightLibre">Живые, потому что можно играть партии и смотреть игры в реальном времени 24/7. Легковесные и свободные, потому что разрабатываются на принципах свободного программного обеспечения и не завалены проприетарным хламом, как коммерческие проекты.</string>
-	<string name="whyIsLilaCalledLila">Similarly, the source code for Lishogi, %1$s, stands for li[shogi in sca]la, seeing as the bulk of Lishogi is written in %2$s, an intuitive programming language.</string>
+	<string name="whyIsLilaCalledLila">То же относится к исходному коду Lishogi, %1$s, что означает li[shogi in sca]la, основная часть Lishogi написана на %2$s, интуитивно понятном языке программирования.</string>
 	<string name="howCanIContributeToLishogi">Как я могу внести свой вклад в Lishogi?</string>
-	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi is powered by donations from patrons and the efforts of a team of volunteers.</string>
-	<string name="findMoreAndSeeHowHelp">You can find out more about %1$s. If you want to help Lishogi by volunteering your time and skills, there are many %2$s.</string>
+	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi существует на пожертвования игроков и разрабатывается командой волонтёров.</string>
+	<string name="findMoreAndSeeHowHelp">Вы можете узнать больше о %1$s. Если вы хотите помочь Lichess, пожертвовав свои знания и время, есть %2$s.</string>
 	<string name="beingAPatron">Стать спонсором</string>
 	<string name="otherWaysToContribute">Вот много других способов, которыми можете внести свой вклад в Lishogi.</string>
 	<string name="breakdownOfOurCosts">отчёт о тратах</string>
@@ -49,11 +49,11 @@
 
   Для компьютерного анализа на Lishogi используется Stockfish.</string>
 	<string name="insufficientMaterial">Проигрыш по времени, ничья и недостаток материала</string>
-	<string name="lishogiFollowFIDErules">In the event of one player running out of time, that player will usually lose the game. However, the game is drawn if the position is such that the opponent cannot checkmate the player\'s king by any possible series of legal moves (%1$s).
+	<string name="lishogiFollowFIDErules">Как правило, если у игрока закончилось время, ему засчитывается проигрыш. Однако игра может быть признана закончившейся вничью, если соперник не может поставить мат никакой из возможных последовательностей ходов (%1$s).
 
-In rare cases this can be difficult to decide automatically (forced lines, fortresses). By default we always side with the player who did not run out of time.
+ В редких случаях бывает трудно вынести решение автоматически (серия вынужденных ходов, крепость). По умолчанию мы принимаем сторону того игрока, чьё время не вышло.
 
-Note that it can be possible to mate with a single knight or bishop if the opponent has a piece that could block the king.</string>
+ Имейте в виду, что мат возможен и одним конём, и слоном, если у соперника есть фигура или пешка, способная заблокировать его короля.</string>
 	<string name="linkToFIDErules">§6.9 правил ФИДЕ, формат pdf</string>
 	<string name="discoveringEnPassant">Почему можно взять пешку, когда она уже прошла битое поле? (взятие на проходе)</string>
 	<string name="explainingEnPassant">Это ход, известный как «взятие на проходе». Статья в Википедии даёт %1$s.
@@ -65,7 +65,7 @@ Note that it can be possible to mate with a single knight or bishop if the oppon
  Посмотрите %3$s и попрактикуйтесь.</string>
 	<string name="goodIntroduction">хорошее объяснение</string>
 	<string name="officialRulesPDF">официальные правила (pdf)</string>
-	<string name="lishogiTraining">Lishogi training</string>
+	<string name="lishogiTraining">Обучение Lishogi</string>
 	<string name="threefoldRepetition">Троекратное повторение позиции</string>
 	<string name="threefoldRepetitionExplanation">Если позиция на доске повторилась три раза, любой из игроков может объявить ничью %1$s. В Lishogi реализованы официальные правила ФИДЕ, как описано в статье 9.2 (d) of the %2$s.</string>
 	<string name="threefoldRepetitionLowerCase">повторением позиции</string>
@@ -121,7 +121,7 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="ratingLeaderboards">список лидеров:</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">сыграть как минимум 30 рейтинговых игр в этом виде,</string>
 	<string name="havePlayedARatedGameAtLeastOneWeekAgo">сыграть рейтинговую партию в течение последней недели в этом виде,</string>
-	<string name="ratingDeviationLowerThanXinChessYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
+	<string name="ratingDeviationLowerThanXinChessYinVariants">иметь отклонение рейтинга меньше чем %1$s в стандартных сёги и %2$s в других видах,</string>
 	<string name="beInTopTen">быть в числе 10 лучших в этом списке.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Второе условие заключается в том, что игроки с закрытыми учётными записями пропадают из списков лидеров.</string>
 	<string name="whyAreRatingHigher">Почему рейтинги игроков выше, чем на других сайтах и в других организациях, как, например, ФИДЕ или РШФ?</string>
