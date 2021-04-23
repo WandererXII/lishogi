@@ -48,7 +48,7 @@
   <string name="openingDescription">Тактика в первой стадии игры.</string>
   <string name="pin">Связка</string>
   <string name="pinDescription">Тактика, использующая связку, когда фигура не может сделать ход, иначе под атаку попадёт стоящая за ней более ценная фигура.</string>
-  <string name="quietMove">Quiet move</string>
+  <string name="quietMove">Тихий ход</string>
   <string name="quietMoveDescription">Ход, на первый взгляд бесполезный: без шаха, взятия или нападения, но он подготавливает следующий ход, в котором заключается настоящая угроза.</string>
   <string name="rookEndgame">Ладейный эндшпиль</string>
   <string name="rookEndgameDescription">Эндшпиль с ладьями и пешками.</string>
@@ -56,7 +56,7 @@
   <string name="sacrificeDescription">Тактика, при которой происходит отдача какой-либо фигуры для получения преимущества, объявления мата или сведения игры вничью.</string>
   <string name="short">Короткая задача</string>
   <string name="shortDescription">Три хода до победы.</string>
-  <string name="healthyMix">Healthy mix</string>
+  <string name="healthyMix">Сборная солянка</string>
   <string name="healthyMixDescription">Всего понемногу. Вы не знаете, чего ожидать, так что будьте готовы ко всему! Прямо как в настоящей партии.</string>
   <string name="tsume">Цумэ</string>
   <string name="tsumeDescription">Ваша цель состоит в том, чтобы поставить мат противнику. Каждый ход должен быть шахом.</string>
