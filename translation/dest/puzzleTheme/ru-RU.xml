@@ -3,8 +3,8 @@
   <string name="advantage">Преимущество</string>
   <string name="advantageDescription">Воспользуйтесь шансом получить решающее преимущество.</string>
   <string name="castling">Рокировка</string>
-  <string name="castlingDescription">Bring the king to safety.</string>
-  <string name="crushing">Crushing</string>
+  <string name="castlingDescription">Отведите короля в безопасное место.</string>
+  <string name="crushing">Сокрушение</string>
   <string name="crushingDescription">Используйте зевок противника для получения сокрушительного преимущества</string>
   <string name="equality">Уравнивание</string>
   <string name="equalityDescription">Отыграйтесь из проигранной позиции: сведите партию на ничью или получите позиционное равенство.</string>
@@ -25,7 +25,7 @@
   <string name="long">Многоходовая задача</string>
   <string name="longDescription">Пять ходов до победы.</string>
   <string name="mate">Мат</string>
-  <string name="mateDescription">Win the game with style.</string>
+  <string name="mateDescription">Выиграйте игру красиво.</string>
   <string name="mateIn1">Мат в 1 ход</string>
   <string name="mateIn1Description">Поставьте мат в один ход.</string>
   <string name="mateIn2">Мат в 2 хода</string>
