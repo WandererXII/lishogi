@@ -5,7 +5,7 @@
   <string name="castling">Рокировка</string>
   <string name="castlingDescription">Bring the king to safety.</string>
   <string name="crushing">Crushing</string>
-  <string name="crushingDescription">Spot the opponent blunder to obtain a crushing advantage.</string>
+  <string name="crushingDescription">Используйте зевок противника для получения сокрушительного преимущества</string>
   <string name="equality">Уравнивание</string>
   <string name="equalityDescription">Отыграйтесь из проигранной позиции: сведите партию на ничью или получите позиционное равенство.</string>
   <string name="defensiveMove">Защитный ход</string>
@@ -70,7 +70,7 @@
   <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
   <string name="veryLong">Многоходовая задача</string>
   <string name="veryLongDescription">Семь или более ходов для победы.</string>
-  <string name="lishogiGames">From lishogi games</string>
+  <string name="lishogiGames">Из игр lishogi</string>
   <string name="lishogiGamesDescription">Задачи, созданные из игр на lishogi.</string>
   <string name="otherSources">Из других источников</string>
   <string name="otherSourcesDescription">Большое спасибо всем, кто позволил lishogi использовать эти головоломки, или предложил свои!</string>
