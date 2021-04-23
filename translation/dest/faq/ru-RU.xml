@@ -13,11 +13,11 @@
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi is powered by donations from patrons and the efforts of a team of volunteers.</string>
 	<string name="findMoreAndSeeHowHelp">You can find out more about %1$s. If you want to help Lishogi by volunteering your time and skills, there are many %2$s.</string>
 	<string name="beingAPatron">Стать спонсором</string>
-	<string name="otherWaysToContribute">Here are many other ways you could contribute to Lishogi.</string>
+	<string name="otherWaysToContribute">Вот много других способов, которыми можете внести свой вклад в Lishogi.</string>
 	<string name="breakdownOfOurCosts">отчёт о тратах</string>
 	<string name="otherWaysToHelp">другие способы помочь</string>
 	<string name="areThereWebsitesBasedOnLishogi">Есть ли сайты на основе Lishogi?</string>
-	<string name="yesLishogiInspiredOtherOpenSourceWebsites">Yes. Lishogi has indeed inspired other open-source sites that use our %1$s, %2$s, or %3$s.</string>
+	<string name="yesLishogiInspiredOtherOpenSourceWebsites">Да, это так. Многие сайты вдохновились Lishogi и используют наш %1$s, %2$s и %3$s.</string>
 	<string name="fairPlay">Честная игра</string>
 	<string name="whyFlaggedRatingManipulationOrCheater">Почему меня подозревают в жульничестве? Как то: использование помощи других игроков, договорные игры или подсказки компьютерных программ?</string>
 	<string name="cheatDetectionMethods">Lishogi использует очень надёжные способы и тщательно проработанный процесс для изучения доказательств и принятия решений. В этот процесс вовлечено множество модераторов и он может занять довольно продолжительное время. В результате выносится только решение о том, был ли игрок нечестен, но никакие подробности не разглашаются, иначе это могло бы облегчить нечестным игрокам возможность обходить способы их обнаружения. Кроме того, чем больше деталей, тем больше пустопорожних споров, а это время лучше потратить на что-то более стоящее. Игроки могут обжаловать решение по электронной почте %1$s, но надо иметь в виду, что ответ на него не гарантируется, и решения отменяются крайне редко.</string>
@@ -28,7 +28,7 @@
 	<string name="leavingGameWithoutResigningExplanation">Если ваш соперник часто прерывает или покидает игру, он временно блокируется, при этом признак блокировки видит только он сам. Если после окончания блокировки он продолжает вести себя так же, он опять блокируется, но уже на более длительный срок. В дальнейшем его учётная запись может быть полностью заблокирована.</string>
 	<string name="howCanIBecomeModerator">Могу ли я стать модератором?</string>
 	<string name="youCannotApply">Мы не принимаем заявки на просьбу стать модератором. Если мы видим, что кто-то, по нашему мнению, может стать хорошим модератором, мы сами с ним связываемся напрямую.</string>
-	<string name="isCorrespondenceDifferent">Is correspondence different from normal shogi?</string>
+	<string name="isCorrespondenceDifferent">Игра по переписке отличается от обычной игры?</string>
 	<string name="youCanUseOpeningBookNoEngine">On Lishogi, the main difference in rules for correspondence shogi is that an opening book is allowed. The use of engines is still prohibited and will result in being flagged for engine assistance. Although ICCF allows engine use in correspondence, Lishogi does not.</string>
 	<string name="gameplay">Описание игры</string>
 	<string name="howBulletBlitzEtcDecided">Как определяется тип игры: пуля, блиц и т. д., в зависимости от контроля времени?</string>
@@ -77,7 +77,7 @@ Note that it can be possible to mate with a single knight or bishop if the oppon
 	<string name="threeFoldHasToBeClaimed">Повторение необходимо для объявления ничьей любым из игроков. Вы можете сделать это нажав кнопку, которая появляется в этот момент, или предложив обычную ничью. Вы также можете %1$s Lishogi для автоматического объявления ничьей в этом случае. Пятикратное повторение позиции принудительно завершит игру вничью.</string>
 	<string name="configure">настроить</string>
 	<string name="accounts">Учётные записи</string>
-	<string name="titlesAvailableOnLishogi">What titles are there on Lishogi?</string>
+	<string name="titlesAvailableOnLishogi">Какие официальные звания используются на Lishogi?</string>
 	<string name="lishogiRecognizeAllOTBtitles">Lishogi recognises all FIDE titles gained from OTB (over the board) play, as well as %1$s. Here is a list of FIDE titles:</string>
 	<string name="showYourTitle">Если у вас есть звание ФИДЕ или национального мастера, и вы хотите, чтобы оно отображалось на Lishogi, вы можете заполнить %1$s, приложив чёткое фото документа, подтверждающего ваше звание, и селфи с этим документом в руках.
 
@@ -101,8 +101,8 @@ Note that it can be possible to mate with a single knight or bishop if the oppon
 	<string name="wayOfBerserkExplanation">Чтобы его получить, hiimgosu бросил вызов самому себе выиграть с Берсерком 100%% игр в %s.</string>
 	<string name="aHourlyBulletTournament">ежечасном турнире в Пулю</string>
 	<string name="goldenZeeExplanation">ZugAddict во время стрима два часа безуспешно пытался обыграть компьютер на 8-м уровне в игре 1+0. Тибо пообещал наградить его уникальным трофеем, если он всё же сделает это во время стрима. Спустя час он разгромил Стокфиш, и обещание было исполнено.</string>
-	<string name="lishogiRatings">Lishogi ratings</string>
-	<string name="whichRatingSystemUsedByLishogi">What rating system does Lishogi use?</string>
+	<string name="lishogiRatings">Рейтинги Lishogi</string>
+	<string name="whichRatingSystemUsedByLishogi">Какая система рейтинга используется на Lishogi?</string>
 	<string name="ratingSystemUsedByLishogi">Ratings are calculated using the Glicko-2 rating method developed by Mark Glickman. This is a very popular rating method, and is used by a significant number of chess organisations (FIDE being a notable counter-example, as they still use the dated Elo rating system).
 
 Fundamentally, Glicko ratings use \"confidence intervals\" when calculating and representing your rating. When you first start using the site, your rating starts at 1500 ± 700. The 1500 represents your rating, and the 700 represents the confidence interval.
@@ -136,9 +136,9 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="howToThreeDots">Узнайте, как...</string>
 	<string name="enableDisableNotificationPopUps">Включить или отключить всплывающие окна уведомлений?</string>
 	<string name="viewSiteInformationPopUp">Посмотреть всплывающее окно информации о сайте</string>
-	<string name="lishogiCanOptionnalySendPopUps">Lishogi can optionally send popup notifications, for example when it is your turn or you received a private message.
+	<string name="lishogiCanOptionnalySendPopUps">Lishogi может по вашему желанию показывать всплывающие уведомления, например, когда наступает ваш ход или вы получили личное сообщение.
 
-Click the lock icon next to the lishogi.org address in the URL bar of your browser.
+ Нажмите на значок замочка рядом с адресом lishogi.org в адресной строке вашего браузера.
 
-Then select whether to allow or block notifications from Lishogi.</string>
+ Затем выберите, разрешить или блокировать уведомления от Lishogi.</string>
 </resources>
