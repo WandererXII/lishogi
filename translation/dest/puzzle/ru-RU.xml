@@ -9,7 +9,7 @@
   <string name="lengths">Количество ходов</string>
   <string name="mates">Маты</string>
   <string name="goals">Цели</string>
-  <string name="origin">Origin</string>
+  <string name="origin">Точка отправления</string>
   <string name="specialMoves">Особые ходы</string>
   <string name="didYouLikeThisPuzzle">Вам понравилась эта задача?</string>
   <string name="voteToLoadNextOne">Проголосуйте, чтобы загрузить следующую!</string>
@@ -28,7 +28,7 @@
   <string name="notTheMove">Это не тот ход!</string>
   <string name="trySomethingElse">Попробуйте иначе.</string>
   <string name="ratingX">Рейтинг: %s</string>
-  <string name="hidden">hidden</string>
+  <string name="hidden">скрытый</string>
   <plurals name="playedXTimes">
     <item quantity="one">Решена %s раз</item>
     <item quantity="few">Решена %s раз</item>
@@ -54,8 +54,8 @@
   <string name="addAnotherTheme">Добавить другую тему</string>
   <string name="jumpToNextPuzzleImmediately">Сразу перейти к следующей задаче</string>
   <string name="puzzleDashboard">Панель головоломок</string>
-  <string name="improvementAreas">Improvement areas</string>
-  <string name="strengths">Strengths</string>
+  <string name="improvementAreas">Направления улучшения</string>
+  <string name="strengths">Сильные стороны</string>
   <string name="history">История задач</string>
   <string name="solved">решено</string>
   <string name="failed">провалено</string>
