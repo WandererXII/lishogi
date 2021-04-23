@@ -68,10 +68,10 @@
   <string name="dancingPawnsDescription">Тактика захвата золота противника с принесением в жертву пешки.</string>
   <string name="edgeAttack">Edge attack</string>
   <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
-  <string name="veryLong">Very long puzzle</string>
+  <string name="veryLong">Многоходовая задача</string>
   <string name="veryLongDescription">Семь или более ходов для победы.</string>
   <string name="lishogiGames">From lishogi games</string>
   <string name="lishogiGamesDescription">Задачи, созданные из игр на lishogi.</string>
   <string name="otherSources">Из других источников</string>
-  <string name="otherSourcesDescription">Many thanks to everyone who submitted or allowed lishogi to use these puzzles!</string>
+  <string name="otherSourcesDescription">Большое спасибо всем, кто позволил lishogi использовать эти головоломки, или предложил свои!</string>
 </resources>
