@@ -6,10 +6,10 @@
   <string name="phases">Этапы</string>
   <string name="motifs">Мотивы</string>
   <string name="advanced">Продвинутый уровень</string>
-  <string name="lengths">Количество ходов</string>
+  <string name="lengths">Разной длины</string>
   <string name="mates">Маты</string>
   <string name="goals">Цели</string>
-  <string name="origin">Точка отправления</string>
+  <string name="origin">Из разных источников</string>
   <string name="specialMoves">Особые ходы</string>
   <string name="didYouLikeThisPuzzle">Вам понравилась эта задача?</string>
   <string name="voteToLoadNextOne">Проголосуйте, чтобы загрузить следующую!</string>
