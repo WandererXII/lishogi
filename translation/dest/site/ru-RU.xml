@@ -17,8 +17,8 @@
 	<string name="stalemate">Пат</string>
 	<string name="white">Белые</string>
 	<string name="black">Чёрные</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
+	<string name="shitate">Шитатэ</string>
+	<string name="uwate">Уватэ</string>
 	<string name="randomColor">Случайный цвет</string>
 	<string name="createAGame">Создать игру</string>
 	<string name="whiteIsVictorious">Победа белых</string>
@@ -35,8 +35,8 @@
 	<string name="joinTheGame">Принять вызов</string>
 	<string name="whitePlays">Ход белых</string>
 	<string name="blackPlays">Ход чёрных</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
+	<string name="shitatePlays">Ход шитатэ</string>
+	<string name="uwatePlays">Ход уватэ</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Ваш соперник покинул игру. Вы можете объявить победу через %s секунду.</item>
 		<item quantity="few">Ваш соперник покинул игру. Вы можете объявить победу через %s секунды.</item>
@@ -263,7 +263,7 @@
 	<string name="confirmMove">Подтвердить ход</string>
 	<string name="play">Игра</string>
 	<string name="inbox">Входящие</string>
-	<string name="streamerManager">Streamer manager</string>
+	<string name="streamerManager">Менеджер стримеров</string>
 	<string name="chatRoom">Чат</string>
 	<string name="loginToChat">Войдите, чтобы общаться в чате</string>
 	<string name="youHaveBeenTimedOut">Чат временно недоступен для вас.</string>
@@ -389,7 +389,7 @@
 	<string name="apply">Сохранить</string>
 	<string name="save">Сохранить</string>
 	<string name="leaderboard">Лучшие игроки</string>
-	<string name="selectHandicap">Select handicap</string>
+	<string name="selectHandicap">Выберите фору</string>
 	<string name="pasteTheFenStringHere">Вставьте строку в формате FEN</string>
 	<string name="pasteThePgnStringHere">Вставьте текст в формате PGN</string>
 	<string name="fromPosition">С позиции</string>
@@ -397,8 +397,7 @@
 	<string name="toStudy">Студия</string>
 	<string name="importGame">Импортировать игру</string>
 	<string name="importGameExplanation">Вставьте запись игры в формате PGN, и вы получите возможность переигрывать партию, выполнять компьютерный анализ, общаться в чате и делиться ссылкой на эту игру.</string>
-	<string name="importGameKifuExplanation">Paste a game kifu to get a browsable replay,
-computer analysis, game chat and shareable URL.</string>
+	<string name="importGameKifuExplanation">Вставьте кифу, и вы получите возможность переигрывать партию, выполнять компьютерный анализ, общаться в чате и делиться ссылкой на эту игру.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s импортированная</item>
 		<item quantity="few">%s импортированные</item>
@@ -496,8 +495,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="boardEditor">Редактор доски</string>
 	<string name="setTheBoard">Установить позицию</string>
 	<string name="popularOpenings">Популярные дебюты</string>
-	<string name="handicaps">Handicaps</string>
-	<string name="handicap">Handicap</string>
+	<string name="handicaps">Фора</string>
+	<string name="handicap">Фора</string>
 	<string name="startPosition">Начальная позиция</string>
 	<string name="clearBoard">Очистить доску</string>
 	<string name="fillGotesHand">Fill Gote\'s hand</string>
