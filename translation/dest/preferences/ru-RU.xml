@@ -6,7 +6,7 @@
 	<string name="materialDifference">Показывать разницу в материале</string>
 	<string name="boardHighlights">Подсвечивать последний ход и шах</string>
 	<string name="pieceDestinations">Показывать допустимые ходы</string>
-	<string name="dropDestinations">Drop destinations (valid drops and predrops)</string>
+	<string name="dropDestinations">Показывать допустимые сбросы фигур</string>
 	<string name="boardCoordinates">Координаты доски (A–H, 1–8)</string>
 	<string name="moveListWhilePlaying">Показывать список ходов</string>
 	<string name="pgnPieceNotation">Шахматная нотация</string>
