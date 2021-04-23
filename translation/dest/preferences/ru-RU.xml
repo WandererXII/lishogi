@@ -11,7 +11,7 @@
 	<string name="moveListWhilePlaying">Показывать список ходов</string>
 	<string name="pgnPieceNotation">Шахматная нотация</string>
 	<string name="chessPieceSymbol">Символ фигуры</string>
-	<string name="pgnLetter">Letter (K, R, B, G, S, N, L)</string>
+	<string name="pgnLetter">Буква (K, R, B, G, S, N, L)</string>
 	<string name="zenMode">Режим Дзен</string>
 	<string name="displayBoardResizeHandle">Показывать ручку изменения размера доски</string>
 	<string name="onlyOnInitialPosition">Только в начальном положении</string>
