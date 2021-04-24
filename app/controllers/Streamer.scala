@@ -27,6 +27,23 @@ final class Streamer(
       }
     }
 
+  def featured = Action.async { implicit req =>
+    env.streamer.liveStreamApi.all
+      .map { streams =>
+        val max      = env.streamer.homepageMaxSetting.get()
+        val featured = streams.homepage(max, req, none) withTitles env.user.lightUserApi
+        JsonOk {
+          featured.live.streams.map { s =>
+            Json.obj(
+              "url"               -> routes.Streamer.redirect(s.streamer.id.value).absoluteURL(),
+              "usernameWithTitle" -> featured.titleName(s),
+              "status"            -> s.status
+            )
+          }
+        }
+      }
+  }
+
   def live =
     apiC.ApiRequest { _ =>
       env.user.lightUserApi asyncMany env.streamer.liveStreamApi.userIds.toList dmap (_.flatten) map {
