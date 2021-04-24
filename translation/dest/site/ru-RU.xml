@@ -726,7 +726,7 @@
 	<string name="numberOfByoyomiPeriods">Количество периодов бёёми</string>
 	<string name="hostColorForEachGame">Host color for each game</string>
 	<string name="onlyMembersOfTeam">Только для участников</string>
-	<string name="simulDescription">Simul description</string>
+	<string name="simulDescription">Описание сеанса</string>
 	<string name="anythingTellParticipants">Хотите что-нибудь сказать участникам?</string>
 	<string name="lishogiTournaments">Турниры Lishogi</string>
 	<string name="tournamentFAQ">Вопросы и ответы про Арену</string>
