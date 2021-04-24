@@ -724,7 +724,7 @@
 	<string name="simulAddExtraTime">Вы можете взять себе дополнительное время на обдумывание партий.</string>
 	<string name="simulHostExtraTime">Дополнительное время сеансёра</string>
 	<string name="numberOfByoyomiPeriods">Количество периодов бёёми</string>
-	<string name="hostColorForEachGame">Host color for each game</string>
+	<string name="hostColorForEachGame">Цвет в каждой игре</string>
 	<string name="onlyMembersOfTeam">Только для участников</string>
 	<string name="simulDescription">Описание сеанса</string>
 	<string name="anythingTellParticipants">Хотите что-нибудь сказать участникам?</string>
