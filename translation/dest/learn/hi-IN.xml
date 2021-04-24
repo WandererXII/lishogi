@@ -74,29 +74,29 @@
 	<string name="itMovesEitherForwardOrDiagonallyBack">सिल्वर जनरल आगे या तिरछे तरीके से आगे बढ़ता है।</string>
 	<string name="silverIntro">असामान्य आंदोलनों के साथ एक और टुकड़ा, लेकिन यह आखिरी है। वादा !</string>
 	<string name="silverPromotion">जब आप सिल्वर जनरल को बढ़ावा देते हैं तो उसकी चाल गोल्ड जनरल के समान होती है।</string>
-	<string name="silverSummary">You will surely remember these moves with some practice.</string>
-	<string name="psilverSummary">Same as the gold general, you will see this a lot.</string>
-	<string name="silverComplete">Congratulations! You are on a roll.</string>
-	<string name="promotion">This piece can be promoted.</string>
-	<string name="yourPieceReachedThePromotionZone">Your piece reached the promotion zone!</string>
-	<string name="itNowPromotesToAStrongerPiece">It can now be promoted to a stronger piece.</string>
-	<string name="selectThePieceYouWant">Select the piece you want!</string>
-	<string name="fundamentals">Fundamentals</string>
-	<string name="capture">Capture</string>
-	<string name="takeTheEnemyPieces">Take the enemy pieces</string>
-	<string name="captureIntro">Identify the opponent\'s undefended pieces, and capture them!</string>
-	<string name="takeTheBlackPieces">Take the black pieces!</string>
-	<string name="takeTheBlackPiecesAndDontLoseYours">Take the black pieces!
-And don\'t lose yours.</string>
-	<string name="captureComplete">Congratulations! You know how to fight with shogi pieces!</string>
-	<string name="protection">Protection</string>
-	<string name="keepYourPiecesSafe">Keep your pieces safe</string>
-	<string name="protectionIntro">Identify the pieces your opponent attacks, and defend them!</string>
-	<string name="protectionComplete">Congratulations! A piece you don\'t lose is a piece you win!</string>
-	<string name="escape">You\'re under attack!
-Escape the threat!</string>
-	<string name="noEscape">There is no escape,
-but you can defend!</string>
+	<string name="silverSummary">आप कुछ अभ्यास के साथ इन चालों को निश्चित रूप से याद करेंगे।</string>
+	<string name="psilverSummary">गोल्ड जनरल के रूप में भी, आप इसे बहुत देखेंगे।</string>
+	<string name="silverComplete">बधाई हो ! आप एक स्टार हैं।</string>
+	<string name="promotion">इस टुकड़े को बढ़ावा दिया जा सकता है।</string>
+	<string name="yourPieceReachedThePromotionZone">आपका टुकड़ा प्रचार क्षेत्र में पहुंच गया !</string>
+	<string name="itNowPromotesToAStrongerPiece">इसे अब एक मजबूत कृति के रूप में प्रचारित किया जा सकता है।</string>
+	<string name="selectThePieceYouWant">इच्छित टुकड़ा का चयन करें !</string>
+	<string name="fundamentals">बुनियादी बातें</string>
+	<string name="capture">कब्जा</string>
+	<string name="takeTheEnemyPieces">दुश्मन के टुकड़े ले लो</string>
+	<string name="captureIntro">प्रतिद्वंद्वी के असहज मोहरो की पहचान करें, और उन्हें मार दे !</string>
+	<string name="takeTheBlackPieces">काले टुकड़े ले लो !</string>
+	<string name="takeTheBlackPiecesAndDontLoseYours">काले टुकड़े ले लो !
+और अपना मत खोना।</string>
+	<string name="captureComplete">बधाई ! आप जानते हैं कि shogi के टुकड़ों से कैसे लड़ें !</string>
+	<string name="protection">संरक्षण</string>
+	<string name="keepYourPiecesSafe">अपने टुकड़े सुरक्षित रखें</string>
+	<string name="protectionIntro">अपने असुरक्षित मोहरो की पहचान करे और उन्हें बचाए !</string>
+	<string name="protectionComplete">बधाई हो ! आप जिस टुकड़े को नहीं खोते हैं वह एक टुकड़ा है जिसे आप जीते हैं !</string>
+	<string name="escape">आप पर हमला कर रहे हैं !
+खतरे से बच !</string>
+	<string name="noEscape">कहीं नहीं भाग सकते,
+लेकिन आप बचाव कर सकते हैं !</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">Don\'t let them take
 any undefended piece!</string>
 	<string name="combat">Combat</string>
