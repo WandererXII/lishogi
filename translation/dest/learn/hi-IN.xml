@@ -24,10 +24,10 @@
 	<string name="rookSummary">रूक ऊपर, नीचे, बाएं या दाएं जितना चाहे जा सकता है।</string>
 	<string name="dragonSummary">यह अनप्रोटेक्टेड रूक की तरह ही आगे बढ़ सकता है, लेकिन किसी भी विकर्ण दिशा में एक वर्ग भी, यह बहुत मजबूत बनाता है।</string>
 	<string name="grabAllTheStars">सारे सितारों को एकत्रित करें !</string>
-	<string name="theFewerMoves">The fewer moves you make, the more points you win!</string>
-	<string name="rookComplete">Congratulations! You have successfully mastered the rook.</string>
-	<string name="theBishop">The bishop</string>
-	<string name="itMovesDiagonally">It moves diagonally</string>
+	<string name="theFewerMoves">आपके द्वारा की जाने वाली कम चालें, अधिक अंक आप जीत !</string>
+	<string name="rookComplete">बधाई हो ! आपने रूक का प्रयोग करना सफलतापूर्वक सीख लिया है।</string>
+	<string name="theBishop">बिशप (Bishop)</string>
+	<string name="itMovesDiagonally">यह तिरछे चलता है</string>
 	<string name="bishopIntro">Next we will learn how to manoeuvre a bishop!</string>
 	<string name="bishopPromotion">Promoting your bishop will make it stronger, it will turn into a piece called \"the horse\".</string>
 	<string name="bishopSummary">The bishop moves in any diagonal direction.</string>
