@@ -137,16 +137,16 @@ shogi के हर खेल के !
 जारी रखने के लिए कोई भी कदम उठाएं।</string>
 	<string name="firstPlaceTheRooks">पहले रूक को रखो !
 वे कोनों में जाते हैं।</string>
-	<string name="thenPlaceTheKnights">Then place the knights!
-They go next to the rooks.</string>
-	<string name="placeTheBishops">Place the bishops!
-They go next to the knights.</string>
-	<string name="placeTheQueen">Place the queen!
-She goes on her own colour.</string>
-	<string name="placeTheKing">Place the king!
-Right next to his queen.</string>
-	<string name="pawnsFormTheFrontLine">Pawns form the front line.
-Make any move to continue.</string>
+	<string name="thenPlaceTheKnights">फिर नाइट लगाएं !
+वे रूक के बगल में जाते हैं।</string>
+	<string name="placeTheBishops">बिशप रखें !
+वे नाइट के बगल में जाते हैं।</string>
+	<string name="placeTheQueen">रानी को रखो !
+वह अपने रंग पर जाती है।</string>
+	<string name="placeTheKing">राजा को रखे !
+ठीक उसकी रानी के बगल में।</string>
+	<string name="pawnsFormTheFrontLine">पॉन सामने की रेखा बनाते हैं।
+जारी रखने के लिए कोई भी कदम उठाएं।</string>
 	<string name="boardSetupComplete">Congratulations! You know how to set up the shogi board.</string>
 	<string name="stalemate">Stalemate</string>
 	<string name="theGameIsADraw">The game is a draw</string>
