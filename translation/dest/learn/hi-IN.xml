@@ -147,68 +147,68 @@ shogi के हर खेल के !
 ठीक उसकी रानी के बगल में।</string>
 	<string name="pawnsFormTheFrontLine">पॉन सामने की रेखा बनाते हैं।
 जारी रखने के लिए कोई भी कदम उठाएं।</string>
-	<string name="boardSetupComplete">Congratulations! You know how to set up the shogi board.</string>
-	<string name="stalemate">Stalemate</string>
-	<string name="theGameIsADraw">The game is a draw</string>
-	<string name="stalemateIntro">When a player is not in check and does not have a legal move, it\'s a stalemate. The game is drawn: no one wins, no one loses.</string>
-	<string name="stalemateGoal">To stalemate black:
-- Black cannot move anywhere
-- There is no check.</string>
-	<string name="stalemateComplete">Congratulations! Better be stalemated than checkmated!</string>
-	<string name="advanced">Advanced</string>
-	<string name="pieceValue">Piece value</string>
-	<string name="evaluatePieceStrength">Evaluate piece strength</string>
-	<string name="pieceValueIntro">Pieces with high mobility have a higher value!
-Queen = 9
-Rook = 5
-Bishop = 3
-Knight = 3
-Pawn = 1
-The king is priceless! Losing it means losing the game.</string>
-	<string name="queenOverBishop">Take the piece
-with the highest value!
-Queen &gt; Bishop</string>
-	<string name="takeThePieceWithTheHighestValue">Take the piece
-with the highest value!</string>
-	<string name="pieceValueComplete">Congratulations! You know the value of material!
-Queen = 9
-Rook = 5
-Bishop = 3
-Knight = 3
-Pawn = 1</string>
-	<string name="checkInTwo">Check in two</string>
-	<string name="twoMovesToGiveCheck">Two moves to give a check</string>
-	<string name="checkInTwoIntro">Find the right combination of two moves that checks the opponent\'s king!</string>
-	<string name="checkInTwoGoal">Threaten the opponent\'s king
-in two moves!</string>
-	<string name="checkInTwoComplete">Congratulations! You checked your opponent, forcing them to defend their king!</string>
-	<string name="whatNext">What next?</string>
-	<string name="youKnowHowToPlayChess">You know how to play shogi, congratulations! Do you want to become a stronger player?</string>
-	<string name="register">Register</string>
-	<string name="getAFreeLishogiAccount">Get a free Lishogi account</string>
-	<string name="practice">Practise</string>
-	<string name="learnCommonChessPositions">Learn common shogi positions</string>
-	<string name="puzzles">Puzzles</string>
-	<string name="exerciseYourTacticalSkills">Exercise your tactical skills</string>
-	<string name="shogiResources">Shogi resources</string>
-	<string name="curatedShogiResources">See our curated list of shogi resources</string>
-	<string name="videos">Videos</string>
-	<string name="watchInstructiveChessVideos">Watch instructive shogi videos</string>
-	<string name="playPeople">Play people</string>
-	<string name="opponentsFromAroundTheWorld">Opponents from around the world</string>
-	<string name="playMachine">Play machine</string>
-	<string name="testYourSkillsWithTheComputer">Test your skills with the computer</string>
-	<string name="letsGo">Let\'s go!</string>
-	<string name="stageX">Stage %s</string>
-	<string name="awesome">Awesome!</string>
-	<string name="excellent">Excellent!</string>
-	<string name="greatJob">Great job!</string>
-	<string name="perfect">Perfect!</string>
-	<string name="outstanding">Outstanding!</string>
-	<string name="wayToGo">Way to go!</string>
-	<string name="yesYesYes">Yes, yes, yes!</string>
-	<string name="youreGoodAtThis">You\'re good at this!</string>
-	<string name="nailedIt">Nailed it.</string>
+	<string name="boardSetupComplete">बधाई हो ! आप जानते हैं कि shogi बोर्ड कैसे स्थापित किया जाता है।</string>
+	<string name="stalemate">स्टेलमेट (Stalemate)</string>
+	<string name="theGameIsADraw">खेल ड्रॉ है।</string>
+	<string name="stalemateIntro">जब कोई खिलाड़ी जांच में नहीं होता है और कोई कानूनी कदम नहीं उठाता है, तो यह एक गतिरोध है। खेल तैयार है: कोई भी जीतता है, कोई भी हारता है।</string>
+	<string name="stalemateGoal">काले को स्टेलमेट करने के लिए:
+- काला कहीं नहीं जा सकता
+- कोई जांच नहीं है।</string>
+	<string name="stalemateComplete">बधाई हो ! बेहतर है जाँच की तुलना में गतिरोध! !</string>
+	<string name="advanced">उन्नत</string>
+	<string name="pieceValue">टुकड़ा का मूल्य</string>
+	<string name="evaluatePieceStrength">टुकड़ा ताकत का मूल्यांकन करें</string>
+	<string name="pieceValueIntro">उच्च गतिशीलता वाले मोहरों का उच्च मूल्य है!
+रानी = 9
+रूक = 5
+बिशप = 3
+नाइट = 3
+पॉन = 1
+राजा अनमोल है ! इसे खोने का मतलब है खेल को खोना।</string>
+	<string name="queenOverBishop">टुकड़ा ले लो
+उच्चतम मूल्य के साथ !
+रानी &gt; बिशप</string>
+	<string name="takeThePieceWithTheHighestValue">टुकड़ा ले लो
+उच्चतम मूल्य के साथ !</string>
+	<string name="pieceValueComplete">बधाई हो! आप मोहरों का मूल्य जानते हैं !
+रानी = 9
+रूक = 5
+बिशप = 3
+नाइट = 3
+पॉन = 1</string>
+	<string name="checkInTwo">दो में चेक करें</string>
+	<string name="twoMovesToGiveCheck">दो चाल मैं चेक दे</string>
+	<string name="checkInTwoIntro">प्रतिद्वंदी के राजा को दो सही चाल चला कर शह दे !</string>
+	<string name="checkInTwoGoal">प्रतिद्वंद्वी के राजा को शह दें
+दो चाल में !</string>
+	<string name="checkInTwoComplete">बधाई हो ! आपने अपने प्रतिद्वंद्वी को शह दी, उन्हें अपने राजा का बचाव करने के लिए मजबूर किया !</string>
+	<string name="whatNext">आगे क्या है ?</string>
+	<string name="youKnowHowToPlayChess">आप shogi खेलना सीख चुके है, बधाई हो ! क्या आप एक मजबूत खिलाड़ी बनना चाहते हैं ?</string>
+	<string name="register">रजिस्टर करें</string>
+	<string name="getAFreeLishogiAccount">एक मुफ्त Lishogi खाता प्राप्त करें</string>
+	<string name="practice">अभ्यास</string>
+	<string name="learnCommonChessPositions">सामान्य shogi की स्थिति जानें</string>
+	<string name="puzzles">पहेलियाँ</string>
+	<string name="exerciseYourTacticalSkills">अपने सामरिक कौशल का प्रयोग करें</string>
+	<string name="shogiResources">Shogi संसाधन</string>
+	<string name="curatedShogiResources">Shogi संसाधनों की हमारी क्यूरेटेड सूची देखें</string>
+	<string name="videos">वीडियो (Videos)</string>
+	<string name="watchInstructiveChessVideos">उपकारी shogi वीडियो देखें</string>
+	<string name="playPeople">लोगों के साथ खेलें</string>
+	<string name="opponentsFromAroundTheWorld">दुनिया भर के विरोधियों</string>
+	<string name="playMachine">मशीन के साथ खेलें</string>
+	<string name="testYourSkillsWithTheComputer">कंप्यूटर के साथ अपने कौशल का परीक्षण करें</string>
+	<string name="letsGo">आइए शुरू करते हैं !</string>
+	<string name="stageX">मंच %s</string>
+	<string name="awesome">शानदार !</string>
+	<string name="excellent">बेहतरीन !</string>
+	<string name="greatJob">शानदार काम !</string>
+	<string name="perfect">उत्तम !</string>
+	<string name="outstanding">श्रेष्ठ !</string>
+	<string name="wayToGo">बहुत अच्छा !</string>
+	<string name="yesYesYes">हाँ, हाँ, हाँ !</string>
+	<string name="youreGoodAtThis">आप इस पर अच्छा कर रहे हैं !</string>
+	<string name="nailedIt">बिल्कुल सही किया।</string>
 	<string name="rightOn">सही !</string>
 	<string name="stageXComplete">स्टेज %s पूर्ण</string>
 	<string name="yourScore">आपका स्कोर</string>
