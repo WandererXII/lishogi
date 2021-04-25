@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="playWithAFriend">Play with a friend</string>
-	<string name="playWithTheMachine">Play with the computer</string>
-	<string name="toInviteSomeoneToPlayGiveThisUrl">To invite someone to play, give this URL</string>
-	<string name="gameOver">Game Over</string>
-	<string name="waitingForOpponent">Waiting for opponent</string>
-	<string name="waiting">Waiting</string>
-	<string name="yourTurn">Your turn</string>
-	<string name="aiNameLevelAiLevel">%1$s level %2$s</string>
-	<string name="level">Level</string>
-	<string name="toggleTheChat">Toggle the chat</string>
-	<string name="toggleSound">Toggle sound</string>
-	<string name="chat">Chat</string>
-	<string name="resign">Resign</string>
-	<string name="checkmate">Checkmate</string>
+	<string name="playWithAFriend">मित्र के साथ खेलें</string>
+	<string name="playWithTheMachine">कंप्यूटर के साथ खेलें</string>
+	<string name="toInviteSomeoneToPlayGiveThisUrl">इस खेल में किसी को आमंत्रित करने के लिए उन्हें ये URL दें</string>
+	<string name="gameOver">खेल ख़त्म</string>
+	<string name="waitingForOpponent">आप प्रतिद्वंदी की प्रतीक्षा कर रहे हैं</string>
+	<string name="waiting">प्रतीक्षा कर रहा है</string>
+	<string name="yourTurn">आपकी चाल</string>
+	<string name="aiNameLevelAiLevel">%1$s स्तर %2$s</string>
+	<string name="level">स्तर</string>
+	<string name="toggleTheChat">चैट को टोग्ल करें</string>
+	<string name="toggleSound">आयतन को टोग्ल करें</string>
+	<string name="chat">चैट</string>
+	<string name="resign">हार मान लें</string>
+	<string name="checkmate">शह और मात</string>
 	<string name="stalemate">Stalemate</string>
 	<string name="white">Gote</string>
 	<string name="black">Sente</string>
