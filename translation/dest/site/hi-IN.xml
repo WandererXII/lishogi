@@ -14,8 +14,8 @@
 	<string name="chat">चैट</string>
 	<string name="resign">हार मान लें</string>
 	<string name="checkmate">शह और मात</string>
-	<string name="stalemate">Stalemate</string>
-	<string name="white">Gote</string>
+	<string name="stalemate">स्टेलमेट (Stalemate)</string>
+	<string name="white">गोते (Gote/White)</string>
 	<string name="black">Sente</string>
 	<string name="shitate">Shitate</string>
 	<string name="uwate">Uwate</string>
