@@ -827,8 +827,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="ultraBulletDesc">Những ván cờ cực nhanh: ít hơn 30 giây</string>
 	<string name="bulletDesc">Những ván cờ rất nhanh: ít hơn 3 phút</string>
 	<string name="blitzDesc">Những ván cờ nhanh: 3 đến 8 phút</string>
-	<string name="rapidDesc">Rapid games: 8 to 25 minutes</string>
-	<string name="classicalDesc">Classical games: 25 minutes and more</string>
+	<string name="rapidDesc">Rapid games: 10 to 25 minutes</string>
+	<string name="classicalDesc">Classical games: at least 25 minutes</string>
 	<string name="correspondenceDesc">Correspondence games: one or several days per move</string>
 	<string name="puzzleDesc">Shogi tactics trainer</string>
 	<string name="important">Chú ý</string>
