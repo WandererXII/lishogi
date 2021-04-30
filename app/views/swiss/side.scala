@@ -43,7 +43,31 @@ object side {
         },
         s.looksLikePrize option views.html.tournament.bits.userPrizeDisclaimer,
         teamLink(s.teamId),
-        separator,
+        if (verdicts.relevant)
+          st.section(
+            dataIcon := (if (ctx.isAuth && verdicts.accepted) "E"
+                         else "L"),
+            cls := List(
+              "conditions" -> true,
+              "accepted"   -> (ctx.isAuth && verdicts.accepted),
+              "refused"    -> (ctx.isAuth && !verdicts.accepted)
+            )
+          )(
+            div(
+              verdicts.list.sizeIs < 2 option p(trans.conditionOfEntry()),
+              verdicts.list map { v =>
+                p(
+                  cls := List(
+                    "condition" -> true,
+                    "accepted"  -> (ctx.isAuth && v.verdict.accepted),
+                    "refused"   -> (ctx.isAuth && !v.verdict.accepted)
+                  ),
+                  title := v.verdict.reason.map(_(ctx.lang))
+                )(v.condition.name(s.perfType))
+              }
+            )
+          )
+        else separator,
         absClientDateTime(s.startsAt)
       ),
       chat option views.html.chat.frag
