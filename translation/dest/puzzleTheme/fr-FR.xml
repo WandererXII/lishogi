@@ -66,8 +66,8 @@
   <string name="joiningPawnDescription">A tactic in which a pawn is sacrificially dropped in front of opponent\'s piece.</string>
   <string name="dancingPawns">Dancing pawns</string>
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
-  <string name="edgeAttack">Edge attack</string>
-  <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
+  <string name="edgeAttack">Attaque sur le flanc</string>
+  <string name="edgeAttackDescription">Une tactique qui consiste à attaquer l\'adversaire par la première ou la neuvième colonne.</string>
   <string name="veryLong">Très long problème</string>
   <string name="veryLongDescription">Sept coups ou plus pour gagner.</string>
   <string name="lishogiGames">À partir des parties sur lishogi</string>
