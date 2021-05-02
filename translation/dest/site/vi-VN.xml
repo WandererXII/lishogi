@@ -26,6 +26,7 @@
 	<string name="youPlayTheWhitePieces">Bạn chơi quân trắng</string>
 	<string name="youPlayTheBlackPieces">Bạn chơi quân đen</string>
 	<string name="itsYourTurn">Đến lượt bạn!</string>
+	<string name="cheatDetected">Cheat Detected</string>
 	<string name="kingInTheCenter">Vua ở trung tâm</string>
 	<string name="threeChecks">Ba lần chiếu</string>
 	<string name="raceFinished">Cuộc thi kết thúc.</string>
