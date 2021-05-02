@@ -26,6 +26,7 @@
 	<string name="youPlayTheWhitePieces">आप सफेद (Gote) के रूप में खेलते हैं</string>
 	<string name="youPlayTheBlackPieces">आप काले (सेंटे) के रूप में खेलते हैं</string>
 	<string name="itsYourTurn">यह आपकी बारी है!</string>
+	<string name="cheatDetected">Cheat Detected</string>
 	<string name="kingInTheCenter">राजा बीच में</string>
 	<string name="threeChecks">तीन शह</string>
 	<string name="raceFinished">दौड़ समाप्त</string>
