@@ -26,6 +26,7 @@
 	<string name="youPlayTheWhitePieces">你执白棋</string>
 	<string name="youPlayTheBlackPieces">你执黑棋</string>
 	<string name="itsYourTurn">轮到你了！</string>
+	<string name="cheatDetected">Cheat Detected</string>
 	<string name="kingInTheCenter">国王在中间</string>
 	<string name="threeChecks">三次将军</string>
 	<string name="raceFinished">比赛结束</string>
