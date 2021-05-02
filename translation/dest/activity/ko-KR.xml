@@ -24,7 +24,7 @@
     <item quantity="other">in %1$s correspondence games</item>
   </plurals>
   <plurals name="completedNbGames">
-    <item quantity="other">%s회의 통신대국을 완료했습니다.</item>
+    <item quantity="other">통신대국을 %s회 완료했습니다.</item>
   </plurals>
   <plurals name="followedNbPlayers">
     <item quantity="other">%s명의 사용자들을 팔로우했습니다.</item>
@@ -42,13 +42,13 @@
     <item quantity="other">새 연구를 %s개 작성했습니다.</item>
   </plurals>
   <plurals name="competedInNbTournaments">
-    <item quantity="other">%s 번 토너먼트에 참가함</item>
+    <item quantity="other">토너먼트에 %s번 참가했습니다.</item>
   </plurals>
   <plurals name="rankedInTournament">
-    <item quantity="other">%1$s 위 (상위 %2$s%%)  (%4$s 에서 %3$s 국)</item>
+    <item quantity="other">%4$s에서 플레이한 게임 수 %3$s, 순위 #%1$s위 (상위 %2$s%%)</item>
   </plurals>
-  <string name="signedUp">Lishogi에 회원가입함</string>
+  <string name="signedUp">lishogi.org에 가입했습니다.</string>
   <plurals name="joinedNbTeams">
-    <item quantity="other">%s 팀에 참가함</item>
+    <item quantity="other">%s 팀에 참가했습니다.</item>
   </plurals>
 </resources>
