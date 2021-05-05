@@ -12,8 +12,8 @@
 	<string name="howCanIContributeToLishogi">How can I contribute to Lishogi?</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi is powered by donations from patrons and the efforts of a team of volunteers.</string>
 	<string name="findMoreAndSeeHowHelp">You can find out more about %1$s. If you want to help Lishogi by volunteering your time and skills, there are many %2$s.</string>
-	<string name="beingAPatron">Become a Patron.</string>
-	<string name="otherWaysToContribute">Here are many other ways you could contribute to Lishogi.</string>
+	<string name="beingAPatron">Trở thành một Patron</string>
+	<string name="otherWaysToContribute">Có rất nhiều cách để bạn đóng góp cho Lishogi.</string>
 	<string name="breakdownOfOurCosts">breakdown of our costs</string>
 	<string name="otherWaysToHelp">other ways to help</string>
 	<string name="areThereWebsitesBasedOnLishogi">Are there websites based on Lishogi?</string>
@@ -31,7 +31,7 @@
 	<string name="isCorrespondenceDifferent">Is correspondence different from normal shogi?</string>
 	<string name="youCanUseOpeningBookNoEngine">On Lishogi, the main difference in rules for correspondence shogi is that an opening book is allowed. The use of engines is still prohibited and will result in being flagged for engine assistance. Although ICCF allows engine use in correspondence, Lishogi does not.</string>
 	<string name="gameplay">Gameplay</string>
-	<string name="howBulletBlitzEtcDecided">How are Bullet, Blitz and other time controls decided?</string>
+	<string name="howBulletBlitzEtcDecided">Cờ siêu chớp, cờ chớp và các định giờ khác được quyết định thế nào?</string>
 	<string name="basedOnGameDuration">Lishogi time controls are based on estimated game duration = %1$s
 For instance, the estimated duration of a 5+3|4 game is 60 × 5 + 60 × 3 + 25 × 4 = 580 seconds.</string>
 	<string name="durationFormula">60 × (clock initial time in minutes) + 60 × (clock increment) + 25 × (clock byoyomi)</string>
@@ -64,7 +64,7 @@ It is described in section 3.7 (d) of the %2$s:
 
 See the %3$s on this move for some practice with it.</string>
 	<string name="goodIntroduction">good introduction</string>
-	<string name="officialRulesPDF">official rules (PDF)</string>
+	<string name="officialRulesPDF">luật chính thức (PDF)</string>
 	<string name="lishogiTraining">Lishogi training</string>
 	<string name="threefoldRepetition">Threefold repetition</string>
 	<string name="threefoldRepetitionExplanation">If a position occurs three times, players can claim a draw by %1$s. Lishogi implements the official FIDE rules, as described in Article 9.2 (d) of the %2$s.</string>
