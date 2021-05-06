@@ -10,13 +10,13 @@
 	<string name="boardCoordinates">Tạo độ bàn cờ (A-H, 1-8)</string>
 	<string name="moveListWhilePlaying">Biên bản ván đấu</string>
 	<string name="pgnPieceNotation">Kí hiệu di chuyển</string>
-	<string name="chessPieceSymbol">Shogi piece symbol</string>
-	<string name="pgnLetter">Letter (K, R, B, G, S, N, L)</string>
+	<string name="chessPieceSymbol">Kí hiệu quân cờ Shogi</string>
+	<string name="pgnLetter">Kí hiệu (K, R, B, G, S, N, L)</string>
 	<string name="zenMode">Chế độ Zen</string>
 	<string name="displayBoardResizeHandle">Hiện nút thay đổi kích cỡ</string>
 	<string name="onlyOnInitialPosition">Chỉ ở vị trí khởi tạo</string>
-	<string name="blindfoldChess">Blindfold shogi (invisible pieces)</string>
-	<string name="chessClock">Shogi clock</string>
+	<string name="blindfoldChess">Cờ mù ( quân cờ vô hình )</string>
+	<string name="chessClock">Đồng hồ Shogi</string>
 	<string name="tenthsOfSeconds">Một phần mười giây</string>
 	<string name="whenTimeRemainingLessThanTenSeconds">Khi thời gian còn lại &lt; 10 giây</string>
 	<string name="horizontalGreenProgressBars">Thanh tiến trình ngang màu xanh</string>
