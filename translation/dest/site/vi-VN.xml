@@ -17,8 +17,8 @@
 	<string name="stalemate">Hòa pat</string>
 	<string name="white">Trắng</string>
 	<string name="black">Đen</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
+	<string name="shitate">Người được chấp quân</string>
+	<string name="uwate">Người chấp quân</string>
 	<string name="randomColor">Chọn màu quân ngẫu nhiên</string>
 	<string name="createAGame">Khởi tạo ván cờ</string>
 	<string name="whiteIsVictorious">Bên Trắng thắng</string>
@@ -26,7 +26,7 @@
 	<string name="youPlayTheWhitePieces">Bạn chơi quân trắng</string>
 	<string name="youPlayTheBlackPieces">Bạn chơi quân đen</string>
 	<string name="itsYourTurn">Đến lượt bạn!</string>
-	<string name="cheatDetected">Cheat Detected</string>
+	<string name="cheatDetected">Phát hiện gian lận</string>
 	<string name="kingInTheCenter">Vua ở trung tâm</string>
 	<string name="threeChecks">Ba lần chiếu</string>
 	<string name="raceFinished">Cuộc thi kết thúc.</string>
@@ -36,8 +36,8 @@
 	<string name="joinTheGame">Tham gia ván cờ</string>
 	<string name="whitePlays">Lượt Trắng đi</string>
 	<string name="blackPlays">Lượt Đen đi</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
+	<string name="shitatePlays">Người được chấp quân đi</string>
+	<string name="uwatePlays">Người chấp quân đi</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">Đối thủ bỏ cuộc. Bạn có thể tuyên bố thắng cuộc trong %s giây.</item>
 	</plurals>
@@ -69,7 +69,7 @@
 	<string name="promoteVariation">Thay đổi biến</string>
 	<string name="makeMainLine">Biến chính</string>
 	<string name="deleteFromHere">Xoá từ đây</string>
-	<string name="forceVariation">Force variation</string>
+	<string name="forceVariation">Đổi biến</string>
 	<string name="move">Các nước đi</string>
 	<string name="variantLoss">Bước đi sai lầm dẫn đến chiếu hết</string>
 	<string name="variantWin">Bước đi chiếu hết</string>
@@ -231,7 +231,7 @@
 	<string name="confirmMove">Xác nhận nước đi</string>
 	<string name="play">Chơi</string>
 	<string name="inbox">Hộp thư</string>
-	<string name="streamerManager">Streamer manager</string>
+	<string name="streamerManager">Người quản lý streamer</string>
 	<string name="chatRoom">Phòng chat</string>
 	<string name="loginToChat">Đăng nhập để trò chuyện</string>
 	<string name="youHaveBeenTimedOut">Bạn đã bị tạm dừng trò chuyện.</string>
@@ -242,9 +242,9 @@
 	<string name="recipient">Người nhận</string>
 	<string name="send">Gửi</string>
 	<string name="incrementInSeconds">Thêm giây</string>
-	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
-	<string name="numberOfPeriods">Number of periods</string>
-	<string name="freeOnlineChess">Free Online Shogi</string>
+	<string name="byoyomiInSeconds">Byoyomi theo giây</string>
+	<string name="numberOfPeriods">Số các chu kì</string>
+	<string name="freeOnlineChess">Shogi online và miễn phí</string>
 	<string name="spectators">Khán giả:</string>
 	<plurals name="nbRated">
 		<item quantity="other">%s tính elo</item>
@@ -310,7 +310,7 @@
 	<string name="mustBeInTeam">Phải ở trong đội %s</string>
 	<string name="youAreNotInTeam">Bạn không ở trong đội %s</string>
 	<string name="backToGame">Quay lại ván đấu</string>
-	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
+	<string name="siteDescription">Chơi Shogi online miễn phí. Chơi Shogi với giao diện đẹp. Không cần đăng ký, không quảng cáo, không yêu cầu plugin. Chơi Shogi với máy tính, bạn bè hoặc đối thủ ngẫu nhiên.</string>
 	<string name="xJoinedTeamY">%1$s tham gia đội %2$s</string>
 	<string name="xCreatedTeamY">%1$s tạo đội %2$s</string>
 	<string name="xStartedStreaming">%s bắt đầu phát trực tuyến</string>
@@ -321,7 +321,7 @@
 	<string name="apply">Áp dụng</string>
 	<string name="save">Lưu</string>
 	<string name="leaderboard">Bảng dẫn đầu</string>
-	<string name="selectHandicap">Select handicap</string>
+	<string name="selectHandicap">Lựa chọn chấp quân</string>
 	<string name="pasteTheFenStringHere">Dán chuỗi FEN ở đây</string>
 	<string name="pasteThePgnStringHere">Dán chuỗi PGN ở đây</string>
 	<string name="fromPosition">Từ thế trận</string>
@@ -329,14 +329,13 @@
 	<string name="toStudy">Học chơi</string>
 	<string name="importGame">Nhập ván cờ</string>
 	<string name="importGameExplanation">Khi paste PGN vào đây, bạn replay được ván cờ trên trình duyệt, phân tích bởi máy tính, chat trong game và URL share được.</string>
-	<string name="importGameKifuExplanation">Paste a game kifu to get a browsable replay,
-computer analysis, game chat and shareable URL.</string>
+	<string name="importGameKifuExplanation">Dán link kì phổ để được replay ván cờ trên trình duyệt, phân tích bởi máy tính, chat trong game và URL có thể share.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="other">%s các ván cờ đã nhập</item>
 	</plurals>
-	<string name="thisIsAChessCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAChessCaptcha">Đây là mã CAPTCHA shogi.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Bấm vào bàn cờ để di chuyển, chứng minh bạn là con người</string>
-	<string name="captcha.fail">Please solve the shogi captcha.</string>
+	<string name="captcha.fail">Hãy giải captcha shogi.</string>
 	<string name="notACheckmate">Không phải là một nước chiếu hết</string>
 	<string name="whiteCheckmatesInOneMove">Trắng chiếu chiếu hết trong một nước đi</string>
 	<string name="blackCheckmatesInOneMove">Đen chiếu chiếu hết trong một nước đi</string>
@@ -383,7 +382,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="advancedSettings">Thiết lập cao cấp</string>
 	<string name="safeTournamentName">Hãy chọn tên cho giải đấu.</string>
 	<string name="inappropriateNameWarning">Chỉ một hành động dù không thích hợp, tài khoản của bạn có thể bị khoá.</string>
-	<string name="emptyTournamentName">Leave empty to name the tournament after a notable shogi player.</string>
+	<string name="emptyTournamentName">Hãy để trống tên giải đấu để lấy tên theo một kì thủ shogi nào đó.</string>
 	<string name="recommendNotTouching">Chúng tôi khuyến nghị không nên thay đổi.</string>
 	<string name="fewerPlayers">Nếu bạn thiết lập điều kiện gia nhập, giải của bạn sẽ có ít người tham gia.</string>
 	<string name="showAdvancedSettings">Hiện thiết lập cao cấp</string>
@@ -413,8 +412,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="boardEditor">Chỉnh sửa bàn cờ</string>
 	<string name="setTheBoard">Thiết lập bàn</string>
 	<string name="popularOpenings">Khai cuộc phổ biến</string>
-	<string name="handicaps">Handicaps</string>
-	<string name="handicap">Handicap</string>
+	<string name="handicaps">Chấp quân</string>
+	<string name="handicap">Chấp quân</string>
 	<string name="startPosition">Thế trận ban đầu</string>
 	<string name="clearBoard">Xóa bàn cờ</string>
 	<string name="fillGotesHand">Fill Gote\'s hand</string>
