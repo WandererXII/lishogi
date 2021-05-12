@@ -238,9 +238,9 @@
 	<string name="rematchOfferCanceled">फिर से खेलने का प्रस्ताव रद्द कर दिया गया है</string>
 	<string name="rematchOfferDeclined">फिर से खेलने का प्रस्ताव अस्वीकार कर दिया गया है</string>
 	<string name="cancelRematchOffer">फिर से खेलने का प्रस्ताव रद्द करें</string>
-	<string name="viewRematch">View rematch</string>
-	<string name="confirmMove">Confirm move</string>
-	<string name="play">Play</string>
+	<string name="viewRematch">रीमैच देखें</string>
+	<string name="confirmMove">चाल की पुष्टि करें</string>
+	<string name="play">खेले</string>
 	<string name="inbox">Inbox</string>
 	<string name="streamerManager">Streamer manager</string>
 	<string name="chatRoom">Chat room</string>
