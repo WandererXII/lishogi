@@ -660,7 +660,7 @@
 	<string name="simulHostExtraTime">Extra Bedenkzeit des Ausrichters</string>
 	<string name="numberOfByoyomiPeriods">Anzahl der vorherigen Perioden</string>
 	<string name="hostColorForEachGame">Wählen Sie die Farbe für jeden Wert</string>
-	<string name="onlyMembersOfTeam">Lediglich Nutzer von %s</string>
+	<string name="onlyMembersOfTeam">Nur Teammitglieder</string>
 	<string name="simulDescription">Sim-Beschreibung</string>
 	<string name="anythingTellParticipants">Möchtest du den Teilnehmern etwas mitteilen?</string>
 	<string name="lishogiTournaments">Lishogi-Turniere</string>
