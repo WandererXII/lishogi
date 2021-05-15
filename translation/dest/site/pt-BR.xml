@@ -284,7 +284,7 @@
 		<item quantity="other">Dar %s segundos</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">Esta conta violou os Termos de Serviço do Lishogi</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">Este jogador modificou a sua classificação de maneira artificial</string>
+	<string name="thisPlayerArtificiallyIncreasesTheirRating">Este jogador modificou o seu rating de maneira artificial</string>
 	<string name="openingExplorerAndTablebase">Explorador de abertura &amp; tabela de finais</string>
 	<string name="takeback">Voltar jogada</string>
 	<string name="proposeATakeback">Propor voltar jogada</string>
@@ -298,8 +298,8 @@
 	<string name="tournaments">Torneios</string>
 	<string name="tournamentPoints">Pontos de torneios</string>
 	<plurals name="nbTournamentPoints">
-		<item quantity="one">%s ponto(s) de torneio</item>
-		<item quantity="other">%s ponto(s) de torneio</item>
+		<item quantity="one">%s ponto de torneio</item>
+		<item quantity="other">%s pontos de torneio</item>
 	</plurals>
 	<plurals name="nbStudies">
 		<item quantity="one">%s estudo</item>
@@ -309,7 +309,7 @@
 	<string name="backToTournament">Voltar ao torneio</string>
 	<string name="thematic">Temático</string>
 	<plurals name="moreThanNbRatedGames">
-		<item quantity="one">≥ %s jogos valendo pontos</item>
+		<item quantity="one">≥ %s jogo valendo pontos</item>
 		<item quantity="other">≥ %s jogos valendo pontos</item>
 	</plurals>
 	<plurals name="moreThanNbPerfRatedGames">
@@ -324,16 +324,16 @@
 		<item quantity="one">Você precisa jogar ainda %s partidas valendo pontos</item>
 		<item quantity="other">Você precisa jogar ainda %s partidas valendo pontos</item>
 	</plurals>
-	<string name="yourPerfRatingIsProvisional">Sua pontuação %s é provisória</string>
-	<string name="yourPerfRatingIsTooHigh">Sua %1$s pontuação (%2$s) é muito alta</string>
+	<string name="yourPerfRatingIsProvisional">Seu rating %s é provisório</string>
+	<string name="yourPerfRatingIsTooHigh">Seu %1$s rating (%2$s) é muito alto</string>
 	<string name="yourTopWeeklyPerfRatingIsTooHigh">Seu melhor rating %1$s da semana (%2$s) é muito alto</string>
-	<string name="yourPerfRatingIsTooLow">Sua %1$s pontuação (%2$s) é muito baixa</string>
+	<string name="yourPerfRatingIsTooLow">Seu %1$s rating (%2$s) é muito baixo</string>
 	<string name="ratedMoreThanInPerf">Pontuação ≥ %1$s em %2$s</string>
 	<string name="ratedLessThanInPerf">Pontuação ≤ %1$s em %2$s</string>
 	<string name="mustBeInTeam">Precisa estar na equipe %s</string>
 	<string name="youAreNotInTeam">Você não está na equipe %s</string>
 	<string name="backToGame">Retorne à partida</string>
-	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
+	<string name="siteDescription">Shogi online gratuito. Jogue shogi agora numa interface simples. Sem registro, sem anúncios, sem plugins. Jogue shogi contra o computador, amigos ou adversários aleatórios.</string>
 	<string name="xJoinedTeamY">%1$s juntou-se à equipe %2$s</string>
 	<string name="xCreatedTeamY">%1$s criou a equipe %2$s</string>
 	<string name="xStartedStreaming">%s começou a transmitir</string>
