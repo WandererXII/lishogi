@@ -188,19 +188,19 @@
 	<string name="email">E-mail</string>
 	<string name="passwordReset">Redefinição de senha</string>
 	<string name="forgotPassword">Esqueceu sua senha?</string>
-	<string name="rank">Rank</string>
+	<string name="rank">Classificação</string>
 	<string name="rankX">Classificação: %s</string>
 	<plurals name="rankIsUpdatedEveryNbMinutes">
 		<item quantity="one">O ranking é atualizado a cada %s minutos</item>
 		<item quantity="other">O ranking é atualizado a cada %s minutos</item>
 	</plurals>
 	<plurals name="nbPuzzles">
-		<item quantity="one">%s quebra-cabeça</item>
+		<item quantity="one">%s problema</item>
 		<item quantity="other">%s problemas</item>
 	</plurals>
 	<string name="gamesPlayed">Partidas realizadas</string>
 	<plurals name="nbGamesWithYou">
-		<item quantity="one">%s partidas contra você</item>
+		<item quantity="one">%s partida contra você</item>
 		<item quantity="other">%s partidas contra você</item>
 	</plurals>
 	<string name="cancel">Cancelar</string>
@@ -227,19 +227,19 @@
 	<string name="mode">Modo</string>
 	<string name="casual">Amigável</string>
 	<string name="rated">Valendo pontos</string>
-	<string name="casualTournament">Casual</string>
+	<string name="casualTournament">Amigável</string>
 	<string name="ratedTournament">Ranqueado</string>
 	<string name="thisGameIsRated">Esta partida vale pontos</string>
 	<string name="rematch">Revanche</string>
 	<string name="rematchOfferSent">Oferta de revanche enviada</string>
-	<string name="rematchOfferSentWhite">Brancas oferecem revanche</string>
-	<string name="rematchOfferSentBlack">Pretas oferecem revanche</string>
+	<string name="rematchOfferSentWhite">Gote oferece revanche</string>
+	<string name="rematchOfferSentBlack">Sente oferece revanche</string>
 	<string name="rematchOfferAccepted">Oferta de revanche aceita</string>
 	<string name="rematchOfferCanceled">Oferta de revanche cancelada</string>
 	<string name="rematchOfferDeclined">Oferta de revanche recusada</string>
 	<string name="cancelRematchOffer">Cancelar oferta de revanche</string>
 	<string name="viewRematch">Ver revanche</string>
-	<string name="confirmMove">Confirmar movimento</string>
+	<string name="confirmMove">Confirmar lance</string>
 	<string name="play">Jogar</string>
 	<string name="inbox">Caixa de entrada</string>
 	<string name="streamerManager">Streamer manager</string>
@@ -253,24 +253,24 @@
 	<string name="recipient">Destinatário</string>
 	<string name="send">Enviar</string>
 	<string name="incrementInSeconds">Acréscimo em segundos</string>
-	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
-	<string name="numberOfPeriods">Number of periods</string>
-	<string name="freeOnlineChess">Free Online Shogi</string>
+	<string name="byoyomiInSeconds">Byoyomi em segundos</string>
+	<string name="numberOfPeriods">Número de períodos</string>
+	<string name="freeOnlineChess">Shogi Online Gratuito</string>
 	<string name="spectators">Espectadores:</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s valendo pontos</item>
 		<item quantity="other">%s valendo pontos</item>
 	</plurals>
 	<plurals name="nbWins">
-		<item quantity="one">%s vitórias</item>
+		<item quantity="one">%s vitória</item>
 		<item quantity="other">%s vitórias</item>
 	</plurals>
 	<plurals name="nbLosses">
-		<item quantity="one">%s derrotas</item>
+		<item quantity="one">%s derrota</item>
 		<item quantity="other">%s derrotas</item>
 	</plurals>
 	<plurals name="nbDraws">
-		<item quantity="one">%s empates</item>
+		<item quantity="one">%s empate</item>
 		<item quantity="other">%s empates</item>
 	</plurals>
 	<plurals name="nbPlaying">
@@ -278,12 +278,12 @@
 		<item quantity="other">%s jogando</item>
 	</plurals>
 	<string name="exportGames">Exportar partidas</string>
-	<string name="ratingRange">Classificação entre</string>
+	<string name="ratingRange">Intervalo de rating</string>
 	<plurals name="giveNbSeconds">
-		<item quantity="one">Dar %s segundos</item>
+		<item quantity="one">Dar %s segundo</item>
 		<item quantity="other">Dar %s segundos</item>
 	</plurals>
-	<string name="thisAccountViolatedTos">Esta conta violou os Termos de Serviço da Lishogi</string>
+	<string name="thisAccountViolatedTos">Esta conta violou os Termos de Serviço do Lishogi</string>
 	<string name="thisPlayerArtificiallyIncreasesTheirRating">Este jogador modificou a sua classificação de maneira artificial</string>
 	<string name="openingExplorerAndTablebase">Explorador de abertura &amp; tabela de finais</string>
 	<string name="takeback">Voltar jogada</string>
