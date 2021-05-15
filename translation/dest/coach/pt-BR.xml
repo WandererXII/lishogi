@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="lishogiCoaches">Lishogi coaches</string>
-	<string name="lishogiCoach">Lishogi coach</string>
+	<string name="lishogiCoaches">Treinadores Lishogi</string>
+	<string name="lishogiCoach">Treinador Lishogi</string>
 	<string name="areYouCoach">Are you a great shogi coach with a %s?</string>
 	<string name="becomeACoach">Are you a great shogi coach with experience and do you want to be featured on lishogi?</string>
 	<string name="nmOrFideTitle">title</string>
