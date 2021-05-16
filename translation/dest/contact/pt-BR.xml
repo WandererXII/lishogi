@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="contact">Contato</string>
-  <string name="contactLishogi">Contact Lishogi</string>
+  <string name="contactLishogi">Contate o Lishogi</string>
   <string name="whatCanWeHelpYouWith">Como podemos ajudar?</string>
   <string name="visitThisPage">Visite esta página para resolver o problema</string>
   <string name="iCantLogIn">Eu não consigo entrar</string>
