@@ -22,7 +22,7 @@
 	<string name="teachingExperience">Experiência ensinando</string>
 	<string name="otherExperiences">Outras experiências</string>
 	<string name="bestSkills">Melhores habilidades</string>
-	<string name="teachingMethod">Metologia de ensino</string>
+	<string name="teachingMethod">Metodologia de ensino</string>
 	<string name="publicStudies">Estudos públicos</string>
 	<string name="youtubeVideos">Vídeos do YouTube</string>
 	<plurals name="studentReviews">
@@ -31,6 +31,6 @@
 	</plurals>
 	<string name="thankYouForReview">Obrigado pela sua avaliação!</string>
 	<string name="xWillApproveIt">%s irá aprová-lo em breve, ou um moderador irá dar uma olhada.</string>
-	<string name="reviewCoach">Avalie este treinador</string>
+	<string name="reviewCoach">Avalie este professor</string>
 	<string name="describeExperienceWith">Descreva a sua experiência de treinamento com %s</string>
 </resources>
