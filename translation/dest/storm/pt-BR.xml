@@ -5,7 +5,7 @@
   <string name="newDailyHighscore">Novo recorde diário!</string>
   <string name="newWeeklyHighscore">Novo recorde semanal!</string>
   <string name="newMonthlyHighscore">Novo recorde mensal!</string>
-  <string name="newAllTimeHighscore">Novo recorde de todos os tempos!</string>
+  <string name="newAllTimeHighscore">Novo recorde!</string>
   <string name="previousHighscoreWasX">Recorde anterior era %s</string>
   <string name="playAgain">Jogar novamente</string>
   <plurals name="xRuns">
@@ -13,7 +13,7 @@
     <item quantity="other">%s séries</item>
   </plurals>
   <plurals name="playedNbRunsOfPuzzleStorm">
-    <item quantity="one">Played one run of %2$s</item>
+    <item quantity="one">Jogou uma série de %2$s</item>
     <item quantity="other">Jogou %1$s séries de %2$s</item>
   </plurals>
   <string name="highscoreX">Recorde: %s</string>
@@ -23,7 +23,7 @@
   <string name="combo">Combo</string>
   <string name="time">Tempo</string>
   <string name="timePerMove">Tempo por lance</string>
-  <string name="highestSolved">Highest solved</string>
+  <string name="highestSolved">Problema mais difícil resolvido</string>
   <string name="puzzlesPlayed">Problemas jogados</string>
   <string name="newRun">Nova série (tecla de atalho: espaço)</string>
   <string name="endRun">Finalizar série (tecla de atalho: Enter)</string>
