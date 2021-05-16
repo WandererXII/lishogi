@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="advantage">Advantage</string>
-  <string name="advantageDescription">Seize your chance to get a decisive advantage.</string>
+  <string name="advantage">Vantagem</string>
+  <string name="advantageDescription">Aproveite sua chance de obter uma vantagem decisiva.</string>
   <string name="castling">Castling</string>
-  <string name="castlingDescription">Bring the king to safety.</string>
+  <string name="castlingDescription">Traga o rei à segurança.</string>
   <string name="crushing">Crushing</string>
   <string name="crushingDescription">Spot the opponent blunder to obtain a crushing advantage.</string>
   <string name="equality">Igualdade</string>
@@ -22,7 +22,7 @@
   <string name="forkDescription">A move where the moved piece attacks two opponent pieces at once.</string>
   <string name="hangingPiece">Peça pendurada</string>
   <string name="hangingPieceDescription">A tactic involving an opponent piece being undefended or insufficiently defended and free to capture.</string>
-  <string name="long">Long puzzle</string>
+  <string name="long">Problema longo</string>
   <string name="longDescription">Vitória em cinco lances.</string>
   <string name="mate">Mate</string>
   <string name="mateDescription">Vença o jogo com estilo.</string>
@@ -46,15 +46,15 @@
   <string name="oneMoveDescription">A puzzle that is only one move long.</string>
   <string name="opening">Abertura</string>
   <string name="openingDescription">Uma tática durante a primeira fase do jogo.</string>
-  <string name="pin">Pin</string>
+  <string name="pin">Cravada</string>
   <string name="pinDescription">Uma tática envolvendo cravada, onde uma peça é incapaz de mover-se sem abrir um descoberto em uma peça de maior valor.</string>
-  <string name="quietMove">Quiet move</string>
-  <string name="quietMoveDescription">A move that does not make a check or capture, but does prepare an unavoidable threat for a later move.</string>
+  <string name="quietMove">Lance silencioso</string>
+  <string name="quietMoveDescription">Um lance que não dá xeque nem realiza uma captura, mas prepara uma ameaça inevitável para um lance seguinte.</string>
   <string name="rookEndgame">Rook endgame</string>
   <string name="rookEndgameDescription">An endgame with only rooks and pawns.</string>
-  <string name="sacrifice">Sacrifice</string>
+  <string name="sacrifice">Sacrifício</string>
   <string name="sacrificeDescription">A tactic involving giving up material in the short-term, to gain an advantage again after a forced sequence of moves.</string>
-  <string name="short">Short puzzle</string>
+  <string name="short">Problema curto</string>
   <string name="shortDescription">Three moves to win.</string>
   <string name="healthyMix">Healthy mix</string>
   <string name="healthyMixDescription">A bit of everything. You don\'t know what to expect, so you remain ready for anything! Just like in real games.</string>
@@ -68,10 +68,10 @@
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
   <string name="edgeAttack">Edge attack</string>
   <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
-  <string name="veryLong">Very long puzzle</string>
+  <string name="veryLong">Problema muito longo</string>
   <string name="veryLongDescription">Seven moves or more to win.</string>
   <string name="lishogiGames">From lishogi games</string>
   <string name="lishogiGamesDescription">Puzzles generated from games played on lishogi.</string>
-  <string name="otherSources">From other sources</string>
-  <string name="otherSourcesDescription">Many thanks to everyone who submitted or allowed lishogi to use these puzzles!</string>
+  <string name="otherSources">De outras fontes</string>
+  <string name="otherSourcesDescription">Muito obrigado a todos que enviaram ou deram permissão ao lishogi para usar estes problemas!</string>
 </resources>
