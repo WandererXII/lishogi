@@ -1,19 +1,22 @@
-const crazyCtrl = require("./crazyCtrl");
-const m = require("mithril");
-const oKeys = ["pawn", "lance", "knight", "silver", "gold", "bishop", "rook"];
-const eventNames1 = ["mousedown", "touchmove"];
-const eventNames2 = ["click"];
-const eventNames3 = ["contextmenu"];
+const crazyCtrl = require('./crazyCtrl');
+const m = require('mithril');
+const oKeys = ['pawn', 'lance', 'knight', 'silver', 'gold', 'bishop', 'rook'];
+const eventNames1 = ['mousedown', 'touchmove'];
+const eventNames2 = ['click'];
+const eventNames3 = ['contextmenu'];
 
 function reverse(color) {
-  return color == "white" ? "black" : "white";
+  return color == 'sente' ? 'gote' : 'sente';
 }
 
-exports.renderPocket = function (ctrl, position, hasPocket) {
-  if (!hasPocket) return;
+exports.renderPocket = function (ctrl, position) {
+  if (!ctrl.level.pockets) return;
+  console.log('crazyView renderPocket', ctrl, position);
   const bottomColor = ctrl.level.blueprint.color
-  const color = position == "bottom" ? bottomColor : reverse(bottomColor)
-  const usable = position == "bottom";
+  const color = position == 'bottom' ? bottomColor : reverse(bottomColor)
+  console.log('crazyView color', color);
+  const usable = position == 'bottom';
+  const pocket = ctrl.level.pockets[color];
   return m(
     `div.pocket.is2d.pocket-${position}.pos-${ctrl.level.blueprint.color}` + (usable ? '.usable' : ''),
     {
@@ -39,7 +42,7 @@ exports.renderPocket = function (ctrl, position, hasPocket) {
       }
     },
     oKeys.map((role) => {
-      let nb = /*pocket[role] ||*/ 1;
+      let nb = pocket[role];
       const sp = false; //(role == shadowPiece?.role && color == shadowPiece?.color);
       const selectedSquare = false;//(!!ctrl.selected && ctrl.selected[0] === color && ctrl.selected[1] === role && ctrl.shogiground.state.movable.color == color);
       //if (activeColor) {
@@ -47,18 +50,18 @@ exports.renderPocket = function (ctrl, position, hasPocket) {
         //if (captured && captured.role === role) nb++;
       //}
       return m(
-        "div.pocket-c1",
+        'div.pocket-c1',
         m(
-          "div.pocket-c2",
+          'div.pocket-c2',
           {
-            class: sp ? "shadow-piece" : ""
+            class: sp ? 'shadow-piece' : ''
           },
-          m("piece." + role + "." + color, {
-            class: selectedSquare ? "selected-square": "",
-            "data-role": role,
-            "data-color": color,
-            "data-nb": nb,
-            cursor: "pointer"
+          m('piece.' + role + '.' + color, {
+            class: selectedSquare ? 'selected-square': '',
+            'data-role': role,
+            'data-color': color,
+            'data-nb': nb,
+            cursor: 'pointer'
           })
         )
       );

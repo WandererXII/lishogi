@@ -192,6 +192,7 @@ module.exports = function (blueprint, opts) {
     blueprint: blueprint,
     items: items,
     vm: vm,
+    pockets: blueprint.hasPocket && shogi.pockets(),
     scenario: scenario,
     start: function () {
       sound.levelStart();

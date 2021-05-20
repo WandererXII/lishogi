@@ -78,7 +78,7 @@ module.exports = function (ctrl) {
         renderPromotion(ctrl, level),
         renderInfo(ctrl),
       ]),
-      renderPocket(ctrl, 'top', level.blueprint.hasPocket),
+      renderPocket(ctrl, 'top'),
       m('div.learn__table', [
         m('div.wrap', [
           m('div.title', [
@@ -95,7 +95,7 @@ module.exports = function (ctrl) {
           renderProgress(ctrl.progress),
         ]),
       ]),
-      renderPocket(ctrl, 'bottom', level.blueprint.hasPocket),
+      renderPocket(ctrl, 'bottom'),
     ]
   );
 };
