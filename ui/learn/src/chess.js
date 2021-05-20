@@ -104,6 +104,13 @@ module.exports = function (fen, appleKeys) {
       });
       return { from: orig, to: dest, promotion: prom, captured: capturedPiece };
     },
+    drop: function(role, dest) {
+      shogi.play({
+        role: role,
+        to: compat.parseChessSquare(dest)
+      });
+      return { from: 'a0', to: dest };
+    },
     occupation: function () {
       return shogi.board;
     },

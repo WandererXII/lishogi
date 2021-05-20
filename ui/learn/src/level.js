@@ -75,9 +75,10 @@ module.exports = function (blueprint, opts) {
     return true;
   };
 
-  var sendMove = function (orig, dest, prom) {
+  // if orig is 'a0' then piece was dropped
+  var sendMove = function (orig, dest, prom, role) {
     vm.nbMoves++;
-    var move = shogi.move(orig, dest, prom);
+    var move = orig === 'a0' ? shogi.drop(role, dest) : shogi.move(orig, dest, prom);
     if (move) ground.fen(shogi.fen(), blueprint.color, {});
     else {
       // moving into check
@@ -156,7 +157,8 @@ module.exports = function (blueprint, opts) {
   };
 
   var onDrop = function(piece, dest) {
-    console.log("onDrop", piece, dest);
+    if (!piece || piece.color !== blueprint.color) return;
+    sendMove('a0', dest, undefined, piece.role);
   }
 
   var shogi = makeShogi(blueprint.fen, blueprint.emptyApples ? [] : items.appleKeys());
@@ -174,6 +176,7 @@ module.exports = function (blueprint, opts) {
     autoCastle: blueprint.autoCastle,
     orientation: blueprint.color,
     onMove: onMove,
+    onDrop: onDrop,
     items: {
       render: function (pos, key) {
         return items.withItem(key, itemView);
