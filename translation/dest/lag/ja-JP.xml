@@ -2,9 +2,9 @@
 <resources>
   <string name="isLishogiLagging">Lishogi にラグが発生？</string>
   <string name="measurementInProgressThreeDot">測定中です…</string>
-  <string name="noAndYourNetworkIsGood">いいえ。あなたの接続も良好です。</string>
+  <string name="noAndYourNetworkIsGood">いいえ。接続は良好です。</string>
   <string name="noAndYourNetworkIsBad">いいえ。あなたの接続が悪いようです。</string>
-  <string name="yesItWillBeFixedSoon">そうです。間もなく直します！</string>
+  <string name="yesItWillBeFixedSoon">はい、間もなく直します！</string>
   <string name="andNowTheLongAnswerLagComposedOfTwoValues">では詳しい説明を。対局時の通信ラグは 2 つの関係のない数値で決まります（小さいほどよい）：</string>
   <string name="lishogiServerLatency">Lishogi サーバーの処理時間</string>
   <string name="lishogiServerLatencyExplanation">サーバー上で指し手を処理するのにかかる時間です。これはどの人でも同じで、サーバーの負荷だけで決まります。対局者が増えるほど大きくなりますが、なるべく小さくなるように開発陣は努力しています。10ms を超えることはまれです。</string>
