@@ -155,6 +155,10 @@ module.exports = function (blueprint, opts) {
     if (!promotion.start(orig, dest, sendMove)) sendMove(orig, dest);
   };
 
+  var onDrop = function(piece, dest) {
+    console.log("onDrop", piece, dest);
+  }
+
   var shogi = makeShogi(blueprint.fen, blueprint.emptyApples ? [] : items.appleKeys());
 
   var scenario = makeScenario(blueprint.scenario, {

@@ -31,6 +31,7 @@ module.exports = {
       },
       events: {
         move: opts.onMove,
+        dropNewPiece: opts.onDrop,
       },
       items: opts.items,
       premovable: {
