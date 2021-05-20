@@ -12,7 +12,7 @@
 	<string name="introBasics">基本を学びましょう。</string>
 	<string name="introIntro">あなたの旅はここから始まります。</string>
 	<string name="choosePieceDesign">伝えておくべき大事なことは、駒の区別がつくことですので正しい駒のセットを選びましょう。そうするためには歯車か（右上にある）ユーザー名をクリックし、そこから「駒のセット」をクリックします。</string>
-	<string name="promotionZone">いくつかの駒は相手の陣地 3 列内に入り、または出たときに、成ることを選択して強くすることができます。</string>
+	<string name="promotionZone">相手の陣地の三段目以内に入るか出たときに、成ることを選択して強くできる駒があります。</string>
 	<string name="senteGoesFirst">将棋では最初に指す人を先手と呼び、次に指す人を後手と呼びます。先手は黒で、後手は白で表されることがあります。続けるには先手として好きな手を指してください。</string>
 	<string name="introComplete">これで基本的なことは分かったと思いますが、チュートリアルのこの部分はまだ作成中です。今のところは、個々の駒がどのように動くかを学んでください。</string>
 	<string name="theRook">飛車</string>
