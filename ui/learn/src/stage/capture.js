@@ -56,7 +56,7 @@ module.exports = {
     {
       // silver
       goal: 'takeTheEnemyPiecesAndDontLoseYours',
-      fen: '9/5lt2/4S4/4pp3/9/9/9/9/9 b -',
+      fen: '9/5l+p2/4S4/4pp3/9/9/9/9/9 b -',
       nbMoves: 7,
       captures: 4,
       success: assert.extinct('white'),

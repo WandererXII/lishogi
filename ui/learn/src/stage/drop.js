@@ -16,7 +16,7 @@ module.exports = {
     {
       // lance
       goal: "capturedPiecesCanBeDropped",
-      fen: "9/9/8r/4n4/9/9/4L4/9/9 w - 1",
+      fen: "9/9/8r/4n4/9/9/4L4/9/9 b -",
       nbMoves: 3,
       captures: 2,
       shapes: [arrow("e3e6"), circle("h5"), arrow("h5i7")],
@@ -25,7 +25,7 @@ module.exports = {
     {
       // gold
       goal: "takeTheEnemyPiecesAndDontLoseYours",
-      fen: "9/9/4nr3/4G4/9/9/9/9/9 w - 1",
+      fen: "9/9/4nr3/4G4/9/9/9/9/9 b -",
       nbMoves: 2,
       captures: 2,
       success: assert.extinct("black"),
@@ -33,7 +33,7 @@ module.exports = {
     {
       // bishop
       goal: "takeTheEnemyPiecesAndDontLoseYours",
-      fen: "9/9/9/4p4/9/4B1s2/5g3/9/9 w - 1",
+      fen: "9/9/9/4p4/9/4B1s2/5g3/9/9 b -",
       nbMoves: 4,
       captures: 3,
       success: assert.extinct("black"),
@@ -41,7 +41,7 @@ module.exports = {
     {
       // knight
       goal: "takeTheEnemyPiecesAndDontLoseYours",
-      fen: "9/3spg3/3p1p3/4N4/9/9/9/9/9 w - 1",
+      fen: "9/3spg3/3p1p3/4N4/9/9/9/9/9 b -",
       nbMoves: 5,
       captures: 5,
       success: assert.extinct("black"),
@@ -49,7 +49,7 @@ module.exports = {
     {
       // rook
       goal: "takeTheEnemyPiecesAndDontLoseYours",
-      fen: "9/4r1s2/5n3/3R1b3/9/9/9/9/9 w - 1",
+      fen: "9/4r1s2/5n3/3R1b3/9/9/9/9/9 b -",
       nbMoves: 5,
       captures: 4,
       success: assert.extinct("black"),
@@ -57,7 +57,7 @@ module.exports = {
     {
       // silver
       goal: "takeTheEnemyPiecesAndDontLoseYours",
-      fen: "9/5lt2/4S4/4pp3/9/9/9/9/9 w - 1",
+      fen: "9/5lt2/4S4/4pp3/9/9/9/9/9 b -",
       nbMoves: 7,
       captures: 4,
       success: assert.extinct("black"),
