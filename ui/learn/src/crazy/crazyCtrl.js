@@ -1,3 +1,4 @@
+var m = require('mithril');
 var util = require('../og/main').util;
 var drag = require('../og/main').drag;
 var ground = require('../ground');
@@ -32,11 +33,11 @@ exports.selectToDrop = function(ctrl, color, e) {
   if (!role || !color || number === "0") return;
   var dropMode = ground.instance.data.dropmode,
     dropPiece = ground.instance.data.dropmode.piece;
-  if (!dropMode.active || (dropPiece && dropPiece.role)) {
+  if (!dropMode.active || (dropPiece && (dropPiece.role !== role))) {
     setDropMode(ground.instance.data, { color: color, role: role });
     // ctrl.dropmodeActive = true;
   } else {
-    cancelDropMode(data);
+    cancelDropMode(ground.instance.data);
     // ctrl.dropmodeActive = false;
   }
   e.stopPropagation();

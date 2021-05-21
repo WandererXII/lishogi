@@ -152,15 +152,16 @@ function dropNewPiece(data, orig, dest) {
         predrop: false,
       })
     );
+    data.dropmode.active = false; // not sure i should be doing this here...
   } else if (canPredrop(data, orig, dest)) {
     setPredrop(data, data.pieces[orig].role, dest);
+    data.dropmode.active = false; // not sure i should be doing this here...
   } else {
     unsetPremove(data);
     unsetPredrop(data);
   }
   delete data.pieces[orig];
   setSelected(data, null);
-  data.dropmode.active = false; // not sure i should be doing this here...
 }
 
 function selectSquare(data, key, force) {

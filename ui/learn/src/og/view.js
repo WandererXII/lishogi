@@ -151,7 +151,6 @@ function renderSquares(ctrl, ctx) {
 }
 
 function renderContent(ctrl) {
-  // console.log("view renderContent", ctrl);
   var d = ctrl.data;
   if (!d.bounds) return;
   var ctx = {
@@ -203,6 +202,7 @@ function startDragOrDraw(d) {
       if (d.dropmode.active && !squareOccupied(d, e)) drop.drop(d, e);
       else {
         drop.cancelDropMode(d);
+        m.redraw()
         drag.start(d, e);
       }
     }
@@ -218,7 +218,6 @@ function dragOrDraw(d, withDrag, withDraw) {
 
 function squareOccupied(d, e) {
   var position = util.eventPosition(e);
-  console.log("squareOccupied position", position);
   var bounds = d.bounds();
   var dest = position && board.getKeyAtDomPos(d, position, bounds);
   if (dest && d.pieces[dest]) return true;

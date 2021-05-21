@@ -100,10 +100,11 @@ function processDrag(data) {
     var cur = data.draggable.current;
     if (cur.orig) {
       // cancel animations while dragging
-      if (data.animation.current.start && data.animation.current.anims[cur.orig]) data.animation.current = {};
+      if (data.animation.current.start && data.animation.current.anims[cur.orig]) {
+        data.animation.current = {};
+      }
       // if moving piece is gone, cancel
       if (hashPiece(data.pieces[cur.orig]) !== cur.piece) {
-        console.log("moving piece is gone", hashPiece(data.pieces[cur.orig]), cur.piece)
         cancel(data); 
       }
       else {
@@ -125,13 +126,12 @@ function move(data, e) {
 }
 
 function end(data, e) {
-  console.log('drag end', data, e);
+  // console.log('drag end', data, e);
   var cur = data.draggable.current;
   var orig = cur ? cur.orig : null;
   if (!orig) return;
   // comparing with the origin target is an easy way to test that the end event
   // has the same touch origin
-  console.log('e.type originTarget cur', e.type, originTarget, cur);
   if (e.type === 'touchend' && originTarget !== e.target && !cur.newPiece) {
     data.draggable.current = {};
     return;
@@ -154,7 +154,7 @@ function end(data, e) {
 }
 
 function cancel(data) {
-  console.log("drag cancel", data);
+  // console.log("drag cancel", data);
   if (data.draggable.current.orig) {
     data.draggable.current = {};
     board.selectSquare(data, null);
