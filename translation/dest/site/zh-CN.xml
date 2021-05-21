@@ -629,7 +629,7 @@
 	<string name="hostColorForEachGame">主持所执方</string>
 	<string name="onlyMembersOfTeam">仅限团队队员</string>
 	<string name="simulDescription">车轮战描述</string>
-	<string name="anythingTellParticipants">您想要告诉参与者的任何东西？</string>
+	<string name="anythingTellParticipants">您有什么想告诉参赛者吗?</string>
 	<string name="lishogiTournaments">Lishogi 锦标赛</string>
 	<string name="tournamentFAQ">锦标赛常见问题</string>
 	<string name="tournamentOfficial">官方比赛</string>
