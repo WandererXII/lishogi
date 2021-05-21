@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="advantage">優勢</string>
+  <string name="advantage">優位</string>
   <string name="advantageDescription">絶対的な優勢を築いてください。</string>
   <string name="castling">キャスリング</string>
   <string name="castlingDescription">玉を逃げてください。</string>
@@ -11,7 +11,7 @@
   <string name="defensiveMove">守り</string>
   <string name="defensiveMoveDescription">駒損などの不利を避けるために必要な正確な手または手順。</string>
   <string name="deflection">ディフレクション（そらし）</string>
-  <string name="deflectionDescription">相手の駒をある役割（重要なマスを守るなど）からそらす手。</string>
+  <string name="deflectionDescription">相手の駒を別の役割（重要なマスを守るなど）からそらす手。</string>
   <string name="discoveredAttack">ディスカバード・アタック</string>
   <string name="discoveredAttackDescription">桂馬等の安い駒を動かして、飛車等の大駒の効きを防ぎます。</string>
   <string name="doubleCheck">両王手</string>
@@ -35,13 +35,13 @@
   <string name="mateIn4">4 手詰</string>
   <string name="mateIn4Description">4 手でチェックメイトにします。</string>
   <string name="mateIn5">5 手詰</string>
-  <string name="mateIn5Description">5 手で詰ませます。</string>
+  <string name="mateIn5Description">5 手で詰みにします。</string>
   <string name="mateIn7">7 手詰</string>
   <string name="mateIn7Description">7 手で詰みにします。</string>
   <string name="mateIn9">９手詰、もしくはそれ以上</string>
   <string name="mateIn9Description">長い詰めの手順を考える。</string>
   <string name="middlegame">中盤</string>
-  <string name="middlegameDescription">中盤のタクティクス。</string>
+  <string name="middlegameDescription">ゲームの中盤でのタクティクス。</string>
   <string name="oneMove">1 手問題</string>
   <string name="oneMoveDescription">1 手だけ動かす問題。</string>
   <string name="opening">序盤</string>
