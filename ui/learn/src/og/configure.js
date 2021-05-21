@@ -23,6 +23,9 @@ module.exports = function (data, config) {
   // forget about the last dropped piece
   data.movable.dropped = [];
 
+  // forget about selected pocket piece
+  data.dropmode.active = false;
+
   // fix move/premove dests
   if (data.selected) board.setSelected(data, data.selected);
 
