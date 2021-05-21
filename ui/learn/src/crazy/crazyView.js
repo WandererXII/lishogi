@@ -1,4 +1,5 @@
 const crazyCtrl = require('./crazyCtrl');
+const ground = require('../ground');
 const m = require('mithril');
 const oKeys = ['pawn', 'lance', 'knight', 'silver', 'gold', 'bishop', 'rook'];
 const eventNames1 = ['mousedown', 'touchmove'];
@@ -17,6 +18,7 @@ exports.renderPocket = function (ctrl, position) {
   console.log('crazyView color', color);
   const usable = position == 'bottom';
   const pocket = ctrl.level.pockets[color];
+  const data = ground.instance.data;
   return m(
     `div.pocket.is2d.pocket-${position}.pos-${ctrl.level.blueprint.color}` + (usable ? '.usable' : ''),
     {
@@ -44,11 +46,11 @@ exports.renderPocket = function (ctrl, position) {
     oKeys.map((role) => {
       let nb = pocket[role];
       const sp = false; //(role == shadowPiece?.role && color == shadowPiece?.color);
-      const selectedSquare = false;//(!!ctrl.selected && ctrl.selected[0] === color && ctrl.selected[1] === role && ctrl.shogiground.state.movable.color == color);
-      //if (activeColor) {
-        //if (dropped === role) nb--;
-        //if (captured && captured.role === role) nb++;
-      //}
+      const selectedSquare = data.dropmode.active &&
+        data.dropmode.piece &&
+        data.dropmode.piece.color === color &&
+        data.dropmode.piece.role === role &&
+        data.dropmode.piece.color === data.movable.color;
       return m(
         'div.pocket-c1',
         m(

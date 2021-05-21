@@ -46,6 +46,12 @@ module.exports = function (cfg) {
        *}*/
       current: {},
     },
+    dropmode: {
+      active: false,
+      showDropDests: true,
+      piece: {}, // { color: "sente", role: "rook" }
+      dropDests: [] // ["a1, "a2", "a3", ...]
+    },
     movable: {
       free: true, // all moves are valid - board editor
       color: 'both', // color that can move. sente | gote | both | null

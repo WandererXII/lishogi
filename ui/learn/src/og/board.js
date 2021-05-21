@@ -160,6 +160,7 @@ function dropNewPiece(data, orig, dest) {
   }
   delete data.pieces[orig];
   setSelected(data, null);
+  data.dropmode.active = false; // not sure i should be doing this here...
 }
 
 function selectSquare(data, key, force) {

@@ -1,9 +1,11 @@
 var drag = require('./drag');
+var drop = require('./drop');
 var draw = require('./draw');
 var util = require('./util');
 var svg = require('./svg');
 var makeCoords = require('./coords');
 var m = require('mithril');
+var board = require('./board');
 
 var pieceTag = 'piece';
 var squareTag = 'square';
@@ -197,7 +199,13 @@ function startDragOrDraw(d) {
       d.draggable.current = {};
       d.selected = null;
     } else if ((e.shiftKey || util.isRightButton(e)) && d.drawable.enabled) draw.start(d, e);
-    else drag.start(d, e);
+    else {
+      if (d.dropmode.active && !squareOccupied(d, e)) drop.drop(d, e);
+      else {
+        drop.cancelDropMode(d);
+        drag.start(d, e);
+      }
+    }
   };
 }
 
@@ -206,6 +214,15 @@ function dragOrDraw(d, withDrag, withDraw) {
     if ((e.shiftKey || util.isRightButton(e)) && d.drawable.enabled) withDraw(d, e);
     else if (!d.viewOnly) withDrag(d, e);
   };
+}
+
+function squareOccupied(d, e) {
+  var position = util.eventPosition(e);
+  console.log("squareOccupied position", position);
+  var bounds = d.bounds();
+  var dest = position && board.getKeyAtDomPos(d, position, bounds);
+  if (dest && d.pieces[dest]) return true;
+  return false;
 }
 
 function bindEvents(ctrl, el, context) {
