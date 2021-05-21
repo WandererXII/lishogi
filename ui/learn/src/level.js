@@ -70,7 +70,9 @@ module.exports = function (blueprint, opts) {
     if (!move) return;
     vm.failed = true;
     ground.stop();
-    ground.showCapture(move);
+    ground.showCapture(move, function(){
+      shogi.move(move.orig, move.dest);
+    }, m);
     sound.failure();
     return true;
   };

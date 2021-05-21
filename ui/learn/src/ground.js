@@ -117,7 +117,7 @@ module.exports = {
   get: function (key) {
     return cg.data.pieces[key];
   },
-  showCapture: function (move) {
+  showCapture: function (move, shogiopsMove, m) {
     raf(function () {
       var $square = $('#learn-app piece[data-key=' + move.orig + ']');
       $square.addClass('wriggle');
@@ -125,6 +125,10 @@ module.exports = {
         $square.removeClass('wriggle');
         cg.setShapes([]);
         cg.apiMove(move.orig, move.dest);
+        if (shogiopsMove && m) {
+          shogiopsMove();
+          m.redraw();
+        }
       }, 600);
     });
   },

@@ -12,10 +12,10 @@ function reverse(color) {
 
 exports.renderPocket = function (ctrl, position) {
   if (!ctrl.level.pockets) return;
-  console.log('crazyView renderPocket', ctrl, position);
+  // console.log('crazyView renderPocket', ctrl, position);
   const bottomColor = ctrl.level.blueprint.color
   const color = position == 'bottom' ? bottomColor : reverse(bottomColor)
-  console.log('crazyView color', color);
+  // console.log('crazyView color', color);
   const usable = position == 'bottom';
   const pocket = ctrl.level.pockets[color];
   const data = ground.instance.data;
