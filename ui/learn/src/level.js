@@ -30,9 +30,7 @@ module.exports = function (blueprint, opts) {
         vm.lastStep = false;
         vm.completed = true;
         sound.levelEnd();
-        // console.log("vm.score inc: from", vm.score) 
         vm.score += scoring.getLevelBonus(blueprint, vm.nbMoves);
-        // console.log("vm.score inc: to", vm.score) 
         ground.stop();
         m.redraw();
         if (!blueprint.nextButton) timeouts.setTimeout(opts.onComplete, 1200);
@@ -94,32 +92,23 @@ module.exports = function (blueprint, opts) {
       captured = false;
     items.withItem(move.to, function (item) {
       if (item === 'apple') {
-        // console.log("vm.score inc: from", vm.score);
         vm.score += scoring.apple;
-        // console.log("vm.score inc: to", vm.score);
         items.remove(move.to);
         took = true;
       }
     });
-    // console.log("level.js sendMove move", move);
     if (!took && move.captured && blueprint.pointsForCapture) {
       if (blueprint.showPieceValues) {
-        // console.log("vm.score inc: from", vm.score) 
         vm.score += scoring.pieceValue(move.captured);
-        // console.log("vm.score inc: to", vm.score) 
       }
       else {
-        // console.log("vm.score inc: from", vm.score) 
         vm.score += scoring.capture;
-        // console.log("vm.score inc: to", vm.score) 
       }
       took = true;
     }
     ground.check(shogi);
     if (scenario.player(move.from + move.to + (move.promotion || ""))) {
-        // console.log("vm.score inc: from", vm.score) 
         vm.score += scoring.scenario;
-        // console.log("vm.score inc: to", vm.score) 
       inScenario = true;
     } else {
       captured = detectCapture();
@@ -141,6 +130,7 @@ module.exports = function (blueprint, opts) {
       if (!inScenario) {
         shogi.color(blueprint.color);
         ground.color(blueprint.color, makeShogiDests());
+        ground.data().dropmode.dropDests = shogi.getDropDests();
       }
     }
     m.redraw();
@@ -202,5 +192,9 @@ module.exports = function (blueprint, opts) {
     },
     onComplete: opts.onComplete,
     complete: complete,
+    dropmode: {
+      showDropDests: true, //opts.something
+      dropDests: shogi.getDropDests(),
+    }
   };
 };

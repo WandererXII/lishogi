@@ -111,6 +111,9 @@ module.exports = function (fen, appleKeys) {
       });
       return { from: 'a0', to: dest };
     },
+    getDropDests: function () {
+      return compat.shogigroundDropDests(shogi);
+    },
     occupation: function () {
       return shogi.board;
     },
