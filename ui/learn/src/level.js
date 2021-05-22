@@ -116,7 +116,10 @@ module.exports = function (blueprint, opts) {
       vm.failed = vm.failed || captured || detectFailure();
     }
     if (!vm.failed && detectSuccess()) complete();
-    if (vm.willComplete) return;
+    if (vm.willComplete) {
+      ground.data().drawable.piece = undefined;
+      return;
+    }
     if (took) sound.take();
     else if (inScenario) sound.take();
     else sound.move();
@@ -132,6 +135,10 @@ module.exports = function (blueprint, opts) {
         shogi.color(blueprint.color);
         ground.color(blueprint.color, makeShogiDests());
         ground.data().dropmode.dropDests = shogi.getDropDests();
+        if (blueprint.highlightTakenPieceInPocket) {
+          ground.data().drawable.piece = move.captured;
+          ground.setShapes(blueprint.highlightTakenPieceInPocket)
+        }
       }
     }
     m.redraw();

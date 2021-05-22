@@ -19,8 +19,9 @@ module.exports = {
       fen: '9/9/8r/4n4/9/9/4L4/9/9 b -',
       nbMoves: 3,
       captures: 2,
-      shapes: [arrow('e3e6'), circle('h5'), arrow('h5i7')],
+      shapes: [arrow('e3e6')],
       success: assert.extinct('black'),
+      highlightTakenPieceInPocket: [circle('h5'), arrow('h5i7')],
     },
     {
       // gold

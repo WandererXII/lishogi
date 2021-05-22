@@ -12,13 +12,12 @@ function reverse(color) {
 
 exports.renderPocket = function (ctrl, position) {
   if (!ctrl.level.pockets) return;
-  // console.log('crazyView renderPocket', ctrl, position);
+  const data = ground.instance.data;
+  const shadowPiece = data.drawable.piece;
   const bottomColor = ctrl.level.blueprint.color
   const color = position == 'bottom' ? bottomColor : reverse(bottomColor)
-  // console.log('crazyView color', color);
   const usable = position == 'bottom';
   const pocket = ctrl.level.pockets[color];
-  const data = ground.instance.data;
   return m(
     `div.pocket.is2d.pocket-${position}.pos-${ctrl.level.blueprint.color}` + (usable ? '.usable' : ''),
     {
@@ -45,7 +44,7 @@ exports.renderPocket = function (ctrl, position) {
     },
     oKeys.map((role) => {
       let nb = pocket[role];
-      const sp = false; //(role == shadowPiece?.role && color == shadowPiece?.color);
+      const sp = shadowPiece && (role === shadowPiece.role && reverse(color) == shadowPiece.color);
       const selectedSquare = data.dropmode.active &&
         data.dropmode.piece &&
         data.dropmode.piece.color === color &&
