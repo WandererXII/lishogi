@@ -69,11 +69,13 @@ function start(data, e) {
 function dragNewPiece(data, piece, e) {
   var key = 'a0';
   data.pieces[key] = piece;
-  // s.dom.redraw();
+  board.setSelected(data, null);
   var position = util.eventPosition(e);
   var previouslySelected = data.selected;
   var bounds = data.bounds();
   var squareBounds = computeSquareBounds(data, bounds, key);
+
+  if (!previouslySelected && (data.drawable.eraseOnClick || !piece || piece.color !== data.turnColor)) draw.clear(data);
 
   data.draggable.current = {
     previouslySelected: previouslySelected,

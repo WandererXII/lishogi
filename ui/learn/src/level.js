@@ -135,7 +135,7 @@ module.exports = function (blueprint, opts) {
         shogi.color(blueprint.color);
         ground.color(blueprint.color, makeShogiDests());
         ground.data().dropmode.dropDests = shogi.getDropDests();
-        if (blueprint.highlightTakenPieceInPocket) {
+        if (blueprint.highlightTakenPieceInPocket && move.captured) {
           ground.data().drawable.piece = move.captured;
           ground.setShapes(blueprint.highlightTakenPieceInPocket)
         }
