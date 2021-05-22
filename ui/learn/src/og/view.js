@@ -119,8 +119,9 @@ function renderSquares(ctrl, ctx) {
         if (k === over) addSquare(squares, k, 'premove-dest drag-over');
         else if (d.movable.showDests) addSquare(squares, k, 'premove-dest' + (d.pieces[k] ? ' oc' : ''));
       });
-  } else if (d.dropmode.active || (d.draggable.current && d.draggable.current.orig === 'a0')) {
-    var piece = d.dropmode.active ? d.dropmode.piece : d.draggable.current.piece;
+  }
+  if (d.dropmode.active || (d.draggable.current && d.draggable.current.orig === 'a0')) {
+    var piece = d.dropmode.active ? d.dropmode.piece : d.draggable.current.pieceObj;
     if (piece && d.dropmode.showDropDests) {
       var dests = d.dropmode.dropDests && d.dropmode.dropDests.get(piece.role);
       if (dests)
