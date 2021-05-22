@@ -66,7 +66,7 @@ function start(data, e) {
 }
 
 function dragNewPiece(data, piece, e) {
-  var key = "a0";
+  var key = 'a0';
   data.pieces[key] = piece;
   // s.dom.redraw();
   var position = util.eventPosition(e);
@@ -154,7 +154,7 @@ function end(data, e) {
 }
 
 function cancel(data) {
-  // console.log("drag cancel", data);
+  // console.log('drag cancel', data);
   if (data.draggable.current.orig) {
     data.draggable.current = {};
     board.selectSquare(data, null);

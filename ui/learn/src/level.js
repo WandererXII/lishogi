@@ -76,6 +76,7 @@ module.exports = function (blueprint, opts) {
   };
 
   // if orig is 'a0' then piece was dropped
+  // to future self or anyone who wants it: the sendMove function is where you will implement feature for opponent's movement.
   var sendMove = function (orig, dest, prom, role) {
     vm.nbMoves++;
     var move = orig === 'a0' ? shogi.drop(role, dest) : shogi.move(orig, dest, prom);
@@ -107,7 +108,7 @@ module.exports = function (blueprint, opts) {
       took = true;
     }
     ground.check(shogi);
-    if (scenario.player(move.from + move.to + (move.promotion || ""))) {
+    if (scenario.player(move.from + move.to + (move.promotion || ''))) {
         vm.score += scoring.scenario;
       inScenario = true;
     } else {

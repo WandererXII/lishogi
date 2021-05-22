@@ -15,7 +15,7 @@ function pieceClass(p) {
 }
 
 function renderPiece(d, key, ctx) {
-  // console.log("view renderPiece", d, key, ctx);
+  // console.log('view renderPiece', d, key, ctx);
   var attrs = {
     key: 'p' + key,
     style: {},
