@@ -209,6 +209,7 @@ function canDrop(data, orig, dest) {
     piece &&
     dest &&
     (orig === dest || !data.pieces[dest]) &&
+    data.dropmode.dropDests.get(piece.role).includes(dest) &&
     (data.movable.color === 'both' || (data.movable.color === piece.color && data.turnColor === piece.color))
   );
 }
