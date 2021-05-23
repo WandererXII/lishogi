@@ -59,7 +59,7 @@
   <string name="healthyMix">混合</string>
   <string name="healthyMixDescription">いろいろな問題を少しずつ。どんな問題が来るかわからないので油断しないで！実戦と同じです。</string>
   <string name="tsume">詰将棋</string>
-  <string name="tsumeDescription">王手を続けて相手の玉を詰ませましょう。</string>
+  <string name="tsumeDescription">あなたの目標は相手を詰ますことです。全ての指し手は王手である必要があります。</string>
   <string name="strikingPawn">叩きの歩</string>
   <string name="strikingPawnDescription">相手の駒の前に歩を捨てる手筋。</string>
   <string name="joiningPawn">継ぎ歩</string>
