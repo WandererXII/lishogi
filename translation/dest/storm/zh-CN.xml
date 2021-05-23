@@ -17,7 +17,7 @@
   <string name="highscoreX">最高分： %s</string>
   <string name="score">得分</string>
   <string name="moves">步数</string>
-  <string name="accuracy">精确度</string>
+  <string name="accuracy">正确率</string>
   <string name="combo">连击</string>
   <string name="time">时间</string>
   <string name="timePerMove">平均着法时间</string>
@@ -27,6 +27,6 @@
   <string name="endRun">结束本组(快捷键：回车)</string>
   <string name="highscores">高分榜</string>
   <string name="viewBestRuns">查看最佳战绩</string>
-  <string name="bestRunOfDay">每日最佳战绩</string>
+  <string name="bestRunOfDay">今天最佳战绩</string>
   <string name="runs">组数</string>
 </resources>
