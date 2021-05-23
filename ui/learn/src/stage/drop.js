@@ -3,7 +3,7 @@ var assert = require('../assert');
 var arrow = util.arrow,
   circle = util.circle;
 
-var imgUrl = util.assetUrl + 'images/learn/winged-sword.svg';
+var imgUrl = util.assetUrl + 'images/learn/drop.svg';
 
 module.exports = {
   key: 'drop',
