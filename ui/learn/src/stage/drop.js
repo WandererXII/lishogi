@@ -21,7 +21,7 @@ module.exports = {
       captures: 2,
       shapes: [arrow('e3e6')],
       success: assert.extinct('black'),
-      highlightTakenPieceInPocket: [circle('h5'), arrow('h5i7')],
+      highlightTakenPieceInPocket: [circle('h5'), arrow('h5i7', 'green')],
     },
     {
       // knight

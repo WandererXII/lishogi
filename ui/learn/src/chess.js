@@ -127,12 +127,12 @@ module.exports = function (fen, appleKeys) {
       return findCaptures().find(function (capture) {
         const clone = shogi.clone();
         clone.play({
-          from: capture.from,
-          to: capture.to,
+          from: compat.parseChessSquare(capture.orig),
+          to: compat.parseChessSquare(capture.dest),
           promotion: capture.promotion,
         });
         for (const [_, d] of clone.allDests()) {
-          if (d.has(capture.to)) return false;
+          if (d.has(compat.parseChessSquare(capture.dest))) return false;
         }
         return true;
       });
