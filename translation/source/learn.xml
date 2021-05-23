@@ -11,6 +11,7 @@
 	<string name="theIntroduction">Introduction</string>
 	<string name="introBasics">Let's learn some basics.</string>
 	<string name="introIntro">Your journey begins here.</string>
+    <string name="clickHereAfterYouveChosen">Click here after you've chosen the piece design you like.</string>
 	<string name="choosePieceDesign">It's important that you can tell your pieces apart, so make sure you choose the right piece set.
 To do that click on the cog wheel or your username(top right corner) and then click on 'piece set'.</string>
 	<string name="promotionZone">When some of your pieces reach or leave the first three ranks in your opponent's territory you can choose to promote your piece and make it stronger.</string>
@@ -95,6 +96,7 @@ And don't lose yours.</string>
 	<string name="reuseCapturedPieces">Reuse captured pieces!</string>
 	<string name="dropIntro">Once again, capture all the opponent's pieces, without losing yours!</string>
 	<string name="capturedPiecesCanBeDropped">Captured pieces can be dropped back on the board on your turn!</string>
+    <string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
 	<string name="protection">Protection</string>
 	<string name="keepYourPiecesSafe">Keep your pieces safe</string>
 	<string name="protectionIntro">Identify the pieces your opponent attacks, and defend them!</string>

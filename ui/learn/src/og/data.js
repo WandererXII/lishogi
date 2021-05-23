@@ -50,7 +50,7 @@ module.exports = function (cfg) {
       active: false,
       showDropDests: true,
       piece: {}, // { color: 'sente', role: 'rook' }
-      dropDests: [] // ['a1, 'a2', 'a3', ...]
+      dropDests: undefined, // ['a1, 'a2', 'a3', ...]
     },
     movable: {
       free: true, // all moves are valid - board editor

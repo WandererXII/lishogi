@@ -190,6 +190,10 @@ module.exports = function (blueprint, opts) {
     events: blueprint.events,
     lastMoves: blueprint.lastMoves,
     notation: document.getElementsByClassName('notation-0')[0] ? 0 : 1,
+    dropmode: {
+      showDropDests: true, //opts.something
+      dropDests: shogi.getDropDests(),
+    },
   });
 
   return {
@@ -204,9 +208,5 @@ module.exports = function (blueprint, opts) {
     },
     onComplete: opts.onComplete,
     complete: complete,
-    dropmode: {
-      showDropDests: true, //opts.something
-      dropDests: shogi.getDropDests(),
-    }
   };
 };

@@ -123,6 +123,7 @@ function renderSquares(ctrl, ctx) {
   if (d.dropmode.active || (d.draggable.current && d.draggable.current.orig === 'a0')) {
     var piece = d.dropmode.active ? d.dropmode.piece : d.draggable.current.pieceObj;
     if (piece && d.dropmode.showDropDests) {
+      console.log(d.dropmode.dropDests);
       var dests = d.dropmode.dropDests && d.dropmode.dropDests.get(piece.role);
       if (dests)
         for (var k of dests) {

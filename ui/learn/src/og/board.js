@@ -205,11 +205,12 @@ function canMove(data, orig, dest) {
 
 function canDrop(data, orig, dest) {
   var piece = data.pieces[orig];
+  var dropDest = data.dropmode.dropDests && data.dropmode.dropDests.get(piece.role);
   return (
     piece &&
     dest &&
     (orig === dest || !data.pieces[dest]) &&
-    data.dropmode.dropDests.get(piece.role).includes(dest) &&
+    dropDest && dropDest.includes(dest) &&
     (data.movable.color === 'both' || (data.movable.color === piece.color && data.turnColor === piece.color))
   );
 }
