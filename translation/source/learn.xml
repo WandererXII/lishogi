@@ -106,7 +106,7 @@ Escape the threat!</string>
 	<string name="noEscape">There is no escape,
 but you can defend!</string>
     <string name="makeSureAllSafe">Make sure all your pieces are safe!</string>
-    <string name="dontForgetYouCanDrop">Don’t forget you can drop pieces to defend!</string>
+    <string name="dontForgetYouCanDropToDefend">Don’t forget you can drop pieces to defend!</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">Don't let them take
 any undefended piece!</string>
 	<string name="combat">Combat</string>

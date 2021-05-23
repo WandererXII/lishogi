@@ -62,15 +62,15 @@ module.exports = {
       fen: '9/9/9/9/3n5/9/2PPS4/3R5/9 b - 1',
     },
     {
-      goal: 'dontForgetYouCanDrop',
+      goal: 'dontForgetYouCanDropToDefend',
       fen: '9/9/4S4/9/4r4/9/4G4/9/9 b L 1',
     },
     {
-      goal: 'dontForgetYouCanDrop',
+      goal: 'dontForgetYouCanDropToDefend',
       fen: '9/9/9/9/9/3B5/7S1/9/3G3r1 b NLP 1',
     },
     {
-      goal: 'dontForgetYouCanDrop',
+      goal: 'dontLetThemTakeAnyUndefendedPiece',
       fen: '9/9/9/9/9/9/4P4/4G4/2S2+r3 b NLP 1',
     },
     {

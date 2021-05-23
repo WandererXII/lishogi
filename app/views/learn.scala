@@ -139,6 +139,8 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
       protectionComplete,
       escape,
       noEscape,
+      makeSureAllSafe,
+      dontForgetYouCanDropToDefend,
       dontLetThemTakeAnyUndefendedPiece,
       combat,
       captureAndDefendPieces,
