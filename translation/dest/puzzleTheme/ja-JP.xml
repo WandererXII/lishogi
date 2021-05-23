@@ -21,7 +21,7 @@
   <string name="fork">両取り</string>
   <string name="forkDescription">動いた駒が相手の 2 つの駒を同時に攻撃する手。</string>
   <string name="hangingPiece">浮き駒</string>
-  <string name="hangingPieceDescription">浮き駒もしくは効きの数が足りていない駒を取る問題。</string>
+  <string name="hangingPieceDescription">守りのない駒、または守り駒の足りない駒をただで取る問題。</string>
   <string name="long">長手数問題</string>
   <string name="longDescription">5 手で勝ちになります。</string>
   <string name="mate">詰み</string>
@@ -61,7 +61,7 @@
   <string name="tsume">詰将棋</string>
   <string name="tsumeDescription">あなたの目標は相手を詰ますことです。全ての指し手は王手である必要があります。</string>
   <string name="strikingPawn">叩きの歩</string>
-  <string name="strikingPawnDescription">相手の駒の前に歩を捨てる手筋。</string>
+  <string name="strikingPawnDescription">相手の駒の前に歩を捨て、攻撃する手筋</string>
   <string name="joiningPawn">継ぎ歩</string>
   <string name="joiningPawnDescription">歩を犠牲にして他の駒の効きに吊り上げる手筋。</string>
   <string name="dancingPawns">ダンスの歩</string>
