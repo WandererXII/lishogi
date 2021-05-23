@@ -122,6 +122,7 @@ in one move!</string>
 	<string name="outOfCheck">Out of check</string>
 	<string name="defendYourKing">Defend your king</string>
 	<string name="outOfCheckIntro">You are in check! You must escape or block the attack.</string>
+    <string name="ifYourKingIsAttacked">If your king is attacked, you must deal with the attack.</string>
 	<string name="escapeWithTheKing">Escape with the king!</string>
 	<string name="theKingCannotEscapeButBlock">The king cannot escape,
 but you can block the attack!</string>
@@ -129,6 +130,8 @@ but you can block the attack!</string>
 by taking the attacking piece.</string>
 	<string name="thisKnightIsCheckingThroughYourDefenses">This knight is checking
 through your defences!</string>
+    <string name="getOutOfCheck">Get out of check!</string>
+    <string name="watchOutForYourOpponentsReply">Watch out for your opponent's reply!</string>
 	<string name="escapeOrBlock">Escape with the king
 or block the attack!</string>
 	<string name="outOfCheckComplete">Congratulations! Your king can never be taken, make sure you can defend against a check!</string>

@@ -137,11 +137,21 @@ module.exports = function (fen, appleKeys) {
         return true;
       });
     },
-    isCheck: function () {
-      const clone = shogi.clone();
-      clone.turn = util.opposite(clone.turn);
-      if (shogi.isCheck() || clone.isCheck()) return true;
-      return false;
+    // handles c = undefined, sente or gote
+    isCheck: function (c) {
+      let isCurrCheck = false,
+        isCloneCheck = false;
+      if (shogi.turn !== util.opposite(c))
+        isCurrCheck = shogi.isCheck();
+      if (shogi.turn !== c) {
+        const clone = shogi.clone();
+        clone.turn = util.opposite(clone.turn);
+
+        console.log(fenUtil.makeFen(clone.toSetup()));
+        isCloneCheck = clone.isCheck();
+      }
+      console.log(isCurrCheck, isCloneCheck);
+      return isCurrCheck || isCloneCheck;
     },
     checks: function () {
       const clone = shogi.clone();

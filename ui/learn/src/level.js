@@ -80,7 +80,7 @@ module.exports = function (blueprint, opts) {
   var sendMove = function (orig, dest, prom, role) {
     vm.nbMoves++;
     var move = orig === 'a0' ? shogi.drop(role, dest) : shogi.move(orig, dest, prom);
-    if (move) ground.fen(shogi.fen(), blueprint.color, {});
+    if (!move || !shogi.isCheck(blueprint.color)) ground.fen(shogi.fen(), blueprint.color, {});
     else {
       // moving into check
       vm.failed = true;

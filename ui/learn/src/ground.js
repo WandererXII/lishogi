@@ -137,8 +137,7 @@ module.exports = {
     });
   },
   showCheckmate: function (shogi) {
-    // didin't test this
-    const kingSquare = shogi.board.kingOf(opposite(shogi.color()));
+    const kingSquare = shogi.instance.board.kingOf(opposite(shogi.color()));
     const allDests = shogi.instance.allDests({
       king: undefined,
       blockers: squareSet.SquareSet.empty(),
@@ -148,7 +147,7 @@ module.exports = {
     });
     var attacksOnKing = [];
     for (let m of allDests.keys()) {
-      if (allDests[m].has(kingSquare)) attacksOnKing.push(m);
+      if (allDests.get(m).has(kingSquare)) attacksOnKing.push(m);
     }
     const shapes = attacksOnKing.map(function (m) {
       return util.arrow(makeChessSquare(m) + makeChessSquare(kingSquare), 'red');

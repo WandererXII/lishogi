@@ -27,7 +27,7 @@ var categs = [
       require('./protection'),
       //require('./combat'),
       require('./check1'),
-      //require('./outOfCheck.js'),
+      require('./outOfCheck.js'),
       //require('./checkmate1'),
     ],
   },
