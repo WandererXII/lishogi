@@ -31,7 +31,7 @@ module.exports = function (fen, appleKeys) {
   }
 
   function findKing(c) {
-    return compat.makeChessSquare(shogi.board.kingOf(util.opposite(c)));
+    return compat.makeChessSquare(shogi.board.kingOf(c));
   }
 
   var findCaptures = function () {
@@ -146,12 +146,13 @@ module.exports = function (fen, appleKeys) {
     checks: function () {
       const clone = shogi.clone();
       clone.turn = util.opposite(clone.turn);
-      const colorInCheck = shogi.isCheck() ? shogi.turn : clone.isCheck() ? clone.turn : undefined;
+      const colorInCheck = shogi.isCheck() ? shogi.turn : (clone.isCheck() ? clone.turn : undefined);
+      const checkingColor = util.opposite(colorInCheck);
       if (colorInCheck === undefined) return null;
-      const kingPos = this.kingKey(util.opposite(colorInCheck));
+      const kingPos = this.kingKey(colorInCheck);
 
-      setColor(colorInCheck);
-      const allDests = shogi.allDests();
+      clone.turn = checkingColor;
+      const allDests = clone.allDests();
       const origOfCheck = [];
       for (const k of allDests.keys()) {
         if (allDests.get(k).has(compat.parseChessSquare(kingPos))) origOfCheck.push(k);
@@ -162,7 +163,6 @@ module.exports = function (fen, appleKeys) {
           dest: kingPos,
         };
       });
-      setColor(util.opposite(colorInCheck));
       return checks;
     },
     playRandomMove: function () {

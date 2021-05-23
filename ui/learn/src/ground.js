@@ -91,7 +91,7 @@ module.exports = {
   check: function (shogi) {
     var checks = shogi.checks();
     cg.set({
-      check: checks ? checks[0].dest : null,
+      check: checks && checks[0] ? checks[0].dest : null,
     });
     if (checks)
       cg.setShapes(
