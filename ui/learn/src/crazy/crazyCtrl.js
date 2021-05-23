@@ -8,14 +8,11 @@ var setDropMode = ogDrop.setDropMode,
   cancelDropMode = ogDrop.cancelDropMode;
 
 exports.drag = function(ctrl, color, e) {
-  console.log('drag');
-  console.log('ground.instance.data', ground.instance.data);
   if (e.button !== undefined && e.button !== 0) return; // only touch or left click
   if (ground.instance.data.movable.color !== color) return;
   var el = e.target,
     role = el.getAttribute('data-role'),
     number = el.getAttribute('data-nb');
-  console.log(el, role, number);
   if (!role || !color || number === '0') return;
   e.stopPropagation();
   e.preventDefault();
@@ -23,8 +20,6 @@ exports.drag = function(ctrl, color, e) {
 };
 
 exports.selectToDrop = function(ctrl, color, e) {
-  console.log('selectToDrop');
-  console.log('crazyCtrl.js selectToDrop data', ground.instance.data);
   if (e.button !== undefined && e.button !== 0) return; // only touch or left click
   if (ground.instance.data.movable.color !== color) return;
   var el = e.target,
@@ -45,5 +40,14 @@ exports.selectToDrop = function(ctrl, color, e) {
 };
 
 exports.shadowDrop = function(ctrl, color, e) {
-  console.log('shadowDrop');
+  var el = e.target;
+  var role = el.getAttribute('data-role') ||
+    (el.firstElementChild &&
+      el.firstElementChild.getAttribute('data-role'));
+  var curPiece = ground.instance.data.drawable.piece;
+  if (curPiece && curPiece.role == role && curPiece.color == color) ground.instance.data.drawable.piece = undefined;
+  else ground.instance.data.drawable.piece = { role: role, color: color };
+  e.stopPropagation();
+  e.preventDefault();
+  m.redraw();
 };

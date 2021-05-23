@@ -44,7 +44,7 @@ exports.renderPocket = function (ctrl, position) {
     },
     oKeys.map((role) => {
       let nb = pocket[role];
-      const sp = shadowPiece && (role === shadowPiece.role && reverse(color) == shadowPiece.color);
+      const sp = shadowPiece && (role === shadowPiece.role && color == shadowPiece.color);
       const selectedSquare = data.dropmode.active &&
         data.dropmode.piece &&
         data.dropmode.piece.color === color &&

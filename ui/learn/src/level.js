@@ -135,8 +135,12 @@ module.exports = function (blueprint, opts) {
         shogi.color(blueprint.color);
         ground.color(blueprint.color, makeShogiDests());
         ground.data().dropmode.dropDests = shogi.getDropDests();
+        // special case for drop.js level 1
         if (blueprint.highlightTakenPieceInPocket && move.captured) {
-          ground.data().drawable.piece = move.captured;
+          ground.data().drawable.piece = {
+            role: move.captured.role,
+            color: move.captured.color === 'gote' ? 'sente' : 'gote'
+          };
           ground.setShapes(blueprint.highlightTakenPieceInPocket)
         }
       }
