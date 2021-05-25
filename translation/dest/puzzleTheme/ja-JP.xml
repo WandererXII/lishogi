@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="advantage">優位</string>
-  <string name="advantageDescription">絶対的な優勢を築いてください。</string>
+  <string name="advantageDescription">決定的な優位を得てください。</string>
   <string name="castling">キャスリング</string>
   <string name="castlingDescription">玉を逃げてください。</string>
   <string name="crushing">圧倒</string>
@@ -45,7 +45,7 @@
   <string name="oneMove">1 手問題</string>
   <string name="oneMoveDescription">1 手だけ動かす問題。</string>
   <string name="opening">序盤</string>
-  <string name="openingDescription">序盤のタクティクス。</string>
+  <string name="openingDescription">ゲームの序盤でのタクティクス。</string>
   <string name="pin">ピン</string>
   <string name="pinDescription">ピンを含む問題。ラインピースに狙われた駒が動くと、より価値の高い駒が取られてしまう状況。</string>
   <string name="quietMove">静かな手</string>
