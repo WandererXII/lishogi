@@ -29,8 +29,8 @@
 	<string name="weAreSmallTeam">Somos uma pequena equipe, então o seu apoio faz uma grande diferença!</string>
 	<string name="celebratedPatrons">Os famosos Patronos que tornam o Lishogi possível</string>
 	<string name="whereMoneyGoes">Para onde vai o dinheiro?</string>
-	<string name="serversAndDeveloper">First of all, powerful servers.
-Then we pay a full-time developer: %s, the founder of Lishogi.</string>
+	<string name="serversAndDeveloper">Primeiro de tudo, servidores poderosos.
+Em seguida, pagamos um desenvolvedor em tempo integral: %s, o fundador do Lishogi.</string>
 	<string name="costBreakdown">Veja a análise detalhada do custo</string>
 	<string name="officialNonProfit">O Lishogi é uma organização sem fins lucrativos?</string>
 	<string name="actOfCreation">Sim, aqui está o ato de criação (em francês)</string>
