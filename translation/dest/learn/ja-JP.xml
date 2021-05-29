@@ -5,11 +5,11 @@
 	<string name="menu">メニュー</string>
 	<string name="progressX">進捗: %s</string>
 	<string name="resetMyProgress">学習履歴をリセット</string>
-	<string name="youWillLoseAllYourProgress">すべての進捗数字がゼロになります！</string>
+	<string name="youWillLoseAllYourProgress">すべての学習履歴がリセットされます！</string>
 	<string name="play">ここ！</string>
 	<string name="shogiPieces">将棋の駒</string>
 	<string name="theIntroduction">はじめに</string>
-	<string name="introBasics">基本を学びましょう。</string>
+	<string name="introBasics">基本を学びましょう</string>
 	<string name="introIntro">あなたの旅はここから始まります。</string>
 	<string name="choosePieceDesign">伝えておくべき大事なことは、駒の区別がつくことですので正しい駒のセットを選びましょう。そうするためには歯車か（右上にある）ユーザー名をクリックし、そこから「駒のセット」をクリックします。</string>
 	<string name="promotionZone">いくつかの駒は相手の陣地 3 列内に入り、または出たときに、成ることを選択して強くすることができます。</string>
