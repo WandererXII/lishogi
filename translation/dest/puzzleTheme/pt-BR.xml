@@ -59,19 +59,19 @@
   <string name="healthyMix">Healthy mix</string>
   <string name="healthyMixDescription">Um pouco de tudo. Você nunca sabe o que vai encontrar, então esteja pronto para tudo! Assim como nos jogos de verdade.</string>
   <string name="tsume">Tsume</string>
-  <string name="tsumeDescription">Your goal is to checkmate your opponent. Every move you make has to be a check.</string>
+  <string name="tsumeDescription">Seu objetivo é dar xeque-mate no seu oponente. Todos os seus lances devem ser xeque.</string>
   <string name="strikingPawn">Striking pawn</string>
   <string name="strikingPawnDescription">A tactitc involving dropping a pawn in front of opponent\'s piece and attacking it.</string>
   <string name="joiningPawn">Joining pawn</string>
   <string name="joiningPawnDescription">A tactic in which a pawn is sacrificially dropped in front of opponent\'s piece.</string>
   <string name="dancingPawns">Dancing pawns</string>
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
-  <string name="edgeAttack">Edge attack</string>
-  <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
+  <string name="edgeAttack">Ataque lateral</string>
+  <string name="edgeAttackDescription">Uma tática que envolve atacar a primeira ou a nona coluna do tabuleiro.</string>
   <string name="veryLong">Problema muito longo</string>
-  <string name="veryLongDescription">Seven moves or more to win.</string>
-  <string name="lishogiGames">From lishogi games</string>
-  <string name="lishogiGamesDescription">Puzzles generated from games played on lishogi.</string>
+  <string name="veryLongDescription">Vitória em sete lances ou mais.</string>
+  <string name="lishogiGames">De partidas no lishogi</string>
+  <string name="lishogiGamesDescription">Problemas gerados a partir de partidas jogadas no lishogi.</string>
   <string name="otherSources">De outras fontes</string>
   <string name="otherSourcesDescription">Muito obrigado a todos que enviaram ou deram permissão ao lishogi para usar estes problemas!</string>
 </resources>
