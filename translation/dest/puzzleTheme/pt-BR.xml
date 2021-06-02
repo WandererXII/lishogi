@@ -2,7 +2,7 @@
 <resources>
   <string name="advantage">Vantagem</string>
   <string name="advantageDescription">Aproveite sua chance de obter uma vantagem decisiva.</string>
-  <string name="castling">Castling</string>
+  <string name="castling">Castelos</string>
   <string name="castlingDescription">Traga o rei à segurança.</string>
   <string name="crushing">Crushing</string>
   <string name="crushingDescription">Spot the opponent blunder to obtain a crushing advantage.</string>
