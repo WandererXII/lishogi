@@ -546,7 +546,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="newPasswordAgain">Nova senha (novamente)</string>
 	<string name="clockInitialTime">Tempo de relógio</string>
 	<string name="clockIncrement">Incremento do relógio</string>
-	<string name="clockByoyomi">Clock byoyomi</string>
+	<string name="clockByoyomi">Byoyomi</string>
 	<string name="privacy">Privacidade</string>
 	<string name="letOtherPlayersFollowYou">Permitir que outros jogadores sigam você</string>
 	<string name="letOtherPlayersChallengeYou">Permitir que outros jogadores desafiem você</string>
@@ -635,7 +635,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="webmasters">Webmasters</string>
 	<string name="about">Sobre</string>
 	<string name="aboutX">Sobre %s</string>
-	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s é um servidor de shogi gratuito (%2$s), livre, sem anúncios e de código aberto.</string>
 	<string name="really">realmente</string>
 	<string name="contribute">Contribuir</string>
 	<string name="termsOfService">Condições de uso</string>
