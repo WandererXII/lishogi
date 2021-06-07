@@ -47,14 +47,7 @@ object side {
                     div(
                       a(href := routes.Importer.importGame(), title := trans.importGame.txt())("IMPORT"),
                       separator,
-                      if (game.variant.exotic)
-                        bits.variantLink(
-                          game.variant,
-                          (game.variant.name).toUpperCase,
-                          initialFen = initialFen
-                        )
-                      else
-                        game.variant.name.toUpperCase
+                      bits.variantLink(game.variant, initialFen = initialFen)
                     )
                   else
                     frag(
@@ -62,16 +55,7 @@ object side {
                       separator,
                       (if (game.rated) trans.rated else trans.casual).txt(),
                       separator,
-                      if (game.variant.exotic)
-                        bits.variantLink(
-                          game.variant,
-                          (game.variant.name).toUpperCase,
-                          initialFen = initialFen
-                        )
-                      else
-                        game.perfType.map { pt =>
-                          span(title := pt.desc)(pt.trans)
-                        }
+                      bits.variantLink(game.variant, game.perfType, initialFen)
                     )
                 ),
                 game.pgnImport.flatMap(_.date).map(frag(_)) getOrElse {
