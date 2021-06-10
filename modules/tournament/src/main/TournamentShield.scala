@@ -169,9 +169,9 @@ object TournamentShield {
       SuperBlitz,
       Blitz,
       Rapid,
-      Classical,
-      HyperBullet,
-      UltraBullet
+      Classical
+      //HyperBullet,
+      //UltraBullet
     )
 
     def of(t: Tournament): Option[Category] = all.find(_ matches t)
