@@ -68,6 +68,8 @@ case class Game(
   def firstPlayer     = player(firstColor)
   def secondPlayer    = player(!firstColor)
 
+  lazy val naturalOrientation = firstColor
+
   def turnColor = shogi.color
 
   def turnOf(p: Player): Boolean = p == player
