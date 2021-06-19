@@ -64,7 +64,7 @@ final class Store(val coll: Coll, cacheApi: lila.memo.CacheApi)(implicit
         $doc(
           "_id"  -> sessionId,
           "user" -> userId,
-          "ip"   -> HTTPRequest.ipAddress(req),
+          "ip"   -> HTTPRequest.lastRemoteAddress(req),
           "ua"   -> HTTPRequest.userAgent(req).|("?"),
           "date" -> DateTime.now,
           "up"   -> up,
