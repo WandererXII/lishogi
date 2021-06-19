@@ -194,7 +194,7 @@ final class JsonView(
 
     private def makeBranch(puzzle: Puzzle): Option[tree.Branch] = {
       import shogi.format._
-      val init     = shogi.Game(none, puzzle.fenAfterInitialMove.value.some).withTurns(puzzle.initialPly + 1)
+      val init     = shogi.Game(none, puzzle.fenAfterInitialMove.value.some).withPlies(puzzle.initialPly + 1)
       val solution = puzzle.gameId.fold(puzzle.line.list)(_ => puzzle.line.tail)
       val (_, branchList) = solution.foldLeft[(shogi.Game, List[tree.Branch])]((init, Nil)) {
         case ((prev, branches), uci) =>
@@ -203,7 +203,7 @@ final class JsonView(
               .fold(err => sys error s"puzzle ${puzzle.id} $err", identity)
           val branch = tree.Branch(
             id = UciCharPair(move.fold(l => l.toUci, r => r.toUci)),
-            ply = game.turns,
+            ply = game.plies,
             move = Uci.WithSan(move.fold(l => l.toUci, r => r.toUci), game.pgnMoves.last),
             fen = shogi.format.Forsyth >> game,
             check = game.situation.check,

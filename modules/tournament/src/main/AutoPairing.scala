@@ -34,8 +34,8 @@ final class AutoPairing(
           val turns = g.player.fold(0, 1)
           g.copy(
             clock = clock.some,
-            turns = turns,
-            startedAtTurn = turns
+            plies = turns,
+            startedAtPly = turns
           )
         },
         sentePlayer = makePlayer(Sente, player1),

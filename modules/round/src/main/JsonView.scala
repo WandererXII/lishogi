@@ -227,7 +227,7 @@ final class JsonView(
             "opening"    -> game.opening,
             "initialFen" -> initialFen.fold(shogi.format.Forsyth.initial)(_.value),
             "fen"        -> fen,
-            "turns"      -> game.turns,
+            "plies"      -> game.plies,
             "player"     -> game.turnColor.name,
             "status"     -> game.status
           )
@@ -254,7 +254,7 @@ final class JsonView(
           .add("highlight" -> pref.highlight)
           .add("destination" -> (pref.destination && !pref.isBlindfold))
           .add("dropDestination" -> (pref.dropDestination && !pref.isBlindfold)),
-        "path"         -> pov.game.turns,
+        "path"         -> pov.game.plies,
         "userAnalysis" -> true
       )
       .add("evalPut" -> me.??(evalCache.shouldPut))

@@ -59,7 +59,7 @@ object TreeBuilder {
           a.ply -> a
         }.toMap)
         val root = Root(
-          ply = init.turns,
+          ply = init.plies,
           fen = fen,
           check = init.situation.check,
           opening = openingOf(FEN(fen)),
@@ -70,15 +70,15 @@ object TreeBuilder {
         def makeBranch(index: Int, g: shogi.Game, m: Uci.WithSan) = {
           val fen    = Forsyth >> g
           val info   = infos lift (index - 1)
-          val advice = advices get g.turns
+          val advice = advices get g.plies
           val branch = Branch(
             id = UciCharPair(m.uci),
-            ply = g.turns,
+            ply = g.plies,
             move = m,
             fen = fen,
             check = g.situation.check,
             opening = openingOf(FEN(fen)),
-            clock = withClocks flatMap (_ lift (g.turns - init.turns - 1)),
+            clock = withClocks flatMap (_ lift (g.plies/2 - init.plies/2 - 1)),
             crazyData = g.situation.board.crazyData,
             eval = info map makeEval,
             glyphs = Glyphs.fromList(advice.map(_.judgment.glyph).toList),
@@ -92,7 +92,7 @@ object TreeBuilder {
               }
             }
           )
-          advices.get(g.turns + 1).flatMap { adv =>
+          advices.get(g.plies + 1).flatMap { adv =>
             games.lift(index - 1).map { case (fromGame, _) =>
               val fromFen = FEN(Forsyth >> fromGame)
               withAnalysisChild(id, branch, variant, fromFen, openingOf)(adv.info)
@@ -120,7 +120,7 @@ object TreeBuilder {
       val fen = Forsyth >> g
       Branch(
         id = UciCharPair(m.uci),
-        ply = g.turns,
+        ply = g.plies,
         move = m,
         fen = fen,
         check = g.situation.check,

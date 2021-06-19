@@ -138,7 +138,7 @@ object PgnDump {
 
   def toTurn(first: Node, second: Option[Node], variations: Variations)(implicit flags: WithFlags) =
     shogiPgn.Turn(
-      number = first.fullMoveNumber,
+      number = first.turnNumber,
       sente = node2move(first, variations).some,
       gote = second map { node2move(_, first.children.variations) }
     )

@@ -44,7 +44,7 @@ case class Game(
   def board     = shogi.situation.board
   def history   = shogi.situation.board.history
   def variant   = shogi.situation.board.variant
-  def turns     = shogi.turns
+  def plies     = shogi.plies
   def clock     = shogi.clock
   def pgnMoves  = shogi.pgnMoves
 
@@ -82,7 +82,8 @@ case class Game(
   def turnOf(c: Color): Boolean  = c == turnColor
   def turnOf(u: User): Boolean   = player(u) ?? turnOf
 
-  def playedTurns = turns - shogi.startedAtTurn
+  def playedPlies = plies - shogi.startedAtPly
+  def playedTurns = playedPlies / 2
 
   def flagged = (status == Status.Outoftime).option(turnColor)
 
@@ -227,7 +228,7 @@ case class Game(
 
     val state = Event.State(
       color = game.situation.color,
-      turns = game.turns,
+      plies = game.plies,
       status = (status != updated.status) option updated.status,
       winner = game.situation.winner,
       senteOffersDraw = sentePlayer.isOfferingDraw,
@@ -285,7 +286,7 @@ case class Game(
           case Some(ch) =>
             start.withClockAndHistory(
               c.nextPeriod(turnColor),
-              ch.enteredNewPeriod(turnColor, shogi.fullMoveNumber)
+              ch.enteredNewPeriod(turnColor, shogi.turnNumber)
             )
           case _ => start.withClock(c.nextPeriod(turnColor))
         }
@@ -351,14 +352,14 @@ case class Game(
 
   def playerCanOfferDraw(color: Color) = false
   //started && playable &&
-  //  turns >= 8 &&
+  //  plies >= 8 &&
   //  shogi.situation.impasse &&
   //  !player(color).isOfferingDraw &&
   //  !opponent(color).isAi &&
   //  !playerHasOfferedDraw(color)
 
   def playerHasOfferedDraw(color: Color) =
-    player(color).lastDrawOffer ?? (_ >= turns - 20)
+    player(color).lastDrawOffer ?? (_ >= plies - 20)
 
   def playerCouldRematch =
     finishedOrAborted &&
@@ -562,10 +563,10 @@ case class Game(
       case _ => none
     }
 
-  def onePlayerHasMoved    = playedTurns > 0
-  def bothPlayersHaveMoved = playedTurns > 1
+  def onePlayerHasMoved    = playedPlies > 0
+  def bothPlayersHaveMoved = playedPlies > 1
 
-  def startColor = Color(shogi.startedAtTurn % 2 == 0)
+  def startColor = Color(shogi.startedAtPly % 2 == 0)
 
   def playerMoves(color: Color): Int =
     if (color == startColor) (playedTurns + 1) / 2
@@ -629,9 +630,9 @@ case class Game(
   def pgnImport   = metadata.pgnImport
   def isPgnImport = pgnImport.isDefined
 
-  def resetTurns =
+  def resetPlies =
     copy(
-      shogi = shogi.copy(turns = 0, startedAtTurn = 0)
+      shogi = shogi.copy(plies = 0, startedAtPly = 0)
     )
 
   lazy val opening: Option[FullOpening.AtPly] =
@@ -789,8 +790,8 @@ object Game {
     val oldPgn            = "pg"
     val huffmanPgn        = "hp"
     val status            = "s"
-    val turns             = "t"
-    val startedAtTurn     = "st"
+    val plies             = "p"
+    val startedAtPly      = "sp"
     val clock             = "c"
     val positionHashes    = "ph"
     val checkCount        = "cc"

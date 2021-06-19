@@ -32,11 +32,13 @@ object Forsyth {
 
   def <<(rawSource: String): Option[Situation] = <<@(Standard, rawSource)
 
+  // Move number (starting at 1) plus a counter for pairs of moves
+  // Chess "turn" (move pair) is only a useful concept for PGN import
+  // and PGN export, to accommodate a move list starting with "...".
+  // SituationPlus is a glorified Int which impedes code maintenance.
   case class SituationPlus(situation: Situation, moveNumber: Int) {
 
-    def turns = fullMoveNumber * 2 - (if (situation.color.sente) 2 else 1)
-
-    def fullMoveNumber = 1 + (moveNumber - 1) / 2
+    def turnNumber = 1 + moveNumber / 2
 
   }
 
@@ -132,7 +134,7 @@ object Forsyth {
 
   def >>(parsed: SituationPlus): String =
     parsed match {
-      case SituationPlus(situation, _) => >>(Game(situation, turns = parsed.turns))
+      case SituationPlus(situation, _) => >>(Game(situation, plies = parsed.moveNumber))
     }
 
   def >>(game: Game): String =

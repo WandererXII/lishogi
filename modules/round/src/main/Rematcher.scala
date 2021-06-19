@@ -121,8 +121,8 @@ final private class Rematcher(
           clock = pov.game.clock map { c =>
             Clock(c.config)
           },
-          turns = situation ?? (_.turns),
-          startedAtTurn = situation ?? (_.turns)
+          plies = situation ?? (_.moveNumber),
+          startedAtPly = situation ?? (_.moveNumber)
         ),
         sentePlayer = if (isHandicap) gPlayer else sPlayer,
         gotePlayer = if (isHandicap) sPlayer else gPlayer,

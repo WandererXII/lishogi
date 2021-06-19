@@ -76,7 +76,7 @@ final private class ChapterMaker(
     } match {
       case Some(sit) =>
         Node.Root(
-          ply = sit.turns,
+          ply = sit.moveNumber,
           fen = FEN(Forsyth.>>(sit)),
           check = sit.situation.check,
           clock = none,

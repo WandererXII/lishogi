@@ -21,8 +21,8 @@ final class JsonView(rematches: Rematches) {
         "initialFen"    -> initialFen.|(FEN(shogi.format.Forsyth.initial)),
         "fen"           -> (Forsyth >> game.shogi),
         "player"        -> game.turnColor,
-        "turns"         -> game.turns,
-        "startedAtTurn" -> game.shogi.startedAtTurn,
+        "plies"         -> game.plies,
+        "startedAtPly"  -> game.shogi.startedAtPly,
         "source"        -> game.source,
         "status"        -> game.status,
         "createdAt"     -> game.createdAt

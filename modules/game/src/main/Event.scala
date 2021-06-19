@@ -51,7 +51,7 @@ object Event {
       extra ++ Json
         .obj(
           "fen"   -> fen,
-          "ply"   -> state.turns,
+          "ply"   -> state.plies,
           "dests" -> PossibleMoves.oldJson(possibleMoves)
         )
         .add("clock" -> clock.map(_.data))
@@ -346,7 +346,7 @@ object Event {
 
   case class State(
       color: Color,
-      turns: Int,
+      plies: Int,
       status: Option[Status],
       winner: Option[Color],
       senteOffersDraw: Boolean,
@@ -357,7 +357,7 @@ object Event {
       Json
         .obj(
           "color" -> color,
-          "turns" -> turns
+          "plies" -> plies
         )
         .add("status" -> status)
         .add("winner" -> winner)

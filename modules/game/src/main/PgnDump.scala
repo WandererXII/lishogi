@@ -38,7 +38,7 @@ final class PgnDump(
           else moves2
         makeTurns(
           moves3,
-          fenSituation.map(_.fullMoveNumber) | 1,
+          fenSituation.map(_.turnNumber) | 1,
           flags.clocks ?? ~game.bothClockStates,
           game.startColor
         )

@@ -48,12 +48,12 @@ object BSONHandlers {
       lila.mon.game.fetch.increment()
 
       val light         = lightGameBSONHandler.readsWithPlayerIds(r, r str F.playerIds)
-      val startedAtTurn = r intD F.startedAtTurn
-      val plies         = r int F.turns atMost Game.maxPlies // unlimited can cause StackOverflowError
+      val startedAtPly  = r intD F.startedAtPly
+      val plies         = r int F.plies atMost Game.maxPlies // unlimited can cause StackOverflowError
       val turnColor     = Color.fromPly(plies)
       val createdAt     = r date F.createdAt
 
-      val playedPlies = plies - startedAtTurn
+      val playedPlies = plies - startedAtPly
       val gameVariant = Variant(r intD F.variant) | shogi.variant.Standard
 
       val decoded = {
@@ -85,8 +85,8 @@ object BSONHandlers {
         clock = r.getO[Color => Clock](F.clock) {
           clockBSONReader(createdAt, light.sentePlayer.berserk, light.gotePlayer.berserk)
         } map (_(turnColor)),
-        turns = plies,
-        startedAtTurn = startedAtTurn
+        plies = plies,
+        startedAtPly = startedAtPly
       )
 
       val senteClockHistory = r bytesO F.senteClockHistory
@@ -145,8 +145,8 @@ object BSONHandlers {
           )
         ),
         F.status        -> o.status,
-        F.turns         -> o.shogi.turns,
-        F.startedAtTurn -> w.intO(o.shogi.startedAtTurn),
+        F.plies         -> o.shogi.plies,
+        F.startedAtPly  -> w.intO(o.shogi.startedAtPly),
         F.clock -> (o.shogi.clock flatMap { c =>
           clockBSONWrite(o.createdAt, c).toOption
         }),

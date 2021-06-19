@@ -25,7 +25,7 @@ case class AnaDrop(
         val fen     = shogi.format.Forsyth >> game
         Branch(
           id = UciCharPair(uci),
-          ply = game.turns,
+          ply = game.plies,
           move = Uci.WithSan(uci, san),
           fen = fen,
           check = game.situation.check,

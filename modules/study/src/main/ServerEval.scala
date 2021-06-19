@@ -141,7 +141,7 @@ object ServerEval {
     private def makeBranch(g: shogi.Game, m: Uci.WithSan) =
       Node(
         id = UciCharPair(m.uci),
-        ply = g.turns,
+        ply = g.plies,
         move = m,
         fen = FEN(Forsyth >> g),
         check = g.situation.check,

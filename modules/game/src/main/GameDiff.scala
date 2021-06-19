@@ -93,7 +93,7 @@ object GameDiff {
       _.board.crazyData.map(_.exportHands) | "",
       w.str
     )
-    d(turns, _.turns, w.int)
+    d(plies, _.plies, w.int)
     dOpt(moveTimes, _.binaryMoveTimes, (o: Option[ByteArray]) => o flatMap ByteArrayBSONHandler.writeOpt)
     dOpt(senteClockHistory, getClockHistory(Sente), clockHistoryToBytes)
     dOpt(goteClockHistory, getClockHistory(Gote), clockHistoryToBytes)

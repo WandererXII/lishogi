@@ -90,8 +90,8 @@ final private class SwissDirector(
           val turns = g.player.fold(0, 1)
           g.copy(
             clock = swiss.clock.toClock.some,
-            turns = turns,
-            startedAtTurn = turns
+            plies = turns,
+            startedAtPly = turns
           )
         },
         sentePlayer = makePlayer(Sente, players get pairing.sente err s"Missing pairing sente $pairing"),

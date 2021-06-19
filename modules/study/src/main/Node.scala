@@ -21,7 +21,7 @@ sealed trait RootOrNode {
   val glyphs: Glyphs
   val score: Option[Score]
   def addChild(node: Node): RootOrNode
-  def fullMoveNumber = 1 + ply / 2
+  def turnNumber = 1 + ply / 2
   def mainline: Vector[Node]
   def color = shogi.Color(ply % 2 == 0)
   def moveOption: Option[Uci.WithSan]

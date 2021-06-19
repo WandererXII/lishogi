@@ -189,7 +189,7 @@ final private class PovToEntry(
       color = pov.color,
       perf = perfType,
       eco =
-        if (game.playable || game.turns < 4 || game.fromPosition || game.variant.exotic) none
+        if (game.playable || game.plies < 4 || game.fromPosition || game.variant.exotic) none
         else shogi.opening.Ecopening fromGame game.pgnMoves.toList,
       myCastling = Castling.fromMoves(game pgnMoves pov.color),
       opponentRating = opRating,

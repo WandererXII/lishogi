@@ -30,8 +30,8 @@ final private class Joiner(
             case sit @ SituationPlus(s, _) =>
               val game = shogi.Game(
                 situation = s,
-                turns = sit.turns,
-                startedAtTurn = sit.turns,
+                plies = sit.moveNumber,
+                startedAtPly = sit.moveNumber,
                 clock = c.clock.map(_.config.toClock)
               )
               if (Forsyth.>>(game) == Forsyth.initial) makeChess(shogi.variant.Standard) -> none
@@ -59,7 +59,7 @@ final private class Joiner(
                         variant = shogi.variant.FromPosition
                       )
                     ),
-                    turns = sit.turns
+                    plies = sit.moveNumber
                   )
                 )
               }

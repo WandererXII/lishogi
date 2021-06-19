@@ -33,12 +33,12 @@ case class AnaMove(
         val fen     = shogi.format.Forsyth >> game
         Branch(
           id = UciCharPair(uci),
-          ply = game.turns,
+          ply = game.plies,
           move = Uci.WithSan(uci, san),
           fen = fen,
           check = game.situation.check,
           dests = Some(movable ?? game.situation.destinations),
-          opening = (game.turns <= 30 && Variant.openingSensibleVariants(variant)) ?? {
+          opening = (game.plies <= 30 && Variant.openingSensibleVariants(variant)) ?? {
             FullOpeningDB findByFen FEN(fen)
           },
           drops = if (movable) game.situation.drops else Some(Nil),

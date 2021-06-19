@@ -17,7 +17,7 @@ case class Replay(setup: Game, moves: List[MoveOrDrop], state: Game) {
     )
 
   def moveAtPly(ply: Int): Option[MoveOrDrop] =
-    chronoMoves lift (ply - 1 - setup.startedAtTurn)
+    chronoMoves lift (ply - 1 - setup.startedAtPly)
 }
 
 object Replay {
@@ -192,7 +192,7 @@ object Replay {
           case san :: rest =>
             san(sit) flatMap { moveOrDrop =>
               val after = moveOrDrop.fold(_.finalizeAfter, _.finalizeAfter)
-              val fen   = Forsyth >> Game(Situation(after, Color.fromPly(ply)), turns = ply)
+              val fen   = Forsyth >> Game(Situation(after, Color.fromPly(ply)), plies = ply)
               if (compareFen(fen)) scalaz.Success(ply)
               else recursivePlyAtFen(Situation(after, !sit.color), rest, ply + 1)
             }
@@ -209,6 +209,6 @@ object Replay {
 
   private def makeGame(variant: shogi.variant.Variant, initialFen: Option[String]): Game = {
     val g = Game(variant.some, initialFen)
-    g.copy(startedAtTurn = g.turns)
+    g.copy(startedAtPly = g.plies)
   }
 }

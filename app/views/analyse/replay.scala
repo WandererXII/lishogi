@@ -141,7 +141,7 @@ object replay {
                     )
                 ),
                 div(cls := "move-times")(
-                  game.turns > 1 option div(id := "movetimes-chart")
+                  game.plies > 2 option div(id := "movetimes-chart")
                 ),
                 div(cls := "fen-pgn")(
                   div(
@@ -174,7 +174,7 @@ object replay {
                     }
                   )(trans.computerAnalysis()),
                 !game.isPgnImport option frag(
-                  game.turns > 1 option span(dataPanel := "move-times")(trans.moveTimes()),
+                  game.plies > 2 option span(dataPanel := "move-times")(trans.moveTimes()),
                   cross.isDefined option span(dataPanel := "ctable")(trans.crosstable())
                 ),
                 span(dataPanel := "fen-pgn")(raw("SFEN &amp; Kifu"))

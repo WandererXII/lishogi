@@ -105,7 +105,7 @@ final class Analyser(
           variant = game.variant,
           moves = moves take maxPlies mkString " "
         ),
-        startPly = game.shogi.startedAtTurn,
+        startPly = game.shogi.startedAtPly,
         sender = sender
       )
     }

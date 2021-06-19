@@ -6,8 +6,8 @@ case class Game(
     situation: Situation,
     pgnMoves: Vector[String] = Vector(),
     clock: Option[Clock] = None,
-    turns: Int = 0, // plies
-    startedAtTurn: Int = 0
+    plies: Int = 0,
+    startedAtPly: Int = 0
 ) {
   def apply(
       orig: Pos,
@@ -25,7 +25,7 @@ case class Game(
 
     copy(
       situation = newSituation,
-      turns = turns + 1,
+      plies = plies + 1,
       pgnMoves = pgnMoves :+ pgn.Dumper(situation, move),
       clock = applyClock(move.metrics, newSituation.status.isEmpty)
     )
@@ -45,7 +45,7 @@ case class Game(
 
     copy(
       situation = newSituation,
-      turns = turns + 1,
+      plies = plies + 1,
       pgnMoves = pgnMoves :+ pgn.Dumper(drop),
       clock = applyClock(drop.metrics, newSituation.status.isEmpty)
     )
@@ -55,7 +55,7 @@ case class Game(
     clock.map { c =>
       {
         val newC = c.step(metrics, gameActive)
-        if (turns - startedAtTurn == 1) newC.start else newC
+        if (plies == 1) newC.start else newC
       }
     }
 
@@ -74,12 +74,12 @@ case class Game(
 
   def isStandardInit = board.pieces == shogi.variant.Standard.pieces
 
-  /** Fullmove number: The number of the full move.
+  /** Turn number: The number of the pair of moves.
     * It starts at 1, and is incremented after Gote's move.
     */
-  def fullMoveNumber: Int = 1 + turns / 2
+  def turnNumber: Int = 1 + (startedAtPly + plies) / 2
 
-  def moveNumber: Int = 1 + turns
+  def moveNumber: Int = 1 + plies
 
   def moveString = s"${moveNumber}."
 
@@ -89,7 +89,7 @@ case class Game(
 
   def withPlayer(c: Color) = copy(situation = situation.copy(color = c))
 
-  def withTurns(t: Int) = copy(turns = t)
+  def withPlies(p: Int) = copy(plies = p)
 }
 
 object Game {
@@ -117,7 +117,7 @@ object Game {
             },
             color = parsed.situation.color
           ),
-          turns = parsed.turns
+          plies = parsed.moveNumber
         )
       }
   }

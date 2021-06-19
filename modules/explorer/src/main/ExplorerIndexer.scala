@@ -40,7 +40,7 @@ final private class ExplorerIndexer(
           Query.createdSince(since) ++
             Query.rated ++
             Query.finished ++
-            Query.turnsGt(8) ++
+            Query.pliesGt(16) ++
             Query.noProvisional ++
             Query.bothRatingsGreaterThan(1501)
 
@@ -98,7 +98,7 @@ final private class ExplorerIndexer(
   private def valid(game: Game) =
     game.finished &&
       game.rated &&
-      game.turns >= 10 &&
+      game.plies >= 20 &&
       game.variant != shogi.variant.FromPosition
 
   private def stableRating(player: Player) = player.rating ifFalse player.provisional

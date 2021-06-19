@@ -108,7 +108,7 @@ final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
           ++ Query.rated
           ++ Query.user(userId)
           ++ Query.analysed(true)
-          ++ Query.turnsGt(20)
+          ++ Query.pliesGt(20)
           ++ Query.clockHistory(true)
       )
       .sort($sort asc F.createdAt)
@@ -121,7 +121,7 @@ final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
         Query.finished
           ++ Query.rated
           ++ Query.user(userId)
-          ++ Query.turnsGt(22)
+          ++ Query.pliesGt(22)
           ++ Query.variantStandard
           ++ Query.clock(true)
       )
@@ -234,7 +234,7 @@ final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
         Query.user(user.id) ++
           Query.rated ++
           Query.finished ++
-          Query.turnsGt(2) ++
+          Query.pliesGt(2) ++
           Query.notFromPosition
       )
       .sort(Query.sortAntiChronological)
@@ -499,7 +499,7 @@ final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
         Query.finished
           ++ Query.rated
           ++ Query.user(userId)
-          ++ Query.turnsGt(20)
+          ++ Query.pliesGt(20)
       )
       .sort(Query.sortCreated)
       .cursor[Game](ReadPreference.secondaryPreferred)

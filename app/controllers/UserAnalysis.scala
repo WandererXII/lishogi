@@ -65,7 +65,7 @@ final class UserAnalysis(
         .make(
           shogi = shogi.Game(
             situation = from.situation,
-            turns = from.turns
+            plies = from.moveNumber
           ),
           sentePlayer = lila.game.Player.make(shogi.Sente, none),
           gotePlayer = lila.game.Player.make(shogi.Gote, none),

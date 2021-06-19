@@ -220,7 +220,7 @@ final class SimulApi(
             fen = simul.position.map(_.fen)
           )
       game1 = Game.make(
-        shogi = g.copy(clock = clock.start.some, startedAtTurn = g.turns),
+        shogi = g.copy(clock = clock.start.some, startedAtPly = g.plies),
         sentePlayer = lila.game.Player.make(shogi.Sente, senteUser.some, perfPicker),
         gotePlayer = lila.game.Player.make(shogi.Gote, goteUser.some, perfPicker),
         mode = shogi.Mode.Casual,

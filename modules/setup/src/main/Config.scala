@@ -81,8 +81,8 @@ trait Positional { self: Config =>
       case sit @ SituationPlus(s, _) =>
         val game = ShogiGame(
           situation = s,
-          turns = sit.turns,
-          startedAtTurn = sit.turns,
+          plies = sit.moveNumber,
+          startedAtPly = sit.moveNumber,
           clock = makeClock.map(_.toClock)
         )
         if (Forsyth.>>(game) == Forsyth.initial) makeGame(shogi.variant.Standard) -> none
@@ -100,7 +100,7 @@ trait Positional { self: Config =>
                 crazyData = board.crazyData
               )
             ),
-            turns = sit.turns
+            plies = sit.moveNumber
           )
         )
       }

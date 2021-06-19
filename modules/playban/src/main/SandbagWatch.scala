@@ -56,7 +56,7 @@ final private class SandbagWatch(
     }
 
   private def isSandbag(game: Game): Boolean =
-    game.turns <= 6
+    game.plies/2 <= 6
 }
 
 private object SandbagWatch {
