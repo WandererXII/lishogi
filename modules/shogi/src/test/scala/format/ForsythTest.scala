@@ -93,20 +93,20 @@ class ForsythTest extends ShogiTest {
     }
   }
   "export to situation plus" should {
-    "with turns" in {
+    "with plies" in {
       "starting" in {
         f <<< "lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL b - 1" must beSome.like { case s =>
-          s.turns must_== 0
+          s.moveNumber must_== 1
         }
       }
       "sente to play" in {
         f <<< "lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL b - 11" must beSome.like {
-          case s => s.turns must_== 10
+          case s => s.moveNumber must_== 11
         }
       }
       "gote to play" in {
         f <<< "lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL w - 2" must beSome.like { case s =>
-          s.turns must_== 1
+          s.moveNumber must_== 2
         }
       }
     }
