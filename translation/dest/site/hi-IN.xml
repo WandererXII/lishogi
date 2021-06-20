@@ -552,10 +552,10 @@
 	<string name="letOtherPlayersFollowYou">Let other players follow you</string>
 	<string name="letOtherPlayersChallengeYou">Let other players challenge you</string>
 	<string name="letOtherPlayersInviteYouToStudy">Let other players invite you to study</string>
-	<string name="sound">ध्वनि</string>
+	<string name="sound">आवाज़</string>
 	<string name="none">कोई नहीं</string>
 	<string name="fast">तेज</string>
-	<string name="normal">साधारण</string>
+	<string name="normal">सामान्य</string>
 	<string name="slow">धीरे</string>
 	<string name="insideTheBoard">बोर्ड के अंदर</string>
 	<string name="outsideTheBoard">बोर्ड के बाहर</string>
@@ -564,7 +564,7 @@
 	<string name="never">Never</string>
 	<string name="difficultyEasy">Easy</string>
 	<string name="difficultyNormal">Normal</string>
-	<string name="difficultyHard">मुश्किल</string>
+	<string name="difficultyHard">कठिन</string>
 	<string name="xCompetesInY">%1$s competes in %2$s</string>
 	<string name="xAskedY">%1$s asked %2$s</string>
 	<string name="xAnsweredY">%1$s answered %2$s</string>
