@@ -38,7 +38,7 @@
 	<string name="confirmResignationAndDrawOffers">Confirm resignation and draw offers</string>
 	<string name="inputMovesWithTheKeyboard">Input moves with the keyboard</string>
 	<string name="westernNotation">Western notation</string>
-	<string name="japaneseNotation">Japanese notatation</string>
-	<string name="kitaoKawasakiNotation">Kitao-Kawasaki</string>
+	<string name="japaneseNotation">Japanese notation</string>
+	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Your preferences have been saved.</string>
 </resources>
