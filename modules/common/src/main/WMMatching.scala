@@ -322,7 +322,7 @@ object WMMatching {
       // Relabel vertices.
       for (v <- blossomLeaves(b)) {
         if (label(inblossom(v)) == 2) {
-          // This T-vertex now turns into an S-vertex because it becomes
+          // This T-vertex transforms into an S-vertex because it becomes
           // part of an S-blossom; add it to the queue.
           queue ::= v
         }

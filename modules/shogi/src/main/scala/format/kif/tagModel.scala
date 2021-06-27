@@ -1,5 +1,5 @@
 package shogi
-package format.pgn
+package format.kif
 
 import org.joda.time.DateTimeZone
 import org.joda.time.format.DateTimeFormat

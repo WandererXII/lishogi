@@ -2,8 +2,8 @@ package lila.game
 
 import akka.actor._
 import akka.pattern.pipe
-import shogi.format.pgn.{ Sans, Tags }
-import shogi.format.{ pgn, Forsyth }
+import shogi.format.kif.{ Sans, Tags }
+import shogi.format.{ kif, Forsyth }
 import shogi.{ Game => ShogiGame }
 import scala.util.Success
 import scalaz.Validation.FlatMap._
@@ -95,7 +95,7 @@ final private class Captcher(gameRepo: GameRepo)(implicit ec: scala.concurrent.E
       } toNel
 
     private def rewind(moves: PgnMoves): Option[ShogiGame] =
-      pgn.Reader
+      kif.Reader
         .movesWithSans(
           moves,
           sans => Sans(safeInit(sans.value)),

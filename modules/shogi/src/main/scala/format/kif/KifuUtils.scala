@@ -1,6 +1,6 @@
 package shogi
 package format
-package pgn
+package kif
 
 import scala._
 

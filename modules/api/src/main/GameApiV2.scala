@@ -6,7 +6,7 @@ import play.api.libs.json._
 import scala.concurrent.duration._
 
 import shogi.format.FEN
-import shogi.format.pgn.Tag
+import shogi.format.kif.Tag
 import lila.analyse.{ JsonView => analysisJson, Analysis }
 import lila.common.config.MaxPerSecond
 import lila.common.Json.jodaWrites

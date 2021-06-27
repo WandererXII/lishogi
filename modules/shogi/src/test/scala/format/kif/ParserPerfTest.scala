@@ -1,5 +1,5 @@
 package shogi
-package format.pgn
+package format.kif
 
 class ParserPerfTest extends ShogiTest {
 

@@ -1,8 +1,8 @@
 package lila.study
 
 import akka.stream.scaladsl._
-import shogi.format.pgn.{ Glyphs, Initial, Pgn, Tag, Tags }
-import shogi.format.{ Forsyth, pgn => shogiPgn }
+import shogi.format.kif.{ Glyphs, Initial, Kifu, Tag, Tags }
+import shogi.format.{ Forsyth, kif => shogiPgn }
 import org.joda.time.format.DateTimeFormat
 
 import lila.common.String.slugify
@@ -24,9 +24,9 @@ final class PgnDump(
       .intersperse("\n\n\n")
 
   def ofChapter(study: Study, flags: WithFlags)(chapter: Chapter) =
-    Pgn(
+    Kifu(
       tags = makeTags(study, chapter),
-      turns = toTurns(chapter.root)(flags).toList,
+      moves = toMoves(chapter.root)(flags).toList,
       initial = Initial(
         chapter.root.comments.list.map(_.text.value) ::: shapeComment(chapter.root.shapes).toList
       )
@@ -96,6 +96,7 @@ object PgnDump {
 
   private def node2move(node: Node, variations: Variations)(implicit flags: WithFlags) =
     shogiPgn.Move(
+      ply = node.ply,
       san = node.move.san,
       glyphs = if (flags.comments) node.glyphs else Glyphs.empty,
       comments = flags.comments ?? {
@@ -105,7 +106,7 @@ object PgnDump {
       result = none,
       variations = flags.variations ?? {
         variations.view.map { child =>
-          toTurns(child.mainline, noVariations).toList
+          toMoves(child.mainline, noVariations).toList
         }.toList
       },
       secondsLeft = flags.clocks ?? node.clock.map(_.roundSeconds)
@@ -136,45 +137,21 @@ object PgnDump {
     s"$circles$arrows$pieces".some.filter(_.nonEmpty)
   }
 
-  def toTurn(first: Node, second: Option[Node], variations: Variations)(implicit flags: WithFlags) =
-    shogiPgn.Turn(
-      number = first.turnNumber,
-      sente = node2move(first, variations).some,
-      gote = second map { node2move(_, first.children.variations) }
-    )
+  def toMove(node: Node, variations: Variations)(implicit flags: WithFlags) =
+    node2move(node, variations)
 
-  def toTurns(root: Node.Root)(implicit flags: WithFlags): Vector[shogiPgn.Turn] =
-    toTurns(root.mainline, root.children.variations)
+  def toMoves(root: Node.Root)(implicit flags: WithFlags): Vector[shogiPgn.Move] =
+    toMoves(root.mainline, root.children.variations)
 
-  def toTurns(
+  def toMoves(
       line: Vector[Node],
       variations: Variations
-  )(implicit flags: WithFlags): Vector[shogiPgn.Turn] = {
-    line match {
-      case Vector() => Vector()
-      case first +: rest if first.ply % 2 == 0 =>
-        shogiPgn.Turn(
-          number = 1 + (first.ply - 1) / 2,
-          sente = none,
-          gote = node2move(first, variations).some
-        ) +: toTurnsFromSente(rest, first.children.variations)
-      case l => toTurnsFromSente(l, variations)
-    }
-  }.filterNot(_.isEmpty)
-
-  def toTurnsFromSente(line: Vector[Node], variations: Variations)(implicit
-      flags: WithFlags
-  ): Vector[shogiPgn.Turn] =
+  )(implicit flags: WithFlags): Vector[shogiPgn.Move] =
     line
-      .grouped(2)
-      .foldLeft(variations -> Vector.empty[shogiPgn.Turn]) { case variations ~ turns ~ pair =>
-        pair.headOption.fold(variations -> turns) { first =>
-          pair
-            .lift(1)
-            .getOrElse(first)
-            .children
-            .variations -> (toTurn(first, pair lift 1, variations) +: turns)
-        }
+      .foldLeft(variations -> Vector.empty[shogiPgn.Move]) { case variations ~ moves ~ first =>
+        first
+          .children
+          .variations -> (toMove(first, variations) +: moves)
       }
       ._2
       .reverse

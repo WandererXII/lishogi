@@ -1,7 +1,7 @@
 package lila.relay
 
 import akka.actor._
-import shogi.format.pgn.Tags
+import shogi.format.kif.Tags
 import com.github.blemale.scaffeine.LoadingCache
 import io.lemonlabs.uri.Url
 import org.joda.time.DateTime
@@ -225,7 +225,7 @@ private object RelayFetch {
         }.filter(_.nonEmpty)
     }
     case class RoundJsonPairing(sente: PairingPlayer, gote: PairingPlayer, result: String) {
-      import shogi.format.pgn._
+      import shogi.format.kif._
       def tags =
         Tags(
           List(
@@ -252,8 +252,9 @@ private object RelayFetch {
 
     case class GameJson(moves: List[String], result: Option[String]) {
       def toPgn(extraTags: Tags = Tags.empty) = {
-        val strMoves = moves.map(_ split ' ') map { move =>
-          shogi.format.pgn.Move(
+        val strMoves = moves.map(_ split ' ').zipWithIndex.map { case (move, index) =>
+          shogi.format.kif.Move(
+            ply = index + 1,
             san = ~move.headOption,
             secondsLeft = move.lift(1).map(_.takeWhile(_.isDigit)) flatMap (_.toIntOption)
           )

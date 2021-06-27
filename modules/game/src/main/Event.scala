@@ -105,7 +105,7 @@ object Event {
       Move(
         orig = move.orig,
         dest = move.dest,
-        san = shogi.format.pgn.Dumper(move),
+        san = shogi.format.kif.Dumper(move),
         fen = shogi.format.Forsyth.exportSituation(situation),
         check = situation.check,
         promotion = move.promotion,
@@ -151,7 +151,7 @@ object Event {
       Drop(
         role = drop.piece.role,
         pos = drop.pos,
-        san = shogi.format.pgn.Dumper(drop),
+        san = shogi.format.kif.Dumper(drop),
         fen = shogi.format.Forsyth.exportSituation(situation),
         check = situation.check,
         state = state,

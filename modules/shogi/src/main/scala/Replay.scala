@@ -1,8 +1,8 @@
 package shogi
 
-import shogi.format.pgn.San
+import shogi.format.kif.San
 import shogi.format.{ FEN, Forsyth, Uci }
-import format.pgn.{ Parser, Reader, Tag, Tags }
+import format.kif.{ Parser, Reader, Tag, Tags }
 import scalaz.Validation.FlatMap._
 import scalaz.Validation.{ failureNel, success }
 

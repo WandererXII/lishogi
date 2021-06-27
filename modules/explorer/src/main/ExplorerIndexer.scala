@@ -1,7 +1,7 @@
 package lila.explorer
 
 import akka.stream.scaladsl._
-import shogi.format.pgn.Tag
+import shogi.format.kif.Tag
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import lila.common.ThreadLocalRandom.nextFloat

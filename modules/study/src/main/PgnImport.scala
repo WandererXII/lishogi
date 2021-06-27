@@ -1,6 +1,6 @@
 package lila.study
 
-import shogi.format.pgn.{ Dumper, Glyphs, ParsedPgn, San, Tags }
+import shogi.format.kif.{ Dumper, Glyphs, ParsedPgn, San, Tags }
 import shogi.format.{ FEN, Forsyth, Uci, UciCharPair }
 
 import shogi.Centis

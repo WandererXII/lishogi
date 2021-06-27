@@ -1,6 +1,6 @@
 package shogi
 package format
-package pgn
+package kif
 
 import play.api.libs.json._
 import org.joda.time.DateTime
@@ -8,31 +8,21 @@ import org.joda.time.format.DateTimeFormat
 
 import scala._
 
-case class Pgn(
+case class Kifu(
     tags: Tags,
-    turns: List[Turn],
+    moves: List[Move],
     initial: Initial = Initial.empty
 ) {
 
-  def updateTurn(fullMove: Int, f: Turn => Turn) = {
-    val index = fullMove - 1
-    (turns lift index).fold(this) { turn =>
-      copy(turns = turns.updated(index, f(turn)))
-    }
-  }
   def updatePly(ply: Int, f: Move => Move) = {
-    val fullMove = (ply + 1) / 2
-    val color    = Color(ply % 2 == 1)
-    updateTurn(fullMove, _.update(color, f))
+    val index = ply - 1
+    (moves lift index).fold(this) { move =>
+      copy(moves = moves.updated(index, f(move)))
+    }
   }
   def updateLastPly(f: Move => Move) = updatePly(nbPlies, f)
 
-  def nbPlies = turns.foldLeft(0)(_ + _.count)
-
-  def moves =
-    turns.flatMap { t =>
-      List(t.sente, t.gote).flatten
-    }
+  def nbPlies = moves.size
 
   def withEvent(title: String) =
     copy(
@@ -43,20 +33,21 @@ case class Pgn(
     val initStr =
       if (initial.comments.nonEmpty) initial.comments.mkString("{ ", " } { ", " }\n")
       else ""
-    val turnStr = turns mkString " "
+    // TODO: Zip with ply (move) numbers
+    val turnStr = moves mkString " "
     val endStr  = tags(_.Result) | ""
     s"$tags\n\n$initStr$turnStr $endStr"
   }.trim
 
-  def renderAsKifu(uciPgn: scala.collection.IndexedSeq[(String, String)], gameCreatedAt: DateTime) = {
+  def renderAsKifu(uciKifu: scala.collection.IndexedSeq[(String, String)], gameCreatedAt: DateTime) = {
     val fmt            = DateTimeFormat.forPattern("yyyy/MM/dd HH:mm:ss")
     val gameCreatedTag = "開始日時：" + fmt.print(gameCreatedAt) + "\n"
     val tagsStr        = KifuUtils tagsAsKifu tags mkString "\n"
     val movesHeader    = """
 手数----指手---------消費時間--
 """
-    val uciPgnAsVector = uciPgn.foldLeft(Vector[(String, String)]()) { _ :+ _ }
-    val movesVector    = KifuUtils.movesAsKifu(uciPgnAsVector)
+    val uciKifuAsVector = uciKifu.foldLeft(Vector[(String, String)]()) { _ :+ _ }
+    val movesVector    = KifuUtils.movesAsKifu(uciKifuAsVector)
     val movesStr       = movesVector.zipWithIndex map { move => s"${move._2 + 1} ${move._1}" } mkString "\n"
 
     val endMoveStr = ""
@@ -72,62 +63,15 @@ object Initial {
   val empty = Initial(Nil)
 }
 
-case class Turn(
-    number: Int,
-    sente: Option[Move],
-    gote: Option[Move]
-) {
-
-  def update(color: Color, f: Move => Move) =
-    color.fold(
-      copy(sente = sente map f),
-      copy(gote = gote map f)
-    )
-
-  def updateLast(f: Move => Move) = {
-    gote.map(m => copy(gote = f(m).some)) orElse
-      sente.map(m => copy(sente = f(m).some))
-  } | this
-
-  def isEmpty = sente.isEmpty && gote.isEmpty
-
-  def plyOf(color: Color) = number * 2 - color.fold(1, 0)
-
-  def count = List(sente, gote) count (_.isDefined)
-
-  override def toString = {
-    val text = (sente, gote) match {
-      case (Some(s), Some(g)) if s.isLong => s" $s $number... $g"
-      case (Some(s), Some(g))             => s" $s $g"
-      case (Some(s), None)                => s" $s"
-      case (None, Some(g))                => s".. $g"
-      case _                              => ""
-    }
-    s"$number.$text"
-  }
-}
-
-object Turn {
-
-  def fromMoves(moves: List[Move], ply: Int): List[Turn] = {
-    moves.foldLeft((List[Turn](), ply)) {
-      case ((turns, p), move) if p % 2 == 1 =>
-        (Turn((p + 1) / 2, move.some, none) :: turns) -> (p + 1)
-      case ((Nil, p), move) =>
-        (Turn((p + 1) / 2, none, move.some) :: Nil) -> (p + 1)
-      case ((t :: tt, p), move) =>
-        (t.copy(gote = move.some) :: tt) -> (p + 1)
-    }
-  }._1.reverse
-}
-
 case class Move(
+    // TODO: remove ply (single responsibility principle)
+    ply: Int,
     san: String,
     comments: List[String] = Nil,
     glyphs: Glyphs = Glyphs.empty,
     opening: Option[String] = None,
     result: Option[String] = None,
-    variations: List[List[Turn]] = Nil,
+    variations: List[List[Move]] = Nil,
     // time left for the user who made the move, after he made it
     secondsLeft: Option[Int] = None
 ) {
@@ -135,7 +79,7 @@ case class Move(
   def isLong = comments.nonEmpty || variations.nonEmpty
 
   private def clockString: Option[String] =
-    secondsLeft.map(seconds => "[%clk " + Move.formatPgnSeconds(seconds) + "]")
+    secondsLeft.map(seconds => "[%clk " + Move.formatKifuSeconds(seconds) + "]")
 
   override def toString = {
     val glyphStr = glyphs.toList
@@ -156,7 +100,7 @@ case class Move(
     val variationString =
       if (variations.isEmpty) ""
       else variations.map(_.mkString(" (", " ", ")")).mkString(" ")
-    s"$san$glyphStr$commentsOrTime$variationString"
+    s"$ply. $san$glyphStr$commentsOrTime$variationString"
   }
 }
 
@@ -167,7 +111,7 @@ object Move {
   private def noDoubleLineBreak(txt: String) =
     noDoubleLineBreakRegex.replaceAllIn(txt, "\n")
 
-  private def formatPgnSeconds(t: Int) =
+  private def formatKifuSeconds(t: Int) =
     periodFormatter.print(
       org.joda.time.Duration.standardSeconds(t).toPeriod
     )

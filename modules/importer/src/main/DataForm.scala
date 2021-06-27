@@ -1,6 +1,6 @@
 package lila.importer
 
-import shogi.format.pgn.{ ParsedPgn, Parser, Reader, Tag, TagType, Tags }
+import shogi.format.kif.{ ParsedPgn, Parser, Reader, Tag, TagType, Tags }
 import shogi.format.{ FEN, Forsyth }
 import shogi.{ Color, Mode, Replay, Status }
 import play.api.data._

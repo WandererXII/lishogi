@@ -1,5 +1,6 @@
 package shogi
-package format.pgn
+package format.kif
+
 import variant.Standard
 
 class ParserTest extends ShogiTest {

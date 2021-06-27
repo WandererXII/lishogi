@@ -1,5 +1,5 @@
 package shogi
-package format.pgn
+package format.kif
 
 import format.Forsyth
 import Pos._
@@ -166,33 +166,33 @@ L SGKGS L
 
   "move comment" should {
     "simple" in {
-      Move("Pe4", List("Some comment")).toString must_== "Pe4 { Some comment }"
+      Move(1, "Pe4", List("Some comment")).toString must_== "1. Pe4 { Some comment }"
     }
     "one line break" in {
-      Move(
+      Move(1,
         "Pe4",
         List("""Some
 comment""")
-      ).toString must_== """Pe4 { Some
+      ).toString must_== """1. Pe4 { Some
 comment }"""
     }
     "two line breaks" in {
-      Move(
+      Move(1,
         "Pe4",
         List("""Some
 
 comment""")
-      ).toString must_== """Pe4 { Some
+      ).toString must_== """1. Pe4 { Some
 comment }"""
     }
     "three line breaks" in {
-      Move(
+      Move(1,
         "Pe4",
         List("""Some
 
 
 comment""")
-      ).toString must_== """Pe4 { Some
+      ).toString must_== """1. Pe4 { Some
 comment }"""
     }
   }

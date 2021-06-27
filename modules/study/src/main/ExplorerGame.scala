@@ -3,7 +3,7 @@ package lila.study
 import scala.util.chaining._
 
 import shogi.format.FEN
-import shogi.format.pgn.Parser
+import shogi.format.kif.Parser
 import lila.game.{ Game, Namer }
 import lila.tree.Node.Comment
 

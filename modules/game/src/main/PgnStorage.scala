@@ -14,14 +14,14 @@ private object PgnStorage {
     def encode(pgnMoves: PgnMoves) = {
       ByteArray {
         monitor(_.game.pgn.encode("old")) {
-          format.pgn.Binary.writeMoves(pgnMoves).get
+          format.kif.Binary.writeMoves(pgnMoves).get
         }
       }
     }
 
     def decode(bytes: ByteArray, plies: Int): PgnMoves = {
       monitor(_.game.pgn.decode("old")) {
-        format.pgn.Binary.readMoves(bytes.value.toList, plies).get.toVector
+        format.kif.Binary.readMoves(bytes.value.toList, plies).get.toVector
       }
     }
   }

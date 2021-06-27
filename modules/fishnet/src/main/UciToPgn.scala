@@ -1,6 +1,6 @@
 package lila.fishnet
 
-import shogi.format.pgn.Dumper
+import shogi.format.kif.Dumper
 import shogi.format.Uci
 import shogi.{ Drop, Move, Replay, Situation }
 import scalaz.Validation.success

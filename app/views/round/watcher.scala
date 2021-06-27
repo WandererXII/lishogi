@@ -64,7 +64,7 @@ LishogiRound.boot(${safeJsonValue(
     )
   }
 
-  def crawler(pov: Pov, initialFen: Option[shogi.format.FEN], pgn: shogi.format.pgn.Pgn)(implicit
+  def crawler(pov: Pov, initialFen: Option[shogi.format.FEN], pgn: shogi.format.kif.Kifu)(implicit
       ctx: Context
   ) =
     bits.layout(

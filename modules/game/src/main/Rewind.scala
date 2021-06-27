@@ -3,7 +3,7 @@ package lila.game
 import org.joda.time.DateTime
 import scalaz.Validation.FlatMap._
 
-import shogi.format.{ FEN, pgn => shogiPgn }
+import shogi.format.{ FEN, kif => shogiPgn }
 
 object Rewind {
 

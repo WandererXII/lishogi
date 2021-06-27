@@ -1,6 +1,6 @@
 package lila.study
 
-import shogi.format.pgn.Tags
+import shogi.format.kif.Tags
 import shogi.Hands
 import shogi.format.{ FEN, Forsyth }
 import shogi.variant.Variant

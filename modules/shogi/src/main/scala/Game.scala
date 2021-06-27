@@ -1,6 +1,6 @@
 package shogi
 
-import format.{ pgn, Uci }
+import format.{ kif, Uci }
 
 case class Game(
     situation: Situation,
@@ -26,7 +26,7 @@ case class Game(
     copy(
       situation = newSituation,
       plies = plies + 1,
-      pgnMoves = pgnMoves :+ pgn.Dumper(situation, move),
+      pgnMoves = pgnMoves :+ kif.Dumper(situation, move),
       clock = applyClock(move.metrics, newSituation.status.isEmpty)
     )
   }
@@ -46,7 +46,7 @@ case class Game(
     copy(
       situation = newSituation,
       plies = plies + 1,
-      pgnMoves = pgnMoves :+ pgn.Dumper(drop),
+      pgnMoves = pgnMoves :+ kif.Dumper(drop),
       clock = applyClock(drop.metrics, newSituation.status.isEmpty)
     )
   }

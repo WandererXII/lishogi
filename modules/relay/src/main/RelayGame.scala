@@ -1,6 +1,6 @@
 package lila.relay
 
-import shogi.format.pgn.Tags
+import shogi.format.kif.Tags
 import lila.study.{ Chapter, Node, PgnImport }
 
 case class RelayGame(

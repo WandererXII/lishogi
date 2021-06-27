@@ -16,8 +16,6 @@ case class Info(
   def mate = eval.mate
   def best = eval.best
 
-  def turn = 1 + (ply - 1) / 2
-
   def color = Color(ply % 2 == 1)
 
   def encode: String =

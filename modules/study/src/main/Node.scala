@@ -1,7 +1,7 @@
 package lila.study
 
 import shogi.Hands
-import shogi.format.pgn.{ Glyph, Glyphs }
+import shogi.format.kif.{ Glyph, Glyphs }
 import shogi.format.{ FEN, Uci, UciCharPair }
 
 import shogi.Centis
@@ -21,7 +21,6 @@ sealed trait RootOrNode {
   val glyphs: Glyphs
   val score: Option[Score]
   def addChild(node: Node): RootOrNode
-  def turnNumber = 1 + ply / 2
   def mainline: Vector[Node]
   def color = shogi.Color(ply % 2 == 0)
   def moveOption: Option[Uci.WithSan]

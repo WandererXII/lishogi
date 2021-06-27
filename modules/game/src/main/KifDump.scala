@@ -1,8 +1,8 @@
 package lila.game
 
 import shogi.format.Forsyth
-import shogi.format.pgn.{ ParsedPgn, Parser, Pgn, Tag, TagType, Tags }
-import shogi.format.{ FEN, pgn => shogiPgn }
+import shogi.format.kif.{ Kifu, ParsedPgn, Parser, Tag, TagType, Tags }
+import shogi.format.{ FEN, kif => shogiPgn }
 import shogi.{ Centis, Color }
 
 import lila.common.config.BaseUrl
@@ -20,7 +20,7 @@ final class PgnDump(
       initialFen: Option[FEN],
       flags: WithFlags,
       teams: Option[Color.Map[String]] = None
-  ): Fu[Pgn] = {
+  ): Fu[Kifu] = {
     val imported = game.pgnImport.flatMap { pgni =>
       Parser.full(pgni.pgn).toOption
     }
@@ -28,22 +28,18 @@ final class PgnDump(
       if (flags.tags) tags(game, initialFen, imported, withOpening = flags.opening, teams = teams)
       else fuccess(Tags(Nil))
     tagsFuture map { ts =>
-      val turns = flags.moves ?? {
-        val fenSituation = ts.fen.map(_.value) flatMap Forsyth.<<<
-        val moves2 =
-          if (fenSituation.exists(_.situation.color.gote)) ".." +: game.pgnMoves
-          else game.pgnMoves
-        val moves3 =
-          if (flags.delayMoves > 0) moves2 dropRight flags.delayMoves
-          else moves2
-        makeTurns(
-          moves3,
-          fenSituation.map(_.turnNumber) | 1,
-          flags.clocks ?? ~game.bothClockStates,
-          game.startColor
-        )
+      val moves = flags.moves ?? {
+        val clocks = flags.clocks ?? ~game.bothClockStates
+        val clockOffset = game.startColor.fold(0, 1)
+        game.pgnMoves.zipWithIndex.map { case (san, index) =>
+          shogiPgn.Move(
+            ply = index + 1,
+            san = san,
+            secondsLeft = clocks lift (index - clockOffset) map (_.roundSeconds)
+          )
+        }
       }
-      Pgn(ts, turns)
+      Kifu(ts, moves toList)
     }
   }
 
@@ -149,31 +145,6 @@ final class PgnDump(
         )
       }
     }
-
-  private def makeTurns(
-      moves: Seq[String],
-      from: Int,
-      clocks: Vector[Centis],
-      startColor: Color
-  ): List[shogiPgn.Turn] =
-    (moves grouped 2).zipWithIndex.toList map { case (moves, index) =>
-      val clockOffset = startColor.fold(0, 1)
-      shogiPgn.Turn(
-        number = index + from,
-        sente = moves.headOption filter (".." !=) map { san =>
-          shogiPgn.Move(
-            san = san,
-            secondsLeft = clocks lift (index * 2 - clockOffset) map (_.roundSeconds)
-          )
-        },
-        gote = moves lift 1 map { san =>
-          shogiPgn.Move(
-            san = san,
-            secondsLeft = clocks lift (index * 2 + 1 - clockOffset) map (_.roundSeconds)
-          )
-        }
-      )
-    } filterNot (_.isEmpty)
 }
 
 object PgnDump {

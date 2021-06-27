@@ -1,6 +1,6 @@
 package lila.analyse
 
-import shogi.format.pgn.Glyph
+import shogi.format.kif.Glyph
 import lila.tree.Eval._
 import scala.util.chaining._
 
@@ -10,7 +10,6 @@ sealed trait Advice {
   def prev: Info
 
   def ply   = info.ply
-  def turn  = info.turn
   def color = info.color
   def cp    = info.cp
   def mate  = info.mate

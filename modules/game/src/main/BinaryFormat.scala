@@ -16,14 +16,14 @@ object BinaryFormat {
 
     def write(moves: PgnMoves): ByteArray =
       ByteArray {
-        format.pgn.Binary.writeMoves(moves).get
+        format.kif.Binary.writeMoves(moves).get
       }
 
     def read(ba: ByteArray): PgnMoves =
-      format.pgn.Binary.readMoves(ba.value.toList).get.toVector
+      format.kif.Binary.readMoves(ba.value.toList).get.toVector
 
     def read(ba: ByteArray, nb: Int): PgnMoves =
-      format.pgn.Binary.readMoves(ba.value.toList, nb).get.toVector
+      format.kif.Binary.readMoves(ba.value.toList, nb).get.toVector
   }
 
   object clockHistory {

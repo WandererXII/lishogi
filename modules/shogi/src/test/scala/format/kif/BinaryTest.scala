@@ -1,5 +1,5 @@
 package shogi
-package format.pgn
+package format.kif
 
 import scala._
 
@@ -179,5 +179,5 @@ object BinaryTestUtils {
 
 object BinaryTestData {
 
-  val pgn200: List[String] = format.pgn.Fixtures.prod500standard.take(200)
+  val pgn200: List[String] = format.kif.Fixtures.prod500standard.take(200)
 }

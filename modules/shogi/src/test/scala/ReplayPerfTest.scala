@@ -5,7 +5,7 @@ class ReplayPerfTest extends ShogiTest {
   args(skipAll = true)
 
   val nb = 500
-  val gameMoves = (format.pgn.Fixtures.prod500standard take nb).map {
+  val gameMoves = (format.kif.Fixtures.prod500standard take nb).map {
     _.split(' ').toList
   }
   val iterations = 5

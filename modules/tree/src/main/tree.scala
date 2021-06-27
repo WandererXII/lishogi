@@ -2,7 +2,7 @@ package lila.tree
 
 import play.api.libs.json._
 
-import shogi.format.pgn.{ Glyph, Glyphs }
+import shogi.format.kif.{ Glyph, Glyphs }
 import shogi.format.{ Uci, UciCharPair }
 import shogi.opening.FullOpening
 import shogi.{ Hands, Hand, Pos, Piece => ShogiPiece }

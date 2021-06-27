@@ -3,7 +3,7 @@ package format
 
 class UciDumpTest extends ShogiTest {
 
-  import pgn.Fixtures._
+  import kif.Fixtures._
 
   "only raw moves" should {
     "empty" in {
