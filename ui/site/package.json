@@ -20,7 +20,7 @@
     "watchify": "^3"
   },
   "dependencies": {
-    "highcharts": "=9.0.0",
+    "highcharts": "=4.2.5",
     "hopscotch": "^0.3.1",
     "jquery-bar-rating": "^1.2.2",
     "shogiops": "^0.2.1",
