@@ -3,7 +3,7 @@
 # Starts a dev console to compile and run lishogi.
 
 # Usage:
-# ./lishogi
+# ./lila
 # Then in the sbt console:
 # run
 
