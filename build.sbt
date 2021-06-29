@@ -3,7 +3,7 @@ import com.typesafe.sbt.packager.Keys.scriptClasspath
 import BuildSettings._
 import Dependencies._
 
-lazy val root = Project("lila", file("."))
+lazy val root = Project("lishogi", file("."))
   .enablePlugins(PlayScala, if (useEpoll) PlayNettyServer else PlayAkkaHttpServer)
   .disablePlugins(if (useEpoll) PlayAkkaHttpServer else PlayNettyServer)
   .dependsOn(api)
