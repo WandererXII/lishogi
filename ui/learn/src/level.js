@@ -75,6 +75,16 @@ module.exports = function (blueprint, opts) {
     return true;
   };
 
+  var detectNifu = function (color, dest) {
+    var nifu = shogi.findNifu(color, dest);
+    console.log('level.js nifu', nifu);
+    if (!nifu) return;
+    ground.stop();
+    ground.showNifu([nifu.pos, dest]);
+    sound.failure();
+    return true;
+  }
+
   // if orig is 'a0' then piece was dropped
   // to future self or anyone who wants it: the sendMove function is where you will implement feature for opponent's movement. also see scenario feature.
   var sendMove = function (orig, dest, prom, role) {
@@ -90,7 +100,8 @@ module.exports = function (blueprint, opts) {
     }
     var took = false,
       inScenario,
-      captured = false;
+      captured = false,
+      nifued = false;
     items.withItem(move.to, function (item) {
       if (item === 'apple') {
         vm.score += scoring.apple;
@@ -113,7 +124,8 @@ module.exports = function (blueprint, opts) {
       inScenario = true;
     } else {
       captured = detectCapture();
-      vm.failed = vm.failed || captured || detectFailure();
+      if (role === 'pawn') nifued = detectNifu(blueprint.color, dest);
+      vm.failed = vm.failed || captured || nifued || detectFailure();
     }
     if (!vm.failed && detectSuccess()) complete();
     if (vm.willComplete) {

@@ -133,6 +133,20 @@ module.exports = function (fen, appleKeys) {
     kingKey: function (color) {
       return findKing(color);
     },
+    findNifu: function(c, dest) {
+      // find nifu on the same column as dest (assuming pawn is in dest right now)
+      var pawnSquareSet = shogi.board.pieces(c, 'pawn');
+      console.log('chess.js dest', dest);
+      for (var rowNum = 1; rowNum <= 9; rowNum++) {
+        if ('' + rowNum !== dest[1]) {
+          var piece = shogi.board.get(compat.parseChessSquare(dest[0] + rowNum));
+          if (piece && piece.color === c && piece.role === 'pawn') {
+            piece.pos = dest[0] + rowNum;
+            return piece;
+          }
+        }
+      }
+    },
     findCapture: function () {
       return findCaptures()[0];
     },
