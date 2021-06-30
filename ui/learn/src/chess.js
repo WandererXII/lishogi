@@ -141,16 +141,15 @@ module.exports = function (fen, appleKeys) {
     isCheck: function (c) {
       let isCurrCheck = false,
         isCloneCheck = false;
-      if (shogi.turn !== util.opposite(c))
+      if (util.opposite(shogi.turn) !== c) {
         isCurrCheck = shogi.isCheck();
+      }
       if (shogi.turn !== c) {
         const clone = shogi.clone();
         clone.turn = util.opposite(clone.turn);
 
-        console.log(fenUtil.makeFen(clone.toSetup()));
         isCloneCheck = clone.isCheck();
       }
-      console.log(isCurrCheck, isCloneCheck);
       return isCurrCheck || isCloneCheck;
     },
     checks: function () {
