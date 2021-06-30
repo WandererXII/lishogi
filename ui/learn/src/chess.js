@@ -114,6 +114,19 @@ module.exports = function (fen, appleKeys) {
     getDropDests: function () {
       return compat.shogigroundDropDests(shogi);
     },
+    getDropDestsIgnoreChecksAndNifu: function (c) {
+      var clone = shogi.clone();
+      var kingSquare = clone.board.kingOf(c);
+      // change king to gold, there is no king in check if the king doesn't exist :)
+      clone.board.take(kingSquare);
+      console.log(clone);
+      clone.board.set(kingSquare, {'role': 'gold', 'color': 'gote'});
+      // change pawns to golds
+      var pawnSquareSet = clone.board.pieces(c, 'pawn');
+      clone.board['pawn'] = clone.board['pawn'].diff(pawnSquareSet);
+      clone.board['gold'] = clone.board['gold'].union(pawnSquareSet);
+      return compat.shogigroundDropDests(clone);
+    },
     occupation: function () {
       return shogi.board;
     },

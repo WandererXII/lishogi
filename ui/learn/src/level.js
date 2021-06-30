@@ -192,7 +192,7 @@ module.exports = function (blueprint, opts) {
     notation: document.getElementsByClassName('notation-0')[0] ? 0 : 1,
     dropmode: {
       showDropDests: true, //opts.something
-      dropDests: shogi.getDropDests(),
+      dropDests: shogi.getDropDestsIgnoreChecksAndNifu(blueprint.color),
     },
   });
 

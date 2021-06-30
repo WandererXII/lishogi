@@ -19,11 +19,11 @@ module.exports = {
     },
     {
       goal: 'checkInOneGoal',
-      fen: '3g5/1srk1g3/pp3pppp/4S4/9/9/9/9/9 b - 1',
+      fen: '3g5/2rk1g3/pps2pppp/2S6/9/9/9/9/9 b G 1',
     },
     {
       goal: 'checkInOneGoal',
-      fen: '3B1r3/4L4/9/9/7K1/9/9/9/9 b - 1',
+      fen: '9/9/9/2B2r3/9/4L4/9/9/7k1 b - 1',
     },
     {
       goal: 'checkInOneGoal',
