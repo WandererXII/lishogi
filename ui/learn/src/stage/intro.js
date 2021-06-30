@@ -56,6 +56,9 @@ module.exports = {
       fen: '9/9/9/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL b -',
       nbMoves: 1,
     },
-  ].map(util.toLevel),
+  ].map(function (l, i) {
+    l.noPocket = true;
+    return util.toLevel(l, i);
+  }),
   complete: 'introComplete',
 };

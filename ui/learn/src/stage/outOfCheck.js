@@ -72,7 +72,6 @@ module.exports = {
     l.detectCapture = 'unprotected';
     l.offerIllegalMove = true;
     l.nbMoves = 1;
-    l.hasPocket = true;
     return util.toLevel(l, i);
   }),
   complete: 'outOfCheckComplete',

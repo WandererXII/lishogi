@@ -84,7 +84,6 @@ module.exports = {
   ].map(function (l, i) {
     l.nbMoves = 1;
     l.detectCapture = 'unprotected';
-    l.hasPocket = true;
     return util.toLevel(l, i);
   }),
   complete: 'protectionComplete',

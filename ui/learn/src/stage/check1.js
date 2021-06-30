@@ -38,7 +38,6 @@ module.exports = {
     l.failure = assert.not(assert.check);
     l.success = assert.check;
     l.detectCapture = 'unprotected';
-    l.hasPocket = true;
     return util.toLevel(l, i);
   }),
   complete: 'checkInOneComplete',

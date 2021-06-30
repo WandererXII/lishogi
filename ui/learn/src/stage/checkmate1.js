@@ -13,15 +13,12 @@ module.exports = {
   illustration: util.roundSvg(imgUrl),
   levels: [
     {
-      // rook
       goal: 'attackYourOpponentsKing',
-      fen: '3qk3/3ppp2/8/8/2B5/5Q2/8/8 b -',
-      shapes: [arrow('f3f7')],
+      fen: '6k2/9/6P2/9/9/9/9/9/9 b G2r2b3g4s4n4l17p 1',
     },
     {
-      // smothered
       goal: 'attackYourOpponentsKing',
-      fen: '6rk/6pp/7P/6N1/8/8/8/8 b -',
+      fen: '7k1/9/7S1/9/9/9/9/9/9 b S2r2b4g2s4n4l18p 1',
     },
     {
       // rook

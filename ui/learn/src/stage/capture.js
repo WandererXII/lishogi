@@ -63,6 +63,7 @@ module.exports = {
     },
   ].map(function (l, i) {
     l.pointsForCapture = true;
+    l.noPocket = true;
     return util.toLevel(l, i);
   }),
   complete: 'captureComplete',

@@ -56,6 +56,9 @@ module.exports = {
         circle('d6'),
       ],
     },
-  ].map(util.toLevel),
+  ].map(function (l, i) {
+    l.noPocket = true;
+    return util.toLevel(l, i);
+  }),
   complete: 'rookComplete',
 };
