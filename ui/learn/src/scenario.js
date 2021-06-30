@@ -47,6 +47,9 @@ module.exports = function (blueprint, opts) {
       if (step.move !== move && !step.move.includes(move)) return fail();
       it++;
       if (step.shapes) ground.setShapes(step.shapes);
+      if (step.levelFail) {
+        return step.levelFail
+      }
       timeouts.setTimeout(opponent, 1000);
       return true;
     },

@@ -60,6 +60,12 @@ module.exports = {
     {
       goal: 'watchOutForYourOpponentsReply',
       fen: '9/9/9/9/9/5+bn2/5GPPP/6SK1/5G1NL b g 1',
+      scenario: [
+        {
+          levelFail: 'G*h2',
+          move: ['h2i2', 'h2g1'],
+        },
+      ],
     },
 
   ].map(function (l, i) {

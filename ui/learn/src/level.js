@@ -77,7 +77,6 @@ module.exports = function (blueprint, opts) {
 
   var detectNifu = function (color, dest) {
     var nifu = shogi.findNifu(color, dest);
-    console.log('level.js nifu', nifu);
     if (!nifu) return;
     ground.stop();
     ground.showNifu([nifu.pos, dest]);
@@ -101,7 +100,8 @@ module.exports = function (blueprint, opts) {
     var took = false,
       inScenario,
       captured = false,
-      nifued = false;
+      nifued = false,
+      scenarioResult = false;
     items.withItem(move.to, function (item) {
       if (item === 'apple') {
         vm.score += scoring.apple;
@@ -119,13 +119,15 @@ module.exports = function (blueprint, opts) {
       took = true;
     }
     ground.check(shogi);
-    if (scenario.player(move.from + move.to + (move.promotion || ''))) {
+    scenarioResult = scenario.player(move.from + move.to + (move.promotion || ''));
+    if (scenarioResult === true) {
         vm.score += scoring.scenario;
       inScenario = true;
     } else {
       captured = detectCapture();
       if (role === 'pawn') nifued = detectNifu(blueprint.color, dest);
-      vm.failed = vm.failed || captured || nifued || detectFailure();
+      // see the last stage of outofCheck.js for an example of typeof(scenarioResult) === string being true. the scenarioResult variable will be set to levelFail if any of the moves in the particular scenario are played
+      vm.failed = vm.failed || typeof(scenarioResult) === 'string' || captured || nifued || detectFailure();
     }
     if (!vm.failed && detectSuccess()) complete();
     if (vm.willComplete) {
@@ -136,11 +138,18 @@ module.exports = function (blueprint, opts) {
     else if (inScenario) sound.take();
     else sound.move();
     if (vm.failed) {
-      if (blueprint.showFailureFollowUp && !captured)
+      if (blueprint.showFailureFollowUp && !captured) {
         timeouts.setTimeout(function () {
           var rm = shogi.playRandomMove();
           ground.fen(shogi.fen(), blueprint.color, {}, [rm.orig, rm.dest]);
         }, 600);
+      } else if (typeof scenarioResult === 'string') {
+        timeouts.setTimeout(function () {
+          var move = shogi.playLishogiUciMove(scenarioResult);
+          ground.fen(shogi.fen(), blueprint.color, {}, [move.orig, move.dest]);
+          m.redraw();
+        }, 600);
+      }
     } else {
       ground.select(dest);
       if (!inScenario) {

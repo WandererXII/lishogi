@@ -210,6 +210,11 @@ module.exports = function (fen, appleKeys) {
       shogi.play({ from: from, to: to });
       return { orig: from, dest: to };
     },
+    playLishogiUciMove: function (move) {
+      const parsedMove = compat.parseLishogiUci(move)
+      shogi.play(parsedMove);
+      return parsedMove
+    },
     place: placePiece,
     instance: shogi,
   };
