@@ -138,6 +138,8 @@ function configureSrc(url: string): string {
   if (url.includes('://')) return url;
   const parsed = new URL(url, window.location.href);
   parsed.searchParams.append('theme', themes.find(theme => document.body.classList.contains(theme)) ?? 'wood1');
+  const pieceSet = document.body.dataset.pieceSet;
+  if (pieceSet) parsed.searchParams.append('pieceSet', pieceSet);
   parsed.searchParams.append('bg', document.body.getAttribute('data-theme')!);
   return parsed.href;
 }
