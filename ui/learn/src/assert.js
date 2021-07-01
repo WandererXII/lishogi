@@ -52,7 +52,7 @@ module.exports = {
     return level.shogi.isCheck();
   },
   mate: function (level) {
-    return level.shogi.instance.isCheckmate() !== 'undefined';
+    return level.shogi.instance.isCheckmate() && level.shogi.instance.lastMove.role !== 'pawn';
   },
   lastMoveSan: function (san) {
     return function (level) {

@@ -44,7 +44,7 @@ module.exports = function (blueprint, opts) {
     player: function (move) {
       var step = steps[it];
       if (!step) return;
-      if (step.move !== move && !step.move.includes(move)) return fail();
+      if (step.move !== move && !(Array.isArray(step.move) && step.move.includes(move))) return fail();
       it++;
       if (step.shapes) ground.setShapes(step.shapes);
       if (step.levelFail) {

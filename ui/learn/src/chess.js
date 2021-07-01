@@ -109,7 +109,7 @@ module.exports = function (fen, appleKeys) {
         role: role,
         to: compat.parseChessSquare(dest)
       });
-      return { from: 'a0', to: dest };
+      return { from: 'a0', to: dest, role: role };
     },
     getDropDests: function () {
       return compat.shogigroundDropDests(shogi);
@@ -202,11 +202,16 @@ module.exports = function (fen, appleKeys) {
       return checks;
     },
     playRandomMove: function () {
-      const allD = shogi.allDests();
+      const allD = new Map([...shogi.allDests()].filter(
+        function ([k, v]) {
+          return v.nonEmpty();
+        }
+      ));
       const keys = Array.from(allD.keys());
+      if (keys.length === 0) return;
       const from = keys[Math.floor(Math.random() * keys.length)];
-      // first() is not really random but good enough
-      const to = allD.get(from).first();
+      const dests = Array.from(allD.get(from));
+      const to = dests[Math.floor(Math.random() * dests.length)];
       shogi.play({ from: from, to: to });
       return { orig: from, dest: to };
     },

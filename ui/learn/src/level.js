@@ -8,6 +8,7 @@ var scoring = require('./score');
 var sound = require('./sound');
 var promotion = require('./promotion');
 const timeouts = require('./timeouts');
+var compat = require('shogiops/compat');
 
 module.exports = function (blueprint, opts) {
   var items = makeItems({
@@ -119,7 +120,8 @@ module.exports = function (blueprint, opts) {
       took = true;
     }
     ground.check(shogi);
-    scenarioResult = scenario.player(move.from + move.to + (move.promotion || ''));
+    var moveUsi = (move.from === 'a0' ? compat.roleToLishogiChar(move.role) + '*' : move.from) + move.to + (move.promotion ? '+' : '');
+    scenarioResult = scenario.player(moveUsi);
     if (scenarioResult === true) {
         vm.score += scoring.scenario;
       inScenario = true;
@@ -141,9 +143,11 @@ module.exports = function (blueprint, opts) {
       if (blueprint.showFailureFollowUp && !captured) {
         timeouts.setTimeout(function () {
           var rm = shogi.playRandomMove();
-          ground.fen(shogi.fen(), blueprint.color, {}, [rm.orig, rm.dest]);
+          if (rm) {
+            ground.fen(shogi.fen(), blueprint.color, {}, [rm.orig, rm.dest]);
+          }
         }, 600);
-      } else if (typeof scenarioResult === 'string') {
+      } else if (typeof scenarioResult === 'string' && scenarioResult !== 'fail') {
         timeouts.setTimeout(function () {
           var move = shogi.playLishogiUciMove(scenarioResult);
           ground.fen(shogi.fen(), blueprint.color, {}, [move.orig, move.dest]);
