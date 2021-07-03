@@ -44,7 +44,8 @@ private object BSONHandlers {
     { case BSONInteger(v) => MaterialRange.byId get v toTry s"Invalid material range $v" },
     e => BSONInteger(e.id)
   )
-  implicit val QueenTradeBSONHandler = BSONBooleanHandler.as[QueenTrade](QueenTrade.apply, _.id)
+  implicit val BishopTradeBSONHandler = BSONBooleanHandler.as[BishopTrade](BishopTrade.apply, _.id)
+  implicit val RookTradeBSONHandler = BSONBooleanHandler.as[RookTrade](RookTrade.apply, _.id)
 
   private val BSONBooleanNullHandler = quickHandler[Boolean](
     { case BSONBoolean(v) => v; case BSONNull => false },
@@ -108,7 +109,8 @@ private object BSONHandlers {
           opponentRating = r.int(opponentRating),
           opponentStrength = r.get[RelativeStrength](opponentStrength),
           moves = r.get[List[Move]](moves),
-          queenTrade = r.get[QueenTrade](queenTrade),
+          bishopTrade = r.get[BishopTrade](bishopTrade),
+          rookTrade = r.get[RookTrade](rookTrade),
           result = r.get[Result](result),
           termination = r.get[Termination](termination),
           ratingDiff = r.int(ratingDiff),
@@ -127,7 +129,8 @@ private object BSONHandlers {
           opponentRating   -> e.opponentRating,
           opponentStrength -> e.opponentStrength,
           moves            -> e.moves,
-          queenTrade       -> e.queenTrade,
+          bishopTrade      -> e.bishopTrade,
+          rookTrade        -> e.rookTrade,
           result           -> e.result,
           termination      -> e.termination,
           ratingDiff       -> e.ratingDiff,
