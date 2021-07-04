@@ -1,6 +1,8 @@
 var util = require('./util');
+var shogiopsUtil = require('shogiops/util');
 var ground = require('./ground');
 const timeouts = require('./timeouts');
+var m = require('mithril');
 
 module.exports = function (blueprint, opts) {
   var steps = (blueprint || []).map(function (step) {
@@ -19,18 +21,29 @@ module.exports = function (blueprint, opts) {
     return false;
   };
 
-  var opponent = function () {
+  var opponent = function (data) {
     var step = steps[it];
     if (!step) return;
+    var res;
     var move = util.decomposeUci(step.move);
-    var res = opts.shogi.move(move[0], move[1], move[2]);
+    if (step.move[1] === '*') {
+      res = opts.shogi.drop(shogiopsUtil.charToRole(move[0][0]), move[1]);
+    } else {
+      res = opts.shogi.move(move[0], move[1], move[2]);
+    }
     if (!res) return fail();
     it++;
     ground.fen(opts.shogi.fen(), opts.shogi.color(), opts.makeShogiDests(), move);
+    m.redraw();
     if (step.shapes)
-      timeouts.setTimeout(function () {
-        ground.setShapes(step.shapes);
-      }, 500);
+    timeouts.setTimeout(function () {
+      ground.setShapes(step.shapes);
+    }, 70);
+
+    if (it == steps.length) {
+      ground.stop();
+      timeouts.setTimeout(data.complete, 500);
+    }
   };
 
   return {
@@ -41,7 +54,8 @@ module.exports = function (blueprint, opts) {
       return isFailed;
     },
     opponent: opponent,
-    player: function (move) {
+    player: function (data) {
+      var move = data.move;
       var step = steps[it];
       if (!step) return;
       if (step.move !== move && !(Array.isArray(step.move) && step.move.includes(move))) return fail();
@@ -50,7 +64,18 @@ module.exports = function (blueprint, opts) {
       if (step.levelFail) {
         return step.levelFail
       }
-      timeouts.setTimeout(opponent, 1000);
+      // example case in setup.js
+      if (steps[it] && !steps[it].move) {
+        it++;
+        opts.shogi.color(shogiopsUtil.opposite(opts.shogi.color()));
+        ground.color(opts.shogi.color(), opts.makeShogiDests());
+        ground.data().dropmode.dropDests = opts.shogi.getDropDests();
+      } else {
+        var opponentWrapper = function() {
+          opponent(data);
+        }
+        timeouts.setTimeout(opponentWrapper, steps[it] && steps[it].delay ? steps[it].delay : 500);
+      }
       return true;
     },
   };

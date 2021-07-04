@@ -31,16 +31,17 @@ var categs = [
       require('./checkmate1'),
     ],
   },
-  //{
-  //  key: 'intermediate',
-  //  name: 'intermediate',
-  //  stages: [
-  //    require('./setup'),
+  {
+    key: 'intermediate',
+    name: 'intermediate',
+    stages: [
+      require('./setup'),
+      require('./repetition'),
   //    require('./castling'),
   //    require('./enpassant'),
   //    require('./stalemate'),
-  //  ],
-  //},
+    ],
+  },
   //{
   //  key: 'advanced',
   //  name: 'advanced',

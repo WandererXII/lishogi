@@ -120,8 +120,11 @@ module.exports = function (blueprint, opts) {
       took = true;
     }
     ground.check(shogi);
-    var moveUsi = (move.from === 'a0' ? compat.roleToLishogiChar(move.role) + '*' : move.from) + move.to + (move.promotion ? '+' : '');
-    scenarioResult = scenario.player(moveUsi);
+    var scenarioData = {
+      move: (move.from === 'a0' ? compat.roleToLishogiChar(move.role) + '*' : move.from) + move.to + (move.promotion ? '+' : ''),
+      complete: complete,
+    }
+    scenarioResult = scenario.player(scenarioData);
     if (scenarioResult === true) {
         vm.score += scoring.scenario;
       inScenario = true;

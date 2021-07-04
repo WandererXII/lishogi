@@ -17,14 +17,18 @@ function pieceOnAnyOf(matcher, keys) {
 function fenToMatcher(fenPiece) {
   return {
     type: fenPiece.toLowerCase(),
-    color: fenPiece.toLowerCase() === fenPiece ? 'w' : 'b',
+    color: fenPiece.toLowerCase() === fenPiece ? 'gote' : 'sente',
   };
 }
 
 module.exports = {
   pieceOn: function (fenPiece, key) {
     return function (level) {
-      return pieceMatch(level.shogi.board.get(compat.parseChessSquare(key)), fenToMatcher(fenPiece));
+      var piece = level.shogi.instance.board.get(compat.parseChessSquare(key));
+      if (piece) {
+        piece.type = compat.roleToLishogiChar(piece.role);
+      }
+      return pieceMatch(piece, fenToMatcher(fenPiece));
     };
   },
   pieceNotOn: function (fenPiece, key) {
