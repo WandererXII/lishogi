@@ -1,11 +1,11 @@
 import { Shogi } from 'shogiops';
-import { parseLishogiUci } from 'shogiops/compat';
+import { parseLishogiUsi } from 'shogiops/compat';
 import { parseFen } from 'shogiops/fen';
 import { Puzzle } from './interfaces';
 import { getNow } from './util';
 
 export default class CurrentPuzzle {
-  line: Uci[];
+  line: Usi[];
   startAt: number;
   moveIndex: number = 0;
   pov: Color;
@@ -18,7 +18,7 @@ export default class CurrentPuzzle {
 
   position = (): Shogi => {
     const pos = Shogi.fromSetup(parseFen(this.puzzle.fen).unwrap(), false).unwrap();
-    this.line.slice(0, this.moveIndex).forEach(uci => pos.play(parseLishogiUci(uci)!));
+    this.line.slice(0, this.moveIndex).forEach(usi => pos.play(parseLishogiUsi(usi)!));
     return pos;
   };
 

@@ -29,7 +29,7 @@ export default class Protocol {
     this.send('usi');
 
     // analyse without contempt
-    this.setOption('UCI_AnalyseMode', 'true');
+    this.setOption('USI_AnalyseMode', 'true');
     this.setOption('Analysis Contempt', 'Off');
   }
 

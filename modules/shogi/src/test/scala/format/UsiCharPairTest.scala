@@ -2,17 +2,17 @@ package shogi
 package format
 
 import Pos._
-import Uci._
+import Usi._
 
-class UciCharPairTest extends ShogiTest {
+class UsiCharPairTest extends ShogiTest {
 
-  // println(UciCharPair.implementation.pos2charMap.toList.sortBy(_._2.toInt))
-  // println(UciCharPair.implementation.promotion2charMap.toList.sortBy(_._2.toInt))
-  // println(UciCharPair.implementation.dropRole2charMap.toList.sortBy(_._2.toInt).map(x => x._1 -> x._2.toInt))
+  // println(UsiCharPair.implementation.pos2charMap.toList.sortBy(_._2.toInt))
+  // println(UsiCharPair.implementation.promotion2charMap.toList.sortBy(_._2.toInt))
+  // println(UsiCharPair.implementation.dropRole2charMap.toList.sortBy(_._2.toInt).map(x => x._1 -> x._2.toInt))
 
   "char pair encoding" should {
 
-    def conv(uci: Uci) = UciCharPair(uci).toString
+    def conv(usi: Usi) = UsiCharPair(usi).toString
 
     val allMoves = for {
       orig <- Pos.all
@@ -29,7 +29,7 @@ class UciCharPairTest extends ShogiTest {
       allPairs.distinct.size must_== allMoves.size
     }
     "no void char" in {
-      allPairs.count(_ contains UciCharPair.implementation.voidChar) must_== 0
+      allPairs.count(_ contains UsiCharPair.implementation.voidChar) must_== 0
     }
     "promotions" in {
       conv(Move(B2, H8, true)) must_== ",è"

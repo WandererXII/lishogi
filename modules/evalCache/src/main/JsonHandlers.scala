@@ -2,7 +2,7 @@ package lila.evalCache
 
 import play.api.libs.json._
 
-import shogi.format.{ FEN, Uci }
+import shogi.format.{ FEN, Usi }
 import EvalCacheEntry._
 import lila.common.Json._
 import lila.tree.Eval._
@@ -24,7 +24,7 @@ object JsonHandlers {
   private def writePv(pv: Pv) =
     Json
       .obj(
-        "moves" -> pv.moves.value.toList.map(_.uci).mkString(" ")
+        "moves" -> pv.moves.value.toList.map(_.usi).mkString(" ")
       )
       .add("cp", pv.score.cp)
       .add("mate", pv.score.mate)
@@ -59,8 +59,8 @@ object JsonHandlers {
         movesStr
           .split(' ')
           .take(EvalCacheEntry.MAX_PV_SIZE)
-          .foldLeft(List.empty[Uci].some) {
-            case (Some(ucis), str) => Uci(str) map (_ :: ucis)
+          .foldLeft(List.empty[Usi].some) {
+            case (Some(usis), str) => Usi(str) map (_ :: usis)
             case _                 => None
           }
           .flatMap(_.reverse.toNel) map Moves.apply

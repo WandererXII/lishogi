@@ -22,7 +22,7 @@ module.exports = function (blueprint, opts) {
   var opponent = function () {
     var step = steps[it];
     if (!step) return;
-    var move = util.decomposeUci(step.move);
+    var move = util.decomposeUsi(step.move);
     var res = opts.shogi.move(move[0], move[1], move[2]);
     if (!res) return fail();
     it++;

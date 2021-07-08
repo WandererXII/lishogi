@@ -1,24 +1,24 @@
 package shogi
 package format
 
-class UciDumpTest extends ShogiTest {
+class UsiDumpTest extends ShogiTest {
 
   import pgn.Fixtures._
 
   "only raw moves" should {
     "empty" in {
-      UciDump(Nil, None, variant.Standard) must beSuccess.like { case x =>
+      UsiDump(Nil, None, variant.Standard) must beSuccess.like { case x =>
         x must beEmpty
       }
     }
     // Pc4 Pb6 Pb4 Gd9e8
     "simple" in {
-      UciDump(simple.split(' ').toList, None, variant.Standard) must beSuccess.like { case moves =>
+      UsiDump(simple.split(' ').toList, None, variant.Standard) must beSuccess.like { case moves =>
         moves must_== "c3c4 b7b6 b3b4 d9e8".split(" ").toList
       }
     }
     "complete" in {
-      UciDump(fromProd2.split(' ').toList, None, variant.Standard) must beSuccess.like { case moves =>
+      UsiDump(fromProd2.split(' ').toList, None, variant.Standard) must beSuccess.like { case moves =>
         moves must_== List(
           "c3c4",
           "b7b6",

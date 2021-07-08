@@ -24,7 +24,7 @@ function commentBest(c: Comment, root: AnalyseCtrl, ctrl: PracticeCtrl): MaybeVN
               destroy: () => ctrl.commentShape(false),
             },
           },
-          assureUsi(c.best.uci)
+          assureUsi(c.best.usi)
         )
       )
     : [];

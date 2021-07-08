@@ -1,7 +1,7 @@
 package lila.game
 
 import shogi.Color.{ Gote, Sente }
-import shogi.format.{ FEN, Uci }
+import shogi.format.{ FEN, Usi }
 import shogi.opening.{ FullOpening, FullOpeningDB }
 import shogi.variant.{ FromPosition, Standard, Variant }
 import shogi.{
@@ -248,8 +248,8 @@ case class Game(
 
   def lastMoveKeys: Option[String] = {
     history.lastMove map {
-      case Uci.Drop(target, pos) => s"${target.forsyth}*$pos" // changed
-      case m: Uci.Move           => m.keys
+      case Usi.Drop(target, pos) => s"${target.forsyth}*$pos" // changed
+      case m: Usi.Move           => m.keys
     }
   }
 

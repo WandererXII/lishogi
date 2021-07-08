@@ -112,9 +112,9 @@ object KifuUtils {
     } filter { _ != "" }
   }
 
-  def movesAsKifu(uciPgn: Vector[(String, String)]): Vector[String] = {
-    uciPgn.foldLeft(Vector[String]()) { (prev, t) =>
-      // t is a tuple of (uci, pgn)
+  def movesAsKifu(usiPgn: Vector[(String, String)]): Vector[String] = {
+    usiPgn.foldLeft(Vector[String]()) { (prev, t) =>
+      // t is a tuple of (usi, pgn)
       val movePattern = "([a-i])([1-9])([a-i])([1-9])(\\+?)".r
       val dropPattern = "([A-Z])\\*([a-i])([1-9])".r
       val pgnPattern  = "([A-Z]).*".r
@@ -132,7 +132,7 @@ object KifuUtils {
         }
         case (dropPattern(piece, d1, d2), _) =>
           destSymbols(d1) + destSymbols(d2) + pieceSymbols(piece) + kifuSymbols("*")
-        case _ => "UCI/PGN parse error"
+        case _ => "USI/PGN parse error"
       }
       prev :+ kifuMove
     }

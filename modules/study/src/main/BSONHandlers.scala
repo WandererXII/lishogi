@@ -1,7 +1,7 @@
 package lila.study
 
 import shogi.format.pgn.{ Glyph, Glyphs, Tag, Tags }
-import shogi.format.{ FEN, Uci, UciCharPair, Forsyth }
+import shogi.format.{ FEN, Usi, UsiCharPair, Forsyth }
 import shogi.variant.Variant
 import shogi.{ Centis, Piece, Hand, Hands, Pos, Role }
 import org.joda.time.DateTime
@@ -65,16 +65,16 @@ object BSONHandlers {
     x => BSONString(x.forsyth.toString)
   )
 
-  implicit val UciHandler = tryHandler[Uci](
-    { case BSONString(v) => Uci(v) toTry s"Bad UCI: $v" },
-    x => BSONString(x.uci)
+  implicit val UsiHandler = tryHandler[Usi](
+    { case BSONString(v) => Usi(v) toTry s"Bad USI: $v" },
+    x => BSONString(x.usi)
   )
 
-  implicit val UciCharPairHandler = tryHandler[UciCharPair](
+  implicit val UsiCharPairHandler = tryHandler[UsiCharPair](
     { case BSONString(v) =>
       v.toArray match {
-        case Array(a, b) => Success(UciCharPair(a, b))
-        case _           => handlerBadValue(s"Invalid UciCharPair $v")
+        case Array(a, b) => Success(UsiCharPair(a, b))
+        case _           => handlerBadValue(s"Invalid UsiCharPair $v")
       }
     },
     x => BSONString(x.toString)
@@ -83,7 +83,7 @@ object BSONHandlers {
   import Study.IdName
   implicit val StudyIdNameBSONHandler = Macros.handler[IdName]
 
-  import Uci.WithSan
+  import Usi.WithSan
 
   implicit val ShapesBSONHandler: BSONHandler[Shapes] =
     isoHandler[Shapes, List[Shape]]((s: Shapes) => s.value, Shapes(_))
@@ -144,11 +144,11 @@ object BSONHandlers {
     )
   }
 
-  def readNode(doc: Bdoc, id: UciCharPair): Option[Node] = {
+  def readNode(doc: Bdoc, id: UsiCharPair): Option[Node] = {
     import Node.{ BsonFields => F }
     for {
       ply <- doc.getAsOpt[Int](F.ply)
-      uci <- doc.getAsOpt[Uci](F.uci)
+      usi <- doc.getAsOpt[Usi](F.usi)
       san <- doc.getAsOpt[String](F.san)
       fen <- doc.getAsOpt[FEN](F.fen)
       check          = ~doc.getAsOpt[Boolean](F.check)
@@ -163,7 +163,7 @@ object BSONHandlers {
     } yield Node(
       id,
       ply,
-      WithSan(uci, san),
+      WithSan(usi, san),
       fen,
       check,
       shapes,
@@ -183,7 +183,7 @@ object BSONHandlers {
     val w = new Writer
     $doc(
       ply            -> n.ply,
-      uci            -> n.move.uci,
+      usi            -> n.move.usi,
       san            -> n.move.san,
       fen            -> n.fen,
       check          -> w.boolO(n.check),

@@ -28,7 +28,7 @@ function onMyTurn(ctrl: AnalyseCtrl, fctrl: ForecastCtrl, cNodes: ForecastStep[]
             'playX',
             notationStyle(ctrl.data.pref.pieceNotation ?? 0)({
               san: cNodes[0].san,
-              uci: cNodes[0].uci,
+              usi: cNodes[0].usi,
               fen: cNodes[0].fen,
             })
           )
@@ -47,7 +47,7 @@ function makeCnodes(ctrl: AnalyseCtrl, fctrl: ForecastCtrl): ForecastStep[] {
     afterPly.map(node => ({
       ply: node.ply,
       fen: node.fen,
-      uci: node.uci!,
+      usi: node.usi!,
       san: node.san!,
       check: node.check,
     }))

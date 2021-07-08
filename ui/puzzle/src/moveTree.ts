@@ -1,7 +1,7 @@
 import { Shogi } from 'shogiops/shogi';
 import { INITIAL_FEN, makeFen, parseFen } from 'shogiops/fen';
 import { makeSan, parseSan } from 'shogiops/san';
-import { scalashogiCharPair, parseLishogiUci, makeLishogiUci, makeChessSquare } from 'shogiops/compat';
+import { scalashogiCharPair, parseLishogiUsi, makeLishogiUsi, makeChessSquare } from 'shogiops/compat';
 import { TreeWrapper } from 'tree';
 import { Move } from 'shogiops/types';
 
@@ -34,12 +34,12 @@ export function fenToTree(sfen: string): Tree.Node {
   } as Tree.Node;
 }
 
-export function mergeSolution(root: TreeWrapper, initialPath: Tree.Path, solution: Uci[], pov: Color): void {
+export function mergeSolution(root: TreeWrapper, initialPath: Tree.Path, solution: Usi[], pov: Color): void {
   const initialNode = root.nodeAtPath(initialPath);
   const pos = Shogi.fromSetup(parseFen(initialNode.fen).unwrap(), false).unwrap();
   const fromPly = initialNode.ply;
-  const nodes = solution.map((uci, i) => {
-    const move = parseLishogiUci(uci)!;
+  const nodes = solution.map((usi, i) => {
+    const move = parseLishogiUsi(usi)!;
     const san = makeSan(pos, move);
     pos.play(move);
     const node = makeNode(pos, move, fromPly + i + 1, san);
@@ -54,7 +54,7 @@ const makeNode = (pos: Shogi, move: Move, ply: number, san: San) => ({
   san,
   fen: makeFen(pos.toSetup()),
   id: scalashogiCharPair(move),
-  uci: makeLishogiUci(move),
+  usi: makeLishogiUsi(move),
   check: pos.isCheck() ? makeChessSquare(pos.toSetup().board.kingOf(pos.turn)!) : undefined,
   children: [],
 });

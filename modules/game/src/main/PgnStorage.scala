@@ -1,6 +1,6 @@
 package lila.game
 
-import shogi.format.Uci
+import shogi.format.Usi
 import shogi.{ variant => _, ToOptionOpsFromOption => _, _ }
 import shogi.variant.{ Standard }
 import lila.db.ByteArray
@@ -51,7 +51,7 @@ private object PgnStorage {
   //         pieces = Standard.pieces,
   //         checkCount = List(0, 0),
   //         positionHashes = decoded.positionHashes,
-  //         lastMove = Option(decoded.lastUci) flatMap Uci.apply,
+  //         lastMove = Option(decoded.lastUsi) flatMap Usi.apply,
   //         halfMoveClock = decoded.halfMoveClock
   //       )
   //     }
@@ -75,7 +75,7 @@ private object PgnStorage {
       pieces: PieceMap,
       positionHashes: PositionHash, // irrelevant after game ends
       checkCount: List[Int],
-      lastMove: Option[Uci],
+      lastMove: Option[Usi],
       hands: Option[Hands],
   )
 

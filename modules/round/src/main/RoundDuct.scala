@@ -254,19 +254,19 @@ final private[round] class RoundDuct(
                 proxy save g inject List(Event.Reload)
               }
             else if (pov.game.outoftime(withGrace = true)) finisher.outOfTime(pov.game)
-            else player.bot(p.uci, this)(pov)
+            else player.bot(p.usi, this)(pov)
           }
         }
       } dmap publish
       p.promise.foreach(_ completeWith res)
       res
 
-    case FishnetPlay(uci, ply) =>
+    case FishnetPlay(usi, ply) =>
       handle { game =>
         if (game.nextPeriodClock(withGrace = false))
-          game.moveToNextPeriod ?? { p => player.fishnet(p.game, ply, uci) }
+          game.moveToNextPeriod ?? { p => player.fishnet(p.game, ply, usi) }
         else if (game.outoftime(withGrace = false)) finisher.outOfTime(game)
-        else player.fishnet(game, ply, uci)
+        else player.fishnet(game, ply, usi)
       }.mon(_.round.move.time)
 
     case Abort(playerId) =>

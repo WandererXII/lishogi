@@ -1,7 +1,7 @@
 package shogi
 
 import shogi.format.pgn.San
-import shogi.format.{ FEN, Forsyth, Uci }
+import shogi.format.{ FEN, Forsyth, Usi }
 import format.pgn.{ Parser, Reader, Tag, Tags }
 import scalaz.Validation.FlatMap._
 import scalaz.Validation.{ failureNel, success }
@@ -70,17 +70,17 @@ object Replay {
       moveStrs: Seq[String],
       initialFen: String,
       variant: shogi.variant.Variant
-  ): (Game, List[(Game, Uci.WithSan)], Option[ErrorMessage]) = {
-    def mk(g: Game, moves: List[(San, String)]): (List[(Game, Uci.WithSan)], Option[ErrorMessage]) = {
+  ): (Game, List[(Game, Usi.WithSan)], Option[ErrorMessage]) = {
+    def mk(g: Game, moves: List[(San, String)]): (List[(Game, Usi.WithSan)], Option[ErrorMessage]) = {
       moves match {
         case (san, sanStr) :: rest =>
           san(g.situation).fold(
             err => (Nil, err.head.some),
             moveOrDrop => {
               val newGame = moveOrDrop.fold(g.apply, g.applyDrop)
-              val uci     = moveOrDrop.fold(_.toUci, _.toUci)
+              val usi     = moveOrDrop.fold(_.toUsi, _.toUsi)
               mk(newGame, rest) match {
-                case (next, msg) => ((newGame, Uci.WithSan(uci, sanStr)) :: next, msg)
+                case (next, msg) => ((newGame, Usi.WithSan(usi, sanStr)) :: next, msg)
               }
             }
           )
@@ -91,7 +91,7 @@ object Replay {
     Parser
       .moves(moveStrs, variant)
       .fold(
-        err => List.empty[(Game, Uci.WithSan)] -> err.head.some,
+        err => List.empty[(Game, Usi.WithSan)] -> err.head.some,
         moves => mk(init, moves.value zip moveStrs)
       ) match {
       case (games, err) => (init, games, err)
@@ -108,22 +108,22 @@ object Replay {
         }
     }
 
-  private def recursiveSituationsFromUci(sit: Situation, ucis: List[Uci]): Valid[List[Situation]] =
-    ucis match {
+  private def recursiveSituationsFromUsi(sit: Situation, usis: List[Usi]): Valid[List[Situation]] =
+    usis match {
       case Nil => success(Nil)
-      case uci :: rest =>
-        uci(sit) flatMap { moveOrDrop =>
+      case usi :: rest =>
+        usi(sit) flatMap { moveOrDrop =>
           val after = Situation(moveOrDrop.fold(_.afterWithLastMove, _.afterWithLastMove), !sit.color)
-          recursiveSituationsFromUci(after, rest) map { after :: _ }
+          recursiveSituationsFromUsi(after, rest) map { after :: _ }
         }
     }
 
-  private def recursiveReplayFromUci(replay: Replay, ucis: List[Uci]): Valid[Replay] =
-    ucis match {
+  private def recursiveReplayFromUsi(replay: Replay, usis: List[Usi]): Valid[Replay] =
+    usis match {
       case Nil => success(replay)
-      case uci :: rest =>
-        uci(replay.state.situation) flatMap { moveOrDrop =>
-          recursiveReplayFromUci(replay addMove moveOrDrop, rest)
+      case usi :: rest =>
+        usi(replay.state.situation) flatMap { moveOrDrop =>
+          recursiveReplayFromUsi(replay addMove moveOrDrop, rest)
         }
     }
 
@@ -150,27 +150,27 @@ object Replay {
     }
   }
 
-  def boardsFromUci(
-      moves: List[Uci],
+  def boardsFromUsi(
+      moves: List[Usi],
       initialFen: Option[FEN],
       variant: shogi.variant.Variant
-  ): Valid[List[Board]] = situationsFromUci(moves, initialFen, variant) map (_ map (_.board))
+  ): Valid[List[Board]] = situationsFromUsi(moves, initialFen, variant) map (_ map (_.board))
 
-  def situationsFromUci(
-      moves: List[Uci],
+  def situationsFromUsi(
+      moves: List[Usi],
       initialFen: Option[FEN],
       variant: shogi.variant.Variant
   ): Valid[List[Situation]] = {
     val sit = initialFenToSituation(initialFen, variant)
-    recursiveSituationsFromUci(sit, moves) map { sit :: _ }
+    recursiveSituationsFromUsi(sit, moves) map { sit :: _ }
   }
 
   def apply(
-      moves: List[Uci],
+      moves: List[Usi],
       initialFen: Option[String],
       variant: shogi.variant.Variant
   ): Valid[Replay] =
-    recursiveReplayFromUci(Replay(makeGame(variant, initialFen)), moves)
+    recursiveReplayFromUsi(Replay(makeGame(variant, initialFen)), moves)
 
   def plyAtFen(
       moveStrs: Iterable[String],

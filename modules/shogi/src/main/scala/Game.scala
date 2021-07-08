@@ -1,6 +1,6 @@
 package shogi
 
-import format.{ pgn, Uci }
+import format.{ pgn, Usi }
 
 case class Game(
     situation: Situation,
@@ -59,12 +59,12 @@ case class Game(
       }
     }
 
-  def apply(uci: Uci.Move): Valid[(Game, Move)] = apply(uci.orig, uci.dest, uci.promotion)
-  def apply(uci: Uci.Drop): Valid[(Game, Drop)] = drop(uci.role, uci.pos)
-  def apply(uci: Uci): Valid[(Game, MoveOrDrop)] = {
-    uci match {
-      case u: Uci.Move => apply(u) map { case (g, m) => g -> Left(m) }
-      case u: Uci.Drop => apply(u) map { case (g, d) => g -> Right(d) }
+  def apply(usi: Usi.Move): Valid[(Game, Move)] = apply(usi.orig, usi.dest, usi.promotion)
+  def apply(usi: Usi.Drop): Valid[(Game, Drop)] = drop(usi.role, usi.pos)
+  def apply(usi: Usi): Valid[(Game, MoveOrDrop)] = {
+    usi match {
+      case u: Usi.Move => apply(u) map { case (g, m) => g -> Left(m) }
+      case u: Usi.Drop => apply(u) map { case (g, d) => g -> Right(d) }
     }
   }
 

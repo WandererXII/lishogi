@@ -1,6 +1,6 @@
 package lila.socket
 
-import shogi.format.Uci
+import shogi.format.Usi
 import shogi.{ Pos, Hands, Hand, Role }
 import shogi.variant.Standard
 
@@ -25,8 +25,8 @@ case class Step(
 
 object Step {
 
-  case class Move(uci: Uci, san: String) {
-    def uciString = uci.uci
+  case class Move(usi: Usi, san: String) {
+    def usiString = usi.usi
   }
 
   // TODO copied from lila.game
@@ -48,7 +48,7 @@ object Step {
     Json
       .obj(
         "ply" -> ply,
-        "uci" -> move.map(_.uciString),
+        "usi" -> move.map(_.usiString),
         "san" -> move.map(_.san),
         "fen" -> fen
       )

@@ -36,8 +36,8 @@ import { ctrl as treeViewCtrl, TreeView } from './treeView/treeView';
 import { cancelDropMode } from 'shogiground/drop';
 import {
   lishogiVariantRules,
-  assureLishogiUci,
-  parseLishogiUci,
+  assureLishogiUsi,
+  parseLishogiUsi,
   makeChessSquare,
   shogigroundDropDests,
 } from 'shogiops/compat';
@@ -255,10 +255,10 @@ export default class AnalyseCtrl {
     this.actionMenu.open = false;
   }
 
-  private uciToLastMove(uci?: Uci): Key[] | undefined {
-    if (!uci) return;
-    if (uci[1] === '*') return [uci.substr(2, 2), uci.substr(2, 2)] as Key[];
-    return [uci.substr(0, 2), uci.substr(2, 2)] as Key[];
+  private usiToLastMove(usi?: Usi): Key[] | undefined {
+    if (!usi) return;
+    if (usi[1] === '*') return [usi.substr(2, 2), usi.substr(2, 2)] as Key[];
+    return [usi.substr(0, 2), usi.substr(2, 2)] as Key[];
   }
 
   private showGround(): void {
@@ -318,7 +318,7 @@ export default class AnalyseCtrl {
               dropDests: (movableColor === color && this.getDropDests()) || new Map(),
             },
         check: !!node.check,
-        lastMove: this.uciToLastMove(node.uci),
+        lastMove: this.usiToLastMove(node.usi),
       };
     if (!dests && !node.check) {
       // premove while dests are loading from server
@@ -360,7 +360,7 @@ export default class AnalyseCtrl {
     this.autoScrollRequested = true;
   }
 
-  playedLastMoveMyself = () => !!this.justPlayed && !!this.node.uci && this.node.uci.startsWith(this.justPlayed);
+  playedLastMoveMyself = () => !!this.justPlayed && !!this.node.usi && this.node.usi.startsWith(this.justPlayed);
 
   jump(path: Tree.Path): void {
     const pathChanged = path !== this.path,
@@ -371,7 +371,7 @@ export default class AnalyseCtrl {
       const playedMyself = this.playedLastMoveMyself();
       if (this.study) this.study.setPath(path, this.node, playedMyself);
       if (isForwardStep) {
-        if (!this.node.uci) this.sound.move();
+        if (!this.node.usi) this.sound.move();
         // initial position
         else if (!playedMyself) {
           if (this.node.san!.includes('x')) this.sound.capture();
@@ -795,8 +795,8 @@ export default class AnalyseCtrl {
     this.redraw();
   }
 
-  playUci(uci: Uci): void {
-    const move = parseLishogiUci(assureLishogiUci(uci)!)!;
+  playUsi(usi: Usi): void {
+    const move = parseLishogiUsi(assureLishogiUsi(usi)!)!;
     const to = makeChessSquare(move.to);
     if (isNormal(move)) {
       const piece = this.shogiground.state.pieces.get(makeChessSquare(move.from));
@@ -817,14 +817,14 @@ export default class AnalyseCtrl {
       );
   }
 
-  explorerMove(uci: Uci) {
-    this.playUci(uci);
+  explorerMove(usi: Usi) {
+    this.playUsi(usi);
     this.explorer.loading(true);
   }
 
   playBestMove() {
-    const uci = this.nextNodeBest() || (this.node.ceval && this.node.ceval.pvs[0].moves[0]);
-    if (uci) this.playUci(uci);
+    const usi = this.nextNodeBest() || (this.node.ceval && this.node.ceval.pvs[0].moves[0]);
+    if (usi) this.playUsi(usi);
   }
 
   canEvalGet(): boolean {

@@ -3,7 +3,7 @@ package lila.tree
 import play.api.libs.json._
 
 import shogi.format.pgn.{ Glyph, Glyphs }
-import shogi.format.{ Uci, UciCharPair }
+import shogi.format.{ Usi, UsiCharPair }
 import shogi.opening.FullOpening
 import shogi.{ Hands, Hand, Pos, Piece => ShogiPiece }
 import shogi.variant.Standard
@@ -32,8 +32,8 @@ sealed trait Node {
   def forceVariation: Boolean
 
   // implementation dependent
-  def idOption: Option[UciCharPair]
-  def moveOption: Option[Uci.WithSan]
+  def idOption: Option[UsiCharPair]
+  def moveOption: Option[Usi.WithSan]
 
   // who's color plays next
   def color = shogi.Color(ply % 2 == 0)
@@ -71,9 +71,9 @@ case class Root(
 }
 
 case class Branch(
-    id: UciCharPair,
+    id: UsiCharPair,
     ply: Int,
-    move: Uci.WithSan,
+    move: Usi.WithSan,
     fen: String,
     check: Boolean,
     // None when not computed yet
@@ -284,7 +284,7 @@ object Node {
             "fen" -> fen
           )
           .add("id", idOption.map(_.toString))
-          .add("uci", moveOption.map(_.uci.uci))
+          .add("usi", moveOption.map(_.usi.usi))
           .add("san", moveOption.map(_.san))
           .add("check", check)
           .add("eval", eval.filterNot(_.isEmpty))

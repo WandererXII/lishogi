@@ -177,7 +177,7 @@ function renderAcpl(ctrl: AnalyseController, style: Style): MaybeVNodes | undefi
                   selected: node.ply === ctrl.node.ply,
                 },
               },
-              [moveView.plyToTurn(node.ply), renderSan(node.san!, node.uci, style), renderComments(node, style)].join(
+              [moveView.plyToTurn(node.ply), renderSan(node.san!, node.usi, style), renderComments(node, style)].join(
                 ' '
               )
             )
@@ -214,11 +214,11 @@ function renderMainline(nodes: Tree.Node[], currentPath: Tree.Path, style: Style
   const res: Array<string | VNode> = [];
   let path: Tree.Path = '';
   nodes.forEach(node => {
-    if (!node.san || !node.uci) return;
+    if (!node.san || !node.usi) return;
     path += node.id;
     const content: MaybeVNodes = [
       node.ply & 1 ? moveView.plyToTurn(node.ply) + ' ' : null,
-      renderSan(node.san, node.uci, style),
+      renderSan(node.san, node.usi, style),
     ];
     res.push(
       h(
@@ -238,8 +238,8 @@ function renderMainline(nodes: Tree.Node[], currentPath: Tree.Path, style: Style
 }
 
 function renderCurrentNode(node: Tree.Node, style: Style): string {
-  if (!node.san || !node.uci) return 'Initial position';
-  return [moveView.plyToTurn(node.ply), renderSan(node.san, node.uci, style), renderComments(node, style)].join(' ');
+  if (!node.san || !node.usi) return 'Initial position';
+  return [moveView.plyToTurn(node.ply), renderSan(node.san, node.usi, style), renderComments(node, style)].join(' ');
 }
 
 function renderComments(node: Tree.Node, style: Style): string {

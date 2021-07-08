@@ -1,6 +1,6 @@
 package shogi
 
-import format.Uci
+import format.Usi
 
 import scala.annotation.tailrec
 import scala.collection.mutable.ArrayBuffer

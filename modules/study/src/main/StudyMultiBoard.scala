@@ -3,7 +3,7 @@ package lila.study
 import BSONHandlers._
 import shogi.Color
 import shogi.format.pgn.Tags
-import shogi.format.{ FEN, Uci }
+import shogi.format.{ FEN, Usi }
 import com.github.blemale.scaffeine.AsyncLoadingCache
 import JsonView._
 import play.api.libs.json._
@@ -72,7 +72,7 @@ final class StudyMultiBoard(
                       "body" -> """function(root, tags) {
                     |tags = tags.filter(t => t.startsWith('Sente') || t.startsWith('Gote') || t.startsWith('Result'));
                     |const node = tags.length ? Object.keys(root).reduce((acc, i) => (root[i].p > acc.p) ? root[i] : acc, root['ÿ']) : root['ÿ'];
-                    |return {node:{fen:node.f,uci:node.u},tags} }""".stripMargin
+                    |return {node:{fen:node.f,usi:node.u},tags} }""".stripMargin
                     )
                   ),
                   "orientation" -> "$setup.orientation",
@@ -90,7 +90,7 @@ final class StudyMultiBoard(
             comp <- doc.getAsOpt[Bdoc]("comp")
             node <- comp.getAsOpt[Bdoc]("node")
             fen  <- node.getAsOpt[FEN]("fen")
-            lastMove = node.getAsOpt[Uci]("uci")
+            lastMove = node.getAsOpt[Usi]("usi")
             tags     = comp.getAsOpt[Tags]("tags")
           } yield ChapterPreview(
             id = id,
@@ -130,7 +130,7 @@ object StudyMultiBoard {
       players: Option[ChapterPreview.Players],
       orientation: Color,
       fen: FEN,
-      lastMove: Option[Uci],
+      lastMove: Option[Usi],
       playing: Boolean
   )
 

@@ -55,7 +55,7 @@ export function renderNodesHtml(nodes: ForecastStep[], notation: number): MaybeV
         'san',
         notationStyle(notation)({
           san: node.san!,
-          uci: node.uci!,
+          usi: node.usi!,
           fen: node.fen,
         })
       )

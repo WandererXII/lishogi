@@ -237,7 +237,7 @@ export default class RoundController {
     const s = this.stepAt(ply),
       config: CgConfig = {
         fen: s.fen,
-        lastMove: util.uci2move(s.uci),
+        lastMove: util.usi2move(s.usi),
         check: !!s.check,
         turnColor: this.ply % 2 === 0 ? 'sente' : 'gote',
       };
@@ -363,7 +363,7 @@ export default class RoundController {
               ' ' +
               notationStyle(this.data.pref.pieceNotation ?? 0)({
                 san: m_step.san,
-                uci: m_step.uci,
+                usi: m_step.usi,
                 fen: m_step.fen,
               });
           txt = opponent + '\nplayed ' + move + '.\n' + txt;
@@ -402,15 +402,15 @@ export default class RoundController {
             role: o.role,
             color: playedColor,
           },
-          o.uci.substr(2, 2) as cg.Key
+          o.usi.substr(2, 2) as cg.Key
         );
       else {
         // This block needs to be idempotent
-        const keys = util.uci2move(o.uci)!;
+        const keys = util.usi2move(o.usi)!;
         this.shogiground.move(keys[0], keys[1]);
       }
       if (o.promotion) {
-        ground.promote(this.shogiground, util.uci2move(o.uci)![1]);
+        ground.promote(this.shogiground, util.usi2move(o.usi)![1]);
       }
       this.shogiground.set({
         turnColor: d.game.player,
@@ -430,7 +430,7 @@ export default class RoundController {
       ply: round.lastPly(this.data) + 1,
       fen: o.fen,
       san: o.san,
-      uci: o.uci,
+      usi: o.usi,
       check: o.check,
       crazy: o.crazyhouse,
     };

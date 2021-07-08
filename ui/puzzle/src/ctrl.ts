@@ -13,10 +13,10 @@ import {
   parseChessSquare,
   shogigroundDests,
   scalashogiCharPair,
-  makeLishogiUci,
+  makeLishogiUsi,
   makeChessSquare,
-  parseLishogiUci,
-  assureLishogiUci,
+  parseLishogiUsi,
+  assureLishogiUsi,
   shogigroundDropDests,
 } from 'shogiops/compat';
 import { Config as CgConfig } from 'shogiground/config';
@@ -148,7 +148,7 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
       },
       dropmode: dropmode,
       check: isCheck,
-      lastMove: uciToLastMove(node.uci),
+      lastMove: usiToLastMove(node.usi),
     };
     if (node.ply >= vm.initialNode.ply) {
       if (vm.mode !== 'view' && color !== vm.pov && !nextNode) {
@@ -185,8 +185,8 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
     vm.dropmodeActive = false;
   }
 
-  function playUci(uci: Uci): void {
-    sendMove(parseLishogiUci(assureLishogiUci(uci)!)!);
+  function playUsi(usi: Usi): void {
+    sendMove(parseLishogiUsi(assureLishogiUsi(usi)!)!);
   }
 
   function playUserMove(orig: Key, dest: Key, promotion?: boolean): void {
@@ -216,7 +216,7 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
         ply: pos.fullmoves - 1,
         fen: makeFen(pos.toSetup()),
         id: scalashogiCharPair(move),
-        uci: makeLishogiUci(move),
+        usi: makeLishogiUsi(move),
         san,
         check: defined(check) ? makeChessSquare(check) : undefined,
         children: [],
@@ -225,11 +225,11 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
     );
   }
 
-  function uciToLastMove(uci: string | undefined): [Key, Key] | [Key] | undefined {
-    return defined(uci)
-      ? uci[1] === '*'
-        ? [uci.substr(2, 2) as Key]
-        : [uci.substr(0, 2) as Key, uci.substr(2, 2) as Key]
+  function usiToLastMove(usi: string | undefined): [Key, Key] | [Key] | undefined {
+    return defined(usi)
+      ? usi[1] === '*'
+        ? [usi.substr(2, 2) as Key]
+        : [usi.substr(0, 2) as Key, usi.substr(2, 2) as Key]
       : undefined;
   }
 
@@ -411,9 +411,9 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
     withGround(showGround);
     if (pathChanged) {
       if (isForwardStep) {
-        if (!vm.node.uci) sound.move();
+        if (!vm.node.usi) sound.move();
         // initial position
-        else if (!vm.justPlayed || vm.node.uci.includes(vm.justPlayed)) {
+        else if (!vm.justPlayed || vm.node.usi.includes(vm.justPlayed)) {
           if (vm.node.san!.includes('x')) sound.capture();
           else sound.move();
         }
@@ -487,8 +487,8 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
   const promotion = makePromotion(vm, ground, redraw);
 
   function playBestMove(): void {
-    const uci = nextNodeBest() || (vm.node.ceval && vm.node.ceval.pvs[0].moves[0]);
-    if (uci) playUci(uci);
+    const usi = nextNodeBest() || (vm.node.ceval && vm.node.ceval.pvs[0].moves[0]);
+    if (usi) playUsi(usi);
   }
 
   keyboard({
@@ -550,7 +550,7 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
     nextNodeBest,
     userMove,
     userDrop,
-    playUci,
+    playUsi,
     showEvalGauge() {
       return vm.showComputer() && ceval.enabled();
     },

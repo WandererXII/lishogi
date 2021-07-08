@@ -1,7 +1,7 @@
 package lila.fishnet
 
 import shogi.format.pgn.Dumper
-import shogi.format.Uci
+import shogi.format.Usi
 import shogi.{ Drop, Move, Replay, Situation }
 import scalaz.Validation.success
 import scalaz.Validation.FlatMap._
@@ -9,9 +9,9 @@ import scalaz.Validation.FlatMap._
 import lila.analyse.{ Analysis, Info, PgnMove }
 import lila.base.LilaException
 
-// convert variations from UCI to PGN.
+// convert variations from USI to PGN.
 // also drops extra variations
-private object UciToPgn {
+private object UsiToPgn {
 
   type WithErrors[A] = (A, List[Exception])
 
@@ -26,19 +26,19 @@ private object UciToPgn {
       else info.dropVariation
     }
 
-    def uciToPgn(ply: Int, variation: List[String]): Valid[List[PgnMove]] =
+    def usiToPgn(ply: Int, variation: List[String]): Valid[List[PgnMove]] =
       for {
         situation <-
           if (ply == replay.setup.startedAtTurn + 1) success(replay.setup.situation)
           else replay moveAtPly ply map (_.fold(_.situationBefore, _.situationBefore)) toValid "No move found"
-        ucis <- variation.map(Uci.apply).sequence toValid "Invalid UCI moves " + variation
-        moves <- ucis.foldLeft[Valid[(Situation, List[Either[Move, Drop]])]](success(situation -> Nil)) {
-          case (scalaz.Success((sit, moves)), uci: Uci.Move) =>
-            sit.move(uci.orig, uci.dest, uci.promotion) prefixFailuresWith s"ply $ply " map { move =>
+        usis <- variation.map(Usi.apply).sequence toValid "Invalid USI moves " + variation
+        moves <- usis.foldLeft[Valid[(Situation, List[Either[Move, Drop]])]](success(situation -> Nil)) {
+          case (scalaz.Success((sit, moves)), usi: Usi.Move) =>
+            sit.move(usi.orig, usi.dest, usi.promotion) prefixFailuresWith s"ply $ply " map { move =>
               move.situationAfter -> (Left(move) :: moves)
             }
-          case (scalaz.Success((sit, moves)), uci: Uci.Drop) =>
-            sit.drop(uci.role, uci.pos) prefixFailuresWith s"ply $ply " map { drop =>
+          case (scalaz.Success((sit, moves)), usi: Usi.Drop) =>
+            sit.drop(usi.role, usi.pos) prefixFailuresWith s"ply $ply " map { drop =>
               drop.situationAfter -> (Right(drop) :: moves)
             }
           case (failure, _) => failure
@@ -48,7 +48,7 @@ private object UciToPgn {
     onlyMeaningfulVariations.foldLeft[WithErrors[List[Info]]]((Nil, Nil)) {
       case ((infos, errs), info) if info.variation.isEmpty => (info :: infos, errs)
       case ((infos, errs), info) =>
-        uciToPgn(info.ply, info.variation).fold(
+        usiToPgn(info.ply, info.variation).fold(
           err => (info.dropVariation :: infos, LilaException(err) :: errs),
           pgn => (info.copy(variation = pgn) :: infos, errs)
         )

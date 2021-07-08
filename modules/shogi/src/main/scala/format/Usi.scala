@@ -1,9 +1,9 @@
 package shogi
 package format
 
-sealed trait Uci {
+sealed trait Usi {
 
-  def uci: String
+  def usi: String
   def piotr: String
 
   def origDest: (Pos, Pos)
@@ -11,16 +11,16 @@ sealed trait Uci {
   def apply(situation: Situation): Valid[MoveOrDrop]
 }
 
-object Uci extends scalaz.std.OptionInstances with scalaz.syntax.ToTraverseOps {
+object Usi extends scalaz.std.OptionInstances with scalaz.syntax.ToTraverseOps {
 
   case class Move(
       orig: Pos,
       dest: Pos,
       promotion: Boolean = false
-  ) extends Uci {
+  ) extends Usi {
 
     def keys = orig.key + dest.key
-    def uci  = keys + promotionString
+    def usi  = keys + promotionString
 
     def keysPiotr = orig.piotrStr + dest.piotrStr
     def piotr     = keysPiotr + promotionString
@@ -60,9 +60,9 @@ object Uci extends scalaz.std.OptionInstances with scalaz.syntax.ToTraverseOps {
     }
   }
 
-  case class Drop(role: Role, pos: Pos) extends Uci {
+  case class Drop(role: Role, pos: Pos) extends Usi {
 
-    def uci = s"${role.pgn}*${pos.key}"
+    def usi = s"${role.pgn}*${pos.key}"
 
     def piotr = s"${role.pgn}*${pos.piotrStr}"
 
@@ -80,35 +80,35 @@ object Uci extends scalaz.std.OptionInstances with scalaz.syntax.ToTraverseOps {
       } yield Drop(role, pos)
   }
 
-  case class WithSan(uci: Uci, san: String)
+  case class WithSan(usi: Usi, san: String)
 
-  def apply(move: shogi.Move) = Uci.Move(move.orig, move.dest, move.promotion)
+  def apply(move: shogi.Move) = Usi.Move(move.orig, move.dest, move.promotion)
 
-  def apply(drop: shogi.Drop) = Uci.Drop(drop.piece.role, drop.pos)
+  def apply(drop: shogi.Drop) = Usi.Drop(drop.piece.role, drop.pos)
 
-  def apply(move: String): Option[Uci] =
+  def apply(move: String): Option[Usi] =
     if (move lift 1 contains '*') for {
       role <- move.headOption flatMap Role.allByPgn.get
       pos  <- Pos.posAt(move drop 2 take 2)
-    } yield Uci.Drop(role, pos)
-    else Uci.Move(move)
+    } yield Usi.Drop(role, pos)
+    else Usi.Move(move)
 
-  def piotr(move: String): Option[Uci] =
+  def piotr(move: String): Option[Usi] =
     if (move lift 1 contains '*') for {
       role <- move.headOption flatMap Role.allByPgn.get
       pos  <- move lift 2 flatMap Pos.piotr
-    } yield Uci.Drop(role, pos)
-    else Uci.Move.piotr(move)
+    } yield Usi.Drop(role, pos)
+    else Usi.Move.piotr(move)
 
-  def readList(moves: String): Option[List[Uci]] =
+  def readList(moves: String): Option[List[Usi]] =
     moves.split(' ').toList.map(apply).sequence
 
-  def writeList(moves: List[Uci]): String =
-    moves.map(_.uci) mkString " "
+  def writeList(moves: List[Usi]): String =
+    moves.map(_.usi) mkString " "
 
-  def readListPiotr(moves: String): Option[List[Uci]] =
+  def readListPiotr(moves: String): Option[List[Usi]] =
     moves.split(' ').toList.map(piotr).sequence
 
-  def writeListPiotr(moves: List[Uci]): String =
+  def writeListPiotr(moves: List[Usi]): String =
     moves.map(_.piotr) mkString " "
 }

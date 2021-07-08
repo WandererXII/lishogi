@@ -1,6 +1,6 @@
 package shogi
 
-import format.Uci
+import format.Usi
 
 case class Situation(board: Board, color: Color) {
 
@@ -69,8 +69,8 @@ case class Situation(board: Board, color: Color) {
     board.variant.move(this, from, to, promotion)
   }
 
-  def move(uci: Uci.Move): Valid[Move] = {
-    board.variant.move(this, uci.orig, uci.dest, uci.promotion)
+  def move(usi: Usi.Move): Valid[Move] = {
+    board.variant.move(this, usi.orig, usi.dest, usi.promotion)
   }
 
   def drop(role: Role, pos: Pos): Valid[Drop] =

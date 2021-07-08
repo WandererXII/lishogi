@@ -6,7 +6,7 @@ import { h } from 'snabbdom';
 import { VNode } from 'snabbdom/vnode';
 import { ExtendedMoveInfo, notationStyle } from 'common/notation';
 import { Shogi, Position } from 'shogiops/shogi';
-import { makeLishogiUci, assureUsi } from 'shogiops/compat';
+import { makeLishogiUsi, assureUsi } from 'shogiops/compat';
 import { opposite, parseUsi } from 'shogiops/util';
 import { makeFen, parseFen } from 'shogiops/fen';
 import { makeSanAndPlay } from 'shogiops/san';
@@ -242,15 +242,15 @@ function getElFen(el: HTMLElement): string {
   return el.getAttribute('data-fen')!;
 }
 
-function getElUci(e: MouseEvent): string | undefined {
+function getElUsi(e: MouseEvent): string | undefined {
   return $(e.target as HTMLElement)
     .closest('div.pv')
-    .attr('data-uci');
+    .attr('data-usi');
 }
 
 function checkHover(el: HTMLElement, instance: CevalCtrl): void {
   window.lishogi.requestIdleCallback(() => {
-    instance.setHovering(getElFen(el), $(el).find('div.pv:hover').attr('data-uci'));
+    instance.setHovering(getElFen(el), $(el).find('div.pv:hover').attr('data-usi'));
   });
 }
 
@@ -262,12 +262,12 @@ function makeExtendedMoveVariation(pos: Position, variation: Move[]): ExtendedMo
     const fen = makeFen(pos.toSetup());
     extendedLine.push({
       san: san,
-      uci: makeLishogiUci(pos.lastMove!),
+      usi: makeLishogiUsi(pos.lastMove!),
       fen: fen,
     });
     if (san === '--') return extendedLine;
     if (i === variation.length - 1 && pos.outcome()?.winner)
-      extendedLine.push({ san: '投了', uci: '投了', fen: '投了' });
+      extendedLine.push({ san: '投了', usi: '投了', fen: '投了' });
   }
   return extendedLine;
 }
@@ -314,14 +314,14 @@ export function renderPvs(ctrl: ParentCtrl): VNode | undefined {
         insert: vnode => {
           const el = vnode.elm as HTMLElement;
           el.addEventListener('mouseover', (e: MouseEvent) => {
-            instance.setHovering(getElFen(el), getElUci(e));
+            instance.setHovering(getElFen(el), getElUsi(e));
           });
           el.addEventListener('mouseout', () => {
             instance.setHovering(getElFen(el));
           });
           el.addEventListener('mousedown', (e: MouseEvent) => {
-            const uci = getElUci(e);
-            if (uci) ctrl.playUci(uci);
+            const usi = getElUsi(e);
+            if (usi) ctrl.playUsi(usi);
           });
           checkHover(el, instance);
         },
@@ -335,7 +335,7 @@ export function renderPvs(ctrl: ParentCtrl): VNode | undefined {
         threat
           ? {}
           : {
-              attrs: { 'data-uci': pvs[i].moves[0] },
+              attrs: { 'data-usi': pvs[i].moves[0] },
             },
         [
           multiPv > 1 ? h('strong', defined(pvs[i].mate) ? '#' + pvs[i].mate : renderEval(pvs[i].cp!)) : null,

@@ -1,6 +1,6 @@
 import { defined, prop, Prop } from 'common';
 import throttle from 'common/throttle';
-import { assureLishogiUci, assureUsi } from 'shogiops/compat';
+import { assureLishogiUsi, assureUsi } from 'shogiops/compat';
 
 export interface EvalCache {
   onCeval(): void;
@@ -29,7 +29,7 @@ function toPutData(variant, ev) {
       return {
         cp: pv.cp,
         mate: pv.mate,
-        moves: pv.moves.slice(0, evalPutMaxMoves).map(assureLishogiUci).join(' '),
+        moves: pv.moves.slice(0, evalPutMaxMoves).map(assureLishogiUsi).join(' '),
       };
     }),
   };

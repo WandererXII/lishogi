@@ -20,15 +20,15 @@ window.lishogi.keyboardMove = function (opts: any) {
   let sans: any = null;
 
   const submit: Submit = function (v: string, submitOpts: SubmitOpts) {
-    const foundUci = v.length >= 2 && sans && sanToUci(v, sans);
-    if (foundUci) {
-      // ambiguous UCI (G52)
+    const foundUsi = v.length >= 2 && sans && sanToUsi(v, sans);
+    if (foundUsi) {
+      // ambiguous USI (G52)
       if (v.match(keyRegex) && opts.ctrl.hasSelected()) opts.ctrl.select(alpha(v));
       // ambiguous promotion (missing = or +)
       // Surely force=false always since promotion/unpromotion must be selected?
       // Why allow a player to use <Enter> to force input?
       if (v.match(ambiguousPromotionRegex) && !submitOpts.force) return;
-      else opts.ctrl.san(alpha(foundUci.slice(0, 2)), alpha(foundUci.slice(2)));
+      else opts.ctrl.san(alpha(foundUsi.slice(0, 2)), alpha(foundUsi.slice(2)));
       clear();
     } else if (sans && v.match(keyRegex)) {
       opts.ctrl.select(alpha(v));
@@ -36,9 +36,9 @@ window.lishogi.keyboardMove = function (opts: any) {
     } else if (sans && v.match(fileRegex)) {
       // do nothing
     } else if (v.length >= 5 && sans && v.match(promotionRegex)) {
-      const foundUci = sanToUci(v, sans);
-      if (!foundUci) return;
-      opts.ctrl.promote(alpha(foundUci.slice(0, 2)), alpha(foundUci.slice(2, 4)), v.slice(-1));
+      const foundUsi = sanToUsi(v, sans);
+      if (!foundUsi) return;
+      opts.ctrl.promote(alpha(foundUsi.slice(0, 2)), alpha(foundUsi.slice(2, 4)), v.slice(-1));
       clear();
     } else if (v.match(dropRegex)) {
       if (v.length === 3) v = 'P' + v;
@@ -64,7 +64,7 @@ window.lishogi.keyboardMove = function (opts: any) {
   };
   makeBindings(opts, submit, clear);
   return function (fen: string, dests: Dests | undefined, yourMove: boolean) {
-    sans = dests && dests.size > 0 ? sanWriter(fen, destsToUcis(dests)) : null;
+    sans = dests && dests.size > 0 ? sanWriter(fen, destsToUsis(dests)) : null;
     submit(opts.input.value, {
       server: true,
       yourMove: yourMove,
@@ -110,7 +110,7 @@ function makeBindings(opts: any, submit: Submit, clear: Function) {
   });
 }
 
-function sanToUci(san: string, sans): Key[] | undefined {
+function sanToUsi(san: string, sans): Key[] | undefined {
   if (san in sans) return sans[san];
   const lowered = san.toLowerCase();
   for (let i in sans) if (i.toLowerCase() === lowered) return sans[i];
@@ -134,14 +134,14 @@ function coordinate(square) {
   return String.fromCharCode((8 - (square.charCodeAt(0) - 97)) + 49) + String.fromCharCode((8 - (square.charCodeAt(1) - 49)) + 49);
 }
 
-function destsToUcis(dests: Dests) {
-  const ucis: string[] = [];
+function destsToUsis(dests: Dests) {
+  const usis: string[] = [];
   for (const [orig, d] of dests) {
     d.forEach(function (dest) {
-      ucis.push(coordinate(orig) + coordinate(dest));
+      usis.push(coordinate(orig) + coordinate(dest));
     });
   }
-  return ucis;
+  return usis;
 }
 
 

@@ -157,7 +157,7 @@ export function renderMove(ctx: Ctx, node: Tree.Node): MaybeVNodes {
   return [
     notationStyle(ctx.ctrl.pref.pieceNotation ?? 0)({
       san: node.san!,
-      uci: node.uci!,
+      usi: node.usi!,
       fen: node.fen,
     }),
     ev &&
@@ -184,7 +184,7 @@ function renderVariationMoveOf(ctx: Ctx, node: Tree.Node, opts: RenderOpts): VNo
       renderIndex(node.ply, true),
       notationStyle(ctx.ctrl.pref.pieceNotation ?? 0)({
         san: node.san!,
-        uci: node.uci!,
+        usi: node.usi!,
         fen: node.fen,
       }),
       puzzleGlyph(ctx, node),

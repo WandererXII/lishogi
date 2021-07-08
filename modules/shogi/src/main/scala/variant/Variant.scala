@@ -6,7 +6,7 @@ import scalaz.Validation.failureNel
 import scalaz.Validation.FlatMap._
 
 import Pos.posAt
-import format.Uci
+import format.Usi
 
 // Correctness depends on singletons for each variant ID
 abstract class Variant private[variant] (
@@ -166,7 +166,7 @@ abstract class Variant private[variant] (
 
   // Player wins or loses after their move
   def winner(situation: Situation): Option[Color] = {
-    val pawnDrop = situation.board.history.lastMove.fold(false){ l => l.uci(0) == 'P'}
+    val pawnDrop = situation.board.history.lastMove.fold(false){ l => l.usi(0) == 'P'}
     if (situation.checkMate && pawnDrop) Some(situation.color)
     else if (situation.checkMate) Some(!situation.color)
     else if (situation.staleMate) Some(!situation.color)
@@ -212,12 +212,12 @@ abstract class Variant private[variant] (
 
   /** Once a move has been decided upon from the available legal moves, the board is finalized
     */
-  def finalizeBoard(board: Board, uci: format.Uci, capture: Option[Piece], color: Color): Board = {
+  def finalizeBoard(board: Board, usi: format.Usi, capture: Option[Piece], color: Color): Board = {
     val board2 = board updateHistory {
       _.withCheck(color, board.check(color))
     }
-    uci match {
-      case Uci.Move(_, _, _) =>
+    usi match {
+      case Usi.Move(_, _, _) =>
         board2.crazyData.fold(board2) { data =>
           val d1 = capture.fold(data) { data.store _ }
           board2 withCrazyData d1

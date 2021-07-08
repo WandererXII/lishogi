@@ -79,7 +79,7 @@ export function nodeFullName(node: Tree.Node, notation: number) {
       notationStyle(notation)({
         san: node.san,
         fen: node.fen,
-        uci: node.uci!,
+        usi: node.usi!,
       })
     );
   return 'Initial position';

@@ -45,7 +45,7 @@ export function renderMove(ctx: Ctx, node: Tree.Node, notation: number): VNode[]
       'san',
       notationStyle(notation)({
         san: node.san!,
-        uci: node.uci!,
+        usi: node.usi!,
         fen: node.fen,
       })
     ),

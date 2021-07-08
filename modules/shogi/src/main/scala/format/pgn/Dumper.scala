@@ -40,7 +40,7 @@ object Dumper {
   }
 
   def apply(data: shogi.Drop): String = {
-    data.toUci.uci
+    data.toUsi.usi
   }
 
   def apply(data: shogi.Move): String =

@@ -1,7 +1,7 @@
 package lila.study
 
 import shogi.format.pgn.{ Dumper, Glyphs, ParsedPgn, San, Tags }
-import shogi.format.{ FEN, Forsyth, Uci, UciCharPair }
+import shogi.format.{ FEN, Forsyth, Usi, UsiCharPair }
 
 import shogi.Centis
 import lila.common.LightUser
@@ -123,14 +123,14 @@ object PgnImport {
             _ => none, // illegal move; stop here.
             moveOrDrop => {
               val game   = moveOrDrop.fold(prev.apply, prev.applyDrop)
-              val uci    = moveOrDrop.fold(_.toUci, _.toUci)
+              val usi    = moveOrDrop.fold(_.toUsi, _.toUsi)
               val sanStr = moveOrDrop.fold(Dumper.apply, Dumper.apply)
               parseComments(san.metas.comments, annotator) match {
                 case (shapes, clock, comments) =>
                   Node(
-                    id = UciCharPair(uci),
+                    id = UsiCharPair(usi),
                     ply = game.turns,
-                    move = Uci.WithSan(uci, sanStr),
+                    move = Usi.WithSan(usi, sanStr),
                     fen = FEN(Forsyth >> game),
                     check = game.situation.check,
                     shapes = shapes,

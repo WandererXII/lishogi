@@ -1,7 +1,7 @@
 package lila.study
 
 import shogi.format.pgn._
-import shogi.format.{ FEN, Uci, UciCharPair }
+import shogi.format.{ FEN, Usi, UsiCharPair }
 import shogi.variant
 import shogi.Hands
 import Node._
@@ -13,11 +13,11 @@ class PgnDumpTest extends Specification {
 
   val P = PgnDump
 
-  def node(ply: Int, uci: String, san: String, children: Children = emptyChildren) =
+  def node(ply: Int, usi: String, san: String, children: Children = emptyChildren) =
     Node(
-      id = UciCharPair(Uci(uci).get),
+      id = UsiCharPair(Usi(usi).get),
       ply = ply,
-      move = Uci.WithSan(Uci(uci).get, san),
+      move = Usi.WithSan(Usi(usi).get, san),
       fen = FEN("<fen>"),
       check = false,
       clock = None,

@@ -86,11 +86,11 @@ final class MoveDB(implicit system: ActorSystem) {
           case None =>
             Monitor.notFound(workId, client)
           case Some(move) if move isAcquiredBy client =>
-            data.move.uci match {
-              case Some(uci) =>
+            data.move.usi match {
+              case Some(usi) =>
                 coll -= move.id
                 Monitor.move(move, client)
-                Bus.publish(Tell(move.game.id, FishnetPlay(uci, move.game.ply)), "roundSocket")
+                Bus.publish(Tell(move.game.id, FishnetPlay(usi, move.game.ply)), "roundSocket")
               case _ =>
                 sender() ! None
                 updateOrGiveUp(move.invalid)

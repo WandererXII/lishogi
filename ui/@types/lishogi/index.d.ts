@@ -88,7 +88,7 @@ interface Lishogi {
 
 interface LishogiSpeech {
   say(t: string, cut: boolean): void;
-  step(s: { san?: San; uci?: Uci }, cut: boolean): void;
+  step(s: { san?: San; usi?: Usi }, cut: boolean): void;
 }
 
 interface PalantirOpts {
@@ -291,7 +291,6 @@ declare type Key =
   | 'g9'
   | 'h9'
   | 'i9';
-declare type Uci = string;
 declare type Usi = string;
 declare type San = string;
 declare type Fen = string;
@@ -334,7 +333,7 @@ declare namespace Tree {
   export interface ServerEval {
     cp?: number;
     mate?: number;
-    best?: Uci;
+    best?: Usi;
   }
 
   export interface PvData {
@@ -345,13 +344,13 @@ declare namespace Tree {
 
   export interface TablebaseHit {
     winner: Color | undefined;
-    best?: Uci;
+    best?: Usi;
   }
 
   export interface Node {
     id: string;
     ply: Ply;
-    uci?: Uci;
+    usi?: Usi;
     fen: Fen;
     children: Node[];
     comments?: Comment[];
