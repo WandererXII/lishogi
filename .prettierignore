@@ -8,9 +8,9 @@ public/piece-css
 public/compiled
 public/glyphs.json
 public/javascripts/vendor
-public/vendor
+public/vendor/javascripts
 
-translation
+translation- "english"
 
 dist/
 ui/common/**/*.js
