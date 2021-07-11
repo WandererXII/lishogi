@@ -10,6 +10,7 @@ import lila.user.LightUserApi
 final class ApiJsonView(lightUserApi: LightUserApi)(implicit ec: scala.concurrent.ExecutionContext) {
 
   import JsonView._
+  import Condition.JSONHandlers._
 
   def apply(tournaments: VisibleTournaments)(implicit lang: Lang): Fu[JsObject] =
     for {

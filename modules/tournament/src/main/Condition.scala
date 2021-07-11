@@ -64,7 +64,12 @@ object Condition {
       }
   }
 
-  case class MaxRating(perf: PerfType, rating: Int) extends Condition {
+  abstract trait RatingCondition {
+    val perf: PerfType
+    val rating: Int
+  }
+
+  case class MaxRating(perf: PerfType, rating: Int) extends Condition with RatingCondition {
 
     def apply(
         getMaxRating: GetMaxRating
@@ -90,7 +95,7 @@ object Condition {
     def name(implicit lang: Lang) = trans.ratedLessThanInPerf.txt(rating, perf.trans)
   }
 
-  case class MinRating(perf: PerfType, rating: Int) extends Condition with FlatCond {
+  case class MinRating(perf: PerfType, rating: Int) extends Condition with RatingCondition with FlatCond {
 
     def apply(user: User) =
       if (user.hasTitle) Accepted
@@ -213,6 +218,14 @@ object Condition {
         },
         "accepted" -> verdicts.accepted
       )
+
+    implicit val ratingConditionWrites: OWrites[Condition.RatingCondition] =
+      OWrites[Condition.RatingCondition] { r =>
+        Json.obj(
+          "perf"   -> r.perf.key,
+          "rating" -> r.rating
+        )
+      }
   }
 
   object DataForm {
