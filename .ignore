@@ -1,7 +1,7 @@
 # search ignores
 vendor
 translation
-ui/*/css/build
+ui/*/css/build-css
 public/font
 public/images
 public/sound
