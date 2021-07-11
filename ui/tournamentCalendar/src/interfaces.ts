@@ -11,3 +11,5 @@ export interface Ctrl {
 }
 
 export type Lanes = Array<Array<Tournament>>;
+add calender Lanes = Array<Array<TournamentCalendar>>;
+
