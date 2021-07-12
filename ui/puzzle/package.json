@@ -29,4 +29,21 @@
     "dev": "rollup --config && rollup --config --config-plugin dashboard",
     "prod": "rollup --config --config-prod && rollup --config --config-prod --config-plugin dashboard"
   }
-}
+} 
+{
+  "name": "puzzleracer",
+  "version": "2.0.0",
+  "private": true,
+  "description": "lishogi.org puzzle racer",
+  "keywords": [
+    "shogi",
+    "lishogi",
+    "puzzleracer",
+    "training"
+   ],
+  "author": "Lishogi",
+  "license": "AGPL-3.0-or-later",
+  "devDependencies": {
+    "@build/rollupProject": "2.0.0",
+    "@types/chart.js": "^2.9.19",
+    "@types/lishogi": "2.0.0"
