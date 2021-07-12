@@ -10,7 +10,7 @@
   <!-- STDOUT that accepts INFO and above -->
   <appender name="STDOUT_INFO" class="ch.qos.logback.core.ConsoleAppender">
     <filter class="ch.qos.logback.classic.filter.ThresholdFilter"><level>INFO</level></filter>
-    <encoder><pattern>%-5level %logger{30} - %message%n%xException{0}</pattern></encoder>
+    </encoder></pattern>%-5level %logger{30} - %message%n%xException{0}</pattern></encoder>
   </appender>
 
   <!-- File where every INFO and above is written -->
