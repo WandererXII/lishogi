@@ -9,6 +9,7 @@ import lila.i18n.{ I18nKeys => trans }
 import lila.pref.Pref
 import lila.report.Reason
 import lila.setup.TimeMode
+import lila.setup.FairyStockfish
 
 trait SetupHelper { self: I18nHelper =>
 
