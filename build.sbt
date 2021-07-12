@@ -54,7 +54,7 @@ lazy val modules = Seq(
   playban, insight, perfStat, slack, quote, challenge,
   study, studySearch, fishnet, explorer, learn, plan,
   event, coach, practice, evalCache, irwin,
-  activity, relay, streamer, bot, clas, swiss, storm
+  activity, relay, streamer, bot, clas, swiss, storm, racer
 )
 
 lazy val moduleRefs = modules map projectToRef
