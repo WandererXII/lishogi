@@ -1,10 +1,10 @@
-package lila.common
+package lishogi.common
 
 import play.api.Mode
 import com.github.benmanes.caffeine.cache.{ Caffeine, Scheduler }
 import com.github.blemale.scaffeine.Scaffeine
 
-object LilaCache {
+object lishogiCache {
 
   def caffeine(mode: Mode): Caffeine[Any, Any] =
     if (mode == Mode.Prod) Caffeine.newBuilder().scheduler(Scheduler.systemScheduler)
