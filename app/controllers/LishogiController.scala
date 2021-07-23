@@ -454,7 +454,7 @@ abstract private[controllers] class lishogiController(val env: Env)
           .session(env.security.api.AccessUri, ctx.req.uri)
       },
       api = _ =>
-        env.lilaCookie
+        env.lishogiCookie
           .ensure(ctx.req) {
             Unauthorized(jsonError("Login required"))
           }
@@ -475,7 +475,7 @@ abstract private[controllers] class lishogiController(val env: Env)
   protected def negotiate(html: => Fu[Result], api: ApiVersion => Fu[Result])(implicit
       req: RequestHeader
   ): Fu[Result] =
-    lila.api.Mobile.Api
+    lishogi.api.Mobile.Api
       .requestVersion(req)
       .fold(html) { v =>
         api(v) dmap (_ as JSON)
@@ -550,8 +550,8 @@ abstract private[controllers] class lishogiController(val env: Env)
       case Some(d) if !env.isProdReally =>
         d.copy(user =
           d.user
-            .addRole(lila.security.Permission.Beta.dbKey)
-            .addRole(lila.security.Permission.Prismic.dbKey)
+            .addRole(lishogi.security.Permission.Beta.dbKey)
+            .addRole(lishogi.security.Permission.Prismic.dbKey)
         ).some
       case d => d
     } flatMap {
@@ -590,11 +590,11 @@ abstract private[controllers] class lishogiController(val env: Env)
   protected def NotForBots(res: => Fu[Result])(implicit ctx: Context) =
     if (HTTPRequest isCrawler ctx.req) notFound else res
 
-  protected def OnlyHumans(result: => Fu[Result])(implicit ctx: lila.api.Context) =
+  protected def OnlyHumans(result: => Fu[Result])(implicit ctx: lishogi.api.Context) =
     if (HTTPRequest isCrawler ctx.req) fuccess(NotFound)
     else result
 
-  protected def OnlyHumansAndFacebookOrTwitter(result: => Fu[Result])(implicit ctx: lila.api.Context) =
+  protected def OnlyHumansAndFacebookOrTwitter(result: => Fu[Result])(implicit ctx: lishogi.api.Context) =
     if (HTTPRequest isFacebookOrTwitterBot ctx.req) result
     else if (HTTPRequest isCrawler ctx.req) fuccess(NotFound)
     else result
