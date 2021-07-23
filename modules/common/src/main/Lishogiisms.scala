@@ -7,10 +7,10 @@ import ornicar.scalalib
 import org.joda.time.DateTime
 import com.typesafe.config.Config
 import play.api.libs.json.{ JsObject, JsValue }
-import lila.base._
+import lishogi.base._
 
-trait Lilaisms
-    extends LilaTypes
+trait lishogiisms
+    extends lishogiTypes
     with scalalib.Common
     with scalalib.OrnicarNonEmptyList
     with scalalib.OrnicarOption
@@ -28,8 +28,8 @@ trait Lilaisms
     with scalaz.syntax.ToTraverseOps
     with scalaz.syntax.ToValidationOps {
 
-  type StringValue = lila.base.LilaTypes.StringValue
-  type IntValue    = lila.base.LilaTypes.IntValue
+  type StringValue = lishogi.base.lishogiTypes.StringValue
+  type IntValue    = lishogi.base.lishogiTypes.IntValue
 
   @inline implicit def toPimpedFuture[A](f: Fu[A])               = new PimpedFuture(f)
   @inline implicit def toPimpedFutureBoolean(f: Fu[Boolean])     = new PimpedFutureBoolean(f)
