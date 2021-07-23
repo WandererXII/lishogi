@@ -9,9 +9,9 @@ import play.api.mvc._
 import scala.annotation.nowarn
 import scalatags.Text.Frag
 
-import lila.api.{ BodyContext, Context, HeaderContext, PageData }
-import lila.app._
-import lila.common.{ ApiVersion, HTTPRequest, Nonce }
+import lishogi.api.{ BodyContext, Context, HeaderContext, PageData }
+import lishogi.app._
+import lishogi.common.{ ApiVersion, HTTPRequest, Nonce }
 import lila.i18n.I18nLangPicker
 import lila.notify.Notification.Notifies
 import lila.oauth.{ OAuthScope, OAuthServer }
