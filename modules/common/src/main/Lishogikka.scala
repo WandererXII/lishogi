@@ -1,10 +1,10 @@
-package lila.common
+package lishogi.common
 
 import akka.actor._
 
-object Lilakka {
+object lishogikka {
 
-  val logger = lila.log("shutdown")
+  val logger = lishogi.log("shutdown")
 
   def shutdown(cs: CoordinatedShutdown, makePhase: CoordinatedShutdown.type => String, name: String)(
       f: () => Funit
