@@ -12,13 +12,13 @@ import scalatags.Text.Frag
 import lishogi.api.{ BodyContext, Context, HeaderContext, PageData }
 import lishogi.app._
 import lishogi.common.{ ApiVersion, HTTPRequest, Nonce }
-import lila.i18n.I18nLangPicker
-import lila.notify.Notification.Notifies
-import lila.oauth.{ OAuthScope, OAuthServer }
-import lila.security.{ FingerPrintedUser, Granter, Permission }
-import lila.user.{ UserContext, User => UserModel }
+import lishogi.i18n.I18nLangPicker
+import lishogi.notify.Notification.Notifies
+import lishogi.oauth.{ OAuthScope, OAuthServer }
+import lishogi.security.{ FingerPrintedUser, Granter, Permission }
+import lishogi.user.{ UserContext, User => UserModel }
 
-abstract private[controllers] class LilaController(val env: Env)
+abstract private[controllers] class lishogiController(val env: Env)
     extends BaseController
     with ContentTypes
     with RequestGetter
@@ -28,9 +28,9 @@ abstract private[controllers] class LilaController(val env: Env)
   implicit def executionContext = env.executionContext
   implicit def scheduler        = env.scheduler
 
-  implicit protected val LilaResultZero = Zero.instance[Result](Results.NotFound)
+  implicit protected val lishogiResultZero = Zero.instance[Result](Results.NotFound)
 
-  implicit final protected class LilaPimpedResult(result: Result) {
+  implicit final protected class lishogiPimpedResult(result: Result) {
     def fuccess                           = scala.concurrent.Future successful result
     def flashSuccess(msg: String): Result = result.flashing("success" -> msg)
     def flashSuccess: Result              = flashSuccess("")
@@ -38,7 +38,7 @@ abstract private[controllers] class LilaController(val env: Env)
     def flashFailure: Result              = flashFailure("")
   }
 
-  implicit protected def LilaFragToResult(frag: Frag): Result = Ok(frag)
+  implicit protected def lishogiFragToResult(frag: Frag): Result = Ok(frag)
 
   implicit protected def makeApiVersion(v: Int) = ApiVersion(v)
 
@@ -50,7 +50,7 @@ abstract private[controllers] class LilaController(val env: Env)
   protected val rateLimited    = Results.TooManyRequests
   protected val rateLimitedFu  = rateLimited.fuccess
 
-  implicit protected def LilaFunitToResult(
+  implicit protected def lishogiFunitToResult(
       @nowarn("cat=unused") funit: Funit
   )(implicit req: RequestHeader): Fu[Result] =
     negotiate(
