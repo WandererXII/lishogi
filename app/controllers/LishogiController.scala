@@ -620,7 +620,7 @@ abstract private[controllers] class lishogiController(val env: Env)
         .mapValues { errors =>
           JsArray {
             errors.map { e =>
-              JsString(lila.i18n.Translator.txt.literal(e.message, e.args, lang))
+              JsString(lishogi.i18n.Translator.txt.literal(e.message, e.args, lang))
             }
           }
         }
@@ -630,13 +630,13 @@ abstract private[controllers] class lishogiController(val env: Env)
   }
 
   protected def apiFormError(form: Form[_]): JsObject =
-    Json.obj("error" -> errorsAsJson(form)(lila.i18n.defaultLang))
+    Json.obj("error" -> errorsAsJson(form)(lishogi.i18n.defaultLang))
 
   protected def jsonFormError(err: Form[_])(implicit lang: Lang) =
     fuccess(BadRequest(ridiculousBackwardCompatibleJsonError(errorsAsJson(err))))
 
   protected def jsonFormErrorDefaultLang(err: Form[_]) =
-    jsonFormError(err)(lila.i18n.defaultLang)
+    jsonFormError(err)(lishogi.i18n.defaultLang)
 
   protected def jsonFormErrorFor(err: Form[_], req: RequestHeader, user: Option[UserModel]) =
     jsonFormError(err)(I18nLangPicker(req, user.flatMap(_.lang)))
@@ -645,9 +645,9 @@ abstract private[controllers] class lishogiController(val env: Env)
     fuccess(BadRequest(errorsAsJson(err)))
 
   protected def pageHit(req: RequestHeader): Unit =
-    if (HTTPRequest isHuman req) lila.mon.http.path(req.path).increment()
+    if (HTTPRequest isHuman req) lishogi.mon.http.path(req.path).increment()
 
-  protected def pageHit(implicit ctx: lila.api.Context): Unit = pageHit(ctx.req)
+  protected def pageHit(implicit ctx: lishogi.api.Context): Unit = pageHit(ctx.req)
 
   protected val noProxyBufferHeader = "X-Accel-Buffering" -> "no"
   protected val noProxyBuffer       = (res: Result) => res.withHeaders(noProxyBufferHeader)
