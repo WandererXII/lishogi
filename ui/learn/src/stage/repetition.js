@@ -7,13 +7,13 @@ var imgUrl = util.assetUrl + 'images/learn/scales.svg';
 module.exports = {
   key: 'repetition',
   title: 'repetition',
-  subtitle: 'repeatingIsDrawExcept',
+  subtitle: 'fourfoldRepetitionIsADrawExcept',
   image: imgUrl,
   intro: 'repetitionIntro',
   illustration: util.roundSvg(imgUrl),
   levels: [
     {
-      goal: 'repeatingTheSamePosition4TimesIsADraw',
+      goal: 'ifTheSamePositionOccurs',
       fen: '9/9/9/9/k8/9/+p8/3+p5/K8 b - 1',
       shapes: [
         arrow('c6e8', 'green'),

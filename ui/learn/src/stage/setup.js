@@ -27,7 +27,7 @@ module.exports = {
       success: assert.pieceOn('K', 'e1'),
     },
     {
-      goal: 'thenPlaceTheGolds',
+      goal: 'dropAGold',
       fen: '4k4/9/9/9/9/9/9/9/4K4 b RB2G2S2N2L9Prb2g2s2n2l9p 1',
       nbMoves: 2,
       shapes: [circle('d1')],
@@ -43,7 +43,7 @@ module.exports = {
       failure: assert.scenarioFailed,
     },
     {
-      goal: 'placeTheSilvers',
+      goal: 'thenPlaceASilver',
       fen: '3gkg3/9/9/9/9/9/9/9/3GKG3 b RB2S2N2L9Prb2s2n2l9p 1',
       nbMoves: 2,
       shapes: [circle('c1', 'green')],
@@ -59,7 +59,7 @@ module.exports = {
       failure: assert.scenarioFailed,
     },
     {
-      goal: 'placeTheKnights',
+      goal: 'dropTheKnights',
       fen: '2sgkgs2/9/9/9/9/9/9/9/2SGKGS2 b RB2N2L9Prb2n2l9p 1',
       nbMoves: 2,
       scenario: [
@@ -71,7 +71,7 @@ module.exports = {
       failure: assert.scenarioFailed,
     },
     {
-      goal: 'placeTheLances',
+      goal: 'dropTheLances',
       fen: '1nsgkgsn1/9/9/9/9/9/9/9/1NSGKGSN1 b RB2L9Prb2l9p 1',
       nbMoves: 2,
       scenario: [
@@ -83,7 +83,7 @@ module.exports = {
       failure: assert.scenarioFailed,
     },
     {
-      goal: 'placeTheBishopsThenRooks',
+      goal: 'placeTheBishopThenRook',
       fen: '1nsgkgsn1/9/7pp/9/9/9/9/9/LNSGKGSNL b RB9Prb2l7p 1',
       nbMoves: 2,
       scenario: [
@@ -150,7 +150,7 @@ module.exports = {
       failure: assert.scenarioFailed,
     },
     {
-      goal: 'pawnSevenSixIsTheMostCommonMove',
+      goal: 'pushingThe3rdPawn',
       fen: 'lnsgkgsnl/1r5b1/ppppppppp/9/9/9/PPPPPPPPP/1B5R1/LNSGKGSNL b - 1',
       nbMoves: 2,
       shapes: [arrow('c3c4', 'green')],

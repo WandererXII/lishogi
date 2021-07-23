@@ -153,19 +153,23 @@ in a way that cannot be defended!</string>
 	<string name="thisIsTheInitialPosition">This is the initial position
 of every game of shogi!
 Make any move to continue.</string>
-	<string name="firstPlaceTheRooks">First place the rooks!
-They go in the corners.</string>
-	<string name="thenPlaceTheKnights">Then place the knights!
-They go next to the rooks.</string>
-	<string name="placeTheBishops">Place the bishops!
-They go next to the knights.</string>
-	<string name="placeTheQueen">Place the queen!
-She goes on her own colour.</string>
-	<string name="placeTheKing">Place the king!
-Right next to his queen.</string>
-	<string name="pawnsFormTheFrontLine">Pawns form the front line.
-Make any move to continue.</string>
+    <string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.
+</string>
+    <string name="dropAGold">Drop a gold on the left side of the king, then place another gold on the right.</string>
+    <string name="thenPlaceASilver">Then place the silver next to the left-side gold, and a silver beside the right gold.</string>
+    <string name="dropTheKnights">Drop the knights the same way you placed the silvers. Your opponent will be doing the Itou (伊藤) style.</string>
+    <string name="dropTheLances">Drop the lances. Your opponent will start placing pawns left-to-right before the lances. This is the Itou style.</string>
+    <string name="placeTheBishopThenRook">Place the bishop above the left knight, then the rook above the right knight. Of course, in real games there is no need to be in sync with your opponent during setup.</string>
+    <string name="placeThePawns">Finally, on the 3rd rank, drop pawns the same way you placed the back rank pieces. The circle will be your guide.</string>
+    <string name="pushingThe3rdPawn">Pushing the 3rd pawn to open the bishop’s diagonal is the most common first move. Make this move to continue.</string>
 	<string name="boardSetupComplete">Congratulations! You know how to set up the shogi board.</string>
+    <string name="repetition">Repetition</string>
+    <string name="fourfoldRepetitionIsADrawExcept">Fourfold repetition is a draw, EXCEPT...</string>
+    <string name="repetitionIntro">Fourfold repetition is a draw Perpetual check is a loss.</string>
+    <string name="ifTheSamePositionOccurs">If the same position occurs 4 times in Shogi, it is an automatic draw. This situation is called sennichite (千日手). Make the only legal move.</string>
+    <string name="perpetualCheckIsALoss">But, perpetually checking the opponent’s king is a loss for the checking side. Unfortunately for your opponent, they don’t know! Make the only legal move.</string>
+    <string name="boardFlippedFindBestMove">The board was just flipped. What is the best move here?</string>
+    <string name="repetitionComplete">The idea behind perpetual check being a loss is to prevent anyone from forcing a draw.</string>
 	<string name="stalemate">Stalemate</string>
 	<string name="theGameIsADraw">The game is a draw</string>
 	<string name="stalemateIntro">When a player is not in check and does not have a legal move, it's a stalemate. The game is drawn: no one wins, no one loses.</string>
