@@ -226,18 +226,18 @@ abstract private[controllers] class lishogiController(val env: Env)
   )(f: R => UserModel => Fu[Result])(req: R): Fu[Result] = {
     val scopes = OAuthScope select selectors
     env.security.api.oauthScoped(req, scopes) flatMap {
-      case Left(e @ lila.oauth.OAuthServer.MissingScope(available)) =>
-        lila.mon.user.oauth.request(false).increment()
+      case Left(e @ lishogi.oauth.OAuthServer.MissingScope(available)) =>
+        lishogi.mon.user.oauth.request(false).increment()
         OAuthServer
           .responseHeaders(scopes, available) {
             Unauthorized(jsonError(e.message))
           }
           .fuccess
       case Left(e) =>
-        lila.mon.user.oauth.request(false).increment()
+        lishogi.mon.user.oauth.request(false).increment()
         OAuthServer.responseHeaders(scopes, Nil) { Unauthorized(jsonError(e.message)) }.fuccess
       case Right(scoped) =>
-        lila.mon.user.oauth.request(true).increment()
+        lishogi.mon.user.oauth.request(true).increment()
         f(req)(scoped.user) map OAuthServer.responseHeaders(scopes, scoped.scopes)
     }
   }
@@ -450,7 +450,7 @@ abstract private[controllers] class lishogiController(val env: Env)
   protected def authenticationFailed(implicit ctx: Context): Fu[Result] =
     negotiate(
       html = fuccess {
-        Redirect(routes.Auth.signup()) withCookies env.lilaCookie
+        Redirect(routes.Auth.signup()) withCookies env.lishogiCookie
           .session(env.security.api.AccessUri, ctx.req.uri)
       },
       api = _ =>
