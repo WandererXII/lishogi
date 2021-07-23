@@ -1,4 +1,4 @@
-package lila
+package lishogi
 
 import scala.util.Try
 import scala.concurrent.duration._
