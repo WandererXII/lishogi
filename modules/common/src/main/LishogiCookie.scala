@@ -1,14 +1,14 @@
-package lila.common
+package lishogi.common
 
-import lila.common.config.NetDomain
+import lishogi.common.config.NetDomain
 import ornicar.scalalib.Random
 import play.api.mvc._
 
-final class LilaCookie(domain: NetDomain, baker: SessionCookieBaker) {
+final class lishogiCookie(domain: NetDomain, baker: SessionCookieBaker) {
 
   private val cookieDomain = domain.value.split(":").head
 
-  def makeSessionId(implicit req: RequestHeader) = session(LilaCookie.sessionId, Random secureString 22)
+  def makeSessionId(implicit req: RequestHeader) = session(lishogiCookie.sessionId, Random secureString 22)
 
   def session(name: String, value: String)(implicit req: RequestHeader): Cookie =
     withSession { s =>
@@ -41,11 +41,11 @@ final class LilaCookie(domain: NetDomain, baker: SessionCookieBaker) {
     DiscardingCookie(name, "/", cookieDomain.some, baker.httpOnly)
 
   def ensure(req: RequestHeader)(res: Result): Result =
-    if (req.session.data.contains(LilaCookie.sessionId)) res
+    if (req.session.data.contains(lishogiCookie.sessionId)) res
     else res withCookies makeSessionId(req)
 }
 
-object LilaCookie {
+object lishogiCookie {
 
   val sessionId = "sid"
 }
