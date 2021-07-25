@@ -607,6 +607,7 @@ POST  /api/bot/game/:id/move/:usi      controllers.PlayApi.botMove(id: String, u
 POST  /api/bot/*cmd                    controllers.PlayApi.botCommand(cmd: String)
 GET   /api/bot/*cmd                    controllers.PlayApi.botCommandGet(cmd: String)
 GET   /player/bots                     controllers.PlayApi.botOnline
+GET   /api/bot/online                  controllers.PlayApi.botOnlineApi
 
 # Board API
 GET   /api/board/game/stream/:id        controllers.PlayApi.boardGameStream(id: String)

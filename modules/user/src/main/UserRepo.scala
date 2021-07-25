@@ -2,6 +2,7 @@ package lila.user
 
 import cats.implicits._
 import org.joda.time.DateTime
+import reactivemongo.akkastream.{ cursorProducer, AkkaStreamCursor }
 import reactivemongo.api._
 import reactivemongo.api.bson._
 
@@ -39,17 +40,6 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
 
   def idByEmail(email: NormalizedEmailAddress): Fu[Option[String]] =
     coll.primitiveOne[String]($doc(F.email -> email), "_id")
-
-  def idCursor(
-      selector: Bdoc,
-      batchSize: Int = 0,
-      readPreference: ReadPreference = ReadPreference.secondaryPreferred
-  )(implicit cp: CursorProducer[Bdoc]): cp.ProducedCursor = {
-    coll.ext
-      .find(selector)
-      .batchSize(batchSize)
-      .cursor[Bdoc](readPreference)
-  }
 
   def countRecentByPrevEmail(
       email: NormalizedEmailAddress,
@@ -108,8 +98,11 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
       .cursor[User](ReadPreference.secondaryPreferred)
       .list(nb)
 
+  def botsByIdsCursor(ids: Iterable[ID]): AkkaStreamCursor[User] =
+    coll.find($inIds(ids) ++ botSelect(true)).cursor[User](ReadPreference.secondaryPreferred)
+
   def botsByIds(ids: Iterable[ID]): Fu[List[User]] =
-    coll.ext.list[User]($inIds(ids) ++ botSelect(true), ReadPreference.secondaryPreferred)
+    botsByIdsCursor(ids).list()
 
   def usernameById(id: ID) =
     coll.primitiveOne[User.ID]($id(id), F.username)
