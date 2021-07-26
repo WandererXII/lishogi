@@ -4,6 +4,8 @@ var ground = require('./ground');
 const timeouts = require('./timeouts');
 var m = require('mithril');
 
+var defaultDelay = 500;
+
 module.exports = function (blueprint, opts) {
   var steps = (blueprint || []).map(function (step) {
     if (step.move) return step;
@@ -15,26 +17,45 @@ module.exports = function (blueprint, opts) {
 
   var it = 0;
   var isFailed = false;
+  var failedMovesPlayed = false;
 
-  var fail = function () {
+  var fail = function (moveSeq) {
+    if (moveSeq) {
+      failedMovesPlayed = true;
+      ground.stop();
+      for (var i = 1; i < moveSeq.length; i++) {
+        var makeMoveWrapper = function(i) {
+          return function() {
+            makeMove(moveSeq[i]);
+          }
+        }
+        timeouts.setTimeout(makeMoveWrapper(i), defaultDelay * i);
+      }
+    }
     isFailed = true;
     return false;
   };
 
-  var opponent = function (data) {
-    var step = steps[it];
-    if (!step) return;
+  var makeMove = function(stepMove) {
+    console.log(stepMove);
     var res;
-    var move = util.decomposeUci(step.move);
-    if (step.move[1] === '*') {
+    var move = util.decomposeUci(stepMove);
+    if (stepMove[1] === '*') {
       res = opts.shogi.drop(shogiopsUtil.charToRole(move[0][0]), move[1]);
     } else {
       res = opts.shogi.move(move[0], move[1], move[2]);
     }
-    if (!res) return fail();
-    it++;
+    if (!res) fail();
     ground.fen(opts.shogi.fen(), opts.shogi.color(), opts.makeShogiDests(), move);
     m.redraw();
+  }
+
+  var opponent = function (data) {
+    var step = steps[it];
+    if (!step) return;
+    var failure = makeMove(step.move);
+    if (failure) return failure;
+    it++;
     if (step.shapes)
     timeouts.setTimeout(function () {
       ground.setShapes(step.shapes);
@@ -42,7 +63,7 @@ module.exports = function (blueprint, opts) {
 
     if (it == steps.length) {
       ground.stop();
-      timeouts.setTimeout(data.complete, 500);
+      timeouts.setTimeout(data.complete, defaultDelay);
     }
   };
 
@@ -53,12 +74,24 @@ module.exports = function (blueprint, opts) {
     isFailed: function () {
       return isFailed;
     },
+    failedMovesPlayed: function() {
+      return failedMovesPlayed;
+    },
     opponent: opponent,
     player: function (data) {
       var move = data.move;
       var step = steps[it];
       if (!step) return;
-      if (step.move !== move && !(Array.isArray(step.move) && step.move.includes(move))) return fail();
+      if (step.move !== move && !(Array.isArray(step.move) && step.move.includes(move))) {
+        if (step.wrongMoves) {
+          for (var moveSeq of step.wrongMoves) {
+            if (moveSeq[0] === move) {
+              return fail(moveSeq);
+            }
+          }
+        }
+        return fail();
+      }
       it++;
       if (step.shapes) ground.setShapes(step.shapes);
       if (step.levelFail) {
@@ -74,7 +107,7 @@ module.exports = function (blueprint, opts) {
         var opponentWrapper = function() {
           opponent(data);
         }
-        timeouts.setTimeout(opponentWrapper, steps[it] && steps[it].delay ? steps[it].delay : 500);
+        timeouts.setTimeout(opponentWrapper, steps[it] && steps[it].delay ? steps[it].delay : defaultDelay);
       }
       return true;
     },

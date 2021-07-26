@@ -70,9 +70,11 @@ module.exports = function (blueprint, opts) {
     if (!move) return;
     vm.failed = true;
     ground.stop();
-    ground.showCapture(move, function(){
-      shogi.move(move.orig, move.dest);
-    }, m);
+    if (!scenario.failedMovesPlayed()) {
+      ground.showCapture(move, function(){
+        shogi.move(move.orig, move.dest);
+      }, m);
+    }
     sound.failure();
     return true;
   };
@@ -152,7 +154,7 @@ module.exports = function (blueprint, opts) {
       return;
     }
     if (took) sound.take();
-    else if (inScenario) sound.take();
+    //else if (inScenario) sound.take();
     else sound.move();
     if (vm.failed) {
       if (blueprint.showFailureFollowUp && !captured) {
