@@ -9,6 +9,7 @@ var sound = require('./sound');
 var promotion = require('./promotion');
 const timeouts = require('./timeouts');
 var compat = require('shogiops/compat');
+var util = require('./util');
 
 module.exports = function (blueprint, opts) {
   var items = makeItems({
@@ -85,6 +86,14 @@ module.exports = function (blueprint, opts) {
     return true;
   }
 
+  var detectCapturedLessValuablePiece = function () {
+    var square = shogi.findCapturedLessValuablePiece();
+    if (!square) return;
+    ground.stop();
+    ground.setShapes([util.circle(square, 'green')]);
+    sound.failure();
+    return true;
+  }
   // if orig is 'a0' then piece was dropped
   // to future self or anyone who wants it: the sendMove function is where you will implement feature for opponent's movement. also see scenario feature.
   var sendMove = function (orig, dest, prom, role) {
@@ -102,7 +111,8 @@ module.exports = function (blueprint, opts) {
       inScenario,
       captured = false,
       nifued = false,
-      scenarioResult = false;
+      scenarioResult = false,
+      notCapturedInOrder = false;
     items.withItem(move.to, function (item) {
       if (item === 'apple') {
         vm.score += scoring.apple;
@@ -131,8 +141,10 @@ module.exports = function (blueprint, opts) {
     } else {
       captured = detectCapture();
       if (role === 'pawn') nifued = detectNifu(blueprint.color, dest);
+      if (blueprint.capturePiecesInOrderOfValue)
+        notCapturedInOrder = detectCapturedLessValuablePiece();
       // see the last stage of outofCheck.js for an example of typeof(scenarioResult) === string being true. the scenarioResult variable will be set to levelFail if any of the moves in the particular scenario are played
-      vm.failed = vm.failed || typeof(scenarioResult) === 'string' || captured || nifued || detectFailure();
+      vm.failed = vm.failed || typeof(scenarioResult) === 'string' || captured || nifued || notCapturedInOrder || detectFailure();
     }
     if (!vm.failed && detectSuccess()) complete();
     if (vm.willComplete) {

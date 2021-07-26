@@ -220,6 +220,28 @@ module.exports = function (fen, appleKeys) {
       shogi.play(parsedMove);
       return parsedMove
     },
+
+    findCapturedLessValuablePiece: function () {
+      // checks if the player has captured a less valuable piece (say silver) already while not having captured a more valuable piece first (say bishop)
+      var opponentColor = getColor();
+      var roles = ['rook', 'bishop', 'gold', 'silver', 'knight', 'lance', 'pawn'];
+      var rolesTracker = {};
+      for (var square of shogi.board[opponentColor]) {
+        var piece = shogi.board.get(square);
+        rolesTracker[piece.role] = square;
+      }
+      var alreadyPassedByDefined = false;
+      for (var role of roles) {
+        if (!rolesTracker[role]) {
+          if (alreadyPassedByDefined) {
+            return compat.makeChessSquare(alreadyPassedByDefined);
+          }
+        } else if (!alreadyPassedByDefined) {
+          alreadyPassedByDefined = rolesTracker[role];
+        }
+      }
+    },
+
     place: placePiece,
     instance: shogi,
   };
