@@ -77,11 +77,22 @@ module.exports = {
             ['c2d2', 'g*d3', 'd2c1', 'g*c2'],
             ['c2b1', 'g*c1'],
           ]
-        }
+        },
+        'g*b5',
       ],
       offerIllegalMove: true,
+      nbMoves: 1,
       success: assert.scenarioComplete,
       failure: assert.scenarioFailed,
+    },
+    {
+      goal: 'takeThePieceWithTheHighestValue',
+      fen: '7k1/9/6+P+P+P/9/Pg2n4/2N6/1KP6/3+r5/L8 b g 1',
+      offerIllegalMove: true,
+      anyOtherMove: 'g*b4',
+      nbMoves: 1,
+      success: assert.mate,
+      failure: assert.not(assert.mate),
     },
   ].map(function (l, i) {
     return util.toLevel(l, i);
