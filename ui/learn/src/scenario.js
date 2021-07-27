@@ -85,7 +85,7 @@ module.exports = function (blueprint, opts) {
       if (step.move !== move && !(Array.isArray(step.move) && step.move.includes(move))) {
         if (step.wrongMoves) {
           for (var moveSeq of step.wrongMoves) {
-            if (moveSeq[0] === move) {
+            if (moveSeq[0] === move || moveSeq[0] === 'any') {
               return fail(moveSeq);
             }
           }
