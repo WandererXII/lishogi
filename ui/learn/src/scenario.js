@@ -20,6 +20,9 @@ module.exports = function (blueprint, opts) {
   var failedMovesPlayed = false;
 
   var fail = function (moveSeq) {
+    if (steps[it].wrongShapes) {
+      ground.setShapes(steps[it].wrongShapes);
+    }
     if (moveSeq) {
       failedMovesPlayed = true;
       ground.stop();

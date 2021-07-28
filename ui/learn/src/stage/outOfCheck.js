@@ -1,4 +1,5 @@
 var util = require('../util');
+var assert = require('../assert');
 var arrow = util.arrow;
 
 var imgUrl = util.assetUrl + 'images/learn/guards.svg';
@@ -62,10 +63,15 @@ module.exports = {
       fen: '9/9/9/9/9/5+bn2/5GPPP/6SK1/5G1NL b g 1',
       scenario: [
         {
-          levelFail: 'G*h2',
-          move: ['h2i2', 'h2g1'],
+          move: 'f3g4',
+          wrongMoves: [
+            ['h2i2', 'g*h2'],
+            ['h2g1', 'g*h2'],
+          ],
         },
       ],
+      success: assert.scenarioComplete,
+      failure: assert.scenarioFailed,
     },
 
   ].map(function (l, i) {

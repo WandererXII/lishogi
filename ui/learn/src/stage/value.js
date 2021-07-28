@@ -139,7 +139,7 @@ module.exports = {
     */
     {
       goal: 'twoGeneralsAreBetter',
-      fen: 'l6rl/2k3g2/2ppps3/pp3pp2/2P4pp/P1BP1P3/1P2P1PPP/1KS4R1/L4G2L b b 1',
+      fen: 'l6rl/2k3g2/2ppps3/pp3pp2/2P4pp/P1BP1P3/1P2P1PPP/2S4R1/L1K2G2L b b 1',
       nbMoves: 3,
       captures: 2,
       scenario: [
@@ -180,5 +180,5 @@ module.exports = {
   ].map(function (l, i) {
     return util.toLevel(l, i);
   }),
-  complete: 'pieceValueComplete',
+  complete: 'rememberTheKingIsMoreValuableThanEveryOtherPieceCombined',
 };

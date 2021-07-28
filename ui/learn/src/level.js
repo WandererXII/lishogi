@@ -145,7 +145,7 @@ module.exports = function (blueprint, opts) {
       if (role === 'pawn') nifued = detectNifu(blueprint.color, dest);
       if (blueprint.capturePiecesInOrderOfValue)
         notCapturedInOrder = detectCapturedLessValuablePiece();
-      // see the last stage of outofCheck.js for an example of typeof(scenarioResult) === string being true. the scenarioResult variable will be set to levelFail if any of the moves in the particular scenario are played
+      // see checkmate1.js for an example of typeof(scenarioResult) === string being true. the scenarioResult variable will be set to levelFail if any of the moves in the particular scenario are played
       vm.failed = vm.failed || typeof(scenarioResult) === 'string' || captured || nifued || notCapturedInOrder || detectFailure();
     }
     if (!vm.failed && detectSuccess()) complete();
@@ -163,12 +163,6 @@ module.exports = function (blueprint, opts) {
           if (rm) {
             ground.fen(shogi.fen(), blueprint.color, {}, [rm.orig, rm.dest]);
           }
-        }, 600);
-      } else if (typeof scenarioResult === 'string' && scenarioResult !== 'fail') {
-        timeouts.setTimeout(function () {
-          var move = shogi.playLishogiUciMove(scenarioResult);
-          ground.fen(shogi.fen(), blueprint.color, {}, [move.orig, move.dest]);
-          m.redraw();
         }, 600);
       }
     } else {
