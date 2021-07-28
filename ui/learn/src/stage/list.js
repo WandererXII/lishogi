@@ -43,15 +43,14 @@ var categs = [
   //    require('./stalemate'),
     ],
   },
-  //{
-  //  key: 'advanced',
-  //  name: 'advanced',
-  //  stages: [
-  //    // require('./draw'),
-  //    // require('./fork'),
-  //    require('./check2'),
-  //  ],
-  //},
+  {
+    key: 'advanced',
+    name: 'advanced',
+    stages: [
+       require('./attack'),
+      // require('./fork'),
+    ],
+  },
 ];
 
 var stageId = 1;

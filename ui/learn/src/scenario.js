@@ -84,8 +84,15 @@ module.exports = function (blueprint, opts) {
     player: function (data) {
       var move = data.move;
       var step = steps[it];
+      var moveMatcher = step.move;
+      if (moveMatcher[moveMatcher.length - 1] === '/') {
+        moveMatcher = moveMatcher.replace('/', '');
+        if (move[move.length - 1] === '+') {
+          moveMatcher += '+';
+        }
+      }
       if (!step) return;
-      if (step.move !== move && !(Array.isArray(step.move) && step.move.includes(move))) {
+      if (moveMatcher !== move && !(Array.isArray(step.move) && step.move.includes(move))) {
         if (step.wrongMoves) {
           for (var moveSeq of step.wrongMoves) {
             if (moveSeq[0] === move || moveSeq[0] === 'any') {
