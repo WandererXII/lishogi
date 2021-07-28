@@ -37,7 +37,6 @@ module.exports = function (blueprint, opts) {
   };
 
   var makeMove = function(stepMove) {
-    console.log(stepMove);
     var res;
     var move = util.decomposeUci(stepMove);
     if (stepMove[1] === '*') {
@@ -47,6 +46,7 @@ module.exports = function (blueprint, opts) {
     }
     if (!res) fail();
     ground.fen(opts.shogi.fen(), opts.shogi.color(), opts.makeShogiDests(), move);
+    ground.data().dropmode.dropDests = opts.shogi.getDropDests();
     m.redraw();
   }
 
@@ -102,7 +102,6 @@ module.exports = function (blueprint, opts) {
         it++;
         opts.shogi.color(shogiopsUtil.opposite(opts.shogi.color()));
         ground.color(opts.shogi.color(), opts.makeShogiDests());
-        ground.data().dropmode.dropDests = opts.shogi.getDropDests();
       } else {
         var opponentWrapper = function() {
           opponent(data);

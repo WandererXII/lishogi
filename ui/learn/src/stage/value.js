@@ -138,6 +138,24 @@ module.exports = {
     },
     */
     {
+      goal: 'twoGeneralsAreBetter',
+      fen: 'l6rl/2k3g2/2ppps3/pp3pp2/2P4pp/P1BP1P3/1P2P1PPP/1KS4R1/L4G2L b b 1',
+      nbMoves: 3,
+      captures: 2,
+      scenario: [
+        'c4f7+',
+        'g8f7',
+        {
+          move: 's*g8',
+          wrongShapes: [circle('g8')],
+        },
+        'h9h8',
+        'g8f7+',
+      ],
+      success: assert.scenarioComplete,
+      failure: assert.scenarioFailed,
+    },
+    {
       goal: 'whichPieceIsTheMostValuable',
       fen: 'ln+R5l/3r1gks1/5pnp1/2b3p1p/1p7/P3pP2P/1P1+b1GPP1/6SK1/5+p1NL b GSPgsnl3p 1',
       nbMoves: 1,
@@ -159,24 +177,6 @@ module.exports = {
       shapes: [arrow('c9c6'), arrow('c9d8'), arrow('c9b9'), circle('c6'), circle('d8'), circle('b9'),],
       detectCapture: 'unprotected',
     },
-    {
-      goal: 'twoGeneralsAreBetter',
-      fen: 'l6rl/2k3g2/2ppps3/pp3pp2/2P4pp/P1BP1P3/1P2P1PPP/1KS4R1/L4G2L b b 1',
-      nbMoves: 3,
-      captures: 2,
-      scenario: [
-        'c4f7+',
-        'g8f7',
-        {
-          move: 's*g8',
-          wrongShapes: [circle('g8')],
-        },
-        'h9h8',
-        'g8f7+',
-      ],
-      success: assert.scenarioComplete,
-      failure: assert.scenarioFailed,
-    }
   ].map(function (l, i) {
     return util.toLevel(l, i);
   }),

@@ -119,7 +119,6 @@ module.exports = function (fen, appleKeys) {
       var kingSquare = clone.board.kingOf(c);
       // change king to gold, there is no king in check if the king doesn't exist :)
       clone.board.take(kingSquare);
-      console.log(clone);
       clone.board.set(kingSquare, {'role': 'gold', 'color': 'gote'});
       // change pawns to golds
       var pawnSquareSet = clone.board.pieces(c, 'pawn');
