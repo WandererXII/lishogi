@@ -48,8 +48,10 @@ final class SwissJson(
     } yield swissJsonBase(swiss) ++ Json
       .obj(
         "canJoin" -> {
-          (swiss.isNotFinished && myInfo.exists(_.player.absent)) ||
-          (myInfo.isEmpty && swiss.isEnterable && isInTeam)
+          {
+            (swiss.isNotFinished && myInfo.exists(_.player.absent)) ||
+            (myInfo.isEmpty && swiss.isEnterable)
+          } && isInTeam
         },
         "standing"   -> standing,
         "situations" -> situations.map(situationJson)
