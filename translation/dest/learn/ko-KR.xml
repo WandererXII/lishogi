@@ -13,7 +13,7 @@
 	<string name="introIntro">당신의 여정은 지금부터 시작입니다</string>
 	<string name="choosePieceDesign">자신의 기물을 구분할 수 있는 것이 중요하므로 반드시 자신에게 맞는 기물을 골라보세요.
 톱니바퀴 또는 사용자 이름(오른쪽 상단 모서리)을 클릭한 다음 \'기물 세트\'를 클릭합니다.</string>
-	<string name="promotionZone">When some of your pieces reach or leave the first three ranks in your opponent\'s territory you can choose to promote your piece and make it stronger.</string>
+	<string name="promotionZone">당신의 말중 몇 종류는 상대편 진영의 3줄 안에 들어갔을때, 말을 승급시켜서 더 강하게 만들 수 있습니다.</string>
 	<string name="senteGoesFirst">In shogi the player who goes first is called sente and the player who goes second is called gote. Sente is sometimes represented by black color and gote by white. Make any move as sente to continue.</string>
 	<string name="introComplete">You now know some basics, but this part of tutorial is still under construction. For now learn how individual pieces move.</string>
 	<string name="theRook">루크</string>
