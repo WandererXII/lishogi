@@ -103,47 +103,46 @@
 	<string name="checkInOne">한 수 안에 체크하기</string>
 	<string name="attackTheOpponentsKing">상대의 \'왕장/옥장[王将/玉将]\'을 공격해라</string>
 	<string name="checkInOneIntro">상대의 왕을 공격하세요. 상대는 어쩔 수 없이 방어할 겁니다!</string>
-	<string name="checkInOneGoal">한 수로 상대의 왕을 노려보세요</string>
-	<string name="checkInOneComplete">축하합니다! 상대방을 체크시키면 상대가 둘 수는 제한적으로 변합니다!</string>
-	<string name="outOfCheck">체크에서 벗어나기</string>
-	<string name="defendYourKing">킹을 보호하라</string>
-	<string name="outOfCheckIntro">체크당했습니다! 도망치거나 공격을 막으세요.</string>
-	<string name="escapeWithTheKing">킹 폐하를 피신시키십시오!</string>
-	<string name="theKingCannotEscapeButBlock">킹이 탈출할 수 없더라도,
-다른 기물로 공격을 막을 수는 있습니다!</string>
+	<string name="checkInOneGoal">한 수 안에 상대의 왕을 체크[王手]하세요</string>
+	<string name="checkInOneComplete">축하합니다! 상대방을 체크[王手]시키면 상대가 둘 수는 제한적으로 변합니다!</string>
+	<string name="outOfCheck">체크[王手]에서 벗어나기</string>
+	<string name="defendYourKing">왕을 보호하세요</string>
+	<string name="outOfCheckIntro">체크[王手]당했습니다! 도망치거나 공격을 막으세요.</string>
+	<string name="escapeWithTheKing">왕을 피신시키십시오!</string>
+	<string name="theKingCannotEscapeButBlock">왕이 탈출할 수 없더라도,
+다른 말로 공격을 막을 수는 있습니다!</string>
 	<string name="youCanGetOutOfCheckByTaking">최선의 방어는 공격입니다.
-폐하를 공격하는 말을 공격하세요!</string>
-	<string name="thisKnightIsCheckingThroughYourDefenses">나이트가 공격합니다!</string>
-	<string name="escapeOrBlock">폐하를 피신시키거나
-공격을 막으세요!</string>
+왕을 공격하는 말을 공격하세요!</string>
+	<string name="thisKnightIsCheckingThroughYourDefenses">\'계마[桂馬]\'가 당신의 방어를 뚫고 체크합니다!</string>
+	<string name="escapeOrBlock">왕을 피신시키거나 공격을 막으세요!</string>
 	<string name="outOfCheckComplete">축하합니다! 체크당하면 꼭 벗어나야 함을 명심하세요!</string>
-	<string name="mateInOne">한 수 안에 체크메이트하기</string>
-	<string name="defeatTheOpponentsKing">상대 킹을 벗어날 수 없는 위협에 가두자</string>
-	<string name="mateInOneIntro">체크메이트란 더 이상 방어할 수 없는 체크 상태입니다. 한마디로 승리죠!</string>
-	<string name="attackYourOpponentsKing">어느 방법으로도 체크를 피할 수 없도록 빈틈없이 공격하세요!</string>
+	<string name="mateInOne">한 수 안에 \'체크메이트[詰み]\'하기</string>
+	<string name="defeatTheOpponentsKing">상대의 왕을 굴복시키세요</string>
+	<string name="mateInOneIntro">\'체크메이트[詰み]\'란 더 이상 방어할 수 없는 체크 상태입니다. 한마디로 승리죠!</string>
+	<string name="attackYourOpponentsKing">어떤 방법으로도 체크를 피할 수 없도록 상대방의 왕을 빈틈없이 공격하세요!</string>
 	<string name="mateInOneComplete">Congratulations! That is how you win shogi games!</string>
 	<string name="intermediate">중급</string>
-	<string name="boardSetup">보드 준비</string>
-	<string name="howTheGameStarts">체스 기물들의 위치</string>
-	<string name="boardSetupIntro">전열을 가다듬어라!</string>
+	<string name="boardSetup">쇼기판과 말의 셋팅</string>
+	<string name="howTheGameStarts">게임의 시작방법</string>
+	<string name="boardSetupIntro">두 군대가 맞서 싸울 준비를 합니다</string>
 	<string name="thisIsTheInitialPosition">This is the initial position
 of every game of shogi!
 Make any move to continue.</string>
-	<string name="firstPlaceTheRooks">우선 룩을 배치해봅시다.
-룩은 구석에 놓여요.</string>
-	<string name="thenPlaceTheKnights">그럼 나이트를 배치해봅시다!
-나이트는 룩 옆에 놓입니다.</string>
-	<string name="placeTheBishops">이제 비숍을 배치해봐요!
-비숍은 나이트 옆에 놓입니다.</string>
-	<string name="placeTheQueen">퀸을 배치하십시오!
-퀸은 자신의 색의 칸 위에 위치합니다.</string>
-	<string name="placeTheKing">킹을 놓읍시다!
-퀸 옆에 있어요.</string>
-	<string name="pawnsFormTheFrontLine">폰은 나머지 기물들 앞에 섭니다.
-아무 수나 두어 진행하십시오.</string>
+	<string name="firstPlaceTheRooks">우선 \'비차[飛車]\'!
+\'비차[飛車]\'는 구석에 놓입니다</string>
+	<string name="thenPlaceTheKnights">그럼 \'계마[桂馬]\'를 배치해봅시다!
+ \'계마[桂馬]\'는 비차[飛車]의 다음 위치에 놓입니다.</string>
+	<string name="placeTheBishops">이제 \'보병[歩兵]\'을 배치해보세요!
+\'보병[歩兵]\'은 비차[飛車]의 앞에 놓입니다.</string>
+	<string name="placeTheQueen">\'금장/은장[金将/銀将]\'을 배치하십시오!
+금장/은장[金将/銀将]은 다음과 같은 칸 위를 이동합니다</string>
+	<string name="placeTheKing">왕을 놓아봅시다!
+금장/은장[金将/銀将] 옆에 있어요</string>
+	<string name="pawnsFormTheFrontLine">\'보병[歩兵]\'은 나머지 말들을 뒤로하고 가장 최전방에 섭니다.
+아무 수나 둬서 진행해보십시오.</string>
 	<string name="boardSetupComplete">Congratulations! You know how to set up the shogi board.</string>
-	<string name="stalemate">스테일메이트</string>
-	<string name="theGameIsADraw">게임이 무승부입니다</string>
+	<string name="stalemate">스테일메이트[Stalemate, 무승부]</string>
+	<string name="theGameIsADraw">이 게임은 무승부입니다</string>
 	<string name="stalemateIntro">체크에 걸리지도 않았지만 움직일 수 있는 수가 없는 상황은 무승부, 스테일메이트입니다.</string>
 	<string name="stalemateGoal">흑을 스테일메이트시키려면:
 - 흑은 어느 곳으로도 이동할 수 없어야 합니다.
@@ -151,30 +150,28 @@ Make any move to continue.</string>
 	<string name="stalemateComplete">축하합니다! 무승부가 패배보다야 낫겠죠!</string>
 	<string name="advanced">상급</string>
 	<string name="pieceValue">기물의 가치</string>
-	<string name="evaluatePieceStrength">기물의 중요성을 대략 예상해봅시다</string>
-	<string name="pieceValueIntro">높은 기동성은 더 높은 가치를 뜻합니다!
-
-퀸 = 9
-룩 = 5
-비숍 = 3
-나이트 = 3
-폰 = 1
-킹은 값어치를 잴 수 없습니다. 킹이 잡힌다는 것은 게임에서 패배한다는 것이니까요. 굳이 따지자면 무한대입니다.</string>
-	<string name="queenOverBishop">가장 높은 가치의 기물을 잡으세요!
-
+	<string name="evaluatePieceStrength">말의 강함을 대략 평가해봅시다</string>
+	<string name="pieceValueIntro">이동력이 높은 말일수록 가치가 높습니다
+금장/은장[金将/銀将] = 9
+비차[飛車] = 5
+각행[角行] = 3
+계마[桂馬] = 3
+보병[歩兵] = 1
+왕은 가치를 잴 수 없습니다. 왕이 잡힌다는 것은 게임에서 패배한다는 것이니까요.
+굳이 말하면 무한대입니다.</string>
+	<string name="queenOverBishop">가장 높은 가치가 있는 말을 잡으세요!
 힌트: 
-퀸 &gt; 비숍</string>
-	<string name="takeThePieceWithTheHighestValue">가장 높은 가치의 기물을 잡으세요!</string>
-	<string name="pieceValueComplete">축하드립니다! 이제 기물의 가치를 아시네요!
-킹 = ∞
-퀸 = 9
-룩 = 5
-비숍 = 3
-나이트 = 3
-폰 = 1</string>
+금장/은장[金将/銀将] &gt; 각행[角行]</string>
+	<string name="takeThePieceWithTheHighestValue">가장 높은 가치가 있는 말을 잡으세요!</string>
+	<string name="pieceValueComplete">축하드립니다! 이제 말의 가치를 아실겁니다!
+금장/은장[金将/銀将] = 9
+비차[飛車] = 5
+각행[角行] = 3
+계마[桂馬] = 3
+보병[歩兵] = 1</string>
 	<string name="checkInTwo">두 수 안에 체크하기</string>
 	<string name="twoMovesToGiveCheck">두 수 만에 위협하기</string>
-	<string name="checkInTwoIntro">두 수 만에 상대의 킹을 체크시킬 방법을 찾아내세요!</string>
+	<string name="checkInTwoIntro">두 수 만에 상대의 왕을 체크시킬 방법을 찾아내세요!</string>
 	<string name="checkInTwoGoal">두 수 안에 킹을 위협하세요!</string>
 	<string name="checkInTwoComplete">축하합니다! 상대방을 체크시키면 상대가 둘 수는 제한적으로 변합니다!</string>
 	<string name="whatNext">더 나아가기</string>
@@ -184,31 +181,31 @@ Make any move to continue.</string>
 	<string name="practice">연습</string>
 	<string name="learnCommonChessPositions">Learn common shogi positions</string>
 	<string name="puzzles">퍼즐</string>
-	<string name="exerciseYourTacticalSkills">대처능력 기르기</string>
+	<string name="exerciseYourTacticalSkills">대처능력을 길러보세요</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="curatedShogiResources">See our curated list of shogi resources</string>
 	<string name="videos">동영상</string>
 	<string name="watchInstructiveChessVideos">Watch instructive shogi videos</string>
-	<string name="playPeople">다른 사람들과 플레이</string>
-	<string name="opponentsFromAroundTheWorld">전세계인들과 체스를 두세요</string>
-	<string name="playMachine">컴퓨터랑 게임하기</string>
-	<string name="testYourSkillsWithTheComputer">컴퓨터로 실력 평가하기</string>
-	<string name="letsGo">시작하기</string>
+	<string name="playPeople">다른 사람과 대국</string>
+	<string name="opponentsFromAroundTheWorld">전세계 사람들과 대국해보세요</string>
+	<string name="playMachine">컴퓨터와 대국</string>
+	<string name="testYourSkillsWithTheComputer">컴퓨터와의 대국으로 자신의 실력을 테스트해보세요</string>
+	<string name="letsGo">시작합시다</string>
 	<string name="stageX">스테이지 %s</string>
 	<string name="awesome">좋아요!</string>
-	<string name="excellent">멋져요!</string>
+	<string name="excellent">훌륭합니다!</string>
 	<string name="greatJob">잘 하셨어요!</string>
 	<string name="perfect">완벽해요!</string>
 	<string name="outstanding">대단해요!</string>
 	<string name="wayToGo">그렇죠!</string>
-	<string name="yesYesYes">맞아요!</string>
+	<string name="yesYesYes">그렇지!</string>
 	<string name="youreGoodAtThis">잘 하시네요!</string>
-	<string name="nailedIt">바로 그거에요.</string>
+	<string name="nailedIt">바로 그거에요</string>
 	<string name="rightOn">맞습니다!</string>
-	<string name="stageXComplete">%s번 퍼즐 완료</string>
+	<string name="stageXComplete">%s번 스테이지 완료</string>
 	<string name="yourScore">당신의 점수</string>
 	<string name="next">다음</string>
 	<string name="backToMenu">메뉴로 돌아가기</string>
 	<string name="puzzleFailed">잘못된 수입니다</string>
-	<string name="retry">다시하기</string>
+	<string name="retry">다시</string>
 </resources>
