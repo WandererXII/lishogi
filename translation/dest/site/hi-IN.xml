@@ -90,7 +90,7 @@
 	<string name="openingExplorer">प्रारम्भ अन्वेषक (Opening explorer)</string>
 	<string name="xOpeningExplorer">%s प्रारम्भ अन्वेषक</string>
 	<string name="allSet">सब तैयार !</string>
-	<string name="importPgn">PGN आयात करें</string>
+	<string name="importKif">Import KIF</string>
 	<string name="delete">हटाएं</string>
 	<string name="deleteThisImportedGame">इस आयात किए गए गेम को हटाएं ?</string>
 	<string name="replayMode">रीप्ले मोड</string>
@@ -332,7 +332,7 @@
 	<string name="leaderboard">लीडरबोर्ड</string>
 	<string name="selectHandicap">हैंडीकैप चुनें (Select handicap)</string>
 	<string name="pasteTheFenStringHere">FEN को यहा रखें</string>
-	<string name="pasteThePgnStringHere">PGN को यहा रखें</string>
+	<string name="pasteTheKifStringHere">Paste the KIF text here</string>
 	<string name="fromPosition">स्थिति से (From position)</string>
 	<string name="continueFromHere">यहा से जारी करें</string>
 	<string name="toStudy">अध्ययन</string>
