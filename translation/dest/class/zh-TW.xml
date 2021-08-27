@@ -55,7 +55,7 @@ Password: %3$s</string>
 	<plurals name="nbPendingInvitations">
 		<item quantity="other">%s pending invitations</item>
 	</plurals>
-	<string name="noPendingInvitations">No pending invitations</string>
+	<string name="noPendingInvitations">沒有未回覆的邀請</string>
 	<string name="onlyVisibleToTeachers">只有教師可以看到</string>
 	<string name="lastActiveDate">活動</string>
 	<string name="managed">管理</string>
@@ -81,7 +81,7 @@ Password: %3$s</string>
 	<string name="timePlaying">奕棋時間:</string>
 	<string name="variantXOverLastY">%1$s over last %2$s</string>
 	<string name="winrate">勝率</string>
-	<string name="na">N/A</string>
+	<string name="na">無</string>
 	<string name="news">課程通知</string>
 	<string name="editNews">編輯通知</string>
 	<string name="notifyAllStudents">提醒所有的學生</string>
