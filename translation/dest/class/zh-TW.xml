@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="lishogiClasses">Classes</string>
+	<string name="lishogiClasses">課程</string>
 	<string name="teachClassesOfChessStudents">Teach classes of shogi students with the Lishogi Classes tool suite.</string>
 	<string name="features">功能</string>
 	<string name="quicklyGenerateSafeUsernames">Quickly generate safe usernames and passwords for students</string>
@@ -42,8 +42,8 @@ Password: %3$s</string>
 	<string name="inviteDesc2">They will receive a message on Lishogi with a link to join the class.</string>
 	<string name="inviteDesc3">Important: only invite students you know, and who actively want to join the class.</string>
 	<string name="inviteDesc4">Never send unsolicited invites to arbitrary players.</string>
-	<string name="createANewLishogiAccount">Create a new Lishogi account</string>
-	<string name="createDesc1">If the student doesn\'t have a Lishogi account yet, you can create one for them here.</string>
+	<string name="createANewLishogiAccount">創建一個新的帳戶</string>
+	<string name="createDesc1">如果學生沒有 Lishogi 帳號，你可以在這裡幫他們建立。</string>
 	<string name="createDesc2">No email address is required. A password will be generated, and you will have to transmit it to the student, so they can log in.</string>
 	<string name="createDesc3">Important: a student must not have multiple accounts.</string>
 	<string name="createDesc4">If they already have one, use the invite form instead.</string>
