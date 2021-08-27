@@ -2,7 +2,7 @@
 <resources>
 	<string name="faqAbbreviation">常見問題</string>
 	<string name="frequentlyAskedQuestions">常見問題</string>
-	<string name="whyIsLishogiCalledLishogi">Why is Lishogi called Lishogi?</string>
+	<string name="whyIsLishogiCalledLishogi">為什麼叫做Lishogi呢?</string>
 	<string name="forkedFromLichess">Lishogi is open source project forked from liсhess, but since it\'s for playing shogi, it\'s called lishogi.</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Because it\'s derived from Liсhess. And Liсhess is called Liсhess because it\'s a combination of live/light/libre and chess. Lishogi is pronounced %1$s.</string>
 	<string name="leechess">lee-shogi</string>
@@ -70,14 +70,14 @@ Finally there is an honorary %2$s title.</string>
 We rarely award it to highly notable players who are good citizens of Lishogi, at our discretion. You don\'t get the LM title, the LM title gets to you. If you qualify, you will get a message from us regarding it and the choice to accept or decline.
 
 Do not ask for the LM title.</string>
-	<string name="whatUsernameCanIchoose">What can my username be?</string>
+	<string name="whatUsernameCanIchoose">我可以取甚麼樣的使用者名稱？</string>
 	<string name="usernamesNotOffensive">In general, usernames should not be: offensive, impersonating someone else, or advertising. You can read more about the %1$s.</string>
 	<string name="guidelines">guidelines</string>
 	<string name="uniqueTrophies">獨一無二的獎盃</string>
 	<string name="ownerUniqueTrophies">That trophy is unique in the history of Lishogi, nobody other than %1$s will ever have it.</string>
 	<string name="aHourlyBulletTournament">a hourly Bullet tournament</string>
 	<string name="lishogiRatings">Lishogi ratings</string>
-	<string name="whichRatingSystemUsedByLishogi">What rating system does Lishogi use?</string>
+	<string name="whichRatingSystemUsedByLishogi">Lishogi 使用什麼評分機制?</string>
 	<string name="ratingSystemUsedByLishogi">Ratings are calculated using the Glicko-2 rating method developed by Mark Glickman. This is a very popular rating method, and is used by a significant number of chess organisations (FIDE being a notable counter-example, as they still use the dated Elo rating system).
 
 Fundamentally, Glicko ratings use \"confidence intervals\" when calculating and representing your rating. When you first start using the site, your rating starts at 1500 ± 700. The 1500 represents your rating, and the 700 represents the confidence interval.
@@ -85,7 +85,7 @@ Fundamentally, Glicko ratings use \"confidence intervals\" when calculating and 
 Basically, the system is 90% sure that your rating is somewhere between 800 and 2200. It is incredibly uncertain. Because of this, when a player is just starting out, their rating will change very dramatically, potentially several hundred points at a time. But after some games against established players the confidence interval will narrow, and the amount of points gained/lost after each game will decrease.
 
 Another point to note is that, as time passes, the confidence interval will increase. This allows you to gain/lose points points more rapidly to match any changes in your skill level over that time.</string>
-	<string name="whatIsProvisionalRating">Why is there a question mark (?) next to a rating?</string>
+	<string name="whatIsProvisionalRating">為什麼積分的旁邊有個問號(?)</string>
 	<string name="provisionalRatingExplanation">The question mark means the rating is provisional. Reasons include:</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">The player has not yet finished enough rated games against %1$s in the rating category.</string>
 	<string name="similarOpponents">opponents of similar strength</string>
