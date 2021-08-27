@@ -27,7 +27,7 @@
 	<string name="youPlayTheWhitePieces">您使用白棋</string>
 	<string name="youPlayTheBlackPieces">您使用黑棋</string>
 	<string name="itsYourTurn">您的回合!</string>
-	<string name="cheatDetected">Cheat Detected</string>
+	<string name="cheatDetected">偵測到作弊行為</string>
 	<string name="variantEnding">變體終局</string>
 	<string name="newOpponent">換個對手</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">您的對手想和你複賽</string>
@@ -230,7 +230,7 @@
 	<string name="recipient">收件人</string>
 	<string name="send">發送</string>
 	<string name="incrementInSeconds">增加秒數</string>
-	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
+	<string name="byoyomiInSeconds">秒讀</string>
 	<string name="numberOfPeriods">考慮時間</string>
 	<string name="freeOnlineChess">免費線上將棋</string>
 	<string name="spectators">旁觀者：</string>
@@ -254,7 +254,7 @@
 	<plurals name="giveNbSeconds">
 		<item quantity="other">給對方加%s秒</item>
 	</plurals>
-	<string name="thisAccountViolatedTos">This account violated the Lishogi Terms of Service</string>
+	<string name="thisAccountViolatedTos">此帳號違反了Lishogi的使用規定</string>
 	<string name="thisPlayerArtificiallyIncreasesTheirRating">該棋手操縱評級</string>
 	<string name="openingExplorerAndTablebase">開局瀏覽器 &amp; 總局資料庫</string>
 	<string name="takeback">悔棋</string>
@@ -560,7 +560,7 @@
 	<string name="community">社區</string>
 	<string name="tools">工具</string>
 	<string name="increment">加秒</string>
-	<string name="byoyomi">Byoyomi</string>
+	<string name="byoyomi">秒讀</string>
 	<string name="periods">Periods</string>
 	<string name="playOnline">線上對弈</string>
 	<string name="playOffline">离线对弈</string>
