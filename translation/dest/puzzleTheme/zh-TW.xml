@@ -23,8 +23,8 @@
   <string name="hangingPiece">Hanging piece</string>
   <string name="hangingPieceDescription">A tactic involving an opponent piece being undefended or insufficiently defended and free to capture.</string>
   <string name="long">Long puzzle</string>
-  <string name="longDescription">Five moves to win.</string>
-  <string name="mate">Mate</string>
+  <string name="longDescription">五步獲勝</string>
+  <string name="mate">將死</string>
   <string name="mateDescription">Win the game with style.</string>
   <string name="mateIn1">1 手詰</string>
   <string name="mateIn1Description">Deliver checkmate in one move.</string>
@@ -67,11 +67,11 @@
   <string name="dancingPawns">跳舞的步兵</string>
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
   <string name="edgeAttack">端邊攻擊</string>
-  <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
-  <string name="veryLong">Very long puzzle</string>
-  <string name="veryLongDescription">Seven moves or more to win.</string>
-  <string name="lishogiGames">From lishogi games</string>
-  <string name="lishogiGamesDescription">Puzzles generated from games played on lishogi.</string>
+  <string name="edgeAttackDescription">一個用來攻擊一筋，或九筋的戰術</string>
+  <string name="veryLong">非常長的謎題</string>
+  <string name="veryLongDescription">七步或以上獲勝</string>
+  <string name="lishogiGames">來自Lishogi對局</string>
+  <string name="lishogiGamesDescription">從Lishogi對局出的謎題</string>
   <string name="otherSources">來自其他資源</string>
   <string name="otherSourcesDescription">Many thanks to everyone who submitted or allowed lishogi to use these puzzles!</string>
 </resources>
