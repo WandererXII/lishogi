@@ -6,7 +6,7 @@
   <string name="myPublicStudies">我的公開研究</string>
   <string name="myPrivateStudies">我的私人研究</string>
   <string name="myFavoriteStudies">我最愛的研究</string>
-  <string name="whatAreStudies">What are studies?</string>
+  <string name="whatAreStudies">研究是什麼?</string>
   <string name="allStudies">所有研究</string>
   <string name="studiesCreatedByX">%s創建的研究</string>
   <string name="noneYet">暫時沒有...</string>
@@ -20,7 +20,7 @@
     <item quantity="other">第%s章</item>
   </plurals>
   <plurals name="nbGames">
-    <item quantity="other">%s Games</item>
+    <item quantity="other">查看所有%s盤棋</item>
   </plurals>
   <string name="addMembers">新增成員</string>
   <plurals name="nbMembers">
@@ -43,9 +43,9 @@
   <string name="annotateWithGlyphs">以圖形標註</string>
   <string name="theChapterIsTooShortToBeAnalysed">因為太短，所以此章節無法被分析</string>
   <string name="onlyContributorsCanRequestAnalysis">只有研究專案編輯者才能要求電腦分析</string>
-  <string name="getAFullComputerAnalysis">Get a full server-side computer analysis of the mainline.</string>
-  <string name="makeSureTheChapterIsComplete">Make sure the chapter is complete. You can only request analysis once.</string>
-  <string name="allSyncMembersRemainOnTheSamePosition">All SYNC members remain on the same position</string>
+  <string name="getAFullComputerAnalysis">請求伺服器完整的分析主要走法</string>
+  <string name="makeSureTheChapterIsComplete">確認此章節已完成，您只能要求分析一次</string>
+  <string name="allSyncMembersRemainOnTheSamePosition">所有的SYNC成員都在相同局面</string>
   <string name="shareChanges">Share changes with spectators and save them on the server</string>
   <string name="playing">對弈中</string>
   <string name="first">第一個</string>
