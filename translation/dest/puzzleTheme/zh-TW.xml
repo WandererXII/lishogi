@@ -18,7 +18,7 @@
   <string name="doubleCheckDescription">Checking with two pieces at once, as a result of a discovered attack where both the moving piece and the unveiled piece attack the opponent\'s king.</string>
   <string name="endgame">終盤</string>
   <string name="endgameDescription">A tactic during the last phase of the game.</string>
-  <string name="fork">Fork</string>
+  <string name="fork">抓雙</string>
   <string name="forkDescription">A move where the moved piece attacks two opponent pieces at once.</string>
   <string name="hangingPiece">Hanging piece</string>
   <string name="hangingPieceDescription">A tactic involving an opponent piece being undefended or insufficiently defended and free to capture.</string>
@@ -66,7 +66,7 @@
   <string name="joiningPawnDescription">A tactic in which a pawn is sacrificially dropped in front of opponent\'s piece.</string>
   <string name="dancingPawns">Dancing pawns</string>
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
-  <string name="edgeAttack">Edge attack</string>
+  <string name="edgeAttack">端邊攻擊</string>
   <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
   <string name="veryLong">Very long puzzle</string>
   <string name="veryLongDescription">Seven moves or more to win.</string>
