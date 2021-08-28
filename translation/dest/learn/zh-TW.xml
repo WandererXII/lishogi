@@ -40,11 +40,11 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="kingSummary">王將可以行走任何方向，但只能走一格</string>
 	<string name="kingComplete">現在連國王都要聽令於你了！</string>
 	<string name="theKnight">騎士</string>
-	<string name="itMovesInAnLShape">It moves in an L shape, but only FORWARD!</string>
-	<string name="knightIntro">Here\'s another challenge for you. The knight is... a tricky piece.</string>
+	<string name="itMovesInAnLShape">它以L字形行走，但只能前進!</string>
+	<string name="knightIntro">給你一個小挑戰，桂馬是一個．．．比較特別的棋子。</string>
 	<string name="knightsHaveAFancyWay">桂馬有著特別酷的跳法!</string>
 	<string name="knightsCanJumpOverObstacles">桂馬可以跳過任何棋子!</string>
-	<string name="knightSummary">The knight can jump in an L shape forward, but only by two squares forward and one square sideways. Its movement also isn\'t restricted by other pieces - it will just jump over them.</string>
+	<string name="knightSummary">桂馬可以以L字形向前跳躍，但只能向前兩格並左或右一格。桂馬的走法不受其他棋子限制，因為它可以從它們頭上跳過去</string>
 	<string name="pknightSummary">Promoted knight moves are completely different from the unpromoted knight, but you can notice it moves the same as the gold general, so make sure to study that one thoroughly.</string>
 	<string name="knightPromotion">桂馬也可以升變，但它的走法變得完全不同，請特別留意</string>
 	<string name="knightComplete">恭喜！你現在已經精通了騎士的用法。</string>
