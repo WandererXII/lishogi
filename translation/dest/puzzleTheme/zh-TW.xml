@@ -4,8 +4,8 @@
   <string name="advantageDescription">把握機會取得優勢！</string>
   <string name="castling">Castling</string>
   <string name="castlingDescription">Bring the king to safety.</string>
-  <string name="crushing">Crushing</string>
-  <string name="crushingDescription">Spot the opponent blunder to obtain a crushing advantage.</string>
+  <string name="crushing">逆轉</string>
+  <string name="crushingDescription">察覺對方的惡手並取得極大優勢。</string>
   <string name="equality">Equality</string>
   <string name="equalityDescription">Come back from a losing position, and secure a draw or a balanced position.</string>
   <string name="defensiveMove">Defensive move</string>
@@ -22,7 +22,7 @@
   <string name="forkDescription">A move where the moved piece attacks two opponent pieces at once.</string>
   <string name="hangingPiece">Hanging piece</string>
   <string name="hangingPieceDescription">A tactic involving an opponent piece being undefended or insufficiently defended and free to capture.</string>
-  <string name="long">Long puzzle</string>
+  <string name="long">長手數詰</string>
   <string name="longDescription">五步獲勝</string>
   <string name="mate">將死</string>
   <string name="mateDescription">Win the game with style.</string>
