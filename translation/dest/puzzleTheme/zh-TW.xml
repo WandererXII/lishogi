@@ -58,8 +58,8 @@
   <string name="shortDescription">三步取勝</string>
   <string name="healthyMix">Healthy mix</string>
   <string name="healthyMixDescription">A bit of everything. You don\'t know what to expect, so you remain ready for anything! Just like in real games.</string>
-  <string name="tsume">Tsume</string>
-  <string name="tsumeDescription">Your goal is to checkmate your opponent. Every move you make has to be a check.</string>
+  <string name="tsume">詰將棋</string>
+  <string name="tsumeDescription">你的目標是將死你的對手。每一手都必須為王手。</string>
   <string name="strikingPawn">Striking pawn</string>
   <string name="strikingPawnDescription">A tactitc involving dropping a pawn in front of opponent\'s piece and attacking it.</string>
   <string name="joiningPawn">Joining pawn</string>
