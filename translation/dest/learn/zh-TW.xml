@@ -7,7 +7,7 @@
 	<string name="resetMyProgress">重設我的進度</string>
 	<string name="youWillLoseAllYourProgress">您的進度將會被清空！</string>
 	<string name="play">玩！</string>
-	<string name="shogiPieces">棋子</string>
+	<string name="shogiPieces">將棋駒</string>
 	<string name="theIntroduction">介紹</string>
 	<string name="introBasics">讓我們從基礎開始。</string>
 	<string name="introIntro">您的旅程從這裡開始</string>
@@ -61,16 +61,16 @@
 	<string name="lancesAreStraighforward">它可以向前衝無限格，很簡單對吧?</string>
 	<string name="lancePromotion">香車升變之後，走法完全不同。沒錯，走法跟金將一樣</string>
 	<string name="lanceSummary">向前衝，有夠簡單的啦</string>
-	<string name="planceSummary">跟金將一樣</string>
+	<string name="planceSummary">跟金將一樣。</string>
 	<string name="lanceComplete">太棒了！</string>
 	<string name="theGold">金將</string>
 	<string name="itMovesInAnyDirectionExceptDiagonallyBack">金將可以走，除了斜後方以外，任何方向一格</string>
-	<string name="goldIntro">金將的走法第一次並不好記，但您一定可以做到的</string>
+	<string name="goldIntro">金將的走法第一次並不好記，但您一定可以做到的。</string>
 	<string name="goldDoesntPromote">不能升變的棋子只有兩種: 金將跟王將</string>
 	<string name="goldSummary">試著記住走法吧，很多棋子升變之後走法跟它一樣</string>
 	<string name="goldComplete">恭喜! 成功了</string>
 	<string name="theSilver">銀將</string>
-	<string name="itMovesEitherForwardOrDiagonallyBack">銀將可以任何方向斜走，或是向前直走一格</string>
+	<string name="itMovesEitherForwardOrDiagonallyBack">銀將可以任何方向斜走，或是向前直走一格。</string>
 	<string name="silverIntro">另一個有著不尋常走法的棋子。但保證這是最後一個了！</string>
 	<string name="silverPromotion">銀將升變之後走法跟金將一樣</string>
 	<string name="silverSummary">透過練習，您一定可以記住走法的。</string>
@@ -84,12 +84,12 @@
 	<string name="capture">吃子</string>
 	<string name="takeTheEnemyPieces">吃掉敵方的棋子</string>
 	<string name="captureIntro">找出對手毫無防禦的棋子，並將它吃掉！</string>
-	<string name="takeTheBlackPieces">吃掉黑棋！</string>
-	<string name="takeTheBlackPiecesAndDontLoseYours">吃掉黑棋！
+	<string name="takeTheBlackPieces">吃掉敵方的棋駒！</string>
+	<string name="takeTheBlackPiecesAndDontLoseYours">吃掉對方的棋駒！
 然後不要失去你自己的棋子。</string>
 	<string name="captureComplete">恭喜！你現在懂得使用各種棋子了！</string>
 	<string name="protection">保護</string>
-	<string name="keepYourPiecesSafe">保護您的棋</string>
+	<string name="keepYourPiecesSafe">保護您的棋駒</string>
 	<string name="protectionIntro">找出被對手攻擊的棋子，並保護它們！</string>
 	<string name="protectionComplete">恭喜！沒被吃掉棋子相當於賺了一個棋子！</string>
 	<string name="escape">你受到攻擊了！
@@ -115,7 +115,7 @@
 	<string name="youCanGetOutOfCheckByTaking">你可以藉由吃掉攻擊的棋子來應將。</string>
 	<string name="thisKnightIsCheckingThroughYourDefenses">騎士越過了你的防線來將你軍了！</string>
 	<string name="escapeOrBlock">讓國王逃跑，或是阻擋攻擊！</string>
-	<string name="outOfCheckComplete">恭喜！你的國王永遠不會被吃掉，但請確保你不會被將軍！</string>
+	<string name="outOfCheckComplete">恭喜！你的國王永遠不會被吃掉，但請確保你不會被王手！</string>
 	<string name="mateInOne">一步將死</string>
 	<string name="defeatTheOpponentsKing">攻擊敵方的國王</string>
 	<string name="mateInOneIntro">如果你的對手無法應將，這局勝利將由你拿下。</string>
