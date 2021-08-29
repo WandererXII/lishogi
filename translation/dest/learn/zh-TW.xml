@@ -126,7 +126,7 @@
 	<string name="howTheGameStarts">如何準備一場棋局</string>
 	<string name="boardSetupIntro">兩方對峙，準備開戰。</string>
 	<string name="thisIsTheInitialPosition">這就是每一盤將棋開局的盤面！
-請任意走一步棋來繼續。</string>
+請走任意一步棋來繼續。</string>
 	<string name="firstPlaceTheRooks">首先來擺城堡！
 它們待在角落。</string>
 	<string name="thenPlaceTheKnights">接下來是騎士！
@@ -200,7 +200,7 @@
 	<string name="rightOn">很不錯！</string>
 	<string name="stageXComplete">階段 %s 成功</string>
 	<string name="yourScore">您的分數</string>
-	<string name="next">繼續</string>
+	<string name="next">下一手…</string>
 	<string name="backToMenu">回到選單</string>
 	<string name="puzzleFailed">解題失敗！</string>
 	<string name="retry">重試</string>
