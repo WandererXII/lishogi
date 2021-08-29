@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="moveToStart">Move to start</string>
+  <string name="moveToStart">移動以開始</string>
   <string name="puzzlesSolved">已解決題目</string>
   <string name="newDailyHighscore">新的每日紀錄！</string>
   <string name="newWeeklyHighscore">新的每周紀錄！</string>
