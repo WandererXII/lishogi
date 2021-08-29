@@ -72,7 +72,7 @@
   <string name="editChapter">Edit chapter</string>
   <string name="newChapter">New chapter</string>
   <string name="orientation">Orientation</string>
-  <string name="analysisMode">Analysis mode</string>
+  <string name="analysisMode">分析模式</string>
   <string name="pinnedChapterComment">Pinned chapter comment</string>
   <string name="saveChapter">Save chapter</string>
   <string name="clearAnnotations">Clear annotations</string>
