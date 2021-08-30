@@ -337,8 +337,6 @@
 	<string name="continueFromHere">यहा से जारी करें</string>
 	<string name="toStudy">अध्ययन</string>
 	<string name="importGame">खेल इम्पोर्ट करे</string>
-	<string name="importGameExplanation">जब एक खेल PGN चिपकाने आप एक ब्राउसेबल पुनरावृत्ति,
-एक कंप्यूटर विश्लेषण, एक खेल चैट और एक साझा URL मिलता है।</string>
 	<string name="importGameKifuExplanation">जब एक खेल kifu चिपकाने आप एक ब्राउसेबल पुनरावृत्ति,
 एक कंप्यूटर विश्लेषण, एक खेल चैट और एक साझा URL मिलता है।</string>
 	<plurals name="nbImportedGames">
