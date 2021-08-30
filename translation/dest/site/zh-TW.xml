@@ -316,7 +316,6 @@
 	<string name="continueFromHere">從此處繼續</string>
 	<string name="toStudy">研究</string>
 	<string name="importGame">導入棋局</string>
-	<string name="importGameExplanation">貼上PGN棋譜後可以重播棋局，使用電腦分析、對局聊天室及取得此棋局的分享連結。</string>
 	<string name="importGameKifuExplanation">貼上棋譜後可以重播棋局，使用電腦分析、對局聊天室及取得此棋局的分享連結。</string>
 	<plurals name="nbImportedGames">
 		<item quantity="other">已導入%s盤棋局</item>
