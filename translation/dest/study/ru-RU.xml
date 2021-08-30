@@ -65,6 +65,8 @@
   <string name="cloneStudy">Клонировать</string>
   <string name="downloadAllGames">Скачать все партии</string>
   <string name="downloadGame">Скачать партию</string>
+  <string name="studyKif">Study KIF</string>
+  <string name="chapterKif">Chapter KIF</string>
   <string name="studyUrl">Ссылка на студию</string>
   <string name="broadcastUrl">Интернет-адрес трансляции</string>
   <string name="currentChapterUrl">Ссылка на эту главу</string>
