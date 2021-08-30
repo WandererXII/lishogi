@@ -56,6 +56,8 @@
   <string name="cloneStudy">複製</string>
   <string name="downloadAllGames">下載所有棋局</string>
   <string name="downloadGame">下載棋局</string>
+  <string name="studyKif">Study KIF</string>
+  <string name="chapterKif">Chapter KIF</string>
   <string name="studyUrl">研究連結</string>
   <string name="broadcastUrl">直播連結</string>
   <string name="currentChapterUrl">目前章節連結</string>
