@@ -59,6 +59,8 @@
   <string name="cloneStudy">क्लोन</string>
   <string name="downloadAllGames">सभी गेम डाउनलोड करें</string>
   <string name="downloadGame">गेम डाउनलोड करो</string>
+  <string name="studyKif">Study KIF</string>
+  <string name="chapterKif">Chapter KIF</string>
   <string name="studyUrl">अध्ययन का URL</string>
   <string name="broadcastUrl">प्रसारण (Broadcast) का URL</string>
   <string name="currentChapterUrl">वर्तमान अध्याय का URL</string>
