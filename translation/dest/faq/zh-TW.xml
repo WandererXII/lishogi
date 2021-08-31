@@ -63,7 +63,7 @@ Lishogi上的電腦分析是基於Stockfish的。</string>
 Verifying as a titled player on Lishogi gives access to play in the Titled Arena events.
 
 Finally there is an honorary %2$s title.</string>
-	<string name="verificationForm">verification form</string>
+	<string name="verificationForm">驗證表格 </string>
 	<string name="canIbecomeLM">Can I get the Lishogi Master (LM) title?</string>
 	<string name="noUpperCaseDot">不行</string>
 	<string name="lMtitleComesToYouDoNotRequestIt">This honorific title is unofficial and only exists on Lishogi.
