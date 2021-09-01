@@ -2,7 +2,7 @@
 <resources>
   <string name="private">私人的</string>
   <string name="myStudies">我的研究</string>
-  <string name="studiesIContributeTo">Studies I contribute to</string>
+  <string name="studiesIContributeTo">有我的貢獻的研究</string>
   <string name="myPublicStudies">我的公開研究</string>
   <string name="myPrivateStudies">我的私人研究</string>
   <string name="myFavoriteStudies">我最愛的研究</string>
@@ -46,18 +46,18 @@
   <string name="getAFullComputerAnalysis">請求伺服器完整的分析主要走法</string>
   <string name="makeSureTheChapterIsComplete">確認此章節已完成，您只能要求分析一次</string>
   <string name="allSyncMembersRemainOnTheSamePosition">所有的SYNC成員都在相同局面</string>
-  <string name="shareChanges">Share changes with spectators and save them on the server</string>
+  <string name="shareChanges">向旁觀者分享這些變動並將其保留在伺服器中</string>
   <string name="playing">對弈中</string>
   <string name="first">第一個</string>
   <string name="previous">上一個</string>
   <string name="next">下一個</string>
   <string name="last">最後一個</string>
-  <string name="shareAndExport">Share &amp; export</string>
+  <string name="shareAndExport">分享 &amp; 匯出</string>
   <string name="cloneStudy">複製</string>
   <string name="downloadAllGames">下載所有棋局</string>
   <string name="downloadGame">下載棋局</string>
-  <string name="studyKif">Study KIF</string>
-  <string name="chapterKif">Chapter KIF</string>
+  <string name="studyKif">研究KIF</string>
+  <string name="chapterKif">章節KIF</string>
   <string name="studyUrl">研究連結</string>
   <string name="broadcastUrl">直播連結</string>
   <string name="currentChapterUrl">目前章節連結</string>
@@ -70,10 +70,10 @@
   <string name="onlyPublicStudiesCanBeEmbedded">只有公開的研究可以嵌入!</string>
   <string name="open">開啟</string>
   <string name="xBroughtToYouByY">%1$s, brought to you by %2$s</string>
-  <string name="studyNotFound">Study not found</string>
-  <string name="editChapter">Edit chapter</string>
-  <string name="newChapter">New chapter</string>
-  <string name="orientation">Orientation</string>
+  <string name="studyNotFound">沒有找到任何研究</string>
+  <string name="editChapter">編輯章節</string>
+  <string name="newChapter">新章節</string>
+  <string name="orientation">視角</string>
   <string name="analysisMode">分析模式</string>
   <string name="pinnedChapterComment">Pinned chapter comment</string>
   <string name="saveChapter">Save chapter</string>
