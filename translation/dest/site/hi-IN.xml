@@ -15,7 +15,7 @@
 	<string name="resign">हार मान लें</string>
 	<string name="checkmate">शह और मात</string>
 	<string name="stalemate">स्टेलमेट (Stalemate)</string>
-	<string name="impasse">गतिरोध</string>
+	<string name="impasse">इमपास्से (Impasse)</string>
 	<string name="white">गोते (Gote/White)</string>
 	<string name="black">सेनटे (Sente/Black)</string>
 	<string name="shitate">शिताते (Shitate)</string>
@@ -592,12 +592,12 @@
 	<string name="increment">वृद्धि (Increment)</string>
 	<string name="byoyomi">बायोयोमी (Byoyomi)</string>
 	<string name="periods">अवधि (Periods)</string>
-	<string name="playOnline">ऑनलाइन खेलें</string>
-	<string name="playOffline">ऑफ़लाइन खेलें</string>
-	<string name="allowAnalytics">अनाम आँकड़ों की अनुमति दें</string>
-	<string name="shareGameURL">खेल URL साझा करें</string>
-	<string name="error.required">यह क्षेत्र आवश्यक है</string>
-	<string name="error.email">यह ईमेल पता अमान्य है</string>
+	<string name="playOnline">ऑनलाइन (offline) खेलें</string>
+	<string name="playOffline">ऑफ़लाइन (offline) खेलें</string>
+	<string name="allowAnalytics">बेनामी (anonymous) आँकड़ों की अनुमति दें</string>
+	<string name="shareGameURL">खेल के पते को शेयर (share) करें</string>
+	<string name="error.required">यह जानकारी जरुरी है</string>
+	<string name="error.email">यह ई-मेल सही नहीं हैं</string>
 	<string name="error.email_acceptable">This email address is not acceptable. Please double-check it, and try again.</string>
 	<string name="error.email_unique">This email address is already taken</string>
 	<string name="error.email_different">This is already your email address</string>
