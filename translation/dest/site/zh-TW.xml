@@ -15,7 +15,7 @@
 	<string name="resign">認輸</string>
 	<string name="checkmate">將死</string>
 	<string name="stalemate">逼和</string>
-	<string name="impasse">Impasse</string>
+	<string name="impasse">僵局</string>
 	<string name="white">後手</string>
 	<string name="black">先手</string>
 	<string name="shitate">下手</string>
@@ -830,10 +830,10 @@
 	<string name="subscribe">訂閱</string>
 	<string name="unsubscribe">取消訂閱</string>
 	<string name="blackDeclinesImpasse">先手拒絕和棋</string>
-	<string name="blackOffersImpasse">Sente offers impasse</string>
+	<string name="blackOffersImpasse">先手求和</string>
 	<string name="notationType">記譜方法</string>
-	<string name="whiteDeclinesImpasse">Gote declines impasse</string>
-	<string name="whiteOffersImpasse">Gote offers impasse</string>
+	<string name="whiteDeclinesImpasse">後手拒絕和棋</string>
+	<string name="whiteOffersImpasse">後手求和</string>
 	<string name="notationSystem">記譜方法</string>
 	<string name="officialBlog">Lishogi Official Blog</string>
 	<string name="blogPostsFromYear">Blog posts from %1$s</string>
@@ -841,6 +841,6 @@
 	<string name="continueReadingThis"> Continue reading this post</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
 	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
+	<string name="enteringKing">入玉</string>
 	<string name="totalImpasseValue">Total value</string>
 </resources>
