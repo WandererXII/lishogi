@@ -7,7 +7,7 @@
 	<string name="boardHighlights">棋盘高亮（最后一步与将军）</string>
 	<string name="pieceDestinations">棋子目的地（有效着法与预先走棋）</string>
 	<string name="dropDestinations">Drop destinations (valid drops and predrops)</string>
-	<string name="boardCoordinates">棋盘坐标（A-H, 1-8）</string>
+	<string name="boardCoordinates">棋盤座標</string>
 	<string name="moveListWhilePlaying">遊戲進行時顯示棋譜</string>
 	<string name="pgnPieceNotation">棋譜記法</string>
 	<string name="chessPieceSymbol">Shogi piece symbol</string>
@@ -27,7 +27,7 @@
 	<string name="dragPiece">Drag a piece</string>
 	<string name="bothClicksAndDrag">兩者都行</string>
 	<string name="premovesPlayingDuringOpponentTurn">预先走棋（在对手的回合走棋）</string>
-	<string name="takebacksWithOpponentApproval">悔棋（经过对手同意）</string>
+	<string name="takebacksWithOpponentApproval">悔棋（需經過對手同意）</string>
 	<string name="inCasualGamesOnly">仅限非正式游戏</string>
 	<string name="promoteToQueenAutomatically">兵自動升為后</string>
 	<string name="whenPremoving">預先走棋時</string>
