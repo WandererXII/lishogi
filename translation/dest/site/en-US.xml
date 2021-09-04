@@ -359,7 +359,7 @@ computer analysis, game chat and shareable URL.</string>
 	</plurals>
 	<string name="noFriendsOnline">No friends online</string>
 	<string name="findFriends">Find friends</string>
-	<string name="favoriteOpponents">Favourite opponents</string>
+	<string name="favoriteOpponents">Favorite opponents</string>
 	<string name="follow">Follow</string>
 	<string name="following">Following</string>
 	<string name="unfollow">Unfollow</string>
@@ -564,7 +564,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="starting">Starting:</string>
 	<string name="allInformationIsPublicAndOptional">All information is public and optional.</string>
 	<string name="yourCityRegionOrDepartment">Your city, region, or province.</string>
-	<string name="biographyDescription">Talk about yourself, your interests, what you like in shogi, your favourite openings, players, ...</string>
+	<string name="biographyDescription">Talk about yourself, your interests, what you like in shogi, your favorite openings, players, ...</string>
 	<plurals name="maximumNbCharacters">
 		<item quantity="one">Maximum: %s character.</item>
 		<item quantity="other">Maximum: %s characters.</item>
