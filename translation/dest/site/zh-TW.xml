@@ -57,7 +57,7 @@
 	<string name="computerAnalysisAvailable">電腦分析可用</string>
 	<string name="analysis">分析棋局</string>
 	<string name="depthX">深度 %s</string>
-	<string name="usingServerAnalysis">正在使用伺服器分析</string>
+	<string name="usingServerAnalysis">使用伺服器分析</string>
 	<string name="loadingEngine">正在載入引擎 ...</string>
 	<string name="cloudAnalysis">雲端分析</string>
 	<string name="goDeeper">深入分析</string>
@@ -104,8 +104,8 @@
 	<string name="memory">記憶體</string>
 	<string name="infiniteAnalysis">無限分析</string>
 	<string name="removesTheDepthLimit">取消深度限制，使您的電腦發熱。</string>
-	<string name="blunder">嚴重錯誤</string>
-	<string name="blunders">嚴重錯誤</string>
+	<string name="blunder">惡手</string>
+	<string name="blunders">惡手</string>
 	<string name="mistake">錯誤</string>
 	<string name="mistakes">錯誤</string>
 	<string name="inaccuracy">輕微失誤</string>
@@ -563,7 +563,7 @@
 	<string name="periods">Periods</string>
 	<string name="playOnline">線上對弈</string>
 	<string name="playOffline">离线对弈</string>
-	<string name="allowAnalytics">允许发送匿名统计数据</string>
+	<string name="allowAnalytics">允許匿名發送統計資料</string>
 	<string name="shareGameURL">分享对局网址</string>
 	<string name="error.required">本项必填</string>
 	<string name="error.email">电邮地址无效</string>
@@ -657,7 +657,7 @@
 	<string name="printFriendlyPDF">下载打印版PDF文档</string>
 	<string name="crosstable">历史表</string>
 	<string name="youCanAlsoScrollOverTheBoardToMoveInTheGame">您也可以用滚动键在棋盘游戏中移动。</string>
-	<string name="analysisShapesHowTo">按shift点击或右键棋盘上绘制圆圈和箭头。</string>
+	<string name="analysisShapesHowTo">使用 Shift+左鍵 或是 右鍵 以在棋盤上畫圓圈及箭頭。</string>
 	<string name="letOtherPlayersMessageYou">允許其他人發送私訊給您</string>
 	<string name="shareYourInsightsData">Share your shogi insights data</string>
 	<string name="withNobody">不分享</string>
