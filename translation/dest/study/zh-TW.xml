@@ -41,10 +41,10 @@
   <string name="commentThisPosition">對於目前局面的評論</string>
   <string name="commentThisMove">對於此棋步的評論</string>
   <string name="annotateWithGlyphs">以圖形標註</string>
-  <string name="theChapterIsTooShortToBeAnalysed">因為太短，所以此章節無法被分析</string>
+  <string name="theChapterIsTooShortToBeAnalysed">此章節過短而無法被分析</string>
   <string name="onlyContributorsCanRequestAnalysis">只有研究專案編輯者才能要求電腦分析</string>
   <string name="getAFullComputerAnalysis">請求伺服器完整的分析主要走法</string>
-  <string name="makeSureTheChapterIsComplete">確認此章節已完成，您只能要求分析一次</string>
+  <string name="makeSureTheChapterIsComplete">確認此章節已完成。您只能要求分析一次。</string>
   <string name="allSyncMembersRemainOnTheSamePosition">所有的SYNC成員都在相同局面</string>
   <string name="shareChanges">向旁觀者分享這些變動並將其保留在伺服器中</string>
   <string name="playing">對弈中</string>
@@ -83,7 +83,7 @@
   <string name="clearAllCommentsInThisChapter">Clear all comments, glyphs and drawn shapes in this chapter?</string>
   <string name="rightUnderTheBoard">棋盤之下</string>
   <string name="noPinnedComment">空</string>
-  <string name="normalAnalysis">正常解析</string>
+  <string name="normalAnalysis">一般解析</string>
   <string name="hideNextMoves">隱藏下一步</string>
   <string name="interactiveLesson">互動式課程</string>
   <string name="chapterX">第 %s 章</string>
