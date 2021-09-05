@@ -9,6 +9,7 @@
 	<string name="yourTurn">輪到您了</string>
 	<string name="aiNameLevelAiLevel">%1$s 難度 %2$s</string>
 	<string name="level">難度</string>
+	<string name="strength">Strength</string>
 	<string name="toggleTheChat">聊天開關</string>
 	<string name="toggleSound">聲音開關</string>
 	<string name="chat">聊天</string>
@@ -563,7 +564,7 @@
 	<string name="periods">Periods</string>
 	<string name="playOnline">線上對弈</string>
 	<string name="playOffline">离线对弈</string>
-	<string name="allowAnalytics">允許匿名發送統計資料</string>
+	<string name="allowAnalytics">允許匿名發送統計數據</string>
 	<string name="shareGameURL">分享对局网址</string>
 	<string name="error.required">本项必填</string>
 	<string name="error.email">电邮地址无效</string>
