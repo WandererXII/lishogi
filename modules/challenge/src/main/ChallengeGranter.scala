@@ -69,7 +69,7 @@ final class ChallengeGranter(
               }
             case (_, Pref.Challenge.ALWAYS) => none
             case _ if from == dest          => SelfChallenge.some            
-			case _                          => none
+	    case _                          => none
           }
       }
       .map {
