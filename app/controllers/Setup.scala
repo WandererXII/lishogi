@@ -79,7 +79,7 @@ final class Setup(
   def friend(userId: Option[String]) =
     OpenBody { implicit ctx =>
       implicit val req = ctx.body
-      PostRateLimit(HTTPRequest ipAddress ctx.req) {
+      PostRateLimit(ctx.ip) {
         forms
           .friend(ctx)
           .bindFromRequest()
@@ -166,7 +166,7 @@ final class Setup(
     OpenBody { implicit ctx =>
       NoBot {
         implicit val req = ctx.body
-        PostRateLimit(HTTPRequest ipAddress ctx.req) {
+        PostRateLimit(ctx.ip) {
           NoPlaybanOrCurrent {
             forms
               .hook(ctx)
@@ -191,7 +191,7 @@ final class Setup(
   def like(sri: String, gameId: String) =
     Open { implicit ctx =>
       NoBot {
-        PostRateLimit(HTTPRequest ipAddress ctx.req) {
+        PostRateLimit(ctx.ip) {
           NoPlaybanOrCurrent {
             env.game.gameRepo game gameId flatMap {
               _ ?? { game =>
@@ -276,7 +276,7 @@ final class Setup(
 
   private def process[A](form: Context => Form[A])(op: A => BodyContext[_] => Fu[Pov]) =
     OpenBody { implicit ctx =>
-      PostRateLimit(HTTPRequest ipAddress ctx.req) {
+      PostRateLimit(ctx.ip) {
         implicit val req = ctx.body
         form(ctx)
           .bindFromRequest()

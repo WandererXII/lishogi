@@ -1,7 +1,6 @@
 package controllers
 
 import lila.app._
-import lila.common.HTTPRequest
 import play.api.libs.json.Json
 import views._
 
@@ -35,7 +34,7 @@ final class Importer(env: Env) extends LilaController(env) {
                     game,
                     lila.fishnet.Work.Sender(
                       userId = ctx.userId,
-                      ip = HTTPRequest.ipAddress(ctx.req).some,
+                      ip = ctx.ip.some,
                       mod = isGranted(_.Hunter) || isGranted(_.Relay),
                       system = false
                     )

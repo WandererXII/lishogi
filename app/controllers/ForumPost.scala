@@ -1,7 +1,7 @@
 package controllers
 
 import lila.app._
-import lila.common.{ HTTPRequest, IpAddress }
+import lila.common.IpAddress
 import scala.concurrent.duration._
 import views._
 
@@ -39,7 +39,7 @@ final class ForumPost(env: Env) extends LilaController(env) with ForumController
                       .show(categ, topic, posts, Some(err -> captcha), unsub, canModCateg = canModCateg)
                   ),
                 data =>
-                  CreateRateLimit(HTTPRequest ipAddress ctx.req) {
+                  CreateRateLimit(ctx.ip) {
                     postApi.makePost(categ, topic, data) map { post =>
                       Redirect(routes.ForumPost.redirect(post.id))
                     }
@@ -57,7 +57,7 @@ final class ForumPost(env: Env) extends LilaController(env) with ForumController
         .fold(
           _ => Redirect(routes.ForumPost.redirect(postId)).fuccess,
           data =>
-            CreateRateLimit(HTTPRequest ipAddress ctx.req) {
+            CreateRateLimit(ctx.ip) {
               postApi.editPost(postId, data.changes, me).map { post =>
                 Redirect(routes.ForumPost.redirect(post.id))
               }

@@ -401,7 +401,7 @@ final class Study(
     Auth { implicit ctx => me =>
       val cost = if (isGranted(_.Coach) || me.hasTitle) 1 else 3
       CloneLimitPerUser(me.id, cost = cost) {
-        CloneLimitPerIP(HTTPRequest ipAddress ctx.req, cost = cost) {
+        CloneLimitPerIP(ctx.ip, cost = cost) {
           OptionFuResult(env.study.api.byId(id)) { prev =>
             CanViewResult(prev) {
               env.study.api.clone(me, prev) map { study =>
@@ -421,7 +421,7 @@ final class Study(
 
   def notation(id: String, csa: Boolean = false) =
     Open { implicit ctx =>
-      NotationRateLimitPerIp(HTTPRequest ipAddress ctx.req) {
+      NotationRateLimitPerIp(ctx.ip) {
         OptionFuResult(env.study.api byId id) { study =>
           CanViewResult(study) {
             lila.mon.notation.study.increment()

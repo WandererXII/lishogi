@@ -3,7 +3,7 @@ package controllers
 import scala.concurrent.duration._
 
 import lila.app._
-import lila.common.{ HTTPRequest, IpAddress }
+import lila.common.IpAddress
 import views._
 
 final class Search(env: Env) extends LilaController(env) {
@@ -26,7 +26,7 @@ final class Search(env: Env) extends LilaController(env) {
       NotForBots {
         val page = p atLeast 1
         Reasonable(page, 100) {
-          val ip           = HTTPRequest ipAddress ctx.req
+          val ip           = ctx.ip
           val cost         = scala.math.sqrt(page.toDouble).toInt
           implicit def req = ctx.body
           env.game.cached.nbTotal flatMap { nbGames =>
