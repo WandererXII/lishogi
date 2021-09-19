@@ -78,7 +78,7 @@
 	<string name="close">關閉</string>
 	<string name="winning">贏棋</string>
 	<string name="losing">輸棋</string>
-	<string name="drawn">平手</string>
+	<string name="drawn">和局</string>
 	<string name="unknown">未知</string>
 	<string name="database">資料庫</string>
 	<string name="whiteDrawBlack">後手獲勝 / 平局 / 先手獲勝</string>
