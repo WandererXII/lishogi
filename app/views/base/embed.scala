@@ -18,7 +18,7 @@ object embed {
           layout.bits.viewport,
           layout.bits.metaCsp(basicCsp withNonce config.nonce),
           st.headTitle(title),
-          layout.bits.pieceSprite(config.pieceSet),
+          layout.bits.pieceSprite(lila.pref.PieceSet.default),
           cssTagWithTheme(cssModule, config.bg)
         ),
         st.body(cls := s"base highlight ${config.board}")(
@@ -26,7 +26,6 @@ object embed {
           layout.dataAssetUrl := env.net.assetBaseUrl,
           layout.dataAssetVersion := assetVersion.value,
           layout.dataTheme := config.bg,
-          layout.dataPieceSet := config.pieceSet.name,
           body
         )
       )
