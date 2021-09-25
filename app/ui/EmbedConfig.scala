@@ -19,6 +19,7 @@ object EmbedConfig {
     EmbedConfig(
       bg = get("bg", req).filterNot("auto".==) | "light",
       board = lila.pref.Theme(~get("theme", req)).cssClass,
+      pieceSet = lila.pref.PieceSet(~get("pieceSet", req)),
       lang = lila.i18n.I18nLangPicker(req, none),
       req = req,
       nonce = Nonce.random
