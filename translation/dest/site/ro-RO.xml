@@ -279,6 +279,7 @@
 		<item quantity="other">%s le joacă</item>
 	</plurals>
 	<string name="exportGames">Exportă partidele</string>
+	<string name="export">Export</string>
 	<string name="ratingRange">Nivel valoric</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">Acordă %s secundă</item>
@@ -286,7 +287,6 @@
 		<item quantity="other">Acordă %s secunde</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">This account violated the Lishogi Terms of Service</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">Jucătorul și-a crescut ratingul în mod artificial</string>
 	<string name="openingExplorerAndTablebase">Deschide exploratorul &amp; baza de date</string>
 	<string name="takeback">Revocare</string>
 	<string name="proposeATakeback">Propune revocarea mutării</string>
