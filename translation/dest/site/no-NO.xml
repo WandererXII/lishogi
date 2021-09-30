@@ -265,13 +265,13 @@
 		<item quantity="other">%s playing</item>
 	</plurals>
 	<string name="exportGames">Export games</string>
+	<string name="export">Export</string>
 	<string name="ratingRange">Rating range</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">Give %s second</item>
 		<item quantity="other">Give %s seconds</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">This account violated the Lishogi Terms of Service</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">This player artificially increases/decreases their rating</string>
 	<string name="openingExplorerAndTablebase">Opening explorer &amp; tablebase</string>
 	<string name="takeback">Takeback</string>
 	<string name="proposeATakeback">Propose a takeback</string>
