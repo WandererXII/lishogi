@@ -265,13 +265,13 @@
 		<item quantity="other">%s en juego</item>
 	</plurals>
 	<string name="exportGames">Exportar partidas</string>
+	<string name="export">Export</string>
 	<string name="ratingRange">Rango de puntuación</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">Dar %s segundo</item>
 		<item quantity="other">Dar %s segundos</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">Esta cuenta ha violado los Términos de Servicio de Lishogi</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">Este jugador incrementa o disminuye artificialmente su puntuación</string>
 	<string name="openingExplorerAndTablebase">Explorador de aperturas y base de datos de finales</string>
 	<string name="takeback">Deshacer jugada</string>
 	<string name="proposeATakeback">Proponer deshacer jugada</string>
