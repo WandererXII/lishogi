@@ -293,6 +293,7 @@
 		<item quantity="other">%s משחקים</item>
 	</plurals>
 	<string name="exportGames">ייצא משחקים</string>
+	<string name="export">Export</string>
 	<string name="ratingRange">טווח דירוג</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">תן %s שנייה</item>
@@ -301,7 +302,6 @@
 		<item quantity="other">תן %s שניות</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">This account violated the Lishogi Terms of Service</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">שחקן זה מעלה/מוריד את דירוגו באופן מלאכותי</string>
 	<string name="openingExplorerAndTablebase">סייר הפתיחות וניתוח סיומים</string>
 	<string name="takeback">החזר מהלך</string>
 	<string name="proposeATakeback">הצע החזרת המהלך האחרון</string>
