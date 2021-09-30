@@ -265,13 +265,13 @@
 		<item quantity="other">%s spil i gang</item>
 	</plurals>
 	<string name="exportGames">Eksporter spil</string>
+	<string name="export">Export</string>
 	<string name="ratingRange">Rating-interval</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">Giv %s sekund</item>
 		<item quantity="other">Giv %s sekunder</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">Denne konto overtrådte Lishogi servicevilkår</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">Denne spiller forøger eller sænker sin rating kunstigt</string>
 	<string name="openingExplorerAndTablebase">Åbner åbnings- og slutspilsbog</string>
 	<string name="takeback">Omtræk</string>
 	<string name="proposeATakeback">Foreslå et omtræk</string>
