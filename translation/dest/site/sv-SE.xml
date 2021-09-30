@@ -265,13 +265,13 @@
 		<item quantity="other">%s spelas</item>
 	</plurals>
 	<string name="exportGames">Exportera partier</string>
+	<string name="export">Export</string>
 	<string name="ratingRange">Ratingomfång</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">Ge %s sekund</item>
 		<item quantity="other">Ge %s sekunder</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">Detta konto bröt mot användarvillkoren för Lishogi</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">Den här spelaren manipulerar sin rating</string>
 	<string name="openingExplorerAndTablebase">Öppningsutforskare &amp; slutspelsteori</string>
 	<string name="takeback">Gör om drag</string>
 	<string name="proposeATakeback">Fråga om du får göra om draget</string>
