@@ -265,13 +265,13 @@
 		<item quantity="other">%s a jogar</item>
 	</plurals>
 	<string name="exportGames">Exportar partidas</string>
+	<string name="export">Export</string>
 	<string name="ratingRange">Pontuação entre</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">Dar %s segundo</item>
 		<item quantity="other">Dar %s segundos</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">Esta conta violou os termos de serviço do Lishogi</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">Este jogador aumentou/diminuiu a sua pontuação de forma artificial</string>
 	<string name="openingExplorerAndTablebase">Explorador de aberturas &amp; tabelas de finais</string>
 	<string name="takeback">Voltar uma jogada atrás</string>
 	<string name="proposeATakeback">Propor voltar uma jogada atrás</string>
