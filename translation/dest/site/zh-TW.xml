@@ -251,12 +251,12 @@
 		<item quantity="other">%s下棋中</item>
 	</plurals>
 	<string name="exportGames">導出棋局</string>
+	<string name="export">Export</string>
 	<string name="ratingRange">對方級別範圍</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="other">給對方加%s秒</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">此帳號違反了Lishogi的使用規定</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">該棋手操縱評級</string>
 	<string name="openingExplorerAndTablebase">開局瀏覽器 &amp; 總局資料庫</string>
 	<string name="takeback">悔棋</string>
 	<string name="proposeATakeback">請求悔棋</string>
