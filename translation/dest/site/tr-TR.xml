@@ -265,13 +265,13 @@
 		<item quantity="other">%s şimdi oynanıyor</item>
 	</plurals>
 	<string name="exportGames">Oyunları indir</string>
+	<string name="export">Export</string>
 	<string name="ratingRange">Puan aralığı</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">%s saniye ver</item>
 		<item quantity="other">%s saniye ver</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">Bu hesap Lishogi Kullanım Şartları\'nı ihlâl etti</string>
-	<string name="thisPlayerArtificiallyIncreasesTheirRating">Bu oyuncu puanını sahte bir şekilde artırıyor/azaltıyor</string>
 	<string name="openingExplorerAndTablebase">Açılış kâşifi &amp; oyunsonu analizi</string>
 	<string name="takeback">Hamleni geri al</string>
 	<string name="proposeATakeback">Hamleyi geri almayı teklif et</string>
