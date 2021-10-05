@@ -10,11 +10,11 @@ module.exports = {
   title: 'pieceValue',
   subtitle: 'evaluatePieceStrength',
   image: imgUrl,
-  intro: 'pieceValueIntro',
+  intro: 'pieceValueIntroNew',
   illustration: util.roundSvg(imgUrl),
   levels: [
     {
-      goal: 'takeThePieceWithTheHighestValue',
+      goal: 'pawnsAreTheLeastValuable',
       fen: '9/9/4lp3/4+B4/9/6n2/9/9/9 b - 1',
       scenario: ['e6g4'],
       nbMoves: 1,
@@ -25,7 +25,7 @@ module.exports = {
       pointsForCapture: true,
     },
     {
-      goal: 'takeThePieceWithTheHighestValue',
+      goal: 'knightSilverGold',
       fen: '9/9/4ns3/4S4/3g5/9/9/9/9 b - 1',
       scenario: ['e6f7+'],
       nbMoves: 1,
@@ -36,7 +36,7 @@ module.exports = {
       pointsForCapture: true,
     },
     {
-      goal: 'takeThePieceWithTheHighestValue',
+      goal: 'goldBishopRook',
       fen: '9/9/9/2rl5/2BG5/1N1Kb4/2g6/9/9 b - 1',
       scenario: ['b4c6'],
       nbMoves: 1,
@@ -48,7 +48,7 @@ module.exports = {
       pointsForCapture: true,
     },
     {
-      goal: 'takeThePieceWithTheHighestValue',
+      goal: 'takeAllThePiecesStartingFromTheMost',
       fen: '9/9/9/3lg4/9/3+R1n3/2r1bp3/2s6/9 b - 1',
       nbMoves: 9,
       captures: 7,
@@ -59,7 +59,7 @@ module.exports = {
       pointsForCapture: true,
     },
     {
-      goal: 'takeThePieceWithTheHighestValue',
+      goal: 'anExchangeIs',
       fen: '9/6k2/3p2g2/3s5/7N1/9/9/3R5/9 b - 1',
       scenario: [['h5g7+', 'h5g7'], 'g8g7'],
       nbMoves: 1,
@@ -69,7 +69,7 @@ module.exports = {
       failure: assert.scenarioFailed,
     },
     {
-      goal: 'takeThePieceWithTheHighestValue',
+      goal: 'theOpponentJustGaveAway',
       fen: '7k1/9/6+P+P+P/9/P3n4/2N6/2P6/2K+r5/L8 b 2g 1',
       shapes: [arrow('d8d2', 'red')],
       scenario: [
@@ -88,7 +88,7 @@ module.exports = {
       failure: assert.scenarioFailed,
     },
     {
-      goal: 'takeThePieceWithTheHighestValue',
+      goal: 'yourKingsValueIsInfinite',
       fen: '7k1/9/6+P+P+P/9/Pg2n4/2N6/1KP6/3+r5/L8 b g 1',
       offerIllegalMove: true,
       scenario: [
@@ -156,7 +156,7 @@ module.exports = {
       failure: assert.scenarioFailed,
     },
     {
-      goal: 'whichPieceIsTheMostValuable',
+      goal: 'rememberWhichPieceIsTheMostValuable',
       fen: 'ln+R5l/3r1gks1/5pnp1/2b3p1p/1p7/P3pP2P/1P1+b1GPP1/6SK1/5+p1NL b GSPgsnl3p 1',
       nbMoves: 1,
       scenario: [

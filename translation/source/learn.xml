@@ -180,24 +180,26 @@ Make any move to continue.</string>
 	<string name="advanced">Advanced</string>
 	<string name="pieceValue">Piece value</string>
 	<string name="evaluatePieceStrength">Evaluate piece strength</string>
-	<string name="pieceValueIntro">Pieces with high mobility have a higher value!
-Queen = 9
-Rook = 5
-Bishop = 3
-Knight = 3
-Pawn = 1
+	<string name="pieceValueIntroNew">Pieces with high mobility have a higher value.
 The king is priceless! Losing it means losing the game.</string>
 	<string name="queenOverBishop">Take the piece
 with the highest value!
 Queen &gt; Bishop</string>
+    <string name="pawnsAreTheLeastValuable">Pawns are the least valuable piece, followed by lances. Knights are slightly more valuable than lances.
+Take the most valuable piece.</string>
+    <string name="knightSilverGold">Knight &lt; Silver &lt; Gold
+Take the most valuable piece without losing your own.</string>
+    <string name="goldBishopRook">Gold &lt; Bishop &lt; Rook
+Take the most valuable piece.</string>
+    <string name="takeAllThePiecesStartingFromTheMost">Take all the pieces in order, starting from the most valuable until the least valuable!</string>
+    <string name="anExchangeIs">An exchange is when you capture a piece, and lose another. Which is a better exchange? Silver-for-rook, or gold-for-knight?</string>
+    <string name="theOpponentJustGaveAway">The opponent just gave away his valuable rook for free! Do you take it?</string>
+    <string name="yourKingsValueIsInfinite">The king's value is infinite, compared to a rook. What is the best move here?</string>
+    <string name="twoGeneralsAreBetter">Two generals can be worth more than one major piece. A knight and lance can be better than a general. Find a way to sacrifice the bishop and win two generals.</string>
+    <string name="rememberWhichPieceIsTheMostValuable">Do you remember which piece is the most valuable?</string>
 	<string name="takeThePieceWithTheHighestValue">Take the piece
 with the highest value!</string>
-	<string name="pieceValueComplete">Congratulations! You know the value of material!
-Queen = 9
-Rook = 5
-Bishop = 3
-Knight = 3
-Pawn = 1</string>
+    <string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">The king is more valuable than every other piece combined. It is OK to sacrifice many pieces if it gets you closer to checkmating the king.</string>
 	<string name="checkInTwo">Check in two</string>
 	<string name="twoMovesToGiveCheck">Two moves to give a check</string>
 	<string name="checkInTwoIntro">Find the right combination of two moves that checks the opponent's king!</string>
