@@ -246,7 +246,7 @@ function renderComment(comment: Tree.Comment): string {
 }
 
 function renderPlayer(ctrl: AnalyseController, player: Player) {
-  return player.ai ? ctrl.trans('aiNameLevelAiLevel', 'Engine', player.ai) : userHtml(ctrl, player);
+  return player.ai ? ctrl.trans('aiNameLevelAiLevel', 'Fairy Stockfish 14.1', player.ai) : userHtml(ctrl, player);
 }
 
 function userHtml(ctrl: AnalyseController, player: Player) {

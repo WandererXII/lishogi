@@ -76,7 +76,7 @@ export default function (element: HTMLElement, ctrl: AnalyseCtrl) {
   }
 
   function chartLoader() {
-    return `<div id="acpl-chart-loader"><span>YaneuraOu V6<br>server analysis</span>${li.spinnerHtml}</div>`;
+    return `<div id="acpl-chart-loader"><span>Fairy Stockfish 14.1<br>server analysis</span>${li.spinnerHtml}</div>`;
   }
   function startAdvantageChart() {
     if (li.advantageChart || li.AnalyseNVUI) return;

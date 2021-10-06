@@ -108,7 +108,7 @@ function gameInfos(ctrl: Controller, game: PuzzleGame, puzzle: Puzzle): VNode {
             h(
               'div.player.color-icon.is.text.' + p.color,
               p.ai
-                ? 'Engine level ' + p.ai
+                ? 'Fairy Stockfish 14.1 level ' + p.ai
                 : p.userId === 'anon'
                 ? 'Anonymous'
                 : p.userId

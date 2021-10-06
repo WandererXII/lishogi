@@ -69,7 +69,7 @@ object forms {
               ),
               div(cls := "ai_info")(
                 ratings.toList.map { case (level, _) =>
-                  div(cls := s"${prefix}level_$level")(trans.aiNameLevelAiLevel("YaneuraOu V6.00", level))
+                  div(cls := s"${prefix}level_$level")(trans.aiNameLevelAiLevel("Fairy Stockfish 14.1", level))
                 }
               )
             )

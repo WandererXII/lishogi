@@ -34,7 +34,7 @@ function renderPlayer(ctrl: AnalyseCtrl, color: Color): VNode {
   return h(
     'span',
     p.name ||
-      (ctrl.data.game.variant.key == 'standard' && p.ai && 'YaneuraOu level ' + p.ai) ||
+      (ctrl.data.game.variant.key == 'standard' && p.ai && 'Fairy Stockfish level ' + p.ai) ||
       (p.ai && 'Fairy-Stockfish level ' + p.ai) ||
       (ctrl.study && findTag(ctrl.study.data.chapter.tags, color)) ||
       'Anonymous'

@@ -43,7 +43,7 @@ object features {
               a(href := routes.Page.variantHome)("shogi variants - WIP")
             ),
             tr(unlimited)(
-              s"Instant local $engineName analysis"
+              s"Instant local $engineName Engine analysis"
             ),
             tr(unlimited)(
               "Cloud engine analysis"
@@ -187,5 +187,5 @@ object features {
 
   private val title = "Lishogi features"
 
-  private val engineName = "Engine"
+  private val engineName = "Fairy Stockfish"
 }

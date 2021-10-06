@@ -47,7 +47,9 @@ export default function (ctrl: LobbyController) {
             },
           }),
           h('span.meta', [
-            pov.opponent.ai ? ctrl.trans('aiNameLevelAiLevel', 'Engine', pov.opponent.ai) : pov.opponent.username,
+            pov.opponent.ai
+              ? ctrl.trans('aiNameLevelAiLevel', 'Fairy Stockfish 14.1', pov.opponent.ai)
+              : pov.opponent.username,
             h(
               'span.indicator',
               pov.isMyTurn

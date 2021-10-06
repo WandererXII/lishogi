@@ -24,7 +24,7 @@ object Namer {
         }
       }
     ) { level =>
-      s"YaneuraOu V6.00 level $level"
+      s"Fairy Stockfish 14.1 level $level"
     }
 
   def gameVsTextBlocking(game: Game, withRatings: Boolean = false)(implicit

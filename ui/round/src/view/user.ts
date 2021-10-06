@@ -4,7 +4,7 @@ import { Position } from '../interfaces';
 import RoundController from '../ctrl';
 
 export function aiName(ctrl: RoundController, level: number) {
-  return ctrl.trans('aiNameLevelAiLevel', 'Engine', level);
+  return ctrl.trans('aiNameLevelAiLevel', 'Fairy Stockfish 14.1', level);
 }
 
 export function userHtml(ctrl: RoundController, player: Player, position: Position) {
