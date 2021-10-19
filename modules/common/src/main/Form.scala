@@ -1,6 +1,6 @@
 package lila.common
 
-import chess.format.FEN
+import shogi.format.FEN
 import org.joda.time.{ DateTime, DateTimeZone }
 import play.api.data.format.Formats._
 import play.api.data.format.{ Formatter, JodaFormats }
@@ -9,7 +9,7 @@ import play.api.data.JodaForms._
 import play.api.data.validation.Constraint
 import play.api.data.{ Field, FormError, Mapping }
 import scala.util.Try
-import chess.format.Forsyth
+import shogi.format.Forsyth
 
 object Form {
 

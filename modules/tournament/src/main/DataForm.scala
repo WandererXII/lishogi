@@ -6,7 +6,7 @@ import org.joda.time.DateTime
 import play.api.data._
 import play.api.data.Forms._
 import play.api.data.validation
-import play.api.data.validation.Constraint
+import play.api.data.validation.{ Constraint, Constraints }
 
 import lila.common.Form._
 import lila.hub.LightTeam._
