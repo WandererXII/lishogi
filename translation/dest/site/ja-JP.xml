@@ -9,7 +9,7 @@
 	<string name="yourTurn">あなたの手番です</string>
 	<string name="aiNameLevelAiLevel">%1$s レベル %2$s</string>
 	<string name="level">レベル</string>
-	<string name="strength">Strength</string>
+	<string name="strength">強さ</string>
 	<string name="toggleTheChat">チャットのオン・オフ</string>
 	<string name="toggleSound">音声のオン・オフ</string>
 	<string name="chat">チャット</string>
@@ -63,7 +63,7 @@
 	<string name="cloudAnalysis">クラウド解析</string>
 	<string name="goDeeper">もっと深く</string>
 	<string name="showThreat">狙いを表示</string>
-	<string name="inLocalBrowser">ブラウザ内で</string>
+	<string name="inLocalBrowser">ローカル ブラウザ内での解析</string>
 	<string name="toggleLocalEvaluation">ローカル評価値のオン/オフ</string>
 	<string name="promoteVariation">変化を主手順にする</string>
 	<string name="makeMainLine">主手順にする</string>
@@ -118,7 +118,7 @@
 	<string name="offerDraw">引き分けの提案</string>
 	<string name="draw">引き分け</string>
 	<plurals name="nbPlayers">
-		<item quantity="other">現在%s人接続中</item>
+		<item quantity="other">%s人接続中</item>
 	</plurals>
 	<string name="currentGames">現在対局中</string>
 	<plurals name="nbGames">
@@ -143,7 +143,7 @@
 	<string name="today">今日</string>
 	<string name="yesterday">昨日</string>
 	<string name="minutesPerSide">持ち時間</string>
-	<string name="variant">バリアント</string>
+	<string name="variant">ルール</string>
 	<string name="variants">変則将棋</string>
 	<string name="timeControl">持ち時間</string>
 	<string name="realTime">実時間</string>
@@ -201,7 +201,7 @@
 	<string name="finishesX">終了まで %s</string>
 	<string name="abortGame">対局を中止する</string>
 	<string name="gameAborted">対局を中止しました</string>
-	<string name="standard">スタンダード</string>
+	<string name="standard">本将棋</string>
 	<string name="unlimited">無制限</string>
 	<string name="mode">モード</string>
 	<string name="casual">非レート戦</string>
