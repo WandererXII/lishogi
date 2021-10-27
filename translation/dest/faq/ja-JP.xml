@@ -45,7 +45,7 @@
 	<string name="goodIntroduction">参考</string>
 	<string name="officialRulesPDF">公式ルール (pdf)</string>
 	<string name="lishogiTraining">Lishogi トレーニング</string>
-	<string name="fourfoldRepetition">Fourfold repetition</string>
+	<string name="fourfoldRepetition">千日手</string>
 	<string name="handBookPDF">ハンドブック (pdf)</string>
 	<string name="notRepeatedMoves">同じ手は指していないのに、なぜ同形三復（repetition）で引き分けなのですか？</string>
 	<string name="repeatedPositionsThatMatters">同形三復は同じ%1$sの繰り返しを言うのであって、同じ手ではありません。繰り返しが連続で起きる必要はないのです。</string>
