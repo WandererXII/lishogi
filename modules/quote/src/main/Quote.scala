@@ -11,7 +11,6 @@ object Quote {
 
   def one(seed: String) = all(new Random(seed.hashCode).nextInt(all.size))
 
-  // courtesy of various sources
   val all = Vector(
     new Quote("When you see a good move, look for a better one.", "Emanuel Lasker"),
     new Quote("A bad move invites more bad moves", "Traditional"),
