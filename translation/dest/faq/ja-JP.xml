@@ -35,7 +35,7 @@
 	<string name="inferiorThanXsEqualYtimeControl">＜ %1$s秒 = %2$s</string>
 	<string name="superiorThanXsEqualYtimeControl">≥ %1$s秒 = %2$s</string>
 	<string name="whatVariantsCanIplay">Lishogi にはどんなバリアント（変則ルール）がありますか？</string>
-	<string name="lishogiSupportChessAnd">Lishogi は標準の将棋と %1$s をサポートしています。</string>
+	<string name="lishogiSupportChessAnd">Lishogi は本将棋と %1$s をサポートしています。</string>
 	<string name="whatIsACPL">「平均センチポーン差（ACPL: average centipawn loss）」とは？</string>
 	<string name="acplExplanation">「センチポーン」とはチェスで局面の有利さを表現するために使われる単位です。1 センチポーンは 1/100 ポーン、つまり 100 センチポーン＝1 ポーンです。この数字は対局には関係ありませんが、局面を評価する際に便利であり、コンピューターチェスでは欠かせないものとなっています。
   コンピュータの示す最善手をゼロとして、他の手で生じる局面を評価し、その差をセンチポーン単位で表現します。
