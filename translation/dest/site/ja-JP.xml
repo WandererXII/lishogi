@@ -587,7 +587,7 @@
 	<string name="videoLibrary">将棋動画集</string>
 	<string name="streamersMenu">配信者</string>
 	<string name="mobileApp">モバイルアプリ</string>
-	<string name="webmasters">ウェブサイト運営者</string>
+	<string name="webmasters">ウェブサイト運営者の方へ</string>
 	<string name="about">Lishogi の概要</string>
 	<string name="aboutX">%s について</string>
 	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s は無料 (%2$s)・ 自由・広告なし・オープンソースの将棋サーバーです。</string>
@@ -612,7 +612,7 @@
 	<string name="whenCreateSimul">多面指しを作成すると、同時に複数の相手と対局できます。</string>
 	<string name="simulVariantsHint">複数のバリアントを選ぶと、どのバリアントにするか相手が選べます。</string>
 	<string name="simulClockHint">フィッシャーモードの設定。相手が多いほど追加時間は長めに。</string>
-	<string name="simulAddExtraTime">多面指しの手間を考え、自分に持時間をさらに追加できます。</string>
+	<string name="simulAddExtraTime">多面指しの手間を考え、自分に持ち時間をさらに追加できます。</string>
 	<string name="simulHostExtraTime">ホスト延長時間</string>
 	<string name="numberOfByoyomiPeriods">考慮時間</string>
 	<string name="hostColorForEachGame">ホストの手番</string>
