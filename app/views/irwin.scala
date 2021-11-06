@@ -1,8 +1,8 @@
 package views.html
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -16,7 +16,7 @@ object irwin {
       case _           => "red"
     }
 
-  def dashboard(dashboard: lila.irwin.IrwinDashboard)(implicit ctx: Context) =
+  def dashboard(dashboard: lishogi.irwin.IrwinDashboard)(implicit ctx: Context) =
     views.html.base.layout(
       title = "Irwin dashboard",
       moreCss = cssTag("mod.misc")
@@ -73,7 +73,7 @@ object irwin {
       )
     }
 
-  def report(report: lila.irwin.IrwinReport.WithPovs)(implicit ctx: Context): Frag =
+  def report(report: lishogi.irwin.IrwinReport.WithPovs)(implicit ctx: Context): Frag =
     div(id := "mz_irwin", cls := "mz-section")(
       header(
         a(cls := "title", href := routes.Irwin.dashboard())(
@@ -93,7 +93,7 @@ object irwin {
       table(cls := "slist")(
         tbody(
           report.withPovs.sortBy(-_.report.activation).map {
-            case lila.irwin.IrwinReport.GameReport.WithPov(gameReport, pov) =>
+            case lishogi.irwin.IrwinReport.GameReport.WithPov(gameReport, pov) =>
               tr(cls := "text")(
                 td(cls := "moves")(
                   a(href := routes.Round.watcher(pov.gameId, pov.color.name))(

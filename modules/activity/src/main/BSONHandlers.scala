@@ -1,15 +1,15 @@
-package lila.activity
+package lishogi.activity
 
 import reactivemongo.api.bson._
 import scala.util.Success
 
-import lila.common.{ Day, Iso }
-import lila.db.dsl._
-import lila.rating.BSONHandlers.perfTypeKeyIso
-import lila.rating.PerfType
-import lila.study.BSONHandlers._
-import lila.study.Study
-import lila.user.User
+import lishogi.common.{ Day, Iso }
+import lishogi.db.dsl._
+import lishogi.rating.BSONHandlers.perfTypeKeyIso
+import lishogi.rating.PerfType
+import lishogi.study.BSONHandlers._
+import lishogi.study.Study
+import lishogi.user.User
 
 private object BSONHandlers {
 
@@ -43,13 +43,13 @@ private object BSONHandlers {
     o => BSONArray(o.before, o.after)
   )
 
-  implicit private lazy val scoreHandler = new lila.db.BSON[Score] {
+  implicit private lazy val scoreHandler = new lishogi.db.BSON[Score] {
     private val win  = "w"
     private val loss = "l"
     private val draw = "d"
     private val rp   = "r"
 
-    def reads(r: lila.db.BSON.Reader) =
+    def reads(r: lishogi.db.BSON.Reader) =
       Score(
         win = r.intD(win),
         loss = r.intD(loss),
@@ -57,7 +57,7 @@ private object BSONHandlers {
         rp = r.getO[RatingProg](rp)
       )
 
-    def writes(w: lila.db.BSON.Writer, o: Score) =
+    def writes(w: lishogi.db.BSON.Writer, o: Score) =
       BSONDocument(
         win  -> w.intO(o.win),
         loss -> w.intO(o.loss),
@@ -77,9 +77,9 @@ private object BSONHandlers {
 
   implicit lazy val puzzlesHandler = isoHandler[Puzzles, Score]((p: Puzzles) => p.score, Puzzles.apply _)
 
-  implicit lazy val stormHandler = new lila.db.BSON[Storm] {
-    def reads(r: lila.db.BSON.Reader)            = Storm(r.intD("r"), r.intD("s"))
-    def writes(w: lila.db.BSON.Writer, s: Storm) = BSONDocument("r" -> s.runs, "s" -> s.score)
+  implicit lazy val stormHandler = new lishogi.db.BSON[Storm] {
+    def reads(r: lishogi.db.BSON.Reader)            = Storm(r.intD("r"), r.intD("s"))
+    def writes(w: lishogi.db.BSON.Writer, s: Storm) = BSONDocument("r" -> s.runs, "s" -> s.score)
   }
 
   implicit private lazy val learnHandler =
@@ -99,13 +99,13 @@ private object BSONHandlers {
 
   implicit private lazy val followListHandler = Macros.handler[FollowList]
 
-  implicit private lazy val followsHandler = new lila.db.BSON[Follows] {
-    def reads(r: lila.db.BSON.Reader) =
+  implicit private lazy val followsHandler = new lishogi.db.BSON[Follows] {
+    def reads(r: lishogi.db.BSON.Reader) =
       Follows(
         in = r.getO[FollowList]("i").filterNot(_.isEmpty),
         out = r.getO[FollowList]("o").filterNot(_.isEmpty)
       )
-    def writes(w: lila.db.BSON.Writer, o: Follows) =
+    def writes(w: lishogi.db.BSON.Writer, o: Follows) =
       BSONDocument(
         "i" -> o.in,
         "o" -> o.out
@@ -134,11 +134,11 @@ private object BSONHandlers {
     val stream   = "st"
   }
 
-  implicit lazy val activityHandler = new lila.db.BSON[Activity] {
+  implicit lazy val activityHandler = new lishogi.db.BSON[Activity] {
 
     import ActivityFields._
 
-    def reads(r: lila.db.BSON.Reader) =
+    def reads(r: lishogi.db.BSON.Reader) =
       Activity(
         id = r.get[Id](id),
         games = r.getO[Games](games),
@@ -156,7 +156,7 @@ private object BSONHandlers {
         stream = r.getD[Boolean](stream)
       )
 
-    def writes(w: lila.db.BSON.Writer, o: Activity) =
+    def writes(w: lishogi.db.BSON.Writer, o: Activity) =
       BSONDocument(
         id       -> o.id,
         games    -> o.games,

@@ -1,9 +1,9 @@
-package lila.lobby
+package lishogi.lobby
 
-import lila.game.{ Pov, Source }
+import lishogi.game.{ Pov, Source }
 
 final private class AbortListener(
-    userRepo: lila.user.UserRepo,
+    userRepo: lishogi.user.UserRepo,
     seekApi: SeekApi,
     lobbyTrouper: LobbyTrouper
 )(implicit ec: scala.concurrent.ExecutionContext) {

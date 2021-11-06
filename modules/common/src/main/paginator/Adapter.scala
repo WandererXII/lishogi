@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 package paginator
 
 abstract class AdapterLike[A](implicit ec: scala.concurrent.ExecutionContext) {

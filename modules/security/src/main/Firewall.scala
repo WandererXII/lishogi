@@ -1,13 +1,13 @@
-package lila.security
+package lishogi.security
 
 import org.joda.time.DateTime
 import play.api.mvc.RequestHeader
 import scala.concurrent.duration._
 import reactivemongo.api.ReadPreference
 
-import lila.common.IpAddress
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
+import lishogi.common.IpAddress
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
 
 final class Firewall(
     coll: Coll,
@@ -22,9 +22,9 @@ final class Firewall(
 
   def blocks(req: RequestHeader): Boolean = {
     val v = blocksIp {
-      lila.common.HTTPRequest lastRemoteAddress req
+      lishogi.common.HTTPRequest lastRemoteAddress req
     }
-    if (v) lila.mon.security.firewall.block.increment()
+    if (v) lishogi.mon.security.firewall.block.increment()
     v
   }
 
@@ -49,7 +49,7 @@ final class Firewall(
   private def loadFromDb: Funit =
     coll.distinctEasy[String, Set]("_id", $empty, ReadPreference.secondaryPreferred).map { ips =>
       current = ips
-      lila.mon.security.firewall.ip.update(ips.size)
+      lishogi.mon.security.firewall.ip.update(ips.size)
     }
 
   private def validIp(ip: IpAddress) =

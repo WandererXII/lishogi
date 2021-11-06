@@ -3,13 +3,13 @@ package study
 
 import play.api.mvc.Call
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.study.{ Order, StudyTopic, StudyTopics }
-import lila.study.Study.WithChaptersAndLiked
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.study.{ Order, StudyTopic, StudyTopics }
+import lishogi.study.Study.WithChaptersAndLiked
+import lishogi.user.User
 
 import controllers.routes
 

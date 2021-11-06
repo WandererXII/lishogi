@@ -1,9 +1,9 @@
-package lila.plan
+package lishogi.plan
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson.BSONNull
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 final private class MonthlyGoalApi(getGoal: () => Usd, chargeColl: Coll)(implicit
     ec: scala.concurrent.ExecutionContext

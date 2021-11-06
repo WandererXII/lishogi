@@ -1,6 +1,6 @@
-package lila.insight
+package lishogi.insight
 
-import lila.game.{ Game, Pov }
+import lishogi.game.{ Game, Pov }
 
 case class Answer[X](
     question: Question[X],

@@ -1,4 +1,4 @@
-package lila
+package lishogi
 
 package object analyse extends PackageObject {
 

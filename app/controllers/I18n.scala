@@ -4,12 +4,12 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.libs.json.Json
 
-import lila.app._
-import lila.common.HTTPRequest
+import lishogi.app._
+import lishogi.common.HTTPRequest
 
-final class I18n(env: Env) extends LilaController(env) {
+final class I18n(env: Env) extends LishogiController(env) {
 
-  private def toLang = lila.i18n.I18nLangPicker.byStr _
+  private def toLang = lishogi.i18n.I18nLangPicker.byStr _
 
   private val form = Form(single("lang" -> text.verifying { code =>
     toLang(code).isDefined
@@ -41,7 +41,7 @@ final class I18n(env: Env) extends LilaController(env) {
                     }
                   }
                 }
-                if (ctx.isAnon) redir.withCookies(env.lilaCookie.session("lang", lang.code))
+                if (ctx.isAnon) redir.withCookies(env.lishogiCookie.session("lang", lang.code))
                 else redir
               }.fuccess,
               api = _ => Ok(Json.obj("lang" -> lang.code)).fuccess

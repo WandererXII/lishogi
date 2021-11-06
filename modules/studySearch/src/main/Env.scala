@@ -1,21 +1,21 @@
-package lila.studySearch
+package lishogi.studySearch
 
 import akka.actor._
 import com.softwaremill.macwire._
 import scala.concurrent.duration._
 
-import lila.common.Bus
-import lila.common.paginator._
-import lila.hub.actorApi.study.RemoveStudy
-import lila.hub.LateMultiThrottler
-import lila.search._
-import lila.study.Study
-import lila.user.User
+import lishogi.common.Bus
+import lishogi.common.paginator._
+import lishogi.hub.actorApi.study.RemoveStudy
+import lishogi.hub.LateMultiThrottler
+import lishogi.search._
+import lishogi.study.Study
+import lishogi.user.User
 
 final class Env(
-    studyRepo: lila.study.StudyRepo,
-    chapterRepo: lila.study.ChapterRepo,
-    pager: lila.study.StudyPager,
+    studyRepo: lishogi.study.StudyRepo,
+    chapterRepo: lishogi.study.ChapterRepo,
+    pager: lishogi.study.StudyPager,
     makeClient: Index => ESClient
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -41,7 +41,7 @@ final class Env(
     )
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = {
         case "study" :: "search" :: "reset" :: Nil          => api.reset("reset") inject "done"
         case "study" :: "search" :: "index" :: since :: Nil => api.reset(since) inject "done"
@@ -49,7 +49,7 @@ final class Env(
     }
 
   Bus.subscribeFun("study") {
-    case lila.study.actorApi.SaveStudy(study) => api store study
+    case lishogi.study.actorApi.SaveStudy(study) => api store study
     case RemoveStudy(id, _)                   => client deleteById Id(id)
   }
 }

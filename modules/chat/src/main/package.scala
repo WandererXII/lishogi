@@ -1,8 +1,8 @@
-package lila
+package lishogi
 
 package object chat extends PackageObject {
 
-  private[chat] def logger = lila.log("chat")
+  private[chat] def logger = lishogi.log("chat")
 
   private[chat] val systemUserId = "lishogi"
 }

@@ -1,13 +1,13 @@
 package views.html.clas
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.clas.{ Clas, ClasInvite, ClasProgress, Student }
-import lila.common.String.html.richText
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.clas.{ Clas, ClasInvite, ClasProgress, Student }
+import lishogi.common.String.html.richText
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 object teacherDashboard {
 
@@ -118,7 +118,7 @@ object teacherDashboard {
       div(cls := "box__pad students__empty")(
         p(
           "This feature is only available for classes of ",
-          lila.clas.Clas.maxStudents,
+          lishogi.clas.Clas.maxStudents,
           " or fewer students."
         ),
         p(

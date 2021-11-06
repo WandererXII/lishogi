@@ -1,9 +1,9 @@
-package lila.tournament
+package lishogi.tournament
 
 import akka.actor._
 import akka.stream.scaladsl._
 import scala.concurrent.duration._
-import lila.common.ThreadLocalRandom
+import lishogi.common.ThreadLocalRandom
 
 final private class StartedOrganizer(
     api: TournamentApi,
@@ -46,8 +46,8 @@ final private class StartedOrganizer(
         })(Keep.right)
         .run()
         .addEffect { case (tours, users) =>
-          lila.mon.tournament.started.update(tours)
-          lila.mon.tournament.waitingPlayers.record(users)
+          lishogi.mon.tournament.started.update(tours)
+          lishogi.mon.tournament.waitingPlayers.record(users)
         }
         .monSuccess(_.tournament.startedOrganizer.tick)
         .addEffectAnyway(scheduleNext)

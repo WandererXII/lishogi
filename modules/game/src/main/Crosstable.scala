@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import scala.util.Success
 
@@ -27,7 +27,7 @@ object Crosstable {
 
   val maxGames = 20
 
-  def empty(u1: lila.user.User.ID, u2: lila.user.User.ID) =
+  def empty(u1: lishogi.user.User.ID, u2: lishogi.user.User.ID) =
     Crosstable(
       Users(User(u1, 0), User(u2, 0)),
       Nil
@@ -86,8 +86,8 @@ object Crosstable {
   private[game] def makeKey(u1: String, u2: String): String = if (u1 < u2) s"$u1/$u2" else s"$u2/$u1"
 
   import reactivemongo.api.bson._
-  import lila.db.BSON
-  import lila.db.dsl._
+  import lishogi.db.BSON
+  import lishogi.db.dsl._
 
   object BSONFields {
     val id         = "_id"
@@ -145,7 +145,7 @@ object Crosstable {
           Success {
             Matchup(Users(User(u1Id, r intD score1), User(u2Id, r intD score2)))
           }
-        case x => lila.db.BSON.handlerBadValue(s"Invalid crosstable id $x")
+        case x => lishogi.db.BSON.handlerBadValue(s"Invalid crosstable id $x")
       }
     }
   }

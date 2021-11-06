@@ -1,15 +1,15 @@
-package lila.tournament
+package lishogi.tournament
 
 import shogi.{ Color, Gote, Sente }
 import scala.util.chaining._
 
-import lila.game.{ Game, Player => GamePlayer, GameRepo, Source }
-import lila.user.User
+import lishogi.game.{ Game, Player => GamePlayer, GameRepo, Source }
+import lishogi.user.User
 
 final class AutoPairing(
     gameRepo: GameRepo,
     duelStore: DuelStore,
-    lightUserApi: lila.user.LightUserApi,
+    lightUserApi: lishogi.user.LightUserApi,
     onStart: Game.ID => Unit
 )(implicit ec: scala.concurrent.ExecutionContext) {
 

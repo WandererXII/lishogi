@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import java.util.concurrent.atomic.AtomicReference
 import java.util.function.UnaryOperator
@@ -11,7 +11,7 @@ import scala.concurrent.{ ExecutionContext, Future, Promise }
  * Has an unbounded (!) Queue of messages.
  * Like Duct, but for synchronous message processors.
  */
-abstract class Trouper(implicit ec: ExecutionContext) extends lila.common.Tellable {
+abstract class Trouper(implicit ec: ExecutionContext) extends lishogi.common.Tellable {
 
   import Trouper._
 
@@ -54,7 +54,7 @@ abstract class Trouper(implicit ec: ExecutionContext) extends lila.common.Tellab
     stateRef.getAndUpdate(postRunUpdate) flatMap (_.headOption) foreach run
 
   private val fallback: Receive = { case msg =>
-    lila.log("trouper").warn(s"unhandled msg: $msg")
+    lishogi.log("trouper").warn(s"unhandled msg: $msg")
   }
 }
 
@@ -74,7 +74,7 @@ object Trouper {
   def stub(implicit ec: ExecutionContext) =
     new Trouper {
       val process: Receive = { case msg =>
-        lila.log("trouper").warn(s"stub trouper received: $msg")
+        lishogi.log("trouper").warn(s"stub trouper received: $msg")
       }
     }
 }

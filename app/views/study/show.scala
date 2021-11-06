@@ -2,21 +2,21 @@ package views.html.study
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
 
 import controllers.routes
 
 object show {
 
   def apply(
-      s: lila.study.Study,
-      data: lila.study.JsonView.JsData,
-      chatOption: Option[lila.chat.UserChat.Mine],
-      socketVersion: lila.socket.Socket.SocketVersion,
-      streams: List[lila.streamer.Stream]
+      s: lishogi.study.Study,
+      data: lishogi.study.JsonView.JsData,
+      chatOption: Option[lishogi.chat.UserChat.Mine],
+      socketVersion: lishogi.socket.Socket.SocketVersion,
+      streams: List[lishogi.streamer.Stream]
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = s.name.value,
@@ -29,7 +29,7 @@ object show {
             "study"    -> data.study.add("admin" -> isGranted(_.StudyAdmin)),
             "data"     -> data.analysis,
             "i18n"     -> jsI18n(),
-            "tagTypes" -> lila.study.KifTags.typesToString,
+            "tagTypes" -> lishogi.study.KifTags.typesToString,
             "userId"   -> ctx.userId,
             "chat" -> chatOption.map { c =>
               views.html.chat.json(
@@ -38,7 +38,7 @@ object show {
                 timeout = c.timeout,
                 writeable = ctx.userId exists s.canChat,
                 public = false,
-                resourceId = lila.chat.Chat.ResourceId(s"study/${c.chat.id}"),
+                resourceId = lishogi.chat.Chat.ResourceId(s"study/${c.chat.id}"),
                 palantir = ctx.userId exists s.isMember,
                 localMod = ctx.userId exists s.canContribute
               )
@@ -56,7 +56,7 @@ object show {
       shogiground = false,
       zoomable = true,
       csp = defaultCsp.withWebAssembly.withTwitch.withPeer.some,
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = s.name.value,
           url = s"$netBaseUrl${routes.Study.show(s.id.value).url}",

@@ -1,11 +1,11 @@
-package lila.insight
+package lishogi.insight
 
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.db.AsyncColl
-import lila.rating.BSONHandlers.perfTypeIdHandler
-import lila.rating.PerfType
+import lishogi.db.dsl._
+import lishogi.db.AsyncColl
+import lishogi.rating.BSONHandlers.perfTypeIdHandler
+import lishogi.rating.PerfType
 
 final private class Storage(val coll: AsyncColl)(implicit ec: scala.concurrent.ExecutionContext) {
 

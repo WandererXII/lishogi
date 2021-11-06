@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 case class Position(chapter: Chapter, path: Path) {
 

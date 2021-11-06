@@ -1,8 +1,8 @@
 package views.html.team
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 import play.api.data.Form
 
 import controllers.routes
@@ -11,7 +11,7 @@ object admin {
 
   import trans.team._
 
-  def leaders(t: lila.team.Team, form: Form[_])(implicit ctx: Context) = {
+  def leaders(t: lishogi.team.Team, form: Form[_])(implicit ctx: Context) = {
     val title = s"${t.name} • ${trans.team.teamLeaders.txt()}"
     views.html.base.layout(
       title = title,
@@ -39,7 +39,7 @@ object admin {
     }
   }
 
-  def kick(t: lila.team.Team, userIds: Iterable[lila.user.User.ID])(implicit ctx: Context) = {
+  def kick(t: lishogi.team.Team, userIds: Iterable[lishogi.user.User.ID])(implicit ctx: Context) = {
 
     val title = s"${t.name} • ${kickSomeone.txt()}"
 
@@ -63,7 +63,7 @@ object admin {
     }
   }
 
-  def pmAll(t: lila.team.Team, form: Form[_], tours: List[lila.tournament.Tournament])(implicit
+  def pmAll(t: lishogi.team.Team, form: Form[_], tours: List[lishogi.tournament.Tournament])(implicit
       ctx: Context
   ) = {
 

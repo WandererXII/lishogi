@@ -1,10 +1,10 @@
-package lila.app
+package lishogi.app
 package ui
 
 import play.api.mvc.RequestHeader
 import play.api.i18n.Lang
 
-import lila.common.Nonce
+import lishogi.common.Nonce
 
 case class EmbedConfig(bg: String, board: String, lang: Lang, req: RequestHeader, nonce: Nonce)
 
@@ -18,8 +18,8 @@ object EmbedConfig {
   def apply(req: RequestHeader): EmbedConfig =
     EmbedConfig(
       bg = get("bg", req).filterNot("auto".==) | "light",
-      board = lila.pref.Theme(~get("theme", req)).cssClass,
-      lang = lila.i18n.I18nLangPicker(req, none),
+      board = lishogi.pref.Theme(~get("theme", req)).cssClass,
+      lang = lishogi.i18n.I18nLangPicker(req, none),
       req = req,
       nonce = Nonce.random
     )

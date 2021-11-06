@@ -1,9 +1,9 @@
 package controllers
 
-import lila.app._
+import lishogi.app._
 import views._
 
-final class TournamentCrud(env: Env) extends LilaController(env) {
+final class TournamentCrud(env: Env) extends LishogiController(env) {
 
   private def crud = env.tournament.crudApi
 

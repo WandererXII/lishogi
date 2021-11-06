@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -7,7 +7,7 @@ import play.api.Configuration
 import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 
-import lila.common.config._
+import lishogi.common.config._
 
 final private class GameConfig(
     @ConfigName("collection.game") val gameColl: CollName,
@@ -23,12 +23,12 @@ final private class GameConfig(
 final class Env(
     appConfig: Configuration,
     ws: WSClient,
-    db: lila.db.Db,
+    db: lishogi.db.Db,
     baseUrl: BaseUrl,
-    userRepo: lila.user.UserRepo,
-    mongoCache: lila.memo.MongoCache.Api,
-    lightUserApi: lila.user.LightUserApi,
-    cacheApi: lila.memo.CacheApi
+    userRepo: lishogi.user.UserRepo,
+    mongoCache: lishogi.memo.MongoCache.Api,
+    lightUserApi: lishogi.user.LightUserApi,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
@@ -64,7 +64,7 @@ final class Env(
   lazy val favoriteOpponents = wire[FavoriteOpponents]
 
   lazy val rematches = Rematches(
-    lila.memo.CacheApi.scaffeineNoScheduler
+    lishogi.memo.CacheApi.scaffeineNoScheduler
       .expireAfterWrite(1 hour)
       .build[Game.ID, Game.ID]()
   )

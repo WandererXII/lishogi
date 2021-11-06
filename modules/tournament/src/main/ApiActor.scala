@@ -1,9 +1,9 @@
-package lila.tournament
+package lishogi.tournament
 
 import akka.actor._
 import org.joda.time.DateTime
 
-import lila.game.actorApi.FinishGame
+import lishogi.game.actorApi.FinishGame
 
 final private[tournament] class ApiActor(
     api: TournamentApi,
@@ -12,7 +12,7 @@ final private[tournament] class ApiActor(
 
   implicit def ec = context.dispatcher
 
-  lila.common.Bus.subscribe(
+  lishogi.common.Bus.subscribe(
     self,
     "finishGame",
     "adjustCheater",
@@ -25,19 +25,19 @@ final private[tournament] class ApiActor(
 
     case FinishGame(game, _, _) => api finishGame game
 
-    case lila.playban.SittingDetected(game, player) => api.sittingDetected(game, player)
+    case lishogi.playban.SittingDetected(game, player) => api.sittingDetected(game, player)
 
-    case lila.hub.actorApi.mod.MarkCheater(userId, true) =>
+    case lishogi.hub.actorApi.mod.MarkCheater(userId, true) =>
       leaderboard.getAndDeleteRecent(userId, DateTime.now minusDays 3) flatMap {
         api.ejectLame(userId, _)
       }
 
-    case lila.hub.actorApi.mod.MarkBooster(userId) => api.ejectLame(userId, Nil)
+    case lishogi.hub.actorApi.mod.MarkBooster(userId) => api.ejectLame(userId, Nil)
 
-    case lila.hub.actorApi.round.Berserk(gameId, userId) => api.berserk(gameId, userId)
+    case lishogi.hub.actorApi.round.Berserk(gameId, userId) => api.berserk(gameId, userId)
 
-    case lila.hub.actorApi.playban.Playban(userId, _) => api.pausePlaybanned(userId)
+    case lishogi.hub.actorApi.playban.Playban(userId, _) => api.pausePlaybanned(userId)
 
-    case lila.hub.actorApi.team.KickFromTeam(teamId, userId) => api.kickFromTeam(teamId, userId)
+    case lishogi.hub.actorApi.team.KickFromTeam(teamId, userId) => api.kickFromTeam(teamId, userId)
   }
 }

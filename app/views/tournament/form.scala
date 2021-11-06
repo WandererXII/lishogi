@@ -3,16 +3,16 @@ package tournament
 
 import play.api.data.{ Field, Form }
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.tournament.{ Condition, DataForm, Tournament }
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.tournament.{ Condition, DataForm, Tournament }
 
 import controllers.routes
 
 object form {
 
-  def create(form: Form[_], myTeams: List[lila.hub.LightTeam])(implicit ctx: Context) =
+  def create(form: Form[_], myTeams: List[lishogi.hub.LightTeam])(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.newTournament.txt(),
       moreCss = cssTag("tournament.form"),
@@ -55,7 +55,7 @@ object form {
       )
     }
 
-  def edit(tour: Tournament, form: Form[_], myTeams: List[lila.hub.LightTeam])(implicit ctx: Context) =
+  def edit(tour: Tournament, form: Form[_], myTeams: List[lishogi.hub.LightTeam])(implicit ctx: Context) =
     views.html.base.layout(
       title = tour.name(),
       moreCss = cssTag("tournament.form"),
@@ -112,7 +112,7 @@ object form {
       form: Form[_],
       fields: TourFields,
       auto: Boolean,
-      teams: List[lila.hub.LightTeam],
+      teams: List[lishogi.hub.LightTeam],
       tour: Option[Tournament]
   )(implicit
       ctx: Context

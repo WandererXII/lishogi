@@ -1,4 +1,4 @@
-package lila.teamSearch
+package lishogi.teamSearch
 
 private[teamSearch] object Fields {
   val name        = "na"

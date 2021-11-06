@@ -1,35 +1,35 @@
-package lila.app
+package lishogi.app
 package mashup
 
-import lila.api.Context
-import lila.event.Event
-import lila.forum.MiniForumPost
-import lila.game.{ Game, Pov }
-import lila.playban.TempBan
-import lila.simul.{ Simul, SimulIsFeaturable }
-import lila.streamer.LiveStreams
-import lila.timeline.Entry
-import lila.tournament.{ Tournament, Winner }
-import lila.tv.Tv
-import lila.user.LightUserApi
-import lila.user.User
+import lishogi.api.Context
+import lishogi.event.Event
+import lishogi.forum.MiniForumPost
+import lishogi.game.{ Game, Pov }
+import lishogi.playban.TempBan
+import lishogi.simul.{ Simul, SimulIsFeaturable }
+import lishogi.streamer.LiveStreams
+import lishogi.timeline.Entry
+import lishogi.tournament.{ Tournament, Winner }
+import lishogi.tv.Tv
+import lishogi.user.LightUserApi
+import lishogi.user.User
 import play.api.libs.json._
 
 final class Preload(
     tv: Tv,
-    gameRepo: lila.game.GameRepo,
-    userCached: lila.user.Cached,
-    tourWinners: lila.tournament.WinnersApi,
-    timelineApi: lila.timeline.EntryApi,
-    liveStreamApi: lila.streamer.LiveStreamApi,
-    dailyPuzzle: lila.puzzle.DailyPuzzle.Try,
-    lobbyApi: lila.api.LobbyApi,
-    lobbySocket: lila.lobby.LobbySocket,
-    playbanApi: lila.playban.PlaybanApi,
+    gameRepo: lishogi.game.GameRepo,
+    userCached: lishogi.user.Cached,
+    tourWinners: lishogi.tournament.WinnersApi,
+    timelineApi: lishogi.timeline.EntryApi,
+    liveStreamApi: lishogi.streamer.LiveStreamApi,
+    dailyPuzzle: lishogi.puzzle.DailyPuzzle.Try,
+    lobbyApi: lishogi.api.LobbyApi,
+    lobbySocket: lishogi.lobby.LobbySocket,
+    playbanApi: lishogi.playban.PlaybanApi,
     lightUserApi: LightUserApi,
-    roundProxy: lila.round.GameProxyRepo,
+    roundProxy: lishogi.round.GameProxyRepo,
     simulIsFeaturable: SimulIsFeaturable,
-    lastPostCache: lila.blog.LastPostCache
+    lastPostCache: lishogi.blog.LastPostCache
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import Preload._
@@ -96,13 +96,13 @@ final class Preload(
       currentGameMyTurn(_, lightUserApi.sync)(user)
     }
 
-  private def currentGameMyTurn(povs: List[Pov], lightUser: lila.common.LightUser.GetterSync)(
+  private def currentGameMyTurn(povs: List[Pov], lightUser: lishogi.common.LightUser.GetterSync)(
       user: User
   ): Fu[Option[CurrentGame]] =
     ~povs.collectFirst {
       case p1 if p1.game.nonAi && p1.game.hasClock && p1.isMyTurn =>
         roundProxy.pov(p1.gameId, user) dmap (_ | p1) map { pov =>
-          val opponent = lila.game.Namer.playerTextBlocking(pov.opponent)(lightUser)
+          val opponent = lishogi.game.Namer.playerTextBlocking(pov.opponent)(lightUser)
           CurrentGame(
             pov = pov,
             opponent = opponent,
@@ -128,14 +128,14 @@ object Preload {
       featured: Option[Game],
       leaderboard: List[User.LightPerf],
       tournamentWinners: List[Winner],
-      puzzle: Option[lila.puzzle.DailyPuzzle.Html],
+      puzzle: Option[lishogi.puzzle.DailyPuzzle.Html],
       streams: LiveStreams.WithTitles,
-      lastPost: List[lila.blog.MiniPost],
+      lastPost: List[lishogi.blog.MiniPost],
       playban: Option[TempBan],
       currentGame: Option[Preload.CurrentGame],
       isFeaturable: Simul => Boolean,
       blindGames: List[Pov],
-      counters: lila.lobby.LobbyCounters
+      counters: lishogi.lobby.LobbyCounters
   )
 
   case class CurrentGame(pov: Pov, json: JsObject, opponent: String)

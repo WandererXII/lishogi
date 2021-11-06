@@ -1,4 +1,4 @@
-package lila.video
+package lishogi.video
 
 import play.api.libs.ws.WSClient
 import play.api.Mode
@@ -7,7 +7,7 @@ import io.methvin.play.autoconfig._
 import play.api.Configuration
 import scala.concurrent.duration._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 private class VideoConfig(
@@ -25,8 +25,8 @@ final class Env(
     appConfig: Configuration,
     ws: WSClient,
     scheduler: akka.actor.Scheduler,
-    db: lila.db.Db,
-    cacheApi: lila.memo.CacheApi,
+    db: lishogi.db.Db,
+    cacheApi: lishogi.memo.CacheApi,
     mode: Mode
 )(implicit ec: scala.concurrent.ExecutionContext) {
 

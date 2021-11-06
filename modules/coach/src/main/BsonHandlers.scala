@@ -1,8 +1,8 @@
-package lila.coach
+package lishogi.coach
 
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 private[coach] object BsonHandlers {
 

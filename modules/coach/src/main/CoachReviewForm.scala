@@ -1,4 +1,4 @@
-package lila.coach
+package lishogi.coach
 
 import play.api.data._
 import play.api.data.Forms._

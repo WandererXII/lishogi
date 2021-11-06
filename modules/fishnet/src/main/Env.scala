@@ -1,4 +1,4 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -6,9 +6,9 @@ import io.lettuce.core._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.Bus
-import lila.common.config._
-import lila.game.Game
+import lishogi.common.Bus
+import lishogi.common.config._
+import lishogi.game.Game
 
 @Module
 private class FishnetConfig(
@@ -24,14 +24,14 @@ private class FishnetConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    uciMemo: lila.game.UciMemo,
-    requesterApi: lila.analyse.RequesterApi,
-    evalCacheApi: lila.evalCache.EvalCacheApi,
-    gameRepo: lila.game.GameRepo,
-    analysisRepo: lila.analyse.AnalysisRepo,
-    db: lila.db.Db,
-    cacheApi: lila.memo.CacheApi,
-    sink: lila.analyse.Analyser,
+    uciMemo: lishogi.game.UciMemo,
+    requesterApi: lishogi.analyse.RequesterApi,
+    evalCacheApi: lishogi.evalCache.EvalCacheApi,
+    gameRepo: lishogi.game.GameRepo,
+    analysisRepo: lishogi.analyse.AnalysisRepo,
+    db: lishogi.db.Db,
+    cacheApi: lishogi.memo.CacheApi,
+    sink: lishogi.analyse.Analyser,
     shutdown: akka.actor.CoordinatedShutdown
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -64,7 +64,7 @@ final class Env(
   )
 
   private lazy val socketExists: Game.ID => Fu[Boolean] = id =>
-    Bus.ask[Boolean]("roundSocket")(lila.hub.actorApi.map.Exists(id, _))
+    Bus.ask[Boolean]("roundSocket")(lishogi.hub.actorApi.map.Exists(id, _))
 
   lazy val api: FishnetApi = wire[FishnetApi]
 
@@ -87,9 +87,9 @@ final class Env(
   system.actorOf(
     Props(new Actor {
       def receive = {
-        case lila.hub.actorApi.fishnet.AutoAnalyse(gameId) =>
+        case lishogi.hub.actorApi.fishnet.AutoAnalyse(gameId) =>
           analyser(gameId, Work.Sender(userId = none, ip = none, mod = false, system = true))
-        case req: lila.hub.actorApi.fishnet.StudyChapterRequest => analyser study req
+        case req: lishogi.hub.actorApi.fishnet.StudyChapterRequest => analyser study req
       }
     }),
     name = config.actorName
@@ -99,11 +99,11 @@ final class Env(
     repo toKey username flatMap { repo.enableClient(_, false) }
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = {
         case "fishnet" :: "client" :: "create" :: userId :: Nil =>
           api.createClient(Client.UserId(userId.toLowerCase)) map { client =>
-            Bus.publish(lila.hub.actorApi.fishnet.NewKey(userId, client.key.value), "fishnet")
+            Bus.publish(lishogi.hub.actorApi.fishnet.NewKey(userId, client.key.value), "fishnet")
             s"Created key: ${(client.key.value)} for: $userId"
           }
         case "fishnet" :: "client" :: "delete" :: key :: Nil =>
@@ -115,8 +115,8 @@ final class Env(
     }
 
   Bus.subscribeFun("adjustCheater", "adjustBooster", "shadowban") {
-    case lila.hub.actorApi.mod.MarkCheater(userId, true) => disable(userId)
-    case lila.hub.actorApi.mod.MarkBooster(userId)       => disable(userId)
-    case lila.hub.actorApi.mod.Shadowban(userId, true)   => disable(userId)
+    case lishogi.hub.actorApi.mod.MarkCheater(userId, true) => disable(userId)
+    case lishogi.hub.actorApi.mod.MarkBooster(userId)       => disable(userId)
+    case lishogi.hub.actorApi.mod.Shadowban(userId, true)   => disable(userId)
   }
 }

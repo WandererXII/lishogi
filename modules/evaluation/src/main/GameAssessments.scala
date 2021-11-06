@@ -1,4 +1,4 @@
-package lila.evaluation
+package lishogi.evaluation
 
 import shogi.Color
 

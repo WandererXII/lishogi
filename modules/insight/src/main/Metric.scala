@@ -1,4 +1,4 @@
-package lila.insight
+package lishogi.insight
 
 import scalatags.Text.all._
 
@@ -212,11 +212,11 @@ object Metric {
   def valuesOf(metric: Metric): List[MetricValue] =
     metric match {
       case Result =>
-        lila.insight.Result.all.map { r =>
+        lishogi.insight.Result.all.map { r =>
           MetricValue(BSONInteger(r.id), MetricValueName(r.name))
         }
       case Termination =>
-        lila.insight.Termination.all.map { r =>
+        lishogi.insight.Termination.all.map { r =>
           MetricValue(BSONInteger(r.id), MetricValueName(r.name))
         }
       case PieceRole =>

@@ -1,15 +1,15 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import shogi.format.{ FEN, Uci }
 import reactivemongo.api.bson._
 import scala.util.{ Success, Try }
 
-import lila.db.BSON
-import lila.db.dsl._
-import lila.game.Game
-import lila.rating.Glicko
+import lishogi.db.BSON
+import lishogi.db.dsl._
+import lishogi.game.Game
+import lishogi.rating.Glicko
 
-import lila.game.BSONHandlers.FENBSONHandler
+import lishogi.game.BSONHandlers.FENBSONHandler
 
 object BsonHandlers {
 

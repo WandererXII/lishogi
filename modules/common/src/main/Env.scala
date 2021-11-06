@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import com.softwaremill.macwire._
 import play.api.Configuration

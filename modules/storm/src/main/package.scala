@@ -1,8 +1,8 @@
-package lila
+package lishogi
 
-import lila.user.User
+import lishogi.user.User
 
 package object storm extends PackageObject {
 
-  private[storm] val logger = lila.log("storm")
+  private[storm] val logger = lishogi.log("storm")
 }

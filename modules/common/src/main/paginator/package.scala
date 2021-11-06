@@ -1,10 +1,10 @@
-package lila.common
+package lishogi.common
 
 import scalaz.Functor
 
 package object paginator {
 
-  implicit val LilaPaginatorFunctor = new Functor[Paginator] {
+  implicit val LishogiPaginatorFunctor = new Functor[Paginator] {
     def map[A, B](p: Paginator[A])(f: A => B) =
       new Paginator(
         currentPage = p.currentPage,

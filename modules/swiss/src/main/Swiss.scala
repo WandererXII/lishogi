@@ -1,14 +1,14 @@
-package lila.swiss
+package lishogi.swiss
 
 import shogi.Clock.{ Config => ClockConfig }
 import shogi.Speed
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
-import lila.game.PerfPicker
-import lila.hub.LightTeam.TeamID
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.game.PerfPicker
+import lishogi.hub.LightTeam.TeamID
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 case class Swiss(
     _id: Swiss.Id,
@@ -67,7 +67,7 @@ case class Swiss(
 
   def roundInfo = Swiss.RoundInfo(teamId, settings.chatFor)
 
-  lazy val looksLikePrize = lila.common.String.looksLikePrize(s"$name ${~settings.description}")
+  lazy val looksLikePrize = lishogi.common.String.looksLikePrize(s"$name ${~settings.description}")
 }
 
 object Swiss {
@@ -116,7 +116,7 @@ object Swiss {
       (points.value * 10000000 + tieBreak.value * 10000 + perf.value).toInt
     )
 
-  def makeId = Id(lila.common.ThreadLocalRandom nextString 8)
+  def makeId = Id(lishogi.common.ThreadLocalRandom nextString 8)
 
   case class PastAndNext(past: List[Swiss], next: List[Swiss])
 

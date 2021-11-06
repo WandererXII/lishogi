@@ -1,11 +1,11 @@
-package lila.push
+package lishogi.push
 
 import io.methvin.play.autoconfig._
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 import scalaz.NonEmptyList
 
-import lila.user.User
+import lishogi.user.User
 
 final private class WebPush(
     webSubscriptionApi: WebSubscriptionApi,

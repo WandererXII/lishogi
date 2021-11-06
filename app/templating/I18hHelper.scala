@@ -1,12 +1,12 @@
-package lila.app
+package lishogi.app
 package templating
 
 import play.api.libs.json.JsObject
 import play.api.i18n.Lang
 
-import lila.app.ui.ScalatagsTemplate._
-import lila.i18n.{ I18nKey, JsDump, LangList, MessageKey, TimeagoLocales, Translator }
-import lila.user.UserContext
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.i18n.{ I18nKey, JsDump, LangList, MessageKey, TimeagoLocales, Translator }
+import lishogi.user.UserContext
 
 trait I18nHelper extends HasEnv with UserContext.ToLang {
 
@@ -19,7 +19,7 @@ trait I18nHelper extends HasEnv with UserContext.ToLang {
   def i18nOptionJsObject(keys: Option[I18nKey]*)(implicit lang: Lang): JsObject =
     JsDump.keysToObject(keys.collect { case Some(k) => k.key }, lang)
 
-  def timeagoLocaleScript(implicit ctx: lila.api.Context): String = {
+  def timeagoLocaleScript(implicit ctx: lishogi.api.Context): String = {
     TimeagoLocales.js.get(ctx.lang.code) orElse
       TimeagoLocales.js.get(ctx.lang.language) getOrElse
       ~TimeagoLocales.js.get("en")

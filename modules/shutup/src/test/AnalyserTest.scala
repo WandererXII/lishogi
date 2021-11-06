@@ -1,4 +1,4 @@
-package lila.shutup
+package lishogi.shutup
 
 import org.specs2.mutable._
 

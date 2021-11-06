@@ -1,10 +1,10 @@
-package lila.game
+package lishogi.game
 
 import shogi._
 import shogi.Pos._
 import org.specs2.mutable._
 
-import lila.db.ByteArray
+import lishogi.db.ByteArray
 import shogi.variant.Standard
 
 class BinaryPieceTest extends Specification {

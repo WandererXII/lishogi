@@ -1,10 +1,10 @@
-package lila.user
+package lishogi.user
 
 import org.joda.time.DateTime
 
 import shogi.Speed
-import lila.db.BSON
-import lila.rating.{ Glicko, Perf, PerfType }
+import lishogi.db.BSON
+import lishogi.rating.{ Glicko, Perf, PerfType }
 
 case class Perfs(
     standard: Perf,

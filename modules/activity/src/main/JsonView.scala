@@ -1,25 +1,25 @@
-package lila.activity
+package lishogi.activity
 
 import org.joda.time.Interval
 import play.api.i18n.Lang
 import play.api.libs.json._
 
-import lila.common.Iso
-import lila.common.Json._
-import lila.game.JsonView.colorWrites
-import lila.game.LightPov
-import lila.rating.PerfType
-import lila.simul.Simul
-import lila.study.JsonView.studyIdNameWrites
-import lila.tournament.LeaderboardApi.{ Entry => TourEntry, Ratio => TourRatio }
-import lila.user.User
+import lishogi.common.Iso
+import lishogi.common.Json._
+import lishogi.game.JsonView.colorWrites
+import lishogi.game.LightPov
+import lishogi.rating.PerfType
+import lishogi.simul.Simul
+import lishogi.study.JsonView.studyIdNameWrites
+import lishogi.tournament.LeaderboardApi.{ Entry => TourEntry, Ratio => TourRatio }
+import lishogi.user.User
 
 import activities._
 import model._
 
 final class JsonView(
-    getTourName: lila.tournament.GetTourName,
-    getTeamName: lila.team.GetTeamName
+    getTourName: lishogi.tournament.GetTourName,
+    getTeamName: lishogi.team.GetTeamName
 ) {
 
   private object Writers {
@@ -69,7 +69,7 @@ final class JsonView(
           "score"    -> Score(s.wins, s.losses, s.draws, none)
         )
       }
-    implicit val playerWrites = OWrites[lila.game.Player] { p =>
+    implicit val playerWrites = OWrites[lishogi.game.Player] { p =>
       Json
         .obj()
         .add("aiLevel" -> p.aiLevel)

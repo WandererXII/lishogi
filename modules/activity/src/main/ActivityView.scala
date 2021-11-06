@@ -1,12 +1,12 @@
-package lila.activity
+package lishogi.activity
 
 import org.joda.time.Interval
 
-import lila.game.LightPov
-import lila.practice.PracticeStudy
-import lila.simul.Simul
-import lila.study.Study
-import lila.tournament.LeaderboardApi.{ Entry => TourEntry }
+import lishogi.game.LightPov
+import lishogi.practice.PracticeStudy
+import lishogi.simul.Simul
+import lishogi.study.Study
+import lishogi.tournament.LeaderboardApi.{ Entry => TourEntry }
 
 import activities._
 import model._
@@ -19,7 +19,7 @@ case class ActivityView(
     practice: Option[Map[PracticeStudy, Int]] = None,
     simuls: Option[List[Simul]] = None,
     patron: Option[Patron] = None,
-    posts: Option[Map[lila.forum.Topic, List[lila.forum.Post]]] = None,
+    posts: Option[Map[lishogi.forum.Topic, List[lishogi.forum.Post]]] = None,
     corresMoves: Option[(Int, List[LightPov])] = None,
     corresEnds: Option[(Score, List[LightPov])] = None,
     follows: Option[Follows] = None,

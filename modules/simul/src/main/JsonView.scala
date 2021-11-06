@@ -1,15 +1,15 @@
-package lila.simul
+package lishogi.simul
 
 import play.api.libs.json._
 
-import lila.common.LightUser
-import lila.game.{ Game, GameRepo }
-import lila.user.User
+import lishogi.common.LightUser
+import lishogi.game.{ Game, GameRepo }
+import lishogi.user.User
 
 final class JsonView(
     gameRepo: GameRepo,
     getLightUser: LightUser.Getter,
-    proxyRepo: lila.round.GameProxyRepo
+    proxyRepo: lishogi.round.GameProxyRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   implicit private val colorWriter: Writes[shogi.Color] = Writes { c =>
@@ -39,7 +39,7 @@ final class JsonView(
         "pairings"   -> pairings
       )
       .add("team", team)
-      .add("quote" -> simul.isCreated.option(lila.quote.Quote.one(simul.id)))
+      .add("quote" -> simul.isCreated.option(lishogi.quote.Quote.one(simul.id)))
 
   def api(simul: Simul): Fu[JsObject] =
     getLightUser(simul.hostId) map { lightHost =>
@@ -96,7 +96,7 @@ final class JsonView(
   private def variantJson(speed: shogi.Speed)(v: shogi.variant.Variant) =
     Json.obj(
       "key"  -> v.key,
-      "icon" -> lila.game.PerfPicker.perfType(speed, v, none).map(_.iconChar.toString),
+      "icon" -> lishogi.game.PerfPicker.perfType(speed, v, none).map(_.iconChar.toString),
       "name" -> v.name
     )
 

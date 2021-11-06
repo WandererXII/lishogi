@@ -1,12 +1,12 @@
 package views.html.tv
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object games {
 
-  def apply(channel: lila.tv.Tv.Channel, povs: List[lila.game.Pov], champions: lila.tv.Tv.Champions)(implicit
+  def apply(channel: lishogi.tv.Tv.Channel, povs: List[lishogi.game.Pov], champions: lishogi.tv.Tv.Champions)(implicit
       ctx: Context
   ) =
     views.html.base.layout(

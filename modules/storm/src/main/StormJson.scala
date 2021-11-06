@@ -1,9 +1,9 @@
-package lila.storm
+package lishogi.storm
 
 import play.api.libs.json._
 
-import lila.common.Json._
-import lila.user.User
+import lishogi.common.Json._
+import lishogi.user.User
 import org.joda.time.format.DateTimeFormat
 
 final class StormJson(sign: StormSign) {
@@ -17,7 +17,7 @@ final class StormJson(sign: StormSign) {
     )
     .add("key" -> user.map(sign.getPrev))
 
-  def pref(p: lila.pref.Pref) =
+  def pref(p: lishogi.pref.Pref) =
     Json.obj(
       "coords"          -> p.coords,
       "destination"     -> p.destination,
@@ -47,7 +47,7 @@ final class StormJson(sign: StormSign) {
 
 object StormJson {
 
-  import lila.puzzle.JsonView.puzzleIdWrites
+  import lishogi.puzzle.JsonView.puzzleIdWrites
 
   implicit val highWrites: OWrites[StormHigh] = Json.writes[StormHigh]
 

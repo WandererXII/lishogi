@@ -1,12 +1,12 @@
-package lila.slack
+package lishogi.slack
 
 import scala.concurrent.duration._
 
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 
-import lila.memo.RateLimit
-import lila.common.config.Secret
+import lishogi.memo.RateLimit
+import lishogi.common.config.Secret
 
 final private class SlackClient(ws: WSClient, url: Secret)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -20,7 +20,7 @@ final private class SlackClient(ws: WSClient, url: Secret)(implicit ec: scala.co
 
   def apply(msg: SlackMessage): Funit =
     limiter(msg) {
-      if (url.value.isEmpty) fuccess(lila.log("slack").info(msg.toString))
+      if (url.value.isEmpty) fuccess(lishogi.log("slack").info(msg.toString))
       else
         ws.url(url.value)
           .post(

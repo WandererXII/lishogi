@@ -1,20 +1,20 @@
-package lila.msg
+package lishogi.msg
 
 import play.api.data._
 import play.api.data.Forms._
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.common.Json.jodaWrites
-import lila.common.LightUser
-import lila.common.paginator._
-import lila.user.{ LightUserApi, User }
+import lishogi.common.config._
+import lishogi.common.Json.jodaWrites
+import lishogi.common.LightUser
+import lishogi.common.paginator._
+import lishogi.user.{ LightUserApi, User }
 
 final class MsgCompat(
     api: MsgApi,
     security: MsgSecurity,
-    isOnline: lila.socket.IsOnline,
+    isOnline: lishogi.socket.IsOnline,
     lightUserApi: LightUserApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -64,7 +64,7 @@ final class MsgCompat(
   def create(me: User)(implicit req: play.api.mvc.Request[_]): Either[Form[_], Fu[User.ID]] =
     Form(
       mapping(
-        "username" -> lila.user.DataForm.historicalUsernameField
+        "username" -> lishogi.user.DataForm.historicalUsernameField
           .verifying("Unknown username", { blockingFetchUser(_).isDefined })
           .verifying(
             "Sorry, this player doesn't accept new messages",

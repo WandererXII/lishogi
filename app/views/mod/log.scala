@@ -1,12 +1,12 @@
 package views.html.mod
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object log {
 
-  def apply(logs: List[lila.mod.Modlog])(implicit ctx: Context) = {
+  def apply(logs: List[lishogi.mod.Modlog])(implicit ctx: Context) = {
 
     val title = "Mod logs"
 

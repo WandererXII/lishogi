@@ -1,10 +1,10 @@
 package views.html.user.show
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 import play.api.i18n.Lang
 
@@ -14,15 +14,15 @@ object side {
 
   def apply(
       u: User,
-      rankMap: lila.rating.UserRankMap,
-      active: Option[lila.rating.PerfType]
+      rankMap: lishogi.rating.UserRankMap,
+      active: Option[lishogi.rating.PerfType]
   )(implicit ctx: Context) = {
 
-    def showNonEmptyPerf(perf: lila.rating.Perf, perfType: PerfType) =
+    def showNonEmptyPerf(perf: lishogi.rating.Perf, perfType: PerfType) =
       perf.nonEmpty option showPerf(perf, perfType)
 
-    def showPerf(perf: lila.rating.Perf, perfType: PerfType) = {
-      val isPuzzle = perfType == lila.rating.PerfType.Puzzle
+    def showPerf(perf: lishogi.rating.Perf, perfType: PerfType) = {
+      val isPuzzle = perfType == lishogi.rating.PerfType.Puzzle
       a(
         dataIcon := perfType.iconChar,
         title := perfType.desc,
@@ -75,7 +75,7 @@ object side {
     )
   }
 
-  private def showStorm(storm: lila.rating.Perf.Storm, user: User)(implicit lang: Lang) =
+  private def showStorm(storm: lishogi.rating.Perf.Storm, user: User)(implicit lang: Lang) =
     a(
       dataIcon := '.',
       cls := List(

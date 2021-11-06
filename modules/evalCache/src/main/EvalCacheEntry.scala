@@ -1,12 +1,12 @@
-package lila.evalCache
+package lishogi.evalCache
 
 import shogi.format.{ FEN, Forsyth, Uci }
 import shogi.variant.Variant
 import org.joda.time.DateTime
 import scalaz.NonEmptyList
 
-import lila.tree.Eval.Score
-import lila.user.User
+import lishogi.tree.Eval.Score
+import lishogi.user.User
 
 case class EvalCacheEntry(
     _id: EvalCacheEntry.Id,

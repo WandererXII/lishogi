@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import org.joda.time.DateTime
 import scala.util.Try
@@ -8,7 +8,7 @@ import shogi.{ ToOptionOpsFromOption => _, _ }
 import shogi.format.Uci
 import org.lishogi.compression.clock.{ Encoder => ClockEncoder }
 
-import lila.db.ByteArray
+import lishogi.db.ByteArray
 
 object BinaryFormat {
 
@@ -27,7 +27,7 @@ object BinaryFormat {
   }
 
   object clockHistory {
-    private val logger = lila.log("clockHistory")
+    private val logger = lishogi.log("clockHistory")
 
     def writeSide(start: Centis, times: Vector[Centis], flagged: Boolean) = {
       val timesToWrite = if (flagged) times.dropRight(1) else times
@@ -189,7 +189,7 @@ object BinaryFormat {
   }
 
   object periodEntries {
-    private val logger = lila.log("periodEntries")
+    private val logger = lishogi.log("periodEntries")
 
     def writeSide(v: Vector[Int]): ByteArray = {
       def intToShort(i: Int): Array[Byte] = Array((i >> 8).toByte, i.toByte)

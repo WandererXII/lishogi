@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 import actorApi.Who
 import shogi.Centis
@@ -6,19 +6,19 @@ import shogi.format.{ Glyph, Glyphs }
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.common.Bus
-import lila.room.RoomSocket.{ Protocol => RP, _ }
-import lila.socket.RemoteSocket.{ Protocol => P, _ }
-import lila.socket.Socket.{ makeMessage, Sri }
-import lila.socket.{ AnaAny, AnaDests, AnaDrop, AnaMove }
-import lila.tree.Node.{ defaultNodeJsonWriter, Comment, Gamebook, Shape, Shapes }
-import lila.user.User
+import lishogi.common.Bus
+import lishogi.room.RoomSocket.{ Protocol => RP, _ }
+import lishogi.socket.RemoteSocket.{ Protocol => P, _ }
+import lishogi.socket.Socket.{ makeMessage, Sri }
+import lishogi.socket.{ AnaAny, AnaDests, AnaDrop, AnaMove }
+import lishogi.tree.Node.{ defaultNodeJsonWriter, Comment, Gamebook, Shape, Shapes }
+import lishogi.user.User
 
 final private class StudySocket(
     api: StudyApi,
     jsonView: JsonView,
-    remoteSocketApi: lila.socket.RemoteSocket,
-    chatApi: lila.chat.ChatApi
+    remoteSocketApi: lishogi.socket.RemoteSocket,
+    chatApi: lishogi.chat.ChatApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     mode: play.api.Mode
@@ -42,7 +42,7 @@ final private class StudySocket(
   def onServerEval(studyId: Study.Id, eval: ServerEval.Progress): Unit =
     eval match {
       case ServerEval.Progress(chapterId, tree, analysis, division) =>
-        import lila.game.JsonView.divisionWriter
+        import lishogi.game.JsonView.divisionWriter
         import JsonView._
         send(
           RP.Out.tellRoom(
@@ -253,7 +253,7 @@ final private class StudySocket(
 
   import JsonView._
   import jsonView.membersWrites
-  import lila.tree.Node.{
+  import lishogi.tree.Node.{
     clockWrites,
     commentWriter,
     defaultNodeJsonWriter,
@@ -409,7 +409,7 @@ final private class StudySocket(
     notifySri(sri, "reload", Json.obj("chapterId" -> chapterId))
   def validationError(error: String, sri: Sri) = notifySri(sri, "validationError", Json.obj("error" -> error))
 
-  private val InviteLimitPerUser = new lila.memo.RateLimit[User.ID](
+  private val InviteLimitPerUser = new lishogi.memo.RateLimit[User.ID](
     credits = 50,
     duration = 24 hour,
     key = "study_invite.user"
@@ -425,7 +425,7 @@ object StudySocket {
     object In {
 
       object Data {
-        import lila.common.Json._
+        import lishogi.common.Json._
         import play.api.libs.functional.syntax._
 
         def reading[A](o: JsValue)(f: A => Unit)(implicit reader: Reads[A]): Unit =

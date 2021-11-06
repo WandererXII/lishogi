@@ -1,8 +1,8 @@
-package lila.pool
+package lishogi.pool
 
 import scala.concurrent.duration._
 
-import lila.rating.PerfType
+import lishogi.rating.PerfType
 
 case class PoolConfig(
     clock: shogi.Clock.Config,
@@ -31,7 +31,7 @@ object PoolConfig {
       "inc"  -> p.clock.incrementSeconds,
       "byo"  -> p.clock.byoyomiSeconds,
       "per"  -> p.clock.periods,
-      "perf" -> p.perfType.trans(lila.i18n.defaultLang)
+      "perf" -> p.perfType.trans(lishogi.i18n.defaultLang)
     )
   }
 }

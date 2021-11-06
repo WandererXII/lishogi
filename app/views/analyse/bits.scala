@@ -1,9 +1,9 @@
 package views.html.analyse
 
-import lila.analyse.Advice.Judgement
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.analyse.Advice.Judgement
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object bits {
 
@@ -21,7 +21,7 @@ object bits {
       title: String,
       moreCss: Frag = emptyFrag,
       moreJs: Frag = emptyFrag,
-      openGraph: Option[lila.app.ui.OpenGraph] = None
+      openGraph: Option[lishogi.app.ui.OpenGraph] = None
   )(body: Frag)(implicit ctx: Context): Frag =
     views.html.base.layout(
       title = title,

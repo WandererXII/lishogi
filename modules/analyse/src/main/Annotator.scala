@@ -1,4 +1,4 @@
-package lila.analyse
+package lishogi.analyse
 
 import shogi.format.{ Glyphs, Notation, Tag }
 import shogi.opening._

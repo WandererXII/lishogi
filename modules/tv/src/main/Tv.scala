@@ -1,13 +1,13 @@
-package lila.tv
+package lishogi.tv
 
-import lila.common.LightUser
-import lila.game.{ Game, GameRepo, Pov }
-import lila.hub.Trouper
+import lishogi.common.LightUser
+import lishogi.game.{ Game, GameRepo, Pov }
+import lishogi.hub.Trouper
 
 final class Tv(
     gameRepo: GameRepo,
     trouper: Trouper,
-    gameProxyRepo: lila.round.GameProxyRepo
+    gameProxyRepo: lishogi.round.GameProxyRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import Tv._
@@ -51,7 +51,7 @@ final class Tv(
 
 object Tv {
   import shogi.{ Speed => S, variant => V }
-  import lila.rating.{ PerfType => P }
+  import lishogi.rating.{ PerfType => P }
 
   case class Champion(user: LightUser, rating: Int, gameId: Game.ID)
   case class Champions(channels: Map[Channel, Champion]) {

@@ -1,6 +1,6 @@
-package lila.practice
+package lishogi.practice
 
-import lila.study.{ Chapter, Study }
+import lishogi.study.{ Chapter, Study }
 
 case class UserPractice(
     structure: PracticeStructure,

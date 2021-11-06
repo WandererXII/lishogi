@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import java.util.concurrent.atomic.AtomicReference
 import java.util.function.UnaryOperator
@@ -30,8 +30,8 @@ final class BoundedDuct(maxSize: Int, name: String, logging: Boolean = true)(pro
       case Some(q) =>
         val success = q.size < maxSize
         if (!success) {
-          lila.mon.duct.overflow(name).increment()
-          if (logging) lila.log("duct").warn(s"[$name] queue is full ($maxSize)")
+          lishogi.mon.duct.overflow(name).increment()
+          if (logging) lishogi.log("duct").warn(s"[$name] queue is full ($maxSize)")
         }
         success
     }
@@ -59,7 +59,7 @@ final class BoundedDuct(maxSize: Int, name: String, logging: Boolean = true)(pro
     stateRef.getAndUpdate(postRunUpdate) flatMap (_.headOption) foreach run
 
   private[this] lazy val fallback = { msg: Any =>
-    lila.log("duct").warn(s"[$name] unhandled msg: $msg")
+    lishogi.log("duct").warn(s"[$name] unhandled msg: $msg")
     funit
   }
 }

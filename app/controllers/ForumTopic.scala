@@ -2,15 +2,15 @@ package controllers
 
 import scala.concurrent.duration._
 
-import lila.app._
-import lila.common.{ HTTPRequest, IpAddress }
+import lishogi.app._
+import lishogi.common.{ HTTPRequest, IpAddress }
 import play.api.libs.json._
 import views._
 
-final class ForumTopic(env: Env) extends LilaController(env) with ForumController {
+final class ForumTopic(env: Env) extends LishogiController(env) with ForumController {
 
   private val CreateRateLimit =
-    new lila.memo.RateLimit[IpAddress](2, 5.minutes, key = "forum.topic")
+    new lishogi.memo.RateLimit[IpAddress](2, 5.minutes, key = "forum.topic")
 
   def form(categSlug: String) =
     Open { implicit ctx =>

@@ -1,9 +1,9 @@
-package lila.relay
+package lishogi.relay
 
 import org.joda.time.DateTime
 
-import lila.study.{ Study }
-import lila.user.User
+import lishogi.study.{ Study }
+import lishogi.user.User
 
 case class Relay(
     _id: Relay.Id,
@@ -30,7 +30,7 @@ case class Relay(
   def studyId = Study.Id(id.value)
 
   def slug = {
-    val s = lila.common.String slugify name
+    val s = lishogi.common.String slugify name
     if (s.isEmpty) "-" else s
   }
 
@@ -68,7 +68,7 @@ object Relay {
 
   case class Id(value: String) extends AnyVal with StringValue
 
-  def makeId = Id(lila.common.ThreadLocalRandom nextString 8)
+  def makeId = Id(lishogi.common.ThreadLocalRandom nextString 8)
 
   case class Sync(
       upstream: Option[Sync.Upstream], // if empty, needs a client to push PGN

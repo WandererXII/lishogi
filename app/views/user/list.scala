@@ -3,27 +3,27 @@ package user
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 import controllers.routes
 
 object list {
 
   def apply(
-      tourneyWinners: List[lila.tournament.Winner],
+      tourneyWinners: List[lishogi.tournament.Winner],
       online: List[User],
-      leaderboards: lila.user.Perfs.Leaderboards,
+      leaderboards: lishogi.user.Perfs.Leaderboards,
       nbAllTime: List[User.LightCount]
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.players.txt(),
       moreCss = cssTag("user.list"),
       wrapClass = "full-screen-force",
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = "Shogi players and leaderboards",
           url = s"$netBaseUrl${routes.User.list().url}",
@@ -60,7 +60,7 @@ object list {
       )
     }
 
-  private def tournamentWinners(winners: List[lila.tournament.Winner])(implicit ctx: Context) =
+  private def tournamentWinners(winners: List[lishogi.tournament.Winner])(implicit ctx: Context) =
     st.section(cls := "user-top")(
       h2(cls := "text", dataIcon := "g")(
         a(href := routes.Tournament.leaderboard())(trans.tournament())

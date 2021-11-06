@@ -1,13 +1,13 @@
-package lila.pool
+package lishogi.pool
 
 import scala.concurrent.duration._
-import lila.common.ThreadLocalRandom
+import lishogi.common.ThreadLocalRandom
 
 import akka.actor._
 import akka.pattern.pipe
 
-import lila.socket.Socket.Sris
-import lila.user.User
+import lishogi.socket.Socket.Sris
+import lishogi.user.User
 
 final private class PoolActor(
     config: PoolConfig,
@@ -104,13 +104,13 @@ final private class PoolActor(
       }
   }
 
-  val monitor = lila.mon.lobby.pool.wave
+  val monitor = lishogi.mon.lobby.pool.wave
   val monId   = config.id.value.replace('+', '_')
 }
 
 private object PoolActor {
 
-  case class Join(joiner: PoolApi.Joiner, rageSit: lila.playban.RageSit)
+  case class Join(joiner: PoolApi.Joiner, rageSit: lishogi.playban.RageSit)
   case class Leave(userId: User.ID) extends AnyVal
 
   case object ScheduledWave

@@ -1,8 +1,8 @@
-package lila.db
+package lishogi.db
 
 import DbImage.DbImageBSONHandler
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 final class ImageRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

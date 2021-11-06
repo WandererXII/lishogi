@@ -1,14 +1,14 @@
 package views.html.oAuth.token
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object index {
 
-  def apply(tokens: List[lila.oauth.AccessToken])(implicit ctx: Context) = {
+  def apply(tokens: List[lishogi.oauth.AccessToken])(implicit ctx: Context) = {
 
     val title = "Personal API access tokens"
 

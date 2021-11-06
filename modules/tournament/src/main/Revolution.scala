@@ -1,17 +1,17 @@
-package lila.tournament
+package lishogi.tournament
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 import reactivemongo.api.ReadPreference
 
 import shogi.variant.Variant
-import lila.db.dsl._
-import lila.user.User
-import lila.memo.CacheApi._
+import lishogi.db.dsl._
+import lishogi.user.User
+import lishogi.memo.CacheApi._
 
 final class RevolutionApi(
     tournamentRepo: TournamentRepo,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import Revolution._
@@ -65,7 +65,7 @@ object Revolution {
       variant: Variant,
       tourId: Tournament.ID
   ) {
-    val iconChar = lila.rating.PerfType iconByVariant variant
+    val iconChar = lishogi.rating.PerfType iconByVariant variant
   }
 
   type PerOwner = Map[User.ID, List[Award]]

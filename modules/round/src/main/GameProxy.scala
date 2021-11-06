@@ -1,11 +1,11 @@
-package lila.round
+package lishogi.round
 
 import akka.actor.{ Cancellable, Scheduler }
 import scala.concurrent.duration._
 import scala.util.Success
 
 import shogi.Color
-import lila.game.{ Game, GameRepo, Pov, Progress }
+import lishogi.game.{ Game, GameRepo, Pov, Progress }
 
 // NOT thread safe
 final private class GameProxy(

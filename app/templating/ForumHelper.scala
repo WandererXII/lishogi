@@ -1,15 +1,15 @@
-package lila.app
+package lishogi.app
 package templating
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.ui.ScalatagsTemplate._
-import lila.forum.Post
+import lishogi.api.Context
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.forum.Post
 
 trait ForumHelper { self: UserHelper with StringHelper with HasEnv =>
 
-  private object Granter extends lila.forum.Granter {
+  private object Granter extends lishogi.forum.Granter {
 
     protected def userBelongsToTeam(teamId: String, userId: String): Fu[Boolean] =
       env.team.api.belongsTo(teamId, userId)
@@ -24,7 +24,7 @@ trait ForumHelper { self: UserHelper with StringHelper with HasEnv =>
   def authorName(post: Post)(implicit lang: Lang) =
     post.userId match {
       case Some(userId) => userIdSpanMini(userId, withOnline = true)
-      case None         => frag(lila.user.User.anonymous)
+      case None         => frag(lishogi.user.User.anonymous)
     }
 
   def authorLink(
@@ -35,7 +35,7 @@ trait ForumHelper { self: UserHelper with StringHelper with HasEnv =>
   )(implicit lang: Lang): Frag =
     if (post.erased) span(cls := "author")("<erased>")
     else
-      post.userId.fold(frag(lila.user.User.anonymous)) { userId =>
+      post.userId.fold(frag(lishogi.user.User.anonymous)) { userId =>
         userIdLink(userId.some, cssClass = cssClass, withOnline = withOnline, modIcon = modIcon)
       }
 }

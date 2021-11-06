@@ -1,4 +1,4 @@
-package lila.pref
+package lishogi.pref
 
 sealed abstract class PrefCateg(val slug: String)
 

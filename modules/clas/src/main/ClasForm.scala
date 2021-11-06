@@ -1,13 +1,13 @@
-package lila.clas
+package lishogi.clas
 
 import play.api.data._
 import play.api.data.Forms._
 import scala.concurrent.duration._
-import lila.user.User
+import lishogi.user.User
 
 final class ClasForm(
-    lightUserAsync: lila.common.LightUser.Getter,
-    securityForms: lila.security.DataForm,
+    lightUserAsync: lishogi.common.LightUser.Getter,
+    securityForms: lishogi.security.DataForm,
     nameGenerator: NameGenerator
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -67,7 +67,7 @@ final class ClasForm(
     def invite(c: Clas) =
       Form(
         mapping(
-          "username" -> lila.user.DataForm.historicalUsernameField
+          "username" -> lishogi.user.DataForm.historicalUsernameField
             .verifying("Unknown username", { blockingFetchUser(_).isDefined })
             .verifying("This is a teacher", u => !c.teachers.toList.exists(_ == u.toLowerCase)),
           "realName" -> nonEmptyText

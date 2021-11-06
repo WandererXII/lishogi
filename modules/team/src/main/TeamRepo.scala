@@ -1,12 +1,12 @@
-package lila.team
+package lishogi.team
 
 import org.joda.time.{ DateTime, Period }
 import reactivemongo.akkastream.cursorProducer
 import reactivemongo.api._
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class TeamRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

@@ -1,9 +1,9 @@
-package lila.api
+package lishogi.api
 
 import org.joda.time.DateTime
 import play.api.mvc.RequestHeader
 
-import lila.common.{ ApiVersion, HTTPRequest }
+import lishogi.common.{ ApiVersion, HTTPRequest }
 
 object Mobile {
 

@@ -1,6 +1,6 @@
-package lila
+package lishogi
 
-trait PackageObject extends Lilaisms {
+trait PackageObject extends Lishogiisms {
 
   def !![A](msg: String): Valid[A] = msg.failureNel[A]
 

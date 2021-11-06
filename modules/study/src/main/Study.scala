@@ -1,8 +1,8 @@
-package lila.study
+package lishogi.study
 
 import org.joda.time.DateTime
 
-import lila.user.User
+import lishogi.user.User
 
 case class Study(
     _id: Study.Id,
@@ -83,10 +83,10 @@ object Study {
   val maxChapters = 64
 
   case class Id(value: String) extends AnyVal with StringValue
-  implicit val idIso = lila.common.Iso.string[Id](Id.apply, _.value)
+  implicit val idIso = lishogi.common.Iso.string[Id](Id.apply, _.value)
 
   case class Name(value: String) extends AnyVal with StringValue
-  implicit val nameIso = lila.common.Iso.string[Name](Name.apply, _.value)
+  implicit val nameIso = lishogi.common.Iso.string[Name](Name.apply, _.value)
 
   case class IdName(_id: Id, name: Name) {
 
@@ -167,7 +167,7 @@ object Study {
 
   val idSize = 8
 
-  def makeId = Id(lila.common.ThreadLocalRandom nextString idSize)
+  def makeId = Id(lishogi.common.ThreadLocalRandom nextString idSize)
 
   def make(
       user: User,

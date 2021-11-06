@@ -4,15 +4,15 @@ import play.api.libs.json._
 import play.api.mvc._
 import scala.annotation.nowarn
 
-import lila.api.Context
-import lila.app._
-import lila.user.{ User => UserModel, TotpSecret }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.user.{ User => UserModel, TotpSecret }
 import views.html
 
 final class Account(
     env: Env,
     auth: Auth
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   def profile =
     Auth { implicit ctx => me =>
@@ -61,7 +61,7 @@ final class Account(
             env.playban.api.currentBan(me.id) map {
               case nbFollowers ~ prefs ~ povs ~ nbChallenges ~ playban =>
                 Ok {
-                  import lila.pref.JsonView._
+                  import lishogi.pref.JsonView._
                   env.user.jsonView(me) ++ Json
                     .obj(
                       "prefs"        -> prefs,
@@ -96,7 +96,7 @@ final class Account(
       doNowPlaying(me, req)
     }
 
-  private def doNowPlaying(me: lila.user.User, req: RequestHeader) =
+  private def doNowPlaying(me: lishogi.user.User, req: RequestHeader) =
     env.round.proxyRepo.urgentGames(me) map { povs =>
       val nb = (getInt("nb", req) | 9) atMost 50
       Ok(Json.obj("nowPlaying" -> JsArray(povs take nb map env.api.lobbyApi.nowPlaying)))
@@ -109,8 +109,8 @@ final class Account(
         api = _ =>
           env.pref.api.getPref(me) map { prefs =>
             Ok {
-              import lila.pref.JsonView._
-              lila.common.LightUser.lightUserWrites.writes(me.light) ++ Json.obj(
+              import lishogi.pref.JsonView._
+              lishogi.common.LightUser.lightUserWrites.writes(me.light) ++ Json.obj(
                 "coach" -> isGranted(_.Coach),
                 "prefs" -> prefs
               )
@@ -167,7 +167,7 @@ final class Account(
     }
 
   def renderCheckYourEmail(implicit ctx: Context) =
-    html.auth.checkYourEmail(lila.security.EmailConfirm.cookie get ctx.req)
+    html.auth.checkYourEmail(lishogi.security.EmailConfirm.cookie get ctx.req)
 
   def emailApply =
     AuthBody { implicit ctx => me =>
@@ -179,11 +179,11 @@ final class Account(
           } { data =>
             val email = env.security.emailAddressValidator
               .validate(data.realEmail) err s"Invalid email ${data.email}"
-            val newUserEmail = lila.security.EmailConfirm.UserEmail(me.username, email.acceptable)
+            val newUserEmail = lishogi.security.EmailConfirm.UserEmail(me.username, email.acceptable)
             auth.EmailConfirmRateLimit(newUserEmail, ctx.req) {
               env.security.emailChange.send(me, newUserEmail.email) inject
                 Redirect(routes.Account.email()).flashSuccess {
-                  lila.i18n.I18nKeys.checkYourEmail.txt()
+                  lishogi.i18n.I18nKeys.checkYourEmail.txt()
                 }
             }(rateLimitedFu)
           }
@@ -210,7 +210,7 @@ final class Account(
 
   def emailConfirmHelp =
     OpenBody { implicit ctx =>
-      import lila.security.EmailConfirm.Help._
+      import lishogi.security.EmailConfirm.Help._
       ctx.me match {
         case Some(me) =>
           Redirect(routes.User.show(me.username)).fuccess
@@ -293,7 +293,7 @@ final class Account(
             fuccess(html.account.close(me, err, false))
           } { _ =>
             env.closeAccount(me.id, self = true) inject {
-              Redirect(routes.User show me.username) withCookies env.lilaCookie.newSession
+              Redirect(routes.User show me.username) withCookies env.lishogiCookie.newSession
             }
           }
         }
@@ -387,13 +387,13 @@ final class Account(
             env.security.reopen
               .prepare(data.username, data.realEmail, env.mod.logApi.hasModClose _) flatMap {
               case Left((code, msg)) =>
-                lila.mon.user.auth.reopenRequest(code).increment()
+                lishogi.mon.user.auth.reopenRequest(code).increment()
                 env.security.forms.reopenWithCaptcha map { case (form, captcha) =>
                   BadRequest(html.account.reopen.form(form, captcha, msg.some))
                 }
               case Right(user) =>
                 auth.MagicLinkRateLimit(user, data.realEmail, ctx.req) {
-                  lila.mon.user.auth.reopenRequest("success").increment()
+                  lishogi.mon.user.auth.reopenRequest("success").increment()
                   env.security.reopen.send(user, data.realEmail) inject Redirect(
                     routes.Account.reopenSent(data.realEmail.value)
                   )
@@ -413,13 +413,13 @@ final class Account(
     Open { implicit ctx =>
       env.security.reopen confirm token flatMap {
         case None => {
-          lila.mon.user.auth.reopenConfirm("token_fail").increment()
+          lishogi.mon.user.auth.reopenConfirm("token_fail").increment()
           notFound
         }
         case Some(user) =>
-          env.report.api.reopenReports(lila.report.Suspect(user)) >>
+          env.report.api.reopenReports(lishogi.report.Suspect(user)) >>
             auth.authenticateUser(user) >>-
-            lila.mon.user.auth.reopenConfirm("success").increment()
+            lishogi.mon.user.auth.reopenConfirm("success").increment()
       }
     }
 }

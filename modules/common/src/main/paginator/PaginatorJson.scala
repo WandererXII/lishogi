@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 package paginator
 
 import play.api.libs.json._

@@ -1,15 +1,15 @@
-package lila.forum
+package lishogi.forum
 
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
-import lila.common.DetectLanguage
-import lila.hub.actorApi.team.CreateTeam
-import lila.mod.ModlogApi
-import lila.notify.NotifyApi
-import lila.relation.RelationApi
+import lishogi.common.config._
+import lishogi.common.DetectLanguage
+import lishogi.hub.actorApi.team.CreateTeam
+import lishogi.mod.ModlogApi
+import lishogi.notify.NotifyApi
+import lishogi.relation.RelationApi
 
 @Module
 final private class ForumConfig(
@@ -21,18 +21,18 @@ final private class ForumConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
+    db: lishogi.db.Db,
     modLog: ModlogApi,
-    spam: lila.security.Spam,
-    captcher: lila.hub.actors.Captcher,
-    timeline: lila.hub.actors.Timeline,
-    shutup: lila.hub.actors.Shutup,
-    forumSearch: lila.hub.actors.ForumSearch,
+    spam: lishogi.security.Spam,
+    captcher: lishogi.hub.actors.Captcher,
+    timeline: lishogi.hub.actors.Timeline,
+    shutup: lishogi.hub.actors.Shutup,
+    forumSearch: lishogi.hub.actors.ForumSearch,
     detectLanguage: DetectLanguage,
     notifyApi: NotifyApi,
     relationApi: RelationApi,
-    userRepo: lila.user.UserRepo,
-    cacheApi: lila.memo.CacheApi
+    userRepo: lishogi.user.UserRepo,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private val config = appConfig.get[ForumConfig]("forum")(AutoConfig.loader)
@@ -60,8 +60,8 @@ final class Env(
   lazy val forms                            = wire[DataForm]
   lazy val recent                           = wire[Recent]
 
-  lila.common.Bus.subscribeFun("team", "gdprErase") {
+  lishogi.common.Bus.subscribeFun("team", "gdprErase") {
     case CreateTeam(id, name, _)        => categApi.makeTeam(id, name)
-    case lila.user.User.GDPRErase(user) => postApi erase user
+    case lishogi.user.User.GDPRErase(user) => postApi erase user
   }
 }

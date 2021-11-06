@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 import BSONHandlers._
 import shogi.Color
@@ -10,15 +10,15 @@ import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.common.config.MaxPerPage
-import lila.common.paginator.AdapterLike
-import lila.common.paginator.{ Paginator, PaginatorJson }
-import lila.db.dsl._
-import lila.game.BSONHandlers.FENBSONHandler
+import lishogi.common.config.MaxPerPage
+import lishogi.common.paginator.AdapterLike
+import lishogi.common.paginator.{ Paginator, PaginatorJson }
+import lishogi.db.dsl._
+import lishogi.game.BSONHandlers.FENBSONHandler
 
 final class StudyMultiBoard(
     chapterRepo: ChapterRepo,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private val maxPerPage = MaxPerPage(9)

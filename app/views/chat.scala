@@ -2,10 +2,10 @@ package views.html
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.i18n.I18nKeys
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.i18n.I18nKeys
 
 object chat {
 
@@ -16,14 +16,14 @@ object chat {
     div(cls := "mchat__content")
   )
 
-  import lila.chat.JsonView.writers.chatIdWrites
+  import lishogi.chat.JsonView.writers.chatIdWrites
 
   def restrictedJson(
-      chat: lila.chat.Chat.Restricted,
+      chat: lishogi.chat.Chat.Restricted,
       name: String,
       timeout: Boolean,
       public: Boolean, // game players chat is not public
-      resourceId: lila.chat.Chat.ResourceId,
+      resourceId: lishogi.chat.Chat.ResourceId,
       withNoteAge: Option[Int] = None,
       writeable: Boolean = true,
       localMod: Boolean = false,
@@ -43,11 +43,11 @@ object chat {
     )
 
   def json(
-      chat: lila.chat.AnyChat,
+      chat: lishogi.chat.AnyChat,
       name: String,
       timeout: Boolean,
       public: Boolean, // game players chat is not public
-      resourceId: lila.chat.Chat.ResourceId,
+      resourceId: lishogi.chat.Chat.ResourceId,
       withNoteAge: Option[Int] = None,
       writeable: Boolean = true,
       restricted: Boolean = false,
@@ -60,7 +60,7 @@ object chat {
           .obj(
             "id"         -> chat.id,
             "name"       -> name,
-            "lines"      -> lila.chat.JsonView(chat),
+            "lines"      -> lishogi.chat.JsonView(chat),
             "userId"     -> ctx.userId,
             "resourceId" -> resourceId.value
           )
@@ -80,7 +80,7 @@ object chat {
       .add("timeout" -> timeout)
       .add("noteId" -> (withNoteAge.isDefined && ctx.noBlind).option(chat.id.value take 8))
       .add("noteAge" -> withNoteAge)
-      .add("timeoutReasons" -> isGranted(_.ChatTimeout).option(lila.chat.JsonView.timeoutReasons))
+      .add("timeoutReasons" -> isGranted(_.ChatTimeout).option(lishogi.chat.JsonView.timeoutReasons))
 
   def i18n(withNote: Boolean)(implicit ctx: Context) =
     i18nOptionJsObject(

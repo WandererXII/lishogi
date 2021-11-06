@@ -1,6 +1,6 @@
-package lila.forum
+package lishogi.forum
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 final class CategRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

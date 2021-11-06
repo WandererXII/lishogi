@@ -1,6 +1,6 @@
-package lila
+package lishogi
 
 package object gameSearch extends PackageObject {
 
-  private[gameSearch] def logger = lila.log("gameSearch")
+  private[gameSearch] def logger = lishogi.log("gameSearch")
 }

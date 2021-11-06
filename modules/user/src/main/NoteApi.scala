@@ -1,6 +1,6 @@
-package lila.user
+package lishogi.user
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 import org.joda.time.DateTime
 
 case class Note(
@@ -27,7 +27,7 @@ final class NoteApi(
 ) {
 
   import reactivemongo.api.bson._
-  import lila.db.BSON.BSONJodaDateTimeHandler
+  import lishogi.db.BSON.BSONJodaDateTimeHandler
   implicit private val noteBSONHandler = Macros.handler[Note]
 
   def get(user: User, me: User, isMod: Boolean): Fu[List[Note]] =
@@ -63,7 +63,7 @@ final class NoteApi(
   def write(to: User, text: String, from: User, modOnly: Boolean, dox: Boolean) = {
 
     val note = Note(
-      _id = lila.common.ThreadLocalRandom nextString 8,
+      _id = lishogi.common.ThreadLocalRandom nextString 8,
       from = from.id,
       to = to.id,
       text = text,
@@ -73,8 +73,8 @@ final class NoteApi(
     )
 
     coll.insert.one(note) >>-
-      lila.common.Bus.publish(
-        lila.hub.actorApi.user.Note(
+      lishogi.common.Bus.publish(
+        lishogi.hub.actorApi.user.Note(
           from = from.username,
           to = to.username,
           text = note.text,

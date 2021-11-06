@@ -1,4 +1,4 @@
-package lila.security
+package lishogi.security
 
 import org.joda.time.DateTime
 import play.api.mvc.RequestHeader
@@ -9,11 +9,11 @@ import reactivemongo.api.bson.{ BSONHandler, Macros }
 import scala.concurrent.duration._
 import scala.concurrent.blocking
 
-import lila.common.{ ApiVersion, HTTPRequest, IpAddress, ThreadLocalRandom }
-import lila.db.dsl._
-import lila.user.User
+import lishogi.common.{ ApiVersion, HTTPRequest, IpAddress, ThreadLocalRandom }
+import lishogi.db.dsl._
+import lishogi.user.User
 
-final class Store(val coll: Coll, cacheApi: lila.memo.CacheApi, localIp: IpAddress)(implicit
+final class Store(val coll: Coll, cacheApi: lishogi.memo.CacheApi, localIp: IpAddress)(implicit
     ec: scala.concurrent.ExecutionContext
 ) {
 

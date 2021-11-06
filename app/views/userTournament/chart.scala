@@ -1,14 +1,14 @@
 package views.html
 package userTournament
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
 
 object chart {
 
-  def apply(u: User, data: lila.tournament.LeaderboardApi.ChartData)(implicit ctx: Context) =
+  def apply(u: User, data: lishogi.tournament.LeaderboardApi.ChartData)(implicit ctx: Context) =
     bits.layout(
       u,
       title = s"${u.username} tournaments",

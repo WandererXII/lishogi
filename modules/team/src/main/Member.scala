@@ -1,8 +1,8 @@
-package lila.team
+package lishogi.team
 
 import org.joda.time.DateTime
 
-import lila.user.User
+import lishogi.user.User
 
 private[team] case class Member(
     _id: String,

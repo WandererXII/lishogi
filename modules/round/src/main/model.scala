@@ -1,9 +1,9 @@
-package lila.round
+package lishogi.round
 
 import scala.concurrent.duration.FiniteDuration
 
-import lila.game.{ Game, Pov }
-import lila.user.User
+import lishogi.game.{ Game, Pov }
+import lishogi.user.User
 
 private case class MoretimeDuration(value: FiniteDuration)  extends AnyVal
 private case class AnimationDuration(value: FiniteDuration) extends AnyVal

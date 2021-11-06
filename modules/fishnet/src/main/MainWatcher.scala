@@ -1,10 +1,10 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import scala.concurrent.duration._
 
-import lila.common.Bus
-import lila.hub.actorApi.slack.{ Victory, Warning }
-import lila.memo.ExpireSetMemo
+import lishogi.common.Bus
+import lishogi.hub.actorApi.slack.{ Victory, Warning }
+import lishogi.memo.ExpireSetMemo
 
 // slack alerts for lishogi analysis nodes
 final private class MainWatcher(

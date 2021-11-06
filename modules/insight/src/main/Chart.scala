@@ -1,9 +1,9 @@
-package lila.insight
+package lishogi.insight
 
 import play.api.libs.json._
 import play.api.i18n.Lang
 
-import lila.common.LightUser
+import lishogi.common.LightUser
 
 case class Chart(
     question: JsonQuestion,
@@ -39,7 +39,7 @@ object Chart {
 
     import answer._, question._
 
-    def gameUserJson(player: lila.game.Player): JsObject = {
+    def gameUserJson(player: lishogi.game.Player): JsObject = {
       val light = player.userId flatMap getLightUser
       Json
         .obj(

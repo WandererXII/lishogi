@@ -1,18 +1,18 @@
 package views.html.simul
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object home {
 
   def apply(
-      pendings: List[lila.simul.Simul],
-      opens: List[lila.simul.Simul],
-      starteds: List[lila.simul.Simul],
-      finisheds: List[lila.simul.Simul]
+      pendings: List[lishogi.simul.Simul],
+      opens: List[lishogi.simul.Simul],
+      starteds: List[lishogi.simul.Simul],
+      finisheds: List[lishogi.simul.Simul]
   )(implicit ctx: Context) =
     views.html.base.layout(
       moreCss = cssTag("simul.list"),
@@ -24,7 +24,7 @@ object home {
   });
 });"""),
       title = trans.simultaneousExhibitions.txt(),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = trans.simultaneousExhibitions.txt(),
           url = s"$netBaseUrl${routes.Simul.home()}",

@@ -1,4 +1,4 @@
-package lila.simul
+package lishogi.simul
 
 sealed abstract private[simul] class SimulStatus(val id: Int) extends Ordered[SimulStatus] {
 

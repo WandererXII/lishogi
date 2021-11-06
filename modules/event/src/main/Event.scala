@@ -1,9 +1,9 @@
-package lila.event
+package lishogi.event
 
 import org.joda.time.DateTime
 import play.api.i18n.Lang
 
-import lila.user.User
+import lishogi.user.User
 
 case class Event(
     _id: String,
@@ -45,7 +45,7 @@ case class Event(
 
 object Event {
 
-  def makeId = lila.common.ThreadLocalRandom nextString 8
+  def makeId = lishogi.common.ThreadLocalRandom nextString 8
 
   case class UserId(value: String) extends AnyVal
 }

@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import akka.actor._
 import scala.concurrent.duration._
@@ -9,7 +9,7 @@ import scala.concurrent.duration._
   * Also saves work and runs it after cooldown.
   */
 final class EarlyMultiThrottler(
-    logger: lila.log.Logger
+    logger: lishogi.log.Logger
 )(implicit ec: scala.concurrent.ExecutionContext)
     extends Actor {
 
@@ -42,7 +42,7 @@ final class EarlyMultiThrottler(
   implicit def system = context.system
 
   def execute(work: Work): Funit =
-    lila.common.Future.makeItLast(work.cooldown) { work.run() }
+    lishogi.common.Future.makeItLast(work.cooldown) { work.run() }
 }
 
 object EarlyMultiThrottler {

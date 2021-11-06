@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import com.github.benmanes.caffeine.cache._
 import java.util.concurrent.TimeUnit
@@ -48,7 +48,7 @@ final class TrouperMap[T <: Trouper](
   def touchOrMake(id: String): Unit = troupers get id
 
   private[this] val troupers: LoadingCache[String, T] =
-    lila.common.LilaCache
+    lishogi.common.LishogiCache
       .caffeine(mode)
       .recordStats
       .expireAfterAccess(accessTimeout.toMillis, TimeUnit.MILLISECONDS)
@@ -60,7 +60,7 @@ final class TrouperMap[T <: Trouper](
         def load(id: String): T = mkTrouper(id)
       })
 
-  def monitor(name: String) = lila.mon.caffeineStats(troupers, name)
+  def monitor(name: String) = lishogi.mon.caffeineStats(troupers, name)
 
   def keys: Set[String] = troupers.asMap.asScala.keySet.toSet
 }

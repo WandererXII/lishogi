@@ -1,11 +1,11 @@
-package lila.lobby
+package lishogi.lobby
 
 import akka.actor._
 import akka.stream.scaladsl._
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.common.Bus
+import lishogi.common.Bus
 
 final class BoardApiHookStream(
     trouper: LobbyTrouper

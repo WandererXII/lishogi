@@ -1,10 +1,10 @@
-package lila.forum
+package lishogi.forum
 
-import lila.common.Future
-import lila.notify.NotifyApi
-import lila.notify.{ MentionedInThread, Notification }
-import lila.relation.RelationApi
-import lila.user.{ User, UserRepo }
+import lishogi.common.Future
+import lishogi.notify.NotifyApi
+import lishogi.notify.{ MentionedInThread, Notification }
+import lishogi.relation.RelationApi
+import lishogi.user.{ User, UserRepo }
 
 /** Notifier to inform users if they have been mentioned in a post
   *
@@ -66,7 +66,7 @@ final class MentionNotifier(
 
   private def extractMentionedUsers(post: Post): Set[User.ID] =
     post.text.contains('@') ?? {
-      val m = lila.common.String.atUsernameRegex.findAllMatchIn(post.text)
+      val m = lishogi.common.String.atUsernameRegex.findAllMatchIn(post.text)
       (post.author foldLeft m.map(_ group 1).map(User.normalize).toSet) { _ - _ }
     }
 }

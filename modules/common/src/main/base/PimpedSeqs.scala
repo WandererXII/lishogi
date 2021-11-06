@@ -1,4 +1,4 @@
-package lila.base
+package lishogi.base
 
 import java.util.Base64
 import scala.util.Try

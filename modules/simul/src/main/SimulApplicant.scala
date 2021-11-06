@@ -1,4 +1,4 @@
-package lila.simul
+package lishogi.simul
 
 final case class SimulApplicant(
     player: SimulPlayer,

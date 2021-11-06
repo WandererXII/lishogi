@@ -1,21 +1,21 @@
-package lila.activity
+package lishogi.activity
 
 import org.joda.time.{ DateTime, Interval }
 import reactivemongo.api.ReadPreference
 
-import lila.db.dsl._
-import lila.game.LightPov
-import lila.practice.PracticeStructure
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.game.LightPov
+import lishogi.practice.PracticeStructure
+import lishogi.user.User
 
 final class ActivityReadApi(
     coll: Coll,
-    gameRepo: lila.game.GameRepo,
-    practiceApi: lila.practice.PracticeApi,
-    postApi: lila.forum.PostApi,
-    simulApi: lila.simul.SimulApi,
-    studyApi: lila.study.StudyApi,
-    tourLeaderApi: lila.tournament.LeaderboardApi
+    gameRepo: lishogi.game.GameRepo,
+    practiceApi: lishogi.practice.PracticeApi,
+    postApi: lishogi.forum.PostApi,
+    simulApi: lishogi.simul.SimulApi,
+    studyApi: lishogi.study.StudyApi,
+    tourLeaderApi: lishogi.tournament.LeaderboardApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BSONHandlers._

@@ -1,17 +1,17 @@
-package lila.round
+package lishogi.round
 
-import lila.game.{ Event, Game, Pov, Progress }
-import lila.pref.{ Pref, PrefApi }
-import lila.i18n.{ I18nKeys => trans, defaultLang }
+import lishogi.game.{ Event, Game, Pov, Progress }
+import lishogi.pref.{ Pref, PrefApi }
+import lishogi.i18n.{ I18nKeys => trans, defaultLang }
 
 import shogi.Centis
-import lila.common.Bus
+import lishogi.common.Bus
 
 final private[round] class Drawer(
     messenger: Messenger,
     finisher: Finisher,
     prefApi: PrefApi,
-    isBotSync: lila.common.LightUser.IsBotSync
+    isBotSync: lishogi.common.LightUser.IsBotSync
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   implicit private val chatLang = defaultLang
@@ -57,13 +57,13 @@ final private[round] class Drawer(
   private def publishDrawOffer(pov: Pov)(implicit proxy: GameProxy): Unit = {
     if (pov.game.isCorrespondence && pov.game.nonAi)
       Bus.publish(
-        lila.hub.actorApi.round.CorresDrawOfferEvent(pov.gameId),
+        lishogi.hub.actorApi.round.CorresDrawOfferEvent(pov.gameId),
         "offerEventCorres"
       )
-    if (lila.game.Game.isBoardCompatible(pov.game)) proxy.withPov(pov.color) { p =>
+    if (lishogi.game.Game.isBoardCompatible(pov.game)) proxy.withPov(pov.color) { p =>
       fuccess(
         Bus.publish(
-          lila.game.actorApi.BoardDrawOffer(p),
+          lishogi.game.actorApi.BoardDrawOffer(p),
           s"boardDrawOffer:${pov.gameId}"
         )
       )

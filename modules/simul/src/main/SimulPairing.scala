@@ -1,6 +1,6 @@
-package lila.simul
+package lishogi.simul
 
-import lila.game.IdGenerator
+import lishogi.game.IdGenerator
 
 final case class SimulPairing(
     player: SimulPlayer,

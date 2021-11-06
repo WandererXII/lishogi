@@ -4,9 +4,9 @@ import play.api.mvc._
 import play.api.libs.json.Json
 import scalatags.Text.all.Frag
 
-import lila.api.Context
-import lila.app._
-import lila.memo.CacheApi._
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.memo.CacheApi._
 import views._
 
 final class KeyPages(env: Env)(implicit ec: scala.concurrent.ExecutionContext) {
@@ -14,7 +14,7 @@ final class KeyPages(env: Env)(implicit ec: scala.concurrent.ExecutionContext) {
   def home(status: Results.Status)(implicit ctx: Context): Fu[Result] =
     homeHtml
       .dmap { html =>
-        env.lilaCookie.ensure(ctx.req)(status(html))
+        env.lishogiCookie.ensure(ctx.req)(status(html))
       }
 
   def homeHtml(implicit ctx: Context): Fu[Frag] =
@@ -28,7 +28,7 @@ final class KeyPages(env: Env)(implicit ec: scala.concurrent.ExecutionContext) {
       )
       .mon(_.lobby segment "preloader.total")
       .map { h =>
-        lila.mon.chronoSync(_.lobby segment "renderSync") {
+        lishogi.mon.chronoSync(_.lobby segment "renderSync") {
           html.lobby.home(h)
         }
       }
@@ -38,7 +38,7 @@ final class KeyPages(env: Env)(implicit ec: scala.concurrent.ExecutionContext) {
   }
 
   def blacklisted(implicit ctx: Context): Result =
-    if (lila.api.Mobile.Api requested ctx.req) Results.Unauthorized(Json.obj("error" -> blacklistMessage))
+    if (lishogi.api.Mobile.Api requested ctx.req) Results.Unauthorized(Json.obj("error" -> blacklistMessage))
     else Results.Unauthorized(blacklistMessage)
 
   private val blacklistMessage =

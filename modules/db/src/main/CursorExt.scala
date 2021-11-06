@@ -1,4 +1,4 @@
-package lila.db
+package lishogi.db
 
 import scala.collection.Factory
 

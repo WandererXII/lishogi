@@ -1,10 +1,10 @@
-package lila.mod
+package lishogi.mod
 
 import akka.stream.scaladsl._
 import play.api.libs.json._
 
-import lila.common.{ Bus, HTTPRequest }
-import lila.security.UserSignup
+import lishogi.common.{ Bus, HTTPRequest }
+import lishogi.security.UserSignup
 
 final class ModStream {
 

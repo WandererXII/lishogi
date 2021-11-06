@@ -1,8 +1,8 @@
-package lila.pool
+package lishogi.pool
 
 import scala.math.abs
 
-import lila.common.WMMatching
+import lishogi.common.WMMatching
 
 object MatchMaking {
 

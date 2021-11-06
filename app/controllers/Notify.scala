@@ -1,11 +1,11 @@
 package controllers
 
-import lila.app._
-import lila.notify.Notification.Notifies
+import lishogi.app._
+import lishogi.notify.Notification.Notifies
 
 import play.api.libs.json._
 
-final class Notify(env: Env) extends LilaController(env) {
+final class Notify(env: Env) extends LishogiController(env) {
 
   import env.notifyM.jsonHandlers._
 

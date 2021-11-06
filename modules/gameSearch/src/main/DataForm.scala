@@ -1,12 +1,12 @@
-package lila.gameSearch
+package lishogi.gameSearch
 
 import shogi.{ Mode }
 import org.joda.time.DateTime
 import play.api.data._
 import play.api.data.Forms._
 
-import lila.common.Form._
-import lila.search.Range
+import lishogi.common.Form._
+import lishogi.search.Range
 
 final private[gameSearch] class DataForm {
 
@@ -21,7 +21,7 @@ final private[gameSearch] class DataForm {
         "gote"   -> optional(nonEmptyText)
       )(SearchPlayer.apply)(SearchPlayer.unapply),
       "winnerColor" -> optional(numberIn(Query.winnerColors)),
-      "perf"        -> optional(numberIn(lila.rating.PerfType.nonPuzzle.map(_.id))),
+      "perf"        -> optional(numberIn(lishogi.rating.PerfType.nonPuzzle.map(_.id))),
       "source"      -> optional(numberIn(Query.sources)),
       "mode"        -> optional(numberIn(Query.modes)),
       "turnsMin"    -> optional(numberIn(Query.turns)),

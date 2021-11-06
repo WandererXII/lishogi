@@ -1,20 +1,20 @@
-package lila.tournament
+package lishogi.tournament
 
 import akka.actor._
 import java.util.concurrent.ConcurrentHashMap
 import scala.concurrent.duration._
 import scala.concurrent.Promise
 
-import lila.game.Game
-import lila.hub.LateMultiThrottler
-import lila.room.RoomSocket.{ Protocol => RP, _ }
-import lila.socket.RemoteSocket.{ Protocol => P, _ }
-import lila.socket.Socket.makeMessage
-import lila.user.User
+import lishogi.game.Game
+import lishogi.hub.LateMultiThrottler
+import lishogi.room.RoomSocket.{ Protocol => RP, _ }
+import lishogi.socket.RemoteSocket.{ Protocol => P, _ }
+import lishogi.socket.Socket.makeMessage
+import lishogi.user.User
 
 final private class TournamentSocket(
-    remoteSocketApi: lila.socket.RemoteSocket,
-    chat: lila.chat.ChatApi
+    remoteSocketApi: lishogi.socket.RemoteSocket,
+    chat: lishogi.chat.ChatApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
@@ -44,14 +44,14 @@ final private class TournamentSocket(
   }
 
   def getWaitingUsers(tour: Tournament): Fu[WaitingUsers] = {
-    send(Protocol.Out.getWaitingUsers(RoomId(tour.id), tour.name()(lila.i18n.defaultLang)))
+    send(Protocol.Out.getWaitingUsers(RoomId(tour.id), tour.name()(lishogi.i18n.defaultLang)))
     val promise = Promise[WaitingUsers]()
     allWaitingUsers.compute(
       tour.id,
       (_: Tournament.ID, cur: WaitingUsers.WithNext) =>
         Option(cur).getOrElse(WaitingUsers emptyWithNext tour.clock).copy(next = promise.some)
     )
-    promise.future.withTimeout(5.seconds, lila.base.LilaException("getWaitingUsers timeout"))
+    promise.future.withTimeout(5.seconds, lishogi.base.LishogiException("getWaitingUsers timeout"))
   }
 
   def hasUser(tourId: Tournament.ID, userId: User.ID): Boolean =

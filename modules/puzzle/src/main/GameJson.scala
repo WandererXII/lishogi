@@ -1,18 +1,18 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import shogi.format.Forsyth
 import shogi.format.UciCharPair
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.game.{ Game, GameRepo, PerfPicker }
-import lila.i18n.defaultLang
-import lila.tree.Node.{ minimalNodeJsonWriter, partitionTreeJsonWriter }
+import lishogi.game.{ Game, GameRepo, PerfPicker }
+import lishogi.i18n.defaultLang
+import lishogi.tree.Node.{ minimalNodeJsonWriter, partitionTreeJsonWriter }
 
 final private class GameJson(
     gameRepo: GameRepo,
-    cacheApi: lila.memo.CacheApi,
-    lightUserApi: lila.user.LightUserApi
+    cacheApi: lishogi.memo.CacheApi,
+    lightUserApi: lishogi.user.LightUserApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def apply(gameId: Game.ID, plies: Int, bc: Boolean): Fu[JsObject] =
@@ -70,7 +70,7 @@ final private class GameJson(
       .add("clock", game.clock.map(_.config.show))
 
   private def perfJson(game: Game) = {
-    val perfType = lila.rating.PerfType orDefault PerfPicker.key(game)
+    val perfType = lishogi.rating.PerfType orDefault PerfPicker.key(game)
     Json.obj(
       "icon" -> perfType.iconChar.toString,
       "name" -> perfType.trans(defaultLang)

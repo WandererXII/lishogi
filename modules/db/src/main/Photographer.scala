@@ -1,4 +1,4 @@
-package lila.db
+package lishogi.db
 
 import java.nio.file.Path
 

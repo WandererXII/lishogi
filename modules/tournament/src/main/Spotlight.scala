@@ -1,6 +1,6 @@
-package lila.tournament
+package lishogi.tournament
 
-import lila.user.User
+import lishogi.user.User
 
 case class Spotlight(
     headline: String,

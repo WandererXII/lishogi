@@ -1,14 +1,14 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import scala.concurrent.duration._
 import reactivemongo.api.bson._
 
-import lila.common.IpAddress
-import lila.db.dsl._
+import lishogi.common.IpAddress
+import lishogi.db.dsl._
 
 final private class Limiter(
     analysisColl: Coll,
-    requesterApi: lila.analyse.RequesterApi
+    requesterApi: lishogi.analyse.RequesterApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def apply(sender: Work.Sender, ignoreConcurrentCheck: Boolean): Fu[Boolean] =
@@ -17,7 +17,7 @@ final private class Limiter(
       case true  => perDayCheck(sender)
     }
 
-  private val RequestLimitPerIP = new lila.memo.RateLimit[IpAddress](
+  private val RequestLimitPerIP = new lishogi.memo.RateLimit[IpAddress](
     credits = 50,
     duration = 20 hours,
     key = "request_analysis.ip"

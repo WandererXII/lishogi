@@ -4,20 +4,20 @@ import play.api.libs.json._
 import play.api.mvc._
 import scala.util.{ Failure, Success }
 
-import lila.app._
-import lila.common.HTTPRequest
-import lila.fishnet.JsonApi.readers._
-import lila.fishnet.JsonApi.writers._
-import lila.fishnet.{ JsonApi, Work }
+import lishogi.app._
+import lishogi.common.HTTPRequest
+import lishogi.fishnet.JsonApi.readers._
+import lishogi.fishnet.JsonApi.writers._
+import lishogi.fishnet.{ JsonApi, Work }
 
-final class Fishnet(env: Env) extends LilaController(env) {
+final class Fishnet(env: Env) extends LishogiController(env) {
 
   private def api    = env.fishnet.api
-  private val logger = lila.log("fishnet")
+  private val logger = lishogi.log("fishnet")
 
   def evalCachePut(key: String) = {
     Action.async(parse.json) { req =>
-      api clientUserId lila.fishnet.Client.Key(key) map {
+      api clientUserId lishogi.fishnet.Client.Key(key) map {
         case Some(uid) => {
           req.body
             .validate[JsObject]
@@ -39,7 +39,7 @@ final class Fishnet(env: Env) extends LilaController(env) {
   def acquire(slow: Boolean = false) =
     ClientAction[JsonApi.Request.Acquire] { _ => client =>
       api.acquire(client, slow) addEffect { jobOpt =>
-        lila.mon.fishnet.http.request(jobOpt.isDefined).increment()
+        lishogi.mon.fishnet.http.request(jobOpt.isDefined).increment()
       } map Right.apply
     }
 
@@ -51,7 +51,7 @@ final class Fishnet(env: Env) extends LilaController(env) {
 
   def analysis(workId: String, slow: Boolean = false, stop: Boolean = false) =
     ClientAction[JsonApi.Request.PostAnalysis] { data => client =>
-      import lila.fishnet.FishnetApi._
+      import lishogi.fishnet.FishnetApi._
       def onComplete =
         if (stop) fuccess(Left(NoContent))
         else api.acquire(client, slow) map Right.apply
@@ -83,7 +83,7 @@ final class Fishnet(env: Env) extends LilaController(env) {
 
   def keyExists(key: String) =
     Action.async { _ =>
-      api keyExists lila.fishnet.Client.Key(key) map {
+      api keyExists lishogi.fishnet.Client.Key(key) map {
         case true  => Ok
         case false => NotFound
       }
@@ -95,7 +95,7 @@ final class Fishnet(env: Env) extends LilaController(env) {
     }
 
   private def ClientAction[A <: JsonApi.Request](
-      f: A => lila.fishnet.Client => Fu[Either[Result, Option[JsonApi.Work]]]
+      f: A => lishogi.fishnet.Client => Fu[Either[Result, Option[JsonApi.Work]]]
   )(implicit reads: Reads[A]) =
     Action.async(parse.tolerantJson) { req =>
       req.body

@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 // Wrapper around newly created games. We do not know if the id is unique, yet.
 case class NewGame(sloppy: Game) extends AnyVal {

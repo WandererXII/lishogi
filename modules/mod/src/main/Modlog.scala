@@ -1,8 +1,8 @@
-package lila.mod
+package lishogi.mod
 
 import org.joda.time.DateTime
 
-import lila.report.{ Mod, Suspect }
+import lishogi.report.{ Mod, Suspect }
 
 case class Modlog(
     mod: String,
@@ -12,7 +12,7 @@ case class Modlog(
     date: DateTime = DateTime.now
 ) {
 
-  def isLishogi = mod == lila.user.User.lishogiId
+  def isLishogi = mod == lishogi.user.User.lishogiId
 
   def showAction =
     action match {

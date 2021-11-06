@@ -2,10 +2,10 @@ package views.html
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
 
 import controllers.routes
 
@@ -21,7 +21,7 @@ object event {
       )
     }
 
-  def edit(event: lila.event.Event, form: Form[_])(implicit ctx: Context) =
+  def edit(event: lishogi.event.Event, form: Form[_])(implicit ctx: Context) =
     layout(title = event.title, css = "mod.form") {
       div(cls := "crud edit page-menu__content box box-pad")(
         div(cls := "box__top")(
@@ -38,7 +38,7 @@ object event {
       )
     }
 
-  def show(e: lila.event.Event)(implicit ctx: Context) =
+  def show(e: lishogi.event.Event)(implicit ctx: Context) =
     views.html.base.layout(
       title = e.title,
       moreCss = cssTag("event"),
@@ -63,7 +63,7 @@ object event {
       )
     }
 
-  def manager(events: List[lila.event.Event])(implicit ctx: Context) = {
+  def manager(events: List[lishogi.event.Event])(implicit ctx: Context) = {
     val title = "Event manager"
     layout(title = title) {
       div(cls := "crud page-menu__content box")(
@@ -134,7 +134,7 @@ object event {
         help = raw("What to redirect to when the event starts").some
       )(form3.input(_)),
       form3.split(
-        form3.group(form("lang"), raw("Language"), half = true)(form3.select(_, lila.i18n.LangList.choices)),
+        form3.group(form("lang"), raw("Language"), half = true)(form3.select(_, lishogi.i18n.LangList.choices)),
         form3.group(
           form("hostedBy"),
           raw("Hosted by Lishogi user"),

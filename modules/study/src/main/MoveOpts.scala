@@ -1,8 +1,8 @@
-package lila.study
+package lishogi.study
 
 import shogi.Centis
 
-import lila.common.Maths
+import lishogi.common.Maths
 
 case class MoveOpts(
     write: Boolean,

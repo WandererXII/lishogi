@@ -1,8 +1,8 @@
-package lila.swiss
+package lishogi.swiss
 
-import lila.common.LightUser
-import lila.rating.Perf
-import lila.user.{ Perfs, User }
+import lishogi.common.LightUser
+import lishogi.rating.Perf
+import lishogi.user.{ Perfs, User }
 
 case class SwissPlayer(
     id: SwissPlayer.Id, // random
@@ -63,14 +63,14 @@ object SwissPlayer {
   sealed private[swiss] trait Viewish {
     val player: SwissPlayer
     val rank: Int
-    val user: lila.common.LightUser
+    val user: lishogi.common.LightUser
     val sheet: SwissSheet
   }
 
   private[swiss] case class View(
       player: SwissPlayer,
       rank: Int,
-      user: lila.common.LightUser,
+      user: lishogi.common.LightUser,
       pairings: Map[SwissRound.Number, SwissPairing],
       sheet: SwissSheet
   ) extends Viewish
@@ -78,7 +78,7 @@ object SwissPlayer {
   private[swiss] case class ViewExt(
       player: SwissPlayer,
       rank: Int,
-      user: lila.common.LightUser,
+      user: lishogi.common.LightUser,
       pairings: Map[SwissRound.Number, SwissPairing.View],
       sheet: SwissSheet
   ) extends Viewish

@@ -1,11 +1,11 @@
-package lila.hub
+package lishogi.hub
 
 import akka.pattern.ask
 import play.api.data._
 import scala.concurrent.duration._
 
 import actorApi.captcha._
-import lila.common.Captcha
+import lishogi.common.Captcha
 
 trait CaptchedForm {
 

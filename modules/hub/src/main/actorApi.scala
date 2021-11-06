@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 package actorApi
 
 import shogi.format.Uci

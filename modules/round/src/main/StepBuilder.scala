@@ -1,14 +1,14 @@
-package lila.round
+package lishogi.round
 
 import shogi.format.Forsyth
 import shogi.variant.Variant
-import lila.socket.Step
+import lishogi.socket.Step
 
 import play.api.libs.json._
 
 object StepBuilder {
 
-  private val logger = lila.round.logger.branch("StepBuilder")
+  private val logger = lishogi.round.logger.branch("StepBuilder")
 
   def apply(
       id: String,

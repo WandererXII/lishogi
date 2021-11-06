@@ -1,4 +1,4 @@
-package lila.push
+package lishogi.push
 
 import akka.actor._
 import com.google.auth.oauth2.{ GoogleCredentials, ServiceAccountCredentials }
@@ -8,7 +8,7 @@ import play.api.Configuration
 import play.api.libs.ws.WSClient
 import scala.jdk.CollectionConverters._
 
-import lila.common.config._
+import lishogi.common.config._
 import FirebasePush.configLoader
 
 @Module
@@ -23,10 +23,10 @@ final private class PushConfig(
 final class Env(
     appConfig: Configuration,
     ws: WSClient,
-    db: lila.db.Db,
-    userRepo: lila.user.UserRepo,
-    getLightUser: lila.common.LightUser.Getter,
-    proxyRepo: lila.round.GameProxyRepo
+    db: lishogi.db.Db,
+    userRepo: lishogi.user.UserRepo,
+    getLightUser: lishogi.common.LightUser.Getter,
+    proxyRepo: lishogi.round.GameProxyRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -64,7 +64,7 @@ final class Env(
 
   private lazy val pushApi: PushApi = wire[PushApi]
 
-  lila.common.Bus.subscribeFun(
+  lishogi.common.Bus.subscribeFun(
     "finishGame",
     "moveEventCorres",
     "newMessage",
@@ -73,15 +73,15 @@ final class Env(
     "corresAlarm",
     "offerEventCorres"
   ) {
-    case lila.game.actorApi.FinishGame(game, _, _) => pushApi finish game logFailure logger
-    case lila.hub.actorApi.round.CorresMoveEvent(move, _, pushable, _, _) if pushable =>
+    case lishogi.game.actorApi.FinishGame(game, _, _) => pushApi finish game logFailure logger
+    case lishogi.hub.actorApi.round.CorresMoveEvent(move, _, pushable, _, _) if pushable =>
       pushApi move move logFailure logger
-    case lila.hub.actorApi.round.CorresTakebackOfferEvent(gameId) =>
+    case lishogi.hub.actorApi.round.CorresTakebackOfferEvent(gameId) =>
       pushApi takebackOffer gameId logFailure logger
-    case lila.hub.actorApi.round.CorresDrawOfferEvent(gameId) => pushApi drawOffer gameId logFailure logger
-    case lila.msg.MsgThread.Unread(t)                         => pushApi newMsg t logFailure logger
-    case lila.challenge.Event.Create(c)                       => pushApi challengeCreate c logFailure logger
-    case lila.challenge.Event.Accept(c, joinerId)             => pushApi.challengeAccept(c, joinerId) logFailure logger
-    case lila.game.actorApi.CorresAlarmEvent(pov)             => pushApi corresAlarm pov logFailure logger
+    case lishogi.hub.actorApi.round.CorresDrawOfferEvent(gameId) => pushApi drawOffer gameId logFailure logger
+    case lishogi.msg.MsgThread.Unread(t)                         => pushApi newMsg t logFailure logger
+    case lishogi.challenge.Event.Create(c)                       => pushApi challengeCreate c logFailure logger
+    case lishogi.challenge.Event.Accept(c, joinerId)             => pushApi.challengeAccept(c, joinerId) logFailure logger
+    case lishogi.game.actorApi.CorresAlarmEvent(pov)             => pushApi corresAlarm pov logFailure logger
   }
 }

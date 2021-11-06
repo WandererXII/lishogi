@@ -22,7 +22,7 @@ const destinationPath = '../../public/compiled/';
 const destination = () => gulp.dest(destinationPath);
 const fileBaseName = 'lishogi.site';
 
-const abFile = process.env.LILA_AB_FILE;
+const abFile = process.env.LISHOGI_AB_FILE;
 
 const jqueryFill = () =>
   gulp
@@ -140,7 +140,7 @@ const gitSha = cb => {
   if (!fs.existsSync('./dist')) fs.mkdirSync('./dist');
   fs.writeFileSync(
     './dist/consolemsg.js',
-    `window.lishogi=window.lishogi||{};console.info("Lishogi is open source! https://github.com/WandererXII/lila");lishogi.info=${info};`
+    `window.lishogi=window.lishogi||{};console.info("Lishogi is open source! https://github.com/WandererXII/lishogi");lishogi.info=${info};`
   );
   cb();
 };

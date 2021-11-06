@@ -1,9 +1,9 @@
 package views.html.game
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.game.Crosstable
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.game.Crosstable
 
 import controllers.routes
 

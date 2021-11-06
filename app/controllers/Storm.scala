@@ -3,10 +3,10 @@ package controllers
 import play.api.mvc._
 import views._
 
-import lila.api.Context
-import lila.app._
+import lishogi.api.Context
+import lishogi.app._
 
-final class Storm(env: Env)(implicit mat: akka.stream.Materializer) extends LilaController(env) {
+final class Storm(env: Env)(implicit mat: akka.stream.Materializer) extends LishogiController(env) {
 
   def home =
     Open { implicit ctx =>
@@ -56,7 +56,7 @@ final class Storm(env: Env)(implicit mat: akka.stream.Materializer) extends Lila
       }
     }
 
-  private def renderDashboardOf(user: lila.user.User, page: Int)(implicit ctx: Context): Fu[Result] =
+  private def renderDashboardOf(user: lishogi.user.User, page: Int)(implicit ctx: Context): Fu[Result] =
     env.storm.dayApi.history(user.id, page) flatMap { history =>
       env.storm.highApi.get(user.id) map { high =>
         Ok(views.html.storm.dashboard(user, history, high))
@@ -65,7 +65,7 @@ final class Storm(env: Env)(implicit mat: akka.stream.Materializer) extends Lila
 
   def apiDashboardOf(username: String, days: Int) =
     Open { implicit ctx =>
-      val userId = lila.user.User normalize username
+      val userId = lishogi.user.User normalize username
       if (days < 0 || days > 365) notFoundJson("Invalid days parameter")
       else
         ((days > 0) ?? env.storm.dayApi.apiHistory(userId, days)) zip env.storm.highApi.get(userId) map {

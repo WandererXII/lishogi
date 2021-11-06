@@ -1,19 +1,19 @@
-package lila.playban
+package lishogi.playban
 
 import com.softwaremill.macwire._
 import play.api.Configuration
 
-import lila.common.config.CollName
+import lishogi.common.config.CollName
 
 @Module
 final class Env(
     appConfig: Configuration,
-    messenger: lila.msg.MsgApi,
-    chatApi: lila.chat.ChatApi,
-    userRepo: lila.user.UserRepo,
-    lightUser: lila.common.LightUser.Getter,
-    db: lila.db.Db,
-    cacheApi: lila.memo.CacheApi
+    messenger: lishogi.msg.MsgApi,
+    chatApi: lishogi.chat.ChatApi,
+    userRepo: lishogi.user.UserRepo,
+    lightUser: lishogi.common.LightUser.Getter,
+    db: lishogi.db.Db,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private lazy val playbanColl = db(

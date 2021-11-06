@@ -1,13 +1,13 @@
-package lila.appeal
+package lishogi.appeal
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 import reactivemongo.api.bson._
 
 private[appeal] object BsonHandlers {
 
   import Appeal.Status
 
-  implicit val statusHandler = lila.db.dsl.quickHandler[Status](
+  implicit val statusHandler = lishogi.db.dsl.quickHandler[Status](
     {
       case BSONString(v) => Status(v) | Status.Closed
       case _             => Status.Closed

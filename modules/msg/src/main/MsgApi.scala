@@ -1,4 +1,4 @@
-package lila.msg
+package lishogi.msg
 
 import akka.stream.scaladsl._
 import org.joda.time.DateTime
@@ -6,22 +6,22 @@ import org.joda.time.DateTime
 import scala.concurrent.duration._
 import scala.util.Try
 
-import lila.common.config.MaxPerPage
-import lila.common.{ Bus, LightUser }
-import lila.db.dsl._
-import lila.user.{ User, UserRepo }
+import lishogi.common.config.MaxPerPage
+import lishogi.common.{ Bus, LightUser }
+import lishogi.db.dsl._
+import lishogi.user.{ User, UserRepo }
 
 final class MsgApi(
     colls: MsgColls,
     userRepo: UserRepo,
-    cacheApi: lila.memo.CacheApi,
-    lightUserApi: lila.user.LightUserApi,
-    relationApi: lila.relation.RelationApi,
+    cacheApi: lishogi.memo.CacheApi,
+    lightUserApi: lishogi.user.LightUserApi,
+    relationApi: lishogi.relation.RelationApi,
     json: MsgJson,
     notifier: MsgNotify,
     security: MsgSecurity,
-    shutup: lila.hub.actors.Shutup,
-    spam: lila.security.Spam
+    shutup: lishogi.hub.actors.Shutup,
+    spam: lishogi.security.Spam
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     mat: akka.stream.Materializer
@@ -119,13 +119,13 @@ final class MsgApi(
               if (!send.mute) {
                 notifier.onPost(threadId)
                 Bus.publish(
-                  lila.hub.actorApi.socket.SendTo(
+                  lishogi.hub.actorApi.socket.SendTo(
                     dest,
-                    lila.socket.Socket.makeMessage("msgNew", json.renderMsg(msg))
+                    lishogi.socket.Socket.makeMessage("msgNew", json.renderMsg(msg))
                   ),
                   "socketUsers"
                 )
-                shutup ! lila.hub.actorApi.shutup.RecordPrivateMessage(orig, dest, text)
+                shutup ! lishogi.hub.actorApi.shutup.RecordPrivateMessage(orig, dest, text)
               }
             }
           case _ => funit
@@ -186,7 +186,7 @@ final class MsgApi(
                 MsgConvo(
                   contact | LightUser.fallback(thread other user),
                   msgs,
-                  lila.relation.Relations(none, none),
+                  lishogi.relation.Relations(none, none),
                   false
                 )
               }

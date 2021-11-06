@@ -1,16 +1,16 @@
-package lila.swiss
+package lishogi.swiss
 
 import org.joda.time.DateTime
 import org.joda.time.format.ISODateTimeFormat
 import play.api.libs.json._
 import scala.concurrent.ExecutionContext
 
-import lila.common.{ Animal, LightUser }
-import lila.db.dsl._
-import lila.game.Game
-import lila.quote.Quote.quoteWriter
-import lila.socket.Socket.SocketVersion
-import lila.user.User
+import lishogi.common.{ Animal, LightUser }
+import lishogi.db.dsl._
+import lishogi.game.Game
+import lishogi.quote.Quote.quoteWriter
+import lishogi.socket.Socket.SocketVersion
+import lishogi.user.User
 
 final class SwissJson(
     colls: SwissColls,
@@ -18,7 +18,7 @@ final class SwissJson(
     rankingApi: SwissRankingApi,
     boardApi: SwissBoardApi,
     statsApi: SwissStatsApi,
-    lightUserApi: lila.user.LightUserApi
+    lightUserApi: lishogi.user.LightUserApi
 )(implicit ec: ExecutionContext) {
 
   import SwissJson._
@@ -154,7 +154,7 @@ object SwissJson {
           else "created"
         }
       )
-      .add("quote" -> swiss.isCreated.option(lila.quote.Quote.one(swiss.id.value)))
+      .add("quote" -> swiss.isCreated.option(lishogi.quote.Quote.one(swiss.id.value)))
       .add("nextRound" -> swiss.nextRoundAt.map { next =>
         Json.obj(
           "at" -> formatDate(next),

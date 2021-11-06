@@ -1,12 +1,12 @@
-package lila.study
+package lishogi.study
 
 import BSONHandlers._
 import Node.Children
 
-import lila.common.Chronometer
-import lila.db.dsl._
-import lila.tree.Eval
-import lila.tree.Eval.Score
+import lishogi.common.Chronometer
+import lishogi.db.dsl._
+import lishogi.tree.Eval
+import lishogi.tree.Eval.Score
 
 private object StudyFlatTree {
 

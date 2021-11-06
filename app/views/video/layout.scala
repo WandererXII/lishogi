@@ -1,8 +1,8 @@
 package views.html.video
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -10,8 +10,8 @@ object layout {
 
   def apply(
       title: String,
-      control: lila.video.UserControl,
-      openGraph: Option[lila.app.ui.OpenGraph] = None
+      control: lishogi.video.UserControl,
+      openGraph: Option[lishogi.app.ui.OpenGraph] = None
   )(body: Modifier*)(implicit ctx: Context) =
     views.html.base.layout(
       title = title,

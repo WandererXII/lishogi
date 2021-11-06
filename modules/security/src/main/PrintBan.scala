@@ -1,9 +1,9 @@
-package lila.security
+package lishogi.security
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 final class PrintBan(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -26,6 +26,6 @@ final class PrintBan(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext)
 
   coll.secondaryPreferred.distinctEasy[String, Set]("_id", $empty).map { hashes =>
     current = hashes
-    lila.mon.security.firewall.prints.update(hashes.size)
+    lishogi.mon.security.firewall.prints.update(hashes.size)
   }
 }

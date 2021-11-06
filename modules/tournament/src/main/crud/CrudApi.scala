@@ -1,14 +1,14 @@
-package lila.tournament
+package lishogi.tournament
 package crud
 
 import BSONHandlers._
 import org.joda.time.DateTime
 import scala.util.chaining._
 
-import lila.common.paginator.Paginator
-import lila.db.dsl._
-import lila.db.paginator.Adapter
-import lila.user.User
+import lishogi.common.paginator.Paginator
+import lishogi.db.dsl._
+import lishogi.db.paginator.Adapter
+import lishogi.user.User
 
 final class CrudApi(tournamentRepo: TournamentRepo) {
 

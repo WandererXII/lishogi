@@ -1,22 +1,22 @@
-package lila.api
+package lishogi.api
 
 import play.api.i18n.Lang
 import play.api.libs.json._
 
 import shogi.format.Forsyth
-import lila.common.Json.jodaWrites
-import lila.common.LightUser
-import lila.common.paginator.Paginator
-import lila.game.{ Game, PerfPicker }
-import lila.user.User
+import lishogi.common.Json.jodaWrites
+import lishogi.common.LightUser
+import lishogi.common.paginator.Paginator
+import lishogi.game.{ Game, PerfPicker }
+import lishogi.user.User
 
 final class UserGameApi(
-    bookmarkApi: lila.bookmark.BookmarkApi,
-    lightUser: lila.user.LightUserApi,
-    getTournamentName: lila.tournament.GetTourName
+    bookmarkApi: lishogi.bookmark.BookmarkApi,
+    lightUser: lishogi.user.LightUserApi,
+    getTournamentName: lishogi.tournament.GetTourName
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  import lila.game.JsonView._
+  import lishogi.game.JsonView._
   import LightUser.lightUserWrites
 
   def jsPaginator(pag: Paginator[Game])(implicit ctx: Context): Fu[JsObject] =
@@ -28,7 +28,7 @@ final class UserGameApi(
         write(g, bookmarkedIds(g.id), ctx.me)(ctx.lang)
       }
       Json.obj(
-        "paginator" -> lila.common.paginator.PaginatorJson(pag)
+        "paginator" -> lishogi.common.paginator.PaginatorJson(pag)
       )
     }
 

@@ -1,4 +1,4 @@
-package lila.swiss
+package lishogi.swiss
 
 import shogi.Clock.{ Config => ClockConfig }
 import shogi.variant.Variant
@@ -9,7 +9,7 @@ import play.api.data.Forms._
 import play.api.data.validation.Constraints
 import scala.concurrent.duration._
 
-import lila.common.Form._
+import lishogi.common.Form._
 
 final class SwissForm(implicit mode: Mode) {
 

@@ -1,4 +1,4 @@
-package lila.team
+package lishogi.team
 
 import org.joda.time.Period
 import scala.util.chaining._
@@ -7,14 +7,14 @@ import reactivemongo.api.{ Cursor, ReadPreference }
 import scala.util.Try
 
 import actorApi._
-import lila.common.Bus
-import lila.db.dsl._
-import lila.hub.actorApi.team.{ CreateTeam, JoinTeam, KickFromTeam }
-import lila.hub.actorApi.timeline.{ Propagate, TeamCreate, TeamJoin }
-import lila.hub.LightTeam
-import lila.memo.CacheApi._
-import lila.mod.ModlogApi
-import lila.user.{ User, UserRepo }
+import lishogi.common.Bus
+import lishogi.db.dsl._
+import lishogi.hub.actorApi.team.{ CreateTeam, JoinTeam, KickFromTeam }
+import lishogi.hub.actorApi.timeline.{ Propagate, TeamCreate, TeamJoin }
+import lishogi.hub.LightTeam
+import lishogi.memo.CacheApi._
+import lishogi.mod.ModlogApi
+import lishogi.user.{ User, UserRepo }
 
 final class TeamApi(
     teamRepo: TeamRepo,
@@ -23,8 +23,8 @@ final class TeamApi(
     userRepo: UserRepo,
     cached: Cached,
     notifier: Notifier,
-    timeline: lila.hub.actors.Timeline,
-    indexer: lila.hub.actors.TeamSearch,
+    timeline: lishogi.hub.actors.Timeline,
+    indexer: lishogi.hub.actors.TeamSearch,
     modLog: ModlogApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -184,7 +184,7 @@ final class TeamApi(
             timeline ! Propagate(TeamJoin(user.id, team.id)).toFollowersOf(user.id)
             Bus.publish(JoinTeam(id = team.id, userId = user.id), "team")
           }
-      } recover lila.db.recoverDuplicateKey(_ => ())
+      } recover lishogi.db.recoverDuplicateKey(_ => ())
     }
 
   def quit(teamId: Team.ID, me: User): Fu[Option[Team]] =

@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import akka.actor._
 import scala.concurrent.duration._
@@ -9,7 +9,7 @@ import scala.concurrent.ExecutionContext
   */
 final class LateMultiThrottler(
     executionTimeout: Option[FiniteDuration] = None,
-    logger: lila.log.Logger
+    logger: lishogi.log.Logger
 )(implicit ec: ExecutionContext)
     extends Actor {
 
@@ -21,11 +21,11 @@ final class LateMultiThrottler(
 
     case Work(id, run, delayOption, timeoutOption) if !executions.contains(id) =>
       implicit val system = context.system
-      lila.common.Future.delay(delayOption | 0.seconds) {
+      lishogi.common.Future.delay(delayOption | 0.seconds) {
         timeoutOption.orElse(executionTimeout).fold(run()) { timeout =>
           run().withTimeout(
             duration = timeout,
-            error = lila.base.LilaException(s"LateMultiThrottler timed out after $timeout")
+            error = lishogi.base.LishogiException(s"LateMultiThrottler timed out after $timeout")
           )
         } addEffectAnyway {
           self ! Done(id)
@@ -46,7 +46,7 @@ object LateMultiThrottler {
 
   def apply(
       executionTimeout: Option[FiniteDuration] = None,
-      logger: lila.log.Logger
+      logger: lishogi.log.Logger
   )(implicit ec: ExecutionContext, system: ActorSystem) =
     system.actorOf(Props(new LateMultiThrottler(executionTimeout, logger)))
 

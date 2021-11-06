@@ -1,9 +1,9 @@
-package lila.tournament
+package lishogi.tournament
 
-import lila.common.LightUser
-import lila.hub.LightTeam.TeamID
-import lila.rating.Perf
-import lila.user.{ Perfs, User }
+import lishogi.common.LightUser
+import lishogi.hub.LightTeam.TeamID
+import lishogi.rating.Perf
+import lishogi.user.{ Perfs, User }
 
 private[tournament] case class Player(
     _id: Player.ID, // random
@@ -49,7 +49,7 @@ private[tournament] object Player {
       team: Option[TeamID]
   ): Player =
     new Player(
-      _id = lila.common.ThreadLocalRandom.nextString(8),
+      _id = lishogi.common.ThreadLocalRandom.nextString(8),
       tourId = tourId,
       userId = user.id,
       rating = perfLens(user.perfs).intRating,

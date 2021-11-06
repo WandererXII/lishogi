@@ -1,18 +1,18 @@
-package lila.bot
+package lishogi.bot
 
 import akka.actor._
 import akka.stream.scaladsl._
 import play.api.i18n.Lang
 import play.api.libs.json._
 
-import lila.chat.Chat
-import lila.chat.UserLine
-import lila.common.Bus
-import lila.game.actorApi.{ AbortedBy, FinishGame, MoveGameEvent }
-import lila.game.{ Game, Pov }
-import lila.hub.actorApi.map.Tell
-import lila.round.actorApi.BotConnected
-import lila.round.actorApi.round.QuietFlag
+import lishogi.chat.Chat
+import lishogi.chat.UserLine
+import lishogi.common.Bus
+import lishogi.game.actorApi.{ AbortedBy, FinishGame, MoveGameEvent }
+import lishogi.game.{ Game, Pov }
+import lishogi.hub.actorApi.map.Tell
+import lishogi.round.actorApi.BotConnected
+import lishogi.round.actorApi.round.QuietFlag
 import scala.concurrent.duration._
 
 final class GameStateStream(
@@ -24,12 +24,12 @@ final class GameStateStream(
 ) {
 
   private case object SetOnline
-  private case class User(id: lila.user.User.ID, isBot: Boolean)
+  private case class User(id: lishogi.user.User.ID, isBot: Boolean)
 
   private val blueprint =
     Source.queue[Option[JsObject]](32, akka.stream.OverflowStrategy.dropHead)
 
-  def apply(init: Game.WithInitialFen, as: shogi.Color, u: lila.user.User)(implicit
+  def apply(init: Game.WithInitialFen, as: shogi.Color, u: lishogi.user.User)(implicit
       lang: Lang
   ): Source[Option[JsObject], _] = {
 
@@ -39,7 +39,7 @@ final class GameStateStream(
     blueprint mapMaterializedValue { queue =>
       val actor = system.actorOf(
         Props(mkActor(init, as, User(u.id, u.isBot), queue)),
-        name = s"GameStateStream:${init.game.id}:${lila.common.ThreadLocalRandom nextString 8}"
+        name = s"GameStateStream:${init.game.id}:${lishogi.common.ThreadLocalRandom nextString 8}"
       )
       queue.watchCompletion().foreach { _ =>
         actor ! PoisonPill
@@ -81,7 +81,7 @@ final class GameStateStream(
           if (init.game.finished) onGameOver(none)
           else self ! SetOnline
         }
-        lila.mon.bot.gameStream("start").increment()
+        lishogi.mon.bot.gameStream("start").increment()
         Bus.publish(Tell(init.game.id, BotConnected(as, true)), "roundSocket")
       }
 
@@ -94,16 +94,16 @@ final class GameStateStream(
           Bus.publish(Tell(init.game.id, BotConnected(as, false)), "roundSocket")
         }
         queue.complete()
-        lila.mon.bot.gameStream("stop").increment()
+        lishogi.mon.bot.gameStream("stop").increment()
       }
 
       def receive = {
         case MoveGameEvent(g, _, _) if g.id == id => pushState(g)
-        case lila.chat.actorApi.ChatLine(chatId, UserLine(username, _, text, false, false)) =>
+        case lishogi.chat.actorApi.ChatLine(chatId, UserLine(username, _, text, false, false)) =>
           pushChatLine(username, text, chatId.value.size == Game.gameIdSize)
         case FinishGame(g, _, _) if g.id == id                          => onGameOver(g.some)
         case AbortedBy(pov) if pov.gameId == id                         => onGameOver(pov.game.some)
-        case lila.game.actorApi.BoardDrawOffer(pov) if pov.gameId == id => pushState(pov.game)
+        case lishogi.game.actorApi.BoardDrawOffer(pov) if pov.gameId == id => pushState(pov.game)
         case SetOnline =>
           onlineApiUsers.setOnline(user.id)
           context.system.scheduler.scheduleOnce(6 second) {

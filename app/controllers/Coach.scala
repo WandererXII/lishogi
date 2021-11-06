@@ -2,12 +2,12 @@ package controllers
 
 import play.api.mvc._
 
-import lila.api.Context
-import lila.app._
-import lila.coach.{ Coach => CoachModel, CoachProfileForm, CoachPager }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.coach.{ Coach => CoachModel, CoachProfileForm, CoachPager }
 import views._
 
-final class Coach(env: Env) extends LilaController(env) {
+final class Coach(env: Env) extends LishogiController(env) {
 
   private def api = env.coach.api
 
@@ -30,11 +30,11 @@ final class Coach(env: Env) extends LilaController(env) {
       OptionFuResult(api find username) { c =>
         WithVisibleCoach(c) {
           env.study.api.publicByIds {
-            c.coach.profile.studyIds.map(_.value).map(lila.study.Study.Id.apply)
+            c.coach.profile.studyIds.map(_.value).map(lishogi.study.Study.Id.apply)
           } flatMap env.study.pager.withChaptersAndLiking(ctx.me, 4) flatMap { studies =>
             api.reviews.approvedByCoach(c.coach) flatMap { reviews =>
               ctx.me.?? { api.reviews.mine(_, c.coach) } map { myReview =>
-                lila.mon.coach.pageView.profile(c.coach.id.value).increment()
+                lishogi.mon.coach.pageView.profile(c.coach.id.value).increment()
                 Ok(html.coach.show(c, reviews, studies, myReview))
               }
             }
@@ -48,17 +48,17 @@ final class Coach(env: Env) extends LilaController(env) {
       OptionFuResult(api find username) { c =>
         WithVisibleCoach(c) {
           implicit val req = ctx.body
-          lila.coach.CoachReviewForm.form
+          lishogi.coach.CoachReviewForm.form
             .bindFromRequest()
             .fold(
               _ => Redirect(routes.Coach.show(c.user.username)).fuccess,
               data => {
                 if (data.score < 4 && !me.marks.reportban)
                   env.report.api.create(
-                    lila.report.Report.Candidate(
-                      reporter = lila.report.Reporter(me),
-                      suspect = lila.report.Suspect(c.user),
-                      reason = lila.report.Reason.Other,
+                    lishogi.report.Report.Candidate(
+                      reporter = lishogi.report.Reporter(me),
+                      suspect = lishogi.report.Suspect(c.user),
+                      reason = lishogi.report.Reason.Other,
                       text = s"[COACH REVIEW rating=${data.score}/5] ${data.text}"
                     )
                   )
@@ -127,7 +127,7 @@ final class Coach(env: Env) extends LilaController(env) {
       OptionFuResult(api findOrInit me) { c =>
         ctx.body.body.file("picture") match {
           case Some(pic) =>
-            api.uploadPicture(c, pic) recover { case e: lila.base.LilaException =>
+            api.uploadPicture(c, pic) recover { case e: lishogi.base.LishogiException =>
               BadRequest(html.coach.picture(c, e.message.some))
             } inject Redirect(routes.Coach.edit())
           case None => fuccess(Redirect(routes.Coach.edit()))

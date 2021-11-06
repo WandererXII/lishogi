@@ -1,13 +1,13 @@
-package lila.evalCache
+package lishogi.evalCache
 
 import org.joda.time.{ DateTime, Days }
 import scala.concurrent.duration._
 
-import lila.security.Granter
-import lila.user.{ User, UserRepo }
+import lishogi.security.Granter
+import lishogi.user.{ User, UserRepo }
 
 final private class EvalCacheTruster(
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     userRepo: UserRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 

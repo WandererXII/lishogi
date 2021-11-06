@@ -1,10 +1,10 @@
-package lila.coordinate
+package lishogi.coordinate
 
 import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 
-import lila.user.User
-import lila.db.dsl._
+import lishogi.user.User
+import lishogi.db.dsl._
 
 final class CoordinateApi(scoreColl: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

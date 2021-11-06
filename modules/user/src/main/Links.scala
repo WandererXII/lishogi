@@ -1,4 +1,4 @@
-package lila.user
+package lishogi.user
 
 object Links {
 

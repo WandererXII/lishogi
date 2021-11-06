@@ -1,4 +1,4 @@
-package lila.db
+package lishogi.db
 package paginator
 
 import dsl._
@@ -6,7 +6,7 @@ import reactivemongo.api._
 import reactivemongo.api.bson._
 import scala.util.chaining._
 
-import lila.common.paginator.AdapterLike
+import lishogi.common.paginator.AdapterLike
 
 final class CachedAdapter[A](
     adapter: AdapterLike[A],

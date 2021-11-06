@@ -1,9 +1,9 @@
-package lila.analyse
+package lishogi.analyse
 
 import play.api.libs.json._
 
-import lila.game.Game
-import lila.tree.Eval.JsonHandlers._
+import lishogi.game.Game
+import lishogi.tree.Eval.JsonHandlers._
 
 object JsonView {
 
@@ -41,7 +41,7 @@ object JsonView {
       .map(s =>
         JsObject(s map { case (nag, nb) =>
           nag.toString.toLowerCase -> JsNumber(nb)
-        }).add("acpl" -> lila.analyse.Accuracy.mean(pov, analysis))
+        }).add("acpl" -> lishogi.analyse.Accuracy.mean(pov, analysis))
       )
 
   def bothPlayers(game: Game, analysis: Analysis) =

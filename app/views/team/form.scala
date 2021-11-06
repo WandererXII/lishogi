@@ -2,10 +2,10 @@ package views.html.team
 
 import play.api.data.Form
 
-import lila.team.Team
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.team.Team
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -13,7 +13,7 @@ object form {
 
   import trans.team._
 
-  def create(form: Form[_], captcha: lila.common.Captcha)(implicit ctx: Context) =
+  def create(form: Form[_], captcha: lishogi.common.Captcha)(implicit ctx: Context) =
     views.html.base.layout(
       title = newTeam.txt(),
       moreCss = cssTag("team"),

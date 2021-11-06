@@ -1,12 +1,12 @@
-package lila.security
+package lishogi.security
 
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 import play.api.mvc.RequestHeader
 import io.methvin.play.autoconfig._
 
-import lila.common.HTTPRequest
-import lila.common.config._
+import lishogi.common.HTTPRequest
+import lishogi.common.config._
 
 trait Recaptcha {
 

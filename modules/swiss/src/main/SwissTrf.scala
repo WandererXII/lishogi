@@ -1,4 +1,4 @@
-package lila.swiss
+package lishogi.swiss
 
 import akka.stream.scaladsl._
 
@@ -6,7 +6,7 @@ import akka.stream.scaladsl._
 final class SwissTrf(
     sheetApi: SwissSheetApi,
     rankingApi: SwissRankingApi,
-    baseUrl: lila.common.config.BaseUrl
+    baseUrl: lishogi.common.config.BaseUrl
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private type Bits = List[(Int, String)]

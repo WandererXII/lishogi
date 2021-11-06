@@ -1,4 +1,4 @@
-package lila.user
+package lishogi.user
 
 import org.apache.commons.codec.binary.Base32
 import reactivemongo.api.bson._
@@ -56,7 +56,7 @@ object TotpSecret {
     TotpSecret(secret)
   }
 
-  private[user] val totpSecretBSONHandler = lila.db.dsl.quickHandler[TotpSecret](
+  private[user] val totpSecretBSONHandler = lishogi.db.dsl.quickHandler[TotpSecret](
     { case v: BSONBinary => TotpSecret(v.byteArray) },
     v => BSONBinary(v.secret, Subtype.GenericBinarySubtype)
   )

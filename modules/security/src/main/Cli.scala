@@ -1,9 +1,9 @@
-package lila.security
+package lishogi.security
 
-import lila.user.{ User, UserRepo }
+import lishogi.user.{ User, UserRepo }
 
 final private[security] class Cli(userRepo: UserRepo)(implicit ec: scala.concurrent.ExecutionContext)
-    extends lila.common.Cli {
+    extends lishogi.common.Cli {
 
   def process = {
 

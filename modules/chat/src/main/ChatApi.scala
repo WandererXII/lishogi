@@ -1,26 +1,26 @@
-package lila.chat
+package lishogi.chat
 
 import shogi.Color
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.common.config.NetDomain
-import lila.common.String.noShouting
-import lila.common.Bus
-import lila.db.dsl._
-import lila.hub.actorApi.shutup.{ PublicSource, RecordPrivateChat, RecordPublicChat }
-import lila.memo.CacheApi._
-import lila.user.{ User, UserRepo }
+import lishogi.common.config.NetDomain
+import lishogi.common.String.noShouting
+import lishogi.common.Bus
+import lishogi.db.dsl._
+import lishogi.hub.actorApi.shutup.{ PublicSource, RecordPrivateChat, RecordPublicChat }
+import lishogi.memo.CacheApi._
+import lishogi.user.{ User, UserRepo }
 
 final class ChatApi(
     coll: Coll,
     userRepo: UserRepo,
     chatTimeout: ChatTimeout,
-    flood: lila.security.Flood,
-    spam: lila.security.Spam,
-    shutup: lila.hub.actors.Shutup,
-    modActor: lila.hub.actors.Mod,
-    cacheApi: lila.memo.CacheApi,
+    flood: lishogi.security.Flood,
+    spam: lishogi.security.Spam,
+    shutup: lishogi.hub.actors.Shutup,
+    modActor: lishogi.hub.actors.Mod,
+    cacheApi: lishogi.memo.CacheApi,
     maxLinesPerChat: Chat.MaxLines,
     netDomain: NetDomain
 )(implicit ec: scala.concurrent.ExecutionContext) {
@@ -97,7 +97,7 @@ final class ChatApi(
               }
             }
             publish(chatId, actorApi.ChatLine(chatId, line), busChan)
-            lila.mon.chat.message(publicSource.fold("player")(_.parentName), line.troll).increment()
+            lishogi.mon.chat.message(publicSource.fold("player")(_.parentName), line.troll).increment()
           }
         }
       }
@@ -169,7 +169,7 @@ final class ChatApi(
             publish(chat.id, actorApi.ChatLine(chat.id, l), busChan)
           }
           if (isMod(mod))
-            modActor ! lila.hub.actorApi.mod.ChatTimeout(
+            modActor ! lishogi.hub.actorApi.mod.ChatTimeout(
               mod = mod.id,
               user = user.id,
               reason = reason.key,
@@ -187,7 +187,7 @@ final class ChatApi(
       }
     }
 
-    private def isMod(user: User) = lila.security.Granter(_.ChatTimeout)(user)
+    private def isMod(user: User) = lishogi.security.Granter(_.ChatTimeout)(user)
 
     def reinstate(list: List[ChatTimeout.Reinstate]) =
       list.foreach { r =>
@@ -234,7 +234,7 @@ final class ChatApi(
       makeLine(chatId, color, text) ?? { line =>
         pushLine(chatId, line) >>- {
           publish(chatId, actorApi.ChatLine(chatId, line), busChan)
-          lila.mon.chat.message("anonPlayer", false).increment()
+          lishogi.mon.chat.message("anonPlayer", false).increment()
         }
       }
 

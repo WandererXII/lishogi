@@ -1,4 +1,4 @@
-package lila.history
+package lishogi.history
 
 import org.joda.time.{ DateTime, Days }
 import reactivemongo.api.ReadPreference
@@ -6,12 +6,12 @@ import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
 import shogi.Speed
-import lila.db.dsl._
-import lila.game.Game
-import lila.rating.{ Perf, PerfType }
-import lila.user.{ Perfs, User, UserRepo }
+import lishogi.db.dsl._
+import lishogi.game.Game
+import lishogi.rating.{ Perf, PerfType }
+import lishogi.user.{ Perfs, User, UserRepo }
 
-final class HistoryApi(coll: Coll, userRepo: UserRepo, cacheApi: lila.memo.CacheApi)(implicit
+final class HistoryApi(coll: Coll, userRepo: UserRepo, cacheApi: lishogi.memo.CacheApi)(implicit
     ec: scala.concurrent.ExecutionContext
 ) {
 

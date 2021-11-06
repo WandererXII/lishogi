@@ -1,11 +1,11 @@
 package controllers
 
-import lila.app._
+import lishogi.app._
 
 final class Page(
     env: Env,
     prismicC: Prismic
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   val thanks       = helpDocument("thanks")
   val resources    = helpDocument("resources")
@@ -105,7 +105,7 @@ final class Page(
     Open { implicit ctx =>
       (for {
         variant  <- shogi.variant.Variant.byKey get key
-        perfType <- lila.rating.PerfType byVariant variant
+        perfType <- lishogi.rating.PerfType byVariant variant
       } yield OptionOk(prismicC getVariant variant) { case (doc, resolver) =>
         views.html.site.variant.show(doc, resolver, variant, perfType)
       }) | notFound

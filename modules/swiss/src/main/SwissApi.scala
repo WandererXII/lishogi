@@ -1,4 +1,4 @@
-package lila.swiss
+package lishogi.swiss
 
 import akka.stream.scaladsl._
 import org.joda.time.DateTime
@@ -9,13 +9,13 @@ import reactivemongo.api.bson._
 import scala.concurrent.duration._
 import scala.util.chaining._
 
-import lila.chat.Chat
-import lila.common.{ Animal, Bus, LightUser }
-import lila.db.dsl._
-import lila.game.{ Game, Pov }
-import lila.hub.LightTeam.TeamID
-import lila.round.actorApi.round.QuietFlag
-import lila.user.{ User, UserRepo }
+import lishogi.chat.Chat
+import lishogi.common.{ Animal, Bus, LightUser }
+import lishogi.db.dsl._
+import lishogi.game.{ Game, Pov }
+import lishogi.hub.LightTeam.TeamID
+import lishogi.round.actorApi.round.QuietFlag
+import lishogi.user.{ User, UserRepo }
 
 final class SwissApi(
     colls: SwissColls,
@@ -27,9 +27,9 @@ final class SwissApi(
     rankingApi: SwissRankingApi,
     standingApi: SwissStandingApi,
     boardApi: SwissBoardApi,
-    chatApi: lila.chat.ChatApi,
-    lightUserApi: lila.user.LightUserApi,
-    roundSocket: lila.round.RoundSocket
+    chatApi: lishogi.chat.ChatApi,
+    lightUserApi: lishogi.user.LightUserApi,
+    roundSocket: lishogi.round.RoundSocket
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem,
@@ -37,7 +37,7 @@ final class SwissApi(
 ) {
 
   private val sequencer =
-    new lila.hub.DuctSequencers(
+    new lishogi.hub.DuctSequencers(
       maxSize = 1024, // queue many game finished events
       expiration = 1 minute,
       timeout = 10 seconds,
@@ -295,7 +295,7 @@ final class SwissApi(
 
   private[swiss] def kickLame(userId: User.ID) =
     Bus
-      .ask[List[TeamID]]("teamJoinedBy")(lila.hub.actorApi.team.TeamIdsJoinedBy(userId, _))
+      .ask[List[TeamID]]("teamJoinedBy")(lishogi.hub.actorApi.team.TeamIdsJoinedBy(userId, _))
       .flatMap { teamIds =>
         colls.swiss.aggregateList(100) { framework =>
           import framework._
@@ -460,7 +460,7 @@ final class SwissApi(
       .list(10)
       .map(_.flatMap(_.getAsOpt[Swiss.Id]("_id")))
       .flatMap { ids =>
-        lila.common.Future.applySequentially(ids) { id =>
+        lishogi.common.Future.applySequentially(ids) { id =>
           Sequencing(id)(notFinishedById) { swiss =>
             if (swiss.round.value >= swiss.settings.nbRounds) doFinish(swiss)
             else if (swiss.nbPlayers >= 4)
@@ -520,12 +520,12 @@ final class SwissApi(
               val (finished, ongoing) = games.partition(_.finishedOrAborted)
               val flagged             = ongoing.filter(_ outoftime true)
               val missingIds          = pairs.collect { case (id, None) => id }
-              lila.mon.swiss.games("finished").record(finished.size)
-              lila.mon.swiss.games("ongoing").record(ongoing.size)
-              lila.mon.swiss.games("flagged").record(flagged.size)
-              lila.mon.swiss.games("missing").record(missingIds.size)
+              lishogi.mon.swiss.games("finished").record(finished.size)
+              lishogi.mon.swiss.games("ongoing").record(ongoing.size)
+              lishogi.mon.swiss.games("flagged").record(flagged.size)
+              lishogi.mon.swiss.games("missing").record(missingIds.size)
               if (flagged.nonEmpty)
-                Bus.publish(lila.hub.actorApi.map.TellMany(flagged.map(_.id), QuietFlag), "roundSocket")
+                Bus.publish(lishogi.hub.actorApi.map.TellMany(flagged.map(_.id), QuietFlag), "roundSocket")
               if (missingIds.nonEmpty)
                 colls.pairing.delete.one($inIds(missingIds))
               finished

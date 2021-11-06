@@ -1,14 +1,14 @@
 package views.html
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object bookmark {
 
-  def toggle(g: lila.game.Game, bookmarked: Boolean)(implicit ctx: Context) =
+  def toggle(g: lishogi.game.Game, bookmarked: Boolean)(implicit ctx: Context) =
     if (ctx.isAuth)
       a(
         cls := List(

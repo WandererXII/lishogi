@@ -1,8 +1,8 @@
-package lila.swiss
+package lishogi.swiss
 
 import shogi.Color
-import lila.game.Game
-import lila.user.User
+import lishogi.game.Game
+import lishogi.user.User
 
 case class SwissPairing(
     id: Game.ID,

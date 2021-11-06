@@ -3,11 +3,11 @@ package views.html.clas
 import play.api.data.Form
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.clas.{ Clas, Student }
-import lila.common.String.html.richText
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.clas.{ Clas, Student }
+import lishogi.common.String.html.richText
 
 object student {
 
@@ -15,7 +15,7 @@ object student {
       clas: Clas,
       students: List[Student],
       s: Student.WithUser,
-      activities: Vector[lila.activity.ActivityView]
+      activities: Vector[lishogi.activity.ActivityView]
   )(implicit ctx: Context) =
     bits.layout(s.user.username, Left(clas withStudents students), s.student.some)(
       cls := "student-show",
@@ -114,16 +114,16 @@ object student {
       invite: Form[_],
       create: Form[_],
       nbStudents: Int,
-      created: Option[lila.clas.Student.WithPassword] = none
+      created: Option[lishogi.clas.Student.WithPassword] = none
   )(implicit ctx: Context) =
     bits.layout(trans.clas.addStudent.txt(), Left(c withStudents students))(
       cls := "box-pad student-add",
       h1(
         trans.clas.addStudent(),
-        s" ($nbStudents/${lila.clas.Clas.maxStudents})"
+        s" ($nbStudents/${lishogi.clas.Clas.maxStudents})"
       ),
-      nbStudents > (lila.clas.Clas.maxStudents / 2) option p(dataIcon := "", cls := "text")(
-        s"Note that a class can have up to ${lila.clas.Clas.maxStudents} students.",
+      nbStudents > (lishogi.clas.Clas.maxStudents / 2) option p(dataIcon := "", cls := "text")(
+        s"Note that a class can have up to ${lishogi.clas.Clas.maxStudents} students.",
         "To manage more students, ",
         a(href := routes.Clas.studentForm(c.id.value))("create more classes"),
         "."
@@ -143,7 +143,7 @@ object student {
         )
       },
       standardFlash(),
-      (nbStudents <= lila.clas.Clas.maxStudents) option frag(
+      (nbStudents <= lishogi.clas.Clas.maxStudents) option frag(
         div(cls := "student-add__choice")(
           div(cls := "info")(
             h2(trans.clas.inviteALishogiAccount()),

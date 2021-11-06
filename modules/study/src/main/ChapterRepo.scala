@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 import akka.stream.scaladsl._
 import shogi.format.Tags
@@ -6,8 +6,8 @@ import reactivemongo.akkastream.cursorProducer
 import reactivemongo.api._
 import reactivemongo.api.bson._
 
-import lila.db.AsyncColl
-import lila.db.dsl._
+import lishogi.db.AsyncColl
+import lishogi.db.dsl._
 
 final class ChapterRepo(val coll: AsyncColl)(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -119,13 +119,13 @@ final class ChapterRepo(val coll: AsyncColl)(implicit
   def setTagsFor(chapter: Chapter) =
     coll(_.updateField($id(chapter.id), "tags", chapter.tags)).void
 
-  def setShapes(shapes: lila.tree.Node.Shapes) =
+  def setShapes(shapes: lishogi.tree.Node.Shapes) =
     setNodeValue(Node.BsonFields.shapes, shapes.value.nonEmpty option shapes) _
 
-  def setComments(comments: lila.tree.Node.Comments) =
+  def setComments(comments: lishogi.tree.Node.Comments) =
     setNodeValue(Node.BsonFields.comments, comments.value.nonEmpty option comments) _
 
-  def setGamebook(gamebook: lila.tree.Node.Gamebook) =
+  def setGamebook(gamebook: lishogi.tree.Node.Gamebook) =
     setNodeValue(Node.BsonFields.gamebook, gamebook.nonEmpty option gamebook) _
 
   def setGlyphs(glyphs: shogi.format.Glyphs) = setNodeValue(Node.BsonFields.glyphs, glyphs.nonEmpty) _

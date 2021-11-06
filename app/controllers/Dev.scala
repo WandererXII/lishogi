@@ -2,12 +2,12 @@ package controllers
 
 import play.api.data._, Forms._
 
-import lila.app._
+import lishogi.app._
 import views._
 
-final class Dev(env: Env) extends LilaController(env) {
+final class Dev(env: Env) extends LishogiController(env) {
 
-  private lazy val settingsList = List[lila.memo.SettingStore[_]](
+  private lazy val settingsList = List[lishogi.memo.SettingStore[_]](
     env.security.ugcArmedSetting,
     env.security.spamKeywordsSetting,
     env.irwin.irwinThresholdsSetting,
@@ -76,12 +76,12 @@ final class Dev(env: Env) extends LilaController(env) {
 
   def command =
     ScopedBody(parse.tolerantText)(Seq(_.Preference.Write)) { implicit req => me =>
-      lila.security.Granter(_.Cli)(me) ?? {
+      lishogi.security.Granter(_.Cli)(me) ?? {
         runAs(me.id, req.body) map { Ok(_) }
       }
     }
 
-  private def runAs(user: lila.user.User.ID, command: String): Fu[String] =
+  private def runAs(user: lishogi.user.User.ID, command: String): Fu[String] =
     env.mod.logApi.cli(user, command) >>
       env.api.cli(command.split(" ").toList)
 }

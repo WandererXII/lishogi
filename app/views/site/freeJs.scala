@@ -1,8 +1,8 @@
 package views
 package html.site
 
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object freeJs {
 

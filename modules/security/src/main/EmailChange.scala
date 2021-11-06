@@ -1,10 +1,10 @@
-package lila.security
+package lishogi.security
 
 import scalatags.Text.all._
-import lila.common.config._
-import lila.common.EmailAddress
-import lila.i18n.I18nKeys.{ emails => trans }
-import lila.user.{ User, UserRepo }
+import lishogi.common.config._
+import lishogi.common.EmailAddress
+import lishogi.i18n.I18nKeys.{ emails => trans }
+import lishogi.user.{ User, UserRepo }
 
 final class EmailChange(
     userRepo: UserRepo,
@@ -17,10 +17,10 @@ final class EmailChange(
 
   def send(user: User, email: EmailAddress): Funit =
     tokener make TokenPayload(user.id, email).some flatMap { token =>
-      lila.mon.email.send.change.increment()
-      implicit val lang = user.realLang | lila.i18n.defaultLang
+      lishogi.mon.email.send.change.increment()
+      implicit val lang = user.realLang | lishogi.i18n.defaultLang
       val url           = s"$baseUrl/account/email/confirm/$token"
-      lila.log("auth").info(s"Change email URL ${user.username} $email $url")
+      lishogi.log("auth").info(s"Change email URL ${user.username} $email $url")
       mailgun send Mailgun.Message(
         to = email,
         subject = trans.emailChange_subject.txt(user.username),

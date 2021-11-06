@@ -1,4 +1,4 @@
-package lila.socket
+package lishogi.socket
 
 import akka.actor.{ ActorSystem, CoordinatedShutdown }
 import shogi.Centis
@@ -11,18 +11,18 @@ import scala.concurrent.duration._
 import scala.concurrent.{ Future, Promise }
 import scala.util.chaining._
 
-import lila.common.{ Bus, Lilakka }
-import lila.hub.actorApi.Announce
-import lila.hub.actorApi.relation.{ Follow, UnFollow }
-import lila.hub.actorApi.round.Mlat
-import lila.hub.actorApi.security.CloseAccount
-import lila.hub.actorApi.socket.remote.{ TellSriIn, TellSriOut, TellUserIn }
-import lila.hub.actorApi.socket.{ ApiUserIsOnline, SendTo, SendTos }
+import lishogi.common.{ Bus, Lishogikka }
+import lishogi.hub.actorApi.Announce
+import lishogi.hub.actorApi.relation.{ Follow, UnFollow }
+import lishogi.hub.actorApi.round.Mlat
+import lishogi.hub.actorApi.security.CloseAccount
+import lishogi.hub.actorApi.socket.remote.{ TellSriIn, TellSriOut, TellUserIn }
+import lishogi.hub.actorApi.socket.{ ApiUserIsOnline, SendTo, SendTos }
 import Socket.Sri
 
 final class RemoteSocket(
     redisClient: RedisClient,
-    notification: lila.hub.actors.Notification,
+    notification: lishogi.hub.actors.Notification,
     shutdown: CoordinatedShutdown
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -38,7 +38,7 @@ final class RemoteSocket(
   private val requests = new ConcurrentHashMap[Int, Promise[String]](32)
 
   def request[R](sendReq: Int => Unit, readRes: String => R): Fu[R] = {
-    val id = lila.common.ThreadLocalRandom.nextPositiveInt()
+    val id = lishogi.common.ThreadLocalRandom.nextPositiveInt()
     sendReq(id)
     val promise = Promise[String]()
     requests.put(id, promise)
@@ -52,7 +52,7 @@ final class RemoteSocket(
       onlineUserIds.getAndUpdate((x: UserIds) => x + userId)
     case In.DisconnectUsers(userIds) =>
       onlineUserIds.getAndUpdate((x: UserIds) => x -- userIds)
-    case In.NotifiedBatch(userIds) => notification ! lila.hub.actorApi.notify.NotifiedBatch(userIds)
+    case In.NotifiedBatch(userIds) => notification ! lishogi.hub.actorApi.notify.NotifiedBatch(userIds)
     case In.Lags(lags) =>
       lags foreach (UserLagCache.put _).tupled
       // this shouldn't be necessary... ensure that users are known to be online
@@ -101,9 +101,9 @@ final class RemoteSocket(
       send(Out.tellSri(Sri(sri), payload))
     case CloseAccount(userId) =>
       send(Out.disconnectUser(userId))
-    case lila.hub.actorApi.mod.Shadowban(userId, v) =>
+    case lishogi.hub.actorApi.mod.Shadowban(userId, v) =>
       send(Out.setTroll(userId, v))
-    case lila.hub.actorApi.mod.Impersonate(userId, modId) =>
+    case lishogi.hub.actorApi.mod.Impersonate(userId, modId) =>
       send(Out.impersonate(userId, modId))
     case ApiUserIsOnline(userId, value) =>
       send(Out.apiUserOnline(userId, value))
@@ -136,7 +136,7 @@ final class RemoteSocket(
     subPromise.future
   }
 
-  Lilakka.shutdown(shutdown, _.PhaseBeforeServiceUnbind, "Telling lila-ws we're stopping") { () =>
+  Lishogikka.shutdown(shutdown, _.PhaseBeforeServiceUnbind, "Telling lila-ws we're stopping") { () =>
     request[Unit](
       id => send(Protocol.Out.stop(id)),
       res => logger.info(s"lila-ws says: $res")
@@ -145,7 +145,7 @@ final class RemoteSocket(
       .nevermind
   }
 
-  Lilakka.shutdown(shutdown, _.PhaseServiceUnbind, "Stopping the socket redis pool") { () =>
+  Lishogikka.shutdown(shutdown, _.PhaseServiceUnbind, "Stopping the socket redis pool") { () =>
     Future {
       stopping = true
       redisClient.shutdown()
@@ -155,7 +155,7 @@ final class RemoteSocket(
 
 object RemoteSocket {
 
-  private val logger = lila log "socket"
+  private val logger = lishogi log "socket"
 
   type Send = String => Unit
 
@@ -271,7 +271,7 @@ object RemoteSocket {
       def unfollow(u1: String, u2: String)     = s"rel/unfollow $u1 $u2"
       def apiUserOnline(u: String, v: Boolean) = s"api/online $u ${boolean(v)}"
       def boot                                 = "boot"
-      def stop(reqId: Int)                     = s"lila/stop $reqId"
+      def stop(reqId: Int)                     = s"lishogi/stop $reqId"
 
       def commas(strs: Iterable[Any]): String = if (strs.isEmpty) "-" else strs mkString ","
       def boolean(v: Boolean): String         = if (v) "+" else "-"

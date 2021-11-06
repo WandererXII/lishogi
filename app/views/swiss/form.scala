@@ -3,12 +3,12 @@ package views.html.swiss
 import play.api.data.Form
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.tournament.{ DataForm => TourForm }
-import lila.swiss.{ Swiss, SwissForm }
-import lila.app.ui.ScalatagsTemplate._
-import lila.hub.LightTeam.TeamID
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.tournament.{ DataForm => TourForm }
+import lishogi.swiss.{ Swiss, SwissForm }
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.hub.LightTeam.TeamID
 
 object form {
 

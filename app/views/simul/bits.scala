@@ -2,15 +2,15 @@ package views.html.simul
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object bits {
 
-  def link(simulId: lila.simul.Simul.ID): Frag =
+  def link(simulId: lishogi.simul.Simul.ID): Frag =
     a(href := routes.Simul.show(simulId))("Simultaneous exhibition")
 
   def jsI18n()(implicit lang: Lang) = i18nJsObject(baseTranslations)
@@ -26,7 +26,7 @@ object bits {
       )
     }
 
-  def homepageSpotlight(s: lila.simul.Simul)(implicit ctx: Context) =
+  def homepageSpotlight(s: lishogi.simul.Simul)(implicit ctx: Context) =
     a(href := routes.Simul.show(s.id), cls := "tour-spotlight little id_@s.id")(
       img(cls := "img icon", src := staticUrl("images/fire-silhouette.svg")),
       span(cls := "content")(
@@ -39,7 +39,7 @@ object bits {
       )
     )
 
-  def allCreated(simuls: List[lila.simul.Simul])(implicit lang: play.api.i18n.Lang) =
+  def allCreated(simuls: List[lishogi.simul.Simul])(implicit lang: play.api.i18n.Lang) =
     table(
       simuls map { simul =>
         tr(
@@ -51,7 +51,7 @@ object bits {
       }
     )
 
-  private[simul] def setup(sim: lila.simul.Simul) =
+  private[simul] def setup(sim: lishogi.simul.Simul) =
     span(cls := List("setup" -> true, "rich" -> sim.variantRich))(
       sim.clock.config.show,
       " • ",

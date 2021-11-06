@@ -1,4 +1,4 @@
-package lila.round
+package lishogi.round
 
 import akka.actor._
 import akka.stream.scaladsl._
@@ -6,10 +6,10 @@ import org.joda.time.DateTime
 
 import scala.concurrent.duration._
 
-import lila.common.LilaStream
-import lila.db.dsl._
-import lila.game.{ Game, GameRepo, Query }
-import lila.round.actorApi.round.{ Abandon, QuietFlag }
+import lishogi.common.LishogiStream
+import lishogi.db.dsl._
+import lishogi.game.{ Game, GameRepo, Query }
+import lishogi.round.actorApi.round.{ Abandon, QuietFlag }
 
 /*
  * Cleans up unfinished games
@@ -18,8 +18,8 @@ import lila.round.actorApi.round.{ Abandon, QuietFlag }
 final private[round] class Titivate(
     tellRound: TellRound,
     gameRepo: GameRepo,
-    bookmark: lila.hub.actors.Bookmark,
-    chatApi: lila.chat.ChatApi
+    bookmark: lishogi.hub.actors.Bookmark,
+    chatApi: lishogi.chat.ChatApi
 )(implicit mat: akka.stream.Materializer)
     extends Actor {
 
@@ -45,19 +45,19 @@ final private[round] class Titivate(
 
     case Run =>
       gameRepo.count(_.checkable).flatMap { total =>
-        lila.mon.round.titivate.total.record(total)
+        lishogi.mon.round.titivate.total.record(total)
         gameRepo
           .docCursor(Query.checkable)
           .documentSource(100)
           .via(gameRead)
           .via(gameFlow)
-          .toMat(LilaStream.sinkCount)(Keep.right)
+          .toMat(LishogiStream.sinkCount)(Keep.right)
           .run()
-          .addEffect(lila.mon.round.titivate.game.record(_))
+          .addEffect(lishogi.mon.round.titivate.game.record(_))
           .>> {
             gameRepo
               .count(_.checkableOld)
-              .dmap(lila.mon.round.titivate.old.record(_))
+              .dmap(lishogi.mon.round.titivate.old.record(_))
           }
           .monSuccess(_.round.titivate.time)
           .logFailure(logBranch)
@@ -68,7 +68,7 @@ final private[round] class Titivate(
   private val logBranch = logger branch "titivate"
 
   private val gameRead = Flow[Bdoc].map { doc =>
-    lila.game.BSONHandlers.gameBSONHandler
+    lishogi.game.BSONHandlers.gameBSONHandler
       .readDocument(doc)
       .fold[GameOrFail](
         err => Left(~doc.string("_id") -> err),
@@ -79,7 +79,7 @@ final private[round] class Titivate(
   private val gameFlow: Flow[GameOrFail, Unit, _] = Flow[GameOrFail].mapAsyncUnordered(8) {
 
     case Left((id, err)) =>
-      lila.mon.round.titivate.broken(err.getClass.getSimpleName).increment()
+      lishogi.mon.round.titivate.broken(err.getClass.getSimpleName).increment()
       logBranch.warn(s"Can't read game $id", err)
       gameRepo unsetCheckAt id
 
@@ -100,8 +100,8 @@ final private[round] class Titivate(
           }
 
         case game if game.unplayed =>
-          bookmark ! lila.hub.actorApi.bookmark.Remove(game.id)
-          chatApi.remove(lila.chat.Chat.Id(game.id))
+          bookmark ! lishogi.hub.actorApi.bookmark.Remove(game.id)
+          chatApi.remove(lishogi.chat.Chat.Id(game.id))
           gameRepo remove game.id
 
         case game =>

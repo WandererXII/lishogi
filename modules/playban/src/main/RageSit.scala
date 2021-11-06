@@ -1,9 +1,9 @@
-package lila.playban
+package lishogi.playban
 
 import shogi.{ Color, Speed }
 import scala.math.{ log10, sqrt }
 
-import lila.game.Game
+import lishogi.game.Game
 
 case class RageSit(counter: Int) extends AnyVal {
   def isBad      = counter <= -40

@@ -1,12 +1,12 @@
-package lila.evalCache
+package lishogi.evalCache
 
 import reactivemongo.api.bson._
 import scala.util.{ Success, Try }
 import scalaz.NonEmptyList
 
 import shogi.format.Uci
-import lila.db.dsl._
-import lila.tree.Eval._
+import lishogi.db.dsl._
+import lishogi.tree.Eval._
 
 private object BSONHandlers {
 
@@ -48,7 +48,7 @@ private object BSONHandlers {
           }.flatMap {
             _.toNel toTry s"Empty PVs ${value}"
           }
-        case b => lila.db.BSON.handlerBadType[NonEmptyList[Pv]](b)
+        case b => lishogi.db.BSON.handlerBadType[NonEmptyList[Pv]](b)
       }
     def writeTry(x: NonEmptyList[Pv]) =
       Success(BSONString {
@@ -69,7 +69,7 @@ private object BSONHandlers {
               SmallFen raw fen
             )
           )
-        case _ => lila.db.BSON.handlerBadValue(s"Invalid evalcache id ${value}")
+        case _ => lishogi.db.BSON.handlerBadValue(s"Invalid evalcache id ${value}")
       }
     },
     x =>

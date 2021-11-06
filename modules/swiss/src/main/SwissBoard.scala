@@ -1,9 +1,9 @@
-package lila.swiss
+package lishogi.swiss
 
 import scala.concurrent.duration._
 
-import lila.common.LightUser
-import lila.game.Game
+import lishogi.common.LightUser
+import lishogi.game.Game
 
 private case class SwissBoard(
     gameId: Game.ID,
@@ -18,9 +18,9 @@ private object SwissBoard {
 
 final private class SwissBoardApi(
     rankingApi: SwissRankingApi,
-    cacheApi: lila.memo.CacheApi,
-    lightUserApi: lila.user.LightUserApi,
-    gameProxyRepo: lila.round.GameProxyRepo
+    cacheApi: lishogi.memo.CacheApi,
+    lightUserApi: lishogi.user.LightUserApi,
+    gameProxyRepo: lishogi.round.GameProxyRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private val displayBoards = 6

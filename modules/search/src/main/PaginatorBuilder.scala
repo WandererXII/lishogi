@@ -1,7 +1,7 @@
-package lila.search
+package lishogi.search
 
-import lila.common.config.MaxPerPage
-import lila.common.paginator._
+import lishogi.common.config.MaxPerPage
+import lishogi.common.paginator._
 
 import play.api.libs.json.Writes
 

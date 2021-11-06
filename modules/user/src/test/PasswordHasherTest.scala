@@ -1,6 +1,6 @@
-package lila.user
+package lishogi.user
 
-import lila.common.config.Secret
+import lishogi.common.config.Secret
 import org.specs2.mutable.Specification
 import User.{ ClearPassword => P }
 

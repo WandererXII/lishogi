@@ -1,4 +1,4 @@
-package lila.coordinate
+package lishogi.coordinate
 
 import play.api.data._
 import play.api.data.Forms._

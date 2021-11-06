@@ -1,8 +1,8 @@
 package views.html.relation
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -11,8 +11,8 @@ object actions {
   private val dataHoverText = data("hover-text")
 
   def apply(
-      userId: lila.user.User.ID,
-      relation: Option[lila.relation.Relation],
+      userId: lishogi.user.User.ID,
+      relation: Option[lishogi.relation.Relation],
       followable: Boolean,
       blocked: Boolean,
       signup: Boolean = false

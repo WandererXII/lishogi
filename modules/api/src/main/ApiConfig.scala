@@ -1,8 +1,8 @@
-package lila.api
+package lishogi.api
 
 import scala.concurrent.duration._
 
-import lila.common.config._
+import lishogi.common.config._
 
 final class ApiConfig(
     val apiToken: Secret,
@@ -23,7 +23,7 @@ object ApiConfig {
       val blindCookieMaxAge: FiniteDuration,
       blindCookieSalt: Secret
   ) {
-    def hash(implicit ctx: lila.user.UserContext) = {
+    def hash(implicit ctx: lishogi.user.UserContext) = {
       import com.roundeights.hasher.Implicits._
       (ctx.userId | "anon").salt(blindCookieSalt.value).md5.hex
     }

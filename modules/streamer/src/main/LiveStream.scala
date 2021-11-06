@@ -1,4 +1,4 @@
-package lila.streamer
+package lishogi.streamer
 
 import akka.actor._
 import akka.pattern.ask
@@ -6,8 +6,8 @@ import makeTimeout.short
 import play.api.mvc.RequestHeader
 import scala.concurrent.duration._
 
-import lila.memo.CacheApi._
-import lila.user.User
+import lishogi.memo.CacheApi._
+import lishogi.user.User
 
 case class LiveStreams(streams: List[Stream]) {
 
@@ -35,7 +35,7 @@ case class LiveStreams(streams: List[Stream]) {
         .toList
     }
 
-  def withTitles(lightUser: lila.user.LightUserApi) =
+  def withTitles(lightUser: lishogi.user.LightUserApi) =
     LiveStreams.WithTitles(
       this,
       streams
@@ -66,7 +66,7 @@ object LiveStreams {
 }
 
 final class LiveStreamApi(
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     streamingActor: ActorRef
 )(implicit ec: scala.concurrent.ExecutionContext) {
 

@@ -4,18 +4,18 @@ import play.api.data.Form
 import play.api.mvc._
 import scala.annotation.nowarn
 
-import lila.api.Context
-import lila.app._
-import lila.common.config.MaxPerSecond
-import lila.relay.{ Relay => RelayModel, RelayForm }
-import lila.user.{ User => UserModel }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.common.config.MaxPerSecond
+import lishogi.relay.{ Relay => RelayModel, RelayForm }
+import lishogi.user.{ User => UserModel }
 import views._
 
 final class Relay(
     env: Env,
     studyC: => Study,
     apiC: => Api
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   def index(page: Int) =
     Open { implicit ctx =>
@@ -181,7 +181,7 @@ final class Relay(
       else f(relay)
     }
 
-  private def doShow(relay: RelayModel, oldSc: lila.study.Study.WithChapter)(implicit
+  private def doShow(relay: RelayModel, oldSc: lishogi.study.Study.WithChapter)(implicit
       ctx: Context
   ): Fu[Result] =
     studyC.CanViewResult(oldSc.study) {
@@ -197,5 +197,5 @@ final class Relay(
   private def showRoute(r: RelayModel) = routes.Relay.show(r.slug, r.id.value)
 
   implicit private def makeRelayId(id: String): RelayModel.Id           = RelayModel.Id(id)
-  implicit private def makeChapterId(id: String): lila.study.Chapter.Id = lila.study.Chapter.Id(id)
+  implicit private def makeChapterId(id: String): lishogi.study.Chapter.Id = lishogi.study.Chapter.Id(id)
 }

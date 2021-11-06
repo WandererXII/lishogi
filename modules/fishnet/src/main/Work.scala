@@ -1,10 +1,10 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import org.joda.time.DateTime
 
 import shogi.format.{ FEN, Uci }
 import shogi.variant.Variant
-import lila.common.IpAddress
+import lishogi.common.IpAddress
 
 sealed trait Work {
   def _id: Work.Id
@@ -62,7 +62,7 @@ object Work {
   ) {
 
     override def toString =
-      if (system) lila.user.User.lishogiId
+      if (system) lishogi.user.User.lishogiId
       else userId orElse ip.map(_.value) getOrElse "unknown"
   }
 
@@ -140,5 +140,5 @@ object Work {
     override def toString = s"id:$id game:${game.id} tries:$tries requestedBy:$sender acquired:$acquired"
   }
 
-  def makeId = Id(lila.common.ThreadLocalRandom nextString 8)
+  def makeId = Id(lishogi.common.ThreadLocalRandom nextString 8)
 }

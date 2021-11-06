@@ -3,9 +3,9 @@ package html.plan
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -15,7 +15,7 @@ object features {
     views.html.base.layout(
       title = title,
       moreCss = cssTag("feature"),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = title,
           url = s"$netBaseUrl${routes.Plan.features().url}",

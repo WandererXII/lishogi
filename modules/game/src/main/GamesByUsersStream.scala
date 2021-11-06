@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import akka.stream.scaladsl._
 import play.api.libs.json._
@@ -6,12 +6,12 @@ import scala.concurrent.duration._
 
 import actorApi.{ FinishGame, StartGame }
 import shogi.format.FEN
-import lila.common.Bus
-import lila.common.Json.jodaWrites
-import lila.game.Game
-import lila.user.User
+import lishogi.common.Bus
+import lishogi.common.Json.jodaWrites
+import lishogi.game.Game
+import lishogi.user.User
 
-final class GamesByUsersStream(gameRepo: lila.game.GameRepo)(implicit
+final class GamesByUsersStream(gameRepo: lishogi.game.GameRepo)(implicit
     ec: scala.concurrent.ExecutionContext
 ) {
 

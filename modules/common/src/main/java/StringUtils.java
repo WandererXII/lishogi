@@ -1,4 +1,4 @@
-package lila.common.base;
+package lishogi.common.base;
 
 public class StringUtils {
     private static final char[] DIGITS = {

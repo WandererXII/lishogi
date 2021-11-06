@@ -1,9 +1,9 @@
-package lila.round
+package lishogi.round
 
-import lila.chat.{ Chat, ChatApi, ChatTimeout }
-import lila.game.Game
-import lila.hub.actorApi.shutup.PublicSource
-import lila.user.User
+import lishogi.chat.{ Chat, ChatApi, ChatTimeout }
+import lishogi.game.Game
+import lishogi.hub.actorApi.shutup.PublicSource
+import lishogi.user.User
 
 final class Messenger(api: ChatApi) {
 

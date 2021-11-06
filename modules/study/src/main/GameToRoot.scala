@@ -1,14 +1,14 @@
-package lila.study
+package lishogi.study
 
 import shogi.format.FEN
-import lila.game.Game
-import lila.round.JsonView.WithFlags
+import lishogi.game.Game
+import lishogi.round.JsonView.WithFlags
 
 private object GameToRoot {
 
   def apply(game: Game, initialFen: Option[FEN], withClocks: Boolean): Node.Root = {
     val root = Node.Root.fromRoot {
-      lila.round.TreeBuilder(
+      lishogi.round.TreeBuilder(
         game = game,
         analysis = none,
         initialFen = initialFen | FEN(game.variant.initialFen),
@@ -22,8 +22,8 @@ private object GameToRoot {
 
   private def endComment(game: Game) =
     game.finished option {
-      import lila.tree.Node.Comment
-      val status = lila.game.StatusText(game)
+      import lishogi.tree.Node.Comment
+      val status = lishogi.game.StatusText(game)
       val text   = s"$status"
       Comment(Comment.Id.make, Comment.Text(text), Comment.Author.Lishogi)
     }

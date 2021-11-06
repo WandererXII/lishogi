@@ -1,9 +1,9 @@
-package lila.storm
+package lishogi.storm
 
 import play.api.data._
 import play.api.data.Forms._
 
-import lila.common.Form.{ numberIn, stringIn }
+import lishogi.common.Form.{ numberIn, stringIn }
 
 object StormForm {
 
@@ -27,7 +27,7 @@ object StormForm {
       "errors"       -> number(min = 0, max = 50),
       "combo"        -> number(min = 1, max = 900),
       "time"         -> number(min = 1, max = 900),
-      "highest"      -> number(min = lila.rating.Glicko.minRating, max = 4000),
+      "highest"      -> number(min = lishogi.rating.Glicko.minRating, max = 4000),
       "notAnExploit" -> nonEmptyText.verifying(_ == notAnExploit),
       "signed"       -> optional(nonEmptyText)
     )(RunData.apply)(RunData.unapply)

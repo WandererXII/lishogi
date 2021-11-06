@@ -1,4 +1,4 @@
-package lila.user
+package lishogi.user
 
 import org.specs2.mutable.Specification
 import org.mindrot.BCrypt

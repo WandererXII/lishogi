@@ -1,19 +1,19 @@
 package views.html.simul
 
-import lila.api.Context
-import lila.app.templating.Environment._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
 import play.api.i18n.Lang
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object homeInner {
 
   def apply(
-      pendings: List[lila.simul.Simul],
-      createds: List[lila.simul.Simul],
-      starteds: List[lila.simul.Simul],
-      finisheds: List[lila.simul.Simul]
+      pendings: List[lishogi.simul.Simul],
+      createds: List[lishogi.simul.Simul],
+      starteds: List[lishogi.simul.Simul],
+      finisheds: List[lishogi.simul.Simul]
   )(implicit ctx: Context) =
     div(cls := "box")(
       h1(trans.simultaneousExhibitions()),
@@ -94,7 +94,7 @@ object homeInner {
       )
     )
 
-  private def simTd(sim: lila.simul.Simul) =
+  private def simTd(sim: lishogi.simul.Simul) =
     td(cls := "header")(
       a(href := routes.Simul.show(sim.id))(
         span(cls := "name")(sim.fullName),
@@ -102,7 +102,7 @@ object homeInner {
       )
     )
 
-  private def simHost(sim: lila.simul.Simul)(implicit lang: Lang) =
+  private def simHost(sim: lishogi.simul.Simul)(implicit lang: Lang) =
     td(cls := "host")(
       userIdLink(sim.hostId.some, withOnline = false),
       br,

@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import org.joda.time.DateTime
 import scalaz.Validation.FlatMap._

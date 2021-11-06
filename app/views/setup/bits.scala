@@ -2,9 +2,9 @@ package views.html.setup
 
 import play.api.data.{ Field, Form }
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -12,7 +12,7 @@ private object bits {
 
   val prefix = "sf_"
 
-  def fenInput(form: Form[_], strict: Boolean, validFen: Option[lila.setup.ValidFen])(implicit
+  def fenInput(form: Form[_], strict: Boolean, validFen: Option[lishogi.setup.ValidFen])(implicit
       ctx: Context
   ) = {
     val handicapChoices: List[SelectChoice] =
@@ -66,7 +66,7 @@ private object bits {
       renderSelect(
         form("variant"),
         variants.filter { case (id, _, _) =>
-          ctx.noBlind || lila.game.Game.blindModeVariants.exists(_.id.toString == id)
+          ctx.noBlind || lishogi.game.Game.blindModeVariants.exists(_.id.toString == id)
         }
       )
     )
@@ -185,7 +185,7 @@ private object bits {
     )
 
   val dataRandomColorVariants =
-    attr("data-random-color-variants") := lila.game.Game.variantsWhereSenteIsBetter.map(_.id).mkString(",")
+    attr("data-random-color-variants") := lishogi.game.Game.variantsWhereSenteIsBetter.map(_.id).mkString(",")
 
   val dataAnon        = attr("data-anon")
   val dataMin         = attr("data-min")

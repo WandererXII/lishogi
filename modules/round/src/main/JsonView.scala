@@ -1,14 +1,14 @@
-package lila.round
+package lishogi.round
 
 import scala.math
 
 import play.api.libs.json._
 
-import lila.common.ApiVersion
-import lila.game.JsonView._
-import lila.game.{ Pov, Game, Player => GamePlayer }
-import lila.pref.Pref
-import lila.user.{ User, UserRepo }
+import lishogi.common.ApiVersion
+import lishogi.game.JsonView._
+import lishogi.game.{ Pov, Game, Player => GamePlayer }
+import lishogi.pref.Pref
+import lishogi.user.{ User, UserRepo }
 
 import shogi.format.{ FEN, Forsyth }
 import shogi.{ Clock, Color }
@@ -17,13 +17,13 @@ import actorApi.SocketStatus
 
 final class JsonView(
     userRepo: UserRepo,
-    userJsonView: lila.user.JsonView,
-    gameJsonView: lila.game.JsonView,
+    userJsonView: lishogi.user.JsonView,
+    gameJsonView: lishogi.game.JsonView,
     getSocketStatus: Game => Fu[SocketStatus],
     takebacker: Takebacker,
     moretimer: Moretimer,
-    divider: lila.game.Divider,
-    evalCache: lila.evalCache.EvalCacheApi,
+    divider: lishogi.game.Divider,
+    evalCache: lishogi.evalCache.EvalCacheApi,
     isOfferingRematch: Pov => Boolean,
     animation: AnimationDuration,
     moretime: MoretimeDuration
@@ -264,7 +264,7 @@ final class JsonView(
       .add("evalPut" -> me.??(evalCache.shouldPut))
   }
 
-  private def blurs(game: Game, player: lila.game.Player) =
+  private def blurs(game: Game, player: lishogi.game.Player) =
     player.blurs.nonEmpty option {
       blursWriter.writes(player.blurs) +
         ("percent" -> JsNumber(game.playerBlurPercent(player.color)))
@@ -275,7 +275,7 @@ final class JsonView(
 
   private def possibleMoves(pov: Pov, apiVersion: ApiVersion): Option[JsValue] =
     (pov.game playableBy pov.player) option
-      lila.game.Event.PossibleMoves.json(pov.game.situation.destinations, apiVersion)
+      lishogi.game.Event.PossibleMoves.json(pov.game.situation.destinations, apiVersion)
 
   private def possibleDrops(pov: Pov): Option[JsValue] =
     (pov.game playableBy pov.player) ?? {

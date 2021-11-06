@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 import shogi.format.{ FEN, Forsyth, Glyph, Glyphs, Tag, Tags, Uci, UciCharPair }
 import shogi.variant.Variant
@@ -8,14 +8,14 @@ import reactivemongo.api.bson._
 import scala.util.Success
 import scala.util.Try
 
-import lila.common.Iso
-import lila.db.BSON
-import lila.db.BSON.{ Reader, Writer }
-import lila.db.dsl._
-import lila.game.BSONHandlers.FENBSONHandler
-import lila.tree.Eval
-import lila.tree.Eval.Score
-import lila.tree.Node.{ Comment, Comments, Gamebook, Shape, Shapes }
+import lishogi.common.Iso
+import lishogi.db.BSON
+import lishogi.db.BSON.{ Reader, Writer }
+import lishogi.db.dsl._
+import lishogi.game.BSONHandlers.FENBSONHandler
+import lishogi.tree.Eval
+import lishogi.tree.Eval.Score
+import lishogi.tree.Node.{ Comment, Comments, Gamebook, Shape, Shapes }
 
 object BSONHandlers {
 
@@ -91,7 +91,7 @@ object BSONHandlers {
   implicit private val CommentTextBSONHandler = stringAnyValHandler[Comment.Text](_.value, Comment.Text.apply)
   implicit val CommentAuthorBSONHandler = quickHandler[Comment.Author](
     {
-      case BSONString(lila.user.User.lishogiId | "l") => Comment.Author.Lishogi
+      case BSONString(lishogi.user.User.lishogiId | "l") => Comment.Author.Lishogi
       case BSONString(name)                           => Comment.Author.External(name)
       case doc: Bdoc =>
         {

@@ -1,13 +1,13 @@
-package lila.challenge
+package lishogi.challenge
 
 import shogi.format.FEN
 import shogi.variant.{ FromPosition, Variant }
 import shogi.{ Color, Mode, Speed }
 import org.joda.time.DateTime
 
-import lila.game.PerfPicker
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.game.PerfPicker
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 case class Challenge(
     _id: String,
@@ -116,7 +116,7 @@ object Challenge {
     def show = s"$int${if (provisional) "?" else ""}"
   }
   object Rating {
-    def apply(p: lila.rating.Perf): Rating = Rating(p.intRating, p.provisional)
+    def apply(p: lishogi.rating.Perf): Rating = Rating(p.intRating, p.provisional)
   }
 
   sealed trait Challenger
@@ -171,12 +171,12 @@ object Challenge {
 
   private val idSize = 8
 
-  private def randomId = lila.common.ThreadLocalRandom nextString idSize
+  private def randomId = lishogi.common.ThreadLocalRandom nextString idSize
 
   def toRegistered(variant: Variant, timeControl: TimeControl)(u: User) =
     Challenger.Registered(u.id, Rating(u.perfs(perfTypeOf(variant, timeControl))))
 
-  def randomColor = shogi.Color(lila.common.ThreadLocalRandom.nextBoolean())
+  def randomColor = shogi.Color(lishogi.common.ThreadLocalRandom.nextBoolean())
 
   def make(
       variant: Variant,
@@ -194,7 +194,7 @@ object Challenge {
       case _       => ColorChoice.Random -> randomColor
     }
     val finalMode = timeControl match {
-      case TimeControl.Clock(clock) if !lila.game.Game.allowRated(variant, clock.some) => Mode.Casual
+      case TimeControl.Clock(clock) if !lishogi.game.Game.allowRated(variant, clock.some) => Mode.Casual
       case _                                                                           => mode
     }
     val isOpen = challenger == Challenge.Challenger.Open

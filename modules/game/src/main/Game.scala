@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import shogi.Color.{ Gote, Sente }
 import shogi.format.{ FEN, Uci }
@@ -16,11 +16,11 @@ import shogi.{
   Game => ShogiGame,
   StartingPosition
 }
-import lila.common.Sequence
-import lila.db.ByteArray
-import lila.rating.PerfType
-import lila.rating.PerfType.Classical
-import lila.user.User
+import lishogi.common.Sequence
+import lishogi.db.ByteArray
+import lishogi.rating.PerfType
+import lishogi.rating.PerfType.Classical
+import lishogi.user.User
 import org.joda.time.DateTime
 
 case class Game(

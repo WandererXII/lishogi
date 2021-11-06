@@ -1,12 +1,12 @@
-package lila.security
+package lishogi.security
 
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.common.Domain
-import lila.db.dsl._
+import lishogi.common.Domain
+import lishogi.db.dsl._
 
 /* An expensive API detecting disposable email.
  * Only hit after trying everything else (DnsApi)
@@ -14,7 +14,7 @@ import lila.db.dsl._
 final private class CheckMail(
     ws: WSClient,
     config: SecurityConfig.CheckMail,
-    mongoCache: lila.memo.MongoCache.Api
+    mongoCache: lishogi.memo.MongoCache.Api
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem
@@ -75,7 +75,7 @@ final private class CheckMail(
           logger.info(s"CheckMail $domain = $ok ($reason) {valid:$valid,block:$block,disposable:$disposable}")
           ok
         case res =>
-          throw lila.base.LilaException(s"${config.url} $domain ${res.status} ${res.body take 200}")
+          throw lishogi.base.LishogiException(s"${config.url} $domain ${res.status} ${res.body take 200}")
       }
       .monTry(res => _.security.checkMailApi.fetch(res.isSuccess, res.getOrElse(true)))
 

@@ -5,14 +5,14 @@ import play.api.mvc._
 import scala.annotation.nowarn
 import scala.concurrent.duration._
 
-import lila.api.Context
-import lila.app._
-import lila.chat.Chat
-import lila.common.HTTPRequest
-import lila.hub.LightTeam._
-import lila.memo.CacheApi._
-import lila.tournament.{ VisibleTournaments, Tournament => Tour }
-import lila.user.{ User => UserModel }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.chat.Chat
+import lishogi.common.HTTPRequest
+import lishogi.hub.LightTeam._
+import lishogi.memo.CacheApi._
+import lishogi.tournament.{ VisibleTournaments, Tournament => Tour }
+import lishogi.user.{ User => UserModel }
 import views._
 
 final class Tournament(
@@ -21,7 +21,7 @@ final class Tournament(
     apiC: => Api
 )(implicit
     mat: akka.stream.Materializer
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private def repo     = env.tournament.tournamentRepo
   private def api      = env.tournament.api
@@ -248,13 +248,13 @@ final class Tournament(
       }
     }
 
-  private val CreateLimitPerUser = new lila.memo.RateLimit[lila.user.User.ID](
+  private val CreateLimitPerUser = new lishogi.memo.RateLimit[lishogi.user.User.ID](
     credits = 240,
     duration = 24.hour,
     key = "tournament.user"
   )
 
-  private val CreateLimitPerIP = new lila.memo.RateLimit[lila.common.IpAddress](
+  private val CreateLimitPerIP = new lishogi.memo.RateLimit[lishogi.common.IpAddress](
     credits = 400,
     duration = 24.hour,
     key = "tournament.ip"
@@ -314,7 +314,7 @@ final class Tournament(
       else doApiCreate(me)
     }
 
-  private def doApiCreate(me: lila.user.User)(implicit req: Request[_]): Fu[Result] =
+  private def doApiCreate(me: lishogi.user.User)(implicit req: Request[_]): Fu[Result] =
     forms
       .create(me)
       .bindFromRequest()
@@ -347,7 +347,7 @@ final class Tournament(
             tour.teamBattle ?? { battle =>
               env.team.teamRepo.byOrderedIds(battle.sortedTeamIds) flatMap { teams =>
                 env.user.lightUserApi.preloadMany(teams.map(_.createdBy)) >> {
-                  val form = lila.tournament.TeamBattle.DataForm.edit(
+                  val form = lishogi.tournament.TeamBattle.DataForm.edit(
                     teams.map { t =>
                       s"""${t.id} "${t.name}" by ${env.user.lightUserApi
                         .sync(t.createdBy)
@@ -370,7 +370,7 @@ final class Tournament(
         _ ?? {
           case tour if (tour.createdBy == me.id || isGranted(_.ManageTournament)) && !tour.isFinished =>
             implicit val req = ctx.body
-            lila.tournament.TeamBattle.DataForm.empty
+            lishogi.tournament.TeamBattle.DataForm.empty
               .bindFromRequest()
               .fold(
                 err => BadRequest(html.tournament.teamBattle.edit(tour, err)).fuccess,
@@ -389,7 +389,7 @@ final class Tournament(
         html = notFound,
         api = _ =>
           env.tournament.cached.onHomepage.getUnit.nevermind map {
-            lila.tournament.Spotlight.select(_, ctx.me, 4)
+            lishogi.tournament.Spotlight.select(_, ctx.me, 4)
           } flatMap env.tournament.apiJsonView.featured map { Ok(_) }
       )
     }
@@ -494,9 +494,9 @@ final class Tournament(
       }
   }
 
-  private def getUserTeamIds(user: lila.user.User): Fu[List[TeamID]] =
+  private def getUserTeamIds(user: lishogi.user.User): Fu[List[TeamID]] =
     env.team.cached.teamIdsList(user.id)
 
-  private def getLeaderTeamIds(user: lila.user.User): Fu[List[TeamID]] =
+  private def getLeaderTeamIds(user: lishogi.user.User): Fu[List[TeamID]] =
     env.team.teamRepo.enabledTeamIdsByLeader(user.id)
 }

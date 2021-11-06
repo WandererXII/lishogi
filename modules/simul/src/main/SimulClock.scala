@@ -1,4 +1,4 @@
-package lila.simul
+package lishogi.simul
 
 import shogi.{ Centis, Clock, Color }
 

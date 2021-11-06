@@ -1,4 +1,4 @@
-package lila.coordinate
+package lishogi.coordinate
 
 case class Score(
     _id: String,

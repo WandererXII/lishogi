@@ -1,10 +1,10 @@
-package lila.push
+package lishogi.push
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final private class DeviceApi(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -29,7 +29,7 @@ final private class DeviceApi(coll: Coll)(implicit ec: scala.concurrent.Executio
     findLastManyByUserId(platform, 1)(userId) dmap (_.headOption)
 
   def register(user: User, platform: String, deviceId: String) = {
-    lila.mon.push.register.in(platform).increment()
+    lishogi.mon.push.register.in(platform).increment()
     coll.update
       .one(
         $id(deviceId),
@@ -45,7 +45,7 @@ final private class DeviceApi(coll: Coll)(implicit ec: scala.concurrent.Executio
   }
 
   def unregister(user: User) = {
-    lila.mon.push.register.out.increment()
+    lishogi.mon.push.register.out.increment()
     coll.delete.one($doc("userId" -> user.id)).void
   }
 

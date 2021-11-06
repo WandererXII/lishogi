@@ -1,12 +1,12 @@
-package lila.game
+package lishogi.game
 
 import shogi.Status
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
+import lishogi.user.User
 
 object Query {
 

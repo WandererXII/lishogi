@@ -1,6 +1,6 @@
-package lila.puzzle
+package lishogi.puzzle
 
-import lila.i18n.{ I18nKey, I18nKeys => trans }
+import lishogi.i18n.{ I18nKey, I18nKeys => trans }
 
 sealed abstract class PuzzleDifficulty(val ratingDelta: Int, val name: I18nKey) {
 

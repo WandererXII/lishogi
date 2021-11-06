@@ -1,9 +1,9 @@
 package controllers
 
-import lila.app._
+import lishogi.app._
 import views._
 
-final class Event(env: Env) extends LilaController(env) {
+final class Event(env: Env) extends LishogiController(env) {
 
   private def api = env.event.api
 

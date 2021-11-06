@@ -1,17 +1,17 @@
 package views.html
 package userTournament
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.user.User
 
 import controllers.routes
 
 object bits {
 
-  def best(u: User, pager: Paginator[lila.tournament.LeaderboardApi.TourEntry])(implicit ctx: Context) =
+  def best(u: User, pager: Paginator[lishogi.tournament.LeaderboardApi.TourEntry])(implicit ctx: Context) =
     layout(
       u,
       title = s"${u.username} best tournaments",
@@ -21,7 +21,7 @@ object bits {
       views.html.userTournament.list(u, "best", pager, "BEST")
     }
 
-  def recent(u: User, pager: Paginator[lila.tournament.LeaderboardApi.TourEntry])(implicit ctx: Context) =
+  def recent(u: User, pager: Paginator[lishogi.tournament.LeaderboardApi.TourEntry])(implicit ctx: Context) =
     layout(
       u,
       title = s"${u.username} recent tournaments",

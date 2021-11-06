@@ -1,9 +1,9 @@
-package lila.shutup
+package lishogi.shutup
 
 import org.joda.time.DateTime
 import scala.util.Success
 
-import lila.hub.actorApi.shutup.{ PublicSource => Source }
+import lishogi.hub.actorApi.shutup.{ PublicSource => Source }
 
 case class PublicLine(
     text: String,
@@ -17,8 +17,8 @@ object PublicLine {
     PublicLine(text, from.some, DateTime.now.some)
 
   import reactivemongo.api.bson._
-  import lila.db.dsl._
-  implicit private val SourceHandler = lila.db.dsl.tryHandler[Source](
+  import lishogi.db.dsl._
+  implicit private val SourceHandler = lishogi.db.dsl.tryHandler[Source](
     { case BSONString(v) =>
       v split ':' match {
         case Array("t", id)     => Success(Source.Tournament(id))
@@ -27,7 +27,7 @@ object PublicLine {
         case Array("u", id)     => Success(Source.Study(id))
         case Array("e", id)     => Success(Source.Team(id))
         case Array("i", id)     => Success(Source.Swiss(id))
-        case _                  => lila.db.BSON.handlerBadValue(s"Invalid PublicLine source $v")
+        case _                  => lishogi.db.BSON.handlerBadValue(s"Invalid PublicLine source $v")
       }
     },
     x =>
@@ -43,11 +43,11 @@ object PublicLine {
 
   private val objectHandler = Macros.handler[PublicLine]
 
-  implicit val PublicLineBSONHandler = lila.db.dsl.tryHandler[PublicLine](
+  implicit val PublicLineBSONHandler = lishogi.db.dsl.tryHandler[PublicLine](
     {
       case doc: BSONDocument => objectHandler readTry doc
       case BSONString(text)  => Success(PublicLine(text, none, none))
-      case a                 => lila.db.BSON.handlerBadValue(s"Invalid PublicLine $a")
+      case a                 => lishogi.db.BSON.handlerBadValue(s"Invalid PublicLine $a")
     },
     x => if (x.from.isDefined) objectHandler.writeTry(x).get else BSONString(x.text)
   )

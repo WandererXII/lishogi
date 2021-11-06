@@ -1,7 +1,7 @@
-package lila.evaluation
+package lishogi.evaluation
 
 import shogi.Color
-import lila.user.User
+import lishogi.user.User
 import org.joda.time.DateTime
 import scala.math.sqrt
 
@@ -151,8 +151,8 @@ case class PlayerAggregateAssessment(
 
 object PlayerAggregateAssessment {
 
-  case class WithGames(pag: PlayerAggregateAssessment, games: List[lila.game.Game]) {
-    def pov(pa: PlayerAssessment) = games find (_.id == pa.gameId) map { lila.game.Pov(_, pa.color) }
+  case class WithGames(pag: PlayerAggregateAssessment, games: List[lishogi.game.Game]) {
+    def pov(pa: PlayerAssessment) = games find (_.id == pa.gameId) map { lishogi.game.Pov(_, pa.color) }
   }
 }
 
@@ -170,7 +170,7 @@ case class PlayerFlags(
 object PlayerFlags {
 
   import reactivemongo.api.bson._
-  import lila.db.BSON
+  import lishogi.db.BSON
 
   implicit val playerFlagsBSONHandler = new BSON[PlayerFlags] {
 

@@ -1,8 +1,8 @@
-package lila.user
+package lishogi.user
 
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
-import lila.memo._
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
+import lishogi.memo._
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
@@ -64,7 +64,7 @@ final class TrophyApi(
     coll.insert
       .one(
         $doc(
-          "_id"  -> lila.common.ThreadLocalRandom.nextString(8),
+          "_id"  -> lishogi.common.ThreadLocalRandom.nextString(8),
           "user" -> userId,
           "kind" -> kindKey,
           "url"  -> trophyUrl,

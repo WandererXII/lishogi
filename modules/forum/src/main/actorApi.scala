@@ -1,4 +1,4 @@
-package lila.forum
+package lishogi.forum
 package actorApi
 
 case class InsertPost(post: Post)

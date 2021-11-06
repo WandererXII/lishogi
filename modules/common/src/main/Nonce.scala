@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import ornicar.scalalib.Random
 

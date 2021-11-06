@@ -1,12 +1,12 @@
-package lila.tournament
+package lishogi.tournament
 
 import play.api.i18n.Lang
 import scala.concurrent.duration._
 
-import lila.hub.LightTeam.TeamID
-import lila.memo._
-import lila.memo.CacheApi._
-import lila.user.User
+import lishogi.hub.LightTeam.TeamID
+import lishogi.memo._
+import lishogi.memo.CacheApi._
+import lishogi.user.User
 
 final private[tournament] class Cached(
     playerRepo: PlayerRepo,

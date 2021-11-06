@@ -1,10 +1,10 @@
-package lila.streamer
+package lishogi.streamer
 
 import play.api.libs.json._
 import org.joda.time.DateTime
 
-import lila.user.User
-import lila.common.String.html.unescapeHtml
+import lishogi.user.User
+import lishogi.common.String.html.unescapeHtml
 
 trait Stream {
   def serviceName: String
@@ -36,7 +36,7 @@ object Stream {
     case class Result(data: Option[List[TwitchStream]], pagination: Option[Pagination]) {
       def liveStreams = (~data).filter(_.isLive)
     }
-    case class Stream(userId: String, status: String, streamer: Streamer) extends lila.streamer.Stream {
+    case class Stream(userId: String, status: String, streamer: Streamer) extends lishogi.streamer.Stream {
       def serviceName = "twitch"
     }
     object Reads {
@@ -69,7 +69,7 @@ object Stream {
           }
     }
     case class Stream(channelId: String, status: String, videoId: String, streamer: Streamer)
-        extends lila.streamer.Stream {
+        extends lishogi.streamer.Stream {
       def serviceName = "youTube"
     }
 

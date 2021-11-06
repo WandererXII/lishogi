@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import com.github.blemale.scaffeine.Cache
 import scala.concurrent.duration.FiniteDuration
@@ -6,7 +6,7 @@ import scala.concurrent.duration.FiniteDuration
 // calls a function when a key expires
 final class ExpireCallbackMemo(ttl: FiniteDuration, callback: String => Unit)(implicit mode: play.api.Mode) {
 
-  private val cache: Cache[String, Boolean] = lila.memo.CacheApi
+  private val cache: Cache[String, Boolean] = lishogi.memo.CacheApi
     .scaffeine(mode)
     .expireAfterWrite(ttl)
     .removalListener((key: String, _: Boolean, _) => callback(key))

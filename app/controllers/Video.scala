@@ -1,12 +1,12 @@
 package controllers
 
-import lila.api.Context
-import lila.app._
-import lila.common.HTTPRequest
-import lila.video.{ Filter, UserControl, View }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.common.HTTPRequest
+import lishogi.video.{ Filter, UserControl, View }
 import views._
 
-final class Video(env: Env) extends LilaController(env) {
+final class Video(env: Env) extends LishogiController(env) {
 
   private def api = env.video.api
 

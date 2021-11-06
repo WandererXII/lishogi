@@ -1,9 +1,9 @@
-package lila.security
+package lishogi.security
 
-import lila.common.constants.bannedYoutubeIds
+import lishogi.common.constants.bannedYoutubeIds
 
 final class Spam(
-    spamKeywords: () => lila.common.Strings
+    spamKeywords: () => lishogi.common.Strings
 ) {
 
   def detect(text: String) =

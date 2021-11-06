@@ -1,4 +1,4 @@
-package lila.pref
+package lishogi.pref
 
 import play.api.mvc.RequestHeader
 

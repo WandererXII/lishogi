@@ -1,9 +1,9 @@
-package lila.practice
+package lishogi.practice
 
 import play.api.libs.json._
 
-import lila.common.Json._
-import lila.study.JsonView._
+import lishogi.common.Json._
+import lishogi.study.JsonView._
 
 object JsonView {
 

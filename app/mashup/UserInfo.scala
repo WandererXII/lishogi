@@ -1,19 +1,19 @@
-package lila.app
+package lishogi.app
 package mashup
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.bookmark.BookmarkApi
-import lila.forum.PostApi
-import lila.game.Crosstable
-import lila.relation.RelationApi
-import lila.security.Granter
-import lila.user.{ Trophies, TrophyApi, User }
+import lishogi.api.Context
+import lishogi.bookmark.BookmarkApi
+import lishogi.forum.PostApi
+import lishogi.game.Crosstable
+import lishogi.relation.RelationApi
+import lishogi.security.Granter
+import lishogi.user.{ Trophies, TrophyApi, User }
 
 case class UserInfo(
     user: User,
-    ranks: lila.rating.UserRankMap,
+    ranks: lishogi.rating.UserRankMap,
     hasSimul: Boolean,
     ratingChart: Option[String],
     nbs: UserInfo.NbGames,
@@ -22,8 +22,8 @@ case class UserInfo(
     nbPosts: Int,
     nbStudies: Int,
     trophies: Trophies,
-    shields: List[lila.tournament.TournamentShield.Award],
-    revolutions: List[lila.tournament.Revolution.Award],
+    shields: List[lishogi.tournament.TournamentShield.Award],
+    revolutions: List[lishogi.tournament.Revolution.Award],
     teamIds: List[String],
     isStreamer: Boolean,
     isCoach: Boolean,
@@ -51,16 +51,16 @@ object UserInfo {
   }
 
   case class Social(
-      relation: Option[lila.relation.Relation],
-      notes: List[lila.user.Note],
+      relation: Option[lishogi.relation.Relation],
+      notes: List[lishogi.user.Note],
       followable: Boolean,
       blocked: Boolean
   )
 
   final class SocialApi(
       relationApi: RelationApi,
-      noteApi: lila.user.NoteApi,
-      prefApi: lila.pref.PrefApi
+      noteApi: lishogi.user.NoteApi,
+      prefApi: lishogi.pref.PrefApi
   ) {
     def apply(u: User, ctx: Context): Fu[Social] =
       ctx.userId.?? {
@@ -92,8 +92,8 @@ object UserInfo {
 
   final class NbGamesApi(
       bookmarkApi: BookmarkApi,
-      gameCached: lila.game.Cached,
-      crosstableApi: lila.game.CrosstableApi
+      gameCached: lishogi.game.Cached,
+      crosstableApi: lishogi.game.CrosstableApi
   ) {
     def apply(u: User, ctx: Context, withCrosstable: Boolean): Fu[NbGames] =
       (withCrosstable ?? ctx.me.filter(u.!=) ?? { me =>
@@ -115,18 +115,18 @@ object UserInfo {
   final class UserInfoApi(
       relationApi: RelationApi,
       trophyApi: TrophyApi,
-      shieldApi: lila.tournament.TournamentShieldApi,
-      revolutionApi: lila.tournament.RevolutionApi,
+      shieldApi: lishogi.tournament.TournamentShieldApi,
+      revolutionApi: lishogi.tournament.RevolutionApi,
       postApi: PostApi,
-      studyRepo: lila.study.StudyRepo,
-      ratingChartApi: lila.history.RatingChartApi,
-      userCached: lila.user.Cached,
-      isHostingSimul: lila.round.IsSimulHost,
-      streamerApi: lila.streamer.StreamerApi,
-      teamCached: lila.team.Cached,
-      coachApi: lila.coach.CoachApi,
-      insightShare: lila.insight.Share,
-      playbanApi: lila.playban.PlaybanApi
+      studyRepo: lishogi.study.StudyRepo,
+      ratingChartApi: lishogi.history.RatingChartApi,
+      userCached: lishogi.user.Cached,
+      isHostingSimul: lishogi.round.IsSimulHost,
+      streamerApi: lishogi.streamer.StreamerApi,
+      teamCached: lishogi.team.Cached,
+      coachApi: lishogi.coach.CoachApi,
+      insightShare: lishogi.insight.Share,
+      playbanApi: lishogi.playban.PlaybanApi
   )(implicit ec: scala.concurrent.ExecutionContext) {
     def apply(user: User, nbs: NbGames, ctx: Context): Fu[UserInfo] =
       (ctx.noBlind ?? ratingChartApi(user)).mon(_.user segment "ratingChart") zip

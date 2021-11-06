@@ -1,26 +1,26 @@
-package lila.team
+package lishogi.team
 
 import akka.actor._
 import com.softwaremill.macwire._
 
-import lila.common.config._
-import lila.mod.ModlogApi
-import lila.notify.NotifyApi
-import lila.socket.Socket.{ GetVersion, SocketVersion }
+import lishogi.common.config._
+import lishogi.mod.ModlogApi
+import lishogi.notify.NotifyApi
+import lishogi.socket.Socket.{ GetVersion, SocketVersion }
 
 @Module
 final class Env(
-    captcher: lila.hub.actors.Captcher,
-    timeline: lila.hub.actors.Timeline,
-    teamSearch: lila.hub.actors.TeamSearch,
-    userRepo: lila.user.UserRepo,
+    captcher: lishogi.hub.actors.Captcher,
+    timeline: lishogi.hub.actors.Timeline,
+    teamSearch: lishogi.hub.actors.TeamSearch,
+    userRepo: lishogi.user.UserRepo,
     modLog: ModlogApi,
     notifyApi: NotifyApi,
-    remoteSocketApi: lila.socket.RemoteSocket,
-    chatApi: lila.chat.ChatApi,
-    cacheApi: lila.memo.CacheApi,
-    lightUserApi: lila.user.LightUserApi,
-    db: lila.db.Db
+    remoteSocketApi: lishogi.socket.RemoteSocket,
+    chatApi: lishogi.chat.ChatApi,
+    cacheApi: lishogi.memo.CacheApi,
+    lightUserApi: lishogi.user.LightUserApi,
+    db: lishogi.db.Db
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
@@ -54,13 +54,13 @@ final class Env(
 
   lazy val getTeamName = new GetTeamName(cached.blockingTeamName)
 
-  lila.common.Bus.subscribeFun("shadowban", "teamIsLeader", "teamJoinedBy", "teamIsLeaderOf") {
-    case lila.hub.actorApi.mod.Shadowban(userId, true) => api deleteRequestsByUserId userId
-    case lila.hub.actorApi.team.IsLeader(teamId, userId, promise) =>
+  lishogi.common.Bus.subscribeFun("shadowban", "teamIsLeader", "teamJoinedBy", "teamIsLeaderOf") {
+    case lishogi.hub.actorApi.mod.Shadowban(userId, true) => api deleteRequestsByUserId userId
+    case lishogi.hub.actorApi.team.IsLeader(teamId, userId, promise) =>
       promise completeWith cached.isLeader(teamId, userId)
-    case lila.hub.actorApi.team.IsLeaderOf(leaderId, memberId, promise) =>
+    case lishogi.hub.actorApi.team.IsLeaderOf(leaderId, memberId, promise) =>
       promise completeWith api.isLeaderOf(leaderId, memberId)
-    case lila.hub.actorApi.team.TeamIdsJoinedBy(userId, promise) =>
+    case lishogi.hub.actorApi.team.TeamIdsJoinedBy(userId, promise) =>
       promise completeWith cached.teamIdsList(userId)
   }
 }

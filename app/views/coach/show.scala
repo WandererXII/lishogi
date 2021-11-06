@@ -1,10 +1,10 @@
 package views.html
 package coach
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
 
 import controllers.routes
 
@@ -12,7 +12,7 @@ object show {
 
   import trans.coach._
 
-  private def section(title: Frag, text: Option[lila.coach.CoachProfile.RichText]) =
+  private def section(title: Frag, text: Option[lishogi.coach.CoachProfile.RichText]) =
     text.map { t =>
       st.section(
         h2(title),
@@ -21,10 +21,10 @@ object show {
     }
 
   def apply(
-      c: lila.coach.Coach.WithUser,
-      coachReviews: lila.coach.CoachReview.Reviews,
-      studies: Seq[lila.study.Study.WithChaptersAndLiked],
-      myReview: Option[lila.coach.CoachReview]
+      c: lishogi.coach.Coach.WithUser,
+      coachReviews: lishogi.coach.CoachReview.Reviews,
+      studies: Seq[lishogi.study.Study.WithChaptersAndLiked],
+      myReview: Option[lishogi.coach.CoachReview]
   )(implicit ctx: Context) = {
     val profile   = c.coach.profile
     val coachName = s"${c.user.title.??(t => s"$t ")}${c.user.realNameOrUsername}"
@@ -42,7 +42,7 @@ $('.coach-review-form form').show();
 });""")
       ),
       moreCss = cssTag("coach"),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = title,
           description = shorten(~(c.coach.profile.headline), 152),

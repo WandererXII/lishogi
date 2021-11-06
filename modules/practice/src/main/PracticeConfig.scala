@@ -1,8 +1,8 @@
-package lila.practice
+package lishogi.practice
 
 import io.methvin.play.autoconfig._
-import lila.study.Study
-import lila.common.config._
+import lishogi.study.Study
+import lishogi.common.config._
 
 final class PracticeConfig(
     val sections: List[PracticeConfigSection]

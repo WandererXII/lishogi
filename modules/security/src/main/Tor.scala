@@ -1,6 +1,6 @@
-package lila.security
+package lishogi.security
 
-import lila.common.IpAddress
+import lishogi.common.IpAddress
 
 import play.api.libs.ws.WSClient
 
@@ -12,7 +12,7 @@ final class Tor(ws: WSClient, config: SecurityConfig.Tor)(implicit ec: scala.con
     ws.url(config.providerUrl).get() map { res =>
       ips = res.body.linesIterator.filterNot(_ startsWith "#").map(IpAddress.apply).toSet
       withIps(ips)
-      lila.mon.security.torNodes.update(ips.size)
+      lishogi.mon.security.torNodes.update(ips.size)
     }
   }
 

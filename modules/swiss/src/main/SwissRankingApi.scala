@@ -1,11 +1,11 @@
-package lila.swiss
+package lishogi.swiss
 
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.memo.CacheApi
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
+import lishogi.user.User
 
 final private class SwissRankingApi(
     colls: SwissColls,

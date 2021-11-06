@@ -1,6 +1,6 @@
-package lila.forum
+package lishogi.forum
 
-import lila.user.User
+import lishogi.user.User
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
@@ -97,7 +97,7 @@ object Post {
   ): Post = {
 
     Post(
-      _id = lila.common.ThreadLocalRandom nextString idSize,
+      _id = lishogi.common.ThreadLocalRandom nextString idSize,
       topicId = topicId,
       author = author,
       userId = userId,

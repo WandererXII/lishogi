@@ -1,14 +1,14 @@
-package lila.slack
+package lishogi.slack
 
 import org.joda.time.DateTime
 
-import lila.common.{ ApiVersion, EmailAddress, IpAddress, LightUser }
-import lila.hub.actorApi.slack._
-import lila.user.User
+import lishogi.common.{ ApiVersion, EmailAddress, IpAddress, LightUser }
+import lishogi.hub.actorApi.slack._
+import lishogi.user.User
 
 final class SlackApi(
     client: SlackClient,
-    noteApi: lila.user.NoteApi,
+    noteApi: lishogi.user.NoteApi,
     implicit val lightUser: LightUser.Getter
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -16,7 +16,7 @@ final class SlackApi(
 
   object charge {
 
-    import lila.hub.actorApi.plan.ChargeEvent
+    import lishogi.hub.actorApi.plan.ChargeEvent
 
     private var buffer: Vector[ChargeEvent] = Vector.empty
 
@@ -217,7 +217,7 @@ final class SlackApi(
   private def broadcastLink(id: String, name: String) = lishogiLink(s"/broadcast/-/$id", name)
   private val chatPanicLink                           = lishogiLink("mod/chat-panic", "Chat Panic")
 
-  private val userRegex   = lila.common.String.atUsernameRegex.pattern
+  private val userRegex   = lishogi.common.String.atUsernameRegex.pattern
   private val userReplace = link("https://lishogi.org/@/$1?mod", "$1")
 
   private def linkifyUsers(msg: String) =

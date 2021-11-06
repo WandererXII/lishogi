@@ -1,12 +1,12 @@
-package lila.blog
+package lishogi.blog
 
 import io.prismic._
 import play.api.mvc.RequestHeader
 import play.api.libs.ws.WSClient
 
-import lila.common.BlogLangs
-import lila.common.config.MaxPerPage
-import lila.common.paginator._
+import lishogi.common.BlogLangs
+import lishogi.common.config.MaxPerPage
+import lishogi.common.paginator._
 
 final class BlogApi(
     config: BlogConfig

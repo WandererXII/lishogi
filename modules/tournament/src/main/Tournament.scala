@@ -1,17 +1,17 @@
-package lila.tournament
+package lishogi.tournament
 
 import org.joda.time.{ DateTime, Duration, Interval }
-import lila.common.ThreadLocalRandom
+import lishogi.common.ThreadLocalRandom
 import play.api.i18n.Lang
 import scala.util.chaining._
 
 import shogi.Clock.{ Config => ClockConfig }
 import shogi.{ Mode, Speed, StartingPosition }
-import lila.common.Animal
-import lila.game.PerfPicker
-import lila.i18n.defaultLang
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.common.Animal
+import lishogi.game.PerfPicker
+import lishogi.i18n.defaultLang
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 case class Tournament(
     id: Tournament.ID,
@@ -49,7 +49,7 @@ case class Tournament(
   def isTeamBattle = teamBattle.isDefined
 
   def name(full: Boolean = true)(implicit lang: Lang): String = {
-    import lila.i18n.I18nKeys.tourname._
+    import lishogi.i18n.I18nKeys.tourname._
     if (isMarathon || isUnique) name
     else if (isTeamBattle && full) xTeamBattle.txt(name)
     else if (isTeamBattle) name
@@ -138,7 +138,7 @@ case class Tournament(
 
   def ratingVariant = if (variant.fromPosition) shogi.variant.Standard else variant
 
-  lazy val looksLikePrize = !isScheduled && lila.common.String.looksLikePrize(s"$name $description")
+  lazy val looksLikePrize = !isScheduled && lishogi.common.String.looksLikePrize(s"$name $description")
 
   override def toString = s"$id $startsAt ${name()(defaultLang)} $minutes minutes, $clock, $nbPlayers players"
 }

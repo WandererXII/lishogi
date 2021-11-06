@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import akka.actor._
 import scala.concurrent.duration._

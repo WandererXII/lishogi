@@ -1,4 +1,4 @@
-package lila.round
+package lishogi.round
 
 import akka.actor.Scheduler
 import java.util.concurrent.atomic.AtomicReference
@@ -14,8 +14,8 @@ private object MoveLatMonitor {
 
   def start(scheduler: Scheduler)(implicit ec: scala.concurrent.ExecutionContext) =
     scheduler.scheduleWithFixedDelay(10 second, 2 second) { () =>
-      lila.common.Bus.publish(
-        lila.hub.actorApi.round.Mlat(latency.getAndSet(Latency()).average),
+      lishogi.common.Bus.publish(
+        lishogi.hub.actorApi.round.Mlat(latency.getAndSet(Latency()).average),
         "mlat"
       )
     }

@@ -1,4 +1,4 @@
-package lila.socket
+package lishogi.socket
 
 import shogi.format.{ FEN, Uci, UciCharPair }
 import shogi.opening._
@@ -6,7 +6,7 @@ import shogi.variant.Variant
 import play.api.libs.json._
 import scalaz.Validation.FlatMap._
 
-import lila.tree.Branch
+import lishogi.tree.Branch
 
 trait AnaAny {
 

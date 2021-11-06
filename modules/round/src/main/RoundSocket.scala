@@ -1,4 +1,4 @@
-package lila.round
+package lishogi.round
 
 import akka.actor.{ ActorSystem, Cancellable, CoordinatedShutdown, Scheduler }
 import play.api.libs.json._
@@ -9,26 +9,26 @@ import actorApi._
 import actorApi.round._
 import shogi.format.Uci
 import shogi.{ Centis, Color, Gote, MoveMetrics, Sente, Speed }
-import lila.chat.{ BusChan, Chat }
-import lila.common.{ Bus, IpAddress, Lilakka }
-import lila.game.Game.{ FullId, PlayerId }
-import lila.game.{ Event, Game, Pov }
-import lila.hub.actorApi.map.{ Exists, Tell, TellAll, TellIfExists, TellMany }
-import lila.hub.actorApi.round.{ Abort, Berserk, RematchNo, RematchYes, Resign, TourStanding }
-import lila.hub.actorApi.socket.remote.TellSriIn
-import lila.hub.actorApi.tv.TvSelect
-import lila.hub.DuctConcMap
-import lila.room.RoomSocket.{ Protocol => RP, _ }
-import lila.socket.RemoteSocket.{ Protocol => P, _ }
-import lila.socket.Socket.{ makeMessage, SocketVersion }
-import lila.user.User
+import lishogi.chat.{ BusChan, Chat }
+import lishogi.common.{ Bus, IpAddress, Lishogikka }
+import lishogi.game.Game.{ FullId, PlayerId }
+import lishogi.game.{ Event, Game, Pov }
+import lishogi.hub.actorApi.map.{ Exists, Tell, TellAll, TellIfExists, TellMany }
+import lishogi.hub.actorApi.round.{ Abort, Berserk, RematchNo, RematchYes, Resign, TourStanding }
+import lishogi.hub.actorApi.socket.remote.TellSriIn
+import lishogi.hub.actorApi.tv.TvSelect
+import lishogi.hub.DuctConcMap
+import lishogi.room.RoomSocket.{ Protocol => RP, _ }
+import lishogi.socket.RemoteSocket.{ Protocol => P, _ }
+import lishogi.socket.Socket.{ makeMessage, SocketVersion }
+import lishogi.user.User
 
 final class RoundSocket(
-    remoteSocketApi: lila.socket.RemoteSocket,
+    remoteSocketApi: lishogi.socket.RemoteSocket,
     roundDependencies: RoundDuct.Dependencies,
     proxyDependencies: GameProxy.Dependencies,
     scheduleExpiration: ScheduleExpiration,
-    tournamentActor: lila.hub.actors.TournamentApi,
+    tournamentActor: lishogi.hub.actors.TournamentApi,
     messenger: Messenger,
     goneWeightsFor: Game => Fu[(Float, Float)],
     shutdown: CoordinatedShutdown
@@ -41,10 +41,10 @@ final class RoundSocket(
 
   private var stopping = false
 
-  Lilakka.shutdown(shutdown, _.PhaseServiceUnbind, "Stop round socket") { () =>
+  Lishogikka.shutdown(shutdown, _.PhaseServiceUnbind, "Stop round socket") { () =>
     stopping = true
-    rounds.tellAllWithAck(RoundDuct.LilaStop.apply) map { nb =>
-      Lilakka.logger.info(s"$nb round ducts have stopped")
+    rounds.tellAllWithAck(RoundDuct.LishogiStop.apply) map { nb =>
+      Lishogikka.logger.info(s"$nb round ducts have stopped")
     }
   }
 
@@ -172,18 +172,18 @@ final class RoundSocket(
     case TellAll(msg)               => rounds.tellAll(msg)
     case Exists(gameId, promise)    => promise success rounds.exists(gameId)
     case TourStanding(tourId, json) => send(Protocol.Out.tourStanding(tourId, json))
-    case lila.game.actorApi.StartGame(game) if game.hasClock =>
+    case lishogi.game.actorApi.StartGame(game) if game.hasClock =>
       game.userIds.some.filter(_.nonEmpty) foreach { usersPlaying =>
         send(Protocol.Out.startGame(usersPlaying))
       }
-    case lila.game.actorApi.FinishGame(game, _, _) if game.hasClock =>
+    case lishogi.game.actorApi.FinishGame(game, _, _) if game.hasClock =>
       game.userIds.some.filter(_.nonEmpty) foreach { usersPlaying =>
         send(Protocol.Out.finishGame(usersPlaying))
       }
   }
 
   {
-    import lila.chat.actorApi._
+    import lishogi.chat.actorApi._
     Bus.subscribeFun(BusChan.Round.chan, BusChan.Global.chan) {
       case ChatLine(Chat.Id(id), l) =>
         val line = RoundLine(l, id endsWith "/w")
@@ -199,7 +199,7 @@ final class RoundSocket(
     rounds.tellAll(RoundDuct.Tick)
   }
   system.scheduler.scheduleWithFixedDelay(60 seconds, 60 seconds) { () =>
-    lila.mon.round.ductCount.update(rounds.size)
+    lishogi.mon.round.ductCount.update(rounds.size)
   }
 
   private val terminationDelay = new TerminationDelay(system.scheduler, 1 minute, finishRound)

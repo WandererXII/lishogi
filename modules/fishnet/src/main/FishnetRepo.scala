@@ -1,17 +1,17 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 import org.joda.time.DateTime
 
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
-import lila.memo.CacheApi._
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi._
 
 final private class FishnetRepo(
     analysisColl: Coll,
     clientColl: Coll,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BSONHandlers._
@@ -100,7 +100,7 @@ final private class FishnetRepo(
     clientColl.primitiveOne[String](
       $or(
         "_id" $eq keyOrUser,
-        "userId" $eq lila.user.User.normalize(keyOrUser)
+        "userId" $eq lishogi.user.User.normalize(keyOrUser)
       ),
       "_id"
     ) orFail "client not found" map Client.Key.apply

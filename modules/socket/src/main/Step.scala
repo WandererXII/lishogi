@@ -1,4 +1,4 @@
-package lila.socket
+package lishogi.socket
 
 import shogi.format.Uci
 import shogi.{ Hand, Hands, Pos, Role }
@@ -29,7 +29,7 @@ object Step {
     def uciString = uci.uci
   }
 
-  // TODO copied from lila.game
+  // TODO copied from lishogi.game
   // put all that shit somewhere else
   implicit val crazyhousePocketWriter: OWrites[Hand] = OWrites { h =>
     JsObject(

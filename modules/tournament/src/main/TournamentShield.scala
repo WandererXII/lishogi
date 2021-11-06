@@ -1,16 +1,16 @@
-package lila.tournament
+package lishogi.tournament
 
 import org.joda.time.DateTime
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.user.User
-import lila.memo.CacheApi._
+import lishogi.db.dsl._
+import lishogi.user.User
+import lishogi.memo.CacheApi._
 
 final class TournamentShieldApi(
     tournamentRepo: TournamentRepo,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import TournamentShield._

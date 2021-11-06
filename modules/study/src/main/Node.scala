@@ -1,11 +1,11 @@
-package lila.study
+package lishogi.study
 
 import shogi.Hands
 import shogi.format.{ FEN, Glyph, Glyphs, Uci, UciCharPair }
 
 import shogi.Centis
-import lila.tree.Eval.Score
-import lila.tree.Node.{ Comment, Comments, Gamebook, Shapes }
+import lishogi.tree.Eval.Score
+import lishogi.tree.Node.{ Comment, Comments, Gamebook, Shapes }
 
 sealed trait RootOrNode {
   val ply: Int
@@ -340,7 +340,7 @@ object Node {
         children = emptyChildren
       )
 
-    def fromRoot(b: lila.tree.Root): Root =
+    def fromRoot(b: lishogi.tree.Root): Root =
       Root(
         ply = b.ply,
         fen = FEN(b.fen),
@@ -351,7 +351,7 @@ object Node {
       )
   }
 
-  def fromBranch(b: lila.tree.Branch): Node =
+  def fromBranch(b: lishogi.tree.Branch): Node =
     Node(
       id = b.id,
       ply = b.ply,

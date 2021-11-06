@@ -1,4 +1,4 @@
-package lila.socket
+package lishogi.socket
 
 import shogi.Centis
 import com.github.blemale.scaffeine.Cache
@@ -6,7 +6,7 @@ import scala.concurrent.duration._
 
 object UserLagCache {
 
-  private val cache: Cache[String, Centis] = lila.memo.CacheApi.scaffeineNoScheduler
+  private val cache: Cache[String, Centis] = lishogi.memo.CacheApi.scaffeineNoScheduler
     .expireAfterWrite(15 minutes)
     .build[String, Centis]()
 

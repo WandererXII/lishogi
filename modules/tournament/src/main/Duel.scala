@@ -1,7 +1,7 @@
-package lila.tournament
+package lishogi.tournament
 
-import lila.game.Game
-import lila.user.User
+import lishogi.game.Game
+import lishogi.user.User
 
 import java.util.concurrent.ConcurrentHashMap
 

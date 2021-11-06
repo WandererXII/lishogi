@@ -1,20 +1,20 @@
-package lila.slack
+package lishogi.slack
 
 import com.softwaremill.macwire._
 import play.api.{ Configuration, Mode }
 import play.api.libs.ws.WSClient
 
-import lila.common.Lilakka
-import lila.common.config._
-import lila.hub.actorApi.plan.ChargeEvent
-import lila.hub.actorApi.slack.Event
-import lila.hub.actorApi.user.Note
+import lishogi.common.Lishogikka
+import lishogi.common.config._
+import lishogi.hub.actorApi.plan.ChargeEvent
+import lishogi.hub.actorApi.slack.Event
+import lishogi.hub.actorApi.user.Note
 
 @Module
 final class Env(
     appConfig: Configuration,
-    getLightUser: lila.common.LightUser.Getter,
-    noteApi: lila.user.NoteApi,
+    getLightUser: lishogi.common.LightUser.Getter,
+    noteApi: lishogi.user.NoteApi,
     ws: WSClient,
     shutdown: akka.actor.CoordinatedShutdown,
     mode: Mode
@@ -28,10 +28,10 @@ final class Env(
 
   if (mode == Mode.Prod) {
     api.publishInfo("Lishogi has started!")
-    Lilakka.shutdown(shutdown, _.PhaseBeforeServiceUnbind, "Tell slack")(api.stop _)
+    Lishogikka.shutdown(shutdown, _.PhaseBeforeServiceUnbind, "Tell slack")(api.stop _)
   }
 
-  lila.common.Bus.subscribeFun("slack", "plan", "userNote") {
+  lishogi.common.Bus.subscribeFun("slack", "plan", "userNote") {
     case d: ChargeEvent                                => api charge d
     case Note(from, to, text, true) if from != "Irwin" => api.userModNote(from, to, text)
     case e: Event                                      => api publishEvent e

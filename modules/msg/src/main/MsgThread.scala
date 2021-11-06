@@ -1,7 +1,7 @@
-package lila.msg
+package lishogi.msg
 
-import lila.user.User
-import lila.common.LightUser
+import lishogi.user.User
+import lishogi.common.LightUser
 
 case class MsgThread(
     id: MsgThread.Id,

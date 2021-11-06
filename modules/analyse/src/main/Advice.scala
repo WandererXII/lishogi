@@ -1,7 +1,7 @@
-package lila.analyse
+package lishogi.analyse
 
 import shogi.format.Glyph
-import lila.tree.Eval._
+import lishogi.tree.Eval._
 import scala.util.chaining._
 
 sealed trait Advice {

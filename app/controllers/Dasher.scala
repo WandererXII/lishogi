@@ -2,12 +2,12 @@ package controllers
 
 import play.api.libs.json._
 
-import lila.api.Context
-import lila.app._
-import lila.common.LightUser.lightUserWrites
-import lila.i18n.{ enLang, I18nKeys => trans, I18nLangPicker, LangList }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.common.LightUser.lightUserWrites
+import lishogi.i18n.{ enLang, I18nKeys => trans, I18nLangPicker, LangList }
 
-final class Dasher(env: Env) extends LilaController(env) {
+final class Dasher(env: Env) extends LishogiController(env) {
 
   private val translationsBase = List(
     trans.networkLagBetweenYouAndLishogi,
@@ -40,10 +40,10 @@ final class Dasher(env: Env) extends LilaController(env) {
   ).map(_.key) ::: translationsBase
 
   private def translations(implicit ctx: Context) =
-    lila.i18n.JsDump.keysToObject(
+    lishogi.i18n.JsDump.keysToObject(
       if (ctx.isAnon) translationsAnon else translationsAuth,
       ctx.lang
-    ) ++ lila.i18n.JsDump.keysToObject(
+    ) ++ lishogi.i18n.JsDump.keysToObject(
       // the language settings should never be in a totally foreign language
       List(trans.language.key),
       if (I18nLangPicker.allFromRequestHeaders(ctx.req).has(ctx.lang)) ctx.lang
@@ -65,7 +65,7 @@ final class Dasher(env: Env) extends LilaController(env) {
                   "list"     -> LangList.choices
                 ),
                 "sound" -> Json.obj(
-                  "list" -> lila.pref.SoundSet.list.map { set =>
+                  "list" -> lishogi.pref.SoundSet.list.map { set =>
                     s"${set.key} ${set.name}"
                   }
                 ),
@@ -79,21 +79,21 @@ final class Dasher(env: Env) extends LilaController(env) {
                 "theme" -> Json.obj(
                   "d2" -> Json.obj(
                     "current" -> ctx.currentTheme.name,
-                    "list"    -> lila.pref.Theme.all.map(_.name)
+                    "list"    -> lishogi.pref.Theme.all.map(_.name)
                   ),
                   "d3" -> Json.obj(
                     "current" -> ctx.currentTheme3d.name,
-                    "list"    -> lila.pref.Theme3d.all.map(_.name)
+                    "list"    -> lishogi.pref.Theme3d.all.map(_.name)
                   )
                 ),
                 "piece" -> Json.obj(
                   "d2" -> Json.obj(
                     "current" -> ctx.currentPieceSet.name,
-                    "list"    -> lila.pref.PieceSet.all.map(_.name)
+                    "list"    -> lishogi.pref.PieceSet.all.map(_.name)
                   ),
                   "d3" -> Json.obj(
                     "current" -> ctx.currentPieceSet3d.name,
-                    "list"    -> lila.pref.PieceSet3d.all.map(_.name)
+                    "list"    -> lishogi.pref.PieceSet3d.all.map(_.name)
                   )
                 ),
                 "inbox"    -> ctx.hasInbox,
@@ -102,7 +102,7 @@ final class Dasher(env: Env) extends LilaController(env) {
                 "i18n"     -> translations,
                 "pieceNotation" -> Json.obj(
                   "current" -> ctx.pref.pieceNotation,
-                  "list" -> lila.pref.Notations.list.map { n =>
+                  "list" -> lishogi.pref.Notations.list.map { n =>
                     s"${n.key} ${n.name}"
                   }
                 )

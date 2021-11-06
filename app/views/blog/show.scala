@@ -1,19 +1,19 @@
 package views.html.blog
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.hub.actorApi.timeline.BlogPost
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.hub.actorApi.timeline.BlogPost
 
 import controllers.routes
 
 object show {
 
-  def apply(doc: io.prismic.Document)(implicit ctx: Context, prismic: lila.blog.BlogApi.Context) =
+  def apply(doc: io.prismic.Document)(implicit ctx: Context, prismic: lishogi.blog.BlogApi.Context) =
     views.html.base.layout(
       title = s"${~doc.getText("blog.title")} | Blog",
       moreJs = jsAt("compiled/embed-analyse.js"),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           `type` = "article",
           image = doc.getImage("blog.image", "main").map(_.url),
@@ -36,9 +36,9 @@ object show {
           div(cls := "body embed_analyse")(
             doc
               .getHtml("blog.body", prismic.linkResolver)
-              .map(lila.blog.Youtube.fixStartTimes)
-              .map(lila.blog.BlogTransform.removeProtocol)
-              .map(lila.blog.BlogTransform.markdown.apply)
+              .map(lishogi.blog.Youtube.fixStartTimes)
+              .map(lishogi.blog.BlogTransform.removeProtocol)
+              .map(lishogi.blog.BlogTransform.markdown.apply)
               .map(raw)
           ),
           ctx.noKid option

@@ -1,8 +1,8 @@
-package lila.game
+package lishogi.game
 
 import shogi.{ Color, Status }
 
-import lila.user.User
+import lishogi.user.User
 
 case class LightGame(
     id: Game.ID,
@@ -25,7 +25,7 @@ object LightGame {
   import Game.{ BSONFields => F }
 
   def projection =
-    lila.db.dsl.$doc(
+    lishogi.db.dsl.$doc(
       F.sentePlayer -> true,
       F.gotePlayer  -> true,
       F.playerUids  -> true,

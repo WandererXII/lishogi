@@ -9,16 +9,16 @@ import play.api.mvc._
 import scala.annotation.nowarn
 import scalatags.Text.Frag
 
-import lila.api.{ BodyContext, Context, HeaderContext, PageData }
-import lila.app._
-import lila.common.{ ApiVersion, HTTPRequest, Nonce }
-import lila.i18n.I18nLangPicker
-import lila.notify.Notification.Notifies
-import lila.oauth.{ OAuthScope, OAuthServer }
-import lila.security.{ FingerPrintedUser, Granter, Permission }
-import lila.user.{ UserContext, User => UserModel }
+import lishogi.api.{ BodyContext, Context, HeaderContext, PageData }
+import lishogi.app._
+import lishogi.common.{ ApiVersion, HTTPRequest, Nonce }
+import lishogi.i18n.I18nLangPicker
+import lishogi.notify.Notification.Notifies
+import lishogi.oauth.{ OAuthScope, OAuthServer }
+import lishogi.security.{ FingerPrintedUser, Granter, Permission }
+import lishogi.user.{ UserContext, User => UserModel }
 
-abstract private[controllers] class LilaController(val env: Env)
+abstract private[controllers] class LishogiController(val env: Env)
     extends BaseController
     with ContentTypes
     with RequestGetter
@@ -28,9 +28,9 @@ abstract private[controllers] class LilaController(val env: Env)
   implicit def executionContext = env.executionContext
   implicit def scheduler        = env.scheduler
 
-  implicit protected val LilaResultZero = Zero.instance[Result](Results.NotFound)
+  implicit protected val LishogiResultZero = Zero.instance[Result](Results.NotFound)
 
-  implicit final protected class LilaPimpedResult(result: Result) {
+  implicit final protected class LishogiPimpedResult(result: Result) {
     def fuccess                           = scala.concurrent.Future successful result
     def flashSuccess(msg: String): Result = result.flashing("success" -> msg)
     def flashSuccess: Result              = flashSuccess("")
@@ -38,7 +38,7 @@ abstract private[controllers] class LilaController(val env: Env)
     def flashFailure: Result              = flashFailure("")
   }
 
-  implicit protected def LilaFragToResult(frag: Frag): Result = Ok(frag)
+  implicit protected def LishogiFragToResult(frag: Frag): Result = Ok(frag)
 
   implicit protected def makeApiVersion(v: Int) = ApiVersion(v)
 
@@ -50,7 +50,7 @@ abstract private[controllers] class LilaController(val env: Env)
   protected val rateLimited    = Results.TooManyRequests
   protected val rateLimitedFu  = rateLimited.fuccess
 
-  implicit protected def LilaFunitToResult(
+  implicit protected def LishogiFunitToResult(
       @nowarn("cat=unused") funit: Funit
   )(implicit req: RequestHeader): Fu[Result] =
     negotiate(
@@ -226,18 +226,18 @@ abstract private[controllers] class LilaController(val env: Env)
   )(f: R => UserModel => Fu[Result])(req: R): Fu[Result] = {
     val scopes = OAuthScope select selectors
     env.security.api.oauthScoped(req, scopes) flatMap {
-      case Left(e @ lila.oauth.OAuthServer.MissingScope(available)) =>
-        lila.mon.user.oauth.request(false).increment()
+      case Left(e @ lishogi.oauth.OAuthServer.MissingScope(available)) =>
+        lishogi.mon.user.oauth.request(false).increment()
         OAuthServer
           .responseHeaders(scopes, available) {
             Unauthorized(jsonError(e.message))
           }
           .fuccess
       case Left(e) =>
-        lila.mon.user.oauth.request(false).increment()
+        lishogi.mon.user.oauth.request(false).increment()
         OAuthServer.responseHeaders(scopes, Nil) { Unauthorized(jsonError(e.message)) }.fuccess
       case Right(scoped) =>
-        lila.mon.user.oauth.request(true).increment()
+        lishogi.mon.user.oauth.request(true).increment()
         f(req)(scoped.user) map OAuthServer.responseHeaders(scopes, scoped.scopes)
     }
   }
@@ -450,11 +450,11 @@ abstract private[controllers] class LilaController(val env: Env)
   protected def authenticationFailed(implicit ctx: Context): Fu[Result] =
     negotiate(
       html = fuccess {
-        Redirect(routes.Auth.signup()) withCookies env.lilaCookie
+        Redirect(routes.Auth.signup()) withCookies env.lishogiCookie
           .session(env.security.api.AccessUri, ctx.req.uri)
       },
       api = _ =>
-        env.lilaCookie
+        env.lishogiCookie
           .ensure(ctx.req) {
             Unauthorized(jsonError("Login required"))
           }
@@ -475,7 +475,7 @@ abstract private[controllers] class LilaController(val env: Env)
   protected def negotiate(html: => Fu[Result], api: ApiVersion => Fu[Result])(implicit
       req: RequestHeader
   ): Fu[Result] =
-    lila.api.Mobile.Api
+    lishogi.api.Mobile.Api
       .requestVersion(req)
       .fold(html) { v =>
         api(v) dmap (_ as JSON)
@@ -550,8 +550,8 @@ abstract private[controllers] class LilaController(val env: Env)
       case Some(d) if !env.isProd =>
         d.copy(user =
           d.user
-            .addRole(lila.security.Permission.Beta.dbKey)
-            .addRole(lila.security.Permission.Prismic.dbKey)
+            .addRole(lishogi.security.Permission.Beta.dbKey)
+            .addRole(lishogi.security.Permission.Prismic.dbKey)
         ).some
       case d => d
     } flatMap {
@@ -590,11 +590,11 @@ abstract private[controllers] class LilaController(val env: Env)
   protected def NotForBots(res: => Fu[Result])(implicit ctx: Context) =
     if (HTTPRequest isCrawler ctx.req) notFound else res
 
-  protected def OnlyHumans(result: => Fu[Result])(implicit ctx: lila.api.Context) =
+  protected def OnlyHumans(result: => Fu[Result])(implicit ctx: lishogi.api.Context) =
     if (HTTPRequest isCrawler ctx.req) fuccess(NotFound)
     else result
 
-  protected def OnlyHumansAndFacebookOrTwitter(result: => Fu[Result])(implicit ctx: lila.api.Context) =
+  protected def OnlyHumansAndFacebookOrTwitter(result: => Fu[Result])(implicit ctx: lishogi.api.Context) =
     if (HTTPRequest isFacebookOrTwitterBot ctx.req) result
     else if (HTTPRequest isCrawler ctx.req) fuccess(NotFound)
     else result
@@ -620,7 +620,7 @@ abstract private[controllers] class LilaController(val env: Env)
         .mapValues { errors =>
           JsArray {
             errors.map { e =>
-              JsString(lila.i18n.Translator.txt.literal(e.message, e.args, lang))
+              JsString(lishogi.i18n.Translator.txt.literal(e.message, e.args, lang))
             }
           }
         }
@@ -630,13 +630,13 @@ abstract private[controllers] class LilaController(val env: Env)
   }
 
   protected def apiFormError(form: Form[_]): JsObject =
-    Json.obj("error" -> errorsAsJson(form)(lila.i18n.defaultLang))
+    Json.obj("error" -> errorsAsJson(form)(lishogi.i18n.defaultLang))
 
   protected def jsonFormError(err: Form[_])(implicit lang: Lang) =
     fuccess(BadRequest(ridiculousBackwardCompatibleJsonError(errorsAsJson(err))))
 
   protected def jsonFormErrorDefaultLang(err: Form[_]) =
-    jsonFormError(err)(lila.i18n.defaultLang)
+    jsonFormError(err)(lishogi.i18n.defaultLang)
 
   protected def jsonFormErrorFor(err: Form[_], req: RequestHeader, user: Option[UserModel]) =
     jsonFormError(err)(I18nLangPicker(req, user.flatMap(_.lang)))
@@ -645,9 +645,9 @@ abstract private[controllers] class LilaController(val env: Env)
     fuccess(BadRequest(errorsAsJson(err)))
 
   protected def pageHit(req: RequestHeader): Unit =
-    if (HTTPRequest isHuman req) lila.mon.http.path(req.path).increment()
+    if (HTTPRequest isHuman req) lishogi.mon.http.path(req.path).increment()
 
-  protected def pageHit(implicit ctx: lila.api.Context): Unit = pageHit(ctx.req)
+  protected def pageHit(implicit ctx: lishogi.api.Context): Unit = pageHit(ctx.req)
 
   protected val noProxyBufferHeader = "X-Accel-Buffering" -> "no"
   protected val noProxyBuffer       = (res: Result) => res.withHeaders(noProxyBufferHeader)

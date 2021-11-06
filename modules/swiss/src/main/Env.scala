@@ -1,33 +1,33 @@
-package lila.swiss
+package lishogi.swiss
 
 import com.softwaremill.macwire._
 import play.api.Configuration
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.common.{ AtMost, Every, ResilientScheduler }
-import lila.socket.Socket.{ GetVersion, SocketVersion }
+import lishogi.common.config._
+import lishogi.common.{ AtMost, Every, ResilientScheduler }
+import lishogi.socket.Socket.{ GetVersion, SocketVersion }
 
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    gameRepo: lila.game.GameRepo,
-    userRepo: lila.user.UserRepo,
-    onStart: lila.round.OnStart,
-    remoteSocketApi: lila.socket.RemoteSocket,
-    chatApi: lila.chat.ChatApi,
-    cacheApi: lila.memo.CacheApi,
-    lightUserApi: lila.user.LightUserApi,
-    gameProxyRepo: lila.round.GameProxyRepo,
-    roundSocket: lila.round.RoundSocket,
-    mongoCache: lila.memo.MongoCache.Api,
-    baseUrl: lila.common.config.BaseUrl
+    db: lishogi.db.Db,
+    gameRepo: lishogi.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    onStart: lishogi.round.OnStart,
+    remoteSocketApi: lishogi.socket.RemoteSocket,
+    chatApi: lishogi.chat.ChatApi,
+    cacheApi: lishogi.memo.CacheApi,
+    lightUserApi: lishogi.user.LightUserApi,
+    gameProxyRepo: lishogi.round.GameProxyRepo,
+    roundSocket: lishogi.round.RoundSocket,
+    mongoCache: lishogi.memo.MongoCache.Api,
+    baseUrl: lishogi.common.config.BaseUrl
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem,
     mat: akka.stream.Materializer,
-    idGenerator: lila.game.IdGenerator,
+    idGenerator: lishogi.game.IdGenerator,
     mode: play.api.Mode
 ) {
 
@@ -66,16 +66,16 @@ final class Env(
 
   lazy val getName = new GetSwissName(cache.name.sync)
 
-  lila.common.Bus.subscribeFun(
+  lishogi.common.Bus.subscribeFun(
     "finishGame",
     "adjustCheater",
     "adjustBooster",
     "teamKick"
   ) {
-    case lila.game.actorApi.FinishGame(game, _, _)           => api.finishGame(game)
-    case lila.hub.actorApi.team.KickFromTeam(teamId, userId) => api.kickFromTeam(teamId, userId)
-    case lila.hub.actorApi.mod.MarkCheater(userId, true)     => api.kickLame(userId)
-    case lila.hub.actorApi.mod.MarkBooster(userId)           => api.kickLame(userId)
+    case lishogi.game.actorApi.FinishGame(game, _, _)           => api.finishGame(game)
+    case lishogi.hub.actorApi.team.KickFromTeam(teamId, userId) => api.kickFromTeam(teamId, userId)
+    case lishogi.hub.actorApi.mod.MarkCheater(userId, true)     => api.kickLame(userId)
+    case lishogi.hub.actorApi.mod.MarkBooster(userId)           => api.kickLame(userId)
   }
 
   ResilientScheduler(
@@ -91,7 +91,7 @@ final class Env(
   ) { api.checkOngoingGames }
 }
 
-private class SwissColls(db: lila.db.Db) {
+private class SwissColls(db: lishogi.db.Db) {
   val swiss   = db(CollName("swiss"))
   val player  = db(CollName("swiss_player"))
   val pairing = db(CollName("swiss_pairing"))

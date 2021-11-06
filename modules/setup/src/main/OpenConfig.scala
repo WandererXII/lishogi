@@ -1,10 +1,10 @@
-package lila.setup
+package lishogi.setup
 
 import shogi.Clock
 import shogi.format.{ FEN, Forsyth }
 import shogi.variant.FromPosition
-import lila.rating.PerfType
-import lila.game.PerfPicker
+import lishogi.rating.PerfType
+import lishogi.game.PerfPicker
 
 final case class OpenConfig(
     variant: shogi.variant.Variant,

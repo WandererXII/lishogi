@@ -1,8 +1,8 @@
-package lila
+package lishogi
 
 package object simul extends PackageObject {
 
-  private[simul] val logger = lila.log("simul")
+  private[simul] val logger = lishogi.log("simul")
 
 }
 

@@ -1,4 +1,4 @@
-package lila.tournament
+package lishogi.tournament
 
 import org.joda.time.DateTime
 import play.api.data._
@@ -8,9 +8,9 @@ import play.api.data.validation.{ Constraint, Constraints }
 
 import shogi.Mode
 import shogi.StartingPosition
-import lila.common.Form._
-import lila.hub.LightTeam._
-import lila.user.User
+import lishogi.common.Form._
+import lishogi.hub.LightTeam._
+import lishogi.user.User
 
 final class DataForm {
 
@@ -85,7 +85,7 @@ final class DataForm {
         "clockByoyomi"   -> numberIn(clockByoyomiChoices),
         "periods"        -> numberIn(periodsChoices),
         "minutes" -> {
-          if (lila.security.Granter(_.ManageTournament)(user)) number
+          if (lishogi.security.Granter(_.ManageTournament)(user)) number
           else numberIn(minuteChoices)
         },
         "waitMinutes"      -> optional(numberIn(waitMinuteChoices)),
@@ -193,7 +193,7 @@ private[tournament] case class TournamentSetup(
 
   def validRatedUltraBulletVariant =
     realMode == Mode.Casual ||
-      lila.game.Game.allowRated(realVariant, clockConfig.some)
+      lishogi.game.Game.allowRated(realVariant, clockConfig.some)
 
   def sufficientDuration = estimateNumberOfGamesOneCanPlay >= 3
   def excessiveDuration  = estimateNumberOfGamesOneCanPlay <= 150

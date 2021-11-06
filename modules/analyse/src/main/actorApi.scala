@@ -1,7 +1,7 @@
-package lila.analyse
+package lishogi.analyse
 package actorApi
 
-import lila.game.Game
+import lishogi.game.Game
 
 case class AnalysisReady(game: Game, analysis: Analysis)
 

@@ -1,11 +1,11 @@
-package lila.game
+package lishogi.game
 
 import reactivemongo.api.ReadPreference
 
-import lila.common.paginator._
-import lila.common.config.MaxPerPage
-import lila.db.dsl._
-import lila.db.paginator._
+import lishogi.common.paginator._
+import lishogi.common.config.MaxPerPage
+import lishogi.db.dsl._
+import lishogi.db.paginator._
 
 final class PaginatorBuilder(
     gameRepo: GameRepo,

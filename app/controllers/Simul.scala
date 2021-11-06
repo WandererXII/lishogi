@@ -3,19 +3,19 @@ package controllers
 import play.api.libs.json._
 import play.api.mvc._
 
-import lila.api.Context
-import lila.app._
-import lila.chat.Chat
-import lila.common.HTTPRequest
-import lila.simul.{ Simul => Sim }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.chat.Chat
+import lishogi.common.HTTPRequest
+import lishogi.simul.{ Simul => Sim }
 import views._
 
 final class Simul(
     env: Env,
     apiC: => Team
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
-  private def forms = lila.simul.SimulForm
+  private def forms = lishogi.simul.SimulForm
 
   private def simulNotFound(implicit ctx: Context) = NotFound(html.simul.bits.notFound())
 
@@ -40,7 +40,7 @@ final class Simul(
     }
   }
 
-  private def fetchSimuls(me: Option[lila.user.User]) =
+  private def fetchSimuls(me: Option[lishogi.user.User]) =
     me.?? { u =>
       env.simul.repo.findPending(u.id)
     } zip
@@ -58,7 +58,7 @@ final class Simul(
             json <- env.simul.jsonView(
               sim,
               team.map { t =>
-                lila.simul.SimulTeam(
+                lishogi.simul.SimulTeam(
                   t.id,
                   t.name,
                   ctx.userId exists {

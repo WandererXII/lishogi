@@ -1,12 +1,12 @@
-package lila.notify
+package lishogi.notify
 
 import shogi.Color
-import lila.db.BSON.{ Reader, Writer }
-import lila.db.dsl._
-import lila.db.{ dsl, BSON }
-import lila.notify.InvitedToStudy.{ InvitedBy, StudyId, StudyName }
-import lila.notify.MentionedInThread._
-import lila.notify.Notification._
+import lishogi.db.BSON.{ Reader, Writer }
+import lishogi.db.dsl._
+import lishogi.db.{ dsl, BSON }
+import lishogi.notify.InvitedToStudy.{ InvitedBy, StudyId, StudyName }
+import lishogi.notify.MentionedInThread._
+import lishogi.notify.Notification._
 import reactivemongo.api.bson._
 
 private object BSONHandlers {

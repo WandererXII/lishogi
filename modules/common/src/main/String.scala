@@ -1,11 +1,11 @@
-package lila.common
+package lishogi.common
 
 import java.text.Normalizer
 import play.api.libs.json._
 import scalatags.Text.all._
 
-import lila.base.RawHtml
-import lila.common.base.StringUtils.{ escapeHtmlRaw, safeJsonString }
+import lishogi.base.RawHtml
+import lishogi.common.base.StringUtils.{ escapeHtmlRaw, safeJsonString }
 
 object String {
 

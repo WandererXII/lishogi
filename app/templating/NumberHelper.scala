@@ -1,4 +1,4 @@
-package lila.app
+package lishogi.app
 package templating
 
 import java.text.NumberFormat

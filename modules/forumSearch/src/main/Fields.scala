@@ -1,4 +1,4 @@
-package lila.forumSearch
+package lishogi.forumSearch
 
 private[forumSearch] object Fields {
   val body    = "bo"

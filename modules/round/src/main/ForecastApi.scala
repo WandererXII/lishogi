@@ -1,16 +1,16 @@
-package lila.round
+package lishogi.round
 
 import reactivemongo.api.bson._
 
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
 import org.joda.time.DateTime
 import scala.concurrent.Promise
 
 import shogi.format.Uci
 import Forecast.Step
-import lila.game.Game.PlayerId
-import lila.game.{ Game, Pov }
+import lishogi.game.Game.PlayerId
+import lishogi.game.{ Game, Pov }
 
 final class ForecastApi(coll: Coll, tellRound: TellRound)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -18,7 +18,7 @@ final class ForecastApi(coll: Coll, tellRound: TellRound)(implicit ec: scala.con
   implicit private val forecastBSONHandler = Macros.handler[Forecast]
 
   private def saveSteps(pov: Pov, steps: Forecast.Steps): Funit = {
-    lila.mon.round.forecast.create.increment()
+    lishogi.mon.round.forecast.create.increment()
     coll.update
       .one(
         $id(pov.fullId),

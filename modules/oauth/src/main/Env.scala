@@ -1,4 +1,4 @@
-package lila.oauth
+package lishogi.oauth
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -6,8 +6,8 @@ import io.methvin.play.autoconfig._
 import play.api.Configuration
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.db.AsyncColl
+import lishogi.common.config._
+import lishogi.db.AsyncColl
 
 private case class OauthConfig(
     @ConfigName("mongodb.uri") mongoUri: String,
@@ -18,9 +18,9 @@ private case class OauthConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    cacheApi: lila.memo.CacheApi,
-    userRepo: lila.user.UserRepo,
-    mongo: lila.db.Env
+    cacheApi: lishogi.memo.CacheApi,
+    userRepo: lishogi.user.UserRepo,
+    mongo: lishogi.db.Env
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -43,7 +43,7 @@ final class Env(
       }
       .withTimeoutDefault(50 millis, none) recover {
       case e: Exception =>
-        lila.log("security").warn("oauth", e)
+        lishogi.log("security").warn("oauth", e)
         none
     }
 

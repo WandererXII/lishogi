@@ -1,4 +1,4 @@
-package lila.evalCache
+package lishogi.evalCache
 
 import org.joda.time.DateTime
 import play.api.libs.json.JsObject
@@ -6,16 +6,16 @@ import scala.concurrent.duration._
 
 import shogi.format.{ FEN, Forsyth }
 import shogi.variant.Variant
-import lila.db.dsl._
-import lila.memo.CacheApi._
-import lila.socket.Socket
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi._
+import lishogi.socket.Socket
+import lishogi.user.User
 
 final class EvalCacheApi(
     coll: Coll,
     truster: EvalCacheTruster,
     upgrade: EvalCacheUpgrade,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import EvalCacheEntry._
@@ -38,7 +38,7 @@ final class EvalCacheApi(
       _.map { JsonHandlers.writeEval(_, fen) }
     } addEffect { res =>
       Forsyth getPly fen.value foreach { ply =>
-        lila.mon.evalCache.request(ply, res.isDefined).increment()
+        lishogi.mon.evalCache.request(ply, res.isDefined).increment()
       }
     }
 
@@ -89,7 +89,7 @@ final class EvalCacheApi(
               evals = List(input.eval),
               usedAt = DateTime.now
             )
-            coll.insert.one(entry).recover(lila.db.recoverDuplicateKey(_ => ())) >>-
+            coll.insert.one(entry).recover(lishogi.db.recoverDuplicateKey(_ => ())) >>-
               cache.put(input.id, fuccess(entry.some)) >>-
               upgrade.onEval(input, sri)
           case Some(oldEntry) =>

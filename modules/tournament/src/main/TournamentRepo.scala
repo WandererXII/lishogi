@@ -1,4 +1,4 @@
-package lila.tournament
+package lishogi.tournament
 
 import shogi.variant.Variant
 import org.joda.time.DateTime
@@ -6,12 +6,12 @@ import reactivemongo.akkastream.{ cursorProducer, AkkaStreamCursor }
 import reactivemongo.api.ReadPreference
 
 import BSONHandlers._
-import lila.common.config.CollName
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
-import lila.game.Game
-import lila.hub.LightTeam.TeamID
-import lila.user.User
+import lishogi.common.config.CollName
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
+import lishogi.game.Game
+import lishogi.hub.LightTeam.TeamID
+import lishogi.user.User
 
 final class TournamentRepo(val coll: Coll, playerCollName: CollName)(implicit
     ec: scala.concurrent.ExecutionContext
@@ -91,7 +91,7 @@ final class TournamentRepo(val coll: Coll, playerCollName: CollName)(implicit
       .list(limit)
 
   def byOwnerAdapter(owner: User) =
-    new lila.db.paginator.Adapter[Tournament](
+    new lishogi.db.paginator.Adapter[Tournament](
       collection = coll,
       selector = $doc("createdBy" -> owner.id),
       projection = none,
@@ -344,7 +344,7 @@ final class TournamentRepo(val coll: Coll, playerCollName: CollName)(implicit
       .list()
 
   private[tournament] def sortedCursor(
-      owner: lila.user.User,
+      owner: lishogi.user.User,
       batchSize: Int,
       readPreference: ReadPreference = ReadPreference.secondaryPreferred
   ): AkkaStreamCursor[Tournament] =

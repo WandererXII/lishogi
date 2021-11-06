@@ -1,9 +1,9 @@
-package lila.game
+package lishogi.game
 
 import shogi.format.Uci
 import shogi.{ variant => _, ToOptionOpsFromOption => _, _ }
 import shogi.variant.{ Standard }
-import lila.db.ByteArray
+import lishogi.db.ByteArray
 
 sealed trait PgnStorage
 
@@ -79,6 +79,6 @@ private object PgnStorage {
       hands: Option[Hands]
   )
 
-  private def monitor[A](mon: lila.mon.TimerPath)(f: => A): A =
-    lila.common.Chronometer.syncMon(mon)(f)
+  private def monitor[A](mon: lishogi.mon.TimerPath)(f: => A): A =
+    lishogi.common.Chronometer.syncMon(mon)(f)
 }

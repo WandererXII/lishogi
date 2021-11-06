@@ -2,10 +2,10 @@ package views.html.streamer
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
 
 import controllers.routes
 
@@ -14,9 +14,9 @@ object edit extends Context.ToLang {
   import trans.streamer._
 
   def apply(
-      s: lila.streamer.Streamer.WithUserAndStream,
+      s: lishogi.streamer.Streamer.WithUserAndStream,
       form: Form[_],
-      modData: Option[(List[lila.mod.Modlog], List[lila.user.Note])]
+      modData: Option[(List[lishogi.mod.Modlog], List[lishogi.user.Note])]
   )(implicit ctx: Context) = {
 
     views.html.base.layout(
@@ -153,7 +153,7 @@ object edit extends Context.ToLang {
                         help =
                           frag("Higher tier has more chance to hit homepage. Set to zero to unfeature.").some,
                         half = true
-                      )(form3.select(_, lila.streamer.Streamer.tierChoices))
+                      )(form3.select(_, lishogi.streamer.Streamer.tierChoices))
                     else
                       form3.checkbox(
                         form("approval.ignored"),

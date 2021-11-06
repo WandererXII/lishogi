@@ -1,9 +1,9 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import play.api.data._
 import play.api.data.Forms._
 
-import lila.common.Form.{ numberIn, stringIn }
+import lishogi.common.Form.{ numberIn, stringIn }
 
 object PuzzleForm {
 

@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import scala.concurrent.duration._
 import scala.concurrent.Promise
@@ -23,7 +23,7 @@ object Bus {
   def subscribe(ref: ActorRef, to: Iterable[Channel]) = to foreach { bus.subscribe(Tellable.Actor(ref), _) }
 
   def subscribeFun(to: Channel*)(f: PartialFunction[Any, Unit]): Tellable = {
-    val t = lila.common.Tellable(f)
+    val t = lishogi.common.Tellable(f)
     subscribe(t, to: _*)
     t
   }
@@ -69,7 +69,7 @@ object Bus {
   def size      = bus.size
   def destroy() = bus.destroy()
 
-  case class AskTimeout(message: String) extends lila.base.LilaException
+  case class AskTimeout(message: String) extends lishogi.base.LishogiException
 }
 
 final private class EventBus[Event, Channel, Subscriber](

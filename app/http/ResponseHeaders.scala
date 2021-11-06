@@ -1,9 +1,9 @@
-package lila.app
+package lishogi.app
 package http
 
 import play.api.mvc.RequestHeader
 
-import lila.common.HTTPRequest
+import lishogi.common.HTTPRequest
 
 object ResponseHeaders {
 

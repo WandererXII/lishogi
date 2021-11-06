@@ -1,6 +1,6 @@
-package lila.lobby
+package lishogi.lobby
 
-import lila.common.ThreadLocalRandom.nextBoolean
+import lishogi.common.ThreadLocalRandom.nextBoolean
 
 sealed abstract class Color(val name: String) {
 

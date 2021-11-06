@@ -1,17 +1,17 @@
-package lila.setup
+package lishogi.setup
 
-import lila.common.Bus
-import lila.common.config.Max
-import lila.game.Pov
-import lila.lobby.actorApi.{ AddHook, AddSeek }
-import lila.user.{ User, UserContext }
+import lishogi.common.Bus
+import lishogi.common.config.Max
+import lishogi.game.Pov
+import lishogi.lobby.actorApi.{ AddHook, AddSeek }
+import lishogi.user.{ User, UserContext }
 
 final private[setup] class Processor(
-    gameCache: lila.game.Cached,
-    gameRepo: lila.game.GameRepo,
+    gameCache: lishogi.game.Cached,
+    gameRepo: lishogi.game.GameRepo,
     maxPlaying: Max,
-    fishnetPlayer: lila.fishnet.Player,
-    onStart: lila.round.OnStart
+    fishnetPlayer: lishogi.fishnet.Player,
+    onStart: lishogi.round.OnStart
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def ai(config: AiConfig)(implicit ctx: UserContext): Fu[Pov] = {
@@ -32,7 +32,7 @@ final private[setup] class Processor(
 
   def hook(
       configBase: HookConfig,
-      sri: lila.socket.Socket.Sri,
+      sri: lishogi.socket.Socket.Sri,
       sid: Option[String],
       blocking: Set[String]
   )(implicit ctx: UserContext): Fu[Processor.HookResult] = {

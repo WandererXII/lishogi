@@ -1,18 +1,18 @@
-package lila.study
+package lishogi.study
 
 import shogi.format.{ FEN, Uci }
 import shogi.{ Pos, Piece => ShogiPiece }
 import play.api.libs.json._
 import scala.util.chaining._
 
-import lila.common.Json._
-import lila.socket.Socket.Sri
-import lila.tree.Node.Shape
-import lila.user.User
+import lishogi.common.Json._
+import lishogi.socket.Socket.Sri
+import lishogi.tree.Node.Shape
+import lishogi.user.User
 
 final class JsonView(
     studyRepo: StudyRepo,
-    lightUserApi: lila.user.LightUserApi
+    lightUserApi: lishogi.user.LightUserApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import JsonView._

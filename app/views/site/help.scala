@@ -1,8 +1,8 @@
 package views.html.site
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -45,7 +45,7 @@ $('#asset-version-message').text(lishogi.info.message);"""
         ),
         br,
         st.section(cls := "box")(
-          h1("lila version"),
+          h1("lishogi version"),
           table(cls := "slist slist-pad")(
             env.appVersionDate zip env.appVersionCommit zip env.appVersionMessage map {
               case ((date, commit), message) =>
@@ -64,7 +64,7 @@ $('#asset-version-message').text(lishogi.info.message);"""
             ),
             tr(
               td("Boot"),
-              td(momentFromNow(lila.common.Uptime.startedAt))
+              td(momentFromNow(lishogi.common.Uptime.startedAt))
             )
           )
         ),
@@ -79,7 +79,7 @@ $('#asset-version-message').text(lishogi.info.message);"""
     val parameters = frag(
       p("Parameters:"),
       ul(
-        li(strong("theme"), ": ", lila.pref.Theme.all.map(_.name).mkString(", ")),
+        li(strong("theme"), ": ", lishogi.pref.Theme.all.map(_.name).mkString(", ")),
         li(strong("bg"), ": light, dark")
       )
     )

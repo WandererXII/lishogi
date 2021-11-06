@@ -1,6 +1,6 @@
 package views.html.base
 
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object bits {
 

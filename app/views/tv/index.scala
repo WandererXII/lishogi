@@ -3,22 +3,22 @@ package tv
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
 
 import controllers.routes
 
 object index {
 
   def apply(
-      channel: lila.tv.Tv.Channel,
-      champions: lila.tv.Tv.Champions,
-      pov: lila.game.Pov,
+      channel: lishogi.tv.Tv.Channel,
+      champions: lishogi.tv.Tv.Champions,
+      pov: lishogi.game.Pov,
       data: play.api.libs.json.JsObject,
-      cross: Option[lila.game.Crosstable.WithMatchup],
-      history: List[lila.game.Pov]
+      cross: Option[lishogi.game.Crosstable.WithMatchup],
+      history: List[lishogi.game.Pov]
   )(implicit ctx: Context) =
     views.html.round.bits.layout(
       variant = pov.game.variant,
@@ -36,7 +36,7 @@ object index {
       ),
       moreCss = cssTag("tv.single"),
       shogiground = false,
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = s"Watch the best ${channel.name.toLowerCase} games of lishogi.org",
           description =

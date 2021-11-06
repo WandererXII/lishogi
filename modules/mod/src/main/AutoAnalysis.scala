@@ -1,4 +1,4 @@
-package lila.mod
+package lishogi.mod
 
 object AutoAnalysis {
 

@@ -1,4 +1,4 @@
-package lila.video
+package lishogi.video
 
 import org.joda.time.DateTime
 

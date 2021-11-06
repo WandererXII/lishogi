@@ -2,11 +2,11 @@ package views.html.study
 
 import play.api.libs.json.Json
 
-import lila.app.templating.Environment._
-import lila.app.ui.EmbedConfig
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.i18n.{ I18nKeys => trans }
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.EmbedConfig
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.i18n.{ I18nKeys => trans }
 import views.html.base.layout.{ bits => layout }
 
 import controllers.routes
@@ -16,10 +16,10 @@ object embed {
   import EmbedConfig.implicits._
 
   def apply(
-      s: lila.study.Study,
-      chapter: lila.study.Chapter,
-      chapters: List[lila.study.Chapter.IdName],
-      data: lila.study.JsonView.JsData
+      s: lishogi.study.Study,
+      chapter: lishogi.study.Chapter,
+      chapters: List[lishogi.study.Chapter.IdName],
+      data: lishogi.study.JsonView.JsData
   )(implicit config: EmbedConfig) =
     frag(
       layout.doctype,
@@ -29,7 +29,7 @@ object embed {
           layout.viewport,
           layout.metaCsp(basicCsp withNonce config.nonce),
           st.headTitle(s"${s.name} ${chapter.name}"),
-          layout.pieceSprite(lila.pref.PieceSet.default),
+          layout.pieceSprite(lishogi.pref.PieceSet.default),
           cssTagWithTheme("analyse.embed", config.bg)
         ),
         body(

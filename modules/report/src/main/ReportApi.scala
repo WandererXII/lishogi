@@ -1,12 +1,12 @@
-package lila.report
+package lishogi.report
 
 import scala.concurrent.duration._
 
 import com.softwaremill.macwire._
-import lila.common.Bus
-import lila.db.dsl._
-import lila.memo.CacheApi._
-import lila.user.{ User, UserRepo }
+import lishogi.common.Bus
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi._
+import lishogi.user.{ User, UserRepo }
 import org.joda.time.DateTime
 import reactivemongo.api.ReadPreference
 
@@ -14,12 +14,12 @@ final class ReportApi(
     val coll: Coll,
     userRepo: UserRepo,
     autoAnalysis: AutoAnalysis,
-    securityApi: lila.security.SecurityApi,
-    userSpyApi: lila.security.UserSpyApi,
-    playbanApi: lila.playban.PlaybanApi,
-    slackApi: lila.slack.SlackApi,
-    isOnline: lila.socket.IsOnline,
-    cacheApi: lila.memo.CacheApi,
+    securityApi: lishogi.security.SecurityApi,
+    userSpyApi: lishogi.security.UserSpyApi,
+    playbanApi: lishogi.playban.PlaybanApi,
+    slackApi: lishogi.slack.SlackApi,
+    isOnline: lishogi.socket.IsOnline,
+    cacheApi: lishogi.memo.CacheApi,
     thresholds: Thresholds
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -62,7 +62,7 @@ final class ReportApi(
           )
           .flatMap { prev =>
             val report = Report.make(scored, prev)
-            lila.mon.mod.report.create(report.reason.key).increment()
+            lishogi.mon.mod.report.create(report.reason.key).increment()
             if (
               report.isRecentComm &&
               report.score.value >= thresholds.slack() &&
@@ -71,7 +71,7 @@ final class ReportApi(
             coll.update.one($id(report.id), report, upsert = true).void >>
               autoAnalysis(candidate) >>- {
                 if (report.isCheat)
-                  Bus.publish(lila.hub.actorApi.report.CheatReportCreated(report.user), "cheatReport")
+                  Bus.publish(lishogi.hub.actorApi.report.CheatReportCreated(report.user), "cheatReport")
               }
           } >>-
           nbOpenCache.invalidateUnit()
@@ -149,7 +149,7 @@ final class ReportApi(
       getLishogiReporter zip
       findRecent(1, selectRecent(SuspectId(userId), Reason.Cheat)).map(_.flatMap(_.atoms.toList)) flatMap {
         case Some(suspect) ~ reporter ~ atoms if atoms.forall(_.byHuman) =>
-          lila.mon.cheat.autoReport.increment()
+          lishogi.mon.cheat.autoReport.increment()
           create(
             Candidate(
               reporter = reporter,
@@ -261,7 +261,7 @@ final class ReportApi(
         accuracy.invalidate(reportSelector) >>
           doProcessReport(reportSelector, mod.id).void >>- {
             nbOpenCache.invalidateUnit()
-            lila.mon.mod.report.close.increment()
+            lishogi.mon.mod.report.close.increment()
           }
       }
 
@@ -320,7 +320,7 @@ final class ReportApi(
       .buildAsyncFuture { _ =>
         coll
           .countSel(selectOpenAvailableInRoom(none))
-          .addEffect(lila.mon.mod.report.unprocessed.update(_))
+          .addEffect(lishogi.mon.mod.report.unprocessed.update(_))
       }
   }
 
@@ -491,7 +491,7 @@ final class ReportApi(
   object inquiries {
 
     private val workQueue =
-      new lila.hub.DuctSequencer(
+      new lishogi.hub.DuctSequencer(
         maxSize = 32,
         timeout = 20 seconds,
         name = "report.inquiries"

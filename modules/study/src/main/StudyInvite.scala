@@ -1,22 +1,22 @@
-package lila.study
+package lishogi.study
 
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.notify.{ InvitedToStudy, Notification, NotifyApi }
-import lila.pref.Pref
-import lila.relation.{ Block, Follow }
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.notify.{ InvitedToStudy, Notification, NotifyApi }
+import lishogi.pref.Pref
+import lishogi.relation.{ Block, Follow }
+import lishogi.user.User
 
 final private class StudyInvite(
     studyRepo: StudyRepo,
-    userRepo: lila.user.UserRepo,
+    userRepo: lishogi.user.UserRepo,
     notifyApi: NotifyApi,
-    prefApi: lila.pref.PrefApi,
-    relationApi: lila.relation.RelationApi
+    prefApi: lishogi.pref.PrefApi,
+    relationApi: lishogi.relation.RelationApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  private val notifyRateLimit = new lila.memo.RateLimit[User.ID](
+  private val notifyRateLimit = new lishogi.memo.RateLimit[User.ID](
     credits = 500,
     duration = 1 day,
     key = "study.invite.user"

@@ -1,15 +1,15 @@
-package lila.team
+package lishogi.team
 
 import scala.concurrent.duration._
 
-import lila.memo.Syncache
-import lila.user.User
+import lishogi.memo.Syncache
+import lishogi.user.User
 
 final class Cached(
     teamRepo: TeamRepo,
     memberRepo: MemberRepo,
     requestRepo: RequestRepo,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   val nameCache = cacheApi.sync[String, Option[String]](

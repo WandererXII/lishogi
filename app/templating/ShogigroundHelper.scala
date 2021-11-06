@@ -1,11 +1,11 @@
-package lila.app
+package lishogi.app
 package templating
 
 import shogi.{ Board, Color, Pos }
-import lila.api.Context
+import lishogi.api.Context
 
-import lila.app.ui.ScalatagsTemplate._
-import lila.game.Pov
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.game.Pov
 
 trait ShogigroundHelper {
 

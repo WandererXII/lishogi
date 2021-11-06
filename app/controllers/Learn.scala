@@ -1,15 +1,15 @@
 package controllers
 
-import lila.app._
+import lishogi.app._
 
 import play.api.data._
 import play.api.data.Forms._
 import play.api.libs.json._
 import views.html
 
-final class Learn(env: Env) extends LilaController(env) {
+final class Learn(env: Env) extends LishogiController(env) {
 
-  import lila.learn.JSONHandlers._
+  import lishogi.learn.JSONHandlers._
 
   def index =
     Open { implicit ctx =>
@@ -39,7 +39,7 @@ final class Learn(env: Env) extends LilaController(env) {
         .fold(
           _ => BadRequest.fuccess,
           { case (stage, level, s) =>
-            val score = lila.learn.StageProgress.Score(s)
+            val score = lishogi.learn.StageProgress.Score(s)
             env.learn.api.setScore(me, stage, level, score) >>
               env.activity.write.learn(me.id, stage) inject Ok(Json.obj("ok" -> true))
           }

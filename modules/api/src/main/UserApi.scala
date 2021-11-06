@@ -1,22 +1,22 @@
-package lila.api
+package lishogi.api
 
 import play.api.libs.json._
 
-import lila.common.config._
-import lila.common.paginator.{ Paginator, PaginatorJson }
-import lila.user.User
+import lishogi.common.config._
+import lishogi.common.paginator.{ Paginator, PaginatorJson }
+import lishogi.user.User
 
 final private[api] class UserApi(
-    jsonView: lila.user.JsonView,
-    relationApi: lila.relation.RelationApi,
-    bookmarkApi: lila.bookmark.BookmarkApi,
-    crosstableApi: lila.game.CrosstableApi,
-    playBanApi: lila.playban.PlaybanApi,
-    gameCache: lila.game.Cached,
-    userRepo: lila.user.UserRepo,
-    prefApi: lila.pref.PrefApi,
-    liveStreamApi: lila.streamer.LiveStreamApi,
-    gameProxyRepo: lila.round.GameProxyRepo,
+    jsonView: lishogi.user.JsonView,
+    relationApi: lishogi.relation.RelationApi,
+    bookmarkApi: lishogi.bookmark.BookmarkApi,
+    crosstableApi: lishogi.game.CrosstableApi,
+    playBanApi: lishogi.playban.PlaybanApi,
+    gameCache: lishogi.game.Cached,
+    userRepo: lishogi.user.UserRepo,
+    prefApi: lishogi.pref.PrefApi,
+    liveStreamApi: lishogi.streamer.LiveStreamApi,
+    gameProxyRepo: lishogi.round.GameProxyRepo,
     net: NetConfig
 )(implicit ec: scala.concurrent.ExecutionContext) {
 

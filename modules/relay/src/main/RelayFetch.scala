@@ -1,4 +1,4 @@
-package lila.relay
+package lishogi.relay
 
 import akka.actor._
 import shogi.format.Tags
@@ -9,16 +9,16 @@ import play.api.libs.json._
 import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 
-import lila.base.LilaException
-import lila.memo.CacheApi
-import lila.study.MultiPgn
-import lila.tree.Node.Comments
+import lishogi.base.LishogiException
+import lishogi.memo.CacheApi
+import lishogi.study.MultiPgn
+import lishogi.tree.Node.Comments
 import Relay.Sync.Upstream
 
 final private class RelayFetch(
     sync: RelaySync,
     api: RelayApi,
-    slackApi: lila.slack.SlackApi,
+    slackApi: lishogi.slack.SlackApi,
     formatApi: RelayFormatApi,
     ws: WSClient
 ) extends Actor {
@@ -46,7 +46,7 @@ final private class RelayFetch(
     case Tick =>
       api.toSync.flatMap { relays =>
         List(true, false) foreach { official =>
-          lila.mon.relay.ongoing(official).update(relays.count(_.official == official))
+          lishogi.mon.relay.ongoing(official).update(relays.count(_.official == official))
         }
         relays.map { relay =>
           if (relay.sync.ongoing) processRelay(relay) flatMap { newRelay =>
@@ -69,7 +69,7 @@ final private class RelayFetch(
     else
       fetchGames(relay)
         .mon(_.relay.fetchTime(relay.official, relay.slug))
-        .addEffect(gs => lila.mon.relay.games(relay.official, relay.slug).update(gs.size))
+        .addEffect(gs => lishogi.mon.relay.games(relay.official, relay.slug).update(gs.size))
         .flatMap { games =>
           sync(relay, games)
             .withTimeout(7 seconds, SyncResult.Timeout)
@@ -96,7 +96,7 @@ final private class RelayFetch(
     result match {
       case SyncResult.Ok(0, _) => continueRelay(relay)
       case SyncResult.Ok(nbMoves, _) =>
-        lila.mon.relay.moves(relay.official, relay.slug).increment(nbMoves)
+        lishogi.mon.relay.moves(relay.official, relay.slug).increment(nbMoves)
         continueRelay(relay.ensureStarted.resume)
       case _ => continueRelay(relay)
     }
@@ -210,7 +210,7 @@ private object RelayFetch {
   case class GamesSeenBy(games: Fu[RelayGames], seenBy: Set[Relay.Id])
 
   def maxChapters(relay: Relay) =
-    lila.study.Study.maxChapters * (if (relay.official) 2 else 1)
+    lishogi.study.Study.maxChapters * (if (relay.official) 2 else 1)
 
   private object DgtJson {
     case class PairingPlayer(
@@ -273,7 +273,7 @@ private object RelayFetch {
           case (Success((acc, index)), pgn) =>
             pgnCache.get(pgn) flatMap { f =>
               val game = f(index)
-              if (game.isEmpty) Failure(LilaException(s"Found an empty PGN at index $index"))
+              if (game.isEmpty) Failure(LishogiException(s"Found an empty PGN at index $index"))
               else Success((acc :+ game, index + 1))
             }
           case (acc, _) => acc
@@ -287,10 +287,10 @@ private object RelayFetch {
       .build(compute)
 
     private def compute(pgn: String): Try[Int => RelayGame] =
-      lila.study
+      lishogi.study
         .NotationImport(pgn, Nil)
         .fold(
-          err => Failure(LilaException(err)),
+          err => Failure(LishogiException(err)),
           res =>
             Success(index =>
               RelayGame(

@@ -2,10 +2,10 @@ package views.html.analyse
 
 import play.api.libs.json.{ JsObject, Json }
 
-import lila.app.templating.Environment._
-import lila.app.ui.EmbedConfig
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.EmbedConfig
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
 import views.html.base.layout.{ bits => layout }
 
 import controllers.routes
@@ -14,7 +14,7 @@ object embed {
 
   import EmbedConfig.implicits._
 
-  def apply(pov: lila.game.Pov, data: JsObject)(implicit config: EmbedConfig) =
+  def apply(pov: lishogi.game.Pov, data: JsObject)(implicit config: EmbedConfig) =
     frag(
       layout.doctype,
       layout.htmlTag(config.lang)(
@@ -23,7 +23,7 @@ object embed {
           layout.viewport,
           layout.metaCsp(basicCsp withNonce config.nonce),
           st.headTitle(replay titleOf pov),
-          layout.pieceSprite(lila.pref.PieceSet.default),
+          layout.pieceSprite(lishogi.pref.PieceSet.default),
           cssTagWithTheme("analyse.embed", config.bg)
         ),
         body(

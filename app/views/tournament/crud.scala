@@ -3,12 +3,12 @@ package tournament
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.tournament.crud.CrudForm
-import lila.tournament.{ DataForm, Tournament }
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.tournament.crud.CrudForm
+import lishogi.tournament.{ DataForm, Tournament }
 
 import controllers.routes
 

@@ -1,16 +1,16 @@
-package lila.tournament
+package lishogi.tournament
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 
-import lila.common.Maths
-import lila.common.config.MaxPerPage
-import lila.common.paginator.Paginator
-import lila.db.dsl._
-import lila.db.paginator.Adapter
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.common.Maths
+import lishogi.common.config.MaxPerPage
+import lishogi.common.paginator.Paginator
+import lishogi.db.dsl._
+import lishogi.db.paginator.Adapter
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 final class LeaderboardApi(
     repo: LeaderboardRepo,

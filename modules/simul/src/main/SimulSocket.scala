@@ -1,17 +1,17 @@
-package lila.simul
+package lishogi.simul
 
 import play.api.libs.json._
 
-import lila.game.{ Game, Pov }
-import lila.room.RoomSocket.{ Protocol => RP, _ }
-import lila.socket.RemoteSocket.{ Protocol => P, _ }
-import lila.socket.Socket.makeMessage
+import lishogi.game.{ Game, Pov }
+import lishogi.room.RoomSocket.{ Protocol => RP, _ }
+import lishogi.socket.RemoteSocket.{ Protocol => P, _ }
+import lishogi.socket.Socket.makeMessage
 
 final private class SimulSocket(
     repo: SimulRepo,
     jsonView: JsonView,
-    remoteSocketApi: lila.socket.RemoteSocket,
-    chat: lila.chat.ChatApi
+    remoteSocketApi: lishogi.socket.RemoteSocket,
+    chat: lishogi.chat.ChatApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     mode: play.api.Mode

@@ -1,8 +1,8 @@
-package lila.db
+package lishogi.db
 
 import dsl._
 
-import lila.common.config.CollName
+import lishogi.common.config.CollName
 
 final class AsyncColl(val name: CollName, resolve: () => Fu[Coll])(implicit
     ec: scala.concurrent.ExecutionContext

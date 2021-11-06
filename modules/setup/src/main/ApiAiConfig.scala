@@ -1,11 +1,11 @@
-package lila.setup
+package lishogi.setup
 
 import shogi.Clock
 import shogi.format.{ FEN, Forsyth }
 import shogi.variant.{ FromPosition, Variant }
-import lila.game.{ Game, Player, Pov, Source }
-import lila.lobby.Color
-import lila.user.User
+import lishogi.game.{ Game, Player, Pov, Source }
+import lishogi.lobby.Color
+import lishogi.user.User
 
 final case class ApiAiConfig(
     variant: Variant,
@@ -33,7 +33,7 @@ final case class ApiAiConfig(
 
   def game(user: Option[User]) =
     fenGame { shogiGame =>
-      val perfPicker = lila.game.PerfPicker.mainOrDefault(
+      val perfPicker = lishogi.game.PerfPicker.mainOrDefault(
         shogi.Speed(shogiGame.clock.map(_.config)),
         shogiGame.situation.board.variant,
         makeDaysPerTurn

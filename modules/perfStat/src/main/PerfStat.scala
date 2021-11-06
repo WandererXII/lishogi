@@ -1,7 +1,7 @@
-package lila.perfStat
+package lishogi.perfStat
 
-import lila.game.Pov
-import lila.rating.PerfType
+import lishogi.game.Pov
+import lishogi.rating.PerfType
 
 import org.joda.time.{ DateTime, Period }
 
@@ -40,7 +40,7 @@ case class PerfStat(
 
 object PerfStat {
 
-  type Getter = (lila.user.User, PerfType) => Fu[PerfStat]
+  type Getter = (lishogi.user.User, PerfType) => Fu[PerfStat]
 
   def makeId(userId: String, perfType: PerfType) = s"$userId/${perfType.id}"
 

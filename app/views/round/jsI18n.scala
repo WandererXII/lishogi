@@ -2,12 +2,12 @@ package views.html.round
 
 import play.api.i18n.Lang
 
-import lila.app.templating.Environment._
-import lila.i18n.{ I18nKeys => trans }
+import lishogi.app.templating.Environment._
+import lishogi.i18n.{ I18nKeys => trans }
 
 object jsI18n {
 
-  def apply(g: lila.game.Game)(implicit lang: Lang) =
+  def apply(g: lishogi.game.Game)(implicit lang: Lang) =
     i18nJsObject {
       baseTranslations ++ {
         if (g.isCorrespondence) correspondenceTranslations

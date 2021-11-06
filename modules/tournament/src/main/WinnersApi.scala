@@ -1,11 +1,11 @@
-package lila.tournament
+package lishogi.tournament
 
 import org.joda.time.DateTime
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
 import shogi.variant.{ FromPosition, Standard, Variant }
-import lila.db.dsl._
+import lishogi.db.dsl._
 import Schedule.{ Freq, Speed }
 
 case class Winner(
@@ -62,7 +62,7 @@ case class AllWinners(
 
 final class WinnersApi(
     tournamentRepo: TournamentRepo,
-    mongoCache: lila.memo.MongoCache.Api,
+    mongoCache: lishogi.memo.MongoCache.Api,
     scheduler: akka.actor.Scheduler
 )(implicit ec: scala.concurrent.ExecutionContext) {
 

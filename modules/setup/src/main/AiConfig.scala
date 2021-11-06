@@ -1,9 +1,9 @@
-package lila.setup
+package lishogi.setup
 
 import shogi.format.FEN
-import lila.game.{ Game, Player, Pov, Source }
-import lila.lobby.Color
-import lila.user.User
+import lishogi.game.{ Game, Player, Pov, Source }
+import lishogi.lobby.Color
+import lishogi.user.User
 
 case class AiConfig(
     variant: shogi.variant.Variant,
@@ -36,7 +36,7 @@ case class AiConfig(
 
   def game(user: Option[User]) = {
     fenGame { shogiGame =>
-      val perfPicker = lila.game.PerfPicker.mainOrDefault(
+      val perfPicker = lishogi.game.PerfPicker.mainOrDefault(
         shogi.Speed(shogiGame.clock.map(_.config)),
         shogiGame.situation.board.variant,
         makeDaysPerTurn
@@ -112,9 +112,9 @@ object AiConfig extends BaseConfig {
     (l.toString, l.toString, none)
   }
 
-  import lila.db.BSON
-  import lila.db.dsl._
-  import lila.game.BSONHandlers.FENBSONHandler
+  import lishogi.db.BSON
+  import lishogi.db.dsl._
+  import lishogi.game.BSONHandlers.FENBSONHandler
 
   implicit private[setup] val aiConfigBSONHandler = new BSON[AiConfig] {
 

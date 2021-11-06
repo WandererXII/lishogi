@@ -1,4 +1,4 @@
-package lila.msg
+package lishogi.msg
 
 case class MsgPreset(name: String, text: String)
 

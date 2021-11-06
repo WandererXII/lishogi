@@ -1,14 +1,14 @@
-package lila.forum
+package lishogi.forum
 
 import scala.concurrent.duration._
 
-import lila.memo.CacheApi._
-import lila.user.User
+import lishogi.memo.CacheApi._
+import lishogi.user.User
 
 final class Recent(
     postApi: PostApi,
     postRepo: PostRepo,
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     categIds: List[String]
 )(implicit ec: scala.concurrent.ExecutionContext) {
 

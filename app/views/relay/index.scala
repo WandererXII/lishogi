@@ -2,10 +2,10 @@ package views.html.relay
 
 import play.api.mvc.Call
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
 
 import controllers.routes
 
@@ -14,12 +14,12 @@ object index {
   import trans.broadcast._
 
   def apply(
-      fresh: Option[lila.relay.Relay.Fresh],
-      pager: Paginator[lila.relay.Relay.WithStudyAndLiked],
+      fresh: Option[lishogi.relay.Relay.Fresh],
+      pager: Paginator[lishogi.relay.Relay.WithStudyAndLiked],
       url: Call
   )(implicit ctx: Context) = {
 
-    def sublist(name: Frag, relays: Seq[lila.relay.Relay.WithStudyAndLiked]) =
+    def sublist(name: Frag, relays: Seq[lishogi.relay.Relay.WithStudyAndLiked]) =
       relays.nonEmpty option st.section(
         h2(name),
         div(cls := "list")(

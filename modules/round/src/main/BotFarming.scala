@@ -1,7 +1,7 @@
-package lila.round
+package lishogi.round
 
-import lila.common.LightUser.IsBotSync
-import lila.game.{ CrosstableApi, Game, GameRepo }
+import lishogi.common.LightUser.IsBotSync
+import lishogi.game.{ CrosstableApi, Game, GameRepo }
 
 final private class BotFarming(
     gameRepo: GameRepo,

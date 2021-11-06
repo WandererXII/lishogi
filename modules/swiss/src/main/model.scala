@@ -1,7 +1,7 @@
-package lila.swiss
+package lishogi.swiss
 
-import lila.user.User
-import lila.game.Game
+import lishogi.user.User
+import lishogi.game.Game
 
 object SwissRound {
 

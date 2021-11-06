@@ -1,4 +1,4 @@
-package lila.tree
+package lishogi.tree
 
 import shogi.format.Uci
 

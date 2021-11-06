@@ -1,4 +1,4 @@
-package lila.tree
+package lishogi.tree
 
 import play.api.libs.json._
 
@@ -131,7 +131,7 @@ object Node {
   object Comment {
     case class Id(value: String) extends AnyVal
     object Id {
-      def make = Id(lila.common.ThreadLocalRandom nextString 4)
+      def make = Id(lishogi.common.ThreadLocalRandom nextString 4)
     }
     private val metaReg = """\[%[^\]]+\]""".r
     case class Text(value: String) extends AnyVal {
@@ -194,7 +194,7 @@ object Node {
     def nonEmpty = deviation.nonEmpty || hint.nonEmpty
   }
 
-  // TODO copied from lila.game
+  // TODO copied from lishogi.game
   // put all that shit somewhere else
   implicit val crazyhousePocketWriter: OWrites[Hand] = OWrites { h =>
     JsObject(
@@ -259,7 +259,7 @@ object Node {
   implicit val gamebookWriter = Json.writes[Node.Gamebook]
   import Eval.JsonHandlers.evalWrites
 
-  @inline implicit private def toPimpedJsObject(jo: JsObject) = new lila.base.PimpedJsObject(jo)
+  @inline implicit private def toPimpedJsObject(jo: JsObject) = new lishogi.base.PimpedJsObject(jo)
 
   implicit val defaultNodeJsonWriter: Writes[Node] =
     makeNodeJsonWriter(alwaysChildren = true)

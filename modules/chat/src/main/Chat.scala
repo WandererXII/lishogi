@@ -1,7 +1,7 @@
-package lila.chat
+package lishogi.chat
 
-import lila.hub.actorApi.shutup.PublicSource
-import lila.user.User
+import lishogi.hub.actorApi.shutup.PublicSource
+import lishogi.user.User
 
 sealed trait AnyChat {
   def id: Chat.Id
@@ -104,7 +104,7 @@ object Chat {
     def game = either.left.toOption
   }
 
-  import lila.db.BSON
+  import lishogi.db.BSON
 
   def makeUser(id: Chat.Id)  = UserChat(id, Nil)
   def makeMixed(id: Chat.Id) = MixedChat(id, Nil)
@@ -120,8 +120,8 @@ object Chat {
   import reactivemongo.api.bson.BSONDocument
   import Line.{ lineBSONHandler, userLineBSONHandler }
 
-  implicit val chatIdIso         = lila.common.Iso.string[Id](Id.apply, _.value)
-  implicit val chatIdBSONHandler = lila.db.BSON.stringIsoHandler(chatIdIso)
+  implicit val chatIdIso         = lishogi.common.Iso.string[Id](Id.apply, _.value)
+  implicit val chatIdBSONHandler = lishogi.db.BSON.stringIsoHandler(chatIdIso)
 
   implicit val mixedChatBSONHandler = new BSON[MixedChat] {
     def reads(r: BSON.Reader): MixedChat = {

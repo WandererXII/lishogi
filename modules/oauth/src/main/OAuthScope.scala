@@ -1,4 +1,4 @@
-package lila.oauth
+package lishogi.oauth
 
 sealed abstract class OAuthScope(val key: String, val name: String) {
   override def toString = s"Scope($key)"
@@ -49,7 +49,7 @@ object OAuthScope {
     case object Play extends OAuthScope("bot:play", "Play games with the bot API")
   }
 
-  case class Scoped(user: lila.user.User, scopes: List[OAuthScope])
+  case class Scoped(user: lishogi.user.User, scopes: List[OAuthScope])
 
   type Selector = OAuthScope.type => OAuthScope
 
@@ -78,7 +78,7 @@ object OAuthScope {
   def select(selectors: Iterable[OAuthScope.type => OAuthScope]) = selectors.map(_(OAuthScope)).toList
 
   import reactivemongo.api.bson._
-  import lila.db.dsl._
+  import lishogi.db.dsl._
   implicit private[oauth] val scopeHandler = tryHandler[OAuthScope](
     { case b: BSONString => OAuthScope.byKey.get(b.value) toTry s"No such scope: ${b.value}" },
     s => BSONString(s.key)

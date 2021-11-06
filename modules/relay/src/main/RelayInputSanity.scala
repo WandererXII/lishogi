@@ -1,6 +1,6 @@
-package lila.relay
+package lishogi.relay
 
-import lila.study._
+import lishogi.study._
 
 /* Try and detect variant ways for the input to be wrong */
 private object RelayInputSanity {

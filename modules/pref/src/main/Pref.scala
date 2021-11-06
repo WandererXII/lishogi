@@ -1,4 +1,4 @@
-package lila.pref
+package lishogi.pref
 
 case class Pref(
     _id: String, // user id

@@ -1,23 +1,23 @@
-package lila.push
+package lishogi.push
 
 import akka.actor._
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.challenge.Challenge
-import lila.common.{ Future, LightUser }
-import lila.game.{ Game, Namer, Pov }
-import lila.hub.actorApi.map.Tell
-import lila.hub.actorApi.round.{ IsOnGame, MoveEvent }
-import lila.user.User
+import lishogi.challenge.Challenge
+import lishogi.common.{ Future, LightUser }
+import lishogi.game.{ Game, Namer, Pov }
+import lishogi.hub.actorApi.map.Tell
+import lishogi.hub.actorApi.round.{ IsOnGame, MoveEvent }
+import lishogi.user.User
 
 final private class PushApi(
     firebasePush: FirebasePush,
     oneSignalPush: OneSignalPush,
     webPush: WebPush,
-    userRepo: lila.user.UserRepo,
+    userRepo: lishogi.user.UserRepo,
     implicit val lightUser: LightUser.Getter,
-    proxyRepo: lila.round.GameProxyRepo
+    proxyRepo: lishogi.round.GameProxyRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -177,7 +177,7 @@ final private class PushApi(
       "fullId" -> pov.fullId
     )
 
-  def newMsg(t: lila.msg.MsgThread): Funit =
+  def newMsg(t: lishogi.msg.MsgThread): Funit =
     lightUser(t.lastMsg.user) flatMap {
       _ ?? { sender =>
         userRepo.isKid(t other sender) flatMap {
@@ -251,21 +251,21 @@ final private class PushApi(
       }
     }
 
-  private type MonitorType = lila.mon.push.send.type => ((String, Boolean) => Unit)
+  private type MonitorType = lishogi.mon.push.send.type => ((String, Boolean) => Unit)
 
   private def pushToAll(userId: User.ID, monitor: MonitorType, data: PushApi.Data): Funit =
     webPush(userId, data).addEffects { res =>
-      monitor(lila.mon.push.send)("web", res.isSuccess)
+      monitor(lishogi.mon.push.send)("web", res.isSuccess)
     } zip
       oneSignalPush(userId, data).addEffects { res =>
-        monitor(lila.mon.push.send)("onesignal", res.isSuccess)
+        monitor(lishogi.mon.push.send)("onesignal", res.isSuccess)
       } zip
       firebasePush(userId, data).addEffects { res =>
-        monitor(lila.mon.push.send)("firebase", res.isSuccess)
+        monitor(lishogi.mon.push.send)("firebase", res.isSuccess)
       } void
 
   private def describeChallenge(c: Challenge) = {
-    import lila.challenge.Challenge.TimeControl._
+    import lishogi.challenge.Challenge.TimeControl._
     List(
       c.mode.fold("Casual", "Rated"),
       c.timeControl match {
@@ -278,7 +278,7 @@ final private class PushApi(
   }
 
   private def IfAway(pov: Pov)(f: => Funit): Funit =
-    lila.common.Bus.ask[Boolean]("roundSocket") { p =>
+    lishogi.common.Bus.ask[Boolean]("roundSocket") { p =>
       Tell(pov.gameId, IsOnGame(pov.color, p))
     } flatMap {
       case true  => funit

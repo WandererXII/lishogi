@@ -1,4 +1,4 @@
-package lila.learn
+package lishogi.learn
 
 case class StageProgress(scores: Vector[StageProgress.Score]) extends AnyVal {
 

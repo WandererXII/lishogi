@@ -1,11 +1,11 @@
-package lila.playban
+package lishogi.playban
 
-import lila.chat.{ Chat, ChatApi }
-import lila.game.Pov
+import lishogi.chat.{ Chat, ChatApi }
+import lishogi.game.Pov
 
 final private class PlaybanFeedback(
     chatApi: ChatApi,
-    lightUser: lila.common.LightUser.Getter
+    lightUser: lishogi.common.LightUser.Getter
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private val tempBan = "will result in a temporary ban."

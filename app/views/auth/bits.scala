@@ -3,10 +3,10 @@ package auth
 
 import play.api.data.{ Field, Form }
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
 
 import controllers.routes
 
@@ -32,7 +32,7 @@ object bits {
       }
     )
 
-  def passwordReset(form: Form[_], captcha: lila.common.Captcha, ok: Option[Boolean] = None)(implicit
+  def passwordReset(form: Form[_], captcha: lishogi.common.Captcha, ok: Option[Boolean] = None)(implicit
       ctx: Context
   ) =
     views.html.base.layout(
@@ -98,7 +98,7 @@ object bits {
       )
     }
 
-  def magicLink(form: Form[_], captcha: lila.common.Captcha, ok: Option[Boolean] = None)(implicit
+  def magicLink(form: Form[_], captcha: lishogi.common.Captcha, ok: Option[Boolean] = None)(implicit
       ctx: Context
   ) =
     views.html.base.layout(
@@ -135,7 +135,7 @@ object bits {
       )
     }
 
-  def checkYourEmailBanner(userEmail: lila.security.EmailConfirm.UserEmail) =
+  def checkYourEmailBanner(userEmail: lishogi.security.EmailConfirm.UserEmail) =
     frag(
       styleTag("""
 body { margin-top: 45px; }

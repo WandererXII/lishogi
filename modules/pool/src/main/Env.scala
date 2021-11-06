@@ -1,16 +1,16 @@
-package lila.pool
+package lishogi.pool
 
 import com.softwaremill.macwire._
 
-import lila.common.Bus
-import lila.game.Game
+import lishogi.common.Bus
+import lishogi.game.Game
 
 @Module
 final class Env(
-    userRepo: lila.user.UserRepo,
-    gameRepo: lila.game.GameRepo,
-    idGenerator: lila.game.IdGenerator,
-    playbanApi: lila.playban.PlaybanApi
+    userRepo: lishogi.user.UserRepo,
+    gameRepo: lishogi.game.GameRepo,
+    idGenerator: lishogi.game.IdGenerator,
+    playbanApi: lishogi.playban.PlaybanApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem

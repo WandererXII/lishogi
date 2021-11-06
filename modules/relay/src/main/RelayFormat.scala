@@ -1,13 +1,13 @@
-package lila.relay
+package lishogi.relay
 
 import io.lemonlabs.uri._
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 
-import lila.study.MultiPgn
-import lila.memo.CacheApi
-import lila.memo.CacheApi._
+import lishogi.study.MultiPgn
+import lishogi.memo.CacheApi
+import lishogi.memo.CacheApi._
 
 final private class RelayFormatApi(ws: WSClient, cacheApi: CacheApi)(implicit
     ec: scala.concurrent.ExecutionContext
@@ -43,7 +43,7 @@ final private class RelayFormatApi(ws: WSClient, cacheApi: CacheApi)(implicit
       }
 
     def guessSingleFile(url: Url): Fu[Option[RelayFormat]] =
-      lila.common.Future.find(
+      lishogi.common.Future.find(
         List(
           url.some,
           !url.path.parts.contains(mostCommonSingleFileName) option addPart(url, mostCommonSingleFileName)
@@ -53,7 +53,7 @@ final private class RelayFormatApi(ws: WSClient, cacheApi: CacheApi)(implicit
       }
 
     def guessManyFiles(url: Url): Fu[Option[RelayFormat]] =
-      lila.common.Future.find(
+      lishogi.common.Future.find(
         List(url) ::: mostCommonIndexNames.filterNot(url.path.parts.contains).map(addPart(url, _))
       )(looksLikeJson) flatMap {
         _ ?? { index =>
@@ -84,7 +84,7 @@ final private class RelayFormatApi(ws: WSClient, cacheApi: CacheApi)(implicit
 
   private def looksLikePgn(body: String): Boolean =
     MultiPgn.split(body, 1).value.headOption ?? { pgn =>
-      lila.study.NotationImport(pgn, Nil).isSuccess
+      lishogi.study.NotationImport(pgn, Nil).isSuccess
     }
   private def looksLikePgn(url: Url): Fu[Boolean] = httpGet(url).map { _ exists looksLikePgn }
 

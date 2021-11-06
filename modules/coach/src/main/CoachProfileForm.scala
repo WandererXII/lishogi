@@ -1,4 +1,4 @@
-package lila.coach
+package lishogi.coach
 
 import org.joda.time.DateTime
 import play.api.data._
@@ -62,6 +62,6 @@ object CoachProfileForm {
   import CoachProfile.RichText
 
   implicit private val richTextFormat =
-    lila.common.Form.formatter.stringFormatter[RichText](_.value, RichText.apply)
+    lishogi.common.Form.formatter.stringFormatter[RichText](_.value, RichText.apply)
   private def richText = of[RichText]
 }

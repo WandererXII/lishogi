@@ -1,26 +1,26 @@
-package lila.msg
+package lishogi.msg
 
 import com.softwaremill.macwire._
 
-import lila.common.Bus
-import lila.common.config._
-import lila.user.User
-import lila.hub.actorApi.socket.remote.TellUserIn
+import lishogi.common.Bus
+import lishogi.common.config._
+import lishogi.user.User
+import lishogi.hub.actorApi.socket.remote.TellUserIn
 
 @Module
 final class Env(
-    db: lila.db.Db,
-    lightUserApi: lila.user.LightUserApi,
-    isOnline: lila.socket.IsOnline,
-    userRepo: lila.user.UserRepo,
-    userCache: lila.user.Cached,
-    relationApi: lila.relation.RelationApi,
-    prefApi: lila.pref.PrefApi,
-    notifyApi: lila.notify.NotifyApi,
-    cacheApi: lila.memo.CacheApi,
-    spam: lila.security.Spam,
-    chatPanic: lila.chat.ChatPanic,
-    shutup: lila.hub.actors.Shutup
+    db: lishogi.db.Db,
+    lightUserApi: lishogi.user.LightUserApi,
+    isOnline: lishogi.socket.IsOnline,
+    userRepo: lishogi.user.UserRepo,
+    userCache: lishogi.user.Cached,
+    relationApi: lishogi.relation.RelationApi,
+    prefApi: lishogi.pref.PrefApi,
+    notifyApi: lishogi.notify.NotifyApi,
+    cacheApi: lishogi.memo.CacheApi,
+    spam: lishogi.security.Spam,
+    chatPanic: lishogi.chat.ChatPanic,
+    shutup: lishogi.hub.actors.Shutup
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem,
@@ -42,14 +42,14 @@ final class Env(
   lazy val compat = wire[MsgCompat]
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = { case "msg" :: "multi" :: orig :: dests :: words =>
         api.cliMultiPost(orig, dests.split(',').toIndexedSeq, words mkString " ")
       }
     }
 
   Bus.subscribeFuns(
-    "msgSystemSend" -> { case lila.hub.actorApi.msg.SystemMsg(userId, text) =>
+    "msgSystemSend" -> { case lishogi.hub.actorApi.msg.SystemMsg(userId, text) =>
       api.systemPost(userId, text)
     },
     "remoteSocketIn:msgRead" -> { case TellUserIn(userId, msg) =>
@@ -65,7 +65,7 @@ final class Env(
   )
 }
 
-private class MsgColls(db: lila.db.Db) {
+private class MsgColls(db: lishogi.db.Db) {
   val thread = db(CollName("msg_thread"))
   val msg    = db(CollName("msg_msg"))
 }

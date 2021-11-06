@@ -4,10 +4,10 @@ package round
 import scala.util.chaining._
 
 import shogi.variant.{ Standard, Variant }
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.game.{ Game, Pov }
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.game.{ Game, Pov }
 
 import controllers.routes
 
@@ -17,7 +17,7 @@ object bits {
       variant: Variant,
       title: String,
       moreJs: Frag = emptyFrag,
-      openGraph: Option[lila.app.ui.OpenGraph] = None,
+      openGraph: Option[lishogi.app.ui.OpenGraph] = None,
       moreCss: Frag = emptyFrag,
       shogiground: Boolean = true,
       playing: Boolean = false,
@@ -40,7 +40,7 @@ object bits {
       csp = defaultCsp.withPeer.some
     )(body)
 
-  def crosstable(cross: Option[lila.game.Crosstable.WithMatchup], game: Game)(implicit ctx: Context) =
+  def crosstable(cross: Option[lishogi.game.Crosstable.WithMatchup], game: Game)(implicit ctx: Context) =
     cross map { c =>
       views.html.game.crosstable(ctx.userId.fold(c)(c.fromPov), game.id.some)
     }
@@ -77,7 +77,7 @@ object bits {
       )
     )
 
-  def others(playing: List[Pov], simul: Option[lila.simul.Simul])(implicit ctx: Context) =
+  def others(playing: List[Pov], simul: Option[lishogi.simul.Simul])(implicit ctx: Context) =
     frag(
       h3(
         simul.map { s =>
@@ -122,9 +122,9 @@ object bits {
   private[round] def side(
       pov: Pov,
       data: play.api.libs.json.JsObject,
-      tour: Option[lila.tournament.TourAndTeamVs],
-      simul: Option[lila.simul.Simul],
-      userTv: Option[lila.user.User] = None,
+      tour: Option[lishogi.tournament.TourAndTeamVs],
+      simul: Option[lishogi.simul.Simul],
+      userTv: Option[lishogi.user.User] = None,
       bookmarked: Boolean
   )(implicit ctx: Context) =
     views.html.game.side(

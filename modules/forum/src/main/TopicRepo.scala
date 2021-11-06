@@ -1,8 +1,8 @@
-package lila.forum
+package lishogi.forum
 
 import Filter._
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class TopicRepo(val coll: Coll, filter: Filter = Safe)(implicit
     ec: scala.concurrent.ExecutionContext

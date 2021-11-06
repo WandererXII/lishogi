@@ -1,11 +1,11 @@
-package lila.setup
+package lishogi.setup
 
 import shogi.{ Game => ShogiGame, Situation, Clock, Speed }
 import shogi.variant.{ FromPosition, Variant }
 import shogi.format.FEN
 
-import lila.game.Game
-import lila.lobby.Color
+import lishogi.game.Game
+import lishogi.lobby.Color
 
 private[setup] trait Config {
 

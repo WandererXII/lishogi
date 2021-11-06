@@ -1,4 +1,4 @@
-package lila.search
+package lishogi.search
 
 import play.api.libs.json._
 import play.api.libs.ws._
@@ -41,11 +41,11 @@ final class ESClientHttp(
       HTTP(s"count/${index.name}", query, CountResponse.apply)
     }
 
-  def deleteById(id: lila.search.Id) =
+  def deleteById(id: lishogi.search.Id) =
     config.writeable ??
       HTTP(s"delete/id/${index.name}/${id.value}", Json.obj())
 
-  def deleteByIds(ids: List[lila.search.Id]) =
+  def deleteByIds(ids: List[lishogi.search.Id]) =
     config.writeable ??
       HTTP(s"delete/ids/${index.name}", Json.obj("ids" -> ids.map(_.value)))
 

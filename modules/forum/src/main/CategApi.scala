@@ -1,8 +1,8 @@
-package lila.forum
+package lishogi.forum
 
-import lila.common.paginator._
-import lila.db.dsl._
-import lila.user.User
+import lishogi.common.paginator._
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class CategApi(env: Env)(implicit ec: scala.concurrent.ExecutionContext) {
 

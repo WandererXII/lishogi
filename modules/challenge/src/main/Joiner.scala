@@ -1,17 +1,17 @@
-package lila.challenge
+package lishogi.challenge
 
 import scala.util.chaining._
 
 import shogi.format.Forsyth
 import shogi.format.Forsyth.SituationPlus
 import shogi.{ Color, Mode, Situation }
-import lila.game.{ Game, Player, Pov, Source }
-import lila.user.User
+import lishogi.game.{ Game, Player, Pov, Source }
+import lishogi.user.User
 
 final private class Joiner(
-    gameRepo: lila.game.GameRepo,
-    userRepo: lila.user.UserRepo,
-    onStart: lila.round.OnStart
+    gameRepo: lishogi.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    onStart: lishogi.round.OnStart
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def apply(c: Challenge, destUser: Option[User], color: Option[Color]): Fu[Option[Pov]] =
@@ -37,7 +37,7 @@ final private class Joiner(
               if (Forsyth.>>(game) == Forsyth.initial) makeChess(shogi.variant.Standard) -> none
               else game                                                                  -> baseState
           }
-          val perfPicker = (perfs: lila.user.Perfs) => perfs(c.perfType)
+          val perfPicker = (perfs: lishogi.user.Perfs) => perfs(c.perfType)
           val game = Game
             .make(
               shogi = shogiGame,

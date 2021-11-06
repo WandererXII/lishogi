@@ -3,10 +3,10 @@ package views.html.clas
 import play.api.data.Form
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.clas.{ Clas, Student }
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.clas.{ Clas, Student }
 
 object wall {
 

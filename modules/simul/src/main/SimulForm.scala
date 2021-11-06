@@ -1,12 +1,12 @@
-package lila.simul
+package lishogi.simul
 
 import play.api.data._
 import play.api.data.Forms._
 import play.api.data.validation.{ Constraint, Constraints }
-import lila.user.User
+import lishogi.user.User
 
 import shogi.StartingPosition
-import lila.common.Form._
+import lishogi.common.Form._
 
 object SimulForm {
 
@@ -54,7 +54,7 @@ object SimulForm {
       Constraint[String] { (t: String) =>
         if (
           t.toUpperCase.split(' ').exists { word =>
-            lila.user.Title.all.exists { case (title, name) =>
+            lishogi.user.Title.all.exists { case (title, name) =>
               !host.title.has(title) && {
                 title.value == word || name.toUpperCase == word
               }

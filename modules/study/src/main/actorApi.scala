@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 package actorApi
 
 case class StartStudy(studyId: Study.Id)
@@ -12,5 +12,5 @@ case class ExplorerGame(ch: Chapter.Id, path: String, gameId: String, insert: Bo
 }
 case class StudyLikes(studyId: Study.Id, likes: Study.Likes)
 
-case class Who(u: lila.user.User.ID, sri: lila.socket.Socket.Sri)
+case class Who(u: lishogi.user.User.ID, sri: lishogi.socket.Socket.Sri)
 case class RelayToggle(studyId: Study.Id, v: Boolean, who: Who)

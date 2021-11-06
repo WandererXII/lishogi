@@ -3,11 +3,11 @@ package views.html.setup
 import play.api.data.Form
 import play.api.mvc.Call
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.rating.RatingRange
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.rating.RatingRange
+import lishogi.user.User
 
 import controllers.routes
 
@@ -45,7 +45,7 @@ object forms {
       )
     }
 
-  def ai(form: Form[_], ratings: Map[Int, Int], validFen: Option[lila.setup.ValidFen])(implicit
+  def ai(form: Form[_], ratings: Map[Int, Int], validFen: Option[lishogi.setup.ValidFen])(implicit
       ctx: Context
   ) =
     layout("ai", trans.playWithTheMachine(), routes.Setup.ai()) {
@@ -56,7 +56,7 @@ object forms {
         if (ctx.blind)
           frag(
             renderLabel(form("level"), trans.strength()),
-            renderSelect(form("level"), lila.setup.AiConfig.levelChoices),
+            renderSelect(form("level"), lishogi.setup.AiConfig.levelChoices),
             blindSideChoice(form)
           )
         else
@@ -65,7 +65,7 @@ object forms {
             trans.strength(),
             div(cls := "level buttons")(
               div(id := "config_level")(
-                renderRadios(form("level"), lila.setup.AiConfig.levelChoices)
+                renderRadios(form("level"), lishogi.setup.AiConfig.levelChoices)
               ),
               div(cls := "ai_info")(
                 ratings.toList.map { case (level, _) =>
@@ -81,7 +81,7 @@ object forms {
       form: Form[_],
       user: Option[User],
       error: Option[String],
-      validFen: Option[lila.setup.ValidFen]
+      validFen: Option[lishogi.setup.ValidFen]
   )(implicit ctx: Context) =
     layout(
       "friend",
@@ -154,7 +154,7 @@ object forms {
         },
       ctx.me.ifFalse(ctx.blind).map { me =>
         div(cls := "ratings")(
-          lila.rating.PerfType.nonPuzzle.map { perfType =>
+          lishogi.rating.PerfType.nonPuzzle.map { perfType =>
             div(cls := perfType.key)(
               trans.perfRatingX(
                 raw(s"""<strong data-icon="${perfType.iconChar}">${me

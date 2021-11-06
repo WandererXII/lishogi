@@ -1,16 +1,16 @@
-package lila.pref
+package lishogi.pref
 
 import play.api.mvc.RequestHeader
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.user.User
-import lila.memo.CacheApi._
+import lishogi.db.dsl._
+import lishogi.user.User
+import lishogi.memo.CacheApi._
 
 final class PrefApi(
     coll: Coll,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import PrefHandlers._
@@ -30,7 +30,7 @@ final class PrefApi(
         upsert = true
       )
       .void
-      .recover(lila.db.ignoreDuplicateKey) >>- { cache invalidate user.id }
+      .recover(lishogi.db.ignoreDuplicateKey) >>- { cache invalidate user.id }
 
   def getPrefById(id: User.ID): Fu[Pref]    = cache get id dmap (_ getOrElse Pref.create(id))
   val getPref                               = getPrefById _
@@ -63,7 +63,7 @@ final class PrefApi(
     }
 
   def setPref(pref: Pref): Funit =
-    coll.update.one($id(pref.id), pref, upsert = true).void.recover(lila.db.ignoreDuplicateKey) >>-
+    coll.update.one($id(pref.id), pref, upsert = true).void.recover(lishogi.db.ignoreDuplicateKey) >>-
       cache.put(pref.id, fuccess(pref.some))
 
   def setPref(user: User, change: Pref => Pref): Funit =

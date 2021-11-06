@@ -1,11 +1,11 @@
-package lila.insight
+package lishogi.insight
 
 import play.api.i18n.Lang
 import play.api.libs.json._
 
 final class JsonView {
 
-  import lila.insight.{ Dimension => D, Metric => M }
+  import lishogi.insight.{ Dimension => D, Metric => M }
   import writers._
 
   case class Categ(name: String, items: List[JsValue])

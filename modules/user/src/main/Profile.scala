@@ -1,4 +1,4 @@
-package lila.user
+package lishogi.user
 
 case class Profile(
     country: Option[String] = None,

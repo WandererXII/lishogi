@@ -1,4 +1,4 @@
-package lila
+package lishogi
 
 package object video extends PackageObject {
 
@@ -6,5 +6,5 @@ package object video extends PackageObject {
   type Tag    = String
   type Lang   = String
 
-  private[video] def logger = lila.log("video")
+  private[video] def logger = lishogi.log("video")
 }

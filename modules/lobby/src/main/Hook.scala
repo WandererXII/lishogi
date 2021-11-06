@@ -1,4 +1,4 @@
-package lila.lobby
+package lishogi.lobby
 
 import shogi.{ Clock, Mode, Speed }
 import org.joda.time.DateTime
@@ -6,10 +6,10 @@ import ornicar.scalalib.Random
 import play.api.i18n.Lang
 import play.api.libs.json._
 
-import lila.game.PerfPicker
-import lila.rating.RatingRange
-import lila.socket.Socket.Sri
-import lila.user.User
+import lishogi.game.PerfPicker
+import lishogi.rating.RatingRange
+import lishogi.socket.Socket.Sri
+import lishogi.user.User
 
 // realtime shogi, volatile
 case class Hook(
@@ -85,21 +85,21 @@ case class Hook(
 
   lazy val compatibleWithPools =
     realMode.rated && realVariant.standard && randomColor &&
-      lila.pool.PoolList.clockStringSet.contains(clock.show)
+      lishogi.pool.PoolList.clockStringSet.contains(clock.show)
 
   def compatibleWithPool(poolClock: shogi.Clock.Config) =
     compatibleWithPools && clock == poolClock
 
   def toPool =
-    lila.pool.HookThieve.PoolHook(
+    lishogi.pool.HookThieve.PoolHook(
       hookId = id,
-      member = lila.pool.PoolMember(
+      member = lishogi.pool.PoolMember(
         userId = user.??(_.id),
         sri = sri,
-        rating = rating | lila.rating.Glicko.defaultIntRating,
+        rating = rating | lishogi.rating.Glicko.defaultIntRating,
         ratingRange = realRatingRange,
         lame = user.??(_.lame),
-        blocking = lila.pool.PoolMember.BlockedUsers(user.??(_.blocking)),
+        blocking = lishogi.pool.PoolMember.BlockedUsers(user.??(_.blocking)),
         since = createdAt,
         rageSitCounter = 0
       )
@@ -125,7 +125,7 @@ object Hook {
       boardApi: Boolean = false
   ): Hook =
     new Hook(
-      id = lila.common.ThreadLocalRandom nextString idSize,
+      id = lishogi.common.ThreadLocalRandom nextString idSize,
       sri = sri,
       variant = variant.id,
       clock = clock,

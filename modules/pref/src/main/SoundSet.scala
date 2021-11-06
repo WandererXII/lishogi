@@ -1,4 +1,4 @@
-package lila.pref
+package lishogi.pref
 
 sealed class SoundSet private[pref] (val key: String, val name: String) {
 

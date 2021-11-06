@@ -4,14 +4,14 @@ package html.puzzle
 import controllers.routes
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.puzzle.PuzzleTheme
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.puzzle.PuzzleTheme
 
 object theme {
 
-  def list(themes: List[(lila.i18n.I18nKey, List[PuzzleTheme.WithCount])])(implicit ctx: Context) =
+  def list(themes: List[(lishogi.i18n.I18nKey, List[PuzzleTheme.WithCount])])(implicit ctx: Context) =
     views.html.base.layout(
       title = "Puzzle themes",
       moreCss = cssTag("puzzle.page")

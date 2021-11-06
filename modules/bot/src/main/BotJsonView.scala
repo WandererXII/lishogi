@@ -1,16 +1,16 @@
-package lila.bot
+package lishogi.bot
 
 import play.api.i18n.Lang
 import play.api.libs.json._
 
-import lila.common.Json.jodaWrites
-import lila.game.JsonView._
-import lila.game.{ Game, GameRepo, Pov }
+import lishogi.common.Json.jodaWrites
+import lishogi.game.JsonView._
+import lishogi.game.{ Game, GameRepo, Pov }
 
 final class BotJsonView(
-    lightUserApi: lila.user.LightUserApi,
+    lightUserApi: lishogi.user.LightUserApi,
     gameRepo: GameRepo,
-    rematches: lila.game.Rematches
+    rematches: lishogi.game.Rematches
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def gameFull(game: Game)(implicit lang: Lang): Fu[JsObject] = gameRepo.withInitialFen(game) flatMap gameFull

@@ -1,16 +1,16 @@
-package lila.streamer
+package lishogi.streamer
 
 import reactivemongo.api._
 
-import lila.common.paginator.Paginator
-import lila.db.dsl._
-import lila.db.paginator.{ Adapter, CachedAdapter }
-import lila.user.{ User, UserRepo }
+import lishogi.common.paginator.Paginator
+import lishogi.db.dsl._
+import lishogi.db.paginator.{ Adapter, CachedAdapter }
+import lishogi.user.{ User, UserRepo }
 
 final class StreamerPager(
     coll: Coll,
     userRepo: UserRepo,
-    maxPerPage: lila.common.config.MaxPerPage
+    maxPerPage: lishogi.common.config.MaxPerPage
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BsonHandlers._

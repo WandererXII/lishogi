@@ -1,10 +1,10 @@
-package lila.plan
+package lishogi.plan
 
 import play.api.libs.json._
 import play.api.libs.ws.{ WSClient, WSResponse }
 
-import lila.common.config.Secret
-import lila.user.User
+import lishogi.common.config.Secret
+import lishogi.user.User
 
 final private class StripeClient(
     ws: WSClient,

@@ -1,5 +1,5 @@
 // Generated with bin/trans-dump.js
-package lila.i18n
+package lishogi.i18n
 
 // format: OFF
 object I18nKeys {

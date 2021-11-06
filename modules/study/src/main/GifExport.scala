@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 import akka.stream.scaladsl._
 import akka.util.ByteString

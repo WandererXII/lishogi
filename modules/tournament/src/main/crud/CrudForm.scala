@@ -1,4 +1,4 @@
-package lila.tournament
+package lishogi.tournament
 package crud
 
 import org.joda.time.DateTime
@@ -7,12 +7,12 @@ import play.api.data.Forms._
 
 import shogi.StartingPosition
 import shogi.variant.Variant
-import lila.common.Form._
+import lishogi.common.Form._
 
 object CrudForm {
 
   import DataForm._
-  import lila.common.Form.UTCDate._
+  import lishogi.common.Form.UTCDate._
 
   val maxHomepageHours = 72
 

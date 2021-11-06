@@ -1,10 +1,10 @@
-package lila.memo
+package lishogi.memo
 
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
+import lishogi.common.config._
 
 final class MemoConfig(
     @ConfigName("collection.cache") val cacheColl: CollName,
@@ -15,7 +15,7 @@ final class MemoConfig(
 final class Env(
     appConfig: Configuration,
     mode: play.api.Mode,
-    db: lila.db.Db
+    db: lishogi.db.Db
 )(implicit ec: scala.concurrent.ExecutionContext, system: akka.actor.ActorSystem) {
 
   private val config = appConfig.get[MemoConfig]("memo")(AutoConfig.loader)

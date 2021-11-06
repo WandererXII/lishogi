@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import akka.stream.scaladsl._
 import play.api.libs.json.Json
@@ -18,14 +18,14 @@ final class ConcurrencyLimit[K](
     toString: K => String = (k: K) => k.toString
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  private val storage = lila.memo.CacheApi.scaffeineNoScheduler
+  private val storage = lishogi.memo.CacheApi.scaffeineNoScheduler
     .expireAfterWrite(ttl)
     .build[String, Int]()
 
   private val concurrentMap = storage.underlying.asMap
 
-  private lazy val logger  = lila.log("concurrencylimit").branch(name)
-  private lazy val monitor = lila.mon.security.concurrencyLimit(key)
+  private lazy val logger  = lishogi.log("concurrencylimit").branch(name)
+  private lazy val monitor = lishogi.mon.security.concurrencyLimit(key)
 
   def compose[T](k: K, msg: => String = ""): Option[Source[T, _] => Source[T, _]] =
     get(k) match {

@@ -1,16 +1,16 @@
-package lila.round
+package lishogi.round
 
 import shogi.format.{ Forsyth, Uci }
 import shogi.{ Centis, Color, MoveMetrics, MoveOrDrop, Status }
 
 import actorApi.round.{ DrawNo, ForecastPlay, HumanPlay, TakebackNo, TooManyPlies }
-import lila.game.actorApi.MoveGameEvent
-import lila.common.Bus
-import lila.game.{ Event, Game, Pov, Progress, UciMemo }
-import lila.game.Game.PlayerId
+import lishogi.game.actorApi.MoveGameEvent
+import lishogi.common.Bus
+import lishogi.game.{ Event, Game, Pov, Progress, UciMemo }
+import lishogi.game.Game.PlayerId
 
 final private class Player(
-    fishnetPlayer: lila.fishnet.Player,
+    fishnetPlayer: lishogi.fishnet.Player,
     finisher: Finisher,
     scheduleExpiration: ScheduleExpiration,
     uciMemo: UciMemo
@@ -148,7 +148,7 @@ final private class Player(
   }
 
   private def notifyMove(moveOrDrop: MoveOrDrop, game: Game): Unit = {
-    import lila.hub.actorApi.round.{ CorresMoveEvent, MoveEvent, SimulMoveEvent }
+    import lishogi.hub.actorApi.round.{ CorresMoveEvent, MoveEvent, SimulMoveEvent }
     val color = moveOrDrop.fold(_.color, _.color)
     val moveEvent = MoveEvent(
       gameId = game.id,

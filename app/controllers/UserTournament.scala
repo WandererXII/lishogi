@@ -1,9 +1,9 @@
 package controllers
 
-import lila.app._
+import lishogi.app._
 import views._
 
-final class UserTournament(env: Env) extends LilaController(env) {
+final class UserTournament(env: Env) extends LishogiController(env) {
 
   def path(username: String, path: String, page: Int) =
     Open { implicit ctx =>

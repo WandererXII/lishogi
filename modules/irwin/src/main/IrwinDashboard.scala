@@ -1,4 +1,4 @@
-package lila.irwin
+package lishogi.irwin
 
 import org.joda.time.DateTime
 

@@ -3,16 +3,16 @@ package practice
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
 
 object show {
 
   def apply(
-      us: lila.practice.UserStudy,
-      data: lila.practice.JsonView.JsData
+      us: lishogi.practice.UserStudy,
+      data: lishogi.practice.JsonView.JsData
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = us.practiceStudy.name,

@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 import play.api.libs.ws.WSClient
 

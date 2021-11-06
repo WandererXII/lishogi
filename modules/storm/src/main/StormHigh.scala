@@ -1,11 +1,11 @@
-package lila.storm
+package lishogi.storm
 
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext
 
-import lila.db.dsl._
-import lila.memo.CacheApi
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
+import lishogi.user.User
 
 case class StormHigh(day: Int, week: Int, month: Int, allTime: Int) {
 

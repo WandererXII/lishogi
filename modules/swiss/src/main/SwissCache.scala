@@ -1,12 +1,12 @@
-package lila.swiss
+package lishogi.swiss
 
 import scala.concurrent.duration._
 import org.joda.time.DateTime
 
-import lila.db.dsl._
-import lila.hub.LightTeam.TeamID
-import lila.memo._
-import lila.memo.CacheApi._
+import lishogi.db.dsl._
+import lishogi.hub.LightTeam.TeamID
+import lishogi.memo._
+import lishogi.memo.CacheApi._
 
 final private class SwissCache(
     colls: SwissColls,

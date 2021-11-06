@@ -4,25 +4,25 @@ import play.api.libs.json._
 import play.api.mvc._
 
 import shogi.format.FEN
-import lila.api.Context
-import lila.app._
-import lila.common.HTTPRequest
-import lila.game.{ NotationDump, Pov }
-import lila.round.JsonView.WithFlags
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.common.HTTPRequest
+import lishogi.game.{ NotationDump, Pov }
+import lishogi.round.JsonView.WithFlags
 import views._
 
 final class Analyse(
     env: Env,
     gameC: => Game,
     roundC: => Round
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   def requestAnalysis(id: String) =
     Auth { implicit ctx => me =>
       OptionFuResult(env.game.gameRepo game id) { game =>
         env.fishnet.analyser(
           game,
-          lila.fishnet.Work.Sender(
+          lishogi.fishnet.Work.Sender(
             userId = me.id.some,
             ip = HTTPRequest.lastRemoteAddress(ctx.req).some,
             mod = isGranted(_.Hunter) || isGranted(_.Relay),
@@ -35,7 +35,7 @@ final class Analyse(
       }
     }
 
-  def replay(pov: Pov, userTv: Option[lila.user.User])(implicit ctx: Context) =
+  def replay(pov: Pov, userTv: Option[lishogi.user.User])(implicit ctx: Context) =
     if (HTTPRequest isCrawler ctx.req) replayBot(pov)
     else
       env.game.gameRepo initialFen pov.gameId flatMap { initialFen =>
@@ -54,9 +54,9 @@ final class Analyse(
             ) flatMap { case analysis ~ analysisInProgress ~ simul ~ chat ~ crosstable ~ bookmarked ~ kif =>
               env.api.roundApi.review(
                 pov,
-                lila.api.Mobile.Api.currentVersion,
+                lishogi.api.Mobile.Api.currentVersion,
                 tv = userTv.map { u =>
-                  lila.round.OnUserTv(u.id)
+                  lishogi.round.OnUserTv(u.id)
                 },
                 analysis,
                 initialFenO = initialFen.some,
@@ -96,7 +96,7 @@ final class Analyse(
           val pov = Pov(game, shogi.Color(color == "sente"))
           env.api.roundApi.embed(
             pov,
-            lila.api.Mobile.Api.currentVersion,
+            lishogi.api.Mobile.Api.currentVersion,
             initialFenO = initialFen.some,
             withFlags = WithFlags(opening = true)
           ) map { data =>
@@ -114,7 +114,7 @@ final class Analyse(
           .plyAtFen(pov.game.pgnMoves, initialFen.map(_.value), pov.game.variant, atFen)
           .fold(
             err => {
-              lila.log("analyse").info(s"RedirectAtFen: ${pov.gameId} $atFen $err")
+              lishogi.log("analyse").info(s"RedirectAtFen: ${pov.gameId} $atFen $err")
               Redirect(url)
             },
             ply => Redirect(s"$url#$ply")

@@ -1,4 +1,4 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import shogi.format.pgn.Dumper
 import shogi.format.Uci
@@ -6,8 +6,8 @@ import shogi.{ Drop, Move, Replay, Situation }
 import scalaz.Validation.success
 import scalaz.Validation.FlatMap._
 
-import lila.analyse.{ Analysis, Info, PgnMove }
-import lila.base.LilaException
+import lishogi.analyse.{ Analysis, Info, PgnMove }
+import lishogi.base.LishogiException
 
 // convert variations from UCI to PGN.
 // also drops extra variations
@@ -49,7 +49,7 @@ private object UciToPgn {
       case ((infos, errs), info) if info.variation.isEmpty => (info :: infos, errs)
       case ((infos, errs), info) =>
         uciToPgn(info.ply, info.variation).fold(
-          err => (info.dropVariation :: infos, LilaException(err) :: errs),
+          err => (info.dropVariation :: infos, LishogiException(err) :: errs),
           pgn => (info.copy(variation = pgn) :: infos, errs)
         )
     } match {

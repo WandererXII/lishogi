@@ -1,6 +1,6 @@
-package lila.practice
+package lishogi.practice
 
-import lila.study.{ Chapter, Study }
+import lishogi.study.{ Chapter, Study }
 
 case class PracticeStructure(
     sections: List[PracticeSection]
@@ -54,7 +54,7 @@ case class PracticeStudy(
     chapters: List[Chapter.IdName]
 ) {
 
-  val slug = lila.common.String slugify name
+  val slug = lishogi.common.String slugify name
 
   def chapterIds = chapters.map(_.id)
 }

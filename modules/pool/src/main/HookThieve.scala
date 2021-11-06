@@ -1,8 +1,8 @@
-package lila.pool
+package lishogi.pool
 
 import scala.concurrent.Promise
 
-import lila.common.Bus
+import lishogi.common.Bus
 
 final private class HookThieve()(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -18,7 +18,7 @@ final private class HookThieve()(implicit
       .nevermind(PoolHooks(Vector.empty))
 
   def stolen(poolHooks: Vector[PoolHook], monId: String) = {
-    lila.mon.lobby.pool.thieve.stolen(monId).record(poolHooks.size)
+    lishogi.mon.lobby.pool.thieve.stolen(monId).record(poolHooks.size)
     if (poolHooks.nonEmpty) Bus.publish(StolenHookIds(poolHooks.map(_.hookId)), "lobbyTrouper")
   }
 }

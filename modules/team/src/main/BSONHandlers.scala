@@ -1,12 +1,12 @@
-package lila.team
+package lishogi.team
 
 import reactivemongo.api.bson.Macros
 
-import lila.hub.LightTeam
+import lishogi.hub.LightTeam
 
 private object BSONHandlers {
 
-  import lila.db.dsl.BSONJodaDateTimeHandler
+  import lishogi.db.dsl.BSONJodaDateTimeHandler
   implicit val TeamBSONHandler      = Macros.handler[Team]
   implicit val RequestBSONHandler   = Macros.handler[Request]
   implicit val MemberBSONHandler    = Macros.handler[Member]

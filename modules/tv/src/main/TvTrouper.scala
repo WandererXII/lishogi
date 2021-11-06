@@ -1,20 +1,20 @@
-package lila.tv
+package lishogi.tv
 
 import akka.pattern.{ ask => actorAsk }
 import play.api.libs.json.Json
 import scala.concurrent.duration._
 import scala.concurrent.Promise
 
-import lila.common.{ Bus, LightUser }
-import lila.game.Game
-import lila.hub.Trouper
+import lishogi.common.{ Bus, LightUser }
+import lishogi.game.Game
+import lishogi.hub.Trouper
 
 final private[tv] class TvTrouper(
-    renderer: lila.hub.actors.Renderer,
+    renderer: lishogi.hub.actors.Renderer,
     lightUser: LightUser.GetterSync,
-    recentTvGames: lila.round.RecentTvGames,
-    gameProxyRepo: lila.round.GameProxyRepo,
-    rematches: lila.game.Rematches
+    recentTvGames: lishogi.round.RecentTvGames,
+    gameProxyRepo: lishogi.round.GameProxyRepo,
+    rematches: lishogi.game.Rematches
 )(implicit ec: scala.concurrent.ExecutionContext)
     extends Trouper {
 
@@ -45,7 +45,7 @@ final private[tv] class TvTrouper(
 
     case GetChampions(promise) => promise success Tv.Champions(channelChampions)
 
-    case lila.game.actorApi.StartGame(g) =>
+    case lishogi.game.actorApi.StartGame(g) =>
       if (g.hasClock) {
         val candidate = Tv.toCandidate(lightUser)(g)
         channelTroupers collect {
@@ -56,7 +56,7 @@ final private[tv] class TvTrouper(
     case s @ TvTrouper.Select => channelTroupers.foreach(_._2 ! s)
 
     case Selected(channel, game) =>
-      import lila.socket.Socket.makeMessage
+      import lishogi.socket.Socket.makeMessage
       val player = game.firstPlayer
       val user   = player.userId flatMap lightUser
       (user |@| player.rating) apply { case (u, r) =>
@@ -75,11 +75,11 @@ final private[tv] class TvTrouper(
           )
         }
       )
-      Bus.publish(lila.hub.actorApi.tv.TvSelect(game.id, game.speed, data), "tvSelect")
+      Bus.publish(lishogi.hub.actorApi.tv.TvSelect(game.id, game.speed, data), "tvSelect")
       if (channel == Tv.Channel.Best) {
         implicit def timeout = makeTimeout(100 millis)
         actorAsk(renderer.actor, actorApi.RenderFeaturedJs(game)) foreach { case html: String =>
-          val event = lila.hub.actorApi.game.ChangeFeatured(
+          val event = lishogi.hub.actorApi.game.ChangeFeatured(
             game.id,
             makeMessage(
               "featured",

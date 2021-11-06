@@ -1,10 +1,10 @@
-package lila.base
+package lishogi.base
 
 import java.lang.Character.isLetterOrDigit
 import java.lang.{ StringBuilder => jStringBuilder, Math }
 import scala.annotation.{ switch, tailrec }
 
-import lila.common.base.StringUtils.escapeHtmlRaw
+import lishogi.common.base.StringUtils.escapeHtmlRaw
 
 final object RawHtml {
   def nl2br(s: String): String = {

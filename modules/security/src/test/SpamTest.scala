@@ -1,8 +1,8 @@
-package lila.security
+package lishogi.security
 
 import org.specs2.mutable.Specification
 
-import lila.common.Strings
+import lishogi.common.Strings
 
 class SpamTest extends Specification {
 

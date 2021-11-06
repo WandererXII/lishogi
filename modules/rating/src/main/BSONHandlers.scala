@@ -1,7 +1,7 @@
-package lila.rating
+package lishogi.rating
 
-import lila.db.dsl._
-import lila.common.Iso
+import lishogi.db.dsl._
+import lishogi.common.Iso
 
 object BSONHandlers {
 

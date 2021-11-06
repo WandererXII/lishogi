@@ -1,7 +1,7 @@
-package lila.chat
+package lishogi.chat
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
@@ -14,7 +14,7 @@ final class ChatTimeout(
 
   import ChatTimeout._
 
-  private val global = new lila.memo.ExpireSetMemo(duration)
+  private val global = new lishogi.memo.ExpireSetMemo(duration)
 
   def add(chat: UserChat, mod: User, user: User, reason: Reason, scope: Scope): Funit =
     isActive(chat.id, user.id) flatMap {
@@ -61,7 +61,7 @@ final class ChatTimeout(
 
   private val idSize = 8
 
-  private def makeId = lila.common.ThreadLocalRandom nextString idSize
+  private def makeId = lishogi.common.ThreadLocalRandom nextString idSize
 }
 
 object ChatTimeout {

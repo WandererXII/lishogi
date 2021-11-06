@@ -2,11 +2,11 @@ package views.html.relay
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.relay.Relay.Sync.LccRegex
-import lila.relay.RelayForm.Data
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.relay.Relay.Sync.LccRegex
+import lishogi.relay.RelayForm.Data
 
 import controllers.routes
 
@@ -20,7 +20,7 @@ object form {
       inner(form, routes.Relay.create())
     )
 
-  def edit(r: lila.relay.Relay, form: Form[Data])(implicit ctx: Context) =
+  def edit(r: lishogi.relay.Relay, form: Form[Data])(implicit ctx: Context) =
     layout(r.name)(
       h1("Edit ", r.name),
       inner(form, routes.Relay.update(r.slug, r.id.value)),

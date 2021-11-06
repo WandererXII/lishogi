@@ -1,23 +1,23 @@
-package lila.clas
+package lishogi.clas
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 import reactivemongo.api._
 
-import lila.common.config.BaseUrl
-import lila.common.EmailAddress
-import lila.security.Permission
-import lila.db.dsl._
-import lila.msg.MsgApi
-import lila.user.{ Authenticator, User, UserRepo }
-import lila.memo.CacheApi._
+import lishogi.common.config.BaseUrl
+import lishogi.common.EmailAddress
+import lishogi.security.Permission
+import lishogi.db.dsl._
+import lishogi.msg.MsgApi
+import lishogi.user.{ Authenticator, User, UserRepo }
+import lishogi.memo.CacheApi._
 
 final class ClasApi(
     colls: ClasColls,
     userRepo: UserRepo,
     msgApi: MsgApi,
     authenticator: Authenticator,
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     baseUrl: BaseUrl
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -182,7 +182,7 @@ final class ClasApi(
     ): Fu[(User, ClearPassword)] = {
       val email    = EmailAddress(s"noreply.class.${clas.id}.${data.username}@lishogi.org")
       val password = Student.password.generate
-      lila.mon.clas.studentCreate(teacher.id)
+      lishogi.mon.clas.studentCreate(teacher.id)
       userRepo
         .create(
           username = data.username,
@@ -234,8 +234,8 @@ final class ClasApi(
         .post(
           orig = teacherId,
           dest = student.id,
-          text = s"""${lila.i18n.I18nKeys.clas.welcomeToClass
-            .txt(clas.name)(student.realLang | lila.i18n.defaultLang)}
+          text = s"""${lishogi.i18n.I18nKeys.clas.welcomeToClass
+            .txt(clas.name)(student.realLang | lishogi.i18n.defaultLang)}
 
 $baseUrl/class/${clas.id}
 
@@ -252,7 +252,7 @@ ${clas.desc}""",
       student
         .archive(Student.id(user.id, clas.id), user, false)
         .map2[ClasInvite.Feedback](_ => Already) getOrElse {
-        lila.mon.clas.studentInvite(teacher.id)
+        lishogi.mon.clas.studentInvite(teacher.id)
         val invite = ClasInvite.make(clas, user, realName, teacher)
         colls.invite.insert
           .one(invite)
@@ -261,7 +261,7 @@ ${clas.desc}""",
             sendInviteMessage(teacher, user, clas, invite)
           }
           .recover {
-            lila.db.recoverDuplicateKey(_ => Found)
+            lishogi.db.recoverDuplicateKey(_ => Found)
           }
       }
 
@@ -283,7 +283,7 @@ ${clas.desc}""",
               colls.student.insert.one(stu) >>
                 colls.invite.updateField($id(id), "accepted", true) >>
                 student.sendWelcomeMessage(invite.created.by, user, clas) inject
-                stu.some recoverWith lila.db.recoverDuplicateKey { _ =>
+                stu.some recoverWith lishogi.db.recoverDuplicateKey { _ =>
                   student.get(clas, user.id)
                 }
             }
@@ -317,8 +317,8 @@ ${clas.desc}""",
       val url = s"$baseUrl/class/invitation/${invite._id}"
       if (student.kid) fuccess(ClasInvite.Feedback.CantMsgKid(url))
       else {
-        import lila.i18n.I18nKeys.clas._
-        implicit val lang = student.realLang | lila.i18n.defaultLang
+        import lishogi.i18n.I18nKeys.clas._
+        implicit val lang = student.realLang | lishogi.i18n.defaultLang
         msgApi
           .post(
             orig = teacher.id,

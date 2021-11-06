@@ -1,8 +1,8 @@
-package lila.simul
+package lishogi.simul
 
 import shogi.variant.Variant
-import lila.rating.Perf
-import lila.user.User
+import lishogi.rating.Perf
+import lishogi.user.User
 
 private[simul] case class SimulPlayer(
     user: User.ID,

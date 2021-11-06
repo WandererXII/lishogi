@@ -1,11 +1,11 @@
-package lila.insight
+package lishogi.insight
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.db.AsyncColl
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.db.AsyncColl
+import lishogi.user.User
 
 case class UserCache(
     _id: User.ID, // user id

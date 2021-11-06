@@ -1,4 +1,4 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson.BSONNull
@@ -6,9 +6,9 @@ import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext
 import scala.util.chaining._
 
-import lila.db.dsl._
-import lila.memo.CacheApi
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
+import lishogi.user.User
 
 case class PuzzleReplay(days: Int, theme: PuzzleTheme.Key, nb: Int, remaining: Vector[Puzzle.Id]) {
 

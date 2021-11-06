@@ -1,8 +1,8 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import ornicar.scalalib.Random
 import com.gilt.gfc.semver.SemVer
-import lila.common.IpAddress
+import lishogi.common.IpAddress
 import scala.util.{ Failure, Success, Try }
 
 import org.joda.time.DateTime
@@ -26,7 +26,7 @@ case class Client(
       copy(instance = newInstance.some)
     }
 
-  def lishogi = userId.value == lila.user.User.lishogiId
+  def lishogi = userId.value == lishogi.user.User.lishogiId
 
   def offline = key == Client.offline.key
 

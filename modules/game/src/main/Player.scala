@@ -1,9 +1,9 @@
-package lila.game
+package lishogi.game
 
 import shogi.Color
 import scala.util.chaining._
 
-import lila.user.User
+import lishogi.user.User
 
 case class PlayerUser(id: String, rating: Int, ratingDiff: Option[Int])
 
@@ -103,7 +103,7 @@ object Player {
 
   def make(
       color: Color,
-      userPerf: (User.ID, lila.rating.Perf)
+      userPerf: (User.ID, lishogi.rating.Perf)
   ): Player =
     make(
       color = color,
@@ -130,7 +130,7 @@ object Player {
   def make(
       color: Color,
       user: Option[User],
-      perfPicker: lila.user.Perfs => lila.rating.Perf
+      perfPicker: lishogi.user.Perfs => lishogi.rating.Perf
   ): Player =
     user.fold(make(color)) { u =>
       make(color, (u.id, perfPicker(u.perfs)))
@@ -167,7 +167,7 @@ object Player {
   }
 
   import reactivemongo.api.bson._
-  import lila.db.BSON
+  import lishogi.db.BSON
 
   type ID      = String
   type UserId  = Option[String]

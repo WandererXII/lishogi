@@ -1,4 +1,4 @@
-package lila.blog
+package lishogi.blog
 
 import org.specs2.mutable._
 

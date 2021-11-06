@@ -2,14 +2,14 @@ package views.html.user.show
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.mashup.UserInfo.Angle
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.app.mashup.UserInfo
-import lila.game.Game
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.mashup.UserInfo.Angle
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.app.mashup.UserInfo
+import lishogi.game.Game
+import lishogi.user.User
 
 import controllers.routes
 
@@ -17,13 +17,13 @@ object page {
 
   def activity(
       u: User,
-      activities: Vector[lila.activity.ActivityView],
+      activities: Vector[lishogi.activity.ActivityView],
       info: UserInfo,
-      social: lila.app.mashup.UserInfo.Social
+      social: lishogi.app.mashup.UserInfo.Social
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = s"${u.username} : ${trans.activity.activity.txt()}",
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           image = staticUrl("logo/lishogi-tile-wide.png").some,
           twitterImage = staticUrl("logo/lishogi-tile.png").some,
@@ -52,9 +52,9 @@ object page {
       u: User,
       info: UserInfo,
       games: Paginator[Game],
-      filters: lila.app.mashup.GameFilterMenu,
+      filters: lishogi.app.mashup.GameFilterMenu,
       searchForm: Option[Form[_]],
-      social: lila.app.mashup.UserInfo.Social
+      social: lishogi.app.mashup.UserInfo.Social
   )(implicit ctx: Context) =
     views.html.base.layout(
       title =

@@ -1,22 +1,22 @@
 package views.html.mod
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
-import lila.hub.actorApi.shutup.PublicSource
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
+import lishogi.hub.actorApi.shutup.PublicSource
 
 import controllers.routes
 
 object communication {
 
   def apply(
-      u: lila.user.User,
-      players: List[(lila.game.Pov, lila.chat.MixedChat)],
-      convos: List[lila.msg.MsgConvo],
-      publicLines: List[lila.shutup.PublicLine],
-      notes: List[lila.user.Note],
-      history: List[lila.mod.Modlog],
+      u: lishogi.user.User,
+      players: List[(lishogi.game.Pov, lishogi.chat.MixedChat)],
+      convos: List[lishogi.msg.MsgConvo],
+      publicLines: List[lishogi.shutup.PublicLine],
+      notes: List[lishogi.user.Note],
+      history: List[lishogi.mod.Modlog],
       priv: Boolean
   )(implicit ctx: Context) =
     views.html.base.layout(
@@ -93,7 +93,7 @@ object communication {
                   case PublicSource.Team(id)       => views.html.team.bits.link(id)
                   case PublicSource.Watcher(id)    => a(href := routes.Round.watcher(id, "sente"))("Game #", id)
                   case PublicSource.Study(id)      => a(href := routes.Study.show(id))("Study #", id)
-                  case PublicSource.Swiss(id)      => views.html.swiss.bits.link(lila.swiss.Swiss.Id(id))
+                  case PublicSource.Swiss(id)      => views.html.swiss.bits.link(lishogi.swiss.Swiss.Id(id))
                 },
                 " ",
                 line.text

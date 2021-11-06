@@ -1,7 +1,7 @@
-package lila.puzzle
+package lishogi.puzzle
 
-import lila.i18n.I18nKeys.{ puzzleTheme => i }
-import lila.i18n.{ I18nKey, I18nKeys => trans }
+import lishogi.i18n.I18nKeys.{ puzzleTheme => i }
+import lishogi.i18n.{ I18nKey, I18nKeys => trans }
 
 case class PuzzleTheme(key: PuzzleTheme.Key, name: I18nKey, description: I18nKey)
 
@@ -147,5 +147,5 @@ object PuzzleTheme {
 
   def findDynamic(key: String) = find(key).filterNot(t => staticThemes(t.key))
 
-  implicit val keyIso = lila.common.Iso.string[Key](Key.apply, _.value)
+  implicit val keyIso = lishogi.common.Iso.string[Key](Key.apply, _.value)
 }

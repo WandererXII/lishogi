@@ -1,4 +1,4 @@
-package lila.report
+package lishogi.report
 
 sealed trait Room {
 
@@ -22,7 +22,7 @@ object Room {
     (v.key, v)
   } toMap
 
-  implicit val roomIso = lila.common.Iso[String, Room](k => byKey.getOrElse(k, Other), _.key)
+  implicit val roomIso = lishogi.common.Iso[String, Room](k => byKey.getOrElse(k, Other), _.key)
 
   def apply(key: String): Option[Room] = byKey get key
 

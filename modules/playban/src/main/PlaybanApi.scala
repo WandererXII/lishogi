@@ -1,14 +1,14 @@
-package lila.playban
+package lishogi.playban
 
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
 import shogi.{ Centis, Color, Status }
-import lila.common.{ Bus, Iso, Uptime }
-import lila.db.dsl._
-import lila.game.{ Game, Player, Pov, Source }
-import lila.msg.{ MsgApi, MsgPreset }
-import lila.user.{ User, UserRepo }
+import lishogi.common.{ Bus, Iso, Uptime }
+import lishogi.db.dsl._
+import lishogi.game.{ Game, Player, Pov, Source }
+import lishogi.msg.{ MsgApi, MsgPreset }
+import lishogi.user.{ User, UserRepo }
 
 import org.joda.time.DateTime
 
@@ -17,11 +17,11 @@ final class PlaybanApi(
     sandbag: SandbagWatch,
     feedback: PlaybanFeedback,
     userRepo: UserRepo,
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     messenger: MsgApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  import lila.db.BSON.BSONJodaDateTimeHandler
+  import lishogi.db.BSON.BSONJodaDateTimeHandler
   import reactivemongo.api.bson.Macros
   implicit private val OutcomeBSONHandler = tryHandler[Outcome](
     { case BSONInteger(v) => Outcome(v) toTry s"No such playban outcome: $v" },
@@ -160,7 +160,7 @@ final class PlaybanApi(
     }
 
   // memorize users without any ban to save DB reads
-  private val cleanUserIds = new lila.memo.ExpireSetMemo(30 minutes)
+  private val cleanUserIds = new lishogi.memo.ExpireSetMemo(30 minutes)
 
   def currentBan(userId: User.ID): Fu[Option[TempBan]] =
     !cleanUserIds.get(userId) ?? {
@@ -216,7 +216,7 @@ final class PlaybanApi(
   }
 
   private def save(outcome: Outcome, userId: User.ID, rsUpdate: RageSit.Update): Funit = {
-    lila.mon.playban.outcome(outcome.key).increment()
+    lishogi.mon.playban.outcome(outcome.key).increment()
     coll.ext
       .findAndUpdate[UserRecord](
         selector = $id(userId),
@@ -237,7 +237,7 @@ final class PlaybanApi(
       } >>
         registerRageSit(record, rsUpdate)
     }
-  }.void logFailure lila.log("playban")
+  }.void logFailure lishogi.log("playban")
 
   private def registerRageSit(record: UserRecord, update: RageSit.Update): Funit =
     update match {
@@ -248,9 +248,9 @@ final class PlaybanApi(
           else if (record.rageSit.isVeryBad)
             userRepo byId record.userId map {
               _ ?? { u =>
-                lila.log("ragesit").info(s"https://lishogi.org/@/${u.username} ${record.rageSit.counterView}")
+                lishogi.log("ragesit").info(s"https://lishogi.org/@/${u.username} ${record.rageSit.counterView}")
                 Bus.publish(
-                  lila.hub.actorApi.mod.AutoWarning(u.id, MsgPreset.sittingAuto.name),
+                  lishogi.hub.actorApi.mod.AutoWarning(u.id, MsgPreset.sittingAuto.name),
                   "autoWarning"
                 )
                 messenger.postPreset(u, MsgPreset.sittingAuto).void
@@ -264,9 +264,9 @@ final class PlaybanApi(
   private def legiferate(record: UserRecord, accCreatedAt: DateTime): Funit =
     record.bannable(accCreatedAt) ?? { ban =>
       (!record.banInEffect) ?? {
-        lila.mon.playban.ban.count.increment()
-        lila.mon.playban.ban.mins.record(ban.mins)
-        Bus.publish(lila.hub.actorApi.playban.Playban(record.userId, ban.mins), "playban")
+        lishogi.mon.playban.ban.count.increment()
+        lishogi.mon.playban.ban.mins.record(ban.mins)
+        Bus.publish(lishogi.hub.actorApi.playban.Playban(record.userId, ban.mins), "playban")
         coll.update
           .one(
             $id(record.userId),

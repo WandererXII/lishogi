@@ -1,18 +1,18 @@
-package lila.oauth
+package lishogi.oauth
 
 import org.joda.time.DateTime
 import play.api.http.HeaderNames.AUTHORIZATION
 import play.api.mvc.{ RequestHeader, Result }
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.user.{ User, UserRepo }
+import lishogi.db.dsl._
+import lishogi.user.{ User, UserRepo }
 
 final class OAuthServer(
     colls: OauthColls,
     userRepo: UserRepo,
     appApi: OAuthAppApi,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import AccessToken.accessTokenIdHandler
@@ -73,7 +73,7 @@ object OAuthServer {
 
   type AuthResult = Either[AuthError, OAuthScope.Scoped]
 
-  sealed abstract class AuthError(val message: String) extends lila.base.LilaException
+  sealed abstract class AuthError(val message: String) extends lishogi.base.LishogiException
   case object ServerOffline                            extends AuthError("OAuth server is offline! Try again soon.")
   case object MissingAuthorizationHeader               extends AuthError("Missing authorization header")
   case object InvalidAuthorizationHeader               extends AuthError("Invalid authorization header")

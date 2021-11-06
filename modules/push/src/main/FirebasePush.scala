@@ -1,4 +1,4 @@
-package lila.push
+package lishogi.push
 
 import com.google.auth.oauth2.{ AccessToken, GoogleCredentials }
 import io.methvin.play.autoconfig._
@@ -7,8 +7,8 @@ import play.api.libs.ws.WSClient
 import scala.concurrent.{ blocking, Future }
 import scala.concurrent.duration._
 
-import lila.common.Chronometer
-import lila.user.User
+import lishogi.common.Chronometer
+import lishogi.user.User
 
 final private class FirebasePush(
     credentialsOpt: Option[GoogleCredentials],
@@ -21,7 +21,7 @@ final private class FirebasePush(
 ) {
 
   private val workQueue =
-    new lila.hub.DuctSequencer(maxSize = 512, timeout = 10 seconds, name = "firebasePush")
+    new lishogi.hub.DuctSequencer(maxSize = 512, timeout = 10 seconds, name = "firebasePush")
 
   def apply(userId: User.ID, data: => PushApi.Data): Funit =
     credentialsOpt ?? { creds =>
@@ -87,7 +87,7 @@ private object FirebasePush {
 
   final class Config(
       val url: String,
-      val json: lila.common.config.Secret
+      val json: lishogi.common.config.Secret
   )
   implicit val configLoader = AutoConfig.loader[Config]
 }

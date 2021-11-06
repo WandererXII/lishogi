@@ -1,9 +1,9 @@
 package views.html
 package account
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -11,7 +11,7 @@ object close {
 
   import trans.settings._
 
-  def apply(u: lila.user.User, form: play.api.data.Form[_], managed: Boolean)(implicit ctx: Context) =
+  def apply(u: lishogi.user.User, form: play.api.data.Form[_], managed: Boolean)(implicit ctx: Context) =
     account.layout(
       title = s"${u.username} - ${closeAccount.txt()}",
       active = "close"

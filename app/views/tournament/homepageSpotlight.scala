@@ -1,14 +1,14 @@
 package views.html.tournament
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object homepageSpotlight {
 
-  def apply(tour: lila.tournament.Tournament)(implicit ctx: Context) = {
+  def apply(tour: lishogi.tournament.Tournament)(implicit ctx: Context) = {
     val schedClass = tour.schedule ?? { sched =>
       val invert  = (sched.freq.isWeeklyOrBetter && tour.isNowOrSoon) ?? " invert"
       val distant = (tour.isDistant) ?? " distant little"

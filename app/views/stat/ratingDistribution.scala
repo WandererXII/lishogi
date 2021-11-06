@@ -3,11 +3,11 @@ package stat
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.rating.PerfType
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.rating.PerfType
 
 import controllers.routes
 
@@ -49,7 +49,7 @@ object ratingDistribution {
           ),
           div(cls := "desc", dataIcon := perfType.iconChar)(
             ctx.me.flatMap(_.perfs(perfType).glicko.establishedIntRating).map { rating =>
-              lila.user.Stat.percentile(data, rating) match {
+              lishogi.user.Stat.percentile(data, rating) match {
                 case (under, sum) =>
                   div(
                     trans

@@ -1,9 +1,9 @@
 package views.html.coach
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
 
 import controllers.routes
 
@@ -11,7 +11,7 @@ object review {
 
   import trans.coach._
 
-  def list(reviews: lila.coach.CoachReview.Reviews)(implicit ctx: Context) =
+  def list(reviews: lishogi.coach.CoachReview.Reviews)(implicit ctx: Context) =
     reviews.list.nonEmpty option div(cls := "coach-show__reviews")(
       h2(studentReviews(reviews.list.size)),
       reviews.list.map { r =>
@@ -32,7 +32,7 @@ object review {
       }
     )
 
-  def form(c: lila.coach.Coach.WithUser, mine: Option[lila.coach.CoachReview])(implicit ctx: Context) =
+  def form(c: lishogi.coach.Coach.WithUser, mine: Option[lishogi.coach.CoachReview])(implicit ctx: Context) =
     div(cls := "coach-review-form")(
       if (mine.exists(_.pendingApproval))
         div(cls := "approval")(

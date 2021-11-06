@@ -1,4 +1,4 @@
-package lila.simul
+package lishogi.simul
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -6,9 +6,9 @@ import io.methvin.play.autoconfig._
 import play.api.Configuration
 import scala.concurrent.duration._
 
-import lila.common.Bus
-import lila.common.config._
-import lila.socket.Socket.{ GetVersion, SocketVersion }
+import lishogi.common.Bus
+import lishogi.common.config._
+import lishogi.socket.Socket.{ GetVersion, SocketVersion }
 
 @Module
 private class SimulConfig(
@@ -19,17 +19,17 @@ private class SimulConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    gameRepo: lila.game.GameRepo,
-    userRepo: lila.user.UserRepo,
-    renderer: lila.hub.actors.Renderer,
-    timeline: lila.hub.actors.Timeline,
-    chatApi: lila.chat.ChatApi,
-    lightUser: lila.common.LightUser.Getter,
-    onGameStart: lila.round.OnStart,
-    cacheApi: lila.memo.CacheApi,
-    remoteSocketApi: lila.socket.RemoteSocket,
-    proxyRepo: lila.round.GameProxyRepo
+    db: lishogi.db.Db,
+    gameRepo: lishogi.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    renderer: lishogi.hub.actors.Renderer,
+    timeline: lishogi.hub.actors.Timeline,
+    chatApi: lishogi.chat.ChatApi,
+    lightUser: lishogi.common.LightUser.Getter,
+    onGameStart: lishogi.round.OnStart,
+    cacheApi: lishogi.memo.CacheApi,
+    remoteSocketApi: lishogi.socket.RemoteSocket,
+    proxyRepo: lishogi.round.GameProxyRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
@@ -48,7 +48,7 @@ final class Env(
 
   private val simulSocket = wire[SimulSocket]
 
-  val isHosting = new lila.round.IsSimulHost(u => api.currentHostIds dmap (_ contains u))
+  val isHosting = new lishogi.round.IsSimulHost(u => api.currentHostIds dmap (_ contains u))
 
   val allCreatedFeaturable = cacheApi.unit[List[Simul]] {
     _.refreshAfterWrite(3 seconds)
@@ -57,7 +57,7 @@ final class Env(
 
   val featurable = new SimulIsFeaturable((simul: Simul) => featureLimiter(simul.hostId)(true)(false))
 
-  private val featureLimiter = new lila.memo.RateLimit[lila.user.User.ID](
+  private val featureLimiter = new lishogi.memo.RateLimit[lishogi.user.User.ID](
     credits = config.featureViews.value,
     duration = 24 hours,
     key = "simul.feature",
@@ -68,20 +68,20 @@ final class Env(
     simulSocket.rooms.ask[SocketVersion](simulId)(GetVersion)
 
   Bus.subscribeFuns(
-    "finishGame" -> { case lila.game.actorApi.FinishGame(game, _, _) =>
+    "finishGame" -> { case lishogi.game.actorApi.FinishGame(game, _, _) =>
       api finishGame game
     },
-    "adjustCheater" -> { case lila.hub.actorApi.mod.MarkCheater(userId, true) =>
+    "adjustCheater" -> { case lishogi.hub.actorApi.mod.MarkCheater(userId, true) =>
       api ejectCheater userId
     },
-    "simulGetHosts" -> { case lila.hub.actorApi.simul.GetHostIds(promise) =>
+    "simulGetHosts" -> { case lishogi.hub.actorApi.simul.GetHostIds(promise) =>
       promise completeWith api.currentHostIds
     },
-    "moveEventSimul" -> { case lila.hub.actorApi.round.SimulMoveEvent(move, _, opponentUserId) =>
+    "moveEventSimul" -> { case lishogi.hub.actorApi.round.SimulMoveEvent(move, _, opponentUserId) =>
       Bus.publish(
-        lila.hub.actorApi.socket.SendTo(
+        lishogi.hub.actorApi.socket.SendTo(
           opponentUserId,
-          lila.socket.Socket.makeMessage("simulPlayerMove", move.gameId)
+          lishogi.socket.Socket.makeMessage("simulPlayerMove", move.gameId)
         ),
         "socketUsers"
       )

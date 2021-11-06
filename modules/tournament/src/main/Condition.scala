@@ -1,12 +1,12 @@
-package lila.tournament
+package lishogi.tournament
 
 import play.api.i18n.Lang
 
-import lila.hub.LightTeam._
-import lila.i18n.{ I18nKeys => trans }
-import lila.rating.BSONHandlers.perfTypeKeyHandler
-import lila.rating.PerfType
-import lila.user.{ Title, User }
+import lishogi.hub.LightTeam._
+import lishogi.i18n.{ I18nKeys => trans }
+import lishogi.rating.BSONHandlers.perfTypeKeyHandler
+import lishogi.rating.PerfType
+import lishogi.user.{ Title, User }
 
 sealed trait Condition {
 
@@ -170,7 +170,7 @@ object Condition {
     }
   }
 
-  final class Verify(historyApi: lila.history.HistoryApi) {
+  final class Verify(historyApi: lishogi.history.HistoryApi) {
     def apply(all: All, user: User, getUserTeamIds: User => Fu[List[TeamID]])(implicit
         ec: scala.concurrent.ExecutionContext
     ): Fu[All.WithVerdicts] = {
@@ -185,7 +185,7 @@ object Condition {
 
   object BSONHandlers {
     import reactivemongo.api.bson._
-    import lila.db.dsl._
+    import lishogi.db.dsl._
     implicit private val NbRatedGameHandler = Macros.handler[NbRatedGame]
     implicit private val MaxRatingHandler   = Macros.handler[MaxRating]
     implicit private val MinRatingHandler   = Macros.handler[MinRating]
@@ -217,7 +217,7 @@ object Condition {
 
   object DataForm {
     import play.api.data.Forms._
-    import lila.common.Form._
+    import lishogi.common.Form._
     val perfAuto = "auto" -> "Auto"
     val perfKeys = "auto" :: PerfType.nonPuzzle.map(_.key)
     def perfChoices(implicit lang: Lang) =

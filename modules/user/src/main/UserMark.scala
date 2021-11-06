@@ -1,7 +1,7 @@
-package lila.user
+package lishogi.user
 
 import reactivemongo.api.bson.BSONHandler
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 sealed trait UserMark {
   def key = toString.toLowerCase

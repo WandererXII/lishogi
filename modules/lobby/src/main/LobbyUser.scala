@@ -1,7 +1,7 @@
-package lila.lobby
+package lishogi.lobby
 
-import lila.rating.{ Glicko, Perf, PerfType }
-import lila.user.User
+import lishogi.rating.{ Glicko, Perf, PerfType }
+import lishogi.user.User
 
 private[lobby] case class LobbyUser(
     id: User.ID,
@@ -31,7 +31,7 @@ private[lobby] object LobbyUser {
       blocking = blocking
     )
 
-  private def perfMapOf(perfs: lila.user.Perfs): PerfMap =
+  private def perfMapOf(perfs: lishogi.user.Perfs): PerfMap =
     perfs.perfs.view.collect {
       case (key, perf) if key != PerfType.Puzzle.key && perf.nonEmpty =>
         key -> LobbyPerf(perf.intRating, perf.provisional)

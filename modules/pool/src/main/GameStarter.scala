@@ -1,10 +1,10 @@
-package lila.pool
+package lishogi.pool
 
 import scala.concurrent.duration._
 
-import lila.game.{ Game, GameRepo, IdGenerator, Player }
-import lila.rating.Perf
-import lila.user.{ User, UserRepo }
+import lishogi.game.{ Game, GameRepo, IdGenerator, Player }
+import lishogi.rating.Perf
+import lishogi.user.{ User, UserRepo }
 
 final private class GameStarter(
     userRepo: UserRepo,
@@ -18,7 +18,7 @@ final private class GameStarter(
 
   import PoolApi._
 
-  private val workQueue = new lila.hub.DuctSequencer(maxSize = 16, timeout = 10 seconds, name = "gameStarter")
+  private val workQueue = new lishogi.hub.DuctSequencer(maxSize = 16, timeout = 10 seconds, name = "gameStarter")
 
   def apply(pool: PoolConfig, couples: Vector[MatchMaking.Couple]): Funit =
     couples.nonEmpty ?? {
@@ -27,7 +27,7 @@ final private class GameStarter(
         userRepo.perfOf(userIds, pool.perfType) flatMap { perfs =>
           idGenerator.games(couples.size) flatMap { ids =>
             couples.zip(ids).map((one(pool, perfs) _).tupled).sequenceFu.map { pairings =>
-              lila.common.Bus.publish(Pairings(pairings.flatten.toList), "poolPairings")
+              lishogi.common.Bus.publish(Pairings(pairings.flatten.toList), "poolPairings")
             }
           }
         }
@@ -79,6 +79,6 @@ final private class GameStarter(
       mode = shogi.Mode.Rated,
       status = shogi.Status.Created,
       daysPerTurn = none,
-      metadata = Game.metadata(lila.game.Source.Pool)
+      metadata = Game.metadata(lishogi.game.Source.Pool)
     )
 }

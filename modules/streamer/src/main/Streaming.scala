@@ -1,4 +1,4 @@
-package lila.streamer
+package lishogi.streamer
 
 import akka.actor._
 import org.joda.time.DateTime
@@ -7,17 +7,17 @@ import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 import scala.util.chaining._
 
-import lila.common.Bus
-import lila.common.config.Secret
-import lila.user.User
+import lishogi.common.Bus
+import lishogi.common.config.Secret
+import lishogi.user.User
 
 final private class Streaming(
     ws: WSClient,
     api: StreamerApi,
     isOnline: User.ID => Boolean,
-    timeline: lila.hub.actors.Timeline,
+    timeline: lishogi.hub.actors.Timeline,
     keyword: Stream.Keyword,
-    alwaysFeatured: () => lila.common.Strings,
+    alwaysFeatured: () => lishogi.common.Strings,
     googleApiKey: Secret,
     twitchApi: TwitchApi
 ) extends Actor {
@@ -61,7 +61,7 @@ final private class Streaming(
           }.flatten
         } zip fetchYouTubeStreams(streamers)
       streams = LiveStreams {
-        lila.common.ThreadLocalRandom.shuffle {
+        lishogi.common.ThreadLocalRandom.shuffle {
           (twitchStreams ::: youTubeStreams) pipe dedupStreamers
         }
       }
@@ -74,11 +74,11 @@ final private class Streaming(
         liveStreams has s.streamer
       } foreach { s =>
         timeline ! {
-          import lila.hub.actorApi.timeline.{ Propagate, StreamStart }
+          import lishogi.hub.actorApi.timeline.{ Propagate, StreamStart }
           Propagate(StreamStart(s.streamer.userId, s.streamer.name.value)) toFollowersOf s.streamer.userId
         }
         Bus.publish(
-          lila.hub.actorApi.streamer.StreamStart(s.streamer.userId),
+          lishogi.hub.actorApi.streamer.StreamStart(s.streamer.userId),
           "streamStart"
         )
       }
@@ -87,11 +87,11 @@ final private class Streaming(
     streamers foreach { streamer =>
       streamer.twitch.foreach { t =>
         if (liveStreams.streams.exists(s => s.serviceName == "twitch" && s.is(streamer)))
-          lila.mon.tv.streamer.present(s"${t.userId}@twitch").increment()
+          lishogi.mon.tv.streamer.present(s"${t.userId}@twitch").increment()
       }
       streamer.youTube.foreach { t =>
         if (liveStreams.streams.exists(s => s.serviceName == "youTube" && s.is(streamer)))
-          lila.mon.tv.streamer.present(s"${t.channelId}@youtube").increment()
+          lishogi.mon.tv.streamer.present(s"${t.channelId}@youtube").increment()
       }
     }
   }

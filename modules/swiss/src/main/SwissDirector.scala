@@ -1,21 +1,21 @@
-package lila.swiss
+package lishogi.swiss
 
 import shogi.{ Color, Gote, Sente }
 import org.joda.time.DateTime
 import scala.util.chaining._
 
-import lila.db.dsl._
-import lila.game.Game
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.game.Game
+import lishogi.user.User
 
 final private class SwissDirector(
     colls: SwissColls,
     pairingSystem: PairingSystem,
-    gameRepo: lila.game.GameRepo,
+    gameRepo: lishogi.game.GameRepo,
     onStart: Game.ID => Unit
 )(implicit
     ec: scala.concurrent.ExecutionContext,
-    idGenerator: lila.game.IdGenerator
+    idGenerator: lishogi.game.IdGenerator
 ) {
   import BsonHandlers._
 
@@ -62,7 +62,7 @@ final private class SwissDirector(
             }
             _ <- colls.pairing.insert.many(pairings).void
             games = pairings.map(makeGame(swiss, SwissPlayer.toMap(players)))
-            _ <- lila.common.Future.applySequentially(games) { game =>
+            _ <- lishogi.common.Future.applySequentially(games) { game =>
               gameRepo.insertDenormalized(game) >>- onStart(game.id)
             }
           } yield swiss.some
@@ -97,7 +97,7 @@ final private class SwissDirector(
         sentePlayer = makePlayer(Sente, players get pairing.sente err s"Missing pairing sente $pairing"),
         gotePlayer = makePlayer(Gote, players get pairing.gote err s"Missing pairing gote $pairing"),
         mode = shogi.Mode(swiss.settings.rated),
-        source = lila.game.Source.Swiss,
+        source = lishogi.game.Source.Swiss,
         notationImport = None
       )
       .withId(pairing.gameId)
@@ -105,7 +105,7 @@ final private class SwissDirector(
       .start
 
   private def makePlayer(color: Color, player: SwissPlayer) =
-    lila.game.Player.make(color, player.userId, player.rating, player.provisional)
+    lishogi.game.Player.make(color, player.userId, player.rating, player.provisional)
 }
 
 //   private object SwissDirector {

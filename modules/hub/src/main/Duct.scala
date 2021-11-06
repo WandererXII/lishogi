@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import java.util.concurrent.atomic.AtomicReference
 import java.util.function.UnaryOperator
@@ -9,7 +9,7 @@ import scala.concurrent.Promise
  * Sequential like an actor, but for async functions,
  * and using an atomic backend instead of akka actor.
  */
-abstract class Duct(implicit ec: scala.concurrent.ExecutionContext) extends lila.common.Tellable {
+abstract class Duct(implicit ec: scala.concurrent.ExecutionContext) extends lishogi.common.Tellable {
 
   import Duct._
 
@@ -53,7 +53,7 @@ object Duct {
   }
 
   private val fallback = { msg: Any =>
-    lila.log("Duct").warn(s"unhandled msg: $msg")
+    lishogi.log("Duct").warn(s"unhandled msg: $msg")
     funit
   }
 }

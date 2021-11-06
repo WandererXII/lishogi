@@ -1,9 +1,9 @@
-package lila.team
+package lishogi.team
 
 import org.joda.time.DateTime
 import scala.util.chaining._
 
-import lila.user.User
+import lishogi.user.User
 
 case class Team(
     _id: Team.ID, // also the url slug
@@ -25,7 +25,7 @@ case class Team(
 
   def disabled = !enabled
 
-  def light = lila.hub.LightTeam(_id, name)
+  def light = lishogi.hub.LightTeam(_id, name)
 
   def isChatFor(f: Team.ChatFor.type => Team.ChatFor) =
     chat == f(Team.ChatFor)
@@ -90,8 +90,8 @@ object Team {
     )
 
   def nameToId(name: String) =
-    (lila.common.String slugify name) pipe { slug =>
+    (lishogi.common.String slugify name) pipe { slug =>
       // if most chars are not latin, go for random slug
-      if (slug.size > (name.size / 2)) slug else lila.common.ThreadLocalRandom nextString 8
+      if (slug.size > (name.size / 2)) slug else lishogi.common.ThreadLocalRandom nextString 8
     }
 }

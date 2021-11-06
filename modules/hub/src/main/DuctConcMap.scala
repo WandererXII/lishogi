@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import java.util.concurrent.ConcurrentHashMap
 import java.util.function.Function

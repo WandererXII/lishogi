@@ -1,12 +1,12 @@
-package lila.challenge
+package lishogi.challenge
 
 import Challenge.TimeControl
-import lila.game.{ Game, Pov }
-import lila.user.User
+import lishogi.game.{ Game, Pov }
+import lishogi.user.User
 
 final class ChallengeMaker(
-    userRepo: lila.user.UserRepo,
-    gameRepo: lila.game.GameRepo
+    userRepo: lishogi.user.UserRepo,
+    gameRepo: lishogi.game.GameRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def makeRematchFor(gameId: Game.ID, dest: User): Fu[Option[Challenge]] =

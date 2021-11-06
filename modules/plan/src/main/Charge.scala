@@ -1,4 +1,4 @@
-package lila.plan
+package lishogi.plan
 
 import org.joda.time.DateTime
 
@@ -33,7 +33,7 @@ object Charge {
       cents: Cents
   ) =
     Charge(
-      _id = lila.common.ThreadLocalRandom nextString 8,
+      _id = lishogi.common.ThreadLocalRandom nextString 8,
       userId = userId,
       stripe = stripe,
       payPal = payPal,

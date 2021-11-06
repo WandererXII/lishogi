@@ -1,9 +1,9 @@
-package lila.tournament
+package lishogi.tournament
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
-import lila.user.User
+import lishogi.user.User
 
 /*
  * Computes the delay before a player can rejoin a tournament after pausing.
@@ -16,7 +16,7 @@ final private class Pause {
 
   import Pause._
 
-  private val cache = lila.memo.CacheApi.scaffeineNoScheduler
+  private val cache = lishogi.memo.CacheApi.scaffeineNoScheduler
     .expireAfterWrite(20 minutes)
     .build[User.ID, Record]()
 

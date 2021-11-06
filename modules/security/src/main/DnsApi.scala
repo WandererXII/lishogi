@@ -1,17 +1,17 @@
-package lila.security
+package lishogi.security
 
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 
-import lila.base.LilaException
-import lila.common.Domain
-import lila.db.dsl._
+import lishogi.base.LishogiException
+import lishogi.common.Domain
+import lishogi.db.dsl._
 
 final private class DnsApi(
     ws: WSClient,
     config: SecurityConfig.DnsApi,
-    mongoCache: lila.memo.MongoCache.Api
+    mongoCache: lishogi.memo.MongoCache.Api
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem
@@ -48,7 +48,7 @@ final private class DnsApi(
       .withHttpHeaders("Accept" -> "application/dns-json")
       .get() withTimeout config.timeout map {
       case res if res.status == 200 || res.status == 404 => f(~(res.json \ "Answer").asOpt[List[JsObject]])
-      case res                                           => throw LilaException(s"Status ${res.status}")
+      case res                                           => throw LishogiException(s"Status ${res.status}")
     }
 
   // if the DNS service fails, assume the best

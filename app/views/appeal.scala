@@ -1,14 +1,14 @@
 package views.html
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.appeal.Appeal
-import lila.common.String.html.richText
-import lila.report.Report.Inquiry
-import lila.report.Suspect
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.appeal.Appeal
+import lishogi.common.String.html.richText
+import lishogi.report.Report.Inquiry
+import lishogi.report.Suspect
+import lishogi.user.User
 import play.api.data.Form
 import play.api.i18n.Lang
 
@@ -78,7 +78,7 @@ object appeal2 {
   def queue(
       appeals: List[Appeal],
       inquiries: Map[User.ID, Inquiry],
-      counts: lila.report.Room.Counts,
+      counts: lishogi.report.Room.Counts,
       streamers: Int,
       nbAppeals: Int
   )(implicit ctx: Context) =

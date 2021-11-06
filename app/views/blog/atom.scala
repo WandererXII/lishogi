@@ -1,9 +1,9 @@
 package views.html.blog
 
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.common.config.BaseUrl
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.common.config.BaseUrl
 
 import controllers.routes
 
@@ -12,7 +12,7 @@ object atom {
   def apply(
       pager: Paginator[io.prismic.Document],
       baseUrl: BaseUrl
-  )(implicit prismic: lila.blog.BlogApi.Context) =
+  )(implicit prismic: lishogi.blog.BlogApi.Context) =
     frag(
       raw("""<?xml version="1.0" encoding="UTF-8"?>"""),
       raw(
@@ -47,8 +47,8 @@ object atom {
             "<br>",
             doc
               .getHtml("blog.body", prismic.linkResolver)
-              .map(lila.blog.Youtube.fixStartTimes)
-              .map(lila.blog.BlogTransform.addProtocol)
+              .map(lishogi.blog.Youtube.fixStartTimes)
+              .map(lishogi.blog.BlogTransform.addProtocol)
           ),
           tag("tag")("media:thumbnail")(attr("url") := doc.getImage(s"blog.image", "main").map(_.url)),
           tag("author")(tag("name")(doc.getText("blog.author")))

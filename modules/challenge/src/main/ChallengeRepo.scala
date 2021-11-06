@@ -1,10 +1,10 @@
-package lila.challenge
+package lishogi.challenge
 
 import org.joda.time.DateTime
 import scala.annotation.nowarn
 
-import lila.common.config.Max
-import lila.db.dsl._
+import lishogi.common.config.Max
+import lishogi.db.dsl._
 
 final private class ChallengeRepo(coll: Coll, maxPerUser: Max)(implicit
     ec: scala.concurrent.ExecutionContext
@@ -15,7 +15,7 @@ final private class ChallengeRepo(coll: Coll, maxPerUser: Max)(implicit
 
   def byId(id: Challenge.ID) = coll.ext.find($id(id)).one[Challenge]
 
-  def byIdFor(id: Challenge.ID, dest: lila.user.User) =
+  def byIdFor(id: Challenge.ID, dest: lishogi.user.User) =
     coll.ext.find($id(id) ++ $doc("destUser.id" -> dest.id)).one[Challenge]
 
   def exists(id: Challenge.ID) = coll.countSel($id(id)).dmap(0 <)

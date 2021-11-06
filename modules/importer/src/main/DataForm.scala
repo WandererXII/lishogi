@@ -1,4 +1,4 @@
-package lila.importer
+package lishogi.importer
 
 import shogi.format.kif.KifParser
 import shogi.format.csa.CsaParser
@@ -9,7 +9,7 @@ import play.api.data.Forms._
 import scala.util.chaining._
 import scalaz.Validation.FlatMap._
 
-import lila.game._
+import lishogi.game._
 
 final class DataForm {
 

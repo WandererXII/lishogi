@@ -1,9 +1,9 @@
-package lila.app
+package lishogi.app
 package templating
 
 import play.api.i18n.Lang
 
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.app.ui.ScalatagsTemplate._
 
 trait AiHelper { self: I18nHelper =>
 

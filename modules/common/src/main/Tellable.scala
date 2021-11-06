@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 trait Tellable extends Any {
   def !(msg: Any): Unit

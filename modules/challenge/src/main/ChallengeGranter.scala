@@ -1,12 +1,12 @@
-package lila.challenge
+package lishogi.challenge
 
 import play.api.i18n.Lang
 
-import lila.i18n.I18nKeys
-import lila.pref.Pref
-import lila.rating.PerfType
-import lila.relation.{ Block, Follow }
-import lila.user.User
+import lishogi.i18n.I18nKeys
+import lishogi.pref.Pref
+import lishogi.rating.PerfType
+import lishogi.relation.{ Block, Follow }
+import lishogi.user.User
 
 case class ChallengeDenied(dest: User, reason: ChallengeDenied.Reason)
 
@@ -36,8 +36,8 @@ object ChallengeDenied {
 }
 
 final class ChallengeGranter(
-    prefApi: lila.pref.PrefApi,
-    relationApi: lila.relation.RelationApi
+    prefApi: lishogi.pref.PrefApi,
+    relationApi: lishogi.relation.RelationApi
 ) {
 
   import ChallengeDenied.Reason._

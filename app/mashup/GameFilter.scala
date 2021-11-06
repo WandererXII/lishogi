@@ -1,10 +1,10 @@
-package lila.app
+package lishogi.app
 package mashup
 
-import lila.common.paginator.Paginator
-import lila.db.dsl._
-import lila.game.{ Game, Query }
-import lila.user.User
+import lishogi.common.paginator.Paginator
+import lishogi.db.dsl._
+import lishogi.game.{ Game, Query }
+import lishogi.user.User
 
 import play.api.mvc.Request
 import scalaz.{ IList, NonEmptyList }
@@ -84,11 +84,11 @@ object GameFilterMenu {
     }
 
   final class PaginatorBuilder(
-      userGameSearch: lila.gameSearch.UserGameSearch,
-      pagBuilder: lila.game.PaginatorBuilder,
-      gameRepo: lila.game.GameRepo,
-      gameProxyRepo: lila.round.GameProxyRepo,
-      bookmarkApi: lila.bookmark.BookmarkApi
+      userGameSearch: lishogi.gameSearch.UserGameSearch,
+      pagBuilder: lishogi.game.PaginatorBuilder,
+      gameRepo: lishogi.game.GameRepo,
+      gameProxyRepo: lishogi.round.GameProxyRepo,
+      bookmarkApi: lishogi.bookmark.BookmarkApi
   )(implicit ec: scala.concurrent.ExecutionContext) {
 
     def apply(
@@ -135,7 +135,7 @@ object GameFilterMenu {
   }
 
   def searchForm(
-      userGameSearch: lila.gameSearch.UserGameSearch,
+      userGameSearch: lishogi.gameSearch.UserGameSearch,
       filter: GameFilter
   )(implicit req: Request[_]): play.api.data.Form[_] =
     filter match {

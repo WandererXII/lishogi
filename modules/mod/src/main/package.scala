@@ -1,6 +1,6 @@
-package lila
+package lishogi
 
 package object mod extends PackageObject {
 
-  private[mod] val logger = lila.log("mod")
+  private[mod] val logger = lishogi.log("mod")
 }

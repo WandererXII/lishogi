@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import com.github.blemale.scaffeine.Cache
 import scala.annotation.nowarn

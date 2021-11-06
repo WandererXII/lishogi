@@ -1,7 +1,7 @@
-package lila.app
+package lishogi.app
 package ui
 
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.app.ui.ScalatagsTemplate._
 
 case class OpenGraph(
     title: String,

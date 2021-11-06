@@ -1,18 +1,18 @@
-package lila.lobby
+package lishogi.lobby
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.db.dsl._
-import lila.user.User
-import lila.memo.CacheApi._
+import lishogi.common.config._
+import lishogi.db.dsl._
+import lishogi.user.User
+import lishogi.memo.CacheApi._
 
 final class SeekApi(
     config: SeekApi.Config,
     biter: Biter,
-    relationApi: lila.relation.RelationApi,
-    cacheApi: lila.memo.CacheApi
+    relationApi: lishogi.relation.RelationApi,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
   import config._
 

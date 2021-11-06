@@ -1,6 +1,6 @@
-package lila.security
+package lishogi.security
 
-import lila.common.IpAddress
+import lishogi.common.IpAddress
 
 final class IpTrust(proxyApi: Ip2Proxy, geoApi: GeoIP, torApi: Tor, firewallApi: Firewall) {
 

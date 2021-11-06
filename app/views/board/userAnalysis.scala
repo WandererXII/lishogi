@@ -4,17 +4,17 @@ import play.api.libs.json.{ JsObject, Json }
 
 import shogi.variant.Standard
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.rating.PerfType.iconByVariant
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.rating.PerfType.iconByVariant
 
 import controllers.routes
 
 object userAnalysis {
 
-  def apply(data: JsObject, pov: lila.game.Pov, withForecast: Boolean = false)(implicit ctx: Context) =
+  def apply(data: JsObject, pov: lishogi.game.Pov, withForecast: Boolean = false)(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.analysis.txt(),
       moreCss = frag(
@@ -39,7 +39,7 @@ object userAnalysis {
       ),
       csp = defaultCsp.withWebAssembly.some,
       shogiground = false,
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = "Shogi analysis board",
           url = s"$netBaseUrl${routes.UserAnalysis.index().url}",

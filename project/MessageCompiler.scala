@@ -66,7 +66,7 @@ object MessageCompiler {
             }
         }
 
-        s"""package lila.i18n
+        s"""package lishogi.i18n
 
 ${if (puts.exists(_ contains "new Plurals(")) "import I18nQuantity._" else ""}
 
@@ -94,7 +94,7 @@ ${puts mkString "\n"}
       val content = locales.map { locale =>
         s"""Lang("${locale.replace("-", "\",\"")}")->`$locale`.load"""
       } mkString ",\n"
-      s"""package lila.i18n
+      s"""package lishogi.i18n
 
 import play.api.i18n.Lang
 

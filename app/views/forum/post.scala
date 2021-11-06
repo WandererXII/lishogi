@@ -1,17 +1,17 @@
 package views
 package html.forum
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
-import lila.forum.Post
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
+import lishogi.forum.Post
 
 import controllers.routes
 
 object post {
 
-  def recent(posts: List[lila.forum.MiniForumPost])(implicit ctx: Context) =
+  def recent(posts: List[lishogi.forum.MiniForumPost])(implicit ctx: Context) =
     ol(
       posts map { p =>
         li(
@@ -32,9 +32,9 @@ object post {
     )
 
   def show(
-      categ: lila.forum.Categ,
-      topic: lila.forum.Topic,
-      post: lila.forum.Post,
+      categ: lishogi.forum.Categ,
+      topic: lishogi.forum.Topic,
+      post: lishogi.forum.Post,
       url: String,
       canModCateg: Boolean,
       canReact: Boolean

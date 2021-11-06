@@ -1,4 +1,4 @@
-package lila
+package lishogi
 
 package object history extends PackageObject {
 

@@ -1,7 +1,7 @@
-package lila.game
+package lishogi.game
 
 import shogi.Color
-import lila.user.User
+import lishogi.user.User
 
 case class Pov(game: Game, color: Color) {
 

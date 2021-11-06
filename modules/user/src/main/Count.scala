@@ -1,6 +1,6 @@
-package lila.user
+package lishogi.user
 
-import lila.db.BSON
+import lishogi.db.BSON
 import reactivemongo.api.bson.BSONDocument
 
 case class Count(

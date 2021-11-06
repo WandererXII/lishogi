@@ -2,14 +2,14 @@ package views.html.mod
 
 import play.api.i18n.Lang
 
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object impersonate {
 
-  def apply(user: lila.user.User)(implicit lang: Lang) =
+  def apply(user: lishogi.user.User)(implicit lang: Lang) =
     div(id := "impersonate")(
       div(cls := "meat")(
         "You are impersonating ",

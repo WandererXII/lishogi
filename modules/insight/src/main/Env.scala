@@ -1,19 +1,19 @@
-package lila.insight
+package lishogi.insight
 
 import com.softwaremill.macwire._
 import play.api.Configuration
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 final class Env(
     appConfig: Configuration,
-    gameRepo: lila.game.GameRepo,
-    userRepo: lila.user.UserRepo,
-    analysisRepo: lila.analyse.AnalysisRepo,
-    prefApi: lila.pref.PrefApi,
-    relationApi: lila.relation.RelationApi,
-    mongo: lila.db.Env
+    gameRepo: lishogi.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    analysisRepo: lishogi.analyse.AnalysisRepo,
+    prefApi: lishogi.pref.PrefApi,
+    relationApi: lishogi.relation.RelationApi,
+    mongo: lishogi.db.Env
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem
@@ -40,8 +40,8 @@ final class Env(
 
   lazy val api = wire[InsightApi]
 
-  lila.common.Bus.subscribeFun("analysisReady", "cheatReport") {
-    case lila.analyse.actorApi.AnalysisReady(game, _)        => api updateGame game
-    case lila.hub.actorApi.report.CheatReportCreated(userId) => api ensureLatest userId
+  lishogi.common.Bus.subscribeFun("analysisReady", "cheatReport") {
+    case lishogi.analyse.actorApi.AnalysisReady(game, _)        => api updateGame game
+    case lishogi.hub.actorApi.report.CheatReportCreated(userId) => api ensureLatest userId
   }
 }

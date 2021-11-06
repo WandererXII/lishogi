@@ -1,6 +1,6 @@
-package lila.study
+package lishogi.study
 
-import lila.user.User
+import lishogi.user.User
 
 case class Settings(
     computer: Settings.UserSelection,

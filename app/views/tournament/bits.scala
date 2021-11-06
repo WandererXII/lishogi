@@ -1,10 +1,10 @@
 package views.html.tournament
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.i18n.{ I18nKeys => trans }
-import lila.tournament.Tournament
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.i18n.{ I18nKeys => trans }
+import lishogi.tournament.Tournament
 
 import controllers.routes
 

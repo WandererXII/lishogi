@@ -1,21 +1,21 @@
-package lila.clas
+package lishogi.clas
 
 import com.softwaremill.macwire._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 final class Env(
-    db: lila.db.Db,
-    userRepo: lila.user.UserRepo,
-    gameRepo: lila.game.GameRepo,
-    historyApi: lila.history.HistoryApi,
-    puzzleColls: lila.puzzle.PuzzleColls,
-    msgApi: lila.msg.MsgApi,
-    lightUserAsync: lila.common.LightUser.Getter,
-    securityForms: lila.security.DataForm,
-    authenticator: lila.user.Authenticator,
-    cacheApi: lila.memo.CacheApi,
+    db: lishogi.db.Db,
+    userRepo: lishogi.user.UserRepo,
+    gameRepo: lishogi.game.GameRepo,
+    historyApi: lishogi.history.HistoryApi,
+    puzzleColls: lishogi.puzzle.PuzzleColls,
+    msgApi: lishogi.msg.MsgApi,
+    lightUserAsync: lishogi.common.LightUser.Getter,
+    securityForms: lishogi.security.DataForm,
+    authenticator: lishogi.user.Authenticator,
+    cacheApi: lishogi.memo.CacheApi,
     baseUrl: BaseUrl
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -33,17 +33,17 @@ final class Env(
 
   lazy val markup = wire[ClasMarkup]
 
-  lila.common.Bus.subscribeFuns(
-    "finishGame" -> { case lila.game.actorApi.FinishGame(game, _, _) =>
+  lishogi.common.Bus.subscribeFuns(
+    "finishGame" -> { case lishogi.game.actorApi.FinishGame(game, _, _) =>
       progressApi.onFinishGame(game)
     },
-    "clas" -> { case lila.hub.actorApi.clas.IsTeacherOf(teacher, student, promise) =>
+    "clas" -> { case lishogi.hub.actorApi.clas.IsTeacherOf(teacher, student, promise) =>
       promise completeWith api.clas.isTeacherOfStudent(teacher, Student.Id(student))
     }
   )
 }
 
-private class ClasColls(db: lila.db.Db) {
+private class ClasColls(db: lishogi.db.Db) {
   val clas    = db(CollName("clas_clas"))
   val student = db(CollName("clas_student"))
   val invite  = db(CollName("clas_invite"))

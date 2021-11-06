@@ -1,9 +1,9 @@
-package lila.clas
+package lishogi.clas
 
 import scalaz.NonEmptyList
 import org.joda.time.DateTime
 
-import lila.user.User
+import lishogi.user.User
 
 case class Clas(
     _id: Clas.Id,
@@ -30,7 +30,7 @@ object Clas {
 
   def make(teacher: User, name: String, desc: String) =
     Clas(
-      _id = Id(lila.common.ThreadLocalRandom nextString 8),
+      _id = Id(lishogi.common.ThreadLocalRandom nextString 8),
       name = name,
       desc = desc,
       teachers = NonEmptyList(teacher.id),

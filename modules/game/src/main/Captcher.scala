@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import akka.actor._
 import akka.pattern.pipe
@@ -8,8 +8,8 @@ import scala.util.Success
 import scalaz.Validation.FlatMap._
 import scalaz.NonEmptyList
 
-import lila.common.Captcha
-import lila.hub.actorApi.captcha._
+import lishogi.common.Captcha
+import lishogi.hub.actorApi.captcha._
 
 final private class Captcher(gameRepo: GameRepo)(implicit ec: scala.concurrent.ExecutionContext)
     extends Actor {

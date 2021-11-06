@@ -1,15 +1,15 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
-import lila.common.paginator.Paginator
-import lila.common.config.MaxPerPage
-import lila.db.AsyncColl
-import lila.db.dsl._
-import lila.db.paginator.Adapter
-import lila.memo.CacheApi
-import lila.user.{ User, UserRepo }
+import lishogi.common.paginator.Paginator
+import lishogi.common.config.MaxPerPage
+import lishogi.db.AsyncColl
+import lishogi.db.dsl._
+import lishogi.db.paginator.Adapter
+import lishogi.memo.CacheApi
+import lishogi.user.{ User, UserRepo }
 
 final class PuzzleApi(
     colls: PuzzleColls,
@@ -64,7 +64,7 @@ final class PuzzleApi(
   object vote {
 
     private val sequencer =
-      new lila.hub.DuctSequencers(
+      new lishogi.hub.DuctSequencers(
         maxSize = 16,
         expiration = 5 minutes,
         timeout = 3 seconds,
@@ -80,7 +80,7 @@ final class PuzzleApi(
               trustApi.vote(user, prevRound, vote) flatMap {
                 _ ?? { weight =>
                   val voteValue = (if (vote) 1 else -1) * weight
-                  lila.mon.puzzle.vote(vote, prevRound.win).increment()
+                  lishogi.mon.puzzle.vote(vote, prevRound.win).increment()
                   updatePuzzle(id, voteValue, prevRound.vote) zip
                     colls.round {
                       _.updateField($id(prevRound.id), PuzzleRound.BSONFields.vote, voteValue)
@@ -120,7 +120,7 @@ final class PuzzleApi(
 
   object theme {
 
-    def categorizedWithCount: Fu[List[(lila.i18n.I18nKey, List[PuzzleTheme.WithCount])]] =
+    def categorizedWithCount: Fu[List[(lishogi.i18n.I18nKey, List[PuzzleTheme.WithCount])]] =
       countApi.countsByTheme map { counts =>
         PuzzleTheme.categorized.map { case (cat, puzzles) =>
           cat -> puzzles.map { pt =>
@@ -156,7 +156,7 @@ final class PuzzleApi(
                 }
             update flatMap {
               _ ?? { up =>
-                lila.mon.puzzle.voteTheme(theme.value, vote, round.win).increment()
+                lishogi.mon.puzzle.voteTheme(theme.value, vote, round.win).increment()
                 colls.round(_.update.one($id(round.id), up)) zip
                   colls.puzzle(_.updateField($id(round.id.puzzleId), Puzzle.BSONFields.dirty, true)) void
               }
@@ -168,7 +168,7 @@ final class PuzzleApi(
 
   object casual {
 
-    private val store = new lila.memo.ExpireSetMemo(30 minutes)
+    private val store = new lishogi.memo.ExpireSetMemo(30 minutes)
 
     private def key(user: User, id: Puzzle.Id) = s"${user.id}:${id}"
 

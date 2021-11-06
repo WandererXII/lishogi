@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import com.github.blemale.scaffeine.Cache
 import scala.concurrent.duration._
@@ -9,7 +9,7 @@ final class UciMemo(gameRepo: GameRepo)(implicit ec: scala.concurrent.ExecutionC
 
   type UciVector = Vector[String]
 
-  private val cache: Cache[Game.ID, UciVector] = lila.memo.CacheApi.scaffeineNoScheduler
+  private val cache: Cache[Game.ID, UciVector] = lishogi.memo.CacheApi.scaffeineNoScheduler
     .expireAfterAccess(5 minutes)
     .build[Game.ID, UciVector]()
 

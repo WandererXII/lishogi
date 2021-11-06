@@ -1,10 +1,10 @@
-package lila.mod
+package lishogi.mod
 
-import lila.analyse.{ Analysis, AnalysisRepo }
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
-import lila.evaluation.Statistics
-import lila.evaluation.{
+import lishogi.analyse.{ Analysis, AnalysisRepo }
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
+import lishogi.evaluation.Statistics
+import lishogi.evaluation.{
   AccountAction,
   Analysed,
   Assessible,
@@ -13,24 +13,24 @@ import lila.evaluation.{
   PlayerAssessments,
   PlayerFlags
 }
-import lila.game.{ Game, Player, Pov, Source }
-import lila.report.{ ModId, SuspectId }
-import lila.user.User
+import lishogi.game.{ Game, Player, Pov, Source }
+import lishogi.report.{ ModId, SuspectId }
+import lishogi.user.User
 
 import org.joda.time.DateTime
 import reactivemongo.api.ReadPreference
 import reactivemongo.api.bson._
-import lila.common.ThreadLocalRandom
+import lishogi.common.ThreadLocalRandom
 
 import shogi.Color
 
 final class AssessApi(
     assessRepo: AssessmentRepo,
     modApi: ModApi,
-    userRepo: lila.user.UserRepo,
-    reporter: lila.hub.actors.Report,
-    fishnet: lila.hub.actors.Fishnet,
-    gameRepo: lila.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    reporter: lishogi.hub.actors.Report,
+    fishnet: lishogi.hub.actors.Fishnet,
+    gameRepo: lishogi.game.GameRepo,
     analysisRepo: AnalysisRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -133,15 +133,15 @@ final class AssessApi(
               case None => modApi.autoMark(SuspectId(userId), ModId.lishogi)
               case Some(_) =>
                 fuccess {
-                  reporter ! lila.hub.actorApi.report.Cheater(userId, playerAggregateAssessment.reportText(3))
+                  reporter ! lishogi.hub.actorApi.report.Cheater(userId, playerAggregateAssessment.reportText(3))
                 }
             }
           case AccountAction.Report(_) =>
             fuccess {
-              reporter ! lila.hub.actorApi.report.Cheater(userId, playerAggregateAssessment.reportText(3))
+              reporter ! lishogi.hub.actorApi.report.Cheater(userId, playerAggregateAssessment.reportText(3))
             }
           case AccountAction.Nothing =>
-            // reporter ! lila.hub.actorApi.report.Clean(userId)
+            // reporter ! lishogi.hub.actorApi.report.Clean(userId)
             funit
         }
       case _ => funit
@@ -221,8 +221,8 @@ final class AssessApi(
 
     shouldAnalyse map {
       _ ?? { reason =>
-        lila.mon.cheat.autoAnalysis(reason.toString).increment()
-        fishnet ! lila.hub.actorApi.fishnet.AutoAnalyse(game.id)
+        lishogi.mon.cheat.autoAnalysis(reason.toString).increment()
+        fishnet ! lishogi.hub.actorApi.fishnet.AutoAnalyse(game.id)
       }
     }
   }

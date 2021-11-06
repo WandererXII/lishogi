@@ -1,13 +1,13 @@
-package lila.mod
+package lishogi.mod
 
 import play.api.data._
 import play.api.data.Forms._
 
-import lila.common.{ EmailAddress, IpAddress }
-import lila.user.{ User, UserRepo }
+import lishogi.common.{ EmailAddress, IpAddress }
+import lishogi.user.{ User, UserRepo }
 
 final class UserSearch(
-    securityApi: lila.security.SecurityApi,
+    securityApi: lishogi.security.SecurityApi,
     userRepo: UserRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 

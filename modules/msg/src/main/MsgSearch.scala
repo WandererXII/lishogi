@@ -1,16 +1,16 @@
-package lila.msg
+package lishogi.msg
 
 import reactivemongo.api.bson._
 
-import lila.common.LightUser
-import lila.db.dsl._
-import lila.user.User
+import lishogi.common.LightUser
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class MsgSearch(
     colls: MsgColls,
-    userCache: lila.user.Cached,
-    lightUserApi: lila.user.LightUserApi,
-    relationApi: lila.relation.RelationApi
+    userCache: lishogi.user.Cached,
+    lightUserApi: lishogi.user.LightUserApi,
+    relationApi: lishogi.relation.RelationApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BsonHandlers._

@@ -4,13 +4,13 @@ package html.puzzle
 import controllers.routes
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.puzzle.PuzzleHistory.{ PuzzleSession, SessionRound }
-import lila.puzzle.{ PuzzleRound, PuzzleTheme }
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.puzzle.PuzzleHistory.{ PuzzleSession, SessionRound }
+import lishogi.puzzle.{ PuzzleRound, PuzzleTheme }
+import lishogi.user.User
 
 object history {
 

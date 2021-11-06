@@ -1,19 +1,19 @@
-package lila.challenge
+package lishogi.challenge
 
 import play.api.libs.json._
 import play.api.i18n.Lang
 
-import lila.i18n.{ I18nKeys => trans }
-import lila.socket.Socket.SocketVersion
-import lila.socket.UserLagCache
+import lishogi.i18n.{ I18nKeys => trans }
+import lishogi.socket.Socket.SocketVersion
+import lishogi.socket.UserLagCache
 
 final class JsonView(
-    baseUrl: lila.common.config.BaseUrl,
-    getLightUser: lila.common.LightUser.GetterSync,
-    isOnline: lila.socket.IsOnline
+    baseUrl: lishogi.common.config.BaseUrl,
+    getLightUser: lishogi.common.LightUser.GetterSync,
+    isOnline: lishogi.socket.IsOnline
 ) {
 
-  import lila.game.JsonView._
+  import lishogi.game.JsonView._
   import Challenge._
 
   implicit private val RegisteredWrites = OWrites[Challenger.Registered] { r =>
@@ -35,7 +35,7 @@ final class JsonView(
     Json.obj(
       "in"   -> a.in.map(apply(Direction.In.some)),
       "out"  -> a.out.map(apply(Direction.Out.some)),
-      "i18n" -> lila.i18n.JsDump.keysToObject(i18nKeys, lang)
+      "i18n" -> lishogi.i18n.JsDump.keysToObject(i18nKeys, lang)
     )
 
   def show(challenge: Challenge, socketVersion: SocketVersion, direction: Option[Direction])(implicit

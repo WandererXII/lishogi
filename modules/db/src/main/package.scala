@@ -1,4 +1,4 @@
-package lila
+package lishogi
 
 import reactivemongo.api.commands.WriteResult
 
@@ -13,5 +13,5 @@ package object db extends PackageObject {
 
   def isDuplicateKey(wr: WriteResult) = wr.code.contains(11000)
 
-  private[db] def logger = lila.log("db")
+  private[db] def logger = lishogi.log("db")
 }

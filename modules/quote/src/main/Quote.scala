@@ -1,4 +1,4 @@
-package lila.quote
+package lishogi.quote
 
 import play.api.libs.json._
 import scala.util.Random

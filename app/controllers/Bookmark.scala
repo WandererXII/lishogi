@@ -1,8 +1,8 @@
 package controllers
 
-import lila.app._
+import lishogi.app._
 
-final class Bookmark(env: Env) extends LilaController(env) {
+final class Bookmark(env: Env) extends LishogiController(env) {
 
   private def api = env.bookmark.api
 

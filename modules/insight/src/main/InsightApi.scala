@@ -1,7 +1,7 @@
-package lila.insight
+package lishogi.insight
 
-import lila.game.{ Game, GameRepo, Pov }
-import lila.user.User
+import lishogi.game.{ Game, GameRepo, Pov }
+import lishogi.user.User
 
 final class InsightApi(
     storage: Storage,
@@ -30,7 +30,7 @@ final class InsightApi(
       .aggregate(question, user)
       .flatMap { aggDocs =>
         val clusters = AggregationClusters(question, aggDocs)
-        val gameIds  = lila.common.ThreadLocalRandom.shuffle(clusters.flatMap(_.gameIds)) take 4
+        val gameIds  = lishogi.common.ThreadLocalRandom.shuffle(clusters.flatMap(_.gameIds)) take 4
         gameRepo.userPovsByGameIds(gameIds, user) map { povs =>
           Answer(question, clusters, povs)
         }

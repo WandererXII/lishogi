@@ -1,10 +1,10 @@
-package lila.security
+package lishogi.security
 
 import play.api.data.validation._
 import scala.concurrent.duration._
 
-import lila.common.EmailAddress
-import lila.user.{ User, UserRepo }
+import lishogi.common.EmailAddress
+import lishogi.user.{ User, UserRepo }
 
 /** Validate and normalize emails
   */

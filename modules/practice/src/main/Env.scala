@@ -1,15 +1,15 @@
-package lila.practice
+package lishogi.practice
 
 import com.softwaremill.macwire._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 final class Env(
-    configStoreApi: lila.memo.ConfigStore.Builder,
-    studyApi: lila.study.StudyApi,
-    cacheApi: lila.memo.CacheApi,
-    db: lila.db.Db
+    configStoreApi: lishogi.memo.ConfigStore.Builder,
+    studyApi: lishogi.study.StudyApi,
+    cacheApi: lishogi.memo.CacheApi,
+    db: lishogi.db.Db
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private lazy val coll = db(CollName("practice_progress"))
@@ -19,7 +19,7 @@ final class Env(
 
   lazy val api: PracticeApi = wire[PracticeApi]
 
-  lila.common.Bus.subscribeFun("study") { case lila.study.actorApi.SaveStudy(study) =>
+  lishogi.common.Bus.subscribeFun("study") { case lishogi.study.actorApi.SaveStudy(study) =>
     api.structure onSave study
   }
 }

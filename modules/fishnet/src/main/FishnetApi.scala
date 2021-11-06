@@ -1,4 +1,4 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
@@ -6,8 +6,8 @@ import scala.concurrent.duration._
 import scala.util.{ Failure, Success, Try }
 
 import Client.{ Evaluation, Skill }
-import lila.common.IpAddress
-import lila.db.dsl._
+import lishogi.common.IpAddress
+import lishogi.db.dsl._
 
 final class FishnetApi(
     repo: FishnetRepo,
@@ -15,7 +15,7 @@ final class FishnetApi(
     analysisBuilder: AnalysisBuilder,
     analysisColl: Coll,
     monitor: Monitor,
-    sink: lila.analyse.Analyser,
+    sink: lishogi.analyse.Analyser,
     socketExists: String => Fu[Boolean],
     clientVersion: Client.ClientVersion,
     config: FishnetApi.Config
@@ -28,7 +28,7 @@ final class FishnetApi(
   import JsonApi.Request.{ CompleteAnalysis, PartialAnalysis }
   import BSONHandlers._
 
-  private val workQueue = new lila.hub.DuctSequencer(maxSize = 256, timeout = 5 seconds, name = "fishnetApi")
+  private val workQueue = new lishogi.hub.DuctSequencer(maxSize = 256, timeout = 5 seconds, name = "fishnetApi")
 
   def keyExists(key: Client.Key) = repo.getEnabledClient(key).map(_.isDefined)
 
@@ -199,33 +199,33 @@ final class FishnetApi(
 
 object FishnetApi {
 
-  import lila.base.LilaException
+  import lishogi.base.LishogiException
 
   case class Config(
       offlineMode: Boolean,
       analysisNodes: Int
   )
 
-  case class WeakAnalysis(client: Client) extends LilaException {
+  case class WeakAnalysis(client: Client) extends LishogiException {
     val message = s"$client: Analysis nodes per move is too low"
   }
 
-  case object WorkNotFound extends LilaException {
+  case object WorkNotFound extends LishogiException {
     val message = "The work has disappeared"
   }
 
-  case object GameNotFound extends LilaException {
+  case object GameNotFound extends LishogiException {
     val message = "The game has disappeared"
   }
 
-  case object NotAcquired extends LilaException {
+  case object NotAcquired extends LishogiException {
     val message = "The work was distributed to someone else"
   }
 
   sealed trait PostAnalysisResult
   object PostAnalysisResult {
-    case class Complete(analysis: lila.analyse.Analysis) extends PostAnalysisResult
-    case class Partial(analysis: lila.analyse.Analysis)  extends PostAnalysisResult
+    case class Complete(analysis: lishogi.analyse.Analysis) extends PostAnalysisResult
+    case class Partial(analysis: lishogi.analyse.Analysis)  extends PostAnalysisResult
     case object UnusedPartial                            extends PostAnalysisResult
   }
 }

@@ -1,12 +1,12 @@
 package views.html.base
 
-import lila.common.String.html.safeJsonValue
+import lishogi.common.String.html.safeJsonValue
 import play.api.libs.json.Json
 import scala.language.reflectiveCalls
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -18,7 +18,7 @@ object captcha {
   private val dataY        = attr("data-y")
   private val dataZ        = attr("data-z")
 
-  def apply(form: lila.common.Form.FormLike, captcha: lila.common.Captcha)(implicit ctx: Context) =
+  def apply(form: lishogi.common.Form.FormLike, captcha: lishogi.common.Captcha)(implicit ctx: Context) =
     frag(
       form3.hidden(form("gameId"), captcha.gameId.some),
       if (ctx.blind) form3.hidden(form("move"), captcha.solutions.head.some)
@@ -27,7 +27,7 @@ object captcha {
         div(
           cls := List(
             "captcha form-group" -> true,
-            "is-invalid"         -> lila.common.Captcha.isFailed(form)
+            "is-invalid"         -> lishogi.common.Captcha.isFailed(form)
           ),
           dataCheckUrl := routes.Main.captchaCheck(captcha.gameId)
         )(

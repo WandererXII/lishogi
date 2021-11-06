@@ -1,13 +1,13 @@
-package lila.round
+package lishogi.round
 
 import akka.actor._
 import akka.stream.scaladsl._
-import lila.game.actorApi.MoveGameEvent
-import lila.hub.actorApi.game.ChangeFeatured
-import lila.socket.Socket.makeMessage
+import lishogi.game.actorApi.MoveGameEvent
+import lishogi.hub.actorApi.game.ChangeFeatured
+import lishogi.socket.Socket.makeMessage
 import play.api.libs.json._
 
-import lila.common.Bus
+import lishogi.common.Bus
 
 final private class TvBroadcast extends Actor {
 

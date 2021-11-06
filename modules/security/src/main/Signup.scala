@@ -1,4 +1,4 @@
-package lila.security
+package lishogi.security
 
 import play.api.data._
 import play.api.i18n.Lang
@@ -6,10 +6,10 @@ import play.api.mvc.{ Request, RequestHeader }
 import scala.concurrent.duration._
 import scala.util.chaining._
 
-import lila.common.config.NetConfig
-import lila.common.{ ApiVersion, EmailAddress, HTTPRequest, IpAddress }
-import lila.memo.RateLimit
-import lila.user.{ PasswordHasher, User }
+import lishogi.common.config.NetConfig
+import lishogi.common.{ ApiVersion, EmailAddress, HTTPRequest, IpAddress }
+import lishogi.memo.RateLimit
+import lishogi.user.{ PasswordHasher, User }
 
 final class Signup(
     store: Store,
@@ -19,9 +19,9 @@ final class Signup(
     emailAddressValidator: EmailAddressValidator,
     emailConfirm: EmailConfirm,
     recaptcha: Recaptcha,
-    authenticator: lila.user.Authenticator,
-    userRepo: lila.user.UserRepo,
-    slack: lila.slack.SlackApi,
+    authenticator: lishogi.user.Authenticator,
+    userRepo: lishogi.user.UserRepo,
+    slack: lishogi.slack.SlackApi,
     netConfig: NetConfig
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -69,8 +69,8 @@ final class Signup(
             case true =>
               signupRateLimit(data.username, if (data.recaptchaResponse.isDefined) 1 else 2) {
                 MustConfirmEmail(data.fingerPrint) flatMap { mustConfirm =>
-                  lila.mon.user.register.count(none)
-                  lila.mon.user.register.mustConfirmEmail(mustConfirm.toString).increment()
+                  lishogi.mon.user.register.count(none)
+                  lishogi.mon.user.register.mustConfirmEmail(mustConfirm.toString).increment()
                   val email = emailAddressValidator
                     .validate(data.realEmail) err s"Invalid email ${data.email}"
                   val passwordHash = authenticator passEnc User.ClearPassword(data.password)
@@ -122,8 +122,8 @@ final class Signup(
             val email = emailAddressValidator
               .validate(data.realEmail) err s"Invalid email ${data.email}"
             val mustConfirm = MustConfirmEmail.YesBecauseMobile
-            lila.mon.user.register.count(apiVersion.some)
-            lila.mon.user.register.mustConfirmEmail(mustConfirm.toString).increment()
+            lishogi.mon.user.register.count(apiVersion.some)
+            lishogi.mon.user.register.mustConfirmEmail(mustConfirm.toString).increment()
             val passwordHash = authenticator passEnc User.ClearPassword(data.password)
             userRepo
               .create(
@@ -194,7 +194,7 @@ final class Signup(
     }
 
   private def authLog(user: String, email: String, msg: String) =
-    lila.log("auth").info(s"$user $email $msg")
+    lishogi.log("auth").info(s"$user $email $msg")
 }
 
 object Signup {

@@ -1,10 +1,10 @@
-package lila.game
+package lishogi.game
 
 import play.api.libs.json._
 
 import shogi.format.{ FEN, Forsyth }
 import shogi.{ Clock, Color, Hand, Hands, Role }
-import lila.common.Json.jodaWrites
+import lishogi.common.Json.jodaWrites
 
 final class JsonView(rematches: Rematches) {
 

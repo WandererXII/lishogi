@@ -1,4 +1,4 @@
-package lila.plan
+package lishogi.plan
 
 import play.api.libs.json._
 

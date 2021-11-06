@@ -1,9 +1,9 @@
 package views.html.lobby
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.BlogLangs
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.BlogLangs
 
 import controllers.routes
 
@@ -15,10 +15,10 @@ object bits {
   )
 
   def underboards(
-      tours: List[lila.tournament.Tournament],
-      simuls: List[lila.simul.Simul],
-      leaderboard: List[lila.user.User.LightPerf],
-      tournamentWinners: List[lila.tournament.Winner]
+      tours: List[lishogi.tournament.Tournament],
+      simuls: List[lishogi.simul.Simul],
+      leaderboard: List[lishogi.user.User.LightPerf],
+      tournamentWinners: List[lishogi.tournament.Winner]
   )(implicit ctx: Context) =
     frag(
       div(cls := "lobby__leaderboard lobby__box")(
@@ -32,7 +32,7 @@ object bits {
               leaderboard map { l =>
                 tr(
                   td(lightUserLink(l.user)),
-                  lila.rating.PerfType(l.perfKey) map { pt =>
+                  lishogi.rating.PerfType(l.perfKey) map { pt =>
                     td(cls := "text", dataIcon := pt.iconChar)(l.rating)
                   },
                   td(ratingProgress(l.progress))
@@ -84,7 +84,7 @@ object bits {
       )
     )
 
-  def lastPosts(posts: List[lila.blog.MiniPost])(implicit ctx: Context): Option[Frag] = {
+  def lastPosts(posts: List[lishogi.blog.MiniPost])(implicit ctx: Context): Option[Frag] = {
     posts.nonEmpty option
       div(cls := "lobby__blog lobby__box")(
         a(cls := "lobby__box__top", href := routes.Blog.index())(
@@ -106,7 +106,7 @@ object bits {
       )
   }
 
-  def playbanInfo(ban: lila.playban.TempBan)(implicit ctx: Context) =
+  def playbanInfo(ban: lishogi.playban.TempBan)(implicit ctx: Context) =
     nopeInfo(
       h1(trans.sorry()),
       p(trans.weHadToTimeYouOutForAWhile()),
@@ -134,7 +134,7 @@ object bits {
       )
     )
 
-  def currentGameInfo(current: lila.app.mashup.Preload.CurrentGame) =
+  def currentGameInfo(current: lishogi.app.mashup.Preload.CurrentGame) =
     nopeInfo(
       h1("Hang on!"),
       p("You have a game in progress with ", strong(current.opponent), "."),
@@ -166,7 +166,7 @@ object bits {
       )
     )
 
-  def spotlight(e: lila.event.Event)(implicit ctx: Context) =
+  def spotlight(e: lishogi.event.Event)(implicit ctx: Context) =
     a(
       href := (if (e.isNow) e.url else routes.Event.show(e.id).url),
       cls := List(

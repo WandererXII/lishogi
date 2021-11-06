@@ -1,4 +1,4 @@
-package lila.pref
+package lishogi.pref
 
 sealed class Theme private[pref] (val name: String, val colors: Theme.HexColors) {
 

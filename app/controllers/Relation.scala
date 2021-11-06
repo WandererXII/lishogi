@@ -2,19 +2,19 @@ package controllers
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app._
-import lila.common.config.MaxPerSecond
-import lila.common.paginator.{ AdapterLike, Paginator, PaginatorJson }
-import lila.relation.Related
-import lila.relation.RelationStream._
-import lila.user.{ User => UserModel }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.common.config.MaxPerSecond
+import lishogi.common.paginator.{ AdapterLike, Paginator, PaginatorJson }
+import lishogi.relation.Related
+import lishogi.relation.RelationStream._
+import lishogi.user.{ User => UserModel }
 import views._
 
 final class Relation(
     env: Env,
     apiC: => Api
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   val api = env.relation.api
 
@@ -49,7 +49,7 @@ final class Relation(
           env.msg.api
             .postPreset(
               me,
-              lila.msg.MsgPreset.maxFollow(me.username, env.relation.maxFollow.value)
+              lishogi.msg.MsgPreset.maxFollow(me.username, env.relation.maxFollow.value)
             )
             .void
         case _ =>
@@ -122,13 +122,13 @@ final class Relation(
     }
 
   private def jsonRelatedPaginator(pag: Paginator[Related]) = {
-    import lila.user.JsonView.nameWrites
-    import lila.relation.JsonView.relatedWrites
+    import lishogi.user.JsonView.nameWrites
+    import lishogi.relation.JsonView.relatedWrites
     Json.obj("paginator" -> PaginatorJson(pag.mapResults { r =>
       relatedWrites.writes(r) ++ Json
         .obj(
           "perfs" -> r.user.perfs.bestPerfType.map { best =>
-            lila.user.JsonView.perfs(r.user, best.some)
+            lishogi.user.JsonView.perfs(r.user, best.some)
           }
         )
         .add("online" -> env.socket.isOnline(r.user.id))
@@ -148,7 +148,7 @@ final class Relation(
     Paginator(
       adapter = adapter mapFutureList followship,
       currentPage = page,
-      maxPerPage = lila.common.config.MaxPerPage(30)
+      maxPerPage = lishogi.common.config.MaxPerPage(30)
     )
 
   private def followship(userIds: Seq[String])(implicit ctx: Context): Fu[List[Related]] =
@@ -156,7 +156,7 @@ final class Relation(
       (ctx.isAuth ?? { env.pref.api.followableIds(users map (_.id)) }) flatMap { followables =>
         users.map { u =>
           ctx.userId ?? { api.fetchRelation(_, u.id) } map { rel =>
-            lila.relation.Related(u, none, followables(u.id), rel)
+            lishogi.relation.Related(u, none, followables(u.id), rel)
           }
         }.sequenceFu
       }

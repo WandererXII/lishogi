@@ -1,14 +1,14 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import play.api.i18n.Lang
 import play.api.libs.json._
 
-import lila.common.Json._
-import lila.game.GameRepo
-import lila.rating.Perf
-import lila.tree
-import lila.tree.Node.defaultNodeJsonWriter
-import lila.user.User
+import lishogi.common.Json._
+import lishogi.game.GameRepo
+import lishogi.rating.Perf
+import lishogi.tree
+import lishogi.tree.Node.defaultNodeJsonWriter
+import lishogi.user.User
 
 final class JsonView(
     gameJson: GameJson,
@@ -35,7 +35,7 @@ final class JsonView(
             .obj(
               "key" -> theme.key,
               "name" -> {
-                if (theme == PuzzleTheme.mix) lila.i18n.I18nKeys.puzzle.puzzleThemes.txt()
+                if (theme == PuzzleTheme.mix) lishogi.i18n.I18nKeys.puzzle.puzzleThemes.txt()
                 else theme.name.txt()
               },
               "desc" -> theme.description.txt()
@@ -80,7 +80,7 @@ final class JsonView(
         })
       })
 
-  def pref(p: lila.pref.Pref) =
+  def pref(p: lishogi.pref.Pref) =
     Json.obj(
       "blindfold"       -> p.blindfold,
       "coords"          -> p.coords,

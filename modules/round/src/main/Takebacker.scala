@@ -1,10 +1,10 @@
-package lila.round
+package lishogi.round
 
 import shogi.Color
-import lila.common.Bus
-import lila.game.{ Event, Game, GameRepo, Pov, Progress, Rewind, UciMemo }
-import lila.pref.{ Pref, PrefApi }
-import lila.i18n.{ I18nKeys => trans, defaultLang }
+import lishogi.common.Bus
+import lishogi.game.{ Event, Game, GameRepo, Pov, Progress, Rewind, UciMemo }
+import lishogi.pref.{ Pref, PrefApi }
+import lishogi.i18n.{ I18nKeys => trans, defaultLang }
 import RoundDuct.TakebackSituation
 
 final private class Takebacker(
@@ -85,7 +85,7 @@ final private class Takebacker(
   private def publishTakebackOffer(pov: Pov): Unit =
     if (pov.game.isCorrespondence && pov.game.nonAi && pov.player.hasUser)
       Bus.publish(
-        lila.hub.actorApi.round.CorresTakebackOfferEvent(pov.gameId),
+        lishogi.hub.actorApi.round.CorresTakebackOfferEvent(pov.gameId),
         "offerEventCorres"
       )
 

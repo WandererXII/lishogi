@@ -1,6 +1,6 @@
-package lila.security
+package lishogi.security
 
-import lila.user.{ User, UserContext }
+import lishogi.user.{ User, UserContext }
 
 trait SecurityHelper {
 

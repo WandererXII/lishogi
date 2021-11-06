@@ -1,10 +1,10 @@
-package lila.user
+package lishogi.user
 
 import org.specs2.mutable.Specification
 import java.util.Base64
 import Authenticator.AuthData
 import User.{ ClearPassword => P }
-import lila.common.config.Secret
+import lishogi.common.config.Secret
 import scala.concurrent.ExecutionContext.Implicits.global
 
 class AuthTest extends Specification {

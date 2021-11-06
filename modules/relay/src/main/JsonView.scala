@@ -1,9 +1,9 @@
-package lila.relay
+package lishogi.relay
 
 import play.api.libs.json._
 
-import lila.common.Json.jodaWrites
-import lila.common.config.BaseUrl
+import lishogi.common.Json.jodaWrites
+import lishogi.common.config.BaseUrl
 
 final class JsonView(markup: RelayMarkup, baseUrl: BaseUrl) {
 
@@ -25,7 +25,7 @@ final class JsonView(markup: RelayMarkup, baseUrl: BaseUrl) {
       .add("finished" -> r.finished.option(true))
   }
 
-  def makeData(relay: Relay, studyData: lila.study.JsonView.JsData) =
+  def makeData(relay: Relay, studyData: lishogi.study.JsonView.JsData) =
     JsData(
       relay = relayWrites writes relay,
       study = studyData.study,

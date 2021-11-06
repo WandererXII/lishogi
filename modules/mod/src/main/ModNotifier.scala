@@ -1,11 +1,11 @@
-package lila.mod
+package lishogi.mod
 
-import lila.notify.{ Notification, NotifyApi }
-import lila.report.{ Mod, Suspect, Victim }
+import lishogi.notify.{ Notification, NotifyApi }
+import lishogi.report.{ Mod, Suspect, Victim }
 
 final private class ModNotifier(
     notifyApi: NotifyApi,
-    reportApi: lila.report.ReportApi
+    reportApi: lishogi.report.ReportApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def reporters(mod: Mod, sus: Suspect): Funit =
@@ -15,7 +15,7 @@ final private class ModNotifier(
           notifyApi.addNotification(
             Notification.make(
               notifies = Notification.Notifies(reporterId.value),
-              content = lila.notify.ReportedBanned
+              content = lishogi.notify.ReportedBanned
             )
           )
         }
@@ -23,12 +23,12 @@ final private class ModNotifier(
         .void
     }
 
-  def refund(victim: Victim, pt: lila.rating.PerfType, points: Int): Funit =
+  def refund(victim: Victim, pt: lishogi.rating.PerfType, points: Int): Funit =
     notifyApi.addNotification {
-      implicit val lang = victim.user.realLang | lila.i18n.defaultLang
+      implicit val lang = victim.user.realLang | lishogi.i18n.defaultLang
       Notification.make(
         notifies = Notification.Notifies(victim.user.id),
-        content = lila.notify.RatingRefund(pt.trans, points)
+        content = lishogi.notify.RatingRefund(pt.trans, points)
       )
     }
 }

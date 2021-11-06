@@ -1,8 +1,8 @@
-package lila.learn
+package lishogi.learn
 
 import play.api.libs.json._
 
-import lila.common.Json._
+import lishogi.common.Json._
 
 object JSONHandlers {
 

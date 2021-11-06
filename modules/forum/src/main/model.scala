@@ -1,8 +1,8 @@
-package lila.forum
+package lishogi.forum
 
 import org.joda.time.DateTime
 
-import lila.user.User
+import lishogi.user.User
 
 case class CategView(
     categ: Categ,

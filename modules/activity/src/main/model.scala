@@ -1,4 +1,4 @@
-package lila.activity
+package lishogi.activity
 
 import ornicar.scalalib.Zero
 
@@ -16,7 +16,7 @@ object model {
         case (Some(rp1), Some(rp2)) => Some(rp1 add rp2)
         case _                      => rp2O orElse rp1O
       }
-    def make(player: lila.game.Player) =
+    def make(player: lishogi.game.Player) =
       player.rating map { rating =>
         RatingProg(Rating(rating), Rating(rating + ~player.ratingDiff))
       }
@@ -40,7 +40,7 @@ object model {
         draw = res.isEmpty ?? 1,
         rp = rp
       )
-    def make(povs: List[lila.game.LightPov]): Score =
+    def make(povs: List[lishogi.game.LightPov]): Score =
       povs.foldLeft(ScoreZero.zero) {
         case (score, pov) if pov.game.finished =>
           score add make(

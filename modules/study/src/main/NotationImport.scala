@@ -1,15 +1,15 @@
-package lila.study
+package lishogi.study
 
 import shogi.format.pgn.Dumper
 import shogi.format.{ FEN, Forsyth, Glyphs, ParsedMove, ParsedNotation, Tags, Uci, UciCharPair }
 import shogi.Replay
 
 import shogi.Centis
-import lila.common.LightUser
-import lila.importer.{ ImportData, Preprocessed }
-import lila.tree.Node.{ Comment, Comments, Shapes }
+import lishogi.common.LightUser
+import lishogi.importer.{ ImportData, Preprocessed }
+import lishogi.tree.Node.{ Comment, Comments, Shapes }
 
-import lila.game.Game
+import lishogi.game.Game
 
 object NotationImport {
 
@@ -56,7 +56,7 @@ object NotationImport {
                 status = status,
                 winner = game.winnerColor,
                 resultText = shogi.Color.showResult(game.winnerColor),
-                statusText = lila.game.StatusText(status, game.winnerColor, game.variant)
+                statusText = lishogi.game.StatusText(status, game.winnerColor, game.variant)
               )
             }
             val commented =
@@ -113,7 +113,7 @@ object NotationImport {
     }
 
   private def endComment(end: End): Comment = {
-    import lila.tree.Node.Comment
+    import lishogi.tree.Node.Comment
     import end._
     val text = s"$statusText"
     Comment(Comment.Id.make, Comment.Text(text), Comment.Author.Lishogi)

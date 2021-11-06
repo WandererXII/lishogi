@@ -1,11 +1,11 @@
-package lila.video
+package lishogi.video
 
 import org.joda.time.DateTime
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 import scala.concurrent.Future
 
-import lila.common.config._
+import lishogi.common.config._
 
 final private[video] class Youtube(
     ws: WSClient,
@@ -53,7 +53,7 @@ final private[video] class Youtube(
     api.video.allIds flatMap { ids =>
       ws.url(url)
         .withQueryStringParameters(
-          "id"   -> lila.common.ThreadLocalRandom.shuffle(ids).take(max.value).mkString(","),
+          "id"   -> lishogi.common.ThreadLocalRandom.shuffle(ids).take(max.value).mkString(","),
           "part" -> "id,statistics,snippet,contentDetails",
           "key"  -> apiKey.value
         )

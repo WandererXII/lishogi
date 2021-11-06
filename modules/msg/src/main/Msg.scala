@@ -1,8 +1,8 @@
-package lila.msg
+package lishogi.msg
 
 import org.joda.time.DateTime
 
-import lila.user.User
+import lishogi.user.User
 
 case class Msg(
     text: String,

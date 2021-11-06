@@ -2,9 +2,9 @@ package views.html.team
 
 import scala.util.chaining._
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -12,10 +12,10 @@ object bits {
 
   import trans.team._
 
-  def link(teamId: lila.team.Team.ID): Frag =
+  def link(teamId: lishogi.team.Team.ID): Frag =
     a(href := routes.Team.show(teamId))(teamIdToName(teamId))
 
-  def link(team: lila.team.Team): Frag =
+  def link(team: lishogi.team.Team): Frag =
     a(href := routes.Team.show(team.id))(team.name)
 
   def menu(currentTab: Option[String])(implicit ctx: Context) =
@@ -43,7 +43,7 @@ object bits {
       )
     }
 
-  private[team] def teamTr(t: lila.team.Team)(implicit ctx: Context) =
+  private[team] def teamTr(t: lishogi.team.Team)(implicit ctx: Context) =
     tr(cls := "paginated")(
       td(cls := "subject")(
         a(
@@ -63,7 +63,7 @@ object bits {
 
   private[team] def layout(
       title: String,
-      openGraph: Option[lila.app.ui.OpenGraph] = None,
+      openGraph: Option[lishogi.app.ui.OpenGraph] = None,
       moreJs: Frag = emptyFrag
   )(body: Frag)(implicit ctx: Context) =
     views.html.base.layout(

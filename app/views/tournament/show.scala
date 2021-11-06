@@ -3,12 +3,12 @@ package tournament
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.tournament.Tournament
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.tournament.Tournament
+import lishogi.user.User
 
 import controllers.routes
 
@@ -16,11 +16,11 @@ object show {
 
   def apply(
       tour: Tournament,
-      verdicts: lila.tournament.Condition.All.WithVerdicts,
+      verdicts: lishogi.tournament.Condition.All.WithVerdicts,
       data: play.api.libs.json.JsObject,
-      chatOption: Option[lila.chat.UserChat.Mine],
+      chatOption: Option[lishogi.chat.UserChat.Mine],
       streamers: List[User.ID],
-      shieldOwner: Option[lila.tournament.TournamentShield.OwnerId]
+      shieldOwner: Option[lishogi.tournament.TournamentShield.OwnerId]
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = s"${tour.name()} #${tour.id}",
@@ -37,7 +37,7 @@ object show {
                 name = trans.chatRoom.txt(),
                 timeout = c.timeout,
                 public = true,
-                resourceId = lila.chat.Chat.ResourceId(s"tournament/${c.chat.id}")
+                resourceId = lishogi.chat.Chat.ResourceId(s"tournament/${c.chat.id}")
               )
             }
           )
@@ -48,7 +48,7 @@ object show {
         else "tournament.show"
       },
       shogiground = false,
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = s"${tour.name()}: ${tour.variant.name} ${tour.clock.show} ${tour.mode.name} #${tour.id}",
           url = s"$netBaseUrl${routes.Tournament.show(tour.id).url}",

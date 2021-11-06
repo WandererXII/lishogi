@@ -1,11 +1,11 @@
-package lila.tournament
+package lishogi.tournament
 
 import akka.stream.scaladsl._
 import reactivemongo.akkastream.cursorProducer
 import reactivemongo.api._
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 final private class LeaderboardIndexer(
     tournamentRepo: TournamentRepo,
@@ -27,10 +27,10 @@ final private class LeaderboardIndexer(
         .sort($sort desc "startsAt")
         .cursor[Tournament](ReadPreference.secondaryPreferred)
         .documentSource()
-        .via(lila.common.LilaStream.logRate[Tournament]("leaderboard index tour")(logger))
+        .via(lishogi.common.LishogiStream.logRate[Tournament]("leaderboard index tour")(logger))
         .mapAsyncUnordered(1)(generateTourEntries)
         .mapConcat(identity)
-        .via(lila.common.LilaStream.logRate[Entry]("leaderboard index entries")(logger))
+        .via(lishogi.common.LishogiStream.logRate[Entry]("leaderboard index entries")(logger))
         .grouped(500)
         .mapAsyncUnordered(1)(saveEntries)
         .toMat(Sink.ignore)(Keep.right)

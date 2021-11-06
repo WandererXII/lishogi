@@ -1,4 +1,4 @@
-package lila.tournament
+package lishogi.tournament
 
 import akka.actor.{ ActorSystem, Props }
 import akka.pattern.ask
@@ -9,16 +9,16 @@ import scala.concurrent.duration._
 import scala.concurrent.Promise
 import scala.util.chaining._
 
-import lila.common.config.{ MaxPerPage, MaxPerSecond }
-import lila.common.paginator.Paginator
-import lila.common.{ Bus, Debouncer, LightUser }
-import lila.game.{ Game, GameRepo, LightPov, Pov }
-import lila.hub.actorApi.lobby.ReloadTournaments
-import lila.hub.LightTeam
-import lila.hub.LightTeam._
-import lila.round.actorApi.round.{ AbortForce, GoBerserk }
-import lila.socket.Socket.SendToFlag
-import lila.user.{ User, UserRepo }
+import lishogi.common.config.{ MaxPerPage, MaxPerSecond }
+import lishogi.common.paginator.Paginator
+import lishogi.common.{ Bus, Debouncer, LightUser }
+import lishogi.game.{ Game, GameRepo, LightPov, Pov }
+import lishogi.hub.actorApi.lobby.ReloadTournaments
+import lishogi.hub.LightTeam
+import lishogi.hub.LightTeam._
+import lishogi.round.actorApi.round.{ AbortForce, GoBerserk }
+import lishogi.socket.Socket.SendToFlag
+import lishogi.user.{ User, UserRepo }
 import makeTimeout.short
 
 final class TournamentApi(
@@ -32,16 +32,16 @@ final class TournamentApi(
     autoPairing: AutoPairing,
     pairingSystem: arena.PairingSystem,
     callbacks: TournamentApi.Callbacks,
-    renderer: lila.hub.actors.Renderer,
+    renderer: lishogi.hub.actors.Renderer,
     socket: TournamentSocket,
-    tellRound: lila.round.TellRound,
-    trophyApi: lila.user.TrophyApi,
+    tellRound: lishogi.round.TellRound,
+    trophyApi: lishogi.user.TrophyApi,
     verify: Condition.Verify,
     duelStore: DuelStore,
     pause: Pause,
-    cacheApi: lila.memo.CacheApi,
-    lightUserApi: lila.user.LightUserApi,
-    proxyRepo: lila.round.GameProxyRepo
+    cacheApi: lishogi.memo.CacheApi,
+    lightUserApi: lishogi.user.LightUserApi,
+    proxyRepo: lishogi.round.GameProxyRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
@@ -49,7 +49,7 @@ final class TournamentApi(
 ) {
 
   private val workQueue =
-    new lila.hub.DuctSequencers(
+    new lishogi.hub.DuctSequencers(
       maxSize = 256,
       expiration = 1 minute,
       timeout = 10 seconds,
@@ -148,7 +148,7 @@ final class TournamentApi(
       tournamentRepo.setTeamBattle(tour.id, TeamBattle(teamIds, data.nbLeaders))
     }
 
-  private val hadPairings = new lila.memo.ExpireSetMemo(1 hour)
+  private val hadPairings = new lishogi.memo.ExpireSetMemo(1 hour)
 
   private[tournament] def makePairings(forTour: Tournament, users: WaitingUsers): Funit =
     (users.size > 1 && (!hadPairings.get(forTour.id) || users.haveWaitedEnough)) ??
@@ -186,7 +186,7 @@ final class TournamentApi(
                         .mon(_.tournament.pairing.createInserts) >>
                         featureOneOf(tour, pairings, ranking)
                           .mon(_.tournament.pairing.createFeature) >>-
-                        lila.mon.tournament.pairing.batchSize.record(pairings.size)
+                        lishogi.mon.tournament.pairing.batchSize.record(pairings.size)
                     }
               }
           }
@@ -257,8 +257,8 @@ final class TournamentApi(
   }
 
   private def awardTrophies(tour: Tournament): Funit = {
-    import lila.user.TrophyKind._
-    import lila.tournament.Tournament.tournamentUrl
+    import lishogi.user.TrophyKind._
+    import lishogi.tournament.Tournament.tournamentUrl
     tour.schedule.??(_.freq == Schedule.Freq.Marathon) ?? {
       playerRepo.bestByTourWithRank(tour.id, 100).flatMap {
         _.map {
@@ -515,7 +515,7 @@ final class TournamentApi(
             }
           } >> pairingRepo.opponentsOf(tour.id, userId).flatMap { uids =>
             pairingRepo.forfeitByTourAndUserId(tour.id, userId) >>
-              lila.common.Future.applySequentially(uids.toList)(updatePlayer(tour, none))
+              lishogi.common.Future.applySequentially(uids.toList)(updatePlayer(tour, none))
           }
         else if (tour.isFinished && tour.winnerId.contains(userId))
           playerRepo winner tour.id flatMap {
@@ -702,7 +702,7 @@ final class TournamentApi(
         new Debouncer(
           15 seconds,
           { (_: Debouncer.Nothing) =>
-            implicit val lang = lila.i18n.defaultLang
+            implicit val lang = lishogi.i18n.defaultLang
             fetchUpdateTournaments flatMap apiJsonView.apply foreach { json =>
               Bus.publish(
                 SendToFlag("tournament", Json.obj("t" -> "reload", "d" -> json)),
@@ -723,10 +723,10 @@ final class TournamentApi(
 
   private object updateTournamentStanding {
 
-    import lila.hub.EarlyMultiThrottler
+    import lishogi.hub.EarlyMultiThrottler
 
     // last published top hashCode
-    private val lastPublished = lila.memo.CacheApi.scaffeineNoScheduler
+    private val lastPublished = lishogi.memo.CacheApi.scaffeineNoScheduler
       .initialCapacity(16)
       .expireAfterWrite(2 minute)
       .build[Tournament.ID, Int]()
@@ -736,7 +736,7 @@ final class TournamentApi(
         val lastHash: Int = ~lastPublished.getIfPresent(tourId)
         if (lastHash != top.hashCode) {
           Bus.publish(
-            lila.hub.actorApi.round.TourStanding(tourId, JsonView.top(top, lightUserApi.sync)),
+            lishogi.hub.actorApi.round.TourStanding(tourId, JsonView.top(top, lightUserApi.sync)),
             "tourStanding"
           )
           lastPublished.put(tourId, top.hashCode)

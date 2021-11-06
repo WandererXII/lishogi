@@ -1,10 +1,10 @@
-package lila.game
+package lishogi.game
 
 import shogi.{ Centis, Clock, Sente }
 import org.specs2.mutable._
 import scala.util.chaining._
 
-import lila.db.ByteArray
+import lishogi.db.ByteArray
 
 class BinaryClockTest extends Specification {
 

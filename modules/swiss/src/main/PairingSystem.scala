@@ -1,4 +1,4 @@
-package lila.swiss
+package lishogi.swiss
 
 import akka.stream.scaladsl._
 import akka.util.ByteString
@@ -25,7 +25,7 @@ final private class PairingSystem(trf: SwissTrf, rankingApi: SwissRankingApi, ex
       val command = s"$executable --$flavour $file -p"
       val stdout  = new collection.mutable.ListBuffer[String]
       val stderr  = new StringBuilder
-      val status = lila.common.Chronometer.syncMon(_.swiss.bbpairing) {
+      val status = lishogi.common.Chronometer.syncMon(_.swiss.bbpairing) {
         blocking {
           command ! ProcessLogger(stdout append _, stderr append _)
         }
@@ -57,7 +57,7 @@ final private class PairingSystem(trf: SwissTrf, rankingApi: SwissRankingApi, ex
   def withTempFile[A](swiss: Swiss, contents: Source[String, _])(f: File => A): Fu[A] = {
     // NOTE: The prefix and suffix must be at least 3 characters long,
     // otherwise this function throws an IllegalArgumentException.
-    val file = File.createTempFile(s"lila-swiss-${swiss.id}-${swiss.round}-", s"-bbp")
+    val file = File.createTempFile(s"lishogi-swiss-${swiss.id}-${swiss.round}-", s"-bbp")
     contents
       .intersperse("\n")
       .map(ByteString.apply)
@@ -71,5 +71,5 @@ final private class PairingSystem(trf: SwissTrf, rankingApi: SwissRankingApi, ex
 }
 
 private object PairingSystem {
-  case class BBPairingException(val message: String, val swiss: Swiss) extends lila.base.LilaException
+  case class BBPairingException(val message: String, val swiss: Swiss) extends lishogi.base.LishogiException
 }

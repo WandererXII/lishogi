@@ -1,12 +1,12 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext
 import scala.util.chaining._
 
-import lila.db.dsl._
-import lila.memo.CacheApi
-import lila.user.{ User, UserRepo }
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
+import lishogi.user.{ User, UserRepo }
 
 private case class PuzzleSession(
     difficulty: PuzzleDifficulty,
@@ -56,7 +56,7 @@ final class PuzzleSessionApi(
             }
 
         def serveAndMonitor(puzzle: Puzzle) = {
-          val mon = lila.mon.puzzle.selector.user
+          val mon = lishogi.mon.puzzle.selector.user
           mon.retries(theme.value).record(retries)
           mon.vote(theme.value).record(100 + math.round(puzzle.vote * 100))
           mon

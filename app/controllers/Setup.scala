@@ -6,26 +6,26 @@ import play.api.mvc.Results
 import scala.concurrent.duration._
 
 import shogi.format.FEN
-import lila.api.{ BodyContext, Context }
-import lila.app._
-import lila.common.{ HTTPRequest, IpAddress }
-import lila.game.{ AnonCookie, Pov }
-import lila.setup.Processor.HookResult
-import lila.setup.ValidFen
-import lila.socket.Socket.Sri
+import lishogi.api.{ BodyContext, Context }
+import lishogi.app._
+import lishogi.common.{ HTTPRequest, IpAddress }
+import lishogi.game.{ AnonCookie, Pov }
+import lishogi.setup.Processor.HookResult
+import lishogi.setup.ValidFen
+import lishogi.socket.Socket.Sri
 import views._
 
 final class Setup(
     env: Env,
     challengeC: => Challenge,
     apiC: => Api
-) extends LilaController(env)
+) extends LishogiController(env)
     with TheftPrevention {
 
   private def forms     = env.setup.forms
   private def processor = env.setup.processor
 
-  private[controllers] val PostRateLimit = new lila.memo.RateLimit[IpAddress](
+  private[controllers] val PostRateLimit = new lishogi.memo.RateLimit[IpAddress](
     5,
     1.minute,
     key = "setup.post",
@@ -59,7 +59,7 @@ final class Setup(
             case None => Ok(html.setup.forms.friend(form, none, none, validFen)).fuccess
             case Some(user) =>
               env.challenge.granter(ctx.me, user, none) map {
-                case Some(denied) => BadRequest(lila.challenge.ChallengeDenied.translated(denied))
+                case Some(denied) => BadRequest(lishogi.challenge.ChallengeDenied.translated(denied))
                 case None         => Ok(html.setup.forms.friend(form, user.some, none, validFen))
               }
           }
@@ -87,19 +87,19 @@ final class Setup(
               userId ?? env.user.repo.enabledById flatMap { destUser =>
                 destUser ?? { env.challenge.granter(ctx.me, _, config.perfType) } flatMap {
                   case Some(denied) =>
-                    val message = lila.challenge.ChallengeDenied.translated(denied)
+                    val message = lishogi.challenge.ChallengeDenied.translated(denied)
                     negotiate(
                       html = BadRequest(html.site.message.challengeDenied(message)).fuccess,
                       api = _ => BadRequest(jsonError(message)).fuccess
                     )
                   case None =>
-                    import lila.challenge.Challenge._
+                    import lishogi.challenge.Challenge._
                     val timeControl = config.makeClock map {
                       TimeControl.Clock.apply
                     } orElse config.makeDaysPerTurn.map {
                       TimeControl.Correspondence.apply
                     } getOrElse TimeControl.Unlimited
-                    val challenge = lila.challenge.Challenge.make(
+                    val challenge = lishogi.challenge.Challenge.make(
                       variant = config.variant,
                       initialFen = config.fen,
                       timeControl = timeControl,
@@ -191,7 +191,7 @@ final class Setup(
               _ ?? { game =>
                 for {
                   blocking <- ctx.userId ?? env.relation.api.fetchBlocking
-                  hookConfig    = lila.setup.HookConfig.default withRatingRange get("rr") updateFrom game
+                  hookConfig    = lishogi.setup.HookConfig.default withRatingRange get("rr") updateFrom game
                   sameOpponents = game.userIds
                   hookResult <-
                     processor
@@ -204,7 +204,7 @@ final class Setup(
       }
     }
 
-  private val BoardApiHookConcurrencyLimitPerUser = new lila.memo.ConcurrencyLimit[String](
+  private val BoardApiHookConcurrencyLimitPerUser = new lishogi.memo.ConcurrencyLimit[String](
     name = "Board API hook Stream API concurrency per user",
     key = "boardApiHook.concurrency.limit.user",
     ttl = 10.minutes,
@@ -294,7 +294,7 @@ final class Setup(
     val redir = Redirect(routes.Round.watcher(pov.gameId, "sente"))
     if (ctx.isAuth) redir
     else
-      redir withCookies env.lilaCookie.cookie(
+      redir withCookies env.lishogiCookie.cookie(
         AnonCookie.name,
         pov.playerId,
         maxAge = AnonCookie.maxAge.some,

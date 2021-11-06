@@ -1,6 +1,6 @@
-package lila.security
+package lishogi.security
 
-import lila.user.User
+import lishogi.user.User
 
 object Granter {
 

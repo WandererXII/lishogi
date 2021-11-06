@@ -1,24 +1,24 @@
 package views.html.streamer
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
-import lila.streamer.Stream.YouTube
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
+import lishogi.streamer.Stream.YouTube
 
 object show {
 
   import trans.streamer._
 
   def apply(
-      s: lila.streamer.Streamer.WithUserAndStream,
-      activities: Vector[lila.activity.ActivityView]
+      s: lishogi.streamer.Streamer.WithUserAndStream,
+      activities: Vector[lishogi.activity.ActivityView]
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = xStreamsShogi.txt(s.titleName),
       moreCss = cssTag("streamer.show"),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = xStreamsShogi.txt(s.titleName),
           description =

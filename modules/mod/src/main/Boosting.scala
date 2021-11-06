@@ -1,9 +1,9 @@
-package lila.mod
+package lishogi.mod
 
 import shogi.{ variant, Color }
-import lila.db.dsl._
-import lila.game.Game
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.game.Game
+import lishogi.user.User
 
 import reactivemongo.api.bson._
 

@@ -1,9 +1,9 @@
-package lila.study
+package lishogi.study
 
 import org.specs2.mutable._
 
 import shogi.Centis
-import lila.tree.Node.Shapes
+import lishogi.tree.Node.Shapes
 
 class CommentParserTest extends Specification {
 

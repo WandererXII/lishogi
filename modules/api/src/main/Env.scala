@@ -1,4 +1,4 @@
-package lila.api
+package lishogi.api
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -6,41 +6,41 @@ import play.api.libs.ws.WSClient
 import play.api.{ Configuration, Mode }
 import scala.concurrent.duration._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 final class Env(
     appConfig: Configuration,
     net: NetConfig,
-    securityEnv: lila.security.Env,
-    teamSearchEnv: lila.teamSearch.Env,
-    forumSearchEnv: lila.forumSearch.Env,
-    teamEnv: lila.team.Env,
-    puzzleEnv: lila.puzzle.Env,
-    explorerEnv: lila.explorer.Env,
-    fishnetEnv: lila.fishnet.Env,
-    studyEnv: lila.study.Env,
-    studySearchEnv: lila.studySearch.Env,
-    coachEnv: lila.coach.Env,
-    evalCacheEnv: lila.evalCache.Env,
-    planEnv: lila.plan.Env,
-    gameEnv: lila.game.Env,
-    roundEnv: lila.round.Env,
-    bookmarkApi: lila.bookmark.BookmarkApi,
-    prefApi: lila.pref.PrefApi,
-    playBanApi: lila.playban.PlaybanApi,
-    userEnv: lila.user.Env,
-    streamerEnv: lila.streamer.Env,
-    relationEnv: lila.relation.Env,
-    analyseEnv: lila.analyse.Env,
-    lobbyEnv: lila.lobby.Env,
-    simulEnv: lila.simul.Env,
-    tourEnv: lila.tournament.Env,
-    swissEnv: lila.swiss.Env,
-    onlineApiUsers: lila.bot.OnlineApiUsers,
-    challengeEnv: lila.challenge.Env,
-    msgEnv: lila.msg.Env,
-    cacheApi: lila.memo.CacheApi,
+    securityEnv: lishogi.security.Env,
+    teamSearchEnv: lishogi.teamSearch.Env,
+    forumSearchEnv: lishogi.forumSearch.Env,
+    teamEnv: lishogi.team.Env,
+    puzzleEnv: lishogi.puzzle.Env,
+    explorerEnv: lishogi.explorer.Env,
+    fishnetEnv: lishogi.fishnet.Env,
+    studyEnv: lishogi.study.Env,
+    studySearchEnv: lishogi.studySearch.Env,
+    coachEnv: lishogi.coach.Env,
+    evalCacheEnv: lishogi.evalCache.Env,
+    planEnv: lishogi.plan.Env,
+    gameEnv: lishogi.game.Env,
+    roundEnv: lishogi.round.Env,
+    bookmarkApi: lishogi.bookmark.BookmarkApi,
+    prefApi: lishogi.pref.PrefApi,
+    playBanApi: lishogi.playban.PlaybanApi,
+    userEnv: lishogi.user.Env,
+    streamerEnv: lishogi.streamer.Env,
+    relationEnv: lishogi.relation.Env,
+    analyseEnv: lishogi.analyse.Env,
+    lobbyEnv: lishogi.lobby.Env,
+    simulEnv: lishogi.simul.Env,
+    tourEnv: lishogi.tournament.Env,
+    swissEnv: lishogi.swiss.Env,
+    onlineApiUsers: lishogi.bot.OnlineApiUsers,
+    challengeEnv: lishogi.challenge.Env,
+    msgEnv: lishogi.msg.Env,
+    cacheApi: lishogi.memo.CacheApi,
     ws: WSClient,
     val mode: Mode
 )(implicit
@@ -79,6 +79,6 @@ final class Env(
   if (mode == Mode.Prod && false) system.scheduler.scheduleOnce(5 seconds)(influxEvent.start()) // yep...
 
   system.scheduler.scheduleWithFixedDelay(20 seconds, 10 seconds) { () =>
-    lila.mon.bus.classifiers.update(lila.common.Bus.size)
+    lishogi.mon.bus.classifiers.update(lishogi.common.Bus.size)
   }
 }

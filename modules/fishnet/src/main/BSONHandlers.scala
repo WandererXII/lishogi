@@ -1,7 +1,7 @@
-package lila.fishnet
+package lishogi.fishnet
 
-import lila.db.dsl._
-import lila.game.BSONHandlers.FENBSONHandler
+import lishogi.db.dsl._
+import lishogi.game.BSONHandlers.FENBSONHandler
 import reactivemongo.api.bson._
 
 import shogi.variant.Variant

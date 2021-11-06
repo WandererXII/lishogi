@@ -1,10 +1,10 @@
-package lila.swiss
+package lishogi.swiss
 
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.common.LightUser
-import lila.db.dsl._
+import lishogi.common.LightUser
+import lishogi.db.dsl._
 
 /*
  * Getting a standing page of a tournament can be very expensive
@@ -14,8 +14,8 @@ import lila.db.dsl._
  */
 final class SwissStandingApi(
     colls: SwissColls,
-    cacheApi: lila.memo.CacheApi,
-    lightUserApi: lila.user.LightUserApi
+    cacheApi: lishogi.memo.CacheApi,
+    lightUserApi: lishogi.user.LightUserApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BsonHandlers._

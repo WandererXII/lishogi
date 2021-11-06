@@ -1,8 +1,8 @@
-package lila.game
+package lishogi.game
 
 import shogi.Speed
-import lila.rating.{ Perf, PerfType }
-import lila.user.Perfs
+import lishogi.rating.{ Perf, PerfType }
+import lishogi.user.Perfs
 
 object PerfPicker {
 

@@ -1,4 +1,4 @@
-package lila.tournament
+package lishogi.tournament
 
 import akka.actor._
 import org.joda.time.DateTime

@@ -1,12 +1,12 @@
-package lila.round
+package lishogi.round
 
 import shogi.{ Color, Speed }
 import org.goochjs.glicko2._
 
-import lila.game.{ Game, GameRepo, PerfPicker, RatingDiffs }
-import lila.history.HistoryApi
-import lila.rating.{ Glicko, Perf, RatingFactors, RatingRegulator, PerfType => PT }
-import lila.user.{ Perfs, RankingApi, User, UserRepo }
+import lishogi.game.{ Game, GameRepo, PerfPicker, RatingDiffs }
+import lishogi.history.HistoryApi
+import lishogi.rating.{ Glicko, Perf, RatingFactors, RatingRegulator, PerfType => PT }
+import lishogi.user.{ Perfs, RankingApi, User, UserRepo }
 
 final class PerfsUpdater(
     gameRepo: GameRepo,

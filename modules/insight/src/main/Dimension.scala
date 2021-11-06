@@ -1,4 +1,4 @@
-package lila.insight
+package lishogi.insight
 
 import play.api.i18n.Lang
 import play.api.libs.json._
@@ -7,8 +7,8 @@ import scalatags.Text.all._
 
 import shogi.opening.EcopeningDB
 import shogi.{ Color, Role }
-import lila.db.dsl._
-import lila.rating.PerfType
+import lishogi.db.dsl._
+import lishogi.rating.PerfType
 
 sealed abstract class Dimension[A: BSONHandler](
     val key: String,
@@ -29,7 +29,7 @@ object Dimension {
   import BSONHandlers._
   import Position._
   import Entry.{ BSONFields => F }
-  import lila.rating.BSONHandlers.perfTypeIdHandler
+  import lishogi.rating.BSONHandlers.perfTypeIdHandler
 
   case object Period
       extends Dimension[Period](
@@ -41,7 +41,7 @@ object Dimension {
       )
 
   case object Date
-      extends Dimension[lila.insight.DateRange](
+      extends Dimension[lishogi.insight.DateRange](
         "date",
         "Date",
         F.date,
@@ -196,42 +196,42 @@ object Dimension {
 
   def valuesOf[X](d: Dimension[X]): List[X] =
     d match {
-      case Period                  => lila.insight.Period.selector
+      case Period                  => lishogi.insight.Period.selector
       case Date                    => Nil // Period is used instead
       case Perf                    => PerfType.nonPuzzle
-      case Phase                   => lila.insight.Phase.all
-      case Result                  => lila.insight.Result.all
-      case Termination             => lila.insight.Termination.all
+      case Phase                   => lishogi.insight.Phase.all
+      case Result                  => lishogi.insight.Result.all
+      case Termination             => lishogi.insight.Termination.all
       case Color                   => shogi.Color.all
       case Opening                 => EcopeningDB.all
       case OpponentStrength        => RelativeStrength.all
       case PieceRole               => shogi.Role.all.reverse
-      case MovetimeRange           => lila.insight.MovetimeRange.all
-      case MyCastling | OpCastling => lila.insight.Castling.all
-      case QueenTrade              => lila.insight.QueenTrade.all
-      case MaterialRange           => lila.insight.MaterialRange.all
-      case Blur                    => lila.insight.Blur.all
-      case TimeVariance            => lila.insight.TimeVariance.all
+      case MovetimeRange           => lishogi.insight.MovetimeRange.all
+      case MyCastling | OpCastling => lishogi.insight.Castling.all
+      case QueenTrade              => lishogi.insight.QueenTrade.all
+      case MaterialRange           => lishogi.insight.MaterialRange.all
+      case Blur                    => lishogi.insight.Blur.all
+      case TimeVariance            => lishogi.insight.TimeVariance.all
     }
 
   def valueByKey[X](d: Dimension[X], key: String): Option[X] =
     d match {
-      case Period                  => key.toIntOption map lila.insight.Period.apply
+      case Period                  => key.toIntOption map lishogi.insight.Period.apply
       case Date                    => None
       case Perf                    => PerfType.byKey get key
-      case Phase                   => key.toIntOption flatMap lila.insight.Phase.byId.get
-      case Result                  => key.toIntOption flatMap lila.insight.Result.byId.get
-      case Termination             => key.toIntOption flatMap lila.insight.Termination.byId.get
+      case Phase                   => key.toIntOption flatMap lishogi.insight.Phase.byId.get
+      case Result                  => key.toIntOption flatMap lishogi.insight.Result.byId.get
+      case Termination             => key.toIntOption flatMap lishogi.insight.Termination.byId.get
       case Color                   => shogi.Color(key)
       case Opening                 => EcopeningDB.allByEco get key
       case OpponentStrength        => key.toIntOption flatMap RelativeStrength.byId.get
       case PieceRole               => shogi.Role.all.find(_.name == key)
-      case MovetimeRange           => key.toIntOption flatMap lila.insight.MovetimeRange.byId.get
-      case MyCastling | OpCastling => key.toIntOption flatMap lila.insight.Castling.byId.get
-      case QueenTrade              => lila.insight.QueenTrade(key == "true").some
-      case MaterialRange           => key.toIntOption flatMap lila.insight.MaterialRange.byId.get
-      case Blur                    => lila.insight.Blur(key == "true").some
-      case TimeVariance            => key.toFloatOption map lila.insight.TimeVariance.byId
+      case MovetimeRange           => key.toIntOption flatMap lishogi.insight.MovetimeRange.byId.get
+      case MyCastling | OpCastling => key.toIntOption flatMap lishogi.insight.Castling.byId.get
+      case QueenTrade              => lishogi.insight.QueenTrade(key == "true").some
+      case MaterialRange           => key.toIntOption flatMap lishogi.insight.MaterialRange.byId.get
+      case Blur                    => lishogi.insight.Blur(key == "true").some
+      case TimeVariance            => key.toFloatOption map lishogi.insight.TimeVariance.byId
     }
 
   def valueToJson[X](d: Dimension[X])(v: X)(implicit lang: Lang): play.api.libs.json.JsObject = {

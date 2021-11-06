@@ -1,8 +1,8 @@
-package lila
+package lishogi
 
 package object rating extends PackageObject {
 
-  type UserRankMap = Map[lila.rating.PerfType, Int]
+  type UserRankMap = Map[lishogi.rating.PerfType, Int]
 
-  type RatingFactors = Map[lila.rating.PerfType, RatingFactor]
+  type RatingFactors = Map[lishogi.rating.PerfType, RatingFactor]
 }

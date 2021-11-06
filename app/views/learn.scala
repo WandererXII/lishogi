@@ -2,10 +2,10 @@ package views.html.learn
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
 
 import controllers.routes
 
@@ -27,7 +27,7 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
         )})})""")
       ),
       moreCss = cssTag("learn"),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = "Learn shogi by playing",
           description = "You don't know much about shogi? Excellent! Let's have fun and learn to play shogi!",
@@ -39,7 +39,7 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
       main(id := "learn-app")
     }
 
-  private val i18nKeys: List[lila.i18n.MessageKey] =
+  private val i18nKeys: List[lishogi.i18n.MessageKey] =
     List(
       learnShogi,
       byPlaying,

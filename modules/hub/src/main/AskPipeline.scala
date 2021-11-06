@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import com.github.blemale.scaffeine.LoadingCache
 import scala.concurrent.duration.FiniteDuration
@@ -30,7 +30,7 @@ final class AskPipeline[A](compute: () => Fu[A], timeout: FiniteDuration, name: 
       complete(Right(res))
 
     case Fail(err) =>
-      lila.log("hub").warn(name, err)
+      lishogi.log("hub").warn(name, err)
       complete(Left(err))
   }
 
@@ -83,7 +83,7 @@ final class AskPipelines[K, R](
   def apply(key: K): Fu[R] = pipelines.get(key).get
 
   private val pipelines: LoadingCache[K, AskPipeline[R]] =
-    lila.common.LilaCache
+    lishogi.common.LishogiCache
       .scaffeine(mode)
       .expireAfterAccess(expiration)
       .build(key => new AskPipeline[R](() => compute(key), timeout, name = s"$name:$key"))

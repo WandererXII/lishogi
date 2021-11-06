@@ -3,16 +3,16 @@ package controllers
 import play.api.libs.json.Json
 import play.api.mvc._
 
-import lila.api.Context
-import lila.app._
-import lila.swiss.Swiss.{ Id => SwissId, ChatFor }
-import lila.swiss.{ Swiss => SwissModel }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.swiss.Swiss.{ Id => SwissId, ChatFor }
+import lishogi.swiss.{ Swiss => SwissModel }
 import views._
 
 final class Swiss(
     env: Env,
     tourC: Tournament
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private def swissNotFound(implicit ctx: Context) = NotFound(html.swiss.bits.notFound())
 
@@ -43,7 +43,7 @@ final class Swiss(
               canChat <- canHaveChat(swiss)
               chat <-
                 canChat ?? env.chat.api.userChat.cached
-                  .findMine(lila.chat.Chat.Id(swiss.id.value), ctx.me)
+                  .findMine(lishogi.chat.Chat.Id(swiss.id.value), ctx.me)
                   .dmap(some)
               _ <- chat ?? { c =>
                 env.user.lightUserApi.preloadMany(c.chat.userIds)
@@ -70,7 +70,7 @@ final class Swiss(
       }
     }
 
-  private def isCtxInTheTeam(teamId: lila.team.Team.ID)(implicit ctx: Context) =
+  private def isCtxInTheTeam(teamId: lishogi.team.Team.ID)(implicit ctx: Context) =
     ctx.userId.??(u => env.team.cached.teamIds(u).dmap(_ contains teamId))
 
   def form(teamId: String) =
@@ -198,7 +198,7 @@ final class Swiss(
   def pageOf(id: String, userId: String) =
     Action.async {
       WithSwiss(id) { swiss =>
-        env.swiss.api.pageOf(swiss, lila.user.User normalize userId) flatMap {
+        env.swiss.api.pageOf(swiss, lishogi.user.User normalize userId) flatMap {
           _ ?? { page =>
             JsonOk {
               env.swiss.standingApi(swiss, page)
@@ -213,7 +213,7 @@ final class Swiss(
       WithSwiss(id) { swiss =>
         env.swiss.api.playerInfo(swiss, userId) flatMap {
           _.fold(notFoundJson()) { player =>
-            JsonOk(fuccess(lila.swiss.SwissJson.playerJsonExt(swiss, player)))
+            JsonOk(fuccess(lishogi.swiss.SwissJson.playerJsonExt(swiss, player)))
           }
         }
       }
@@ -232,7 +232,7 @@ final class Swiss(
   private def WithSwiss(id: String)(f: SwissModel => Fu[Result]): Fu[Result] =
     env.swiss.api.byId(SwissId(id)) flatMap { _ ?? f }
 
-  private def WithEditableSwiss(id: String, me: lila.user.User)(
+  private def WithEditableSwiss(id: String, me: lishogi.user.User)(
       f: SwissModel => Fu[Result]
   )(implicit ctx: Context): Fu[Result] =
     WithSwiss(id) { swiss =>

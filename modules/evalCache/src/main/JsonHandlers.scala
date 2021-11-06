@@ -1,11 +1,11 @@
-package lila.evalCache
+package lishogi.evalCache
 
 import play.api.libs.json._
 
 import shogi.format.{ FEN, Uci }
 import EvalCacheEntry._
-import lila.common.Json._
-import lila.tree.Eval._
+import lishogi.common.Json._
+import lishogi.tree.Eval._
 
 object JsonHandlers {
 

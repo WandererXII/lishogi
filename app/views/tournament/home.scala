@@ -2,11 +2,11 @@ package views.html.tournament
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.tournament.Tournament
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.tournament.Tournament
 
 import controllers.routes
 
@@ -15,7 +15,7 @@ object home {
   def apply(
       scheduled: List[Tournament],
       finished: List[Tournament],
-      winners: lila.tournament.AllWinners,
+      winners: lishogi.tournament.AllWinners,
       json: play.api.libs.json.JsObject
   )(implicit ctx: Context) =
     views.html.base.layout(
@@ -35,7 +35,7 @@ object home {
 var d=lishogi.StrongSocket.defaults;d.params.flag="tournament";d.events.reload=app.update;"""
         )
       ),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           url = s"$netBaseUrl${routes.Tournament.home().url}",
           title = trans.tournamentHomeTitle.txt(),
@@ -72,7 +72,7 @@ var d=lishogi.StrongSocket.defaults;d.params.flag="tournament";d.events.reload=a
           h2(trans.lishogiTournaments()),
           div(cls := "scheduled")(
             scheduled.map { tour =>
-              tour.schedule.filter(s => s.freq != lila.tournament.Schedule.Freq.Hourly) map { s =>
+              tour.schedule.filter(s => s.freq != lishogi.tournament.Schedule.Freq.Hourly) map { s =>
                 a(href := routes.Tournament.show(tour.id), dataIcon := tournamentIconChar(tour))(
                   strong(tour.name(false)),
                   momentFromNow(s.at)

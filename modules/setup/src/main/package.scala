@@ -1,6 +1,6 @@
-package lila
+package lishogi
 
 package object setup extends PackageObject {
 
-  private[setup] val logger = lila.log("setup")
+  private[setup] val logger = lishogi.log("setup")
 }

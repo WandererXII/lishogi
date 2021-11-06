@@ -2,10 +2,10 @@ package views.html.mod
 
 import scala.util.matching.Regex
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
 
 import controllers.routes
 
@@ -14,7 +14,7 @@ object inquiry {
   // simul game study relay tournament
   private val commFlagRegex = """\[FLAG\] (\w+)/(\w{8})(?:/w)? (.+)(?:\n|$)""".r
 
-  def renderAtomText(atom: lila.report.Report.Atom) =
+  def renderAtomText(atom: lishogi.report.Report.Atom) =
     richText(
       commFlagRegex.replaceAllIn(
         atom.simplifiedText,
@@ -31,8 +31,8 @@ object inquiry {
       )
     )
 
-  def apply(in: lila.mod.Inquiry)(implicit ctx: Context) = {
-    def renderReport(r: lila.report.Report) =
+  def apply(in: lishogi.mod.Inquiry)(implicit ctx: Context) = {
+    def renderReport(r: lishogi.report.Report) =
       div(cls := "doc report")(
         r.bestAtoms(10).map { atom =>
           div(cls := "atom")(
@@ -49,7 +49,7 @@ object inquiry {
         }
       )
 
-    def renderNote(r: lila.user.Note)(implicit ctx: Context) =
+    def renderNote(r: lishogi.user.Note)(implicit ctx: Context) =
       (!r.dox || isGranted(_.Doxing)) option div(cls := "doc note")(
         h3("by ", userIdLink(r.from.some, withOnline = false), ", ", momentFromNow(r.date)),
         p(richText(r.text))
@@ -143,7 +143,7 @@ object inquiry {
         isGranted(_.ModMessage) option div(cls := "dropper warn buttons")(
           iconTag("e"),
           div(
-            lila.msg.MsgPreset.all.map { preset =>
+            lishogi.msg.MsgPreset.all.map { preset =>
               postForm(action := routes.Mod.warn(in.user.username, preset.name))(
                 submitButton(cls := "fbt")(preset.name),
                 autoNextInput

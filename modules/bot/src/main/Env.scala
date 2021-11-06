@@ -1,14 +1,14 @@
-package lila.bot
+package lishogi.bot
 
 import com.softwaremill.macwire._
 
 @Module
 final class Env(
-    chatApi: lila.chat.ChatApi,
-    gameRepo: lila.game.GameRepo,
-    lightUserApi: lila.user.LightUserApi,
-    rematches: lila.game.Rematches,
-    isOfferingRematch: lila.round.IsOfferingRematch
+    chatApi: lishogi.chat.ChatApi,
+    gameRepo: lishogi.game.GameRepo,
+    lightUserApi: lishogi.user.LightUserApi,
+    rematches: lishogi.game.Rematches,
+    isOfferingRematch: lishogi.round.IsOfferingRematch
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem,

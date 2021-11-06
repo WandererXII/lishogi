@@ -1,6 +1,6 @@
-package lila.game
+package lishogi.game
 
-import lila.common.ThreadLocalRandom
+import lishogi.common.ThreadLocalRandom
 
 import shogi.format.{ FEN, Forsyth }
 import shogi.{ Color, Status }
@@ -10,10 +10,10 @@ import reactivemongo.api.commands.WriteResult
 import reactivemongo.api.ReadPreference
 import reactivemongo.api.WriteConcern
 
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
-import lila.db.isDuplicateKey
-import lila.user.User
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
+import lishogi.db.isDuplicateKey
+import lishogi.user.User
 
 final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -367,7 +367,7 @@ final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
       F.playingUids -> (g2.started && userIds.nonEmpty).option(userIds)
     )
     coll.insert.one(bson) addFailureEffect {
-      case wr: WriteResult if isDuplicateKey(wr) => lila.mon.game.idCollision.increment()
+      case wr: WriteResult if isDuplicateKey(wr) => lishogi.mon.game.idCollision.increment()
     } void
   }
 

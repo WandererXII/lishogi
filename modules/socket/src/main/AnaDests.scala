@@ -1,11 +1,11 @@
-package lila.socket
+package lishogi.socket
 
 import play.api.libs.json._
 
 import shogi.format.FEN
 import shogi.opening._
 import shogi.variant.Variant
-import lila.tree.Node.{ destString, openingWriter }
+import lishogi.tree.Node.{ destString, openingWriter }
 
 case class AnaDests(
     variant: Variant,

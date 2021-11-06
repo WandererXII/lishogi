@@ -1,4 +1,4 @@
-package lila.video
+package lishogi.video
 
 import org.joda.time.DateTime
 
@@ -31,7 +31,7 @@ object View {
   }
 
   import reactivemongo.api.bson._
-  import lila.db.BSON
+  import lishogi.db.BSON
   import BSON.BSONJodaDateTimeHandler
   implicit val viewBSONHandler = new BSON[View] {
 

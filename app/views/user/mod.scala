@@ -1,13 +1,13 @@
 package views.html.user
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.evaluation.Display
-import lila.playban.RageSit
-import lila.security.{ Permission, UserSpy }
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.evaluation.Display
+import lishogi.playban.RageSit
+import lishogi.security.{ Permission, UserSpy }
+import lishogi.user.User
 import play.api.i18n.Lang
 
 object mod {
@@ -156,8 +156,8 @@ object mod {
       isGranted(_.SetTitle) option {
         postForm(cls := "fide_title", action := routes.Mod.setTitle(u.username))(
           form3.select(
-            lila.user.DataForm.title.fill(u.title.map(_.value))("title"),
-            lila.user.Title.acronyms.map(t => t -> t),
+            lishogi.user.DataForm.title.fill(u.title.map(_.value))("title"),
+            lishogi.user.Title.acronyms.map(t => t -> t),
             "".some
           )
         )
@@ -178,7 +178,7 @@ object mod {
       )
     )
 
-  def prefs(u: User)(pref: lila.pref.Pref)(implicit ctx: Context) =
+  def prefs(u: User)(pref: lishogi.pref.Pref)(implicit ctx: Context) =
     frag(
       canViewRoles(u) option mzSection("roles")(
         (if (isGranted(_.ChangePermission)) a(href := routes.Mod.permissions(u.username)) else span)(
@@ -189,13 +189,13 @@ object mod {
       mzSection("preferences")(
         strong(cls := "text inline", dataIcon := "%")("Notable preferences:"),
         ul(
-          (pref.keyboardMove != lila.pref.Pref.KeyboardMove.NO) option li("keyboard moves"),
+          (pref.keyboardMove != lishogi.pref.Pref.KeyboardMove.NO) option li("keyboard moves"),
           pref.botCompatible option li(
             strong(
               a(
                 cls := "text",
                 dataIcon := "j",
-                href := lila.common.String.base64
+                href := lishogi.common.String.base64
                   .decode("aHR0cDovL2NoZXNzLWNoZWF0LmNvbS9ob3dfdG9fY2hlYXRfYXRfbGljaGVzcy5odG1s")
               )("BOT-COMPATIBLE SETTINGS")
             )
@@ -210,7 +210,7 @@ object mod {
       span(cls := "text inline")(rageSit.counterView)
     )
 
-  def plan(charges: List[lila.plan.Charge])(implicit ctx: Context): Option[Frag] =
+  def plan(charges: List[lishogi.plan.Charge])(implicit ctx: Context): Option[Frag] =
     charges.headOption.map { firstCharge =>
       mzSection("plan")(
         strong(cls := "text", dataIcon := patronIconChar)(
@@ -235,7 +235,7 @@ object mod {
       )
     }
 
-  def modLog(history: List[lila.mod.Modlog], appeal: Option[lila.appeal.Appeal])(implicit lang: Lang) =
+  def modLog(history: List[lishogi.mod.Modlog], appeal: Option[lishogi.appeal.Appeal])(implicit lang: Lang) =
     mzSection("mod_log")(
       div(cls := "mod_log mod_log--history")(
         strong(cls := "text", dataIcon := "!")(
@@ -276,7 +276,7 @@ object mod {
       }
     )
 
-  def reportLog(u: User)(reports: lila.report.Report.ByAndAbout)(implicit lang: Lang) =
+  def reportLog(u: User)(reports: lishogi.report.Report.ByAndAbout)(implicit lang: Lang) =
     mzSection("reports")(
       div(cls := "mz_reports mz_reports--out")(
         strong(cls := "text", dataIcon := "!")(
@@ -284,7 +284,7 @@ object mod {
           reports.by.isEmpty option ": nothing to show."
         ),
         reports.by.map { r =>
-          r.atomBy(lila.report.ReporterId(u.id)).map { atom =>
+          r.atomBy(lishogi.report.ReporterId(u.id)).map { atom =>
             postForm(action := routes.Report.inquiry(r.id))(
               submitButton(reportScore(r.score), " ", strong(r.reason.name)),
               " ",
@@ -323,7 +323,7 @@ object mod {
       )
     )
 
-  def assessments(pag: lila.evaluation.PlayerAggregateAssessment.WithGames)(implicit ctx: Context): Frag =
+  def assessments(pag: lishogi.evaluation.PlayerAggregateAssessment.WithGames)(implicit ctx: Context): Frag =
     mzSection("assessments")(
       pag.pag.sfAvgBlurs.map { blursYes =>
         p(cls := "text", dataIcon := "j")(
@@ -479,7 +479,7 @@ object mod {
       u: User,
       spy: UserSpy,
       othersWithEmail: UserSpy.WithMeSortedWithEmails,
-      notes: List[lila.user.Note],
+      notes: List[lishogi.user.Note],
       bans: Map[String, Int],
       max: Int
   )(implicit ctx: Context): Frag =

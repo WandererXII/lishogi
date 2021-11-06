@@ -1,7 +1,7 @@
-package lila.evaluation
+package lishogi.evaluation
 
 import shogi.{ Centis, Stats }
-import lila.common.Maths
+import lishogi.common.Maths
 
 object Statistics {
 
@@ -21,13 +21,13 @@ object Statistics {
   def moveTimeCoefVariationNoDrop(a: List[Centis]): Option[Float] =
     coefVariation(a.map(_.centis + 10))
 
-  def moveTimeCoefVariation(pov: lila.game.Pov): Option[Float] =
+  def moveTimeCoefVariation(pov: lishogi.game.Pov): Option[Float] =
     for {
       mt   <- moveTimes(pov)
       coef <- moveTimeCoefVariation(mt)
     } yield coef
 
-  def moveTimes(pov: lila.game.Pov): Option[List[Centis]] =
+  def moveTimes(pov: lishogi.game.Pov): Option[List[Centis]] =
     pov.game.moveTimes(pov.color)
 
   def cvIndicatesHighlyFlatTimes(c: Float) =
@@ -41,7 +41,7 @@ object Statistics {
 
   private val instantaneous = Centis(0)
 
-  def slidingMoveTimesCvs(pov: lila.game.Pov): Option[Iterator[Float]] =
+  def slidingMoveTimesCvs(pov: lishogi.game.Pov): Option[Iterator[Float]] =
     moveTimes(pov) ?? {
       _.iterator
         .sliding(14)
@@ -51,11 +51,11 @@ object Statistics {
         .some
     }
 
-  def moderatelyConsistentMoveTimes(pov: lila.game.Pov): Boolean =
+  def moderatelyConsistentMoveTimes(pov: lishogi.game.Pov): Boolean =
     moveTimeCoefVariation(pov) ?? { cvIndicatesModeratelyFlatTimes(_) }
 
   private val fastMove = Centis(50)
-  def noFastMoves(pov: lila.game.Pov): Boolean = {
+  def noFastMoves(pov: lishogi.game.Pov): Boolean = {
     val moveTimes = ~pov.game.moveTimes(pov.color)
     moveTimes.count(fastMove >) <= (moveTimes.size / 20) + 2
   }

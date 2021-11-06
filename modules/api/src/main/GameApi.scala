@@ -1,4 +1,4 @@
-package lila.api
+package lishogi.api
 
 import shogi.format.FEN
 import org.joda.time.DateTime
@@ -6,24 +6,24 @@ import play.api.libs.json._
 import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 
-import lila.analyse.{ JsonView => analysisJson, Analysis }
-import lila.common.config._
-import lila.common.Json.jodaWrites
-import lila.common.paginator.{ Paginator, PaginatorJson }
-import lila.db.dsl._
-import lila.db.paginator.{ Adapter, CachedAdapter }
-import lila.game.BSONHandlers._
-import lila.game.Game.{ BSONFields => G }
-import lila.game.JsonView._
-import lila.game.{ CrosstableApi, Game, PerfPicker }
-import lila.user.User
+import lishogi.analyse.{ JsonView => analysisJson, Analysis }
+import lishogi.common.config._
+import lishogi.common.Json.jodaWrites
+import lishogi.common.paginator.{ Paginator, PaginatorJson }
+import lishogi.db.dsl._
+import lishogi.db.paginator.{ Adapter, CachedAdapter }
+import lishogi.game.BSONHandlers._
+import lishogi.game.Game.{ BSONFields => G }
+import lishogi.game.JsonView._
+import lishogi.game.{ CrosstableApi, Game, PerfPicker }
+import lishogi.user.User
 
 final private[api] class GameApi(
     net: NetConfig,
     apiToken: Secret,
-    gameRepo: lila.game.GameRepo,
-    gameCache: lila.game.Cached,
-    analysisRepo: lila.analyse.AnalysisRepo,
+    gameRepo: lishogi.game.GameRepo,
+    gameCache: lishogi.game.Cached,
+    analysisRepo: lishogi.analyse.AnalysisRepo,
     crosstableApi: CrosstableApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -43,7 +43,7 @@ final private[api] class GameApi(
         adapter = new Adapter[Game](
           collection = gameRepo.coll,
           selector = {
-            if (~playing) lila.game.Query.nowPlaying(user.id)
+            if (~playing) lishogi.game.Query.nowPlaying(user.id)
             else
               $doc(
                 G.playerUids -> user.id,
@@ -102,9 +102,9 @@ final private[api] class GameApi(
         adapter = new Adapter[Game](
           collection = gameRepo.coll,
           selector = {
-            if (~playing) lila.game.Query.nowPlayingVs(users._1.id, users._2.id)
+            if (~playing) lishogi.game.Query.nowPlayingVs(users._1.id, users._2.id)
             else
-              lila.game.Query.opponents(users._1, users._2) ++ $doc(
+              lishogi.game.Query.opponents(users._1, users._2) ++ $doc(
                 G.status $gte shogi.Status.Mate.id,
                 G.analysed -> analysed.map[BSONValue] {
                   case true => BSONBoolean(true)
@@ -147,9 +147,9 @@ final private[api] class GameApi(
       adapter = new Adapter[Game](
         collection = gameRepo.coll,
         selector = {
-          if (~playing) lila.game.Query.nowPlayingVs(userIds)
+          if (~playing) lishogi.game.Query.nowPlayingVs(userIds)
           else
-            lila.game.Query.opponents(userIds) ++ $doc(
+            lishogi.game.Query.opponents(userIds) ++ $doc(
               G.status $gte shogi.Status.Mate.id,
               G.analysed -> analysed.map[BSONValue] {
                 case true => BSONBoolean(true)

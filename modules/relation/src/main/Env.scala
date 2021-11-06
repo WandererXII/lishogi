@@ -1,12 +1,12 @@
-package lila.relation
+package lishogi.relation
 
 import akka.actor._
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
-import lila.hub.actors
+import lishogi.common.config._
+import lishogi.hub.actors
 
 @Module
 private class RelationConfig(
@@ -18,11 +18,11 @@ private class RelationConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
+    db: lishogi.db.Db,
     timeline: actors.Timeline,
-    userRepo: lila.user.UserRepo,
-    prefApi: lila.pref.PrefApi,
-    cacheApi: lila.memo.CacheApi
+    userRepo: lishogi.user.UserRepo,
+    prefApi: lishogi.pref.PrefApi,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem

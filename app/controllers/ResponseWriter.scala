@@ -1,6 +1,6 @@
 package controllers
 
-import lila.api._
+import lishogi.api._
 
 import play.api.http._
 import play.api.mvc.Codec

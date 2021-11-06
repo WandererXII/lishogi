@@ -1,8 +1,8 @@
-package lila.user
+package lishogi.user
 
 object Stat {
 
-  val minRating = lila.rating.Glicko.minRating
+  val minRating = lishogi.rating.Glicko.minRating
   val group     = 25
 
   def percentile(ratings: List[Int], rating: Int): (Int, Int) =

@@ -2,19 +2,19 @@ package views.html.simul
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object form {
 
-  def apply(form: Form[lila.simul.SimulForm.Setup], teams: List[lila.hub.LightTeam])(implicit
+  def apply(form: Form[lishogi.simul.SimulForm.Setup], teams: List[lishogi.hub.LightTeam])(implicit
       ctx: Context
   ) = {
 
-    import lila.simul.SimulForm._
+    import lishogi.simul.SimulForm._
 
     views.html.base.layout(
       title = trans.hostANewSimul.txt(),

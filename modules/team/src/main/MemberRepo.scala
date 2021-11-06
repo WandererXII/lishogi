@@ -1,10 +1,10 @@
-package lila.team
+package lishogi.team
 
 import reactivemongo.api.bson._
 import reactivemongo.api.commands.WriteResult
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class MemberRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

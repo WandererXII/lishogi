@@ -1,10 +1,10 @@
-package lila.relay
+package lishogi.relay
 
 import akka.actor._
 import scala.concurrent.duration._
 
-import lila.study.MultiPgn
-import lila.hub.EarlyMultiThrottler
+import lishogi.study.MultiPgn
+import lishogi.hub.EarlyMultiThrottler
 
 final class RelayPush(sync: RelaySync, api: RelayApi)(implicit
     system: ActorSystem,

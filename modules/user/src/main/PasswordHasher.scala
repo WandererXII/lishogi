@@ -1,4 +1,4 @@
-package lila.user
+package lishogi.user
 
 import java.security.SecureRandom
 import java.util.Base64
@@ -6,7 +6,7 @@ import javax.crypto.Cipher
 import javax.crypto.spec.{ IvParameterSpec, SecretKeySpec }
 import com.roundeights.hasher.Implicits._
 
-import lila.common.config.Secret
+import lishogi.common.config.Secret
 
 /** Encryption for bcrypt hashes.
   *
@@ -76,8 +76,8 @@ object PasswordHasher {
 
   import scala.concurrent.duration._
   import play.api.mvc.RequestHeader
-  import lila.memo.RateLimit
-  import lila.common.{ HTTPRequest, IpAddress }
+  import lishogi.memo.RateLimit
+  import lishogi.common.{ HTTPRequest, IpAddress }
 
   private lazy val rateLimitPerIP = new RateLimit[IpAddress](
     credits = 30 * 2, // double cost in case of hash check failure
@@ -98,7 +98,7 @@ object PasswordHasher {
   )
 
   def rateLimit[A](
-      enforce: lila.common.config.RateLimit
+      enforce: lishogi.common.config.RateLimit
   )(username: String, req: RequestHeader)(run: RateLimit.Charge => Fu[A])(default: => Fu[A]): Fu[A] =
     if (enforce.value) {
       val cost = 1

@@ -1,8 +1,8 @@
-package lila.learn
+package lishogi.learn
 
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 object BSONHandlers {
 

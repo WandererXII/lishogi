@@ -1,4 +1,4 @@
-package lila.db
+package lishogi.db
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
@@ -6,8 +6,8 @@ import reactivemongo.api.bson.exceptions.TypeDoesNotMatchException
 import scala.util.{ Failure, Success, Try }
 import scalaz.NonEmptyList
 
-import lila.common.Iso._
-import lila.common.{ EmailAddress, IpAddress, Iso, NormalizedEmailAddress }
+import lishogi.common.Iso._
+import lishogi.common.{ EmailAddress, IpAddress, Iso, NormalizedEmailAddress }
 
 trait Handlers {
 

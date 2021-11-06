@@ -1,15 +1,15 @@
-package lila.app
+package lishogi.app
 package templating
 
 import play.api.i18n.Lang
 import controllers.routes
 import mashup._
 
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.LightUser
-import lila.i18n.{ I18nKeys => trans }
-import lila.rating.{ Perf, PerfType }
-import lila.user.{ Title, User }
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.LightUser
+import lishogi.i18n.{ I18nKeys => trans }
+import lishogi.rating.{ Perf, PerfType }
+import lishogi.user.{ Title, User }
 
 trait UserHelper { self: I18nHelper with StringHelper with NumberHelper =>
 

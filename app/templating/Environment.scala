@@ -1,12 +1,12 @@
-package lila.app
+package lishogi.app
 package templating
 
 import scala.concurrent.duration._
 
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object Environment
-    extends lila.Lilaisms
+    extends lishogi.Lishogiisms
     with StringHelper
     with AssetHelper
     with DateHelper
@@ -32,7 +32,7 @@ object Environment
   def destroy() = { envVar = None }
   def env: Env = envVar.get
 
-  type FormWithCaptcha = (play.api.data.Form[_], lila.common.Captcha)
+  type FormWithCaptcha = (play.api.data.Form[_], lishogi.common.Captcha)
 
   def netBaseUrl          = env.net.baseUrl.value
   def isGloballyCrawlable = env.net.crawlable
@@ -41,7 +41,7 @@ object Environment
   def isProd         = env.isProd
   def isStage        = env.isStage
 
-  def apiVersion = lila.api.Mobile.Api.currentVersion
+  def apiVersion = lishogi.api.Mobile.Api.currentVersion
 
   lazy val explorerEndpoint  = env.explorerEndpoint
   lazy val tablebaseEndpoint = env.tablebaseEndpoint

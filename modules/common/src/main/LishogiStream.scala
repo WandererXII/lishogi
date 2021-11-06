@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import akka.NotUsed
 import akka.stream.scaladsl._
@@ -6,7 +6,7 @@ import com.github.blemale.scaffeine.Scaffeine
 import scala.annotation.nowarn
 import scala.concurrent.duration._
 
-object LilaStream {
+object LishogiStream {
 
   def flowRate[T](
       metric: T => Int = (_: T) => 1,

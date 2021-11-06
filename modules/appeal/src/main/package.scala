@@ -1,6 +1,6 @@
-package lila
+package lishogi
 
 package object appeal extends PackageObject {
 
-  private[appeal] val logger = lila.log("appeal")
+  private[appeal] val logger = lishogi.log("appeal")
 }

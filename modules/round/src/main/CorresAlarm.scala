@@ -1,4 +1,4 @@
-package lila.round
+package lishogi.round
 
 import akka.stream.scaladsl._
 import org.joda.time.DateTime
@@ -6,14 +6,14 @@ import reactivemongo.akkastream.cursorProducer
 
 import scala.concurrent.duration._
 
-import lila.common.Bus
-import lila.common.LilaStream
-import lila.db.dsl._
-import lila.game.{ Game, Pov }
+import lishogi.common.Bus
+import lishogi.common.LishogiStream
+import lishogi.db.dsl._
+import lishogi.game.{ Game, Pov }
 
 final private class CorresAlarm(
     coll: Coll,
-    hasUserId: (Game, lila.user.User.ID) => Fu[Boolean],
+    hasUserId: (Game, lishogi.user.User.ID) => Fu[Boolean],
     proxyGame: Game.ID => Fu[Option[Game]]
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -32,12 +32,12 @@ final private class CorresAlarm(
 
   system.scheduler.scheduleOnce(10 seconds) { scheduleNext() }
 
-  Bus.subscribeFun("finishGame") { case lila.game.actorApi.FinishGame(game, _, _) =>
+  Bus.subscribeFun("finishGame") { case lishogi.game.actorApi.FinishGame(game, _, _) =>
     if (game.hasCorrespondenceClock && !game.hasAi) coll.delete.one($id(game.id))
   }
 
   Bus.subscribeFun("moveEventCorres") {
-    case lila.hub.actorApi.round.CorresMoveEvent(move, _, _, alarmable, _) if alarmable =>
+    case lishogi.hub.actorApi.round.CorresMoveEvent(move, _, _, alarmable, _) if alarmable =>
       proxyGame(move.gameId) flatMap {
         _ ?? { game =>
           game.bothPlayersHaveMoved ?? {
@@ -67,15 +67,15 @@ final private class CorresAlarm(
       .cursor[Alarm]()
       .documentSource(200)
       .mapAsyncUnordered(4)(alarm => proxyGame(alarm._id))
-      .via(LilaStream.collect)
+      .via(LishogiStream.collect)
       .mapAsyncUnordered(4) { game =>
         val pov = Pov(game, game.turnColor)
         pov.player.userId.fold(fuccess(true))(u => hasUserId(pov.game, u)).addEffect {
           case true  => // already looking at the game
-          case false => Bus.publish(lila.game.actorApi.CorresAlarmEvent(pov), "corresAlarm")
+          case false => Bus.publish(lishogi.game.actorApi.CorresAlarmEvent(pov), "corresAlarm")
         } >> coll.delete.one($id(game.id))
       }
-      .toMat(LilaStream.sinkCount)(Keep.right)
+      .toMat(LishogiStream.sinkCount)(Keep.right)
       .run()
       .mon(_.round.alarm.time)
       .addEffectAnyway { scheduleNext() }

@@ -1,14 +1,14 @@
-package lila.activity
+package lishogi.activity
 
-import lila.db.dsl._
-import lila.db.ignoreDuplicateKey
-import lila.game.Game
-import lila.study.Study
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.db.ignoreDuplicateKey
+import lishogi.game.Game
+import lishogi.study.Study
+import lishogi.user.User
 
 final class ActivityWriteApi(
     coll: Coll,
-    studyApi: lila.study.StudyApi
+    studyApi: lishogi.study.StudyApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import Activity._
@@ -42,7 +42,7 @@ final class ActivityWriteApi(
       .sequenceFu
       .void
 
-  def forumPost(post: lila.forum.Post): Funit =
+  def forumPost(post: lishogi.forum.Post): Funit =
     post.userId.filter(User.lishogiId !=) ?? { userId =>
       getOrCreate(userId) flatMap { a =>
         coll.update
@@ -56,7 +56,7 @@ final class ActivityWriteApi(
       }
     }
 
-  def puzzle(res: lila.puzzle.Puzzle.UserResult): Funit =
+  def puzzle(res: lishogi.puzzle.Puzzle.UserResult): Funit =
     getOrCreate(res.userId) flatMap { a =>
       coll.update
         .one(
@@ -89,12 +89,12 @@ final class ActivityWriteApi(
       a.copy(learn = Some(~a.learn + Learn.Stage(stage))).some
     }
 
-  def practice(prog: lila.practice.PracticeProgress.OnComplete) =
+  def practice(prog: lishogi.practice.PracticeProgress.OnComplete) =
     update(prog.userId) { a =>
       a.copy(practice = Some(~a.practice + prog.studyId)).some
     }
 
-  def simul(simul: lila.simul.Simul) =
+  def simul(simul: lishogi.simul.Simul) =
     simulParticipant(simul, simul.hostId) >>
       simul.pairings.map(_.player.user).map { simulParticipant(simul, _) }.sequenceFu.void
 
@@ -155,7 +155,7 @@ final class ActivityWriteApi(
 
   def erase(user: User) = coll.delete.one(regexId(user.id))
 
-  private def simulParticipant(simul: lila.simul.Simul, userId: String) =
+  private def simulParticipant(simul: lishogi.simul.Simul, userId: String) =
     update(userId) { a =>
       a.copy(simuls = Some(~a.simuls + SimulId(simul.id))).some
     }

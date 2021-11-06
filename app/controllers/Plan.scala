@@ -4,11 +4,11 @@ import play.api.libs.json._
 import play.api.mvc._
 import scala.concurrent.duration._
 
-import lila.api.Context
-import lila.app._
-import lila.common.{ EmailAddress, HTTPRequest }
-import lila.plan.StripeClient.StripeException
-import lila.plan.{
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.common.{ EmailAddress, HTTPRequest }
+import lishogi.plan.StripeClient.StripeException
+import lishogi.plan.{
   Cents,
   Checkout,
   CreateStripeSession,
@@ -18,18 +18,18 @@ import lila.plan.{
   OneTimeCustomerInfo,
   StripeCustomer
 }
-import lila.user.{ User => UserModel }
+import lishogi.user.{ User => UserModel }
 import views._
 
-final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends LilaController(env) {
+final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends LishogiController(env) {
 
-  private val logger = lila.log("plan")
+  private val logger = lishogi.log("plan")
 
   def index =
     Open { implicit ctx =>
       pageHit
       ctx.me.fold(indexAnon) { me =>
-        import lila.plan.PlanApi.SyncResult._
+        import lishogi.plan.PlanApi.SyncResult._
         env.plan.api.sync(me) flatMap {
           case ReloadUser => Redirect(routes.Plan.index()).fuccess
           case Synced(Some(patron), None) =>
@@ -45,7 +45,7 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
   def list =
     Open { implicit ctx =>
       ctx.me.fold(Redirect(routes.Plan.index()).fuccess) { me =>
-        import lila.plan.PlanApi.SyncResult._
+        import lishogi.plan.PlanApi.SyncResult._
         env.plan.api.sync(me) flatMap {
           case ReloadUser         => Redirect(routes.Plan.list()).fuccess
           case Synced(Some(_), _) => indexFreeUser(me)
@@ -61,7 +61,7 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
       renderIndex(email, patron = none)
     }
 
-  private def renderIndex(email: Option[EmailAddress], patron: Option[lila.plan.Patron])(implicit
+  private def renderIndex(email: Option[EmailAddress], patron: Option[lishogi.plan.Patron])(implicit
       ctx: Context
   ): Fu[Result] =
     for {
@@ -78,7 +78,7 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
       )
     )
 
-  private def indexPatron(me: UserModel, patron: lila.plan.Patron, customer: StripeCustomer)(implicit
+  private def indexPatron(me: UserModel, patron: lishogi.plan.Patron, customer: StripeCustomer)(implicit
       ctx: Context
   ) =
     env.plan.api.customerInfo(me, customer) flatMap {
@@ -102,7 +102,7 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
   def switch =
     AuthBody { implicit ctx => me =>
       implicit val req = ctx.body
-      lila.plan.Switch.form
+      lishogi.plan.Switch.form
         .bindFromRequest()
         .fold(
           _ => funit,
@@ -118,7 +118,7 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
   def thanks =
     Open { implicit ctx =>
       // wait for the payment data from stripe or paypal
-      lila.common.Future.delay(2.seconds) {
+      lishogi.common.Future.delay(2.seconds) {
         ctx.me ?? env.plan.api.userPatron flatMap { patron =>
           patron ?? env.plan.api.patronCustomer map { customer =>
             Ok(html.plan.thanks(patron, customer))
@@ -160,7 +160,7 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
       .recover(badStripeApiCall)
   }
 
-  private val StripeRateLimit = lila.memo.RateLimit.composite[lila.common.IpAddress](
+  private val StripeRateLimit = lishogi.memo.RateLimit.composite[lishogi.common.IpAddress](
     key = "stripe.checkout.ip",
     enforce = env.net.rateLimit.value
   )(
@@ -176,7 +176,7 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
       StripeRateLimit(HTTPRequest lastRemoteAddress req) {
         if (!HTTPRequest.isXhr(req)) BadRequest.fuccess
         else
-          lila.plan.Checkout.form
+          lishogi.plan.Checkout.form
             .bindFromRequest()
             .fold(
               err => badStripeSession(err.toString()).fuccess,
@@ -197,8 +197,8 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
 
   def payPalIpn =
     Action.async { implicit req =>
-      import lila.plan.Patron.PayPal
-      lila.plan.DataForm.ipn
+      import lishogi.plan.Patron.PayPal
+      lishogi.plan.DataForm.ipn
         .bindFromRequest()
         .fold(
           err => {
@@ -215,10 +215,10 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
               userId = ipn.userId,
               email = ipn.email map PayPal.Email.apply,
               subId = ipn.subId map PayPal.SubId.apply,
-              cents = lila.plan.Cents(ipn.grossCents),
+              cents = lishogi.plan.Cents(ipn.grossCents),
               name = ipn.name,
               txnId = ipn.txnId,
-              ip = lila.common.HTTPRequest.lastRemoteAddress(req).value,
+              ip = lishogi.common.HTTPRequest.lastRemoteAddress(req).value,
               key = get("key", req) | "N/A"
             ) inject Ok
         )

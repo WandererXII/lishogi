@@ -1,14 +1,14 @@
-package lila.mod
+package lishogi.mod
 
-import lila.chat.{ Chat, UserChat }
-import lila.report.Suspect
-import lila.simul.Simul
-import lila.tournament.Tournament
+import lishogi.chat.{ Chat, UserChat }
+import lishogi.report.Suspect
+import lishogi.simul.Simul
+import lishogi.tournament.Tournament
 
 final class PublicChat(
-    chatApi: lila.chat.ChatApi,
-    tournamentApi: lila.tournament.TournamentApi,
-    simulEnv: lila.simul.Env
+    chatApi: lishogi.chat.ChatApi,
+    tournamentApi: lishogi.tournament.TournamentApi,
+    simulEnv: lishogi.simul.Env
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def all: Fu[(List[(Tournament, UserChat)], List[(Simul, UserChat)])] =

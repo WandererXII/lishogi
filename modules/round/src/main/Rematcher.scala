@@ -1,23 +1,23 @@
-package lila.round
+package lishogi.round
 
 import shogi.format.{ FEN, Forsyth }
 import shogi.variant._
 import shogi.{ Game => ShogiGame, Board, Color => ShogiColor, Clock, Situation, Hands }
 import ShogiColor.{ Gote, Sente }
 import com.github.blemale.scaffeine.Cache
-import lila.memo.CacheApi
+import lishogi.memo.CacheApi
 import scala.concurrent.duration._
 
-import lila.common.Bus
-import lila.game.{ AnonCookie, Event, Game, GameRepo, PerfPicker, Pov, Rematches, Source }
-import lila.memo.ExpireSetMemo
-import lila.user.{ User, UserRepo }
-import lila.i18n.{ I18nKeys => trans, defaultLang }
+import lishogi.common.Bus
+import lishogi.game.{ AnonCookie, Event, Game, GameRepo, PerfPicker, Pov, Rematches, Source }
+import lishogi.memo.ExpireSetMemo
+import lishogi.user.{ User, UserRepo }
+import lishogi.i18n.{ I18nKeys => trans, defaultLang }
 
 final private class Rematcher(
     gameRepo: GameRepo,
     userRepo: UserRepo,
-    idGenerator: lila.game.IdGenerator,
+    idGenerator: lishogi.game.IdGenerator,
     messenger: Messenger,
     onStart: OnStart,
     rematches: Rematches
@@ -25,9 +25,9 @@ final private class Rematcher(
 
   implicit private val chatLang = defaultLang
 
-  private val declined = new lila.memo.ExpireSetMemo(1 minute)
+  private val declined = new lishogi.memo.ExpireSetMemo(1 minute)
 
-  private val rateLimit = new lila.memo.RateLimit[String](
+  private val rateLimit = new lishogi.memo.RateLimit[String](
     credits = 2,
     duration = 1 minute,
     key = "round.rematch"
@@ -91,7 +91,7 @@ final private class Rematcher(
   private def rematchCreate(pov: Pov): Events = {
     messenger.system(pov.game, trans.rematchOfferSent.txt())
     pov.opponent.userId foreach { forId =>
-      Bus.publish(lila.hub.actorApi.round.RematchOffer(pov.gameId), s"rematchFor:$forId")
+      Bus.publish(lishogi.hub.actorApi.round.RematchOffer(pov.gameId), s"rematchFor:$forId")
     }
     offers.put(pov.gameId, Offers(sente = pov.color.sente, gote = pov.color.gote))
     List(Event.RematchOffer(by = pov.color.some))
@@ -132,11 +132,11 @@ final private class Rematcher(
       ) withUniqueId idGenerator
     } yield game
 
-  private def returnPlayer(game: Game, color: ShogiColor, users: List[User]): lila.game.Player =
+  private def returnPlayer(game: Game, color: ShogiColor, users: List[User]): lishogi.game.Player =
     game.opponent(color).aiLevel match {
-      case Some(ai) => lila.game.Player.make(color, ai.some)
+      case Some(ai) => lishogi.game.Player.make(color, ai.some)
       case None =>
-        lila.game.Player.make(
+        lishogi.game.Player.make(
           color,
           game.opponent(color).userId.flatMap { id =>
             users.find(_.id == id)

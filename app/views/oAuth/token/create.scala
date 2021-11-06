@@ -3,13 +3,13 @@ package views.html.oAuth.token
 import controllers.routes
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object create {
 
-  def apply(form: Form[lila.oauth.OAuthForm.token.Data], me: lila.user.User)(implicit ctx: Context) = {
+  def apply(form: Form[lishogi.oauth.OAuthForm.token.Data], me: lishogi.user.User)(implicit ctx: Context) = {
 
     val title = "New personal API access token"
 
@@ -30,11 +30,11 @@ object create {
           br,
           h2("Scopes define the access for personal tokens:"),
           div(cls := "scopes")(
-            lila.oauth.OAuthScope.all.map { scope =>
+            lishogi.oauth.OAuthScope.all.map { scope =>
               val disabled = {
-                me.noBot && scope == lila.oauth.OAuthScope.Bot.Play && me.count.game > 0
+                me.noBot && scope == lishogi.oauth.OAuthScope.Bot.Play && me.count.game > 0
               } || {
-                me.isBot && scope == lila.oauth.OAuthScope.Board.Play
+                me.isBot && scope == lishogi.oauth.OAuthScope.Board.Play
               }
               val id = s"oauth-scope-${scope.key.replace(":", "_")}"
               div(

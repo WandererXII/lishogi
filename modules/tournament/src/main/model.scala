@@ -1,8 +1,8 @@
-package lila.tournament
+package lishogi.tournament
 
 import play.api.i18n.Lang
 
-final class LeaderboardRepo(val coll: lila.db.dsl.Coll)
+final class LeaderboardRepo(val coll: lishogi.db.dsl.Coll)
 
 case class TournamentTop(value: List[Player]) extends AnyVal
 
@@ -25,7 +25,7 @@ case class GameView(
   def tourAndTeamVs = TourAndTeamVs(tour, teamVs)
 }
 
-case class MyInfo(rank: Int, withdraw: Boolean, gameId: Option[lila.game.Game.ID]) {
+case class MyInfo(rank: Int, withdraw: Boolean, gameId: Option[lishogi.game.Game.ID]) {
   def page = {
     math.floor((rank - 1) / 10) + 1
   }.toInt
@@ -49,9 +49,9 @@ case class VisibleTournaments(
 }
 
 case class PlayerInfoExt(
-    user: lila.user.User,
+    user: lishogi.user.User,
     player: Player,
-    recentPovs: List[lila.game.LightPov]
+    recentPovs: List[lishogi.game.LightPov]
 )
 
 case class GameRanks(senteRank: Int, goteRank: Int)
@@ -89,7 +89,7 @@ object RankedPlayer {
 }
 
 case class FeaturedGame(
-    game: lila.game.Game,
+    game: lishogi.game.Game,
     sente: RankedPlayer,
     gote: RankedPlayer
 )

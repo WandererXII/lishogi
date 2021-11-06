@@ -1,14 +1,14 @@
-package lila.challenge
+package lishogi.challenge
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
-import lila.common.Bus
-import lila.common.config.Max
-import lila.game.{ Game, Pov }
-import lila.hub.actorApi.socket.SendTo
-import lila.user.{ User, UserRepo }
-import lila.memo.CacheApi._
+import lishogi.common.Bus
+import lishogi.common.config.Max
+import lishogi.game.{ Game, Pov }
+import lishogi.hub.actorApi.socket.SendTo
+import lishogi.user.{ User, UserRepo }
+import lishogi.memo.CacheApi._
 
 final class ChallengeApi(
     repo: ChallengeRepo,
@@ -16,9 +16,9 @@ final class ChallengeApi(
     userRepo: UserRepo,
     joiner: Joiner,
     jsonView: JsonView,
-    gameCache: lila.game.Cached,
+    gameCache: lishogi.game.Cached,
     maxPlaying: Max,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem
@@ -70,7 +70,7 @@ final class ChallengeApi(
 
   def decline(c: Challenge) = (repo decline c) >>- uncacheAndNotify(c)
 
-  private val acceptQueue = new lila.hub.DuctSequencer(maxSize = 64, timeout = 5 seconds, "challengeAccept")
+  private val acceptQueue = new lishogi.hub.DuctSequencer(maxSize = 64, timeout = 5 seconds, "challengeAccept")
 
   def accept(
       c: Challenge,
@@ -105,7 +105,7 @@ final class ChallengeApi(
 
   def removeByUserId(userId: User.ID) =
     repo allWithUserId userId flatMap { cs =>
-      lila.common.Future.applySequentially(cs)(remove).void
+      lishogi.common.Future.applySequentially(cs)(remove).void
     }
 
   def oauthAccept(dest: User, challenge: Challenge): Fu[Option[Game]] =
@@ -123,10 +123,10 @@ final class ChallengeApi(
 
   private[challenge] def sweep: Funit =
     repo.realTimeUnseenSince(DateTime.now minusSeconds 20, max = 50).flatMap { cs =>
-      lila.common.Future.applySequentially(cs)(offline).void
+      lishogi.common.Future.applySequentially(cs)(offline).void
     } >>
       repo.expired(50).flatMap { cs =>
-        lila.common.Future.applySequentially(cs)(remove).void
+        lishogi.common.Future.applySequentially(cs)(remove).void
       }
 
   private def remove(c: Challenge) =
@@ -146,10 +146,10 @@ final class ChallengeApi(
     for {
       all <- allFor(userId)
       lang <- userRepo langOf userId map {
-        _ flatMap lila.i18n.I18nLangPicker.byStr getOrElse lila.i18n.defaultLang
+        _ flatMap lishogi.i18n.I18nLangPicker.byStr getOrElse lishogi.i18n.defaultLang
       }
     } yield Bus.publish(
-      SendTo(userId, lila.socket.Socket.makeMessage("challenges", jsonView(all)(lang))),
+      SendTo(userId, lishogi.socket.Socket.makeMessage("challenges", jsonView(all)(lang))),
       "socketUsers"
     )
 

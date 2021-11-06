@@ -1,11 +1,11 @@
-package lila.api
+package lishogi.api
 
 import play.api.mvc.RequestHeader
 import play.api.i18n.Lang
 
-import lila.common.{ HTTPRequest, Nonce }
-import lila.pref.Pref
-import lila.user.{ BodyUserContext, HeaderUserContext, UserContext }
+import lishogi.common.{ HTTPRequest, Nonce }
+import lishogi.pref.Pref
+import lishogi.user.{ BodyUserContext, HeaderUserContext, UserContext }
 
 case class PageData(
     teamNbRequests: Int,
@@ -15,7 +15,7 @@ case class PageData(
     blindMode: Boolean,
     hasFingerprint: Boolean,
     hasClas: Boolean,
-    inquiry: Option[lila.mod.Inquiry],
+    inquiry: Option[lishogi.mod.Inquiry],
     nonce: Option[Nonce],
     error: Boolean = false
 )
@@ -27,7 +27,7 @@ object PageData {
       teamNbRequests = 0,
       nbChallenges = 0,
       nbNotifications = 0,
-      lila.pref.RequestPref fromRequest req,
+      lishogi.pref.RequestPref fromRequest req,
       blindMode = blindMode,
       hasFingerprint = false,
       hasClas = false,
@@ -38,7 +38,7 @@ object PageData {
   def error(req: RequestHeader, nonce: Option[Nonce]) = anon(req, nonce).copy(error = true)
 }
 
-sealed trait Context extends lila.user.UserContextWrapper {
+sealed trait Context extends lishogi.user.UserContextWrapper {
 
   val userContext: UserContext
   val pageData: PageData
@@ -55,15 +55,15 @@ sealed trait Context extends lila.user.UserContextWrapper {
   def hasClas         = pageData.hasClas
   def hasInbox        = me.exists(u => !u.kid || hasClas)
 
-  def currentTheme = lila.pref.Theme(pref.theme)
+  def currentTheme = lishogi.pref.Theme(pref.theme)
 
-  def currentTheme3d = lila.pref.Theme3d(pref.theme3d)
+  def currentTheme3d = lishogi.pref.Theme3d(pref.theme3d)
 
-  def currentPieceSet = lila.pref.PieceSet(pref.pieceSet)
+  def currentPieceSet = lishogi.pref.PieceSet(pref.pieceSet)
 
-  def currentPieceSet3d = lila.pref.PieceSet3d(pref.pieceSet3d)
+  def currentPieceSet3d = lishogi.pref.PieceSet3d(pref.pieceSet3d)
 
-  def currentSoundSet = lila.pref.SoundSet(pref.soundSet)
+  def currentSoundSet = lishogi.pref.SoundSet(pref.soundSet)
 
   lazy val currentBg = if (pref.transp) "transp" else if (pref.dark) "dark" else "light"
 
@@ -85,7 +85,7 @@ sealed trait Context extends lila.user.UserContextWrapper {
 }
 
 sealed abstract class BaseContext(
-    val userContext: lila.user.UserContext,
+    val userContext: lishogi.user.UserContext,
     val pageData: PageData
 ) extends Context
 

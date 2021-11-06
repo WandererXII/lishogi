@@ -1,4 +1,4 @@
-package lila.explorer
+package lishogi.explorer
 
 import com.softwaremill.macwire._
 import play.api.Configuration
@@ -8,11 +8,11 @@ case class InternalEndpoint(value: String) extends AnyVal with StringValue
 @Module
 final class Env(
     appConfig: Configuration,
-    gameRepo: lila.game.GameRepo,
-    userRepo: lila.user.UserRepo,
-    gameImporter: lila.importer.Importer,
-    getBotUserIds: lila.user.GetBotIds,
-    settingStore: lila.memo.SettingStore.Builder,
+    gameRepo: lishogi.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    gameImporter: lishogi.importer.Importer,
+    getBotUserIds: lishogi.user.GetBotIds,
+    settingStore: lishogi.memo.SettingStore.Builder,
     ws: play.api.libs.ws.WSClient
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -28,7 +28,7 @@ final class Env(
   lazy val importer = wire[ExplorerImporter]
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = { case "explorer" :: "index" :: since :: Nil =>
         indexer(since) inject "done"
       }
@@ -40,7 +40,7 @@ final class Env(
     text = "Explorer: index new games as soon as they complete".some
   )
 
-  lila.common.Bus.subscribeFun("finishGame") {
-    case lila.game.actorApi.FinishGame(game, _, _) if !game.aborted && indexFlowSetting.get() => indexer(game)
+  lishogi.common.Bus.subscribeFun("finishGame") {
+    case lishogi.game.actorApi.FinishGame(game, _, _) if !game.aborted && indexFlowSetting.get() => indexer(game)
   }
 }

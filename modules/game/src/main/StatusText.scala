@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import shogi.variant.Variant
 import shogi.{ Color, Status }
@@ -29,7 +29,7 @@ object StatusText {
       case _ => ""
     }
 
-  def apply(game: lila.game.Game): String = apply(game.status, game.winnerColor, game.variant)
+  def apply(game: lishogi.game.Game): String = apply(game.status, game.winnerColor, game.variant)
 
   private def winner(win: Option[Color]) = win.??(_.toString)
   private def loser(win: Option[Color])  = winner(win.map(!_))

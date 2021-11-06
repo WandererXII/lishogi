@@ -1,4 +1,4 @@
-package lila.security
+package lishogi.security
 
 case object Fixtures {
 

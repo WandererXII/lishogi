@@ -1,4 +1,4 @@
-package lila.app
+package lishogi.app
 package http
 
 import play.api.http.DefaultHttpErrorHandler
@@ -9,7 +9,7 @@ import play.api.{ Configuration, Environment, UsefulException }
 import play.core.SourceMapper
 import scala.concurrent.Future
 
-import lila.common.HTTPRequest
+import lishogi.common.HTTPRequest
 
 final class ErrorHandler(
     environment: Environment,
@@ -25,19 +25,19 @@ final class ErrorHandler(
     Future {
       val actionName = HTTPRequest actionName req
       val client     = HTTPRequest clientName req
-      lila.mon.http.error(actionName, client, req.method, 500).increment()
-      lila.log("http").error(s"ERROR 500 $actionName", exception)
+      lishogi.mon.http.error(actionName, client, req.method, 500).increment()
+      lishogi.log("http").error(s"ERROR 500 $actionName", exception)
       if (canShowErrorPage(req))
         InternalServerError(views.html.site.bits.errorPage {
-          lila.api.Context.error(
+          lishogi.api.Context.error(
             req,
-            lila.i18n.defaultLang,
-            HTTPRequest.isSynchronousHttp(req) option lila.common.Nonce.random
+            lishogi.i18n.defaultLang,
+            HTTPRequest.isSynchronousHttp(req) option lishogi.common.Nonce.random
           )
         })
       else InternalServerError("Sorry, something went wrong.")
     } recover { case util.control.NonFatal(e) =>
-      lila.log("http").error(s"""Error handler exception on "${exception.getMessage}\"""", e)
+      lishogi.log("http").error(s"""Error handler exception on "${exception.getMessage}\"""", e)
       InternalServerError("Sorry, something went very wrong.")
     }
 

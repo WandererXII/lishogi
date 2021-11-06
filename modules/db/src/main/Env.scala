@@ -1,4 +1,4 @@
-package lila.db
+package lishogi.db
 
 import akka.actor.CoordinatedShutdown
 import com.typesafe.config.Config
@@ -6,7 +6,7 @@ import play.api.Configuration
 import reactivemongo.api._
 import scala.concurrent.ExecutionContext
 
-import lila.common.Lilakka
+import lishogi.common.Lishogikka
 
 final class Env(
     appConfig: Configuration,
@@ -29,7 +29,7 @@ final class Env(
       driver = driver
     )
 
-  Lilakka.shutdown(shutdown, _.PhaseServiceStop, "Closing mongodb driver") { () =>
+  Lishogikka.shutdown(shutdown, _.PhaseServiceStop, "Closing mongodb driver") { () =>
     driver.close() inject akka.Done
   }
 }

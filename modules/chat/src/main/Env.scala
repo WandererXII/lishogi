@@ -1,4 +1,4 @@
-package lila.chat
+package lishogi.chat
 
 import akka.actor.ActorSystem
 import com.softwaremill.macwire._
@@ -6,7 +6,7 @@ import io.methvin.play.autoconfig._
 import play.api.Configuration
 import scala.concurrent.duration.FiniteDuration
 
-import lila.common.config._
+import lishogi.common.config._
 
 private case class ChatConfig(
     @ConfigName("collection.chat") chatColl: CollName,
@@ -21,13 +21,13 @@ private case class ChatConfig(
 final class Env(
     appConfig: Configuration,
     netDomain: NetDomain,
-    userRepo: lila.user.UserRepo,
-    db: lila.db.Db,
-    flood: lila.security.Flood,
-    spam: lila.security.Spam,
-    shutup: lila.hub.actors.Shutup,
-    mod: lila.hub.actors.Mod,
-    cacheApi: lila.memo.CacheApi
+    userRepo: lishogi.user.UserRepo,
+    db: lishogi.db.Db,
+    flood: lishogi.security.Flood,
+    spam: lishogi.security.Spam,
+    shutup: lishogi.hub.actors.Shutup,
+    mod: lishogi.hub.actors.Mod,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem

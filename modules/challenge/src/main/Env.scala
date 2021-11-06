@@ -1,26 +1,26 @@
-package lila.challenge
+package lishogi.challenge
 
 import com.softwaremill.macwire._
 import play.api.Configuration
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.socket.Socket.{ GetVersion, SocketVersion }
+import lishogi.common.config._
+import lishogi.socket.Socket.{ GetVersion, SocketVersion }
 
 @Module
 final class Env(
     appConfig: Configuration,
-    gameRepo: lila.game.GameRepo,
-    userRepo: lila.user.UserRepo,
-    onStart: lila.round.OnStart,
-    gameCache: lila.game.Cached,
-    lightUser: lila.common.LightUser.GetterSync,
-    isOnline: lila.socket.IsOnline,
-    db: lila.db.Db,
-    cacheApi: lila.memo.CacheApi,
-    prefApi: lila.pref.PrefApi,
-    relationApi: lila.relation.RelationApi,
-    remoteSocketApi: lila.socket.RemoteSocket,
+    gameRepo: lishogi.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    onStart: lishogi.round.OnStart,
+    gameCache: lishogi.game.Cached,
+    lightUser: lishogi.common.LightUser.GetterSync,
+    isOnline: lishogi.socket.IsOnline,
+    db: lishogi.db.Db,
+    cacheApi: lishogi.memo.CacheApi,
+    prefApi: lishogi.pref.PrefApi,
+    relationApi: lishogi.relation.RelationApi,
+    remoteSocketApi: lishogi.socket.RemoteSocket,
     baseUrl: BaseUrl
 )(implicit
     ec: scala.concurrent.ExecutionContext,

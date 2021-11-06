@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 package paginator
 
 import scalaz.Success

@@ -1,12 +1,12 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import shogi.Replay
 import shogi.format.Reader
 import org.specs2.mutable._
 
-import lila.analyse.{ Analysis, Info }
-import lila.tree.Eval
-import lila.tree.Eval._
+import lishogi.analyse.{ Analysis, Info }
+import lishogi.tree.Eval
+import lishogi.tree.Eval._
 
 final class UciToPgnTest extends Specification {
 

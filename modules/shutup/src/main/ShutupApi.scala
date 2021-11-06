@@ -1,18 +1,18 @@
-package lila.shutup
+package lishogi.shutup
 
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.game.GameRepo
-import lila.hub.actorApi.shutup.PublicSource
-import lila.user.{ User, UserRepo }
+import lishogi.db.dsl._
+import lishogi.game.GameRepo
+import lishogi.hub.actorApi.shutup.PublicSource
+import lishogi.user.{ User, UserRepo }
 
 final class ShutupApi(
     coll: Coll,
     gameRepo: GameRepo,
     userRepo: UserRepo,
-    relationApi: lila.relation.RelationApi,
-    reporter: lila.hub.actors.Report
+    relationApi: lishogi.relation.RelationApi,
+    reporter: lishogi.hub.actors.Report
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   implicit private val UserRecordBSONHandler = Macros.handler[UserRecord]
@@ -33,7 +33,7 @@ final class ShutupApi(
 
   def privateChat(chatId: String, userId: User.ID, text: String) =
     gameRepo.getSourceAndUserIds(chatId) flatMap {
-      case (source, _) if source.has(lila.game.Source.Friend) => funit // ignore challenges
+      case (source, _) if source.has(lishogi.game.Source.Friend) => funit // ignore challenges
       case (_, userIds) =>
         record(userId, text, TextType.PrivateChat, none, userIds find (userId !=))
     }
@@ -81,14 +81,14 @@ final class ShutupApi(
                 case None             => fufail(s"can't find user record for $userId")
                 case Some(userRecord) => legiferate(userRecord, major)
               }
-              .recover(lila.db.ignoreDuplicateKey)
+              .recover(lishogi.db.ignoreDuplicateKey)
         }
     }
 
   private def legiferate(userRecord: UserRecord, major: Boolean): Funit = {
     major || userRecord.reports.exists(_.unacceptable)
   } ?? {
-    reporter ! lila.hub.actorApi.report.Shutup(userRecord.userId, reportText(userRecord), major)
+    reporter ! lishogi.hub.actorApi.report.Shutup(userRecord.userId, reportText(userRecord), major)
     coll.update
       .one(
         $id(userRecord.userId),

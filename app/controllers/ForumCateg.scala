@@ -1,9 +1,9 @@
 package controllers
 
-import lila.app._
+import lishogi.app._
 import views._
 
-final class ForumCateg(env: Env) extends LilaController(env) with ForumController {
+final class ForumCateg(env: Env) extends LishogiController(env) with ForumController {
 
   def index =
     Open { implicit ctx =>

@@ -1,15 +1,15 @@
-package lila.tournament
+package lishogi.tournament
 
 import reactivemongo.api.bson.Macros
 import scala.concurrent.duration._
 
 import shogi.Color
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 final class TournamentStatsApi(
     playerRepo: PlayerRepo,
     pairingRepo: PairingRepo,
-    mongoCache: lila.memo.MongoCache.Api
+    mongoCache: lishogi.memo.MongoCache.Api
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def apply(tournament: Tournament): Fu[Option[TournamentStats]] =

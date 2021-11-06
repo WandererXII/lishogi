@@ -1,6 +1,6 @@
-package lila.shutup
+package lishogi.shutup
 
-import lila.common.constants.bannedYoutubeIds
+import lishogi.common.constants.bannedYoutubeIds
 
 object Analyser {
 

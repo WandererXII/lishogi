@@ -2,14 +2,14 @@ package controllers
 
 import scala.annotation.nowarn
 
-import lila.api.{ BodyContext, Context }
-import lila.app._
-import lila.chat.Chat
-import lila.common.{ EmailAddress, HTTPRequest, IpAddress }
-import lila.mod.UserSearch
-import lila.report.{ Suspect, Mod => AsMod }
-import lila.security.{ FingerHash, Permission }
-import lila.user.{ User => UserModel, Title }
+import lishogi.api.{ BodyContext, Context }
+import lishogi.app._
+import lishogi.chat.Chat
+import lishogi.common.{ EmailAddress, HTTPRequest, IpAddress }
+import lishogi.mod.UserSearch
+import lishogi.report.{ Suspect, Mod => AsMod }
+import lishogi.security.{ FingerHash, Permission }
+import lishogi.user.{ User => UserModel, Title }
 import ornicar.scalalib.Zero
 import play.api.data._
 import play.api.data.Forms._
@@ -20,7 +20,7 @@ final class Mod(
     env: Env,
     reportC: => Report,
     userC: => User
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private def modApi    = env.mod.api
   private def modLogApi = env.mod.logApi
@@ -92,7 +92,7 @@ final class Mod(
 
   def warn(username: String, subject: String) =
     OAuthModBody(_.ModMessage) { me =>
-      lila.msg.MsgPreset.byName(subject) ?? { preset =>
+      lishogi.msg.MsgPreset.byName(subject) ?? { preset =>
         withSuspect(username) { prev =>
           for {
             inquiry <- env.report.api.inquiries ofModId me.id
@@ -167,7 +167,7 @@ final class Mod(
   def setTitle(username: String) =
     SecureBody(_.SetTitle) { implicit ctx => me =>
       implicit def req = ctx.body
-      lila.user.DataForm.title
+      lishogi.user.DataForm.title
         .bindFromRequest()
         .fold(
           _ => fuccess(redirect(username, mod = true)),
@@ -314,7 +314,7 @@ final class Mod(
     }
   def gamifyPeriod(periodStr: String) =
     Secure(_.SeeReport) { implicit ctx => _ =>
-      lila.mod.Gamify.Period(periodStr).fold(notFound) { period =>
+      lishogi.mod.Gamify.Period(periodStr).fold(notFound) { period =>
         env.mod.gamify.leaderboards map { leaderboards =>
           Ok(html.mod.gamify.period(leaderboards, period))
         }
@@ -380,7 +380,7 @@ final class Mod(
     Secure(_.ChatTimeout) { _ => _ =>
       implicit val lightUser = env.user.lightUserSync
       JsonOptionOk {
-        env.chat.api.userChat userModInfo username map2 lila.chat.JsonView.userModInfo
+        env.chat.api.userChat userModInfo username map2 lishogi.chat.JsonView.userModInfo
       }
     }
 
@@ -394,7 +394,7 @@ final class Mod(
   def savePermissions(username: String) =
     SecureBody(_.ChangePermission) { implicit ctx => me =>
       implicit def req = ctx.body
-      import lila.security.Permission
+      import lishogi.security.Permission
       OptionFuResult(env.user.repo named username) { user =>
         Form(
           single("permissions" -> list(text.verifying(Permission.allByDbKey.contains _)))
@@ -426,7 +426,7 @@ final class Mod(
             env.mod.search(UserSearch.exact(q)) flatMap {
               case List(UserModel.WithEmails(user, _)) =>
                 (!user.everLoggedIn).?? {
-                  lila.mon.user.register.modConfirmEmail.increment()
+                  lishogi.mon.user.register.modConfirmEmail.increment()
                   modApi.setEmail(me.id, user.id, setEmail)
                 } >>
                   env.user.repo.email(user.id) map { email =>

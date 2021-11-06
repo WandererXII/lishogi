@@ -1,7 +1,7 @@
-package lila.forum
+package lishogi.forum
 
-import lila.security.{ Permission, Granter => Master }
-import lila.user.{ User, UserContext }
+import lishogi.security.{ Permission, Granter => Master }
+import lishogi.user.{ User, UserContext }
 
 trait Granter {
 

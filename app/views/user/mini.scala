@@ -1,9 +1,9 @@
 package views.html.user
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
 
 import controllers.routes
 
@@ -11,12 +11,12 @@ object mini {
 
   def apply(
       u: User,
-      playing: Option[lila.game.Pov],
+      playing: Option[lishogi.game.Pov],
       blocked: Boolean,
       followable: Boolean,
-      rel: Option[lila.relation.Relation],
+      rel: Option[lishogi.relation.Relation],
       ping: Option[Int],
-      crosstable: Option[lila.game.Crosstable]
+      crosstable: Option[lishogi.game.Crosstable]
   )(implicit ctx: Context) =
     frag(
       div(cls := "upt__info")(

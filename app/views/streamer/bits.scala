@@ -3,10 +3,10 @@ package views.html.streamer
 import play.api.i18n.Lang
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
 
 object bits extends Context.ToLang {
 
@@ -31,7 +31,7 @@ object bits extends Context.ToLang {
       )
     )
 
-  def pic(s: lila.streamer.Streamer, u: User, size: Int = 300) =
+  def pic(s: lishogi.streamer.Streamer, u: User, size: Int = 300) =
     s.picturePath match {
       case Some(path) =>
         img(
@@ -51,7 +51,7 @@ object bits extends Context.ToLang {
         )
     }
 
-  def menu(active: String, s: Option[lila.streamer.Streamer.WithUser])(implicit ctx: Context) =
+  def menu(active: String, s: Option[lishogi.streamer.Streamer.WithUser])(implicit ctx: Context) =
     st.nav(cls := "subnav")(
       a(cls := active.active("index"), href := routes.Streamer.index())(allStreamers()),
       s.map { st =>
@@ -88,7 +88,7 @@ object bits extends Context.ToLang {
         )
     }
 
-  def liveStreams(l: lila.streamer.LiveStreams.WithTitles): Frag =
+  def liveStreams(l: lishogi.streamer.LiveStreams.WithTitles): Frag =
     l.live.streams.map { s =>
       redirectLink(s.streamer.id.value)(
         cls := "stream highlight",

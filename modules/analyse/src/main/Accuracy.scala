@@ -1,7 +1,7 @@
-package lila.analyse
+package lishogi.analyse
 
-import lila.game.Pov
-import lila.tree.Eval._
+import lishogi.game.Pov
+import lishogi.tree.Eval._
 
 object Accuracy {
 

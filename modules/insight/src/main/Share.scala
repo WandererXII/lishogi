@@ -1,12 +1,12 @@
-package lila.insight
+package lishogi.insight
 
-import lila.pref.Pref
-import lila.security.Granter
-import lila.user.User
+import lishogi.pref.Pref
+import lishogi.security.Granter
+import lishogi.user.User
 
 final class Share(
-    prefApi: lila.pref.PrefApi,
-    relationApi: lila.relation.RelationApi
+    prefApi: lishogi.pref.PrefApi,
+    relationApi: lishogi.relation.RelationApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def getPrefId(insighted: User) = prefApi.getPrefById(insighted.id) dmap (_.insightShare)

@@ -1,9 +1,9 @@
 #!/bin/sh -e
 
-# Starts a dev console to compile and run lichess.
+# Starts a dev console to compile and run lishogi.
 
 # Usage:
-# ./lila
+# ./lishogi
 # Then in the sbt console:
 # run
 

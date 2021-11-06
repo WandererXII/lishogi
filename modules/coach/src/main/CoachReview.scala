@@ -1,8 +1,8 @@
-package lila.coach
+package lishogi.coach
 
 import org.joda.time.DateTime
 
-import lila.user.User
+import lishogi.user.User
 
 case class CoachReview(
     _id: String,     // user:coach

@@ -1,25 +1,25 @@
-package lila.forum
+package lishogi.forum
 
 import actorApi._
 
-import lila.common.Bus
-import lila.common.paginator._
-import lila.common.String.noShouting
-import lila.db.dsl._
-import lila.db.paginator._
-import lila.hub.actorApi.timeline.{ ForumPost, Propagate }
-import lila.security.{ Granter => MasterGranter }
-import lila.user.{ User, UserContext }
+import lishogi.common.Bus
+import lishogi.common.paginator._
+import lishogi.common.String.noShouting
+import lishogi.db.dsl._
+import lishogi.db.paginator._
+import lishogi.hub.actorApi.timeline.{ ForumPost, Propagate }
+import lishogi.security.{ Granter => MasterGranter }
+import lishogi.user.{ User, UserContext }
 
 final private[forum] class TopicApi(
     env: Env,
-    indexer: lila.hub.actors.ForumSearch,
-    maxPerPage: lila.common.config.MaxPerPage,
-    modLog: lila.mod.ModlogApi,
-    spam: lila.security.Spam,
-    timeline: lila.hub.actors.Timeline,
-    shutup: lila.hub.actors.Shutup,
-    detectLanguage: lila.common.DetectLanguage
+    indexer: lishogi.hub.actors.ForumSearch,
+    maxPerPage: lishogi.common.config.MaxPerPage,
+    modLog: lishogi.mod.ModlogApi,
+    spam: lishogi.security.Spam,
+    timeline: lishogi.hub.actors.Timeline,
+    shutup: lishogi.hub.actors.Shutup,
+    detectLanguage: lishogi.common.DetectLanguage
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BSONHandlers._
@@ -39,7 +39,7 @@ final private[forum] class TopicApi(
         }
       }
       res <- data ?? { case (categ, topic) =>
-        lila.mon.forum.topic.view.increment()
+        lishogi.mon.forum.topic.view.increment()
         env.topicRepo incViews topic
         env.postApi.paginator(topic, page, forUser) map { (categ, topic, _).some }
       }
@@ -80,14 +80,14 @@ final private[forum] class TopicApi(
         ctx.userId.?? { userId =>
           val text = s"${topic.name} ${post.text}"
           shutup ! {
-            if (post.isTeam) lila.hub.actorApi.shutup.RecordTeamForumMessage(userId, text)
-            else lila.hub.actorApi.shutup.RecordPublicForumMessage(userId, text)
+            if (post.isTeam) lishogi.hub.actorApi.shutup.RecordTeamForumMessage(userId, text)
+            else lishogi.hub.actorApi.shutup.RecordPublicForumMessage(userId, text)
           }
         } >>- {
           (ctx.userId ifFalse post.troll ifFalse categ.quiet) ?? { userId =>
             timeline ! Propagate(ForumPost(userId, topic.id.some, topic.name, post.id)).toFollowersOf(userId)
           }
-          lila.mon.forum.post.create.increment()
+          lishogi.mon.forum.post.create.increment()
         } >>- {
           env.mentionNotifier.notifyMentionedUsers(post, topic)
           Bus.publish(actorApi.CreatePost(post), "forumPost")

@@ -5,14 +5,14 @@ import play.api.data._
 import play.api.data.Forms._
 import play.api.mvc._
 
-import lila.api.Context
-import lila.app._
+import lishogi.api.Context
+import lishogi.app._
 import views._
 
 final class Clas(
     env: Env,
     authC: Auth
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   def index =
     Open { implicit ctx =>
@@ -60,7 +60,7 @@ final class Clas(
         )
     }
 
-  private def preloadStudentUsers(students: List[lila.clas.Student.WithUser]): Unit =
+  private def preloadStudentUsers(students: List[lishogi.clas.Student.WithUser]): Unit =
     env.user.lightUserApi.preloadUsers(students.map(_.user))
 
   def show(id: String) =
@@ -81,14 +81,14 @@ final class Clas(
       )
     }
 
-  private def WithClassAny(id: String, me: lila.user.User)(
+  private def WithClassAny(id: String, me: lishogi.user.User)(
       forTeacher: => Fu[Result],
-      forStudent: (lila.clas.Clas, List[lila.clas.Student.WithUser]) => Fu[Result]
+      forStudent: (lishogi.clas.Clas, List[lishogi.clas.Student.WithUser]) => Fu[Result]
   )(implicit ctx: Context): Fu[Result] =
-    isGranted(_.Teacher).??(env.clas.api.clas.isTeacherOf(me, lila.clas.Clas.Id(id))) flatMap {
+    isGranted(_.Teacher).??(env.clas.api.clas.isTeacherOf(me, lishogi.clas.Clas.Id(id))) flatMap {
       case true => forTeacher
       case _ =>
-        env.clas.api.clas.byId(lila.clas.Clas.Id(id)) flatMap {
+        env.clas.api.clas.byId(lishogi.clas.Clas.Id(id)) flatMap {
           _ ?? { clas =>
             env.clas.api.student.activeWithUsers(clas) flatMap { students =>
               students.exists(_.student is me) ?? forStudent(clas, students)
@@ -183,7 +183,7 @@ final class Clas(
 
   def progress(id: String, key: String, days: Int) =
     Secure(_.Teacher) { implicit ctx => me =>
-      lila.rating.PerfType(key) ?? { perfType =>
+      lishogi.rating.PerfType(key) ?? { perfType =>
         WithClass(me, id) { clas =>
           env.clas.api.student.activeWithUsers(clas) flatMap { students =>
             Reasonable(clas, students, "progress") {
@@ -260,7 +260,7 @@ final class Clas(
               case Array(userId, password) =>
                 env.clas.api.student
                   .get(clas, userId)
-                  .map2(lila.clas.Student.WithPassword(_, lila.user.User.ClearPassword(password)))
+                  .map2(lishogi.clas.Student.WithPassword(_, lishogi.user.User.ClearPassword(password)))
               case _ => fuccess(none)
             }
             nbStudents <- env.clas.api.student.count(clas.id)
@@ -331,7 +331,7 @@ final class Clas(
             data =>
               env.user.repo named data.username flatMap {
                 _ ?? { user =>
-                  import lila.clas.ClasInvite.{ Feedback => F }
+                  import lishogi.clas.ClasInvite.{ Feedback => F }
                   env.clas.api.invite.create(clas, user, data.realName, me) map { feedback =>
                     Redirect(routes.Clas.studentForm(clas.id.value)).flashing {
                       feedback match {
@@ -443,8 +443,8 @@ final class Clas(
                 err => BadRequest(html.clas.student.release(clas, students, s, err)).fuccess,
                 data => {
                   val email = env.security.emailAddressValidator
-                    .validate(lila.common.EmailAddress(data)) err s"Invalid email $data"
-                  val newUserEmail = lila.security.EmailConfirm.UserEmail(s.user.username, email.acceptable)
+                    .validate(lishogi.common.EmailAddress(data)) err s"Invalid email $data"
+                  val newUserEmail = lishogi.security.EmailConfirm.UserEmail(s.user.username, email.acceptable)
                   authC.EmailConfirmRateLimit(newUserEmail, ctx.req) {
                     env.security.emailChange.send(s.user, newUserEmail.email) inject
                       Redirect(routes.Clas.studentShow(clas.id.value, s.user.username)).flashSuccess {
@@ -461,14 +461,14 @@ final class Clas(
 
   def becomeTeacher =
     AuthBody { _ => me =>
-      val perm = lila.security.Permission.Teacher.dbKey
+      val perm = lishogi.security.Permission.Teacher.dbKey
       (!me.roles.has(perm) ?? env.user.repo.setRoles(me.id, perm :: me.roles).void) inject
         Redirect(routes.Clas.index())
     }
 
   def invitation(id: String) =
     Auth { implicit ctx => me =>
-      OptionOk(env.clas.api.invite.view(lila.clas.ClasInvite.Id(id), me)) { case (invite -> clas) =>
+      OptionOk(env.clas.api.invite.view(lishogi.clas.ClasInvite.Id(id), me)) { case (invite -> clas) =>
         views.html.clas.invite.show(clas, invite)
       }
     }
@@ -481,7 +481,7 @@ final class Clas(
         .fold(
           _ => Redirect(routes.Clas.invitation(id)).fuccess,
           v => {
-            val inviteId = lila.clas.ClasInvite.Id(id)
+            val inviteId = lishogi.clas.ClasInvite.Id(id)
             if (v) env.clas.api.invite.accept(inviteId, me) map {
               _ ?? { student =>
                 Redirect(routes.Clas.show(student.clasId.value))
@@ -496,7 +496,7 @@ final class Clas(
 
   def invitationRevoke(id: String) =
     Secure(_.Teacher) { _ => me =>
-      env.clas.api.invite.get(lila.clas.ClasInvite.Id(id)) flatMap {
+      env.clas.api.invite.get(lishogi.clas.ClasInvite.Id(id)) flatMap {
         _ ?? { invite =>
           WithClass(me, invite.clasId.value) { clas =>
             env.clas.api.invite.delete(invite._id) inject Redirect(routes.Clas.students(clas.id.value))
@@ -505,26 +505,26 @@ final class Clas(
       }
     }
 
-  private def Reasonable(clas: lila.clas.Clas, students: List[lila.clas.Student.WithUser], active: String)(
+  private def Reasonable(clas: lishogi.clas.Clas, students: List[lishogi.clas.Student.WithUser], active: String)(
       f: => Fu[Result]
   )(implicit ctx: Context): Fu[Result] =
-    if (students.size <= lila.clas.Clas.maxStudents) f
+    if (students.size <= lishogi.clas.Clas.maxStudents) f
     else Unauthorized(views.html.clas.teacherDashboard.unreasonable(clas, students, active)).fuccess
 
-  private def WithClass(me: lila.user.User, clasId: String)(
-      f: lila.clas.Clas => Fu[Result]
+  private def WithClass(me: lishogi.user.User, clasId: String)(
+      f: lishogi.clas.Clas => Fu[Result]
   ): Fu[Result] =
-    env.clas.api.clas.getAndView(lila.clas.Clas.Id(clasId), me) flatMap { _ ?? f }
+    env.clas.api.clas.getAndView(lishogi.clas.Clas.Id(clasId), me) flatMap { _ ?? f }
 
-  private def WithClassAndStudents(me: lila.user.User, clasId: String)(
-      f: (lila.clas.Clas, List[lila.clas.Student]) => Fu[Result]
+  private def WithClassAndStudents(me: lishogi.user.User, clasId: String)(
+      f: (lishogi.clas.Clas, List[lishogi.clas.Student]) => Fu[Result]
   ): Fu[Result] =
     WithClass(me, clasId) { c =>
       env.clas.api.student.activeOf(c) flatMap { f(c, _) }
     }
 
-  private def WithStudent(clas: lila.clas.Clas, username: String)(
-      f: lila.clas.Student.WithUser => Fu[Result]
+  private def WithStudent(clas: lishogi.clas.Clas, username: String)(
+      f: lishogi.clas.Student.WithUser => Fu[Result]
   ): Fu[Result] =
     env.user.repo named username flatMap {
       _ ?? { user =>

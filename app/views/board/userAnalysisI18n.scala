@@ -2,8 +2,8 @@ package views.html.board
 
 import play.api.i18n.Lang
 
-import lila.app.templating.Environment._
-import lila.i18n.{ MessageKey, I18nKeys => trans }
+import lishogi.app.templating.Environment._
+import lishogi.i18n.{ MessageKey, I18nKeys => trans }
 
 object userAnalysisI18n {
 

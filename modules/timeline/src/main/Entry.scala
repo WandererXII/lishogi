@@ -1,13 +1,13 @@
-package lila.timeline
+package lishogi.timeline
 
 import org.joda.time.DateTime
 import play.api.libs.json._
 import reactivemongo.api.bson._
 import scala.util.{ Failure, Success, Try }
 
-import lila.common.Json.jodaWrites
-import lila.db.dsl._
-import lila.hub.actorApi.timeline._
+import lishogi.common.Json.jodaWrites
+import lishogi.db.dsl._
+import lishogi.hub.actorApi.timeline._
 
 case class Entry(
     _id: BSONObjectID,
@@ -22,7 +22,7 @@ case class Entry(
 
   def similarTo(other: Entry) = typ == other.typ && data == other.data
 
-  case object Deprecated extends lila.base.LilaException {
+  case object Deprecated extends lishogi.base.LishogiException {
     val message = "Deprecated timeline entry"
   }
 
@@ -46,7 +46,7 @@ case class Entry(
     case Success(atom)       => Some(atom)
     case Failure(Deprecated) => none
     case Failure(err) =>
-      lila.log("timeline").warn(err.getMessage)
+      lishogi.log("timeline").warn(err.getMessage)
       none
   }
 

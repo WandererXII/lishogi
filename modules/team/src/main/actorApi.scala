@@ -1,4 +1,4 @@
-package lila.team
+package lishogi.team
 package actorApi
 
 case class InsertTeam(team: Team)

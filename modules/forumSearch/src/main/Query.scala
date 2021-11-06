@@ -1,4 +1,4 @@
-package lila.forumSearch
+package lishogi.forumSearch
 
 private[forumSearch] case class Query(text: String, troll: Boolean)
 

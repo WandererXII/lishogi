@@ -1,9 +1,9 @@
-package lila.rating
+package lishogi.rating
 
 import play.api.data.Form
 import play.api.data.Forms.{ single, text }
 
-import lila.memo.SettingStore.{ Formable, StringReader }
+import lishogi.memo.SettingStore.{ Formable, StringReader }
 
 case class RatingFactor(value: Double) extends AnyVal with DoubleValue
 
@@ -26,13 +26,13 @@ object RatingFactor {
       case _ => None
     } toMap
 
-  private val ratingFactorsIso = lila.common.Iso[String, RatingFactors](
+  private val ratingFactorsIso = lishogi.common.Iso[String, RatingFactors](
     str => read(str),
     rf => write(rf)
   )
 
   object implicits {
-    implicit val ratingFactorsBsonHandler  = lila.db.dsl.isoHandler(ratingFactorsIso)
+    implicit val ratingFactorsBsonHandler  = lishogi.db.dsl.isoHandler(ratingFactorsIso)
     implicit val ratingFactorsStringReader = StringReader.fromIso(ratingFactorsIso)
     implicit val ratingFactorsFormable =
       new Formable[RatingFactors](rfs => Form(single("v" -> text)) fill write(rfs))

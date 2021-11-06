@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import shogi.format.{ FEN, Forsyth, Uci }
 import shogi.variant.Variant
@@ -17,12 +17,12 @@ import org.joda.time.DateTime
 import reactivemongo.api.bson._
 import scala.util.{ Success, Try }
 
-import lila.db.BSON
-import lila.db.dsl._
+import lishogi.db.BSON
+import lishogi.db.dsl._
 
 object BSONHandlers {
 
-  import lila.db.ByteArray.ByteArrayBSONHandler
+  import lishogi.db.ByteArray.ByteArrayBSONHandler
 
   implicit val FENBSONHandler = stringAnyValHandler[FEN](_.value, FEN.apply)
 
@@ -45,7 +45,7 @@ object BSONHandlers {
 
     def reads(r: BSON.Reader): Game = {
 
-      lila.mon.game.fetch.increment()
+      lishogi.mon.game.fetch.increment()
 
       val light         = lightGameBSONHandler.readsWithPlayerIds(r, r str F.playerIds)
       val startedAtTurn = r intD F.startedAtTurn
@@ -109,7 +109,7 @@ object BSONHandlers {
             history <-
               BinaryFormat.clockHistory
                 .read(clk.limit, bs, bg, perEnt, (light.status == Status.Outoftime).option(turnColor))
-            _ = lila.mon.game.loadClockHistory.increment()
+            _ = lishogi.mon.game.loadClockHistory.increment()
           } yield history,
         status = light.status,
         daysPerTurn = r intO F.daysPerTurn,
@@ -183,20 +183,20 @@ object BSONHandlers {
       }
   }
 
-  implicit object lightGameBSONHandler extends lila.db.BSONReadOnly[LightGame] {
+  implicit object lightGameBSONHandler extends lishogi.db.BSONReadOnly[LightGame] {
 
     import Game.{ BSONFields => F }
     import Player.playerBSONHandler
 
     def reads(r: BSON.Reader): LightGame = {
-      lila.mon.game.fetchLight.increment()
+      lishogi.mon.game.fetchLight.increment()
       readsWithPlayerIds(r, "")
     }
 
     def readsWithPlayerIds(r: BSON.Reader, playerIds: String): LightGame = {
       val (senteId, goteId)   = playerIds splitAt 4
       val winC                = r boolO F.winnerColor map Color.apply
-      val uids                = ~r.getO[List[lila.user.User.ID]](F.playerUids)
+      val uids                = ~r.getO[List[lishogi.user.User.ID]](F.playerUids)
       val (senteUid, goteUid) = (uids.headOption.filter(_.nonEmpty), uids.lift(1).filter(_.nonEmpty))
       def makePlayer(field: String, color: Color, id: Player.ID, uid: Player.UserId): Player = {
         val builder = r.getO[Player.Builder](field)(playerBSONHandler) | emptyPlayerBuilder
@@ -236,7 +236,7 @@ object BSONHandlers {
             ByteArrayBSONHandler readTry bin map { cl =>
               BinaryFormat.clock(since).read(cl, senteBerserk, goteBerserk)
             }
-          case b => lila.db.BSON.handlerBadType(b)
+          case b => lishogi.db.BSON.handlerBadType(b)
         }
     }
 

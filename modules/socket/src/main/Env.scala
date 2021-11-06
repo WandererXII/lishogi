@@ -1,4 +1,4 @@
-package lila.socket
+package lishogi.socket
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -9,7 +9,7 @@ import play.api.Configuration
 final class Env(
     appConfig: Configuration,
     shutdown: CoordinatedShutdown,
-    notification: lila.hub.actors.Notification
+    notification: lishogi.hub.actors.Notification
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     akka: ActorSystem

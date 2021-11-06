@@ -1,4 +1,4 @@
-package lila.streamer
+package lishogi.streamer
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -6,7 +6,7 @@ import io.methvin.play.autoconfig._
 import play.api.Configuration
 import scala.concurrent.duration._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 private class StreamerConfig(
@@ -22,14 +22,14 @@ private class TwitchConfig(@ConfigName("client_id") val clientId: String, val se
 final class Env(
     appConfig: Configuration,
     ws: play.api.libs.ws.WSClient,
-    settingStore: lila.memo.SettingStore.Builder,
-    isOnline: lila.socket.IsOnline,
-    cacheApi: lila.memo.CacheApi,
-    notifyApi: lila.notify.NotifyApi,
-    userRepo: lila.user.UserRepo,
-    timeline: lila.hub.actors.Timeline,
-    db: lila.db.Db,
-    imageRepo: lila.db.ImageRepo
+    settingStore: lishogi.memo.SettingStore.Builder,
+    isOnline: lishogi.socket.IsOnline,
+    cacheApi: lishogi.memo.CacheApi,
+    notifyApi: lishogi.notify.NotifyApi,
+    userRepo: lishogi.user.UserRepo,
+    timeline: lishogi.hub.actors.Timeline,
+    db: lishogi.db.Db,
+    imageRepo: lishogi.db.ImageRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -41,11 +41,11 @@ final class Env(
 
   private lazy val streamerColl = db(config.streamerColl)
 
-  private lazy val photographer = new lila.db.Photographer(imageRepo, "streamer")
+  private lazy val photographer = new lishogi.db.Photographer(imageRepo, "streamer")
 
   lazy val alwaysFeaturedSetting = {
-    import lila.memo.SettingStore.Strings._
-    import lila.common.Strings
+    import lishogi.memo.SettingStore.Strings._
+    import lishogi.common.Strings
     settingStore[Strings](
       "streamerAlwaysFeatured",
       default = Strings(Nil),
@@ -84,7 +84,7 @@ final class Env(
 
   lazy val liveStreamApi = wire[LiveStreamApi]
 
-  lila.common.Bus.subscribeFun("adjustCheater") { case lila.hub.actorApi.mod.MarkCheater(userId, true) =>
+  lishogi.common.Bus.subscribeFun("adjustCheater") { case lishogi.hub.actorApi.mod.MarkCheater(userId, true) =>
     api demote userId
   }
 

@@ -1,8 +1,8 @@
 package controllers
 
-import lila.user.UserContext
-import lila.common.Form.trueish
-import lila.common.IsMobile
+import lishogi.user.UserContext
+import lishogi.common.Form.trueish
+import lishogi.common.IsMobile
 
 import play.api.mvc.RequestHeader
 

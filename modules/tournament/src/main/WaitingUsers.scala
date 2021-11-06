@@ -1,10 +1,10 @@
-package lila.tournament
+package lishogi.tournament
 
 import org.joda.time.DateTime
 import scala.concurrent.Promise
 
 import shogi.Clock.{ Config => TournamentClock }
-import lila.user.User
+import lishogi.user.User
 
 private[tournament] case class WaitingUsers(
     hash: Map[User.ID, DateTime],

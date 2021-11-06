@@ -1,10 +1,10 @@
-package lila.gameSearch
+package lishogi.gameSearch
 
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.game.{ Game, GameRepo }
-import lila.search._
+import lishogi.game.{ Game, GameRepo }
+import lishogi.search._
 
 final class GameSearchApi(
     client: ESClient,
@@ -28,7 +28,7 @@ final class GameSearchApi(
   def store(game: Game) =
     storable(game) ?? {
       gameRepo isAnalysed game.id flatMap { analysed =>
-        lila.common.Future.retry(
+        lishogi.common.Future.retry(
           () => client.store(Id(game.id), toDoc(game, analysed)),
           delay = 20.seconds,
           retries = 2,
@@ -56,7 +56,7 @@ final class GameSearchApi(
         Fields.winnerColor   -> game.winner.fold(3)(_.color.fold(1, 2)),
         Fields.averageRating -> game.averageUsersRating,
         Fields.ai            -> game.aiLevel,
-        Fields.date          -> (lila.search.Date.formatter print game.movedAt),
+        Fields.date          -> (lishogi.search.Date.formatter print game.movedAt),
         Fields.duration      -> game.durationSeconds, // for realtime games only
         Fields.clockInit     -> game.clock.map(_.limitSeconds),
         Fields.clockInc      -> game.clock.map(_.incrementSeconds),

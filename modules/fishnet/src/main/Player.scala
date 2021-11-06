@@ -1,12 +1,12 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import scala.concurrent.duration._
 import org.joda.time.DateTime
 
 import shogi.{ Clock, Gote, Sente }
 
-import lila.common.Future
-import lila.game.{ Game, GameRepo, UciMemo }
+import lishogi.common.Future
+import lishogi.game.{ Game, GameRepo, UciMemo }
 import ornicar.scalalib.Random.approximately
 
 final class Player(

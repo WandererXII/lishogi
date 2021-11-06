@@ -1,7 +1,7 @@
-package lila.report
+package lishogi.report
 
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
 import reactivemongo.api.bson._
 
 object BSONHandlers {

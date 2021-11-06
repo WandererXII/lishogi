@@ -1,14 +1,14 @@
-package lila.clas
+package lishogi.clas
 
 import org.joda.time.{ DateTime, Period }
 import reactivemongo.api._
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.game.{ Game, GameRepo }
-import lila.puzzle.PuzzleRound
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.game.{ Game, GameRepo }
+import lishogi.puzzle.PuzzleRound
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 case class ClasProgress(
     perfType: PerfType,
@@ -42,8 +42,8 @@ case class StudentProgress(
 
 final class ClasProgressApi(
     gameRepo: GameRepo,
-    historyApi: lila.history.HistoryApi,
-    puzzleColls: lila.puzzle.PuzzleColls,
+    historyApi: lishogi.history.HistoryApi,
+    puzzleColls: lishogi.puzzle.PuzzleColls,
     getStudentIds: () => Fu[Set[User.ID]]
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -117,7 +117,7 @@ final class ClasProgressApi(
       days: Int
   ): Fu[Map[User.ID, PlayStats]] = {
     import Game.{ BSONFields => F }
-    import lila.game.Query
+    import lishogi.game.Query
     gameRepo.coll
       .aggregateList(
         maxDocs = Int.MaxValue,
@@ -165,7 +165,7 @@ final class ClasProgressApi(
       }
   }
 
-  private[clas] def onFinishGame(game: lila.game.Game): Funit =
+  private[clas] def onFinishGame(game: lishogi.game.Game): Funit =
     game.userIds.nonEmpty ?? {
       getStudentIds() flatMap { studentIds =>
         game.userIds.exists(studentIds.contains) ?? gameRepo.denormalizePerfType(game)

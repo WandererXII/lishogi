@@ -1,10 +1,10 @@
-package lila.analyse
+package lishogi.analyse
 
 import shogi.format.FEN
-import lila.common.Bus
-import lila.game.actorApi.InsertGame
-import lila.game.{ Game, GameRepo }
-import lila.hub.actorApi.map.TellIfExists
+import lishogi.common.Bus
+import lishogi.game.actorApi.InsertGame
+import lishogi.game.{ Game, GameRepo }
+import lishogi.hub.actorApi.map.TellIfExists
 
 final class Analyser(
     gameRepo: GameRepo,

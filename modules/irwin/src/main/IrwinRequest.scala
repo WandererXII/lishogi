@@ -1,8 +1,8 @@
-package lila.irwin
+package lishogi.irwin
 
-import lila.report.Suspect
-import lila.game.Game
-import lila.analyse.Analysis
+import lishogi.report.Suspect
+import lishogi.game.Game
+import lishogi.analyse.Analysis
 
 case class IrwinRequest(
     suspect: Suspect,

@@ -1,8 +1,8 @@
-package lila.oauth
+package lishogi.oauth
 
 import org.joda.time.DateTime
 
-import lila.user.User
+import lishogi.user.User
 
 case class AccessToken(
     id: AccessToken.Id,
@@ -41,8 +41,8 @@ object AccessToken {
   }
 
   import reactivemongo.api.bson._
-  import lila.db.BSON
-  import lila.db.dsl._
+  import lishogi.db.BSON
+  import lishogi.db.dsl._
   import BSON.BSONJodaDateTimeHandler
   import OAuthScope.scopeHandler
 

@@ -1,10 +1,10 @@
-package lila.msg
+package lishogi.msg
 
 import reactivemongo.api.bson._
 
-import lila.user.User
-import lila.db.dsl._
-import lila.db.BSON
+import lishogi.user.User
+import lishogi.db.dsl._
+import lishogi.db.BSON
 
 private object BsonHandlers {
 
@@ -38,7 +38,7 @@ private object BsonHandlers {
 
   def writeMsg(msg: Msg, threadId: MsgThread.Id): Bdoc =
     msgHandler.writeTry(msg).get ++ $doc(
-      "_id" -> lila.common.ThreadLocalRandom.nextString(10),
+      "_id" -> lishogi.common.ThreadLocalRandom.nextString(10),
       "tid" -> threadId
     )
 

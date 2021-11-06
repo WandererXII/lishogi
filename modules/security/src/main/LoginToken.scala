@@ -1,10 +1,10 @@
-package lila.security
+package lishogi.security
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
-import lila.common.config.Secret
-import lila.user.{ User, UserRepo }
+import lishogi.common.config.Secret
+import lishogi.user.{ User, UserRepo }
 
 final class LoginToken(secret: Secret, userRepo: UserRepo)(implicit ec: scala.concurrent.ExecutionContext) {
 

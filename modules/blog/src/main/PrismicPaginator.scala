@@ -1,9 +1,9 @@
-package lila.blog
+package lishogi.blog
 
 import io.prismic._
 
-import lila.common.config.MaxPerPage
-import lila.common.paginator._
+import lishogi.common.config.MaxPerPage
+import lishogi.common.paginator._
 
 private object PrismicPaginator {
 

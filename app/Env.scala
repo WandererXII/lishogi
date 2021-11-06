@@ -1,86 +1,86 @@
-package lila.app
+package lishogi.app
 
 import akka.actor._
 import com.softwaremill.macwire._
-import lila.memo.SettingStore.Strings._
+import lishogi.memo.SettingStore.Strings._
 import play.api.libs.ws.WSClient
 import play.api.mvc.{ ControllerComponents, SessionCookieBaker }
 import play.api.{ Configuration, Environment, Mode }
 import scala.concurrent.duration._
 import scala.concurrent.{ ExecutionContext, Future }
 
-import lila.common.config._
-import lila.common.{ Bus, Lilakka, Strings }
+import lishogi.common.config._
+import lishogi.common.{ Bus, Lishogikka, Strings }
 
 final class Env(
     val config: Configuration,
-    val common: lila.common.Env,
-    val imageRepo: lila.db.ImageRepo,
-    val api: lila.api.Env,
-    val user: lila.user.Env,
-    val security: lila.security.Env,
-    val hub: lila.hub.Env,
-    val socket: lila.socket.Env,
-    val memo: lila.memo.Env,
-    val msg: lila.msg.Env,
-    val game: lila.game.Env,
-    val bookmark: lila.bookmark.Env,
-    val search: lila.search.Env,
-    val gameSearch: lila.gameSearch.Env,
-    val timeline: lila.timeline.Env,
-    val forum: lila.forum.Env,
-    val forumSearch: lila.forumSearch.Env,
-    val team: lila.team.Env,
-    val teamSearch: lila.teamSearch.Env,
-    val analyse: lila.analyse.Env,
-    val mod: lila.mod.Env,
-    val notifyM: lila.notify.Env,
-    val round: lila.round.Env,
-    val lobby: lila.lobby.Env,
-    val setup: lila.setup.Env,
-    val importer: lila.importer.Env,
-    val tournament: lila.tournament.Env,
-    val simul: lila.simul.Env,
-    val relation: lila.relation.Env,
-    val report: lila.report.Env,
-    val appeal: lila.appeal.Env,
-    val pref: lila.pref.Env,
-    val chat: lila.chat.Env,
-    val puzzle: lila.puzzle.Env,
-    val coordinate: lila.coordinate.Env,
-    val tv: lila.tv.Env,
-    val blog: lila.blog.Env,
-    val history: lila.history.Env,
-    val video: lila.video.Env,
-    val playban: lila.playban.Env,
-    val shutup: lila.shutup.Env,
-    val insight: lila.insight.Env,
-    val push: lila.push.Env,
-    val perfStat: lila.perfStat.Env,
-    val slack: lila.slack.Env,
-    val challenge: lila.challenge.Env,
-    val explorer: lila.explorer.Env,
-    val fishnet: lila.fishnet.Env,
-    val study: lila.study.Env,
-    val studySearch: lila.studySearch.Env,
-    val learn: lila.learn.Env,
-    val plan: lila.plan.Env,
-    val event: lila.event.Env,
-    val coach: lila.coach.Env,
-    val clas: lila.clas.Env,
-    val pool: lila.pool.Env,
-    val practice: lila.practice.Env,
-    val irwin: lila.irwin.Env,
-    val activity: lila.activity.Env,
-    val relay: lila.relay.Env,
-    val streamer: lila.streamer.Env,
-    val oAuth: lila.oauth.Env,
-    val bot: lila.bot.Env,
-    val evalCache: lila.evalCache.Env,
-    val rating: lila.rating.Env,
-    val swiss: lila.swiss.Env,
-    val storm: lila.storm.Env,
-    val lilaCookie: lila.common.LilaCookie,
+    val common: lishogi.common.Env,
+    val imageRepo: lishogi.db.ImageRepo,
+    val api: lishogi.api.Env,
+    val user: lishogi.user.Env,
+    val security: lishogi.security.Env,
+    val hub: lishogi.hub.Env,
+    val socket: lishogi.socket.Env,
+    val memo: lishogi.memo.Env,
+    val msg: lishogi.msg.Env,
+    val game: lishogi.game.Env,
+    val bookmark: lishogi.bookmark.Env,
+    val search: lishogi.search.Env,
+    val gameSearch: lishogi.gameSearch.Env,
+    val timeline: lishogi.timeline.Env,
+    val forum: lishogi.forum.Env,
+    val forumSearch: lishogi.forumSearch.Env,
+    val team: lishogi.team.Env,
+    val teamSearch: lishogi.teamSearch.Env,
+    val analyse: lishogi.analyse.Env,
+    val mod: lishogi.mod.Env,
+    val notifyM: lishogi.notify.Env,
+    val round: lishogi.round.Env,
+    val lobby: lishogi.lobby.Env,
+    val setup: lishogi.setup.Env,
+    val importer: lishogi.importer.Env,
+    val tournament: lishogi.tournament.Env,
+    val simul: lishogi.simul.Env,
+    val relation: lishogi.relation.Env,
+    val report: lishogi.report.Env,
+    val appeal: lishogi.appeal.Env,
+    val pref: lishogi.pref.Env,
+    val chat: lishogi.chat.Env,
+    val puzzle: lishogi.puzzle.Env,
+    val coordinate: lishogi.coordinate.Env,
+    val tv: lishogi.tv.Env,
+    val blog: lishogi.blog.Env,
+    val history: lishogi.history.Env,
+    val video: lishogi.video.Env,
+    val playban: lishogi.playban.Env,
+    val shutup: lishogi.shutup.Env,
+    val insight: lishogi.insight.Env,
+    val push: lishogi.push.Env,
+    val perfStat: lishogi.perfStat.Env,
+    val slack: lishogi.slack.Env,
+    val challenge: lishogi.challenge.Env,
+    val explorer: lishogi.explorer.Env,
+    val fishnet: lishogi.fishnet.Env,
+    val study: lishogi.study.Env,
+    val studySearch: lishogi.studySearch.Env,
+    val learn: lishogi.learn.Env,
+    val plan: lishogi.plan.Env,
+    val event: lishogi.event.Env,
+    val coach: lishogi.coach.Env,
+    val clas: lishogi.clas.Env,
+    val pool: lishogi.pool.Env,
+    val practice: lishogi.practice.Env,
+    val irwin: lishogi.irwin.Env,
+    val activity: lishogi.activity.Env,
+    val relay: lishogi.relay.Env,
+    val streamer: lishogi.streamer.Env,
+    val oAuth: lishogi.oauth.Env,
+    val bot: lishogi.bot.Env,
+    val evalCache: lishogi.evalCache.Env,
+    val rating: lishogi.rating.Env,
+    val swiss: lishogi.swiss.Env,
+    val storm: lishogi.storm.Env,
+    val lishogiCookie: lishogi.common.LishogiCookie,
     val controllerComponents: ControllerComponents
 )(implicit
     val system: ActorSystem,
@@ -125,18 +125,18 @@ final class Env(
   lazy val gamePaginator = wire[mashup.GameFilterMenu.PaginatorBuilder]
   lazy val pageCache     = wire[http.PageCache]
 
-  private val tryDailyPuzzle: lila.puzzle.DailyPuzzle.Try = () =>
+  private val tryDailyPuzzle: lishogi.puzzle.DailyPuzzle.Try = () =>
     Future {
       puzzle.daily.get
     }.flatMap(identity)
       .withTimeoutDefault(50.millis, none) recover { case e: Exception =>
-      lila.log("preloader").warn("daily puzzle", e)
+      lishogi.log("preloader").warn("daily puzzle", e)
       none
     }
 
   def scheduler = system.scheduler
 
-  def closeAccount(userId: lila.user.User.ID, self: Boolean): Funit =
+  def closeAccount(userId: lishogi.user.User.ID, self: Boolean): Funit =
     for {
       u <- user.repo byId userId orFail s"No such user $userId"
       badApple = u.lameOrTrollOrAlt
@@ -153,14 +153,14 @@ final class Env(
       _          <- push.webSubscriptionApi.unsubscribeByUser(u)
       _          <- streamer.api.demote(u.id)
       _          <- coach.api.remove(u.id)
-      reports    <- report.api.processAndGetBySuspect(lila.report.Suspect(u))
+      reports    <- report.api.processAndGetBySuspect(lishogi.report.Suspect(u))
       _          <- self ?? mod.logApi.selfCloseAccount(u.id, reports)
       _ <- u.marks.troll ?? relation.api.fetchFollowing(u.id) flatMap {
         activity.write.unfollowAll(u, _)
       }
-    } yield Bus.publish(lila.hub.actorApi.security.CloseAccount(u.id), "accountClose")
+    } yield Bus.publish(lishogi.hub.actorApi.security.CloseAccount(u.id), "accountClose")
 
-  Bus.subscribeFun("garbageCollect") { case lila.hub.actorApi.security.GarbageCollect(userId) =>
+  Bus.subscribeFun("garbageCollect") { case lishogi.hub.actorApi.security.GarbageCollect(userId) =>
     // GC can be aborted by reverting the initial SB mark
     user.repo.isTroll(userId) foreach { troll =>
       if (troll) scheduler.scheduleOnce(1.second) {
@@ -190,81 +190,81 @@ final class EnvBoot(
   def baseUrl              = common.netConfig.baseUrl
   implicit def idGenerator = game.idGenerator
 
-  lazy val mainDb: lila.db.Db = mongo.blockingDb("main", config.get[String]("mongodb.uri"))
-  lazy val imageRepo          = new lila.db.ImageRepo(mainDb(CollName("image")))
+  lazy val mainDb: lishogi.db.Db = mongo.blockingDb("main", config.get[String]("mongodb.uri"))
+  lazy val imageRepo          = new lishogi.db.ImageRepo(mainDb(CollName("image")))
 
-  // wire all the lila modules
-  lazy val common: lila.common.Env           = wire[lila.common.Env]
-  lazy val memo: lila.memo.Env               = wire[lila.memo.Env]
-  lazy val mongo: lila.db.Env                = wire[lila.db.Env]
-  lazy val user: lila.user.Env               = wire[lila.user.Env]
-  lazy val security: lila.security.Env       = wire[lila.security.Env]
-  lazy val hub: lila.hub.Env                 = wire[lila.hub.Env]
-  lazy val socket: lila.socket.Env           = wire[lila.socket.Env]
-  lazy val msg: lila.msg.Env                 = wire[lila.msg.Env]
-  lazy val game: lila.game.Env               = wire[lila.game.Env]
-  lazy val bookmark: lila.bookmark.Env       = wire[lila.bookmark.Env]
-  lazy val search: lila.search.Env           = wire[lila.search.Env]
-  lazy val gameSearch: lila.gameSearch.Env   = wire[lila.gameSearch.Env]
-  lazy val timeline: lila.timeline.Env       = wire[lila.timeline.Env]
-  lazy val forum: lila.forum.Env             = wire[lila.forum.Env]
-  lazy val forumSearch: lila.forumSearch.Env = wire[lila.forumSearch.Env]
-  lazy val team: lila.team.Env               = wire[lila.team.Env]
-  lazy val teamSearch: lila.teamSearch.Env   = wire[lila.teamSearch.Env]
-  lazy val analyse: lila.analyse.Env         = wire[lila.analyse.Env]
-  lazy val mod: lila.mod.Env                 = wire[lila.mod.Env]
-  lazy val notifyM: lila.notify.Env          = wire[lila.notify.Env]
-  lazy val round: lila.round.Env             = wire[lila.round.Env]
-  lazy val lobby: lila.lobby.Env             = wire[lila.lobby.Env]
-  lazy val setup: lila.setup.Env             = wire[lila.setup.Env]
-  lazy val importer: lila.importer.Env       = wire[lila.importer.Env]
-  lazy val tournament: lila.tournament.Env   = wire[lila.tournament.Env]
-  lazy val simul: lila.simul.Env             = wire[lila.simul.Env]
-  lazy val relation: lila.relation.Env       = wire[lila.relation.Env]
-  lazy val report: lila.report.Env           = wire[lila.report.Env]
-  lazy val appeal: lila.appeal.Env           = wire[lila.appeal.Env]
-  lazy val pref: lila.pref.Env               = wire[lila.pref.Env]
-  lazy val chat: lila.chat.Env               = wire[lila.chat.Env]
-  lazy val puzzle: lila.puzzle.Env           = wire[lila.puzzle.Env]
-  lazy val coordinate: lila.coordinate.Env   = wire[lila.coordinate.Env]
-  lazy val tv: lila.tv.Env                   = wire[lila.tv.Env]
-  lazy val blog: lila.blog.Env               = wire[lila.blog.Env]
-  lazy val history: lila.history.Env         = wire[lila.history.Env]
-  lazy val video: lila.video.Env             = wire[lila.video.Env]
-  lazy val playban: lila.playban.Env         = wire[lila.playban.Env]
-  lazy val shutup: lila.shutup.Env           = wire[lila.shutup.Env]
-  lazy val insight: lila.insight.Env         = wire[lila.insight.Env]
-  lazy val push: lila.push.Env               = wire[lila.push.Env]
-  lazy val perfStat: lila.perfStat.Env       = wire[lila.perfStat.Env]
-  lazy val slack: lila.slack.Env             = wire[lila.slack.Env]
-  lazy val challenge: lila.challenge.Env     = wire[lila.challenge.Env]
-  lazy val explorer: lila.explorer.Env       = wire[lila.explorer.Env]
-  lazy val fishnet: lila.fishnet.Env         = wire[lila.fishnet.Env]
-  lazy val study: lila.study.Env             = wire[lila.study.Env]
-  lazy val studySearch: lila.studySearch.Env = wire[lila.studySearch.Env]
-  lazy val learn: lila.learn.Env             = wire[lila.learn.Env]
-  lazy val plan: lila.plan.Env               = wire[lila.plan.Env]
-  lazy val event: lila.event.Env             = wire[lila.event.Env]
-  lazy val coach: lila.coach.Env             = wire[lila.coach.Env]
-  lazy val clas: lila.clas.Env               = wire[lila.clas.Env]
-  lazy val pool: lila.pool.Env               = wire[lila.pool.Env]
-  lazy val practice: lila.practice.Env       = wire[lila.practice.Env]
-  lazy val irwin: lila.irwin.Env             = wire[lila.irwin.Env]
-  lazy val activity: lila.activity.Env       = wire[lila.activity.Env]
-  lazy val relay: lila.relay.Env             = wire[lila.relay.Env]
-  lazy val streamer: lila.streamer.Env       = wire[lila.streamer.Env]
-  lazy val oAuth: lila.oauth.Env             = wire[lila.oauth.Env]
-  lazy val bot: lila.bot.Env                 = wire[lila.bot.Env]
-  lazy val evalCache: lila.evalCache.Env     = wire[lila.evalCache.Env]
-  lazy val rating: lila.rating.Env           = wire[lila.rating.Env]
-  lazy val swiss: lila.swiss.Env             = wire[lila.swiss.Env]
-  lazy val storm: lila.storm.Env             = wire[lila.storm.Env]
-  lazy val api: lila.api.Env                 = wire[lila.api.Env]
-  lazy val lilaCookie                        = wire[lila.common.LilaCookie]
+  // wire all the lishogi modules
+  lazy val common: lishogi.common.Env           = wire[lishogi.common.Env]
+  lazy val memo: lishogi.memo.Env               = wire[lishogi.memo.Env]
+  lazy val mongo: lishogi.db.Env                = wire[lishogi.db.Env]
+  lazy val user: lishogi.user.Env               = wire[lishogi.user.Env]
+  lazy val security: lishogi.security.Env       = wire[lishogi.security.Env]
+  lazy val hub: lishogi.hub.Env                 = wire[lishogi.hub.Env]
+  lazy val socket: lishogi.socket.Env           = wire[lishogi.socket.Env]
+  lazy val msg: lishogi.msg.Env                 = wire[lishogi.msg.Env]
+  lazy val game: lishogi.game.Env               = wire[lishogi.game.Env]
+  lazy val bookmark: lishogi.bookmark.Env       = wire[lishogi.bookmark.Env]
+  lazy val search: lishogi.search.Env           = wire[lishogi.search.Env]
+  lazy val gameSearch: lishogi.gameSearch.Env   = wire[lishogi.gameSearch.Env]
+  lazy val timeline: lishogi.timeline.Env       = wire[lishogi.timeline.Env]
+  lazy val forum: lishogi.forum.Env             = wire[lishogi.forum.Env]
+  lazy val forumSearch: lishogi.forumSearch.Env = wire[lishogi.forumSearch.Env]
+  lazy val team: lishogi.team.Env               = wire[lishogi.team.Env]
+  lazy val teamSearch: lishogi.teamSearch.Env   = wire[lishogi.teamSearch.Env]
+  lazy val analyse: lishogi.analyse.Env         = wire[lishogi.analyse.Env]
+  lazy val mod: lishogi.mod.Env                 = wire[lishogi.mod.Env]
+  lazy val notifyM: lishogi.notify.Env          = wire[lishogi.notify.Env]
+  lazy val round: lishogi.round.Env             = wire[lishogi.round.Env]
+  lazy val lobby: lishogi.lobby.Env             = wire[lishogi.lobby.Env]
+  lazy val setup: lishogi.setup.Env             = wire[lishogi.setup.Env]
+  lazy val importer: lishogi.importer.Env       = wire[lishogi.importer.Env]
+  lazy val tournament: lishogi.tournament.Env   = wire[lishogi.tournament.Env]
+  lazy val simul: lishogi.simul.Env             = wire[lishogi.simul.Env]
+  lazy val relation: lishogi.relation.Env       = wire[lishogi.relation.Env]
+  lazy val report: lishogi.report.Env           = wire[lishogi.report.Env]
+  lazy val appeal: lishogi.appeal.Env           = wire[lishogi.appeal.Env]
+  lazy val pref: lishogi.pref.Env               = wire[lishogi.pref.Env]
+  lazy val chat: lishogi.chat.Env               = wire[lishogi.chat.Env]
+  lazy val puzzle: lishogi.puzzle.Env           = wire[lishogi.puzzle.Env]
+  lazy val coordinate: lishogi.coordinate.Env   = wire[lishogi.coordinate.Env]
+  lazy val tv: lishogi.tv.Env                   = wire[lishogi.tv.Env]
+  lazy val blog: lishogi.blog.Env               = wire[lishogi.blog.Env]
+  lazy val history: lishogi.history.Env         = wire[lishogi.history.Env]
+  lazy val video: lishogi.video.Env             = wire[lishogi.video.Env]
+  lazy val playban: lishogi.playban.Env         = wire[lishogi.playban.Env]
+  lazy val shutup: lishogi.shutup.Env           = wire[lishogi.shutup.Env]
+  lazy val insight: lishogi.insight.Env         = wire[lishogi.insight.Env]
+  lazy val push: lishogi.push.Env               = wire[lishogi.push.Env]
+  lazy val perfStat: lishogi.perfStat.Env       = wire[lishogi.perfStat.Env]
+  lazy val slack: lishogi.slack.Env             = wire[lishogi.slack.Env]
+  lazy val challenge: lishogi.challenge.Env     = wire[lishogi.challenge.Env]
+  lazy val explorer: lishogi.explorer.Env       = wire[lishogi.explorer.Env]
+  lazy val fishnet: lishogi.fishnet.Env         = wire[lishogi.fishnet.Env]
+  lazy val study: lishogi.study.Env             = wire[lishogi.study.Env]
+  lazy val studySearch: lishogi.studySearch.Env = wire[lishogi.studySearch.Env]
+  lazy val learn: lishogi.learn.Env             = wire[lishogi.learn.Env]
+  lazy val plan: lishogi.plan.Env               = wire[lishogi.plan.Env]
+  lazy val event: lishogi.event.Env             = wire[lishogi.event.Env]
+  lazy val coach: lishogi.coach.Env             = wire[lishogi.coach.Env]
+  lazy val clas: lishogi.clas.Env               = wire[lishogi.clas.Env]
+  lazy val pool: lishogi.pool.Env               = wire[lishogi.pool.Env]
+  lazy val practice: lishogi.practice.Env       = wire[lishogi.practice.Env]
+  lazy val irwin: lishogi.irwin.Env             = wire[lishogi.irwin.Env]
+  lazy val activity: lishogi.activity.Env       = wire[lishogi.activity.Env]
+  lazy val relay: lishogi.relay.Env             = wire[lishogi.relay.Env]
+  lazy val streamer: lishogi.streamer.Env       = wire[lishogi.streamer.Env]
+  lazy val oAuth: lishogi.oauth.Env             = wire[lishogi.oauth.Env]
+  lazy val bot: lishogi.bot.Env                 = wire[lishogi.bot.Env]
+  lazy val evalCache: lishogi.evalCache.Env     = wire[lishogi.evalCache.Env]
+  lazy val rating: lishogi.rating.Env           = wire[lishogi.rating.Env]
+  lazy val swiss: lishogi.swiss.Env             = wire[lishogi.swiss.Env]
+  lazy val storm: lishogi.storm.Env             = wire[lishogi.storm.Env]
+  lazy val api: lishogi.api.Env                 = wire[lishogi.api.Env]
+  lazy val lishogiCookie                        = wire[lishogi.common.LishogiCookie]
 
-  val env: lila.app.Env = {
-    val c = lila.common.Chronometer.sync(wire[lila.app.Env])
-    lila.log("boot").info(s"Loaded lila modules in ${c.showDuration}")
+  val env: lishogi.app.Env = {
+    val c = lishogi.common.Chronometer.sync(wire[lishogi.app.Env])
+    lishogi.log("boot").info(s"Loaded lishogi modules in ${c.showDuration}")
     c.result
   }
 
@@ -272,11 +272,11 @@ final class EnvBoot(
 
   // free memory for reload workflow
   if (env.isDev)
-    Lilakka.shutdown(shutdown, _.PhaseServiceStop, "Freeing dev memory") { () =>
+    Lishogikka.shutdown(shutdown, _.PhaseServiceStop, "Freeing dev memory") { () =>
       Future {
         templating.Environment.destroy()
-        lila.common.Bus.destroy()
-        lila.mon.destroy()
+        lishogi.common.Bus.destroy()
+        lishogi.mon.destroy()
       }
     }
 }

@@ -1,10 +1,10 @@
 package views.html.game
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.game.{ Game, Player, Pov }
-import lila.user.Title
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.game.{ Game, Player, Pov }
+import lishogi.user.Title
 
 import controllers.routes
 
@@ -52,10 +52,10 @@ object bits {
   def sides(
       pov: Pov,
       initialFen: Option[shogi.format.FEN],
-      tour: Option[lila.tournament.TourAndTeamVs],
-      cross: Option[lila.game.Crosstable.WithMatchup],
-      simul: Option[lila.simul.Simul],
-      userTv: Option[lila.user.User] = None,
+      tour: Option[lishogi.tournament.TourAndTeamVs],
+      cross: Option[lishogi.game.Crosstable.WithMatchup],
+      simul: Option[lishogi.simul.Simul],
+      userTv: Option[lishogi.user.User] = None,
       bookmarked: Boolean
   )(implicit ctx: Context) =
     div(

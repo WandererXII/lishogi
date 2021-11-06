@@ -1,13 +1,13 @@
-package lila.bookmark
+package lishogi.bookmark
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.game.{ Game, GameRepo }
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.game.{ Game, GameRepo }
+import lishogi.user.User
 
-case class Bookmark(game: lila.game.Game, user: lila.user.User)
+case class Bookmark(game: lishogi.game.Game, user: lishogi.user.User)
 
 final class BookmarkApi(
     coll: Coll,

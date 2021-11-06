@@ -1,4 +1,4 @@
-package lila.security
+package lishogi.security
 
 import org.joda.time.DateTime
 import ornicar.scalalib.Random
@@ -11,11 +11,11 @@ import reactivemongo.api.ReadPreference
 import scala.annotation.nowarn
 import scala.concurrent.duration._
 
-import lila.common.{ ApiVersion, EmailAddress, HTTPRequest, IpAddress }
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
-import lila.oauth.{ AccessToken, OAuthServer }
-import lila.user.{ User, UserRepo }
+import lishogi.common.{ ApiVersion, EmailAddress, HTTPRequest, IpAddress }
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
+import lishogi.oauth.{ AccessToken, OAuthServer }
+import lishogi.user.{ User, UserRepo }
 import User.LoginCandidate
 
 final class SecurityApi(
@@ -23,9 +23,9 @@ final class SecurityApi(
     store: Store,
     firewall: Firewall,
     geoIP: GeoIP,
-    authenticator: lila.user.Authenticator,
+    authenticator: lishogi.user.Authenticator,
     emailValidator: EmailAddressValidator,
-    tryOauthServer: lila.oauth.OAuthServer.Try,
+    tryOauthServer: lishogi.oauth.OAuthServer.Try,
     tor: Tor
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -99,7 +99,7 @@ final class SecurityApi(
   def saveSignup(userId: User.ID, apiVersion: Option[ApiVersion], fp: Option[FingerPrint])(implicit
       req: RequestHeader
   ): Funit = {
-    val sessionId = lila.common.ThreadLocalRandom nextString 22
+    val sessionId = lishogi.common.ThreadLocalRandom nextString 22
     store.save(s"SIG-$sessionId", userId, req, apiVersion, up = false, fp = fp)
   }
 
@@ -114,12 +114,12 @@ final class SecurityApi(
 
   def oauthScoped(
       req: RequestHeader,
-      scopes: List[lila.oauth.OAuthScope],
+      scopes: List[lishogi.oauth.OAuthScope],
       retries: Int = 2
-  ): Fu[lila.oauth.OAuthServer.AuthResult] =
+  ): Fu[lishogi.oauth.OAuthServer.AuthResult] =
     tryOauthServer().flatMap {
       case None if retries > 0 =>
-        lila.common.Future.delay(2 seconds) {
+        lishogi.common.Future.delay(2 seconds) {
           oauthScoped(req, scopes, retries - 1)
         }
       case None         => fuccess(Left(OAuthServer.ServerOffline))
@@ -128,8 +128,8 @@ final class SecurityApi(
 
   def oauthScoped(
       tokenId: AccessToken.Id,
-      scopes: List[lila.oauth.OAuthScope]
-  ): Fu[lila.oauth.OAuthServer.AuthResult] =
+      scopes: List[lishogi.oauth.OAuthScope]
+  ): Fu[lishogi.oauth.OAuthServer.AuthResult] =
     tryOauthServer().flatMap {
       case None         => fuccess(Left(OAuthServer.ServerOffline))
       case Some(server) => server.auth(tokenId, scopes)

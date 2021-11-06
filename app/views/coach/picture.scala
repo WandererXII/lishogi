@@ -1,15 +1,15 @@
 package views.html
 package coach
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object picture {
 
-  def apply(c: lila.coach.Coach.WithUser, error: Option[String] = None)(implicit ctx: Context) =
+  def apply(c: lishogi.coach.Coach.WithUser, error: Option[String] = None)(implicit ctx: Context) =
     views.html.account.layout(
       title = s"${c.user.titleUsername} coach picture",
       evenMoreJs = jsTag("coach.form.js"),
@@ -28,7 +28,7 @@ object picture {
             p(cls := "error")(e)
           },
           postForm(action := routes.Coach.pictureApply(), enctype := "multipart/form-data", cls := "upload")(
-            p("Max size: ", lila.db.Photographer.uploadMaxMb, "MB."),
+            p("Max size: ", lishogi.db.Photographer.uploadMaxMb, "MB."),
             form3.file.image("picture"),
             form3.actions(
               a(href := routes.Coach.edit())(trans.cancel()),

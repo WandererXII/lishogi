@@ -1,13 +1,13 @@
-package lila.appeal
+package lishogi.appeal
 
 import com.softwaremill.macwire._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 final class Env(
-    db: lila.db.Db,
-    userRepo: lila.user.UserRepo
+    db: lishogi.db.Db,
+    userRepo: lishogi.user.UserRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private val coll = db(CollName("appeal"))

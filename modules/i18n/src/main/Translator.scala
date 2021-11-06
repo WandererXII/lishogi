@@ -1,9 +1,9 @@
-package lila.i18n
+package lishogi.i18n
 
 import scalatags.Text.all._
 import play.api.i18n.Lang
 
-import lila.common.String.html.escapeHtml
+import lishogi.common.String.html.escapeHtml
 
 object Translator {
 

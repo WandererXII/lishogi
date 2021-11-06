@@ -1,18 +1,18 @@
-package lila.lobby
+package lishogi.lobby
 
 import shogi.{ Game => ShogiGame, Situation }
 
 import actorApi.{ JoinHook, JoinSeek }
-import lila.game.{ Game, PerfPicker, Player }
-import lila.socket.Socket.Sri
-import lila.user.User
+import lishogi.game.{ Game, PerfPicker, Player }
+import lishogi.socket.Socket.Sri
+import lishogi.user.User
 
 final private class Biter(
-    userRepo: lila.user.UserRepo,
-    gameRepo: lila.game.GameRepo
+    userRepo: lishogi.user.UserRepo,
+    gameRepo: lishogi.game.GameRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
-    idGenerator: lila.game.IdGenerator
+    idGenerator: lishogi.game.IdGenerator
 ) {
 
   def apply(hook: Hook, sri: Sri, user: Option[LobbyUser]): Fu[JoinHook] =
@@ -35,7 +35,7 @@ final private class Biter(
       ).withUniqueId
       _ <- gameRepo insertDenormalized game
     } yield {
-      lila.mon.lobby.hook.join.increment()
+      lishogi.mon.lobby.hook.join.increment()
       JoinHook(sri, hook, game, creatorColor)
     }
 
@@ -76,7 +76,7 @@ final private class Biter(
         sentePlayer = Player.make(shogi.Sente, senteUser, perfPicker),
         gotePlayer = Player.make(shogi.Gote, goteUser, perfPicker),
         mode = hook.realMode,
-        source = lila.game.Source.Lobby,
+        source = lishogi.game.Source.Lobby,
         notationImport = None
       )
       .start
@@ -93,7 +93,7 @@ final private class Biter(
         sentePlayer = Player.make(shogi.Sente, senteUser, perfPicker),
         gotePlayer = Player.make(shogi.Gote, goteUser, perfPicker),
         mode = seek.realMode,
-        source = lila.game.Source.Lobby,
+        source = lishogi.game.Source.Lobby,
         daysPerTurn = seek.daysPerTurn,
         notationImport = None
       )

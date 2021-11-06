@@ -1,15 +1,15 @@
-package lila.mod
+package lishogi.mod
 
-import lila.common.LightUser
-import lila.report.{ Report, ReportApi }
-import lila.user.{ Note, NoteApi, User, UserRepo }
+import lishogi.common.LightUser
+import lishogi.report.{ Report, ReportApi }
+import lishogi.user.{ Note, NoteApi, User, UserRepo }
 
 case class Inquiry(
     mod: LightUser,
     report: Report,
     moreReports: List[Report],
     notes: List[Note],
-    history: List[lila.mod.Modlog],
+    history: List[lishogi.mod.Modlog],
     user: User
 ) {
 
@@ -24,7 +24,7 @@ final class InquiryApi(
 ) {
 
   def forMod(mod: User)(implicit ec: scala.concurrent.ExecutionContext): Fu[Option[Inquiry]] =
-    lila.security.Granter(_.SeeReport)(mod).?? {
+    lishogi.security.Granter(_.SeeReport)(mod).?? {
       reportApi.inquiries.ofModId(mod.id).flatMap {
         _ ?? { report =>
           reportApi.moreLike(report, 10) zip

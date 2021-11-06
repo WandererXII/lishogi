@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 import actorApi.Who
 import akka.stream.scaladsl._
@@ -6,12 +6,12 @@ import shogi.Centis
 import shogi.format.{ Glyph, Tags }
 import scala.concurrent.duration._
 
-import lila.chat.{ Chat, ChatApi }
-import lila.common.Bus
-import lila.hub.actorApi.timeline.{ Propagate, StudyCreate, StudyLike }
-import lila.socket.Socket.Sri
-import lila.tree.Node.{ Comment, Gamebook, Shapes }
-import lila.user.User
+import lishogi.chat.{ Chat, ChatApi }
+import lishogi.common.Bus
+import lishogi.hub.actorApi.timeline.{ Propagate, StudyCreate, StudyLike }
+import lishogi.socket.Socket.Sri
+import lishogi.tree.Node.{ Comment, Gamebook, Shapes }
+import lishogi.user.User
 
 final class StudyApi(
     studyRepo: StudyRepo,
@@ -22,10 +22,10 @@ final class StudyApi(
     inviter: StudyInvite,
     explorerGameHandler: ExplorerGame,
     topicApi: StudyTopicApi,
-    lightUserApi: lila.user.LightUserApi,
+    lightUserApi: lishogi.user.LightUserApi,
     scheduler: akka.actor.Scheduler,
     chatApi: ChatApi,
-    timeline: lila.hub.actors.Timeline,
+    timeline: lishogi.hub.actors.Timeline,
     serverEvalRequester: ServerEval.Requester
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -179,7 +179,7 @@ final class StudyApi(
             Chat.Id(studyId.value),
             userId = userId,
             text = text,
-            publicSource = lila.hub.actorApi.shutup.PublicSource.Study(studyId.value).some,
+            publicSource = lishogi.hub.actorApi.shutup.PublicSource.Study(studyId.value).some,
             busChan = _.Study
           )
         }
@@ -570,7 +570,7 @@ final class StudyApi(
   def addChapter(studyId: Study.Id, data: ChapterMaker.Data, sticky: Boolean)(who: Who): Funit =
     data.manyGames match {
       case Some(datas) =>
-        lila.common.Future.applySequentially(datas) { data =>
+        lishogi.common.Future.applySequentially(datas) { data =>
           addChapter(studyId, data, sticky)(who)
         }
       case _ =>
@@ -604,7 +604,7 @@ final class StudyApi(
     }
 
   def importNotations(studyId: Study.Id, datas: List[ChapterMaker.Data], sticky: Boolean)(who: Who) =
-    lila.common.Future.applySequentially(datas) { data =>
+    lishogi.common.Future.applySequentially(datas) { data =>
       addChapter(studyId, data, sticky)(who)
     }
 

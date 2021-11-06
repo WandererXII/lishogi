@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import akka.actor._
 import com.softwaremill.macwire._

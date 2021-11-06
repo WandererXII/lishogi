@@ -1,4 +1,4 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import org.joda.time.DateTime
 import play.api.libs.json._
@@ -6,10 +6,10 @@ import play.api.libs.json._
 import shogi.format.{ FEN, Uci }
 import shogi.variant.Variant
 
-import lila.common.{ IpAddress, Maths }
-import lila.fishnet.{ Work => W }
-import lila.tree.Eval.JsonHandlers._
-import lila.tree.Eval.{ Cp, Mate }
+import lishogi.common.{ IpAddress, Maths }
+import lishogi.fishnet.{ Work => W }
+import lishogi.tree.Eval.JsonHandlers._
+import lishogi.tree.Eval.{ Cp, Mate }
 
 object JsonApi {
 
@@ -122,7 +122,7 @@ object JsonApi {
     ) {
       val cappedNps = nps.map(_ min Evaluation.npsCeil)
 
-      val cappedPv = pv take lila.analyse.Info.LineMaxPlies
+      val cappedPv = pv take lishogi.analyse.Info.LineMaxPlies
 
       def isCheckmate = score.mate has Mate(0)
       def mateFound   = score.mate.isDefined

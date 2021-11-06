@@ -1,13 +1,13 @@
-package lila.relation
+package lishogi.relation
 
 import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 import org.joda.time.DateTime
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
-final private class RelationRepo(coll: Coll, userRepo: lila.user.UserRepo)(implicit
+final private class RelationRepo(coll: Coll, userRepo: lishogi.user.UserRepo)(implicit
     ec: scala.concurrent.ExecutionContext
 ) {
 
@@ -107,7 +107,7 @@ final private class RelationRepo(coll: Coll, userRepo: lila.user.UserRepo)(impli
         upsert = true
       )
       .void
-      .recover(lila.db.ignoreDuplicateKey)
+      .recover(lishogi.db.ignoreDuplicateKey)
 
   def remove(u1: ID, u2: ID): Funit = coll.delete.one($id(makeId(u1, u2))).void
 

@@ -1,23 +1,23 @@
-package lila.irwin
+package lishogi.irwin
 
 import akka.actor._
 import com.softwaremill.macwire._
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.tournament.TournamentApi
+import lishogi.common.config._
+import lishogi.tournament.TournamentApi
 
 final class Env(
     tournamentApi: TournamentApi,
-    modApi: lila.mod.ModApi,
-    reportApi: lila.report.ReportApi,
-    notifyApi: lila.notify.NotifyApi,
-    userCache: lila.user.Cached,
-    gameRepo: lila.game.GameRepo,
-    userRepo: lila.user.UserRepo,
-    analysisRepo: lila.analyse.AnalysisRepo,
-    settingStore: lila.memo.SettingStore.Builder,
-    db: lila.db.Db
+    modApi: lishogi.mod.ModApi,
+    reportApi: lishogi.report.ReportApi,
+    notifyApi: lishogi.notify.NotifyApi,
+    userCache: lishogi.user.Cached,
+    gameRepo: lishogi.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    analysisRepo: lishogi.analyse.AnalysisRepo,
+    settingStore: lishogi.memo.SettingStore.Builder,
+    db: lishogi.db.Db
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem

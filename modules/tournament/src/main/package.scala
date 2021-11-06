@@ -1,4 +1,4 @@
-package lila
+package lishogi
 
 package object tournament extends PackageObject {
 
@@ -8,11 +8,11 @@ package object tournament extends PackageObject {
 
   private[tournament] type Pairings = List[tournament.Pairing]
 
-  private[tournament] type Ranking = Map[lila.user.User.ID, Int]
+  private[tournament] type Ranking = Map[lishogi.user.User.ID, Int]
 
-  private[tournament] type Waiting = Map[lila.user.User.ID, Int]
+  private[tournament] type Waiting = Map[lishogi.user.User.ID, Int]
 
-  private[tournament] val logger = lila.log("tournament")
+  private[tournament] val logger = lishogi.log("tournament")
 
   private[tournament] val pairingLogger = logger branch "pairing"
 }

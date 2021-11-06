@@ -1,4 +1,4 @@
-package lila.blog
+package lishogi.blog
 
 import com.github.blemale.scaffeine.LoadingCache
 import com.vladsch.flexmark.ext.gfm.strikethrough.StrikethroughExtension
@@ -31,7 +31,7 @@ object BlogTransform {
     private val parser   = Parser.builder(options).build()
     private val renderer = HtmlRenderer.builder(options).build()
 
-    private val cache: LoadingCache[Text, Html] = lila.memo.CacheApi.scaffeineNoScheduler
+    private val cache: LoadingCache[Text, Html] = lishogi.memo.CacheApi.scaffeineNoScheduler
       .expireAfterAccess(15 minutes)
       .maximumSize(32)
       .build((text: Text) => renderer.render(parser.parse(text.replace("<br>", "\n"))))

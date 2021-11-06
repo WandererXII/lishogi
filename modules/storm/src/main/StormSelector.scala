@@ -1,13 +1,13 @@
-package lila.storm
+package lishogi.storm
 
 import reactivemongo.api.bson.BSONNull
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext
 
-import lila.db.AsyncColl
-import lila.db.dsl._
-import lila.memo.CacheApi
-import lila.puzzle.PuzzleColls
+import lishogi.db.AsyncColl
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
+import lishogi.puzzle.PuzzleColls
 
 /* The difficulty of storm should remain constant!
  * Be very careful when adjusting the selector.
@@ -19,8 +19,8 @@ final class StormSelector(colls: PuzzleColls, cacheApi: CacheApi)(implicit ec: E
 
   def apply: Fu[List[StormPuzzle]] = current.get {}
 
-  private val theme        = lila.puzzle.PuzzleTheme.tsume.key.value
-  private val tier         = lila.puzzle.PuzzleTier.Good.key
+  private val theme        = lishogi.puzzle.PuzzleTheme.tsume.key.value
+  private val tier         = lishogi.puzzle.PuzzleTier.Good.key
   private val maxDeviation = 85
 
   private val ratingBuckets =
@@ -115,18 +115,18 @@ final class StormSelector(colls: PuzzleColls, cacheApi: CacheApi)(implicit ec: E
 
   private def monitor(puzzles: Vector[StormPuzzle], poolSize: Int): Unit = {
     val nb = puzzles.size
-    lila.mon.storm.selector.count.record(nb)
+    lishogi.mon.storm.selector.count.record(nb)
     if (nb < poolSize * 0.9)
       logger.warn(s"Selector wanted $poolSize puzzles, only got $nb")
     if (nb > 1) {
       val rest = puzzles.toVector drop 1
-      lila.common.Maths.mean(rest.map(_.rating)) foreach { r =>
-        lila.mon.storm.selector.rating.record(r.toInt)
+      lishogi.common.Maths.mean(rest.map(_.rating)) foreach { r =>
+        lishogi.mon.storm.selector.rating.record(r.toInt)
       }
       (0 to poolSize by 10) foreach { i =>
         val slice = rest drop i take 10
-        lila.common.Maths.mean(slice.map(_.rating)) foreach { r =>
-          lila.mon.storm.selector.ratingSlice(i).record(r.toInt)
+        lishogi.common.Maths.mean(slice.map(_.rating)) foreach { r =>
+          lishogi.mon.storm.selector.ratingSlice(i).record(r.toInt)
         }
       }
       colls.puzzle {

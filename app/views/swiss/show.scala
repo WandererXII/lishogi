@@ -3,11 +3,11 @@ package swiss
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.swiss.Swiss
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.swiss.Swiss
 
 import controllers.routes
 
@@ -16,7 +16,7 @@ object show {
   def apply(
       s: Swiss,
       data: play.api.libs.json.JsObject,
-      chatOption: Option[lila.chat.UserChat.Mine]
+      chatOption: Option[lishogi.chat.UserChat.Mine]
   )(implicit ctx: Context): Frag = {
     val isDirector       = ctx.userId.has(s.createdBy)
     val hasScheduleInput = isDirector && s.settings.manualRounds && s.isNotFinished
@@ -37,7 +37,7 @@ object show {
                   name = trans.chatRoom.txt(),
                   timeout = c.timeout,
                   public = true,
-                  resourceId = lila.chat.Chat.ResourceId(s"swiss/${c.chat.id}")
+                  resourceId = lishogi.chat.Chat.ResourceId(s"swiss/${c.chat.id}")
                 )
               }
             )
@@ -49,7 +49,7 @@ object show {
         hasScheduleInput option cssTag("flatpickr")
       ),
       shogiground = false,
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = s"${s.name}: ${s.variant.name} ${s.clock.show} #${s.id}",
           url = s"$netBaseUrl${routes.Page.notSupported().url}",

@@ -1,4 +1,4 @@
-package lila.pref
+package lishogi.pref
 
 import play.api.data._
 import play.api.data.Forms._

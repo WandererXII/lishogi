@@ -1,11 +1,11 @@
 package views.html
 package userTournament
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.user.User
 
 import controllers.routes
 
@@ -13,7 +13,7 @@ object created {
 
   private val path = "created"
 
-  def apply(u: User, pager: Paginator[lila.tournament.Tournament])(implicit ctx: Context) =
+  def apply(u: User, pager: Paginator[lishogi.tournament.Tournament])(implicit ctx: Context) =
     bits.layout(
       u = u,
       title = s"${u.username} recent tournaments",

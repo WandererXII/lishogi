@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import play.api.i18n.Lang
 import shogi.format.FEN

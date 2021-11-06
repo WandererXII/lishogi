@@ -1,19 +1,19 @@
-package lila.user
+package lishogi.user
 
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
-import lila.common.LightUser
-import lila.memo.CacheApi._
-import lila.rating.{ Perf, PerfType }
-import lila.db.dsl._
+import lishogi.common.LightUser
+import lishogi.memo.CacheApi._
+import lishogi.rating.{ Perf, PerfType }
+import lishogi.db.dsl._
 import User.{ LightCount, LightPerf }
 
 final class Cached(
     userRepo: UserRepo,
     onlineUserIds: () => Set[User.ID],
-    mongoCache: lila.memo.MongoCache.Api,
-    cacheApi: lila.memo.CacheApi,
+    mongoCache: lishogi.memo.MongoCache.Api,
+    cacheApi: lishogi.memo.CacheApi,
     rankingApi: RankingApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,

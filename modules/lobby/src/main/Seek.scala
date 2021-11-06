@@ -1,13 +1,13 @@
-package lila.lobby
+package lishogi.lobby
 
 import shogi.{ Mode, Speed }
 import org.joda.time.DateTime
 import play.api.libs.json._
 import play.api.i18n.Lang
 
-import lila.game.PerfPicker
-import lila.rating.RatingRange
-import lila.user.User
+import lishogi.game.PerfPicker
+import lishogi.rating.RatingRange
+import lishogi.user.User
 
 // correspondence shogi, persistent
 case class Seek(
@@ -86,7 +86,7 @@ object Seek {
       blocking: Set[String]
   ): Seek =
     new Seek(
-      _id = lila.common.ThreadLocalRandom nextString idSize,
+      _id = lishogi.common.ThreadLocalRandom nextString idSize,
       variant = variant.id,
       daysPerTurn = daysPerTurn,
       mode = mode.id,
@@ -98,7 +98,7 @@ object Seek {
 
   def renew(seek: Seek) =
     new Seek(
-      _id = lila.common.ThreadLocalRandom nextString idSize,
+      _id = lishogi.common.ThreadLocalRandom nextString idSize,
       variant = seek.variant,
       daysPerTurn = seek.daysPerTurn,
       mode = seek.mode,
@@ -109,7 +109,7 @@ object Seek {
     )
 
   import reactivemongo.api.bson._
-  import lila.db.BSON.BSONJodaDateTimeHandler
+  import lishogi.db.BSON.BSONJodaDateTimeHandler
   implicit val lobbyPerfBSONHandler =
     BSONIntegerHandler.as[LobbyPerf](
       b => LobbyPerf(b.abs, b < 0),

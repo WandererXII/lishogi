@@ -1,4 +1,4 @@
-package lila.gameSearch
+package lishogi.gameSearch
 
 case class Clocking(
     initMin: Option[Int] = None,

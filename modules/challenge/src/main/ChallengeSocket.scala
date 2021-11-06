@@ -1,13 +1,13 @@
-package lila.challenge
+package lishogi.challenge
 
 import play.api.libs.json._
 
-import lila.room.RoomSocket.{ Protocol => RP, _ }
-import lila.socket.RemoteSocket.{ Protocol => P, _ }
+import lishogi.room.RoomSocket.{ Protocol => RP, _ }
+import lishogi.socket.RemoteSocket.{ Protocol => P, _ }
 
 final private class ChallengeSocket(
     api: ChallengeApi,
-    remoteSocketApi: lila.socket.RemoteSocket
+    remoteSocketApi: lishogi.socket.RemoteSocket
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     mode: play.api.Mode
@@ -27,7 +27,7 @@ final private class ChallengeSocket(
   }
 
   remoteSocketApi.subscribe("chal-in", Protocol.In.reader)(
-    challengeHandler orElse minRoomHandler(rooms, lila log "challenge") orElse remoteSocketApi.baseHandler
+    challengeHandler orElse minRoomHandler(rooms, lishogi log "challenge") orElse remoteSocketApi.baseHandler
   )
 
   api registerSocket this

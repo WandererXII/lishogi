@@ -2,11 +2,11 @@ package controllers
 
 import scala.annotation.nowarn
 
-import lila.app._
-import lila.app.http.ResponseHeaders.allowMethods
-import lila.common.HTTPRequest.isApiOrApp
+import lishogi.app._
+import lishogi.app.http.ResponseHeaders.allowMethods
+import lishogi.common.HTTPRequest.isApiOrApp
 
-final class Options(env: Env) extends LilaController(env) {
+final class Options(env: Env) extends LishogiController(env) {
 
   val root = all("")
 

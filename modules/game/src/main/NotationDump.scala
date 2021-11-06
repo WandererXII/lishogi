@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import shogi.Replay
 import shogi.format.Forsyth
@@ -7,14 +7,14 @@ import shogi.format.csa.{ Csa, CsaParser }
 import shogi.format.{ FEN, Notation, NotationMove, ParsedNotation, Tag, TagType, Tags }
 import shogi.{ Centis, Color }
 
-import lila.common.config.BaseUrl
-import lila.common.LightUser
+import lishogi.common.config.BaseUrl
+import lishogi.common.LightUser
 
 import org.joda.time.DateTime
 
 final class NotationDump(
     baseUrl: BaseUrl,
-    lightUserApi: lila.user.LightUserApi
+    lightUserApi: lishogi.user.LightUserApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import NotationDump._
@@ -73,7 +73,7 @@ final class NotationDump(
         terminationMove.fold(
           notation.updateLastPly(
             _.copy(comments =
-              List(lila.game.StatusText(game.status, game.winnerColor, shogi.variant.Standard))
+              List(lishogi.game.StatusText(game.status, game.winnerColor, shogi.variant.Standard))
             )
           )
         ) { t =>
@@ -91,13 +91,13 @@ final class NotationDump(
   private def rating(p: Player) = p.rating.fold("?")(_.toString)
 
   def player(p: Player, u: Option[LightUser]) =
-    p.aiLevel.fold(u.fold(p.name | lila.user.User.anonymous)(_.name))("lishogi AI level " + _)
+    p.aiLevel.fold(u.fold(p.name | lishogi.user.User.anonymous)(_.name))("lishogi AI level " + _)
 
   private val customStartPosition: Set[shogi.variant.Variant] =
     Set(shogi.variant.FromPosition)
 
   private def eventOf(game: Game) = {
-    val perf = game.perfType.fold("Standard")(_.trans(lila.i18n.defaultLang))
+    val perf = game.perfType.fold("Standard")(_.trans(lishogi.i18n.defaultLang))
     game.tournamentId.map { id =>
       s"${game.mode} $perf tournament https://lishogi.org/tournament/$id"
     } orElse game.simulId.map { id =>

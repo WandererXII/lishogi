@@ -1,11 +1,11 @@
-package lila.app
+package lishogi.app
 package mashup
 
-import lila.forum.MiniForumPost
-import lila.team.{ RequestRepo, RequestWithUser, Team, TeamApi }
-import lila.tournament.{ Tournament, TournamentApi }
-import lila.user.User
-import lila.swiss.{ Swiss, SwissApi }
+import lishogi.forum.MiniForumPost
+import lishogi.team.{ RequestRepo, RequestWithUser, Team, TeamApi }
+import lishogi.tournament.{ Tournament, TournamentApi }
+import lishogi.user.User
+import lishogi.swiss.{ Swiss, SwissApi }
 
 case class TeamInfo(
     mine: Boolean,
@@ -38,7 +38,7 @@ object TeamInfo {
 
 final class TeamInfoApi(
     api: TeamApi,
-    forumRecent: lila.forum.Recent,
+    forumRecent: lishogi.forum.Recent,
     tourApi: TournamentApi,
     swissApi: SwissApi,
     requestRepo: RequestRepo

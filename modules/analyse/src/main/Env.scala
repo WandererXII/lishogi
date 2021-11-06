@@ -1,13 +1,13 @@
-package lila.analyse
+package lishogi.analyse
 
 import com.softwaremill.macwire._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 final class Env(
-    db: lila.db.Db,
-    gameRepo: lila.game.GameRepo
+    db: lishogi.db.Db,
+    gameRepo: lishogi.game.GameRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   lazy val analysisRepo = new AnalysisRepo(db(CollName("analysis2")))

@@ -1,9 +1,9 @@
 package views.html.study
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.study.Study
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.study.Study
 
 import controllers.routes
 
@@ -13,7 +13,7 @@ object create {
     submitButton(name := "as", value := s.id.value, cls := "submit button")(s.name.value)
 
   def apply(
-      data: lila.study.StudyForm.importGame.Data,
+      data: lishogi.study.StudyForm.importGame.Data,
       owner: List[Study.IdName],
       contrib: List[Study.IdName]
   )(implicit ctx: Context) =

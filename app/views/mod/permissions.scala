@@ -1,10 +1,10 @@
 package views.html.mod
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
-import lila.security.Permission
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
+import lishogi.security.Permission
 
 import controllers.routes
 
@@ -25,7 +25,7 @@ object permissions {
         postForm(cls := "form3", action := routes.Mod.permissions(u.username))(
           p(cls := "granted")("In green, permissions enabled manually or by a package."),
           div(cls := "permission-list")(
-            lila.security.Permission.categorized
+            lishogi.security.Permission.categorized
               .filter { case (_, ps) => ps.exists(canGrant(me, _)) }
               .map { case (categ, perms) =>
                 st.section(

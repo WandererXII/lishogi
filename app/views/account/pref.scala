@@ -1,10 +1,10 @@
 package views.html
 package account
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.pref.PrefCateg
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.pref.PrefCateg
 
 import controllers.routes
 
@@ -12,7 +12,7 @@ object pref {
 
   import trans.preferences._
 
-  private def categFieldset(categ: lila.pref.PrefCateg, active: lila.pref.PrefCateg) =
+  private def categFieldset(categ: lishogi.pref.PrefCateg, active: lishogi.pref.PrefCateg) =
     div(cls := List("none" -> (categ != active)))
 
   private def setting(name: Frag, body: Frag, display: Boolean = true) = {
@@ -38,7 +38,7 @@ object pref {
       }.toList
     )
 
-  def apply(u: lila.user.User, form: play.api.data.Form[_], categ: lila.pref.PrefCateg)(implicit
+  def apply(u: lishogi.user.User, form: play.api.data.Form[_], categ: lishogi.pref.PrefCateg)(implicit
       ctx: Context
   ) =
     account.layout(

@@ -1,9 +1,9 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import scalaz.NonEmptyList
 import shogi.format.{ FEN, Forsyth, Uci }
 
-import lila.rating.Glicko
+import lishogi.rating.Glicko
 
 case class Puzzle(
     id: Puzzle.Id,
@@ -12,7 +12,7 @@ case class Puzzle(
     glicko: Glicko,
     plays: Int,
     vote: Float, // denormalized ratio of voteUp/voteDown
-    gameId: Option[lila.game.Game.ID],
+    gameId: Option[lishogi.game.Game.ID],
     themes: Set[PuzzleTheme.Key],
     author: Option[String] = None,
     description: Option[String] = None
@@ -103,7 +103,7 @@ object Puzzle {
 
   case class UserResult(
       puzzleId: Id,
-      userId: lila.user.User.ID,
+      userId: lishogi.user.User.ID,
       result: Result,
       rating: (Int, Int)
   )
@@ -125,5 +125,5 @@ object Puzzle {
     val description = "dsc"
   }
 
-  implicit val idIso = lila.common.Iso.string[Id](Id.apply, _.value)
+  implicit val idIso = lishogi.common.Iso.string[Id](Id.apply, _.value)
 }

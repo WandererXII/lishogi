@@ -1,11 +1,11 @@
-package lila.game
+package lishogi.game
 
 import shogi.format.kif.KifParser
 import shogi.format.csa.CsaParser
 import shogi.format.ParsedNotation
 
 import java.security.MessageDigest
-import lila.db.ByteArray
+import lishogi.db.ByteArray
 
 private[game] case class Metadata(
     source: Option[Source],

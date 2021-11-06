@@ -1,28 +1,28 @@
-package lila.lobby
+package lishogi.lobby
 
 import com.softwaremill.macwire._
 import play.api.Configuration
 import scala.concurrent.duration._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    onStart: lila.round.OnStart,
-    relationApi: lila.relation.RelationApi,
-    playbanApi: lila.playban.PlaybanApi,
-    gameCache: lila.game.Cached,
-    userRepo: lila.user.UserRepo,
-    gameRepo: lila.game.GameRepo,
-    poolApi: lila.pool.PoolApi,
-    cacheApi: lila.memo.CacheApi,
-    remoteSocketApi: lila.socket.RemoteSocket
+    db: lishogi.db.Db,
+    onStart: lishogi.round.OnStart,
+    relationApi: lishogi.relation.RelationApi,
+    playbanApi: lishogi.playban.PlaybanApi,
+    gameCache: lishogi.game.Cached,
+    userRepo: lishogi.user.UserRepo,
+    gameRepo: lishogi.game.GameRepo,
+    poolApi: lishogi.pool.PoolApi,
+    cacheApi: lishogi.memo.CacheApi,
+    remoteSocketApi: lishogi.socket.RemoteSocket
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem,
-    idGenerator: lila.game.IdGenerator
+    idGenerator: lishogi.game.IdGenerator
 ) {
 
   private lazy val maxPlaying = appConfig.get[Max]("setup.max_playing")
@@ -51,7 +51,7 @@ final class Env(
 
   lazy val socket = wire[LobbySocket]
 
-  lila.common.Bus.subscribeFun("abortGame") { case lila.game.actorApi.AbortedBy(pov) =>
+  lishogi.common.Bus.subscribeFun("abortGame") { case lishogi.game.actorApi.AbortedBy(pov) =>
     abortListener(pov)
   }
 }

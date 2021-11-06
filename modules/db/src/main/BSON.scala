@@ -1,4 +1,4 @@
-package lila.db
+package lishogi.db
 
 import org.joda.time.DateTime
 import ornicar.scalalib.Zero

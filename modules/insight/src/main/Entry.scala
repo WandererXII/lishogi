@@ -1,9 +1,9 @@
-package lila.insight
+package lishogi.insight
 
 import shogi.opening.Ecopening
 import shogi.{ Color, Role }
-import lila.game.{ Game, Pov }
-import lila.rating.PerfType
+import lishogi.game.{ Game, Pov }
+import lishogi.rating.PerfType
 import org.joda.time.DateTime
 import scalaz.NonEmptyList
 

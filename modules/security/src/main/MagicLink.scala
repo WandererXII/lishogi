@@ -1,12 +1,12 @@
-package lila.security
+package lishogi.security
 
 import scala.concurrent.duration._
 import scalatags.Text.all._
 
-import lila.common.config._
-import lila.common.EmailAddress
-import lila.i18n.I18nKeys.{ emails => trans }
-import lila.user.{ User, UserRepo }
+import lishogi.common.config._
+import lishogi.common.EmailAddress
+import lishogi.i18n.I18nKeys.{ emails => trans }
+import lishogi.user.{ User, UserRepo }
 
 final class MagicLink(
     mailgun: Mailgun,
@@ -19,9 +19,9 @@ final class MagicLink(
 
   def send(user: User, email: EmailAddress): Funit =
     tokener make user.id flatMap { token =>
-      lila.mon.email.send.magicLink.increment()
+      lishogi.mon.email.send.magicLink.increment()
       val url           = s"$baseUrl/auth/magic-link/login/$token"
-      implicit val lang = user.realLang | lila.i18n.defaultLang
+      implicit val lang = user.realLang | lishogi.i18n.defaultLang
       mailgun send Mailgun.Message(
         to = email,
         subject = trans.logInToLishogi.txt(user.username),
@@ -53,8 +53,8 @@ object MagicLink {
   import scala.concurrent.duration._
   import play.api.mvc.RequestHeader
   import ornicar.scalalib.Zero
-  import lila.memo.RateLimit
-  import lila.common.{ HTTPRequest, IpAddress }
+  import lishogi.memo.RateLimit
+  import lishogi.common.{ HTTPRequest, IpAddress }
 
   private lazy val rateLimitPerIP = new RateLimit[IpAddress](
     credits = 5,

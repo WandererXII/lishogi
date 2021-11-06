@@ -1,4 +1,4 @@
-package lila.api
+package lishogi.api
 
 import akka.actor._
 import akka.stream.scaladsl._
@@ -6,16 +6,16 @@ import play.api.libs.json._
 import scala.concurrent.duration._
 import org.joda.time.DateTime
 
-import lila.challenge.Challenge
-import lila.common.Bus
-import lila.game.actorApi.StartGame
-import lila.game.Game
-import lila.user.{ User, UserRepo }
+import lishogi.challenge.Challenge
+import lishogi.common.Bus
+import lishogi.game.actorApi.StartGame
+import lishogi.game.Game
+import lishogi.user.{ User, UserRepo }
 
 final class EventStream(
-    challengeJsonView: lila.challenge.JsonView,
-    challengeMaker: lila.challenge.ChallengeMaker,
-    onlineApiUsers: lila.bot.OnlineApiUsers,
+    challengeJsonView: lishogi.challenge.JsonView,
+    challengeMaker: lishogi.challenge.ChallengeMaker,
+    onlineApiUsers: lishogi.bot.OnlineApiUsers,
     userRepo: UserRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -95,10 +95,10 @@ final class EventStream(
 
         case StartGame(game) => queue offer toJson(game).some
 
-        case lila.challenge.Event.Create(c) if c.destUserId has me.id => queue offer toJson(c).some
+        case lishogi.challenge.Event.Create(c) if c.destUserId has me.id => queue offer toJson(c).some
 
         // pretend like the rematch is a challenge
-        case lila.hub.actorApi.round.RematchOffer(gameId) =>
+        case lishogi.hub.actorApi.round.RematchOffer(gameId) =>
           challengeMaker.makeRematchFor(gameId, me) foreach {
             _ foreach { c =>
               queue offer toJson(c.copy(_id = gameId)).some
@@ -115,6 +115,6 @@ final class EventStream(
   private def toJson(c: Challenge) =
     Json.obj(
       "type"      -> "challenge",
-      "challenge" -> challengeJsonView(none)(c)(lila.i18n.defaultLang)
+      "challenge" -> challengeJsonView(none)(c)(lishogi.i18n.defaultLang)
     )
 }

@@ -1,12 +1,12 @@
-package lila.study
+package lishogi.study
 
 import org.joda.time.DateTime
 import reactivemongo.akkastream.{ cursorProducer, AkkaStreamCursor }
 import reactivemongo.api._
 
-import lila.db.AsyncColl
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.AsyncColl
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class StudyRepo(private[study] val coll: AsyncColl)(implicit ec: scala.concurrent.ExecutionContext) {
 

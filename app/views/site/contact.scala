@@ -2,9 +2,9 @@ package views
 package html.site
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import scala.util.chaining._
 
@@ -36,7 +36,7 @@ object contact {
           a(href := routes.ForumCateg.show("lishogi-feedback"))(reportBugInForum())
         ),
         li(
-          a(href := "https://github.com/WandererXII/lila/issues")(reportWebsiteIssue())
+          a(href := "https://github.com/WandererXII/lishogi/issues")(reportWebsiteIssue())
         )
       ),
       p(howToReportBug())

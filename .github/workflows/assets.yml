@@ -31,7 +31,7 @@ jobs:
         path: ab
       continue-on-error: true
       id: ab
-    - run: echo "::set-env name=LILA_AB_FILE::$GITHUB_WORKSPACE/ab/src/ab.js"
+    - run: echo "::set-env name=LISHOGI_AB_FILE::$GITHUB_WORKSPACE/ab/src/ab.js"
       if: steps.ab.outcome == 'success'
     - run: echo "::set-output name=dir::$(yarn cache dir)"
       id: yarn-cache
@@ -47,5 +47,5 @@ jobs:
         XZ_OPT: '-0'
     - uses: actions/upload-artifact@v1
       with:
-        name: lila-assets
+        name: lishogi-assets
         path: assets.tar.xz

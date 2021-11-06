@@ -1,11 +1,11 @@
-package lila.relay
+package lishogi.relay
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 import reactivemongo.akkastream.{ cursorProducer, AkkaStreamCursor }
 import reactivemongo.api.ReadPreference
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 final private class RelayRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

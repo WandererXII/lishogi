@@ -1,28 +1,28 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import org.goochjs.glicko2.{ Rating, RatingCalculator, RatingPeriodResults }
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 import scala.util.chaining._
 
-import lila.common.Bus
-import lila.db.AsyncColl
-import lila.db.dsl._
-import lila.rating.Perf
-import lila.rating.{ Glicko, PerfType }
-import lila.user.{ User, UserRepo }
+import lishogi.common.Bus
+import lishogi.db.AsyncColl
+import lishogi.db.dsl._
+import lishogi.rating.Perf
+import lishogi.rating.{ Glicko, PerfType }
+import lishogi.user.{ User, UserRepo }
 
 final private[puzzle] class PuzzleFinisher(
     api: PuzzleApi,
     userRepo: UserRepo,
-    historyApi: lila.history.HistoryApi,
+    historyApi: lishogi.history.HistoryApi,
     colls: PuzzleColls
 )(implicit ec: scala.concurrent.ExecutionContext, system: akka.actor.ActorSystem, mode: play.api.Mode) {
 
   import BsonHandlers._
 
   private val sequencer =
-    new lila.hub.DuctSequencers(
+    new lishogi.hub.DuctSequencers(
       maxSize = 64,
       expiration = 5 minutes,
       timeout = 5 seconds,

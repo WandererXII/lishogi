@@ -1,13 +1,13 @@
-package lila.security
+package lishogi.security
 
 import play.api.i18n.Lang
 import play.api.mvc.{ Cookie, RequestHeader }
 import scalatags.Text.all._
 
-import lila.common.config._
-import lila.common.{ EmailAddress, LilaCookie }
-import lila.i18n.I18nKeys.{ emails => trans }
-import lila.user.{ User, UserRepo }
+import lishogi.common.config._
+import lishogi.common.{ EmailAddress, LishogiCookie }
+import lishogi.i18n.I18nKeys.{ emails => trans }
+import lishogi.user.{ User, UserRepo }
 
 trait EmailConfirm {
 
@@ -43,9 +43,9 @@ final class EmailConfirmMailgun(
 
   def send(user: User, email: EmailAddress)(implicit lang: Lang): Funit =
     tokener make user.id flatMap { token =>
-      lila.mon.email.send.confirmation.increment()
+      lishogi.mon.email.send.confirmation.increment()
       val url = s"$baseUrl/signup/confirm/$token"
-      lila.log("auth").info(s"Confirm URL ${user.username} ${email.value} $url")
+      lishogi.log("auth").info(s"Confirm URL ${user.username} ${email.value} $url")
       mailgun send Mailgun.Message(
         to = email,
         subject = trans.emailConfirm_subject.txt(user.username),
@@ -109,8 +109,8 @@ object EmailConfirm {
     val name        = "email_confirm"
     private val sep = ":"
 
-    def make(lilaCookie: LilaCookie, user: User, email: EmailAddress)(implicit req: RequestHeader): Cookie =
-      lilaCookie.session(
+    def make(lishogiCookie: LishogiCookie, user: User, email: EmailAddress)(implicit req: RequestHeader): Cookie =
+      lishogiCookie.session(
         name = name,
         value = s"${user.username}$sep${email.value}"
       )
@@ -126,8 +126,8 @@ object EmailConfirm {
   import scala.concurrent.duration._
   import play.api.mvc.RequestHeader
   import ornicar.scalalib.Zero
-  import lila.memo.RateLimit
-  import lila.common.{ HTTPRequest, IpAddress }
+  import lishogi.memo.RateLimit
+  import lishogi.common.{ HTTPRequest, IpAddress }
 
   private lazy val rateLimitPerIP = new RateLimit[IpAddress](
     credits = 40,

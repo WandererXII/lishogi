@@ -1,8 +1,8 @@
-package lila.history
+package lishogi.history
 
 import scala.util.Success
 
-import lila.rating.PerfType
+import lishogi.rating.PerfType
 
 case class History(
     standard: RatingsMap, //todo variant

@@ -1,4 +1,4 @@
-package lila.base
+package lishogi.base
 
 import play.api.libs.json._
 

@@ -3,9 +3,9 @@ package auth
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -15,7 +15,7 @@ object signup {
     """<script src="https://www.google.com/recaptcha/api.js" async defer></script>"""
   )
 
-  def apply(form: Form[_], recaptcha: lila.security.RecaptchaPublicConfig)(implicit ctx: Context) =
+  def apply(form: Form[_], recaptcha: lishogi.security.RecaptchaPublicConfig)(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.signUp.txt(),
       moreJs = frag(

@@ -1,9 +1,9 @@
-package lila.swiss
+package lishogi.swiss
 
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 final private class SwissScoring(
     colls: SwissColls
@@ -14,7 +14,7 @@ final private class SwissScoring(
   def apply(id: Swiss.Id): Fu[Option[SwissScoring.Result]] = sequencer(id).monSuccess(_.swiss.scoringGet)
 
   private val sequencer =
-    new lila.hub.AskPipelines[Swiss.Id, Option[SwissScoring.Result]](
+    new lishogi.hub.AskPipelines[Swiss.Id, Option[SwissScoring.Result]](
       compute = recompute,
       expiration = 1 minute,
       timeout = 10 seconds,

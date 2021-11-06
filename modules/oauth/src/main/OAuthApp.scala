@@ -1,8 +1,8 @@
-package lila.oauth
+package lishogi.oauth
 
 import org.joda.time.DateTime
 
-import lila.user.User
+import lishogi.user.User
 
 case class OAuthApp(
     name: String,
@@ -35,8 +35,8 @@ object OAuthApp {
   }
 
   import reactivemongo.api.bson._
-  import lila.db.BSON
-  import lila.db.dsl._
+  import lishogi.db.BSON
+  import lishogi.db.dsl._
   import BSON.BSONJodaDateTimeHandler
 
   implicit private[oauth] val AppIdHandler     = stringAnyValHandler[Id](_.value, Id.apply)

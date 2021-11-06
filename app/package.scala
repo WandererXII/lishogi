@@ -1,4 +1,4 @@
-package lila
+package lishogi
 
 import play.api.http._
 import play.api.mvc.Codec

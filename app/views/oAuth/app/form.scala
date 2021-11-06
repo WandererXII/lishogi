@@ -2,9 +2,9 @@ package views.html.oAuth.app
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -25,7 +25,7 @@ object form {
     }
   }
 
-  def edit(app: lila.oauth.OAuthApp, form: Form[_])(implicit ctx: Context) = {
+  def edit(app: lishogi.oauth.OAuthApp, form: Form[_])(implicit ctx: Context) = {
     val title = s"Edit ${app.name}"
     views.html.account.layout(title = title, active = "oauth.app") {
       div(cls := "account oauth box box-pad")(

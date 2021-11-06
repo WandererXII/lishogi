@@ -1,10 +1,10 @@
-package lila.swiss
+package lishogi.swiss
 
 import akka.stream.scaladsl._
 import reactivemongo.api.bson.Macros
 import scala.concurrent.duration._
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 case class SwissStats(
     games: Int = 0,
@@ -19,7 +19,7 @@ case class SwissStats(
 final class SwissStatsApi(
     colls: SwissColls,
     sheetApi: SwissSheetApi,
-    mongoCache: lila.memo.MongoCache.Api
+    mongoCache: lishogi.memo.MongoCache.Api
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     mat: akka.stream.Materializer

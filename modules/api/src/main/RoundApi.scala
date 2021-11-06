@@ -1,33 +1,33 @@
-package lila.api
+package lishogi.api
 
 import shogi.format.FEN
 import play.api.i18n.Lang
 import play.api.libs.json._
 
-import lila.analyse.{ JsonView => analysisJson, Analysis }
-import lila.common.ApiVersion
-import lila.game.{ Game, Pov }
-import lila.pref.Pref
-import lila.round.JsonView.WithFlags
-import lila.round.{ Forecast, JsonView }
-import lila.security.Granter
-import lila.simul.Simul
-import lila.swiss.{ GameView => SwissView }
-import lila.tournament.{ GameView => TourView }
-import lila.tree.Node.partitionTreeJsonWriter
-import lila.user.User
+import lishogi.analyse.{ JsonView => analysisJson, Analysis }
+import lishogi.common.ApiVersion
+import lishogi.game.{ Game, Pov }
+import lishogi.pref.Pref
+import lishogi.round.JsonView.WithFlags
+import lishogi.round.{ Forecast, JsonView }
+import lishogi.security.Granter
+import lishogi.simul.Simul
+import lishogi.swiss.{ GameView => SwissView }
+import lishogi.tournament.{ GameView => TourView }
+import lishogi.tree.Node.partitionTreeJsonWriter
+import lishogi.user.User
 
 final private[api] class RoundApi(
     jsonView: JsonView,
-    noteApi: lila.round.NoteApi,
-    forecastApi: lila.round.ForecastApi,
-    bookmarkApi: lila.bookmark.BookmarkApi,
-    gameRepo: lila.game.GameRepo,
-    tourApi: lila.tournament.TournamentApi,
-    swissApi: lila.swiss.SwissApi,
-    simulApi: lila.simul.SimulApi,
-    getTeamName: lila.team.GetTeamName,
-    getLightUser: lila.common.LightUser.GetterSync
+    noteApi: lishogi.round.NoteApi,
+    forecastApi: lishogi.round.ForecastApi,
+    bookmarkApi: lishogi.bookmark.BookmarkApi,
+    gameRepo: lishogi.game.GameRepo,
+    tourApi: lishogi.tournament.TournamentApi,
+    swissApi: lishogi.swiss.SwissApi,
+    simulApi: lishogi.simul.SimulApi,
+    getTeamName: lishogi.team.GetTeamName,
+    getLightUser: lishogi.common.LightUser.GetterSync
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def player(pov: Pov, tour: Option[TourView], apiVersion: ApiVersion)(implicit
@@ -69,7 +69,7 @@ final private[api] class RoundApi(
       pov: Pov,
       tour: Option[TourView],
       apiVersion: ApiVersion,
-      tv: Option[lila.round.OnTv],
+      tv: Option[lishogi.round.OnTv],
       initialFenO: Option[Option[FEN]] = None
   )(implicit ctx: Context): Fu[JsObject] =
     initialFenO
@@ -104,7 +104,7 @@ final private[api] class RoundApi(
   def review(
       pov: Pov,
       apiVersion: ApiVersion,
-      tv: Option[lila.round.OnTv] = None,
+      tv: Option[lishogi.round.OnTv] = None,
       analysis: Option[Analysis] = None,
       initialFenO: Option[Option[FEN]] = None,
       withFlags: WithFlags
@@ -198,7 +198,7 @@ final private[api] class RoundApi(
       obj: JsObject
   ) =
     obj + ("treeParts" -> partitionTreeJsonWriter.writes(
-      lila.round.TreeBuilder(
+      lishogi.round.TreeBuilder(
         id = pov.gameId,
         pgnMoves = pov.game.pgnMoves,
         variant = pov.game.variant,
@@ -210,7 +210,7 @@ final private[api] class RoundApi(
     ))
 
   private def withSteps(pov: Pov, initialFen: Option[FEN])(obj: JsObject) =
-    obj + ("steps" -> lila.round.StepBuilder(
+    obj + ("steps" -> lishogi.round.StepBuilder(
       id = pov.gameId,
       pgnMoves = pov.game.pgnMoves,
       variant = pov.game.variant,
@@ -272,7 +272,7 @@ final private[api] class RoundApi(
         .add(
           "top",
           v.top.map {
-            lila.tournament.JsonView.top(_, getLightUser)
+            lishogi.tournament.JsonView.top(_, getLightUser)
           }
         )
         .add(

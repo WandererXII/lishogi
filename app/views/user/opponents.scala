@@ -1,16 +1,16 @@
 package views.html
 package user
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
-import lila.game.FavoriteOpponents
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
+import lishogi.game.FavoriteOpponents
 
 import controllers.routes
 
 object opponents {
-  def apply(u: User, sugs: List[lila.relation.Related])(implicit ctx: Context) =
+  def apply(u: User, sugs: List[lishogi.relation.Related])(implicit ctx: Context) =
     relation.bits.layout(s"${u.username} • ${trans.favoriteOpponents.txt()}")(
       h1(
         a(href := routes.User.show(u.username), dataIcon := "I", cls := "text"),

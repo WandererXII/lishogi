@@ -1,14 +1,14 @@
-package lila.app
+package lishogi.app
 package templating
 
 import shogi.{ Mode, Speed }
 import shogi.variant.Variant
 import play.api.i18n.Lang
 
-import lila.i18n.{ I18nKeys => trans }
-import lila.pref.Pref
-import lila.report.Reason
-import lila.setup.TimeMode
+import lishogi.i18n.{ I18nKeys => trans }
+import lishogi.pref.Pref
+import lishogi.report.Reason
+import lishogi.setup.TimeMode
 
 trait SetupHelper { self: I18nHelper =>
 
@@ -259,7 +259,7 @@ trait SetupHelper { self: I18nHelper =>
       (Pref.Challenge.NEVER, trans.never.txt()),
       (
         Pref.Challenge.RATING,
-        trans.ifRatingIsPlusMinusX.txt(lila.pref.Pref.Challenge.ratingThreshold)
+        trans.ifRatingIsPlusMinusX.txt(lishogi.pref.Pref.Challenge.ratingThreshold)
       ),
       (Pref.Challenge.FRIEND, trans.onlyFriends.txt()),
       (Pref.Challenge.ALWAYS, trans.always.txt())

@@ -1,10 +1,10 @@
-package lila.perfStat
+package lishogi.perfStat
 
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.rating.BSONHandlers.perfTypeIdHandler
-import lila.rating.PerfType
+import lishogi.db.dsl._
+import lishogi.rating.BSONHandlers.perfTypeIdHandler
+import lishogi.rating.PerfType
 
 final class PerfStatStorage(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

@@ -2,12 +2,12 @@ package views.html.relation
 
 import play.api.mvc.Call
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.relation.Related
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.relation.Related
+import lishogi.user.User
 
 import controllers.routes
 

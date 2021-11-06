@@ -1,4 +1,4 @@
-package lila.security
+package lishogi.security
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -6,27 +6,27 @@ import play.api.Configuration
 import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.common.{ Bus, Strings }
-import lila.memo.SettingStore.Strings._
-import lila.oauth.OAuthServer
-import lila.user.{ Authenticator, UserRepo }
+import lishogi.common.config._
+import lishogi.common.{ Bus, Strings }
+import lishogi.memo.SettingStore.Strings._
+import lishogi.oauth.OAuthServer
+import lishogi.user.{ Authenticator, UserRepo }
 
 @Module
 final class Env(
     appConfig: Configuration,
     ws: WSClient,
     net: NetConfig,
-    captcher: lila.hub.actors.Captcher,
+    captcher: lishogi.hub.actors.Captcher,
     userRepo: UserRepo,
     authenticator: Authenticator,
-    slack: lila.slack.SlackApi,
-    noteApi: lila.user.NoteApi,
-    cacheApi: lila.memo.CacheApi,
-    settingStore: lila.memo.SettingStore.Builder,
+    slack: lishogi.slack.SlackApi,
+    noteApi: lishogi.user.NoteApi,
+    cacheApi: lishogi.memo.CacheApi,
+    settingStore: lishogi.memo.SettingStore.Builder,
     tryOAuthServer: OAuthServer.Try,
-    mongoCache: lila.memo.MongoCache.Api,
-    db: lila.db.Db
+    mongoCache: lishogi.memo.MongoCache.Api,
+    db: lishogi.db.Db
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
@@ -155,7 +155,7 @@ final class Env(
 
   def cli = wire[Cli]
 
-  Bus.subscribeFun("fishnet") { case lila.hub.actorApi.fishnet.NewKey(userId, key) =>
+  Bus.subscribeFun("fishnet") { case lishogi.hub.actorApi.fishnet.NewKey(userId, key) =>
     automaticEmail.onFishnetKey(userId, key)
   }
 }

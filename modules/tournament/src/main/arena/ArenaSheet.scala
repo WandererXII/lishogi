@@ -1,4 +1,4 @@
-package lila.tournament
+package lishogi.tournament
 package arena
 
 import org.joda.time.DateTime

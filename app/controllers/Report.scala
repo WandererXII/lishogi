@@ -4,17 +4,17 @@ import play.api.mvc.AnyContentAsFormUrlEncoded
 
 import views._
 
-import lila.api.{ BodyContext, Context }
-import lila.app._
-import lila.common.HTTPRequest
-import lila.report.{ Room, Report => ReportModel, Mod => AsMod, Reporter, Suspect }
-import lila.user.{ User => UserModel }
+import lishogi.api.{ BodyContext, Context }
+import lishogi.app._
+import lishogi.common.HTTPRequest
+import lishogi.report.{ Room, Report => ReportModel, Mod => AsMod, Reporter, Suspect }
+import lishogi.user.{ User => UserModel }
 
 final class Report(
     env: Env,
     userC: => User,
     modC: => Mod
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private def api = env.report.api
 
@@ -112,9 +112,9 @@ final class Report(
   def currentCheatInquiry(username: String) =
     Secure(_.Hunter) { implicit ctx => me =>
       OptionFuResult(env.user.repo named username) { user =>
-        api.currentCheatReport(lila.report.Suspect(user)) flatMap {
+        api.currentCheatReport(lishogi.report.Suspect(user)) flatMap {
           _ ?? { report =>
-            api.inquiries.toggle(lila.report.Mod(me), report.id)
+            api.inquiries.toggle(lishogi.report.Mod(me), report.id)
           } inject modC.redirect(username, true)
         }
       }

@@ -1,4 +1,4 @@
-package lila.report
+package lishogi.report
 
 final private class ReportScore(
     getAccuracy: ReporterId => Fu[Option[Accuracy]]

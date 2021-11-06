@@ -1,12 +1,12 @@
-package lila.setup
+package lishogi.setup
 
 import play.api.data._
 import play.api.data.Forms._
 
 import shogi.format.FEN
 import shogi.variant.Variant
-import lila.rating.RatingRange
-import lila.user.UserContext
+import lishogi.rating.RatingRange
+import lishogi.user.UserContext
 
 final class FormFactory {
 
@@ -101,7 +101,7 @@ final class FormFactory {
         periods = p,
         days = 1,
         mode = shogi.Mode(~r),
-        color = lila.lobby.Color.orDefault(c),
+        color = lishogi.lobby.Color.orDefault(c),
         ratingRange = g.fold(RatingRange.default)(RatingRange.orDefault)
       )
     )(_ => none)
@@ -110,7 +110,7 @@ final class FormFactory {
         "Invalid time control",
         hook =>
           hook.makeClock ?? {
-            lila.game.Game.isBoardCompatible(_, hook.mode)
+            lishogi.game.Game.isBoardCompatible(_, hook.mode)
           }
       )
   )

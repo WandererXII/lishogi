@@ -1,6 +1,6 @@
-package lila.study
+package lishogi.study
 
-import lila.user.User
+import lishogi.user.User
 
 case class StudyMember(id: User.ID, role: StudyMember.Role) {
 

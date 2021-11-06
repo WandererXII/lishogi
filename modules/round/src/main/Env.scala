@@ -1,4 +1,4 @@
-package lila.round
+package lishogi.round
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -7,13 +7,13 @@ import play.api.Configuration
 import scala.concurrent.duration._
 
 import actorApi.{ GetSocketStatus, SocketStatus }
-import lila.common.{ Bus, Uptime }
-import lila.common.config._
-import lila.game.{ Game, GameRepo, Pov }
-import lila.hub.actorApi.round.{ Abort, Resign }
-import lila.hub.actorApi.simul.GetHostIds
-import lila.hub.actors
-import lila.user.User
+import lishogi.common.{ Bus, Uptime }
+import lishogi.common.config._
+import lishogi.game.{ Game, GameRepo, Pov }
+import lishogi.hub.actorApi.round.{ Abort, Resign }
+import lishogi.hub.actorApi.simul.GetHostIds
+import lishogi.hub.actors
+import lishogi.user.User
 
 @Module
 private class RoundConfig(
@@ -27,31 +27,31 @@ private class RoundConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
+    db: lishogi.db.Db,
     gameRepo: GameRepo,
-    idGenerator: lila.game.IdGenerator,
-    userRepo: lila.user.UserRepo,
+    idGenerator: lishogi.game.IdGenerator,
+    userRepo: lishogi.user.UserRepo,
     timeline: actors.Timeline,
     bookmark: actors.Bookmark,
     tournamentApi: actors.TournamentApi,
-    chatApi: lila.chat.ChatApi,
-    fishnetPlayer: lila.fishnet.Player,
-    crosstableApi: lila.game.CrosstableApi,
-    playban: lila.playban.PlaybanApi,
-    userJsonView: lila.user.JsonView,
-    gameJsonView: lila.game.JsonView,
-    rankingApi: lila.user.RankingApi,
-    notifyApi: lila.notify.NotifyApi,
-    uciMemo: lila.game.UciMemo,
-    rematches: lila.game.Rematches,
-    divider: lila.game.Divider,
-    prefApi: lila.pref.PrefApi,
-    historyApi: lila.history.HistoryApi,
-    evalCache: lila.evalCache.EvalCacheApi,
-    remoteSocketApi: lila.socket.RemoteSocket,
-    isBotSync: lila.common.LightUser.IsBotSync,
-    slackApi: lila.slack.SlackApi,
-    ratingFactors: () => lila.rating.RatingFactors,
+    chatApi: lishogi.chat.ChatApi,
+    fishnetPlayer: lishogi.fishnet.Player,
+    crosstableApi: lishogi.game.CrosstableApi,
+    playban: lishogi.playban.PlaybanApi,
+    userJsonView: lishogi.user.JsonView,
+    gameJsonView: lishogi.game.JsonView,
+    rankingApi: lishogi.user.RankingApi,
+    notifyApi: lishogi.notify.NotifyApi,
+    uciMemo: lishogi.game.UciMemo,
+    rematches: lishogi.game.Rematches,
+    divider: lishogi.game.Divider,
+    prefApi: lishogi.pref.PrefApi,
+    historyApi: lishogi.history.HistoryApi,
+    evalCache: lishogi.evalCache.EvalCacheApi,
+    remoteSocketApi: lishogi.socket.RemoteSocket,
+    isBotSync: lishogi.common.LightUser.IsBotSync,
+    slackApi: lishogi.slack.SlackApi,
+    ratingFactors: () => lishogi.rating.RatingFactors,
     shutdown: akka.actor.CoordinatedShutdown
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -91,7 +91,7 @@ final class Env(
   lazy val roundSocket: RoundSocket = wire[RoundSocket]
 
   Bus.subscribeFuns(
-    "accountClose" -> { case lila.hub.actorApi.security.CloseAccount(userId) =>
+    "accountClose" -> { case lishogi.hub.actorApi.security.CloseAccount(userId) =>
       gameRepo.allPlaying(userId) map {
         _ foreach { pov =>
           tellRound(pov.gameId, Resign(pov.playerId))
@@ -113,9 +113,9 @@ final class Env(
   lazy val onStart: OnStart = new OnStart((gameId: Game.ID) =>
     proxyRepo game gameId foreach {
       _ foreach { game =>
-        Bus.publish(lila.game.actorApi.StartGame(game), "startGame")
+        Bus.publish(lishogi.game.actorApi.StartGame(game), "startGame")
         game.userIds foreach { userId =>
-          Bus.publish(lila.game.actorApi.StartGame(game), s"userStartGame:$userId")
+          Bus.publish(lishogi.game.actorApi.StartGame(game), s"userStartGame:$userId")
         }
       }
     }
@@ -156,7 +156,7 @@ final class Env(
 
   lazy val getSocketStatus = (game: Game) => roundSocket.rounds.ask[SocketStatus](game.id)(GetSocketStatus)
 
-  private def isUserPresent(game: Game, userId: lila.user.User.ID): Fu[Boolean] =
+  private def isUserPresent(game: Game, userId: lishogi.user.User.ID): Fu[Boolean] =
     roundSocket.rounds.askIfPresentOrZero[Boolean](game.id)(RoundDuct.HasUserId(userId, _))
 
   lazy val jsonView = wire[JsonView]

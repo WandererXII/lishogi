@@ -1,14 +1,14 @@
 package controllers
 
 import io.prismic.{ Api => PrismicApi, _ }
-import lila.app._
-import lila.common.BlogLangs
+import lishogi.app._
+import lishogi.common.BlogLangs
 
 final class Prismic(
     env: Env
 )(implicit ec: scala.concurrent.ExecutionContext, ws: play.api.libs.ws.WSClient) {
 
-  private val logger = lila.log("prismic")
+  private val logger = lishogi.log("prismic")
 
   private def prismicApi = env.blog.api.prismicApi
 

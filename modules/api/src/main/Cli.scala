@@ -1,27 +1,27 @@
-package lila.api
+package lishogi.api
 
-import lila.common.Bus
+import lishogi.common.Bus
 
 final private[api] class Cli(
-    userRepo: lila.user.UserRepo,
-    security: lila.security.Env,
-    teamSearch: lila.teamSearch.Env,
-    forumSearch: lila.forumSearch.Env,
-    team: lila.team.Env,
-    puzzle: lila.puzzle.Env,
-    tournament: lila.tournament.Env,
-    explorer: lila.explorer.Env,
-    fishnet: lila.fishnet.Env,
-    study: lila.study.Env,
-    studySearch: lila.studySearch.Env,
-    coach: lila.coach.Env,
-    evalCache: lila.evalCache.Env,
-    plan: lila.plan.Env,
-    msg: lila.msg.Env
+    userRepo: lishogi.user.UserRepo,
+    security: lishogi.security.Env,
+    teamSearch: lishogi.teamSearch.Env,
+    forumSearch: lishogi.forumSearch.Env,
+    team: lishogi.team.Env,
+    puzzle: lishogi.puzzle.Env,
+    tournament: lishogi.tournament.Env,
+    explorer: lishogi.explorer.Env,
+    fishnet: lishogi.fishnet.Env,
+    study: lishogi.study.Env,
+    studySearch: lishogi.studySearch.Env,
+    coach: lishogi.coach.Env,
+    evalCache: lishogi.evalCache.Env,
+    plan: lishogi.plan.Env,
+    msg: lishogi.msg.Env
 )(implicit ec: scala.concurrent.ExecutionContext)
-    extends lila.common.Cli {
+    extends lishogi.common.Cli {
 
-  private val logger = lila.log("cli")
+  private val logger = lishogi.log("cli")
 
   def apply(args: List[String]): Fu[String] =
     run(args).dmap(_ + "\n") ~ {
@@ -31,9 +31,9 @@ final private[api] class Cli(
     }
 
   def process = {
-    case "uptime" :: Nil => fuccess(s"${lila.common.Uptime.seconds} seconds")
+    case "uptime" :: Nil => fuccess(s"${lishogi.common.Uptime.seconds} seconds")
     case "change" :: ("asset" | "assets") :: "version" :: Nil =>
-      import lila.common.AssetVersion
+      import lishogi.common.AssetVersion
       AssetVersion.change()
       fuccess(s"Changed to ${AssetVersion.current}")
     case "gdpr" :: "erase" :: username :: "forever" :: Nil =>
@@ -41,7 +41,7 @@ final private[api] class Cli(
         case None                       => "No such user."
         case Some(user) if user.enabled => "That user account is not closed. Can't erase."
         case Some(user) =>
-          Bus.publish(lila.user.User.GDPRErase(user), "gdprErase")
+          Bus.publish(lishogi.user.User.GDPRErase(user), "gdprErase")
           s"Erasing all data about ${user.username} now"
       }
     case "announce" :: "cancel" :: Nil =>

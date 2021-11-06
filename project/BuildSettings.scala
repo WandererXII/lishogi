@@ -5,7 +5,7 @@ object BuildSettings {
 
   import Dependencies._
 
-  val lilaVersion        = "3.0"
+  val lishogiVersion        = "3.0"
   val globalScalaVersion = "2.13.4"
 
   val useEpoll = sys.props.get("epoll").fold(false)(_.toBoolean)
@@ -13,7 +13,7 @@ object BuildSettings {
 
   def buildSettings =
     Defaults.coreDefaultSettings ++ Seq(
-      version := lilaVersion,
+      version := lishogiVersion,
       organization := "org.lishogi",
       scalaVersion := globalScalaVersion,
       resolvers ++= Dependencies.Resolvers.commons,

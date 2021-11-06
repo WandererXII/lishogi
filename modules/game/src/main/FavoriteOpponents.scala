@@ -1,13 +1,13 @@
-package lila.game
+package lishogi.game
 
 import scala.concurrent.duration._
 
-import lila.user.{ User, UserRepo }
+import lishogi.user.{ User, UserRepo }
 
 final class FavoriteOpponents(
     userRepo: UserRepo,
     gameRepo: GameRepo,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private val userIdsCache = cacheApi[User.ID, List[(User.ID, Int)]](64, "favoriteOpponents") {

@@ -1,4 +1,4 @@
-package lila.puzzle
+package lishogi.puzzle
 
 sealed abstract class PuzzleTier(val key: String) {
 

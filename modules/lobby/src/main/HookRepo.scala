@@ -1,8 +1,8 @@
-package lila.lobby
+package lishogi.lobby
 
 import org.joda.time.DateTime
 
-import lila.socket.Socket.Sri
+import lishogi.socket.Socket.Sri
 
 private object HookRepo {
 
@@ -50,7 +50,7 @@ private object HookRepo {
     partition(_.createdAt isAfter limit)
   }
 
-  def poolCandidates(clock: shogi.Clock.Config): Vector[lila.pool.HookThieve.PoolHook] =
+  def poolCandidates(clock: shogi.Clock.Config): Vector[lishogi.pool.HookThieve.PoolHook] =
     hooks.filter(_ compatibleWithPool clock).map(_.toPool)
 
   // keeps hooks that hold true

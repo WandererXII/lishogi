@@ -1,10 +1,10 @@
-package lila.rating
+package lishogi.rating
 
 import play.api.i18n.Lang
 
 import shogi.Centis
 import shogi.Speed
-import lila.i18n.I18nKeys
+import lishogi.i18n.I18nKeys
 
 sealed abstract class PerfType(
     val id: Perf.ID,

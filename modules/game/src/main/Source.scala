@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 sealed abstract class Source(val id: Int) {
 

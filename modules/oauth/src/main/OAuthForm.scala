@@ -1,4 +1,4 @@
-package lila.oauth
+package lishogi.oauth
 
 import org.joda.time.DateTime
 import play.api.data._
@@ -23,7 +23,7 @@ object OAuthForm {
         description: String,
         scopes: List[String]
     ) {
-      def make(user: lila.user.User) =
+      def make(user: lishogi.user.User) =
         AccessToken(
           id = AccessToken.makeId,
           clientId = PersonalToken.clientId,
@@ -56,7 +56,7 @@ object OAuthForm {
         homepageUri: String,
         redirectUri: String
     ) {
-      def make(user: lila.user.User) =
+      def make(user: lishogi.user.User) =
         OAuthApp(
           name = name,
           description = description,

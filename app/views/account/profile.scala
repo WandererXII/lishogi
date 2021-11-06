@@ -1,9 +1,9 @@
 package views.html
 package account
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -15,7 +15,7 @@ object profile {
     "One URL per line."
   )
 
-  def apply(u: lila.user.User, form: play.api.data.Form[_])(implicit ctx: Context) =
+  def apply(u: lishogi.user.User, form: play.api.data.Form[_])(implicit ctx: Context) =
     account.layout(
       title = s"${u.username} - ${trans.editProfile.txt()}",
       active = "editProfile"
@@ -27,7 +27,7 @@ object profile {
           div(cls := "form-group")(trans.allInformationIsPublicAndOptional()),
           form3.split(
             form3.group(form("country"), trans.country(), half = true) { f =>
-              form3.select(f, lila.user.Countries.allPairs, default = "".some)
+              form3.select(f, lishogi.user.Countries.allPairs, default = "".some)
             },
             form3.group(form("location"), trans.location(), half = true)(form3.input(_))
           ),

@@ -1,4 +1,4 @@
-package lila.report
+package lishogi.report
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -6,7 +6,7 @@ import io.methvin.play.autoconfig._
 import play.api.Configuration
 import scala.concurrent.duration._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 private class ReportConfig(
@@ -20,20 +20,20 @@ private case class Thresholds(score: () => Int, slack: () => Int)
 @Module
 final class Env(
     appConfig: Configuration,
-    domain: lila.common.config.NetDomain,
-    db: lila.db.Db,
-    isOnline: lila.socket.IsOnline,
-    userRepo: lila.user.UserRepo,
-    lightUserAsync: lila.common.LightUser.Getter,
-    gameRepo: lila.game.GameRepo,
-    securityApi: lila.security.SecurityApi,
-    userSpyApi: lila.security.UserSpyApi,
-    playbanApi: lila.playban.PlaybanApi,
-    slackApi: lila.slack.SlackApi,
-    captcher: lila.hub.actors.Captcher,
-    fishnet: lila.hub.actors.Fishnet,
-    settingStore: lila.memo.SettingStore.Builder,
-    cacheApi: lila.memo.CacheApi
+    domain: lishogi.common.config.NetDomain,
+    db: lishogi.db.Db,
+    isOnline: lishogi.socket.IsOnline,
+    userRepo: lishogi.user.UserRepo,
+    lightUserAsync: lishogi.common.LightUser.Getter,
+    gameRepo: lishogi.game.GameRepo,
+    securityApi: lishogi.security.SecurityApi,
+    userSpyApi: lishogi.security.UserSpyApi,
+    playbanApi: lishogi.playban.PlaybanApi,
+    slackApi: lishogi.slack.SlackApi,
+    captcher: lishogi.hub.actors.Captcher,
+    fishnet: lishogi.hub.actors.Fishnet,
+    settingStore: lishogi.memo.SettingStore.Builder,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -72,20 +72,20 @@ final class Env(
   system.actorOf(
     Props(new Actor {
       def receive = {
-        case lila.hub.actorApi.report.Cheater(userId, text) =>
+        case lishogi.hub.actorApi.report.Cheater(userId, text) =>
           api.autoCheatReport(userId, text)
-        case lila.hub.actorApi.report.Shutup(userId, text, major) =>
+        case lishogi.hub.actorApi.report.Shutup(userId, text, major) =>
           api.autoInsultReport(userId, text, major)
-        case lila.hub.actorApi.report.Booster(winnerId, loserId) =>
+        case lishogi.hub.actorApi.report.Booster(winnerId, loserId) =>
           api.autoBoostReport(winnerId, loserId)
       }
     }),
     name = config.actorName
   )
 
-  lila.common.Bus.subscribeFun("playban", "autoFlag") {
-    case lila.hub.actorApi.playban.Playban(userId, _) => api.maybeAutoPlaybanReport(userId)
-    case lila.hub.actorApi.report.AutoFlag(suspectId, resource, text) =>
+  lishogi.common.Bus.subscribeFun("playban", "autoFlag") {
+    case lishogi.hub.actorApi.playban.Playban(userId, _) => api.maybeAutoPlaybanReport(userId)
+    case lishogi.hub.actorApi.report.AutoFlag(suspectId, resource, text) =>
       api.autoCommFlag(SuspectId(suspectId), resource, text)
   }
 

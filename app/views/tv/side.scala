@@ -1,20 +1,20 @@
 package views.html.tv
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object side {
 
   def channels(
-      channel: lila.tv.Tv.Channel,
-      champions: lila.tv.Tv.Champions,
+      channel: lishogi.tv.Tv.Channel,
+      champions: lishogi.tv.Tv.Champions,
       baseUrl: String
   ): Frag =
     div(cls := "tv-channels subnav")(
-      lila.tv.Tv.Channel.all.map { c =>
+      lishogi.tv.Tv.Channel.all.map { c =>
         a(
           href := s"$baseUrl/${c.key}",
           cls := List(
@@ -43,7 +43,7 @@ object side {
 
   private val separator = " • "
 
-  def meta(pov: lila.game.Pov)(implicit ctx: Context): Frag = {
+  def meta(pov: lishogi.game.Pov)(implicit ctx: Context): Frag = {
     import pov._
     div(cls := "game__meta")(
       st.section(
@@ -85,8 +85,8 @@ object side {
   }
 
   def sides(
-      pov: lila.game.Pov,
-      cross: Option[lila.game.Crosstable.WithMatchup]
+      pov: lishogi.game.Pov,
+      cross: Option[lishogi.game.Crosstable.WithMatchup]
   )(implicit ctx: Context) =
     div(cls := "sides")(
       cross.map {

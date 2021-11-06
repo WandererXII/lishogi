@@ -1,11 +1,11 @@
-package lila.perfStat
+package lishogi.perfStat
 
 import scala.concurrent.duration._
 import reactivemongo.api.ReadPreference
 
-import lila.game.{ Game, GameRepo, Pov, Query }
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.game.{ Game, GameRepo, Pov, Query }
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 final class PerfStatIndexer(
     gameRepo: GameRepo,
@@ -16,7 +16,7 @@ final class PerfStatIndexer(
 ) {
 
   private val workQueue =
-    new lila.hub.DuctSequencer(maxSize = 64, timeout = 10 seconds, name = "perfStatIndexer")
+    new lishogi.hub.DuctSequencer(maxSize = 64, timeout = 10 seconds, name = "perfStatIndexer")
 
   private[perfStat] def userPerf(user: User, perfType: PerfType): Fu[PerfStat] =
     workQueue {
@@ -35,7 +35,7 @@ final class PerfStatIndexer(
           case (perfStat, _) => perfStat
         }
         .flatMap { ps =>
-          storage insert ps recover lila.db.recoverDuplicateKey(_ => ()) inject ps
+          storage insert ps recover lishogi.db.recoverDuplicateKey(_ => ()) inject ps
         }
         .mon(_.perfStat.indexTime)
     }

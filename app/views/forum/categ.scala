@@ -1,20 +1,20 @@
 package views.html
 package forum
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
 
 import controllers.routes
 
 object categ {
 
-  def index(categs: List[lila.forum.CategView])(implicit ctx: Context) =
+  def index(categs: List[lishogi.forum.CategView])(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.forum.txt(),
       moreCss = cssTag("forum"),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = "Lishogi community forum",
           url = s"$netBaseUrl${routes.ForumCateg.index().url}",
@@ -37,10 +37,10 @@ object categ {
     }
 
   def show(
-      categ: lila.forum.Categ,
-      topics: Paginator[lila.forum.TopicView],
+      categ: lishogi.forum.Categ,
+      topics: Paginator[lishogi.forum.TopicView],
       canWrite: Boolean,
-      stickyPosts: List[lila.forum.TopicView]
+      stickyPosts: List[lishogi.forum.TopicView]
   )(implicit ctx: Context) = {
 
     val newTopicButton = canWrite option
@@ -51,7 +51,7 @@ object categ {
       )(
         trans.createANewTopic()
       )
-    def showTopic(sticky: Boolean)(topic: lila.forum.TopicView) =
+    def showTopic(sticky: Boolean)(topic: lishogi.forum.TopicView) =
       tr(cls := List("sticky" -> sticky))(
         td(cls := "subject")(
           a(href := routes.ForumTopic.show(categ.slug, topic.slug))(topic.name)
@@ -78,7 +78,7 @@ object categ {
     views.html.base.layout(
       title = categ.name,
       moreCss = cssTag("forum"),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = s"Forum: ${categ.name}",
           url = s"$netBaseUrl${routes.ForumCateg.show(categ.slug).url}",
@@ -115,7 +115,7 @@ object categ {
     }
   }
 
-  private def showCategs(categs: List[lila.forum.CategView])(implicit ctx: Context) =
+  private def showCategs(categs: List[lishogi.forum.CategView])(implicit ctx: Context) =
     table(cls := "categs slist slist-pad")(
       thead(
         tr(

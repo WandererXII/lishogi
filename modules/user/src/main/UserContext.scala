@@ -1,4 +1,4 @@
-package lila.user
+package lishogi.user
 
 import play.api.mvc.{ Request, RequestHeader }
 import play.api.i18n.Lang
@@ -27,7 +27,7 @@ sealed trait UserContext {
 
   def troll = me.??(_.marks.troll)
 
-  def ip = lila.common.HTTPRequest lastRemoteAddress req
+  def ip = lishogi.common.HTTPRequest lastRemoteAddress req
 
   def kid   = me.??(_.kid)
   def noKid = !kid

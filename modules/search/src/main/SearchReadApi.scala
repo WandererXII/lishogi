@@ -1,4 +1,4 @@
-package lila.search
+package lishogi.search
 
 trait SearchReadApi[A, Q] {
 

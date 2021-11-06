@@ -1,9 +1,9 @@
-package lila.notify
+package lishogi.notify
 
-import lila.common.LightUser
+import lishogi.common.LightUser
 import play.api.libs.json._
 
-import lila.common.Json.jodaWrites
+import lishogi.common.Json.jodaWrites
 
 final class JSONHandlers(getLightUser: LightUser.GetterSync) {
 
@@ -81,7 +81,7 @@ final class JSONHandlers(getLightUser: LightUser.GetterSync) {
       )
   }
 
-  import lila.common.paginator.PaginatorJson._
+  import lishogi.common.paginator.PaginatorJson._
   implicit val unreadWrites = Writes[Notification.UnreadCount] { v =>
     JsNumber(v.value)
   }

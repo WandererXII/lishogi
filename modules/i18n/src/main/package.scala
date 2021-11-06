@@ -1,4 +1,4 @@
-package lila
+package lishogi
 
 import play.api.i18n.Lang
 
@@ -10,7 +10,7 @@ package object i18n extends PackageObject {
   private[i18n] type MessageMap = java.util.Map[MessageKey, Translation]
   private[i18n] type Messages   = Map[Lang, MessageMap]
 
-  private[i18n] def logger = lila.log("i18n")
+  private[i18n] def logger = lishogi.log("i18n")
 
   private[i18n] val lishogiCodes: Map[String, Lang] = Map(
     "fp" -> Lang("frp", "IT"),

@@ -1,7 +1,7 @@
-package lila.relay
+package lishogi.relay
 
 import shogi.format.Tags
-import lila.study.{ Chapter, Node, NotationImport }
+import lishogi.study.{ Chapter, Node, NotationImport }
 
 case class RelayGame(
     index: Int,

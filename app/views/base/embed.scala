@@ -1,9 +1,9 @@
 package views.html.base
 
-import lila.app.templating.Environment._
-import lila.app.ui.EmbedConfig
-import lila.app.ui.ScalatagsTemplate._
-import lila.pref.SoundSet
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.EmbedConfig
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.pref.SoundSet
 
 object embed {
 
@@ -18,7 +18,7 @@ object embed {
           layout.bits.viewport,
           layout.bits.metaCsp(basicCsp withNonce config.nonce),
           st.headTitle(title),
-          layout.bits.pieceSprite(lila.pref.PieceSet.default),
+          layout.bits.pieceSprite(lishogi.pref.PieceSet.default),
           cssTagWithTheme(cssModule, config.bg)
         ),
         st.body(cls := s"base highlight ${config.board}")(

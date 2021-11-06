@@ -1,10 +1,10 @@
 package controllers
 
-import lila.app._
-import lila.oauth.AccessToken
+import lishogi.app._
+import lishogi.oauth.AccessToken
 import views._
 
-final class OAuthToken(env: Env) extends LilaController(env) {
+final class OAuthToken(env: Env) extends LishogiController(env) {
 
   private val tokenApi = env.oAuth.tokenApi
 
@@ -17,7 +17,7 @@ final class OAuthToken(env: Env) extends LilaController(env) {
 
   def create =
     Auth { implicit ctx => me =>
-      val form = env.oAuth.forms.token.create fill lila.oauth.OAuthForm.token
+      val form = env.oAuth.forms.token.create fill lishogi.oauth.OAuthForm.token
         .Data(
           description = ~get("description"),
           scopes = (~ctx.req.queryString.get("scopes[]")).toList

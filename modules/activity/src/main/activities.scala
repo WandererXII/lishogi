@@ -1,10 +1,10 @@
-package lila.activity
+package lishogi.activity
 
 import ornicar.scalalib.Zero
 
-import lila.rating.PerfType
-import lila.study.Study
-import lila.user.User
+import lishogi.rating.PerfType
+import lishogi.study.Study
+import lishogi.user.User
 import model._
 
 object activities {

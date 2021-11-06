@@ -1,4 +1,4 @@
-package lila.relay
+package lishogi.relay
 
 import akka.stream.scaladsl.Source
 import org.joda.time.DateTime
@@ -8,10 +8,10 @@ import reactivemongo.api.bson._
 import scala.concurrent.duration._
 import scala.util.chaining._
 
-import lila.common.config.MaxPerSecond
-import lila.db.dsl._
-import lila.study.{ Settings, Study, StudyApi, StudyMaker }
-import lila.user.User
+import lishogi.common.config.MaxPerSecond
+import lishogi.db.dsl._
+import lishogi.study.{ Settings, Study, StudyApi, StudyMaker }
+import lishogi.user.User
 
 final class RelayApi(
     repo: RelayRepo,
@@ -22,7 +22,7 @@ final class RelayApi(
 )(implicit ec: scala.concurrent.ExecutionContext, mat: akka.stream.Materializer) {
 
   import BSONHandlers._
-  import lila.study.BSONHandlers.LikesBSONHandler
+  import lishogi.study.BSONHandlers.LikesBSONHandler
 
   def byId(id: Relay.Id) = repo.coll.byId[Relay](id.value)
 
@@ -54,7 +54,7 @@ final class RelayApi(
       )
     )
 
-  def setLikes(id: Relay.Id, likes: lila.study.Study.Likes): Funit =
+  def setLikes(id: Relay.Id, likes: lishogi.study.Study.Likes): Funit =
     repo.coll.updateField($id(id), "likes", likes).void
 
   def create(data: RelayForm.Data, user: User): Fu[Relay] = {
@@ -167,11 +167,11 @@ final class RelayApi(
   private def sendToContributors(id: Relay.Id, t: String, msg: JsObject): Funit =
     studyApi members Study.Id(id.value) map {
       _.map(_.contributorIds).filter(_.nonEmpty) foreach { userIds =>
-        import lila.hub.actorApi.socket.SendTos
+        import lishogi.hub.actorApi.socket.SendTos
         import JsonView.idWrites
-        import lila.socket.Socket.makeMessage
+        import lishogi.socket.Socket.makeMessage
         val payload = makeMessage(t, msg ++ Json.obj("id" -> id))
-        lila.common.Bus.publish(SendTos(userIds, payload), "socketUsers")
+        lishogi.common.Bus.publish(SendTos(userIds, payload), "socketUsers")
       }
     }
 }

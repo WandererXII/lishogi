@@ -1,8 +1,8 @@
-package lila.clas
+package lishogi.clas
 
 import org.joda.time.DateTime
 
-import lila.user.User
+import lishogi.user.User
 
 case class ClasInvite(
     _id: ClasInvite.Id, // random
@@ -19,7 +19,7 @@ object ClasInvite {
 
   def make(clas: Clas, user: User, realName: String, teacher: User) =
     ClasInvite(
-      _id = Id(lila.common.ThreadLocalRandom nextString 8),
+      _id = Id(lishogi.common.ThreadLocalRandom nextString 8),
       userId = user.id,
       realName = realName,
       clasId = clas.id,

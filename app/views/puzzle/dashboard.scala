@@ -5,13 +5,13 @@ import controllers.routes
 import play.api.i18n.Lang
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.puzzle.PuzzleDashboard
-import lila.puzzle.PuzzleTheme
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.puzzle.PuzzleDashboard
+import lishogi.puzzle.PuzzleTheme
+import lishogi.user.User
 
 object dashboard {
 

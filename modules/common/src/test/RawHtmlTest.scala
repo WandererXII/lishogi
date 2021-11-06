@@ -1,4 +1,4 @@
-package lila.base
+package lishogi.base
 
 import org.specs2.mutable.Specification
 // import scalatags.Text.all._

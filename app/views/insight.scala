@@ -2,11 +2,11 @@ package views.html
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.user.User
 
 import controllers.routes
 
@@ -14,7 +14,7 @@ object insight {
 
   def index(
       u: User,
-      cache: lila.insight.UserCache,
+      cache: lishogi.insight.UserCache,
       prefId: Int,
       ui: play.api.libs.json.JsObject,
       question: play.api.libs.json.JsObject,

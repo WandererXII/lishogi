@@ -1,4 +1,4 @@
-package lila.insight
+package lishogi.insight
 
 import play.api.libs.json._
 

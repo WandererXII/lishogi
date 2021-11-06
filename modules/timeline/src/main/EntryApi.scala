@@ -1,22 +1,22 @@
-package lila.timeline
+package lishogi.timeline
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.common.BlogLangs
-import lila.common.config.Max
-import lila.db.dsl._
-import lila.hub.actorApi.timeline.Atom
-import lila.hub.actorApi.timeline.BlogPost
-import lila.memo.CacheApi._
-import lila.user.User
+import lishogi.common.BlogLangs
+import lishogi.common.config.Max
+import lishogi.db.dsl._
+import lishogi.hub.actorApi.timeline.Atom
+import lishogi.hub.actorApi.timeline.BlogPost
+import lishogi.memo.CacheApi._
+import lishogi.user.User
 
 final class EntryApi(
     coll: Coll,
     userMax: Max,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import Entry._

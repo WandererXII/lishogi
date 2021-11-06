@@ -1,11 +1,11 @@
 package views
 package html.swiss
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
-import lila.swiss.Swiss
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
+import lishogi.swiss.Swiss
 
 import controllers.routes
 

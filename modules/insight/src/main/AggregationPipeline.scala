@@ -1,9 +1,9 @@
-package lila.insight
+package lishogi.insight
 
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final private class AggregationPipeline(store: Storage)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -16,7 +16,7 @@ final private class AggregationPipeline(store: Storage)(implicit ec: scala.concu
         import framework._
         import question.{ dimension, filters, metric }
 
-        import lila.insight.{ Dimension => D, Metric => M }
+        import lishogi.insight.{ Dimension => D, Metric => M }
         import Entry.{ BSONFields => F }
         import Storage._
 
@@ -156,7 +156,7 @@ final private class AggregationPipeline(store: Storage)(implicit ec: scala.concu
         def projectForMove: Option[PipelineOperator] =
           Project(BSONDocument({
             metric.dbKey :: dimension.dbKey :: filters.collect {
-              case lila.insight.Filter(d, _) if d.isInMove => d.dbKey
+              case lishogi.insight.Filter(d, _) if d.isInMove => d.dbKey
             }
           }.distinct.map(_ -> BSONBoolean(true)))).some
 

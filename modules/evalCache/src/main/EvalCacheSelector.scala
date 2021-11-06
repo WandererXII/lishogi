@@ -1,4 +1,4 @@
-package lila.evalCache
+package lishogi.evalCache
 
 import EvalCacheEntry._
 

@@ -1,4 +1,4 @@
-package lila.coach
+package lishogi.coach
 
 import org.joda.time.{ DateTime, Days }
 
@@ -18,7 +18,7 @@ case class Coach(
 
   def id = _id
 
-  def is(user: lila.user.User) = id.value == user.id
+  def is(user: lishogi.user.User) = id.value == user.id
 
   def hasPicture = picturePath.isDefined
 
@@ -29,7 +29,7 @@ case class Coach(
 
 object Coach {
 
-  def make(user: lila.user.User) =
+  def make(user: lishogi.user.User) =
     Coach(
       _id = Id(user.id),
       listed = Listed(false),
@@ -44,7 +44,7 @@ object Coach {
       updatedAt = DateTime.now
     )
 
-  case class WithUser(coach: Coach, user: lila.user.User)
+  case class WithUser(coach: Coach, user: lishogi.user.User)
 
   case class Id(value: String)          extends AnyVal with StringValue
   case class Listed(value: Boolean)     extends AnyVal

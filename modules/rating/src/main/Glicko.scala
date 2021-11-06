@@ -1,10 +1,10 @@
-package lila.rating
+package lishogi.rating
 
 import org.goochjs.glicko2._
 import org.joda.time.DateTime
 import reactivemongo.api.bson.BSONDocument
 
-import lila.db.BSON
+import lishogi.db.BSON
 
 case class Glicko(
     rating: Double,

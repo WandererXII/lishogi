@@ -1,10 +1,10 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import org.joda.time.DateTime
 import org.joda.time.Days
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final private class PuzzleTrustApi(colls: PuzzleColls)(implicit ec: scala.concurrent.ExecutionContext) {
 

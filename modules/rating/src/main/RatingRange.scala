@@ -1,6 +1,6 @@
-package lila.rating
+package lishogi.rating
 
-import lila.common.Maths.closestMultipleOf
+import lishogi.common.Maths.closestMultipleOf
 
 case class RatingRange(min: Int, max: Int) {
 

@@ -1,26 +1,26 @@
-package lila.mod
+package lishogi.mod
 
 import org.joda.time.DateTime
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.game.BSONHandlers._
-import lila.game.{ Game, GameRepo, Query }
-import lila.perfStat.PerfStat
-import lila.rating.PerfType
-import lila.report.{ Suspect, Victim }
-import lila.user.{ User, UserRepo }
+import lishogi.db.dsl._
+import lishogi.game.BSONHandlers._
+import lishogi.game.{ Game, GameRepo, Query }
+import lishogi.perfStat.PerfStat
+import lishogi.rating.PerfType
+import lishogi.report.{ Suspect, Victim }
+import lishogi.user.{ User, UserRepo }
 
 final private class RatingRefund(
     gameRepo: GameRepo,
     userRepo: UserRepo,
     scheduler: akka.actor.Scheduler,
     notifier: ModNotifier,
-    historyApi: lila.history.HistoryApi,
-    rankingApi: lila.user.RankingApi,
+    historyApi: lishogi.history.HistoryApi,
+    rankingApi: lishogi.user.RankingApi,
     logApi: ModlogApi,
-    perfStat: lila.perfStat.Env
+    perfStat: lishogi.perfStat.Env
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import RatingRefund._

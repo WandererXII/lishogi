@@ -1,4 +1,4 @@
-package lila.app
+package lishogi.app
 package templating
 
 import shogi.format.Forsyth
@@ -6,11 +6,11 @@ import shogi.{ Status => S, Color, Clock, Mode }
 import controllers.routes
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.ui.ScalatagsTemplate._
-import lila.game.{ Game, Namer, Player, Pov }
-import lila.i18n.{ I18nKeys => trans, defaultLang }
-import lila.user.{ Title, User }
+import lishogi.api.Context
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.game.{ Game, Namer, Player, Pov }
+import lishogi.i18n.{ I18nKeys => trans, defaultLang }
+import lishogi.user.{ Title, User }
 
 trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHelper with ShogigroundHelper =>
 
@@ -23,7 +23,7 @@ trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHel
   def cdnUrl(path: String): String
 
   def povOpenGraph(pov: Pov) =
-    lila.app.ui.OpenGraph(
+    lishogi.app.ui.OpenGraph(
       image = cdnUrl(routes.Export.gameThumbnail(pov.gameId).url).some,
       title = titleGame(pov.game),
       url = s"$netBaseUrl${routes.Round.watcher(pov.gameId, pov.color.name).url}",
@@ -97,7 +97,7 @@ trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHel
 
   def playerUsername(player: Player, withRating: Boolean = true, withTitle: Boolean = true): Frag =
     player.aiLevel.fold[Frag](
-      player.userId.flatMap(lightUser).fold[Frag](lila.user.User.anonymous) { user =>
+      player.userId.flatMap(lightUser).fold[Frag](lishogi.user.User.anonymous) { user =>
         val title = user.title ifTrue withTitle map { t =>
           frag(
             span(
@@ -108,7 +108,7 @@ trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHel
             " "
           )
         }
-        if (withRating) frag(title, user.name, " ", "(", lila.game.Namer ratingString player, ")")
+        if (withRating) frag(title, user.name, " ", "(", lishogi.game.Namer ratingString player, ")")
         else frag(title, user.name)
       }
     ) { level =>
@@ -284,7 +284,7 @@ trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHel
     )(cgWrapContent)
   }
 
-  def challengeTitle(c: lila.challenge.Challenge) = {
+  def challengeTitle(c: lishogi.challenge.Challenge) = {
     val speed = c.clock.map(_.config).fold(shogi.Speed.Correspondence.name) { clock =>
       s"${shogi.Speed(clock).name} (${clock.show})"
     }
@@ -301,8 +301,8 @@ trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHel
     s"$speed$variant ${c.mode.name} Shogi - $players"
   }
 
-  def challengeOpenGraph(c: lila.challenge.Challenge) =
-    lila.app.ui.OpenGraph(
+  def challengeOpenGraph(c: lishogi.challenge.Challenge) =
+    lishogi.app.ui.OpenGraph(
       title = challengeTitle(c),
       url = s"$netBaseUrl${routes.Round.watcher(c.id, shogi.Sente.name).url}",
       description = "Join the challenge or watch the game here."

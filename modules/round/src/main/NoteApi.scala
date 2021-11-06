@@ -1,6 +1,6 @@
-package lila.round
+package lishogi.round
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 import reactivemongo.api.bson._
 

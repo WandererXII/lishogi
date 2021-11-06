@@ -1,4 +1,4 @@
-package lila
+package lishogi
 
 import org.joda.time.DateTime
 

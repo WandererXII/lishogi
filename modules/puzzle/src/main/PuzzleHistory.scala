@@ -1,4 +1,4 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import scalaz.NonEmptyList
 import org.joda.time.DateTime
@@ -8,12 +8,12 @@ import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext
 import scala.util.chaining._
 
-import lila.common.config.MaxPerPage
-import lila.common.paginator.AdapterLike
-import lila.common.paginator.Paginator
-import lila.db.dsl._
-import lila.memo.CacheApi
-import lila.user.User
+import lishogi.common.config.MaxPerPage
+import lishogi.common.paginator.AdapterLike
+import lishogi.common.paginator.Paginator
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
+import lishogi.user.User
 
 object PuzzleHistory {
 

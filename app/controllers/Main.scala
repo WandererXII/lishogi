@@ -6,9 +6,9 @@ import play.api.libs.json._
 import play.api.mvc._
 import scala.annotation.nowarn
 
-import lila.app._
-import lila.common.HTTPRequest
-import lila.hub.actorApi.captcha.ValidCaptcha
+import lishogi.app._
+import lishogi.common.HTTPRequest
+import lishogi.hub.actorApi.captcha.ValidCaptcha
 import makeTimeout.large
 import views._
 
@@ -16,7 +16,7 @@ final class Main(
     env: Env,
     prismicC: Prismic,
     assetsC: ExternalAssets
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private lazy val blindForm = Form(
     tuple(
@@ -34,7 +34,7 @@ final class Main(
           .fold(
             _ => BadRequest,
             { case (enable, redirect) =>
-              Redirect(redirect) withCookies env.lilaCookie.cookie(
+              Redirect(redirect) withCookies env.lishogiCookie.cookie(
                 env.api.config.accessibility.blindCookieName,
                 if (enable == "0") "" else env.api.config.accessibility.hash,
                 maxAge = env.api.config.accessibility.blindCookieMaxAge.toSeconds.toInt.some,
@@ -75,7 +75,7 @@ final class Main(
       env.round.selfReport(
         userId = ctx.userId,
         ip = HTTPRequest lastRemoteAddress ctx.req,
-        fullId = lila.game.Game.FullId(id),
+        fullId = lishogi.game.Game.FullId(id),
         name = get("n", ctx.req) | "?"
       )
       NoContent.fuccess
@@ -85,13 +85,13 @@ final class Main(
     */
   def jsmon(event: String) =
     Action {
-      lila.mon.http.jsmon(event).increment()
+      lishogi.mon.http.jsmon(event).increment()
       NoContent
     }
 
   private lazy val glyphsResult: Result = {
     import shogi.format.Glyph
-    import lila.tree.Node.glyphWriter
+    import lishogi.tree.Node.glyphWriter
     Ok(
       Json.obj(
         "move"        -> (Glyph.MoveAssessment.display: List[Glyph]),
@@ -109,7 +109,7 @@ final class Main(
         .map {
           case None => NotFound
           case Some(image) =>
-            lila.mon.http.imageBytes.record(image.size.toLong)
+            lishogi.mon.http.imageBytes.record(image.size.toLong)
             Ok(image.data).withHeaders(
               CONTENT_DISPOSITION -> image.name
             ) as image.contentType.getOrElse("image/jpeg")

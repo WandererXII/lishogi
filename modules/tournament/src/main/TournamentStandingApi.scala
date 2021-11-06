@@ -1,10 +1,10 @@
-package lila.tournament
+package lishogi.tournament
 
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.common.WorkQueue
-import lila.memo.CacheApi._
+import lishogi.common.WorkQueue
+import lishogi.memo.CacheApi._
 
 /*
  * Getting a standing page of a tournament can be very expensive
@@ -16,8 +16,8 @@ final class TournamentStandingApi(
     tournamentRepo: TournamentRepo,
     playerRepo: PlayerRepo,
     cached: Cached,
-    cacheApi: lila.memo.CacheApi,
-    lightUserApi: lila.user.LightUserApi
+    cacheApi: lishogi.memo.CacheApi,
+    lightUserApi: lishogi.user.LightUserApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     mat: akka.stream.Materializer
@@ -58,7 +58,7 @@ final class TournamentStandingApi(
     workQueue {
       compute(id, page)
     } recover { case _: Exception =>
-      lila.mon.tournament.standingOverload.increment()
+      lishogi.mon.tournament.standingOverload.increment()
       Json.obj(
         "failed"  -> true,
         "page"    -> page,

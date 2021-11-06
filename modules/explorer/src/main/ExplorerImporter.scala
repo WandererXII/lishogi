@@ -1,9 +1,9 @@
-package lila.explorer
+package lishogi.explorer
 
 import org.joda.time.DateTime
 
-import lila.game.{ Game, GameRepo }
-import lila.importer.{ ImportData, Importer }
+import lishogi.game.{ Game, GameRepo }
+import lishogi.importer.{ ImportData, Importer }
 
 final class ExplorerImporter(
     endpoint: InternalEndpoint,

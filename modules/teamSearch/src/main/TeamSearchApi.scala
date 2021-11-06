@@ -1,10 +1,10 @@
-package lila.teamSearch
+package lishogi.teamSearch
 
 import akka.stream.scaladsl._
 import play.api.libs.json._
 
-import lila.search._
-import lila.team.{ Team, TeamRepo }
+import lishogi.search._
+import lishogi.team.{ Team, TeamRepo }
 
 final class TeamSearchApi(
     client: ESClient,
@@ -40,7 +40,7 @@ final class TeamSearchApi(
 
           teamRepo.cursor
             .documentSource()
-            .via(lila.common.LilaStream.logRate[Team]("team index")(logger))
+            .via(lishogi.common.LishogiStream.logRate[Team]("team index")(logger))
             .map(t => Id(t.id) -> toDoc(t))
             .grouped(200)
             .mapAsync(1)(c.storeBulk)

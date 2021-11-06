@@ -2,11 +2,11 @@ package views.html.mod
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.IpAddress
-import lila.security.FingerHash
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.IpAddress
+import lishogi.security.FingerHash
 
 import controllers.routes
 
@@ -15,7 +15,7 @@ object search {
   private val email = tag("email")
   private val mark  = tag("marked")
 
-  def apply(form: Form[_], users: List[lila.user.User.WithEmails])(implicit ctx: Context) =
+  def apply(form: Form[_], users: List[lishogi.user.User.WithEmails])(implicit ctx: Context) =
     views.html.base.layout(
       title = "Search users",
       moreCss = cssTag("mod.misc")
@@ -31,7 +31,7 @@ object search {
               placeholder := "Search by IP, email, or username",
               value := form("q").value
             ),
-            form3.select(form("as"), lila.mod.UserSearch.asChoices)
+            form3.select(form("as"), lishogi.mod.UserSearch.asChoices)
           ),
           userTable(users)
         )
@@ -40,7 +40,7 @@ object search {
 
   def print(
       fh: FingerHash,
-      users: List[lila.user.User.WithEmails],
+      users: List[lishogi.user.User.WithEmails],
       uas: List[String],
       blocked: Boolean
   )(implicit ctx: Context) =
@@ -77,7 +77,7 @@ object search {
 
   def ip(
       address: IpAddress,
-      users: List[lila.user.User.WithEmails],
+      users: List[lishogi.user.User.WithEmails],
       uas: List[String],
       blocked: Boolean
   )(implicit ctx: Context) =
@@ -112,7 +112,7 @@ object search {
       )
     }
 
-  private def userTable(users: List[lila.user.User.WithEmails])(implicit ctx: Context) =
+  private def userTable(users: List[lishogi.user.User.WithEmails])(implicit ctx: Context) =
     users.nonEmpty option table(cls := "slist slist-pad")(
       thead(
         tr(
@@ -125,7 +125,7 @@ object search {
         )
       ),
       tbody(
-        users.map { case lila.user.User.WithEmails(u, emails) =>
+        users.map { case lishogi.user.User.WithEmails(u, emails) =>
           tr(
             td(
               userLink(u, withBestRating = true, params = "?mod"),

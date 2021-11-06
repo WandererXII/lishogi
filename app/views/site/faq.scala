@@ -2,9 +2,9 @@ package views
 package html.site
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object faq {
 
@@ -147,8 +147,8 @@ object faq {
             li(havePlayedARatedGameAtLeastOneWeekAgo()),
             li(
               ratingDeviationLowerThanXinChessYinVariants(
-                lila.rating.Glicko.standardRankableDeviation,
-                lila.rating.Glicko.variantRankableDeviation
+                lishogi.rating.Glicko.standardRankableDeviation,
+                lishogi.rating.Glicko.variantRankableDeviation
               )
             ),
             li(beInTopTen())

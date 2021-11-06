@@ -1,4 +1,4 @@
-package lila.i18n
+package lishogi.i18n
 
 import play.api.mvc.RequestHeader
 import play.api.i18n.Lang

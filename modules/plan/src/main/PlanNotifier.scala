@@ -1,16 +1,16 @@
-package lila.plan
+package lishogi.plan
 
 import akka.actor._
 import scala.concurrent.duration._
 
-import lila.hub.actorApi.timeline.{ Propagate }
-import lila.notify.Notification.Notifies
-import lila.notify.{ Notification, NotifyApi }
-import lila.user.User
+import lishogi.hub.actorApi.timeline.{ Propagate }
+import lishogi.notify.Notification.Notifies
+import lishogi.notify.{ Notification, NotifyApi }
+import lishogi.user.User
 
 final private[plan] class PlanNotifier(
     notifyApi: NotifyApi,
-    timeline: lila.hub.actors.Timeline
+    timeline: lishogi.hub.actors.Timeline
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -22,11 +22,11 @@ final private[plan] class PlanNotifier(
         notifyApi.addNotification(
           Notification.make(
             Notifies(user.id),
-            lila.notify.PlanStart(user.id)
+            lishogi.notify.PlanStart(user.id)
           )
         )
       }
-      val msg = Propagate(lila.hub.actorApi.timeline.PlanStart(user.id))
+      val msg = Propagate(lishogi.hub.actorApi.timeline.PlanStart(user.id))
       timeline ! (msg toFollowersOf user.id)
     }
 
@@ -34,7 +34,7 @@ final private[plan] class PlanNotifier(
     notifyApi.addNotification(
       Notification.make(
         Notifies(user.id),
-        lila.notify.PlanExpire(user.id)
+        lishogi.notify.PlanExpire(user.id)
       )
     )
 }

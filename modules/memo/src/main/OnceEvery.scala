@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import scala.concurrent.duration.FiniteDuration
 

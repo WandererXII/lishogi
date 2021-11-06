@@ -1,10 +1,10 @@
 package views.html
 package game
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.game.{ Game, Player, Pov }
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.game.{ Game, Player, Pov }
 
 object widgets {
 
@@ -12,7 +12,7 @@ object widgets {
 
   def apply(
       games: Seq[Game],
-      user: Option[lila.user.User] = None,
+      user: Option[lishogi.user.User] = None,
       ownerLink: Boolean = false
   )(implicit ctx: Context): Frag =
     games map { g =>
@@ -54,7 +54,7 @@ object widgets {
                   frag(separator, views.html.simul.bits.link(simulId))
                 } orElse
                 g.swissId.map { swissId =>
-                  frag(separator, views.html.swiss.bits.link(lila.swiss.Swiss.Id(swissId)))
+                  frag(separator, views.html.swiss.bits.link(lishogi.swiss.Swiss.Id(swissId)))
                 }
             )
           ),
@@ -123,7 +123,7 @@ object widgets {
         }
     }
 
-  private lazy val anonSpan = span(cls := "anon")(lila.user.User.anonymous)
+  private lazy val anonSpan = span(cls := "anon")(lishogi.user.User.anonymous)
 
   private def gamePlayer(player: Player)(implicit ctx: Context) =
     div(cls := s"player ${player.color.name}")(

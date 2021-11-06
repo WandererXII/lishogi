@@ -1,9 +1,9 @@
 package views.html.board
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
 
 import controllers.routes
 
@@ -27,7 +27,7 @@ LishogiEditor(document.getElementById('board-editor'), data);"""
       moreCss = cssTag("editor"),
       shogiground = false,
       zoomable = true,
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = "Shogi board editor",
           url = s"$netBaseUrl${routes.Editor.index().url}",

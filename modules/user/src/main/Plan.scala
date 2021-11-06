@@ -1,4 +1,4 @@
-package lila.user
+package lishogi.user
 
 import org.joda.time.DateTime
 
@@ -36,6 +36,6 @@ object Plan {
   val empty = Plan(0, false, none)
   def start = Plan(1, true, DateTime.now.some)
 
-  import lila.db.dsl._
+  import lishogi.db.dsl._
   private[user] val planBSONHandler = reactivemongo.api.bson.Macros.handler[Plan]
 }

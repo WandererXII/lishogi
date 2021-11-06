@@ -1,10 +1,10 @@
 package views.html
 package coach
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.i18n.LangList
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.i18n.LangList
 
 import controllers.routes
 
@@ -12,7 +12,7 @@ object widget {
 
   import trans.coach._
 
-  def titleName(c: lila.coach.Coach.WithUser) =
+  def titleName(c: lishogi.coach.Coach.WithUser) =
     frag(
       c.user.title.map { t =>
         s"$t "
@@ -20,7 +20,7 @@ object widget {
       c.user.realNameOrUsername
     )
 
-  def pic(c: lila.coach.Coach.WithUser, size: Int) =
+  def pic(c: lishogi.coach.Coach.WithUser, size: Int) =
     c.coach.picturePath
       .map { path =>
         img(
@@ -41,7 +41,7 @@ object widget {
         )
       }
 
-  def apply(c: lila.coach.Coach.WithUser, link: Boolean)(implicit ctx: Context) = {
+  def apply(c: lishogi.coach.Coach.WithUser, link: Boolean)(implicit ctx: Context) = {
     val profile = c.user.profileOrDefault
     frag(
       link option a(cls := "overlay", href := routes.Coach.show(c.user.username)),

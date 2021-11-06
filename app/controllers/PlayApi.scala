@@ -4,15 +4,15 @@ import play.api.mvc._
 import play.api.i18n.Lang
 import scala.util.chaining._
 
-import lila.app._
-import lila.game.Pov
-import lila.user.{ User => UserModel }
+import lishogi.app._
+import lishogi.game.Pov
+import lishogi.user.{ User => UserModel }
 
 // both bot & board APIs
 final class PlayApi(
     env: Env,
     apiC: => Api
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   implicit private def autoReqLang(implicit req: RequestHeader) = reqLang(req)
 
@@ -38,7 +38,7 @@ final class PlayApi(
               env.user.repo.setBot(me) >>
                 env.pref.api.setBot(me) >>-
                 env.user.lightUserApi.invalidate(me.id) pipe
-                toResult recover { case lila.base.LilaInvalid(msg) =>
+                toResult recover { case lishogi.base.LishogiInvalid(msg) =>
                   BadRequest(jsonError(msg))
                 }
           }
@@ -99,7 +99,7 @@ final class PlayApi(
           }
         case Array("game", id, "draw", bool) =>
           as(id, me) { pov =>
-            fuccess(env.bot.player.setDraw(pov, lila.common.Form.trueish(bool))) pipe toResult
+            fuccess(env.bot.player.setDraw(pov, lishogi.common.Form.trueish(bool))) pipe toResult
           }
         case _ => notFoundJson("No such command")
       }
@@ -109,11 +109,11 @@ final class PlayApi(
 
   private def toResult(f: Funit): Fu[Result] = catchClientError(f inject jsonOkResult)
   private def catchClientError(f: Fu[Result]): Fu[Result] =
-    f recover { case e: lila.round.BenignError =>
+    f recover { case e: lishogi.round.BenignError =>
       BadRequest(jsonError(e.getMessage))
     }
 
-  private def WithPovAsBot(anyId: String, me: lila.user.User)(f: Pov => Fu[Result]) =
+  private def WithPovAsBot(anyId: String, me: lishogi.user.User)(f: Pov => Fu[Result]) =
     WithPov(anyId, me) { pov =>
       if (me.noBot)
         BadRequest(
@@ -121,21 +121,21 @@ final class PlayApi(
             "This endpoint can only be used with a Bot account. See https://lichess.org/api#operation/botAccountUpgrade"
           )
         ).fuccess
-      else if (!lila.game.Game.isBotCompatible(pov.game))
+      else if (!lishogi.game.Game.isBotCompatible(pov.game))
         BadRequest(jsonError("This game cannot be played with the Bot API.")).fuccess
       else f(pov)
     }
 
-  private def WithPovAsBoard(anyId: String, me: lila.user.User)(f: Pov => Fu[Result]) =
+  private def WithPovAsBoard(anyId: String, me: lishogi.user.User)(f: Pov => Fu[Result]) =
     WithPov(anyId, me) { pov =>
       if (me.isBot) notForBotAccounts.fuccess
-      else if (!lila.game.Game.isBoardCompatible(pov.game))
+      else if (!lishogi.game.Game.isBoardCompatible(pov.game))
         BadRequest(jsonError("This game cannot be played with the Board API.")).fuccess
       else f(pov)
     }
 
-  private def WithPov(anyId: String, me: lila.user.User)(f: Pov => Fu[Result]) =
-    env.round.proxyRepo.game(lila.game.Game takeGameId anyId) flatMap {
+  private def WithPov(anyId: String, me: lishogi.user.User)(f: Pov => Fu[Result]) =
+    env.round.proxyRepo.game(lishogi.game.Game takeGameId anyId) flatMap {
       case None => NotFound(jsonError("No such game")).fuccess
       case Some(game) =>
         Pov(game, me) match {

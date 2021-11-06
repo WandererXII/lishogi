@@ -1,8 +1,8 @@
-package lila.importer
+package lishogi.importer
 
 import shogi.format.FEN
 
-import lila.game.{ Game, GameRepo }
+import lishogi.game.{ Game, GameRepo }
 
 final class Importer(gameRepo: GameRepo)(implicit ec: scala.concurrent.ExecutionContext) {
 

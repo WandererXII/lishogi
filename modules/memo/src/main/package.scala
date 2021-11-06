@@ -1,6 +1,6 @@
-package lila
+package lishogi
 
 package object memo extends PackageObject {
 
-  private[memo] def logger = lila.log("memo")
+  private[memo] def logger = lishogi.log("memo")
 }

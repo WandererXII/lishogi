@@ -1,11 +1,11 @@
-package lila.tv
+package lishogi.tv
 
 import scala.concurrent.duration._
 import scala.concurrent.Promise
 
 import shogi.Color
-import lila.game.Game
-import lila.hub.Trouper
+import lishogi.game.Game
+import lishogi.hub.Trouper
 
 final private[tv] class ChannelTrouper(
     channel: Tv.Channel,
@@ -26,7 +26,7 @@ final private[tv] class ChannelTrouper(
   // the list of candidates by descending rating order
   private var manyIds = List.empty[Game.ID]
 
-  private val candidateIds = new lila.memo.ExpireSetMemo(3 minutes)
+  private val candidateIds = new lishogi.memo.ExpireSetMemo(3 minutes)
 
   protected val process: Trouper.Receive = {
 

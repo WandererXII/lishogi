@@ -1,15 +1,15 @@
-package lila.event
+package lishogi.event
 
 import org.joda.time.DateTime
 import play.api.mvc.RequestHeader
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.memo.CacheApi._
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi._
 
 final class EventApi(
     coll: Coll,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BsonHandlers._
@@ -17,8 +17,8 @@ final class EventApi(
   def promoteTo(req: RequestHeader): Fu[List[Event]] =
     promotable.getUnit map {
       _.filter { event =>
-        event.lang.language == lila.i18n.enLang.language ||
-        lila.i18n.I18nLangPicker.allFromRequestHeaders(req).exists {
+        event.lang.language == lishogi.i18n.enLang.language ||
+        lishogi.i18n.I18nLangPicker.allFromRequestHeaders(req).exists {
           _.language == event.lang.language
         }
       }

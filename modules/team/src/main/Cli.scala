@@ -1,12 +1,12 @@
-package lila.team
+package lishogi.team
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 final private[team] class Cli(
     teamRepo: TeamRepo,
     api: TeamApi
 )(implicit ec: scala.concurrent.ExecutionContext)
-    extends lila.common.Cli {
+    extends lishogi.common.Cli {
 
   import BSONHandlers._
 

@@ -1,10 +1,10 @@
-package lila.app
+package lishogi.app
 package templating
 
 import play.api.data._
 
-import lila.api.Context
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.ui.ScalatagsTemplate._
 
 trait FormHelper { self: I18nHelper =>
 

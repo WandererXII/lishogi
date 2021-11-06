@@ -1,11 +1,11 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext
 
-import lila.db.dsl._
-import lila.memo.CacheApi
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
+import lishogi.user.User
 
 private object PuzzlePath {
 
@@ -18,7 +18,7 @@ private object PuzzlePath {
     def theme = PuzzleTheme.findOrAny(~parts.headOption).key
   }
 
-  implicit val pathIdIso = lila.common.Iso.string[Id](Id.apply, _.value)
+  implicit val pathIdIso = lishogi.common.Iso.string[Id](Id.apply, _.value)
 }
 
 final private class PuzzlePathApi(

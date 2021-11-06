@@ -1,19 +1,19 @@
-package lila.practice
+package lishogi.practice
 
 import scala.concurrent.duration._
 import reactivemongo.api.ReadPreference
 
-import lila.common.Bus
-import lila.db.dsl._
-import lila.memo.CacheApi._
-import lila.study.{ Chapter, Study }
-import lila.user.User
+import lishogi.common.Bus
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi._
+import lishogi.study.{ Chapter, Study }
+import lishogi.user.User
 
 final class PracticeApi(
     coll: Coll,
-    configStore: lila.memo.ConfigStore[PracticeConfig],
-    cacheApi: lila.memo.CacheApi,
-    studyApi: lila.study.StudyApi
+    configStore: lishogi.memo.ConfigStore[PracticeConfig],
+    cacheApi: lishogi.memo.CacheApi,
+    studyApi: lishogi.study.StudyApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BSONHandlers._

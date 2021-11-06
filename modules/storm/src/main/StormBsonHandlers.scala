@@ -1,16 +1,16 @@
-package lila.storm
+package lishogi.storm
 
 import shogi.format.{ FEN, Uci }
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.puzzle.Puzzle
+import lishogi.db.dsl._
+import lishogi.puzzle.Puzzle
 import scala.util.Success
-import lila.common.Day
+import lishogi.common.Day
 
 private object StormBsonHandlers {
 
-  import lila.puzzle.BsonHandlers.{ PuzzleIdBSONHandler }
+  import lishogi.puzzle.BsonHandlers.{ PuzzleIdBSONHandler }
 
   implicit val StormPuzzleBSONReader = new BSONDocumentReader[StormPuzzle] {
     def readDocument(r: BSONDocument) = for {

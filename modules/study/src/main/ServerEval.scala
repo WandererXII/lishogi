@@ -1,23 +1,23 @@
-package lila.study
+package lishogi.study
 
 import shogi.format.{ FEN, Forsyth, Glyphs, Uci, UciCharPair }
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.analyse.{ Analysis, Info }
-import lila.hub.actorApi.fishnet.StudyChapterRequest
-import lila.tree.Node.Comment
-import lila.user.User
-import lila.{ tree => T }
+import lishogi.analyse.{ Analysis, Info }
+import lishogi.hub.actorApi.fishnet.StudyChapterRequest
+import lishogi.tree.Node.Comment
+import lishogi.user.User
+import lishogi.{ tree => T }
 
 object ServerEval {
 
   final class Requester(
-      fishnet: lila.hub.actors.Fishnet,
+      fishnet: lishogi.hub.actors.Fishnet,
       chapterRepo: ChapterRepo
   )(implicit ec: scala.concurrent.ExecutionContext) {
 
-    private val onceEvery = lila.memo.OnceEvery(5 minutes)
+    private val onceEvery = lishogi.memo.OnceEvery(5 minutes)
 
     def apply(study: Study, chapter: Chapter, userId: User.ID): Funit =
       chapter.serverEval.fold(true) { eval =>
@@ -47,7 +47,7 @@ object ServerEval {
       sequencer: StudySequencer,
       socket: StudySocket,
       chapterRepo: ChapterRepo,
-      divider: lila.game.Divider
+      divider: lishogi.game.Divider
   )(implicit ec: scala.concurrent.ExecutionContext) {
 
     def apply(analysis: Analysis, complete: Boolean): Funit =
@@ -55,7 +55,7 @@ object ServerEval {
         sequencer.sequenceStudyWithChapter(studyId, Chapter.Id(analysis.id)) {
           case Study.WithChapter(_, chapter) =>
             (complete ?? chapterRepo.completeServerEval(chapter)) >> {
-              lila.common.Future
+              lishogi.common.Future
                 .fold(chapter.root.mainline.zip(analysis.infoAdvices).toList)(Path.root) {
                   case (path, (node, (info, advOpt))) =>
                     chapter.root.nodeAt(path).flatMap { parent =>
@@ -104,7 +104,7 @@ object ServerEval {
                     studyId,
                     ServerEval.Progress(
                       chapterId = chapter.id,
-                      tree = lila.study.TreeBuilder(chapter.root, chapter.setup.variant),
+                      tree = lishogi.study.TreeBuilder(chapter.root, chapter.setup.variant),
                       analysis = toJson(chapter, analysis),
                       division = divisionOf(chapter)
                     )
@@ -154,8 +154,8 @@ object ServerEval {
   case class Progress(chapterId: Chapter.Id, tree: T.Root, analysis: JsObject, division: shogi.Division)
 
   def toJson(chapter: Chapter, analysis: Analysis) =
-    lila.analyse.JsonView.bothPlayers(
-      lila.analyse.Accuracy.PovLike(shogi.Sente, chapter.root.color, chapter.root.ply),
+    lishogi.analyse.JsonView.bothPlayers(
+      lishogi.analyse.Accuracy.PovLike(shogi.Sente, chapter.root.color, chapter.root.ply),
       analysis
     )
 }

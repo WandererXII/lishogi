@@ -1,17 +1,17 @@
 package controllers
 
-import lila.app._
-import lila.common.HTTPRequest
+import lishogi.app._
+import lishogi.common.HTTPRequest
 import play.api.libs.json.Json
 import views._
 
-final class Importer(env: Env) extends LilaController(env) {
+final class Importer(env: Env) extends LishogiController(env) {
 
   def importGame =
     OpenBody { implicit ctx =>
       fuccess {
         val notation = ctx.body.queryString.get("notation").flatMap(_.headOption).getOrElse("")
-        val data     = lila.importer.ImportData(notation, None)
+        val data     = lishogi.importer.ImportData(notation, None)
         Ok(html.game.importGame(env.importer.forms.importForm.fill(data)))
       }
     }
@@ -33,7 +33,7 @@ final class Importer(env: Env) extends LilaController(env) {
                 (data.analyse.isDefined && game.analysable) ?? {
                   env.fishnet.analyser(
                     game,
-                    lila.fishnet.Work.Sender(
+                    lishogi.fishnet.Work.Sender(
                       userId = ctx.userId,
                       ip = HTTPRequest.lastRemoteAddress(ctx.req).some,
                       mod = isGranted(_.Hunter) || isGranted(_.Relay),
@@ -42,7 +42,7 @@ final class Importer(env: Env) extends LilaController(env) {
                   )
                 } inject Redirect(routes.Round.watcher(game.id, "sente"))
             } recover { case e =>
-              lila
+              lishogi
                 .log("importer")
                 .warn(
                   s"Imported game validates but can't be replayed:\n${data.notation}",

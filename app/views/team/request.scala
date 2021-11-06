@@ -2,10 +2,10 @@ package views.html.team
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
 
 import controllers.routes
 
@@ -13,7 +13,7 @@ object request {
 
   import trans.team._
 
-  def requestForm(t: lila.team.Team, form: Form[_], captcha: lila.common.Captcha)(implicit ctx: Context) = {
+  def requestForm(t: lishogi.team.Team, form: Form[_], captcha: lishogi.common.Captcha)(implicit ctx: Context) = {
 
     val title = s"${joinTeam.txt()} ${t.name}"
 
@@ -41,7 +41,7 @@ object request {
     }
   }
 
-  def all(requests: List[lila.team.RequestWithUser])(implicit ctx: Context) = {
+  def all(requests: List[lishogi.team.RequestWithUser])(implicit ctx: Context) = {
     val title = xJoinRequests.pluralSameTxt(requests.size)
     bits.layout(title = title) {
       main(cls := "page-menu")(
@@ -54,7 +54,7 @@ object request {
     }
   }
 
-  private[team] def list(requests: List[lila.team.RequestWithUser], t: Option[lila.team.Team])(implicit
+  private[team] def list(requests: List[lishogi.team.RequestWithUser], t: Option[lishogi.team.Team])(implicit
       ctx: Context
   ) =
     table(cls := "slist requests @if(t.isEmpty){all}else{for-team} datatable")(

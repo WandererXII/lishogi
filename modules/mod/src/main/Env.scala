@@ -1,12 +1,12 @@
-package lila.mod
+package lishogi.mod
 
 import akka.actor._
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
-import lila.user.User
+import lishogi.common.config._
+import lishogi.user.User
 
 @Module
 private class ModConfig(
@@ -22,25 +22,25 @@ private class ModConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    reporter: lila.hub.actors.Report,
-    fishnet: lila.hub.actors.Fishnet,
-    perfStat: lila.perfStat.Env,
-    reportApi: lila.report.ReportApi,
-    lightUserApi: lila.user.LightUserApi,
-    securityApi: lila.security.SecurityApi,
-    tournamentApi: lila.tournament.TournamentApi,
-    gameRepo: lila.game.GameRepo,
-    analysisRepo: lila.analyse.AnalysisRepo,
-    userRepo: lila.user.UserRepo,
-    simulEnv: lila.simul.Env,
-    chatApi: lila.chat.ChatApi,
-    notifyApi: lila.notify.NotifyApi,
-    historyApi: lila.history.HistoryApi,
-    rankingApi: lila.user.RankingApi,
-    noteApi: lila.user.NoteApi,
-    cacheApi: lila.memo.CacheApi,
-    slackApi: lila.slack.SlackApi
+    db: lishogi.db.Db,
+    reporter: lishogi.hub.actors.Report,
+    fishnet: lishogi.hub.actors.Fishnet,
+    perfStat: lishogi.perfStat.Env,
+    reportApi: lishogi.report.ReportApi,
+    lightUserApi: lishogi.user.LightUserApi,
+    securityApi: lishogi.security.SecurityApi,
+    tournamentApi: lishogi.tournament.TournamentApi,
+    gameRepo: lishogi.game.GameRepo,
+    analysisRepo: lishogi.analyse.AnalysisRepo,
+    userRepo: lishogi.user.UserRepo,
+    simulEnv: lishogi.simul.Env,
+    chatApi: lishogi.chat.ChatApi,
+    notifyApi: lishogi.notify.NotifyApi,
+    historyApi: lishogi.history.HistoryApi,
+    rankingApi: lishogi.user.RankingApi,
+    noteApi: lishogi.user.NoteApi,
+    cacheApi: lishogi.memo.CacheApi,
+    slackApi: lishogi.slack.SlackApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -84,32 +84,32 @@ final class Env(
   lazy val stream = wire[ModStream]
 
   // api actor
-  lila.common.Bus.subscribe(
+  lishogi.common.Bus.subscribe(
     system.actorOf(
       Props(new Actor {
         def receive = {
-          case lila.analyse.actorApi.AnalysisReady(game, analysis) =>
+          case lishogi.analyse.actorApi.AnalysisReady(game, analysis) =>
             assessApi.onAnalysisReady(game, analysis)
-          case lila.game.actorApi.FinishGame(game, senteUserOption, goteUserOption) if !game.aborted =>
+          case lishogi.game.actorApi.FinishGame(game, senteUserOption, goteUserOption) if !game.aborted =>
             (senteUserOption |@| goteUserOption) apply { case (senteUser, goteUser) =>
               boosting.check(game, senteUser, goteUser) >>
                 assessApi.onGameReady(game, senteUser, goteUser)
             }
             if (game.status == shogi.Status.Cheat)
               game.loserUserId foreach { logApi.cheatDetected(_, game.id) }
-          case lila.hub.actorApi.mod.ChatTimeout(mod, user, reason, text) =>
+          case lishogi.hub.actorApi.mod.ChatTimeout(mod, user, reason, text) =>
             logApi.chatTimeout(mod, user, reason, text)
-          case lila.hub.actorApi.security.GCImmediateSb(userId) =>
+          case lishogi.hub.actorApi.security.GCImmediateSb(userId) =>
             reportApi getSuspect userId orFail s"No such suspect $userId" flatMap { sus =>
               reportApi.getLishogiMod map { mod =>
                 api.setTroll(mod, sus, true)
               }
             }
-          case lila.hub.actorApi.security.GarbageCollect(userId) =>
+          case lishogi.hub.actorApi.security.GarbageCollect(userId) =>
             reportApi getSuspect userId orFail s"No such suspect $userId" flatMap { sus =>
               api.garbageCollect(sus) >> publicChat.delete(sus)
             }
-          case lila.hub.actorApi.mod.AutoWarning(userId, subject) =>
+          case lishogi.hub.actorApi.mod.AutoWarning(userId, subject) =>
             logApi.modMessage(User.lishogiId, userId, subject)
         }
       }),

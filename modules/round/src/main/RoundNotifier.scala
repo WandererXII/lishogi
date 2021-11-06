@@ -1,13 +1,13 @@
-package lila.round
+package lishogi.round
 
-import lila.hub.actorApi.timeline.{ Propagate, GameEnd => TLGameEnd }
-import lila.notify.{ GameEnd, Notification, NotifyApi }
+import lishogi.hub.actorApi.timeline.{ Propagate, GameEnd => TLGameEnd }
+import lishogi.notify.{ GameEnd, Notification, NotifyApi }
 
-import lila.game.Game
-import lila.user.User
+import lishogi.game.Game
+import lishogi.user.User
 
 final private class RoundNotifier(
-    timeline: lila.hub.actors.Timeline,
+    timeline: lishogi.hub.actors.Timeline,
     isUserPresent: (Game, User.ID) => Fu[Boolean],
     notifyApi: NotifyApi
 )(implicit ec: scala.concurrent.ExecutionContext) {

@@ -1,11 +1,11 @@
-package lila.relay
+package lishogi.relay
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 import reactivemongo.api.bson._
 
 object BSONHandlers {
 
-  import lila.study.BSONHandlers.LikesBSONHandler
+  import lishogi.study.BSONHandlers.LikesBSONHandler
 
   implicit val relayIdHandler = stringAnyValHandler[Relay.Id](_.value, Relay.Id.apply)
 

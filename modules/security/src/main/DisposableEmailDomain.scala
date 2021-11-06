@@ -1,8 +1,8 @@
-package lila.security
+package lishogi.security
 
 import play.api.libs.ws.WSClient
 
-import lila.common.Domain
+import lishogi.common.Domain
 
 final class DisposableEmailDomain(
     ws: WSClient,
@@ -24,7 +24,7 @@ final class DisposableEmailDomain(
     } {
       val regexStr  = s"${toRegexStr(blacklist)}|${toRegexStr(checked.iterator)}"
       val nbDomains = regexStr.count('|' ==)
-      lila.mon.email.disposableDomain.update(nbDomains)
+      lishogi.mon.email.disposableDomain.update(nbDomains)
       regex = finalizeRegex(s"$staticRegex|$regexStr")
     }
 

@@ -2,10 +2,10 @@ package views.html.search
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
 
 import controllers.routes
 
@@ -13,7 +13,7 @@ object index {
 
   import trans.search._
 
-  def apply(form: Form[_], paginator: Option[Paginator[lila.game.Game]] = None, nbGames: Long)(implicit
+  def apply(form: Form[_], paginator: Option[Paginator[lishogi.game.Game]] = None, nbGames: Long)(implicit
       ctx: Context
   ) = {
     val commons = bits of form

@@ -1,7 +1,7 @@
-package lila.msg
+package lishogi.msg
 
-import lila.common.LightUser
-import lila.relation.Relations
+import lishogi.common.LightUser
+import lishogi.relation.Relations
 
 case class MsgConvo(
     contact: LightUser,

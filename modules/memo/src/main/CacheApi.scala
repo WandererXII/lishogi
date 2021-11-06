@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import akka.actor.ActorSystem
 import com.github.benmanes.caffeine
@@ -77,7 +77,7 @@ object CacheApi {
 
   private[memo] type Builder = Scaffeine[Any, Any]
 
-  def scaffeine(mode: Mode): Builder = lila.common.LilaCache scaffeine mode
+  def scaffeine(mode: Mode): Builder = lishogi.common.LishogiCache scaffeine mode
 
   def scaffeineNoScheduler: Builder = Scaffeine()
 
@@ -91,7 +91,7 @@ object CacheApi {
       cache: caffeine.cache.Cache[_, _]
   )(implicit ec: ExecutionContext, system: ActorSystem): Unit =
     system.scheduler.scheduleWithFixedDelay(1 minute, 1 minute) { () =>
-      lila.mon.caffeineStats(cache, name)
+      lishogi.mon.caffeineStats(cache, name)
     }
 }
 

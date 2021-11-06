@@ -1,14 +1,14 @@
-package lila.api
+package lishogi.api
 
 import play.api.libs.json.{ JsArray, JsObject, Json }
 
-import lila.game.Pov
-import lila.lobby.SeekApi
+import lishogi.game.Pov
+import lishogi.lobby.SeekApi
 
 final class LobbyApi(
-    lightUserApi: lila.user.LightUserApi,
+    lightUserApi: lishogi.user.LightUserApi,
     seekApi: SeekApi,
-    gameProxyRepo: lila.round.GameProxyRepo
+    gameProxyRepo: lishogi.round.GameProxyRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def apply(implicit ctx: Context): Fu[(JsObject, List[Pov])] =
@@ -41,13 +41,13 @@ final class LobbyApi(
           "name" -> pov.game.variant.name
         ),
         "speed"    -> pov.game.speed.key,
-        "perf"     -> lila.game.PerfPicker.key(pov.game),
+        "perf"     -> lishogi.game.PerfPicker.key(pov.game),
         "rated"    -> pov.game.rated,
         "hasMoved" -> pov.hasMoved,
         "opponent" -> Json
           .obj(
             "id" -> pov.opponent.userId,
-            "username" -> lila.game.Namer
+            "username" -> lishogi.game.Namer
               .playerTextBlocking(pov.opponent, withRating = false)(lightUserApi.sync)
           )
           .add("rating" -> pov.opponent.rating)

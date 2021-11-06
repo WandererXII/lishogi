@@ -1,13 +1,13 @@
-package lila.user
+package lishogi.user
 
 import org.joda.time.DateTime
 import reactivemongo.api._
 import reactivemongo.api.bson._
 
-import lila.common.{ ApiVersion, EmailAddress, NormalizedEmailAddress, ThreadLocalRandom }
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
-import lila.rating.{ Perf, PerfType }
+import lishogi.common.{ ApiVersion, EmailAddress, NormalizedEmailAddress, ThreadLocalRandom }
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
+import lishogi.rating.{ Perf, PerfType }
 
 final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -147,7 +147,7 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
       .sort($doc(F.colorIt -> 1))
       .one[Bdoc]
       .map {
-        _.fold(lila.common.ThreadLocalRandom.nextBoolean()) { doc =>
+        _.fold(lishogi.common.ThreadLocalRandom.nextBoolean()) { doc =>
           doc.string("_id") contains u1
         }
       }
@@ -257,7 +257,7 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
   def trollSelect        = markSelect(UserMark.Troll) _
   val enabledNoBotSelect = enabledSelect ++ $doc(F.title $ne Title.BOT)
   def stablePerfSelect(perf: String) =
-    $doc(s"perfs.$perf.gl.d" -> $lt(lila.rating.Glicko.provisionalDeviation))
+    $doc(s"perfs.$perf.gl.d" -> $lt(lishogi.rating.Glicko.provisionalDeviation))
   val patronSelect = $doc(s"${F.plan}.active" -> true)
 
   def sortPerfDesc(perf: String) = $sort desc s"perfs.$perf.gl.r"
@@ -388,7 +388,7 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
           $doc("$rename" -> $doc(F.prevEmail -> F.email))
         )
         .void
-        .recover(lila.db.recoverDuplicateKey(_ => ()))
+        .recover(lishogi.db.recoverDuplicateKey(_ => ()))
 
   def disable(user: User, keepEmail: Boolean): Funit =
     coll.update
@@ -500,7 +500,7 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
 
   def setBot(user: User): Funit =
     if (user.count.game > 0)
-      fufail(lila.base.LilaInvalid("You already have games played. Make a new account."))
+      fufail(lishogi.base.LishogiInvalid("You already have games played. Make a new account."))
     else coll.updateField($id(user.id), F.title, Title.BOT).void
 
   private def botSelect(v: Boolean) =
@@ -656,7 +656,7 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
   ) = {
 
     implicit def countHandler = Count.countBSONHandler
-    import lila.db.BSON.BSONJodaDateTimeHandler
+    import lishogi.db.BSON.BSONJodaDateTimeHandler
 
     val normalizedEmail = email.normalize
     $doc(

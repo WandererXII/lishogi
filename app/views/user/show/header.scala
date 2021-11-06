@@ -1,11 +1,11 @@
 package views.html.user.show
 
-import lila.api.Context
-import lila.app.mashup.UserInfo.Angle
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.mashup.UserInfo.Angle
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
+import lishogi.user.User
 
 import controllers.routes
 
@@ -16,9 +16,9 @@ object header {
 
   def apply(
       u: User,
-      info: lila.app.mashup.UserInfo,
-      angle: lila.app.mashup.UserInfo.Angle,
-      social: lila.app.mashup.UserInfo.Social
+      info: lishogi.app.mashup.UserInfo,
+      angle: lishogi.app.mashup.UserInfo.Angle,
+      social: lishogi.app.mashup.UserInfo.Social
   )(implicit ctx: Context) =
     frag(
       div(cls := "box__top user-show__header")(

@@ -1,12 +1,12 @@
-package lila.insight
+package lishogi.insight
 
-import lila.rating.PerfType
+import lishogi.rating.PerfType
 
 case class Preset(name: String, question: Question[_])
 
 object Preset {
 
-  import lila.insight.{ Dimension => D, Metric => M }
+  import lishogi.insight.{ Dimension => D, Metric => M }
 
   private val filterBlitzPlus = List(
     Filter(D.Perf, List(PerfType.Blitz, PerfType.Rapid, PerfType.Classical))

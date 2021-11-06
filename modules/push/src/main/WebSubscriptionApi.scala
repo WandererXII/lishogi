@@ -1,11 +1,11 @@
-package lila.push
+package lishogi.push
 
 import org.joda.time.DateTime
 
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class WebSubscriptionApi(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -43,7 +43,7 @@ final class WebSubscriptionApi(coll: Coll)(implicit ec: scala.concurrent.Executi
         upsert = true
       )
       .void
-      .recover(lila.db.ignoreDuplicateKey)
+      .recover(lishogi.db.ignoreDuplicateKey)
 
   def unsubscribeBySession(sessionId: String): Funit = {
     coll.delete.one($id(sessionId)).void

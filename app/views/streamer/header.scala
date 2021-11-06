@@ -1,15 +1,15 @@
 package views.html.streamer
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object header {
 
   import trans.streamer._
 
-  def apply(s: lila.streamer.Streamer.WithUserAndStream)(implicit ctx: Context) =
+  def apply(s: lishogi.streamer.Streamer.WithUserAndStream)(implicit ctx: Context) =
     div(cls := "streamer-header")(
       bits.pic(s.streamer, s.user),
       div(cls := "overview")(

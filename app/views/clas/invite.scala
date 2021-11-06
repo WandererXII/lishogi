@@ -1,10 +1,10 @@
 package views.html.clas
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.clas.{ Clas, ClasInvite }
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.clas.{ Clas, ClasInvite }
 
 object invite {
 

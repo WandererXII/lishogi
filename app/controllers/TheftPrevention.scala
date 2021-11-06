@@ -1,11 +1,11 @@
 package controllers
 
-import lila.api.Context
-import lila.app._
-import lila.game.{ Game => GameModel, Pov, AnonCookie }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.game.{ Game => GameModel, Pov, AnonCookie }
 import play.api.mvc._
 
-private[controllers] trait TheftPrevention { self: LilaController =>
+private[controllers] trait TheftPrevention { self: LishogiController =>
 
   protected def PreventTheft(pov: Pov)(ok: => Fu[Result])(implicit ctx: Context): Fu[Result] = {
     if (isTheft(pov)) {
@@ -19,7 +19,7 @@ private[controllers] trait TheftPrevention { self: LilaController =>
         case (Some(_), None)                    => true
         case (Some(playerUserId), Some(userId)) => playerUserId != userId
         case (None, _) =>
-          !lila.api.Mobile.Api.requested(ctx.req) &&
+          !lishogi.api.Mobile.Api.requested(ctx.req) &&
             !ctx.req.cookies.get(AnonCookie.name).exists(_.value == pov.playerId)
       }
     }

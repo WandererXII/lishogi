@@ -3,14 +3,14 @@ import com.typesafe.sbt.packager.Keys.scriptClasspath
 import BuildSettings._
 import Dependencies._
 
-lazy val root = Project("lila", file("."))
+lazy val root = Project("lishogi", file("."))
   .enablePlugins(PlayScala, if (useEpoll) PlayNettyServer else PlayAkkaHttpServer)
   .disablePlugins(if (useEpoll) PlayAkkaHttpServer else PlayNettyServer)
   .dependsOn(api)
   .aggregate(api)
   .settings(buildSettings)
 
-version := lilaVersion
+version := lishogiVersion
 scalaVersion := globalScalaVersion
 resolvers ++= Dependencies.Resolvers.commons
 // don't deploy doc
@@ -28,7 +28,7 @@ resourceDirectory in Assets := baseDirectory.value / "public-nothanks"
 // don't make an assets jar
 PlayKeys.generateAssetsJar := false
 // who needs JS routes right?
-routesGenerator := LilaRoutesGenerator
+routesGenerator := LishogiRoutesGenerator
 maintainer := "contact@lishogi.org"
 
 // format: off

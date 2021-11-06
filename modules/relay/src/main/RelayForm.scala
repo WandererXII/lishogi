@@ -1,17 +1,17 @@
-package lila.relay
+package lishogi.relay
 
 import org.joda.time.DateTime
 import play.api.data._
 import play.api.data.Forms._
 import io.lemonlabs.uri.AbsoluteUrl
 
-import lila.security.Granter
-import lila.user.User
+import lishogi.security.Granter
+import lishogi.user.User
 
 final class RelayForm {
 
   import RelayForm._
-  import lila.common.Form.ISODateTimeOrTimestamp
+  import lishogi.common.Form.ISODateTimeOrTimestamp
 
   val form = Form(
     mapping(
@@ -121,7 +121,7 @@ object RelayForm {
         ownerId = user.id,
         sync = makeSync(user),
         credit = credit,
-        likes = lila.study.Study.Likes(1),
+        likes = lishogi.study.Study.Likes(1),
         createdAt = DateTime.now,
         finished = false,
         official = ~official && Granter(_.Relay)(user),

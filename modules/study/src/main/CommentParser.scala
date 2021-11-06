@@ -1,8 +1,8 @@
-package lila.study
+package lishogi.study
 
 import shogi.Centis
 import shogi.Pos
-import lila.tree.Node.{ Shape, Shapes }
+import lishogi.tree.Node.{ Shape, Shapes }
 
 private[study] object CommentParser {
 

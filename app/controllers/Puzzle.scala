@@ -5,25 +5,25 @@ import play.api.libs.json._
 import scala.util.chaining._
 import views._
 
-import lila.api.BodyContext
-import lila.api.Context
-import lila.app._
-import lila.common.ApiVersion
-import lila.common.config.MaxPerSecond
-import lila.puzzle.PuzzleForm.RoundData
-import lila.puzzle.PuzzleTheme
-import lila.puzzle.{ Result, PuzzleRound, PuzzleDifficulty, PuzzleReplay, Puzzle => Puz }
+import lishogi.api.BodyContext
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.common.ApiVersion
+import lishogi.common.config.MaxPerSecond
+import lishogi.puzzle.PuzzleForm.RoundData
+import lishogi.puzzle.PuzzleTheme
+import lishogi.puzzle.{ Result, PuzzleRound, PuzzleDifficulty, PuzzleReplay, Puzzle => Puz }
 
 final class Puzzle(
     env: Env,
     apiC: => Api
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private def renderJson(
       puzzle: Puz,
       theme: PuzzleTheme,
       replay: Option[PuzzleReplay] = None,
-      newUser: Option[lila.user.User] = None,
+      newUser: Option[lishogi.user.User] = None,
       apiVersion: Option[ApiVersion] = None
   )(implicit
       ctx: Context
@@ -110,7 +110,7 @@ final class Puzzle(
       ctx: BodyContext[A]
   ) = {
     implicit val req = ctx.body
-    lila.mon.puzzle.round.attempt(ctx.isAuth, theme.key.value).increment()
+    lishogi.mon.puzzle.round.attempt(ctx.isAuth, theme.key.value).increment()
     form
       .bindFromRequest()
       .fold(
@@ -273,7 +273,7 @@ final class Puzzle(
 
   def activity =
     Scoped(_.Puzzle.Read) { req => me =>
-      val config = lila.puzzle.PuzzleActivity.Config(
+      val config = lishogi.puzzle.PuzzleActivity.Config(
         user = me,
         max = getInt("max", req) map (_ atLeast 1),
         perSecond = MaxPerSecond(20)
@@ -384,7 +384,7 @@ final class Puzzle(
       negotiate(
         html = notFound,
         api = v => {
-          import lila.puzzle.PuzzleForm.bc._
+          import lishogi.puzzle.PuzzleForm.bc._
           ctx.body.body
             .validate[SolveData]
             .fold(

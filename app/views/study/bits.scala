@@ -4,10 +4,10 @@ package study
 import play.api.i18n.Lang
 import play.api.mvc.Call
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.study.Order
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.study.Order
 
 import controllers.routes
 
@@ -32,7 +32,7 @@ object bits {
       submitButton(cls := "button button-green", dataIcon := "O", title := trans.study.createStudy.txt())
     )
 
-  def authLinks(active: String, order: lila.study.Order)(implicit ctx: Context) = {
+  def authLinks(active: String, order: lishogi.study.Order)(implicit ctx: Context) = {
     def activeCls(c: String) = cls := (c == active).option("active")
     frag(
       a(activeCls("mine"), href := routes.Study.mine(order.key))(trans.study.myStudies()),
@@ -47,7 +47,7 @@ object bits {
     )
   }
 
-  def widget(s: lila.study.Study.WithChaptersAndLiked, tag: Tag = h2)(implicit ctx: Context) =
+  def widget(s: lishogi.study.Study.WithChaptersAndLiked, tag: Tag = h2)(implicit ctx: Context) =
     frag(
       a(cls := "overlay", href := routes.Study.show(s.study.id.value), title := s.study.name.value),
       div(cls := "top", dataIcon := "4")(
@@ -85,7 +85,7 @@ object bits {
       )
     )
 
-  def streamers(streams: List[lila.streamer.Stream])(implicit lang: Lang) =
+  def streamers(streams: List[lishogi.streamer.Stream])(implicit lang: Lang) =
     streams.nonEmpty option div(cls := "streamers none")(
       streams.map { s =>
         views.html.streamer.bits.contextual(s.streamer.userId)

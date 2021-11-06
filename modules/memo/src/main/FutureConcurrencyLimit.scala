@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import play.api.mvc.Result
 import scala.concurrent.duration.FiniteDuration
@@ -13,13 +13,13 @@ final class FutureConcurrencyLimit[K](
     toString: K => String = (k: K) => k.toString
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  private val storage = lila.memo.CacheApi.scaffeineNoScheduler
+  private val storage = lishogi.memo.CacheApi.scaffeineNoScheduler
     .expireAfterWrite(ttl)
     .build[String, Int]()
 
   private val concurrentMap = storage.underlying.asMap
 
-  private lazy val monitor = lila.mon.security.concurrencyLimit(key)
+  private lazy val monitor = lishogi.mon.security.concurrencyLimit(key)
 
   def apply(k: K, limited: => Fu[Result])(op: => Fu[Result]): Fu[Result] =
     get(k) match {

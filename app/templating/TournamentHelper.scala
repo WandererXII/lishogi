@@ -1,14 +1,14 @@
-package lila.app
+package lishogi.app
 package templating
 
 import play.api.i18n.Lang
 import play.api.libs.json.Json
 
 import controllers.routes
-import lila.app.ui.ScalatagsTemplate._
-import lila.rating.PerfType
-import lila.tournament.{ Schedule, Tournament }
-import lila.user.User
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.rating.PerfType
+import lishogi.tournament.{ Schedule, Tournament }
+import lishogi.user.User
 
 trait TournamentHelper { self: I18nHelper with DateHelper with UserHelper =>
 
@@ -53,7 +53,7 @@ trait TournamentHelper { self: I18nHelper with DateHelper with UserHelper =>
       "SuperBlitz"  -> s"S${icon(PerfType.Blitz.iconChar)}",
       "HyperRapid"  -> s"S${icon(PerfType.Rapid.iconChar)}"
     ) ::: PerfType.leaderboardable.filterNot(PerfType.translated.contains).map { pt =>
-      pt.trans(lila.i18n.defaultLang) -> icon(pt.iconChar)
+      pt.trans(lishogi.i18n.defaultLang) -> icon(pt.iconChar)
     }
 
     def apply(name: String): Frag =

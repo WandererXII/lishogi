@@ -1,4 +1,4 @@
-package lila.pool
+package lishogi.pool
 
 import play.api.libs.json.Json
 import scala.concurrent.duration._

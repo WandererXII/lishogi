@@ -1,14 +1,14 @@
 package controllers
 
-import lila.app._
-import lila.common.{ HTTPRequest, IpAddress }
+import lishogi.app._
+import lishogi.common.{ HTTPRequest, IpAddress }
 import scala.concurrent.duration._
 import views._
 
-final class ForumPost(env: Env) extends LilaController(env) with ForumController {
+final class ForumPost(env: Env) extends LishogiController(env) with ForumController {
 
   private val CreateRateLimit =
-    new lila.memo.RateLimit[IpAddress](4, 5.minutes, key = "forum.post")
+    new lishogi.memo.RateLimit[IpAddress](4, 5.minutes, key = "forum.post")
 
   def search(text: String, page: Int) =
     OpenBody { implicit ctx =>
@@ -83,7 +83,7 @@ final class ForumPost(env: Env) extends LilaController(env) with ForumController
 
   def redirect(id: String) =
     Open { implicit ctx =>
-      OptionResult(postApi.urlData(id, ctx.me)) { case lila.forum.PostUrlData(categ, topic, page, number) =>
+      OptionResult(postApi.urlData(id, ctx.me)) { case lishogi.forum.PostUrlData(categ, topic, page, number) =>
         Redirect(routes.ForumTopic.show(categ, topic, page).url + "#" + number)
       }
     }

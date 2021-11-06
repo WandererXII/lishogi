@@ -1,6 +1,6 @@
-package lila.irwin
+package lishogi.irwin
 
-import lila.memo.SettingStore.{ Formable, StringReader }
+import lishogi.memo.SettingStore.{ Formable, StringReader }
 import play.api.data.Form
 import play.api.data.Forms.{ single, text }
 
@@ -9,7 +9,7 @@ case class IrwinThresholds(report: Int, mark: Int)
 private object IrwinThresholds {
   val defaultThresholds = IrwinThresholds(88, 95)
 
-  val thresholdsIso = lila.common.Iso[String, IrwinThresholds](
+  val thresholdsIso = lishogi.common.Iso[String, IrwinThresholds](
     str =>
       {
         str.split(',').map(_.trim) match {
@@ -24,12 +24,12 @@ private object IrwinThresholds {
     t => s"${t.report}, ${t.mark}"
   )
 
-  implicit val thresholdsBsonHandler  = lila.db.dsl.isoHandler(thresholdsIso)
+  implicit val thresholdsBsonHandler  = lishogi.db.dsl.isoHandler(thresholdsIso)
   implicit val thresholdsStringReader = StringReader.fromIso(thresholdsIso)
   implicit val thresholdsFormable =
     new Formable[IrwinThresholds](t => Form(single("v" -> text)) fill thresholdsIso.to(t))
 
-  def makeSetting(store: lila.memo.SettingStore.Builder) =
+  def makeSetting(store: lishogi.memo.SettingStore.Builder) =
     store[IrwinThresholds](
       "irwinThresholds",
       default = defaultThresholds,

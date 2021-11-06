@@ -1,10 +1,10 @@
-package lila.security
+package lishogi.security
 
 import org.joda.time.DateTime
 import play.api.mvc.RequestHeader
 
-import lila.common.{ EmailAddress, IpAddress }
-import lila.user.User
+import lishogi.common.{ EmailAddress, IpAddress }
+import lishogi.user.User
 
 case class Dated[V](value: V, date: DateTime) extends Ordered[Dated[V]] {
   def compare(other: Dated[V]) = other.date compareTo date

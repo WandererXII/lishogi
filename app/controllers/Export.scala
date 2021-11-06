@@ -7,19 +7,19 @@ import play.api.mvc.Result
 
 import shogi.Color
 import shogi.format.Uci
-import lila.app._
-import lila.common.HTTPRequest
-import lila.game.Pov
-import lila.puzzle.Puzzle.Id
+import lishogi.app._
+import lishogi.common.HTTPRequest
+import lishogi.game.Pov
+import lishogi.puzzle.Puzzle.Id
 
-final class Export(env: Env) extends LilaController(env) {
+final class Export(env: Env) extends LishogiController(env) {
 
-  private val ExportImageRateLimitGlobal = new lila.memo.RateLimit[String](
+  private val ExportImageRateLimitGlobal = new lishogi.memo.RateLimit[String](
     credits = 600,
     duration = 1.minute,
     key = "export.image.global"
   )
-  private val ExportGifRateLimitGlobal = new lila.memo.RateLimit[String](
+  private val ExportGifRateLimitGlobal = new lishogi.memo.RateLimit[String](
     credits = 240,
     duration = 1.minute,
     key = "export.gif.global"
@@ -70,7 +70,7 @@ final class Export(env: Env) extends LilaController(env) {
       }(rateLimitedFu)
     }
 
-  private def gameImageCacheSeconds(game: lila.game.Game)(res: Result): Result = {
+  private def gameImageCacheSeconds(game: lishogi.game.Game)(res: Result): Result = {
     val cacheSeconds =
       if (game.finishedOrAborted) 3600 * 24
       else 10

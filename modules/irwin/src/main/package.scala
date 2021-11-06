@@ -1,6 +1,6 @@
-package lila
+package lishogi
 
 package object irwin extends PackageObject {
 
-  private[irwin] def logger = lila.log("irwin")
+  private[irwin] def logger = lishogi.log("irwin")
 }

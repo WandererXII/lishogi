@@ -1,11 +1,11 @@
-package lila.tournament
+package lishogi.tournament
 
 import play.api.i18n.Lang
 import play.api.libs.json._
 
-import lila.common.Json.jodaWrites
-import lila.rating.PerfType
-import lila.user.LightUserApi
+import lishogi.common.Json.jodaWrites
+import lishogi.rating.PerfType
+import lishogi.user.LightUserApi
 
 final class ApiJsonView(lightUserApi: LightUserApi)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -75,7 +75,7 @@ final class ApiJsonView(lightUserApi: LightUserApi)(implicit ec: scala.concurren
       baseJson(tour).add("winner" -> winner.map(userJson))
     }
 
-  private def userJson(u: lila.common.LightUser) =
+  private def userJson(u: lishogi.common.LightUser) =
     Json.obj(
       "id"    -> u.id,
       "name"  -> u.name,

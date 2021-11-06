@@ -14,7 +14,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-package lila.db
+package lishogi.db
 
 import ornicar.scalalib.Zero
 import reactivemongo.api.bson._
@@ -49,7 +49,7 @@ trait dsl {
   // End of Helpers
   //**********************************************************************************************//
 
-  implicit val LilaBSONDocumentZero: Zero[Bdoc] = Zero.instance($empty)
+  implicit val LishogiBSONDocumentZero: Zero[Bdoc] = Zero.instance($empty)
 
   //**********************************************************************************************//
   // Top Level Logical Operators

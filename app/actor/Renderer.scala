@@ -1,28 +1,28 @@
-package lila.app
+package lishogi.app
 package actor
 
 import akka.actor._
 
-import lila.game.Pov
+import lishogi.game.Pov
 import views.{ html => V }
 
 final private[app] class Renderer extends Actor {
 
   def receive = {
 
-    case lila.tv.actorApi.RenderFeaturedJs(game) =>
+    case lishogi.tv.actorApi.RenderFeaturedJs(game) =>
       sender() ! V.game.bits.featuredJs(Pov first game).render
 
-    case lila.tournament.Tournament.TournamentTable(tours) =>
+    case lishogi.tournament.Tournament.TournamentTable(tours) =>
       sender() ! V.tournament.bits.enterable(tours).render
 
-    case lila.simul.actorApi.SimulTable(simuls) =>
-      sender() ! V.simul.bits.allCreated(simuls)(lila.i18n.defaultLang).render
+    case lishogi.simul.actorApi.SimulTable(simuls) =>
+      sender() ! V.simul.bits.allCreated(simuls)(lishogi.i18n.defaultLang).render
 
-    case lila.puzzle.DailyPuzzle.Render(puzzle, fen, lastMove) =>
+    case lishogi.puzzle.DailyPuzzle.Render(puzzle, fen, lastMove) =>
       sender() ! V.puzzle.bits.daily(puzzle, fen, lastMove).render
 
-    case streams: lila.streamer.LiveStreams.WithTitles =>
+    case streams: lishogi.streamer.LiveStreams.WithTitles =>
       sender() ! V.streamer.bits.liveStreams(streams).render
   }
 }

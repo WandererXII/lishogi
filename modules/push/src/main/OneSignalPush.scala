@@ -1,4 +1,4 @@
-package lila.push
+package lishogi.push
 
 import io.methvin.play.autoconfig._
 import play.api.libs.json._
@@ -44,7 +44,7 @@ final private class OneSignalPush(
                   fufail(s"[push] ${devices.map(_.deviceId)} $data ${res.status} ${errors mkString ","}")
               }
             case res =>
-              fufail(s"[push] ${devices.map(_.deviceId)} $data ${lila.log http res}")
+              fufail(s"[push] ${devices.map(_.deviceId)} $data ${lishogi.log http res}")
           }
     }
 
@@ -57,7 +57,7 @@ private object OneSignalPush {
   final class Config(
       val url: String,
       @ConfigName("app_id") val appId: String,
-      val key: lila.common.config.Secret
+      val key: lishogi.common.config.Secret
   )
   implicit val configLoader = AutoConfig.loader[Config]
 }

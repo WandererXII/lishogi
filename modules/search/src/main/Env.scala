@@ -1,4 +1,4 @@
-package lila.search
+package lishogi.search
 
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._

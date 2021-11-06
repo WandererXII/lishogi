@@ -1,22 +1,22 @@
-package lila.security
+package lishogi.security
 
 import play.api.data._
 import play.api.data.Forms._
 import play.api.data.validation.Constraints
 import scala.concurrent.duration._
 
-import lila.common.{ EmailAddress, LameName, Form => LilaForm }
-import lila.user.{ TotpSecret, User, UserRepo }
+import lishogi.common.{ EmailAddress, LameName, Form => LishogiForm }
+import lishogi.user.{ TotpSecret, User, UserRepo }
 import User.{ ClearPassword, TotpToken }
 
 final class DataForm(
     userRepo: UserRepo,
-    val captcher: lila.hub.actors.Captcher,
-    authenticator: lila.user.Authenticator,
+    val captcher: lishogi.hub.actors.Captcher,
+    authenticator: lishogi.user.Authenticator,
     emailValidator: EmailAddressValidator,
     lameNameCheck: LameNameCheck
 )(implicit ec: scala.concurrent.ExecutionContext)
-    extends lila.hub.CaptchedForm {
+    extends lishogi.hub.CaptchedForm {
 
   import DataForm._
 
@@ -32,7 +32,7 @@ final class DataForm(
 
   def emptyWithCaptcha = withCaptcha(empty)
 
-  private val anyEmail        = LilaForm.clean(text).verifying(Constraints.emailAddress)
+  private val anyEmail        = LishogiForm.clean(text).verifying(Constraints.emailAddress)
   private val sendableEmail   = anyEmail.verifying(emailValidator.sendableConstraint)
   private val acceptableEmail = anyEmail.verifying(emailValidator.acceptableConstraint)
   private def acceptableUniqueEmail(forUser: Option[User]) =
@@ -52,7 +52,7 @@ final class DataForm(
 
   object signup {
 
-    val username = LilaForm
+    val username = LishogiForm
       .clean(nonEmptyText)
       .verifying(
         Constraints minLength 2,
@@ -215,7 +215,7 @@ final class DataForm(
 
   val reopen = Form(
     mapping(
-      "username" -> LilaForm.clean(nonEmptyText),
+      "username" -> LishogiForm.clean(nonEmptyText),
       "email"    -> sendableEmail, // allow unacceptable emails for BC
       "gameId"   -> text,
       "move"     -> text

@@ -8,18 +8,18 @@ import play.api.mvc._
 import scala.annotation.nowarn
 import scala.util.Try
 
-import lila.api.Context
-import lila.app._
-import lila.common.{ EmailAddress, HTTPRequest }
-import lila.security.{ FingerPrint, Signup }
-import lila.user.{ User => UserModel, PasswordHasher }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.common.{ EmailAddress, HTTPRequest }
+import lishogi.security.{ FingerPrint, Signup }
+import lishogi.user.{ User => UserModel, PasswordHasher }
 import UserModel.ClearPassword
 import views._
 
 final class Auth(
     env: Env,
     accountC: => Account
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private def api   = env.security.api
   private def forms = env.security.forms
@@ -63,13 +63,13 @@ final class Auth(
 
   private def authenticateCookie(sessionId: String)(result: Result)(implicit req: RequestHeader) =
     result.withCookies(
-      env.lilaCookie.withSession {
-        _ + (api.sessionIdKey -> sessionId) - api.AccessUri - lila.security.EmailConfirm.cookie.name
+      env.lishogiCookie.withSession {
+        _ + (api.sessionIdKey -> sessionId) - api.AccessUri - lishogi.security.EmailConfirm.cookie.name
       }
     )
 
   private def authRecovery(implicit ctx: Context): PartialFunction[Throwable, Fu[Result]] = {
-    case lila.security.SecurityApi.MustConfirmEmail(_) =>
+    case lishogi.security.SecurityApi.MustConfirmEmail(_) =>
       fuccess {
         if (HTTPRequest isXhr ctx.req) Ok(s"ok:${routes.Auth.checkYourEmail()}")
         else BadRequest(accountC.renderCheckYourEmail)
@@ -151,7 +151,7 @@ final class Auth(
         negotiate(
           html = Redirect(routes.Auth.login()).fuccess,
           api = _ => Ok(Json.obj("ok" -> true)).fuccess
-        ).dmap(_.withCookies(env.lilaCookie.newSession))
+        ).dmap(_.withCookies(env.lishogiCookie.newSession))
     }
 
   // mobile app BC logout with GET
@@ -161,7 +161,7 @@ final class Auth(
         html = notFound,
         api = _ => {
           ctxReq.session get api.sessionIdKey foreach env.security.store.delete
-          Ok(Json.obj("ok" -> true)).withCookies(env.lilaCookie.newSession).fuccess
+          Ok(Json.obj("ok" -> true)).withCookies(env.lishogiCookie.newSession).fuccess
         }
       )
     }
@@ -174,7 +174,7 @@ final class Auth(
     }
 
   private def authLog(user: String, email: String, msg: String) =
-    lila.log("auth").info(s"$user $email $msg")
+    lishogi.log("auth").info(s"$user $email $msg")
 
   def signupPost =
     OpenBody { implicit ctx =>
@@ -191,8 +191,8 @@ final class Auth(
                 case Signup.ConfirmEmail(user, email) =>
                   fuccess {
                     Redirect(routes.Auth.checkYourEmail()) withCookies
-                      lila.security.EmailConfirm.cookie
-                        .make(env.lilaCookie, user, email)(ctx.req)
+                      lishogi.security.EmailConfirm.cookie
+                        .make(env.lishogiCookie, user, email)(ctx.req)
                   }
                 case Signup.AllSet(user, email) => welcome(user, email) >> redirectNewUser(user)
               },
@@ -222,11 +222,11 @@ final class Auth(
   def checkYourEmail =
     Open { implicit ctx =>
       RedirectToProfileIfLoggedIn {
-        lila.security.EmailConfirm.cookie get ctx.req match {
+        lishogi.security.EmailConfirm.cookie get ctx.req match {
           case None => Ok(accountC.renderCheckYourEmail).fuccess
           case Some(userEmail) =>
             env.user.repo nameExists userEmail.username map {
-              case false => Redirect(routes.Auth.signup()) withCookies env.lilaCookie.newSession(ctx.req)
+              case false => Redirect(routes.Auth.signup()) withCookies env.lishogiCookie.newSession(ctx.req)
               case true  => Ok(accountC.renderCheckYourEmail)
             }
         }
@@ -236,7 +236,7 @@ final class Auth(
   // after signup and before confirmation
   def fixEmail =
     OpenBody { implicit ctx =>
-      lila.security.EmailConfirm.cookie.get(ctx.req) ?? { userEmail =>
+      lishogi.security.EmailConfirm.cookie.get(ctx.req) ?? { userEmail =>
         implicit val req = ctx.body
         forms.preloadEmailDns >> forms
           .fixEmail(userEmail.email)
@@ -251,12 +251,12 @@ final class Auth(
                     case _ =>
                       val newUserEmail = userEmail.copy(email = EmailAddress(email))
                       EmailConfirmRateLimit(newUserEmail, ctx.req) {
-                        lila.mon.email.send.fix.increment()
+                        lishogi.mon.email.send.fix.increment()
                         env.user.repo.setEmail(user.id, newUserEmail.email) >>
                           env.security.emailConfirm.send(user, newUserEmail.email) inject {
                             Redirect(routes.Auth.checkYourEmail()) withCookies
-                              lila.security.EmailConfirm.cookie
-                                .make(env.lilaCookie, user, newUserEmail.email)(ctx.req)
+                              lishogi.security.EmailConfirm.cookie
+                                .make(env.lishogiCookie, user, newUserEmail.email)(ctx.req)
                           }
                       }(rateLimitedFu)
                   }
@@ -268,17 +268,17 @@ final class Auth(
 
   def signupConfirmEmail(token: String) =
     Open { implicit ctx =>
-      import lila.security.EmailConfirm.Result
+      import lishogi.security.EmailConfirm.Result
       env.security.emailConfirm.confirm(token) flatMap {
         case Result.NotFound =>
-          lila.mon.user.register.confirmEmailResult(false).increment()
+          lishogi.mon.user.register.confirmEmailResult(false).increment()
           notFound
         case Result.AlreadyConfirmed(user) if ctx.is(user) =>
           Redirect(routes.User.show(user.username)).fuccess
         case Result.AlreadyConfirmed(_) =>
           Redirect(routes.Auth.login()).fuccess
         case Result.JustConfirmed(user) =>
-          lila.mon.user.register.confirmEmailResult(true).increment()
+          lishogi.mon.user.register.confirmEmailResult(true).increment()
           env.user.repo.email(user.id).flatMap {
             _.?? { email =>
               authLog(user.username, email.value, s"Confirmed email ${email.value}")
@@ -299,7 +299,7 @@ final class Auth(
 
   def setFingerPrint(fp: String, ms: Int) =
     Auth { ctx => me =>
-      lila.mon.http.fingerPrint.record(ms)
+      lishogi.mon.http.fingerPrint.record(ms)
       api.setFingerPrint(ctx.req, FingerPrint(fp)) flatMap {
         _ ?? { hash =>
           !me.lame ?? (for {
@@ -333,13 +333,13 @@ final class Auth(
           data => {
             env.user.repo.enabledWithEmail(data.realEmail.normalize) flatMap {
               case Some((user, storedEmail)) => {
-                lila.mon.user.auth.passwordResetRequest("success").increment()
+                lishogi.mon.user.auth.passwordResetRequest("success").increment()
                 env.security.passwordReset.send(user, storedEmail) inject Redirect(
                   routes.Auth.passwordResetSent(storedEmail.conceal)
                 )
               }
               case _ => {
-                lila.mon.user.auth.passwordResetRequest("noEmail").increment()
+                lishogi.mon.user.auth.passwordResetRequest("noEmail").increment()
                 forms.passwordResetWithCaptcha map { case (form, captcha) =>
                   BadRequest(html.auth.bits.passwordReset(form, captcha, false.some))
                 }
@@ -360,12 +360,12 @@ final class Auth(
     Open { implicit ctx =>
       env.security.passwordReset confirm token flatMap {
         case None => {
-          lila.mon.user.auth.passwordResetConfirm("tokenFail").increment()
+          lishogi.mon.user.auth.passwordResetConfirm("tokenFail").increment()
           notFound
         }
         case Some(user) => {
           authLog(user.username, "-", "Reset password")
-          lila.mon.user.auth.passwordResetConfirm("tokenOk").increment()
+          lishogi.mon.user.auth.passwordResetConfirm("tokenOk").increment()
           fuccess(html.auth.bits.passwordResetConfirm(user, token, forms.passwdReset, none))
         }
       }
@@ -375,7 +375,7 @@ final class Auth(
     OpenBody { implicit ctx =>
       env.security.passwordReset confirm token flatMap {
         case None => {
-          lila.mon.user.auth.passwordResetConfirm("tokenPostFail").increment()
+          lishogi.mon.user.auth.passwordResetConfirm("tokenPostFail").increment()
           notFound
         }
         case Some(user) =>
@@ -392,7 +392,7 @@ final class Auth(
                 env.security.store.closeAllSessionsOf(user.id) >>
                 env.push.webSubscriptionApi.unsubscribeByUser(user) >>
                 authenticateUser(user) >>-
-                lila.mon.user.auth.passwordResetConfirm("success").increment()
+                lishogi.mon.user.auth.passwordResetConfirm("success").increment()
             }(rateLimitedFu)
           }
       }
@@ -419,14 +419,14 @@ final class Auth(
             env.user.repo.enabledWithEmail(data.realEmail.normalize) flatMap {
               case Some((user, storedEmail)) => {
                 MagicLinkRateLimit(user, storedEmail, ctx.req) {
-                  lila.mon.user.auth.magicLinkRequest("success").increment()
+                  lishogi.mon.user.auth.magicLinkRequest("success").increment()
                   env.security.magicLink.send(user, storedEmail) inject Redirect(
                     routes.Auth.magicLinkSent(storedEmail.value)
                   )
                 }(rateLimitedFu)
               }
               case _ => {
-                lila.mon.user.auth.magicLinkRequest("no_email").increment()
+                lishogi.mon.user.auth.magicLinkRequest("no_email").increment()
                 forms.magicLinkWithCaptcha map { case (form, captcha) =>
                   BadRequest(html.auth.bits.magicLink(form, captcha, false.some))
                 }
@@ -446,13 +446,13 @@ final class Auth(
     Open { implicit ctx =>
       env.security.magicLink confirm token flatMap {
         case None => {
-          lila.mon.user.auth.magicLinkConfirm("token_fail").increment()
+          lishogi.mon.user.auth.magicLinkConfirm("token_fail").increment()
           notFound
         }
         case Some(user) => {
           authLog(user.username, "-", "Magic link")
           authenticateUser(user) >>-
-            lila.mon.user.auth.magicLinkConfirm("success").increment()
+            lishogi.mon.user.auth.magicLinkConfirm("success").increment()
         }
       }
     }
@@ -484,9 +484,9 @@ final class Auth(
   private[controllers] def HasherRateLimit =
     PasswordHasher.rateLimit[Result](enforce = env.net.rateLimit) _
 
-  private[controllers] def EmailConfirmRateLimit = lila.security.EmailConfirm.rateLimit[Result] _
+  private[controllers] def EmailConfirmRateLimit = lishogi.security.EmailConfirm.rateLimit[Result] _
 
-  private[controllers] def MagicLinkRateLimit = lila.security.MagicLink.rateLimit[Result] _
+  private[controllers] def MagicLinkRateLimit = lishogi.security.MagicLink.rateLimit[Result] _
 
   private[controllers] def RedirectToProfileIfLoggedIn(f: => Fu[Result])(implicit ctx: Context): Fu[Result] =
     ctx.me match {

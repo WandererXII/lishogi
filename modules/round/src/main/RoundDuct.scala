@@ -1,4 +1,4 @@
-package lila.round
+package lishogi.round
 
 import org.joda.time.DateTime
 import ornicar.scalalib.Zero
@@ -9,9 +9,9 @@ import scala.util.chaining._
 
 import actorApi._, round._
 import shogi.{ Centis, Color, Gote, Sente }
-import lila.game.Game.{ FullId, PlayerId }
-import lila.game.{ Game, GameRepo, Pov, Event, Progress, Player => GamePlayer }
-import lila.hub.actorApi.round.{
+import lishogi.game.Game.{ FullId, PlayerId }
+import lishogi.game.{ Game, GameRepo, Pov, Event, Progress, Player => GamePlayer }
+import lishogi.hub.actorApi.round.{
   Abort,
   BotPlay,
   FishnetPlay,
@@ -21,11 +21,11 @@ import lila.hub.actorApi.round.{
   RematchYes,
   Resign
 }
-import lila.hub.Duct
-import lila.room.RoomSocket.{ Protocol => RP, _ }
-import lila.socket.Socket.{ makeMessage, GetVersion, SocketVersion }
-import lila.socket.UserLagCache
-import lila.user.User
+import lishogi.hub.Duct
+import lishogi.room.RoomSocket.{ Protocol => RP, _ }
+import lishogi.socket.Socket.{ makeMessage, GetVersion, SocketVersion }
+import lishogi.socket.UserLagCache
+import lishogi.user.User
 
 final private[round] class RoundDuct(
     dependencies: RoundDuct.Dependencies,
@@ -170,11 +170,11 @@ final private[round] class RoundDuct(
         }
       }
 
-    case lila.chat.actorApi.RoundLine(line, watcher) =>
+    case lishogi.chat.actorApi.RoundLine(line, watcher) =>
       fuccess {
         publish(List(line match {
-          case l: lila.chat.UserLine   => Event.UserMessage(l, watcher)
-          case l: lila.chat.PlayerLine => Event.PlayerMessage(l)
+          case l: lishogi.chat.UserLine   => Event.UserMessage(l, watcher)
+          case l: lishogi.chat.PlayerLine => Event.PlayerMessage(l)
         }))
       }
 
@@ -183,17 +183,17 @@ final private[round] class RoundDuct(
         gameRepo hasHoldAlert pov flatMap {
           case true => funit
           case false =>
-            lila
+            lishogi
               .log("cheat")
               .info(
                 s"hold alert $ip https://lishogi.org/${pov.gameId}/${pov.color.name}#${pov.game.turns} ${pov.player.userId | "anon"} mean: $mean SD: $sd"
               )
-            lila.mon.cheat.holdAlert.increment()
+            lishogi.mon.cheat.holdAlert.increment()
             gameRepo.setHoldAlert(pov, GamePlayer.HoldAlert(ply = pov.game.turns, mean = mean, sd = sd)).void
         } inject Nil
       }
 
-    case a: lila.analyse.actorApi.AnalysisProgress =>
+    case a: lishogi.analyse.actorApi.AnalysisProgress =>
       fuccess {
         socketSend(
           RP.Out.tellRoom(
@@ -201,8 +201,8 @@ final private[round] class RoundDuct(
             makeMessage(
               "analysisProgress",
               Json.obj(
-                "analysis" -> lila.analyse.JsonView.bothPlayers(a.game, a.analysis),
-                "tree" -> lila.tree.Node.minimalNodeJsonWriter.writes {
+                "analysis" -> lishogi.analyse.JsonView.bothPlayers(a.game, a.analysis),
+                "tree" -> lishogi.tree.Node.minimalNodeJsonWriter.writes {
                   TreeBuilder(
                     id = a.analysis.id,
                     pgnMoves = a.game.pgnMoves,
@@ -240,7 +240,7 @@ final private[round] class RoundDuct(
         },
         lap => {
           p.promise.foreach(_ success {})
-          lila.mon.round.move.time.record(lap.nanos)
+          lishogi.mon.round.move.time.record(lap.nanos)
           MoveLatMonitor record lap.micros
         }
       )
@@ -398,7 +398,7 @@ final private[round] class RoundDuct(
         }
       }
 
-    case LilaStop(promise) =>
+    case LishogiStop(promise) =>
       proxy.withGame { g =>
         g.playable ?? {
           proxy saveAndFlush {
@@ -533,13 +533,13 @@ final private[round] class RoundDuct(
   private def errorHandler(name: String): PartialFunction[Throwable, Unit] = {
     case e: ClientError =>
       logger.info(s"Round client error $name: ${e.getMessage}")
-      lila.mon.round.error.client.increment()
+      lishogi.mon.round.error.client.increment()
     case e: FishnetError =>
       logger.info(s"Round fishnet error $name: ${e.getMessage}")
-      lila.mon.round.error.fishnet.increment()
+      lishogi.mon.round.error.fishnet.increment()
     case e: Exception =>
       logger.warn(s"$name: ${e.getMessage}")
-      lila.mon.round.error.other.increment()
+      lishogi.mon.round.error.other.increment()
   }
 
   def roomId = RoomId(gameId)
@@ -548,11 +548,11 @@ final private[round] class RoundDuct(
 object RoundDuct {
 
   case class HasUserId(userId: User.ID, promise: Promise[Boolean])
-  case class SetGameInfo(game: lila.game.Game, goneWeights: (Float, Float))
+  case class SetGameInfo(game: lishogi.game.Game, goneWeights: (Float, Float))
   case object Tick
   case object Stop
   case object WsBoot
-  case class LilaStop(promise: Promise[Unit])
+  case class LishogiStop(promise: Promise[Unit])
 
   private[round] case class TakebackSituation(nbDeclined: Int, lastDeclined: Option[DateTime]) {
 

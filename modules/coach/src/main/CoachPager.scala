@@ -1,19 +1,19 @@
-package lila.coach
+package lishogi.coach
 
 import reactivemongo.api._
 import play.api.i18n.Lang
 
-import lila.common.paginator.Paginator
-import lila.db.dsl._
-import lila.db.paginator.{ Adapter }
-import lila.user.{ User, UserRepo }
+import lishogi.common.paginator.Paginator
+import lishogi.db.dsl._
+import lishogi.db.paginator.{ Adapter }
+import lishogi.user.{ User, UserRepo }
 
 final class CoachPager(
     userRepo: UserRepo,
     coll: Coll
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  val maxPerPage = lila.common.config.MaxPerPage(10)
+  val maxPerPage = lishogi.common.config.MaxPerPage(10)
 
   import CoachPager._
   import BsonHandlers._

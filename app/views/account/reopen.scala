@@ -3,15 +3,15 @@ package account
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object reopen {
 
-  def form(form: Form[_], captcha: lila.common.Captcha, error: Option[String] = None)(implicit
+  def form(form: Form[_], captcha: lishogi.common.Captcha, error: Option[String] = None)(implicit
       ctx: Context
   ) =
     views.html.base.layout(

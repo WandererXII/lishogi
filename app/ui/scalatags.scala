@@ -1,4 +1,4 @@
-package lila.app
+package lishogi.app
 package ui
 
 import ornicar.scalalib.Zero
@@ -7,9 +7,9 @@ import scalatags.Text.all._
 import scalatags.text.Builder
 import scalatags.Text.{ Aggregate, Cap }
 
-import lila.api.Context
+import lishogi.api.Context
 
-// collection of lila attrs
+// collection of lishogi attrs
 trait ScalatagsAttrs {
   val dataAssetUrl     = attr("data-asset-url")
   val dataAssetVersion = attr("data-asset-version")
@@ -34,7 +34,7 @@ trait ScalatagsAttrs {
   }
 }
 
-// collection of lila snippets
+// collection of lishogi snippets
 trait ScalatagsSnippets extends Cap {
   this: ScalatagsExtensions with ScalatagsAttrs =>
 
@@ -53,15 +53,15 @@ trait ScalatagsSnippets extends Cap {
   val badTag                                 = tag("bad")
   val timeTag                                = tag("time")
 
-  def dataBot(title: lila.user.Title): Modifier =
-    if (title == lila.user.Title.BOT) dataBotAttr
+  def dataBot(title: lishogi.user.Title): Modifier =
+    if (title == lishogi.user.Title.BOT) dataBotAttr
     else emptyModifier
 
-  def pagerNext(pager: lila.common.paginator.Paginator[_], url: Int => String): Option[Frag] =
+  def pagerNext(pager: lishogi.common.paginator.Paginator[_], url: Int => String): Option[Frag] =
     pager.nextPage.map { np =>
       div(cls := "pager none")(a(rel := "next", href := url(np))("Next"))
     }
-  def pagerNextTable(pager: lila.common.paginator.Paginator[_], url: Int => String): Option[Frag] =
+  def pagerNextTable(pager: lishogi.common.paginator.Paginator[_], url: Int => String): Option[Frag] =
     pager.nextPage.map { np =>
       tr(th(cls := "pager none")(a(rel := "next", href := url(np))("Next")))
     }
@@ -107,7 +107,7 @@ trait ScalatagsTemplate
     with ScalatagsSnippets
     with ScalatagsPrefix {
 
-  val trans = lila.i18n.I18nKeys
+  val trans = lishogi.i18n.I18nKeys
   def main  = scalatags.Text.tags2.main
 
   /* Convert play URLs to scalatags attributes with toString */
@@ -145,7 +145,7 @@ trait ScalatagsExtensions {
   }
 
   val emptyFrag: Frag                   = new RawFrag("")
-  implicit val LilaFragZero: Zero[Frag] = Zero.instance(emptyFrag)
+  implicit val LishogiFragZero: Zero[Frag] = Zero.instance(emptyFrag)
 
   val emptyModifier: Modifier = new Modifier {
     def applyTo(t: Builder) = {}
@@ -153,7 +153,7 @@ trait ScalatagsExtensions {
 
   val targetBlank: Modifier = (t: Builder) => {
     // Prevent tab nabbing when opening untrusted links. Apply also to trusted
-    // links, because there can be a small peformance advantage and lila does
+    // links, because there can be a small peformance advantage and lishogi does
     // not use window.opener anywhere. Will not be overwritten by additional
     // rels.
     t.setAttr("rel", Builder.GenericAttrValueSource("noopener"))

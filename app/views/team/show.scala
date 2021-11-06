@@ -2,13 +2,13 @@ package views.html.team
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.common.String.html.{ richText, safeJsonValue }
-import lila.team.Team
-import lila.app.mashup.TeamInfo
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.common.String.html.{ richText, safeJsonValue }
+import lishogi.team.Team
+import lishogi.app.mashup.TeamInfo
 
 import controllers.routes
 
@@ -18,16 +18,16 @@ object show {
 
   def apply(
       t: Team,
-      members: Paginator[lila.common.LightUser],
+      members: Paginator[lishogi.common.LightUser],
       info: TeamInfo,
-      chatOption: Option[lila.chat.UserChat.Mine],
-      socketVersion: Option[lila.socket.Socket.SocketVersion]
+      chatOption: Option[lishogi.chat.UserChat.Mine],
+      socketVersion: Option[lishogi.socket.Socket.SocketVersion]
   )(implicit
       ctx: Context
   ) =
     bits.layout(
       title = t.name,
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = s"${t.name} team",
           url = s"$netBaseUrl${routes.Team.show(t.id).url}",
@@ -49,7 +49,7 @@ object show {
                 name = if (t.isChatFor(_.LEADERS)) leadersChat.txt() else trans.chatRoom.txt(),
                 timeout = chat.timeout,
                 public = true,
-                resourceId = lila.chat.Chat.ResourceId(s"team/${chat.chat.id}"),
+                resourceId = lishogi.chat.Chat.ResourceId(s"team/${chat.chat.id}"),
                 localMod = ctx.userId exists t.leaders.contains
               )
             )

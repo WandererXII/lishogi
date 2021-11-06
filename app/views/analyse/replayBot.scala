@@ -1,9 +1,9 @@
 package views.html.analyse
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.game.Pov
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.game.Pov
 
 object replayBot {
 
@@ -11,8 +11,8 @@ object replayBot {
       pov: Pov,
       initialFen: Option[shogi.format.FEN],
       kif: String,
-      simul: Option[lila.simul.Simul],
-      cross: Option[lila.game.Crosstable.WithMatchup]
+      simul: Option[lishogi.simul.Simul],
+      cross: Option[lishogi.game.Crosstable.WithMatchup]
   )(implicit ctx: Context) = {
 
     views.html.analyse.bits.layout(

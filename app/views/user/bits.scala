@@ -2,10 +2,10 @@ package views.html.user
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
 
 import controllers.routes
 
@@ -44,7 +44,7 @@ object bits {
       s"""<signal title="$title" class="q$v">$bars</signal>"""
     }
 
-  def perfTrophies(u: User, rankMap: lila.rating.UserRankMap)(implicit lang: Lang) =
+  def perfTrophies(u: User, rankMap: lishogi.rating.UserRankMap)(implicit lang: Lang) =
     !u.lame ??
       rankMap.toList.sortBy(_._2).collect {
         case (perf, rank) if rank == 1 =>

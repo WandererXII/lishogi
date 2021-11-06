@@ -5,18 +5,18 @@ import play.api.mvc.Result
 import scala.annotation.nowarn
 import scala.concurrent.duration._
 
-import lila.api.Context
-import lila.app._
-import lila.challenge.{ Challenge => ChallengeModel }
-import lila.common.{ HTTPRequest, IpAddress }
-import lila.game.{ AnonCookie, Pov }
-import lila.socket.Socket.SocketVersion
-import lila.user.{ User => UserModel }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.challenge.{ Challenge => ChallengeModel }
+import lishogi.common.{ HTTPRequest, IpAddress }
+import lishogi.game.{ AnonCookie, Pov }
+import lishogi.socket.Socket.SocketVersion
+import lishogi.user.{ User => UserModel }
 import views.html
 
 final class Challenge(
     env: Env
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   def api = env.challenge.api
 
@@ -47,7 +47,7 @@ final class Challenge(
   ): Fu[Result] =
     env.challenge version c.id flatMap { version =>
       val mine = isMine(c)
-      import lila.challenge.Direction
+      import lishogi.challenge.Direction
       val direction: Option[Direction] =
         if (mine) Direction.Out.some
         else if (isForMe(c)) Direction.In.some
@@ -67,13 +67,13 @@ final class Challenge(
             },
         api = _ => Ok(json).fuccess
       ) flatMap withChallengeAnonCookie(mine && c.challengerIsAnon, c, true)
-    } dmap env.lilaCookie.ensure(ctx.req)
+    } dmap env.lishogiCookie.ensure(ctx.req)
 
   private def isMine(challenge: ChallengeModel)(implicit ctx: Context) =
     challenge.challenger match {
-      case lila.challenge.Challenge.Challenger.Anonymous(secret)     => HTTPRequest sid ctx.req contains secret
-      case lila.challenge.Challenge.Challenger.Registered(userId, _) => ctx.userId contains userId
-      case lila.challenge.Challenge.Challenger.Open                  => false
+      case lishogi.challenge.Challenge.Challenger.Anonymous(secret)     => HTTPRequest sid ctx.req contains secret
+      case lishogi.challenge.Challenge.Challenger.Registered(userId, _) => ctx.userId contains userId
+      case lishogi.challenge.Challenge.Challenger.Open                  => false
     }
 
   private def isForMe(challenge: ChallengeModel)(implicit ctx: Context) =
@@ -119,7 +119,7 @@ final class Challenge(
     cond ?? {
       env.game.gameRepo.game(c.id).map {
         _ map { game =>
-          env.lilaCookie.cookie(
+          env.lishogiCookie.cookie(
             AnonCookie.name,
             game.player(if (owner) c.finalColor else !c.finalColor).id,
             maxAge = AnonCookie.maxAge.some,
@@ -158,14 +158,14 @@ final class Challenge(
       }
     }
 
-  private val ChallengeIpRateLimit = new lila.memo.RateLimit[IpAddress](
+  private val ChallengeIpRateLimit = new lishogi.memo.RateLimit[IpAddress](
     100,
     10.minute,
     key = "challenge.create.ip",
     enforce = env.net.rateLimit.value
   )
 
-  private val ChallengeUserRateLimit = lila.memo.RateLimit.composite[lila.user.User.ID](
+  private val ChallengeUserRateLimit = lishogi.memo.RateLimit.composite[lishogi.user.User.ID](
     key = "challenge.create.user",
     enforce = env.net.rateLimit.value
   )(
@@ -182,7 +182,7 @@ final class Challenge(
         if (isMine(c))
           Form(
             single(
-              "username" -> lila.user.DataForm.historicalUsernameField
+              "username" -> lishogi.user.DataForm.historicalUsernameField
             )
           ).bindFromRequest()
             .fold(
@@ -194,7 +194,7 @@ final class Challenge(
                     case Some(dest) =>
                       env.challenge.granter(ctx.me, dest, c.perfType.some) flatMap {
                         case Some(denied) =>
-                          showChallenge(c, lila.challenge.ChallengeDenied.translated(denied).some)
+                          showChallenge(c, lishogi.challenge.ChallengeDenied.translated(denied).some)
                         case None => api.setDestUser(c, dest) inject Redirect(routes.Challenge.show(c.id))
                       }
                   }
@@ -216,13 +216,13 @@ final class Challenge(
             ChallengeIpRateLimit(HTTPRequest lastRemoteAddress req, cost = cost) {
               ChallengeUserRateLimit(me.id, cost = cost) {
                 env.user.repo enabledById userId.toLowerCase flatMap { destUser =>
-                  import lila.challenge.Challenge._
+                  import lishogi.challenge.Challenge._
                   val timeControl = config.clock map {
                     TimeControl.Clock.apply
                   } orElse config.days.map {
                     TimeControl.Correspondence.apply
                   } getOrElse TimeControl.Unlimited
-                  val challenge = lila.challenge.Challenge.make(
+                  val challenge = lishogi.challenge.Challenge.make(
                     variant = config.variant,
                     initialFen = config.position,
                     timeControl = timeControl,
@@ -237,13 +237,13 @@ final class Challenge(
                     case _ =>
                       destUser ?? { env.challenge.granter(me.some, _, config.perfType) } flatMap {
                         case Some(denied) =>
-                          BadRequest(jsonError(lila.challenge.ChallengeDenied.translated(denied))).fuccess
+                          BadRequest(jsonError(lishogi.challenge.ChallengeDenied.translated(denied))).fuccess
                         case _ =>
                           (env.challenge.api create challenge) map {
                             case true =>
                               JsonOk(
                                 env.challenge.jsonView
-                                  .show(challenge, SocketVersion(0), lila.challenge.Direction.Out.some)
+                                  .show(challenge, SocketVersion(0), lishogi.challenge.Direction.Out.some)
                               )
                             case false =>
                               BadRequest(jsonError("Challenge not created"))
@@ -259,12 +259,12 @@ final class Challenge(
 
   private def apiChallengeAccept(
       dest: UserModel,
-      challenge: lila.challenge.Challenge,
+      challenge: lishogi.challenge.Challenge,
       strToken: String
   ) =
     env.security.api.oauthScoped(
-      lila.oauth.AccessToken.Id(strToken),
-      List(lila.oauth.OAuthScope.Challenge.Write)
+      lishogi.oauth.AccessToken.Id(strToken),
+      List(lishogi.oauth.OAuthScope.Challenge.Write)
     ) flatMap {
       _.fold(
         err => BadRequest(jsonError(err.message)).fuccess,
@@ -292,8 +292,8 @@ final class Challenge(
           err => BadRequest(apiFormError(err)).fuccess,
           config =>
             ChallengeIpRateLimit(HTTPRequest lastRemoteAddress req) {
-              import lila.challenge.Challenge._
-              val challenge = lila.challenge.Challenge
+              import lishogi.challenge.Challenge._
+              val challenge = lishogi.challenge.Challenge
                 .make(
                   variant = config.variant,
                   initialFen = config.position,
@@ -329,7 +329,7 @@ final class Challenge(
             env.challenge.granter(me.some, opponent, g.perfType) flatMap {
               case Some(d) =>
                 BadRequest(jsonError {
-                  lila.challenge.ChallengeDenied translated d
+                  lishogi.challenge.ChallengeDenied translated d
                 }).fuccess
               case _ =>
                 api.sendRematchOf(g, me) map {

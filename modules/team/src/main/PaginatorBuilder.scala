@@ -1,15 +1,15 @@
-package lila.team
+package lishogi.team
 
-import lila.common.config.MaxPerPage
-import lila.common.paginator._
-import lila.common.LightUser
-import lila.db.dsl._
-import lila.db.paginator._
+import lishogi.common.config.MaxPerPage
+import lishogi.common.paginator._
+import lishogi.common.LightUser
+import lishogi.db.dsl._
+import lishogi.db.paginator._
 
 final private[team] class PaginatorBuilder(
     teamRepo: TeamRepo,
     memberRepo: MemberRepo,
-    lightUserApi: lila.user.LightUserApi
+    lightUserApi: lishogi.user.LightUserApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
   private val maxPerPage     = MaxPerPage(15)
   private val maxUserPerPage = MaxPerPage(30)

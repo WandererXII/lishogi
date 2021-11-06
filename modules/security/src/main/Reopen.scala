@@ -1,13 +1,13 @@
-package lila.security
+package lishogi.security
 
 import play.api.i18n.Lang
 import scala.concurrent.duration._
 import scalatags.Text.all._
 
-import lila.common.config._
-import lila.common.EmailAddress
-import lila.i18n.I18nKeys.{ emails => trans }
-import lila.user.{ User, UserRepo }
+import lishogi.common.config._
+import lishogi.common.EmailAddress
+import lishogi.i18n.I18nKeys.{ emails => trans }
+import lishogi.user.{ User, UserRepo }
 
 final class Reopen(
     mailgun: Mailgun,
@@ -52,7 +52,7 @@ final class Reopen(
 
   def send(user: User, email: EmailAddress)(implicit lang: Lang): Funit =
     tokener make user.id flatMap { token =>
-      lila.mon.email.send.reopen.increment()
+      lishogi.mon.email.send.reopen.increment()
       val url = s"$baseUrl/account/reopen/login/$token"
       mailgun send Mailgun.Message(
         to = email,

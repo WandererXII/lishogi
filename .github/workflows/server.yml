@@ -10,7 +10,7 @@ on:
       - "project/**"
       - "translation/**"
       - "build.sbt"
-      - "lila"
+      - "lishogi"
       - "conf/application.conf.default"
       - ".sbtopts.default"
     branches-ignore:
@@ -24,7 +24,7 @@ on:
       - "project/**"
       - "translation/source/**"
       - "build.sbt"
-      - "lila"
+      - "lishogi"
       - "conf/application.conf.default"
       - ".sbtopts.default"
 
@@ -43,12 +43,12 @@ jobs:
         with:
           java-version: 14.0.1
       - run: TZ=UTC git log -1 --date=iso-strict-local --pretty='format:app.version.commit = "%h"%napp.version.date = "%ad"%napp.version.message = """%s"""%n' | tee conf/version.conf
-      - run: ./lila -Depoll=true "test;stage"
+      - run: ./lishogi -Depoll=true "test;stage"
       - run: cp LICENSE COPYING.md README.md target/universal/stage && git log -n 1 --pretty=oneline > target/universal/stage/commit.txt
-      - run: cd target/universal/stage && tar -cvpJf ../../../lila-3.0.tar.xz . && cd -
+      - run: cd target/universal/stage && tar -cvpJf ../../../lishogi-3.0.tar.xz . && cd -
         env:
           XZ_OPT: "-0"
       - uses: actions/upload-artifact@v1
         with:
-          name: lila-server
-          path: lila-3.0.tar.xz
+          name: lishogi-server
+          path: lishogi-3.0.tar.xz

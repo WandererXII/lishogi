@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import akka.actor.{ ActorSystem, Scheduler }
 import scala.collection.BuildFrom
@@ -95,7 +95,7 @@ object Future {
     if (duration == 0.millis) run
     else run zip akka.pattern.after(duration, system.scheduler)(funit) dmap (_._1)
 
-  def retry[T](op: () => Fu[T], delay: FiniteDuration, retries: Int, logger: Option[lila.log.Logger])(implicit
+  def retry[T](op: () => Fu[T], delay: FiniteDuration, retries: Int, logger: Option[lishogi.log.Logger])(implicit
       ec: ExecutionContext,
       system: ActorSystem
   ): Fu[T] =

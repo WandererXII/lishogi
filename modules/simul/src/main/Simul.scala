@@ -1,9 +1,9 @@
-package lila.simul
+package lishogi.simul
 
 import shogi.variant.Variant
 import shogi.{ Speed, StartingPosition }
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.rating.PerfType
+import lishogi.user.User
 import org.joda.time.DateTime
 
 case class Simul(
@@ -108,9 +108,9 @@ case class Simul(
 
   def gameIds = pairings.map(_.gameId)
 
-  def perfTypes: List[lila.rating.PerfType] =
+  def perfTypes: List[lishogi.rating.PerfType] =
     variants.flatMap { variant =>
-      lila.game.PerfPicker.perfType(
+      lishogi.game.PerfPicker.perfType(
         speed = Speed(clock.config.some),
         variant = variant,
         daysPerTurn = none
@@ -157,14 +157,14 @@ object Simul {
       team: Option[String]
   ): Simul =
     Simul(
-      _id = lila.common.ThreadLocalRandom nextString 8,
+      _id = lishogi.common.ThreadLocalRandom nextString 8,
       name = name,
       status = SimulStatus.Created,
       clock = clock,
       hostId = host.id,
       hostRating = host.perfs.bestRatingIn {
         variants.flatMap { variant =>
-          lila.game.PerfPicker.perfType(
+          lishogi.game.PerfPicker.perfType(
             speed = Speed(clock.config.some),
             variant = variant,
             daysPerTurn = none

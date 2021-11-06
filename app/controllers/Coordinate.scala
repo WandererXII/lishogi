@@ -1,8 +1,8 @@
 package controllers
 
-import lila.app._
+import lishogi.app._
 
-final class Coordinate(env: Env) extends LilaController(env) {
+final class Coordinate(env: Env) extends LishogiController(env) {
 
   def home =
     Open { implicit ctx =>
@@ -38,7 +38,7 @@ final class Coordinate(env: Env) extends LilaController(env) {
           value =>
             env.pref.api.setPref(
               me,
-              (p: lila.pref.Pref) => p.copy(coordColor = value)
+              (p: lishogi.pref.Pref) => p.copy(coordColor = value)
             ) inject Ok(())
         )
     }

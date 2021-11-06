@@ -1,10 +1,10 @@
 package controllers
 
-import lila.app._
+import lishogi.app._
 
-final class Irwin(env: Env) extends LilaController(env) {
+final class Irwin(env: Env) extends LishogiController(env) {
 
-  import lila.irwin.JSONHandlers.reportReader
+  import lishogi.irwin.JSONHandlers.reportReader
 
   def dashboard =
     Secure(_.SeeReport) { implicit ctx => _ =>
@@ -17,7 +17,7 @@ final class Irwin(env: Env) extends LilaController(env) {
     ScopedBody(parse.json)(Nil) { req => me =>
       isGranted(_.Admin, me) ?? {
         req.body
-          .validate[lila.irwin.IrwinReport]
+          .validate[lishogi.irwin.IrwinReport]
           .fold(
             err => fuccess(BadRequest(err.toString)),
             report => env.irwin.api.reports.insert(report) inject Ok

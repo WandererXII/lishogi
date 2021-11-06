@@ -1,11 +1,11 @@
-package lila.team
+package lishogi.team
 
-import lila.room.RoomSocket.{ Protocol => RP, _ }
-import lila.socket.RemoteSocket.{ Protocol => P, _ }
+import lishogi.room.RoomSocket.{ Protocol => RP, _ }
+import lishogi.socket.RemoteSocket.{ Protocol => P, _ }
 
 final private class TeamSocket(
-    remoteSocketApi: lila.socket.RemoteSocket,
-    chat: lila.chat.ChatApi,
+    remoteSocketApi: lishogi.socket.RemoteSocket,
+    chat: lishogi.chat.ChatApi,
     cached: Cached
 )(implicit
     ec: scala.concurrent.ExecutionContext,

@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 trait TellMap {
   def tell(id: String, msg: Any): Unit

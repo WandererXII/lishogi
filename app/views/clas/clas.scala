@@ -3,11 +3,11 @@ package views.html.clas
 import play.api.data.Form
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.clas.{ Clas, Student }
-import lila.clas.ClasForm.ClasData
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.clas.{ Clas, Student }
+import lishogi.clas.ClasForm.ClasData
 import controllers.routes
 
 object clas {
@@ -95,7 +95,7 @@ object clas {
       innerForm(form, none)
     )
 
-  def edit(c: lila.clas.Clas, students: List[Student.WithUser], form: Form[ClasData])(implicit ctx: Context) =
+  def edit(c: lishogi.clas.Clas, students: List[Student.WithUser], form: Form[ClasData])(implicit ctx: Context) =
     teacherDashboard.layout(c, students, "edit")(
       div(cls := "box-pad")(
         innerForm(form, c.some),
@@ -111,7 +111,7 @@ object clas {
       )
     )
 
-  def notify(c: lila.clas.Clas, students: List[Student.WithUser], form: Form[_])(implicit ctx: Context) =
+  def notify(c: lishogi.clas.Clas, students: List[Student.WithUser], form: Form[_])(implicit ctx: Context) =
     teacherDashboard.layout(c, students, "wall")(
       div(cls := "box-pad clas-wall__edit")(
         p(

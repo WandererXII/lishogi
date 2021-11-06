@@ -1,4 +1,4 @@
-package lila.swiss
+package lishogi.swiss
 
 private case class SwissSheet(outcomes: List[SwissSheet.Outcome]) {
   import SwissSheet._
@@ -68,7 +68,7 @@ final private class SwissSheetApi(colls: SwissColls)(implicit
   import org.joda.time.DateTime
   import reactivemongo.akkastream.cursorProducer
   import reactivemongo.api.ReadPreference
-  import lila.db.dsl._
+  import lishogi.db.dsl._
   import BsonHandlers._
 
   def source(swiss: Swiss): Source[(SwissPlayer, Map[SwissRound.Number, SwissPairing], SwissSheet), _] = {

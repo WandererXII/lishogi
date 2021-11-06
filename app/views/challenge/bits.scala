@@ -2,11 +2,11 @@ package views.html.challenge
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.challenge.Challenge
-import lila.common.String.html.safeJsonValue
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.challenge.Challenge
+import lishogi.common.String.html.safeJsonValue
 
 import controllers.routes
 

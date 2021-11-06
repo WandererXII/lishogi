@@ -1,11 +1,11 @@
 package views.html.user.show
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.game.{ Game, Pov }
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.game.{ Game, Pov }
+import lishogi.user.User
 
 import controllers.routes
 
@@ -13,9 +13,9 @@ object gamesContent {
 
   def apply(
       u: User,
-      nbs: lila.app.mashup.UserInfo.NbGames,
+      nbs: lishogi.app.mashup.UserInfo.NbGames,
       pager: Paginator[Game],
-      filters: lila.app.mashup.GameFilterMenu,
+      filters: lishogi.app.mashup.GameFilterMenu,
       filterName: String
   )(implicit ctx: Context) =
     frag(

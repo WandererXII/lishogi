@@ -1,15 +1,15 @@
-package lila.history
+package lishogi.history
 
 import scala.concurrent.duration._
 
 import play.api.libs.json._
 
-import lila.rating.PerfType
-import lila.user.User
+import lishogi.rating.PerfType
+import lishogi.user.User
 
 final class RatingChartApi(
     historyApi: HistoryApi,
-    mongoCache: lila.memo.MongoCache.Api
+    mongoCache: lishogi.memo.MongoCache.Api
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def apply(user: User): Fu[Option[String]] =
@@ -45,9 +45,9 @@ final class RatingChartApi(
 
   private def build(user: User): Fu[Option[String]] =
     historyApi get user.id map2 { (history: History) =>
-      lila.common.String.html.safeJsonValue {
+      lishogi.common.String.html.safeJsonValue {
         Json.toJson {
-          import lila.rating.PerfType._
+          import lishogi.rating.PerfType._
           List(
             Bullet,
             Blitz,
@@ -58,7 +58,7 @@ final class RatingChartApi(
             UltraBullet
           ) map { pt =>
             Json.obj(
-              "name"   -> pt.trans(lila.i18n.defaultLang),
+              "name"   -> pt.trans(lishogi.i18n.defaultLang),
               "points" -> ratingsMapToJson(user, history(pt))
             )
           }

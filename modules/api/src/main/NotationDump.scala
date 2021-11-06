@@ -1,20 +1,20 @@
-package lila.api
+package lishogi.api
 
 import shogi.format.{ FEN, Notation }
-import lila.analyse.{ Analysis, Annotator }
-import lila.game.Game
-import lila.game.NotationDump.WithFlags
-import lila.team.GameTeams
+import lishogi.analyse.{ Analysis, Annotator }
+import lishogi.game.Game
+import lishogi.game.NotationDump.WithFlags
+import lishogi.team.GameTeams
 
 final class NotationDump(
-    val dumper: lila.game.NotationDump,
+    val dumper: lishogi.game.NotationDump,
     annotator: Annotator,
-    simulApi: lila.simul.SimulApi,
-    getTournamentName: lila.tournament.GetTourName,
-    getSwissName: lila.swiss.GetSwissName
+    simulApi: lishogi.simul.SimulApi,
+    getTournamentName: lishogi.tournament.GetTourName,
+    getSwissName: lishogi.swiss.GetSwissName
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  implicit private val lang = lila.i18n.defaultLang
+  implicit private val lang = lishogi.i18n.defaultLang
 
   def apply(
       game: Game,
@@ -28,7 +28,7 @@ final class NotationDump(
       if (flags.tags) (game.simulId ?? simulApi.idToName) map { simulName =>
         simulName
           .orElse(game.tournamentId flatMap getTournamentName.get)
-          .orElse(game.swissId map lila.swiss.Swiss.Id flatMap getSwissName.apply)
+          .orElse(game.swissId map lishogi.swiss.Swiss.Id flatMap getSwissName.apply)
           .fold(notation)(notation.withEvent)
       }
       else fuccess(notation)

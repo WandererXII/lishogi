@@ -1,4 +1,4 @@
-package lila.i18n
+package lishogi.i18n
 
 import org.specs2.mutable.Specification
 import scala.jdk.CollectionConverters._

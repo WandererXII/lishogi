@@ -1,4 +1,4 @@
-package lila.db
+package lishogi.db
 
 import reactivemongo.api._
 
@@ -6,8 +6,8 @@ import scala.concurrent.duration._
 import scala.concurrent.Future
 
 import dsl.Coll
-import lila.common.Chronometer
-import lila.common.config.CollName
+import lishogi.common.Chronometer
+import lishogi.common.config.CollName
 
 final class AsyncDb(
     name: String,
@@ -34,7 +34,7 @@ final class Db(
     driver: AsyncDriver
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  private val logger = lila.db.logger branch name
+  private val logger = lishogi.db.logger branch name
 
   private lazy val db: DB = Chronometer.syncEffect(
     MongoConnection

@@ -1,10 +1,10 @@
-package lila.relay
+package lishogi.relay
 
 import org.joda.time.DateTime
 
 import shogi.format.{ Tag, Tags }
-import lila.socket.Socket.Sri
-import lila.study._
+import lishogi.socket.Socket.Sri
+import lishogi.study._
 
 final private class RelaySync(
     studyApi: StudyApi,
@@ -19,7 +19,7 @@ final private class RelaySync(
         RelayInputSanity(chapters, games) match {
           case Some(fail) => fufail(fail.msg)
           case None =>
-            lila.common.Future.linear(games) { game =>
+            lishogi.common.Future.linear(games) { game =>
               findCorrespondingChapter(game, chapters, games.size) match {
                 case Some(chapter) => updateChapter(study, chapter, game)
                 case None =>
@@ -82,7 +82,7 @@ final private class RelaySync(
             toMainline = true
           )(who) >> chapterRepo.setRelayPath(chapter.id, path)
         } >> newNode.?? { node =>
-          lila.common.Future.fold(node.mainline.toList)(Position(chapter, path).ref) { case (position, n) =>
+          lishogi.common.Future.fold(node.mainline.toList)(Position(chapter, path).ref) { case (position, n) =>
             studyApi.addNode(
               studyId = study.id,
               position = position,

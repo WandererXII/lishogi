@@ -6,9 +6,9 @@ import play.api.data.Form
 import play.api.i18n.Lang
 import scala.util.chaining._
 
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.gameSearch.{ Query, Sorting }
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.gameSearch.{ Query, Sorting }
 
 private object bits {
 
@@ -114,7 +114,7 @@ private object bits {
           td(cls := "single")(
             form3.select(
               form("perf"),
-              lila.rating.PerfType.nonPuzzle map { v =>
+              lishogi.rating.PerfType.nonPuzzle map { v =>
                 v.id -> v.trans
               },
               "".some

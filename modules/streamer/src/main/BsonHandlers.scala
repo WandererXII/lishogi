@@ -1,6 +1,6 @@
-package lila.streamer
+package lishogi.streamer
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 import reactivemongo.api.bson._
 
 private object BsonHandlers {

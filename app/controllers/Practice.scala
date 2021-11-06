@@ -3,19 +3,19 @@ package controllers
 import play.api.libs.json._
 import scala.annotation.nowarn
 
-import lila.api.Context
-import lila.app._
-import lila.practice.JsonView._
-import lila.practice.{ PracticeSection, PracticeStudy, UserStudy }
-import lila.study.Study.WithChapter
-import lila.study.{ Chapter, Study => StudyModel }
-import lila.tree.Node.partitionTreeJsonWriter
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.practice.JsonView._
+import lishogi.practice.{ PracticeSection, PracticeStudy, UserStudy }
+import lishogi.study.Study.WithChapter
+import lishogi.study.{ Chapter, Study => StudyModel }
+import lishogi.tree.Node.partitionTreeJsonWriter
 import views._
 
 final class Practice(
     env: Env,
     userAnalysisC: => UserAnalysis
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private val api = env.practice.api
 
@@ -65,17 +65,17 @@ final class Practice(
       }
     }
 
-  private def showUserPractice(us: lila.practice.UserStudy)(implicit ctx: Context) =
+  private def showUserPractice(us: lishogi.practice.UserStudy)(implicit ctx: Context) =
     analysisJson(us) map { case (analysisJson, studyJson) =>
       NoCache(
         EnableSharedArrayBuffer(
           Ok(
             html.practice.show(
               us,
-              lila.practice.JsonView.JsData(
+              lishogi.practice.JsonView.JsData(
                 study = studyJson,
                 analysis = analysisJson,
-                practice = lila.practice.JsonView(us)
+                practice = lishogi.practice.JsonView(us)
               )
             )
           )
@@ -114,9 +114,9 @@ final class Practice(
             )
           val analysis = baseData ++ Json.obj(
             "treeParts" -> partitionTreeJsonWriter.writes {
-              lila.study.TreeBuilder(chapter.root, chapter.setup.variant)
+              lishogi.study.TreeBuilder(chapter.root, chapter.setup.variant)
             },
-            "practiceGoal" -> lila.practice.PracticeGoal(chapter)
+            "practiceGoal" -> lishogi.practice.PracticeGoal(chapter)
           )
           (analysis, studyJson)
         }
@@ -124,7 +124,7 @@ final class Practice(
 
   def complete(chapterId: String, nbMoves: Int) =
     Auth { implicit ctx => me =>
-      api.progress.setNbMoves(me, chapterId, lila.practice.PracticeProgress.NbMoves(nbMoves))
+      api.progress.setNbMoves(me, chapterId, lishogi.practice.PracticeProgress.NbMoves(nbMoves))
     }
 
   def reset =

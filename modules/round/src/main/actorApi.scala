@@ -1,4 +1,4 @@
-package lila.round
+package lishogi.round
 package actorApi
 
 import scala.concurrent.Promise
@@ -6,9 +6,9 @@ import scala.concurrent.Promise
 import shogi.format.Uci
 import shogi.{ Color, MoveMetrics }
 
-import lila.common.IpAddress
-import lila.game.Game.PlayerId
-import lila.socket.Socket.SocketVersion
+import lishogi.common.IpAddress
+import lishogi.game.Game.PlayerId
+import lishogi.socket.Socket.SocketVersion
 
 case class ByePlayer(playerId: PlayerId)
 case class GetSocketStatus(promise: Promise[SocketStatus])

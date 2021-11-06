@@ -1,14 +1,14 @@
-package lila.forum
+package lishogi.forum
 
 import play.api.data._
 import play.api.data.Forms._
 
-import lila.common.Form.clean
+import lishogi.common.Form.clean
 
 final private[forum] class DataForm(
-    val captcher: lila.hub.actors.Captcher
+    val captcher: lishogi.hub.actors.Captcher
 )(implicit ec: scala.concurrent.ExecutionContext)
-    extends lila.hub.CaptchedForm {
+    extends lishogi.hub.CaptchedForm {
 
   import DataForm._
 

@@ -1,17 +1,17 @@
-package lila.mod
+package lishogi.mod
 
-import lila.db.dsl._
-import lila.report.{ Mod, ModId, Report, Suspect }
-import lila.security.Permission
-import lila.user.{ User, UserRepo }
+import lishogi.db.dsl._
+import lishogi.report.{ Mod, ModId, Report, Suspect }
+import lishogi.security.Permission
+import lishogi.user.{ User, UserRepo }
 
-final class ModlogApi(repo: ModlogRepo, userRepo: UserRepo, slackApi: lila.slack.SlackApi)(implicit
+final class ModlogApi(repo: ModlogRepo, userRepo: UserRepo, slackApi: lishogi.slack.SlackApi)(implicit
     ec: scala.concurrent.ExecutionContext
 ) {
 
   private def coll = repo.coll
 
-  import lila.db.BSON.BSONJodaDateTimeHandler
+  import lishogi.db.BSON.BSONJodaDateTimeHandler
   implicit private val ModlogBSONHandler = reactivemongo.api.bson.Macros.handler[Modlog]
 
   def streamerList(mod: Mod, streamerId: User.ID, v: Boolean) =
@@ -241,13 +241,13 @@ final class ModlogApi(repo: ModlogRepo, userRepo: UserRepo, slackApi: lila.slack
     coll.ext.find($doc("user" -> userId)).sort($sort desc "date").cursor[Modlog]().gather[List](30)
 
   private def add(m: Modlog): Funit = {
-    lila.mon.mod.log.create.increment()
-    lila.log("mod").info(m.toString)
+    lishogi.mon.mod.log.create.increment()
+    lishogi.log("mod").info(m.toString)
     coll.insert.one(m) >> slackMonitor(m)
   }
 
   private def slackMonitor(m: Modlog): Funit = {
-    import lila.mod.{ Modlog => M }
+    import lishogi.mod.{ Modlog => M }
     val icon = m.action match {
       case M.alt | M.engine | M.booster | M.troll | M.closeAccount          => "thorhammer"
       case M.unalt | M.unengine | M.unbooster | M.untroll | M.reopenAccount => "large_blue_circle"

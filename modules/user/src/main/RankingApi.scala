@@ -1,20 +1,20 @@
-package lila.user
+package lishogi.user
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.memo.CacheApi._
-import lila.rating.{ Glicko, Perf, PerfType }
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi._
+import lishogi.rating.{ Glicko, Perf, PerfType }
 
 final class RankingApi(
     userRepo: UserRepo,
     coll: Coll,
-    cacheApi: lila.memo.CacheApi,
-    mongoCache: lila.memo.MongoCache.Api,
-    lightUser: lila.common.LightUser.Getter
+    cacheApi: lishogi.memo.CacheApi,
+    mongoCache: lishogi.memo.MongoCache.Api,
+    lightUser: lishogi.common.LightUser.Getter
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import RankingApi._
@@ -39,7 +39,7 @@ final class RankingApi(
         upsert = true
       )
       .void
-      .recover(lila.db.ignoreDuplicateKey)
+      .recover(lishogi.db.ignoreDuplicateKey)
 
   def remove(userId: User.ID): Funit =
     userRepo byId userId flatMap {
@@ -116,7 +116,7 @@ final class RankingApi(
     private val cache = cacheApi.unit[Map[PerfType, Map[User.ID, Rank]]] {
       _.refreshAfterWrite(15 minutes)
         .buildAsyncFuture { _ =>
-          lila.common.Future
+          lishogi.common.Future
             .linear(PerfType.leaderboardable) { pt =>
               compute(pt) dmap (pt -> _)
             }
@@ -162,7 +162,7 @@ final class RankingApi(
 
     // from 600 to 2800 by Stat.group
     private def compute(perfId: Perf.ID): Fu[List[NbUsers]] =
-      lila.rating.PerfType(perfId).exists(lila.rating.PerfType.leaderboardable.contains) ?? {
+      lishogi.rating.PerfType(perfId).exists(lishogi.rating.PerfType.leaderboardable.contains) ?? {
         coll
           .aggregateList(
             maxDocs = Int.MaxValue,
@@ -216,7 +216,7 @@ final class RankingApi(
         case (prev, (rating, nbUsers)) =>
           val acc = prev + nbUsers
           PerfType(perfId) foreach { pt =>
-            lila.mon.rating.distribution(pt.key, rating).update(prev.toDouble / total)
+            lishogi.mon.rating.distribution(pt.key, rating).update(prev.toDouble / total)
           }
           acc
       }

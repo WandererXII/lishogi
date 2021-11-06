@@ -4,16 +4,16 @@ import io.prismic.Document
 import org.apache.commons.lang3.StringUtils
 import play.api.mvc._
 
-import lila.api.Context
-import lila.app._
-import lila.blog.BlogApi
-import lila.common.config.MaxPerPage
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.blog.BlogApi
+import lishogi.common.config.MaxPerPage
 
 final class Blog(
     env: Env,
     prismicC: Prismic
 )(implicit ws: play.api.libs.ws.WSClient)
-    extends LilaController(env) {
+    extends LishogiController(env) {
 
   import prismicC._
 
@@ -58,7 +58,7 @@ final class Blog(
     }
 
   import scala.concurrent.duration._
-  import lila.memo.CacheApi._
+  import lishogi.memo.CacheApi._
   private val atomCache = env.memo.cacheApi.unit[String] {
     _.refreshAfterWrite(30.minutes)
       .buildAsyncFuture { _ =>
@@ -101,14 +101,14 @@ final class Blog(
 
   def all =
     WithPrismic { implicit ctx => implicit prismic =>
-      blogApi.byYear(prismic, lila.blog.thisYear, ctx.lang.code) map { posts =>
-        Ok(views.html.blog.index.byYear(lila.blog.thisYear, posts))
+      blogApi.byYear(prismic, lishogi.blog.thisYear, ctx.lang.code) map { posts =>
+        Ok(views.html.blog.index.byYear(lishogi.blog.thisYear, posts))
       }
     }
 
   def year(year: Int) =
     WithPrismic { implicit ctx => implicit prismic =>
-      if (lila.blog.allYears contains year)
+      if (lishogi.blog.allYears contains year)
         blogApi.byYear(prismic, year, ctx.lang.code) map { posts =>
           Ok(views.html.blog.index.byYear(year, posts))
         }
@@ -150,7 +150,7 @@ final class Blog(
   // -- Helper: Check if the slug is valid and redirect to the most recent version id needed
   private def checkSlug(document: Option[Document], slug: String)(
       callback: Either[String, Document] => Result
-  )(implicit ctx: lila.api.Context) =
+  )(implicit ctx: lishogi.api.Context) =
     document.collect {
       case document if document.slug == slug => fuccess(callback(Right(document)))
       case document if document.slugs.exists(StringUtils.stripEnd(_, ".") == slug) =>

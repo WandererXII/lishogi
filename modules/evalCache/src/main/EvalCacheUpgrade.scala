@@ -1,4 +1,4 @@
-package lila.evalCache
+package lishogi.evalCache
 
 import play.api.libs.json.{ JsObject, JsString }
 import scala.collection.mutable.AnyRefMap
@@ -6,8 +6,8 @@ import scala.concurrent.duration._
 
 import shogi.format.FEN
 import shogi.variant.Variant
-import lila.socket.Socket
-import lila.memo.ExpireCallbackMemo
+import lishogi.socket.Socket
+import lishogi.memo.ExpireCallbackMemo
 
 /* Upgrades the user's eval when a better one becomes available,
  * by remembering the last evalGet of each socket member,
@@ -23,7 +23,7 @@ final private class EvalCacheUpgrade(scheduler: akka.actor.Scheduler)(implicit
   private val evals         = AnyRefMap.empty[SetupId, Set[SriString]]
   private val expirableSris = new ExpireCallbackMemo(20 minutes, sri => unregister(Socket.Sri(sri)))
 
-  private val upgradeMon = lila.mon.evalCache.upgrade
+  private val upgradeMon = lishogi.mon.evalCache.upgrade
 
   def register(sri: Socket.Sri, variant: Variant, fen: FEN, multiPv: Int, path: String)(push: Push): Unit = {
     members get sri.value foreach { wm =>

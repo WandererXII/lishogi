@@ -1,27 +1,27 @@
-package lila.security
+package lishogi.security
 
 import org.joda.time.DateTime
 import play.api.mvc.RequestHeader
 import scala.concurrent.duration._
 
-import lila.common.{ Bus, EmailAddress, HTTPRequest, IpAddress, ThreadLocalRandom }
-import lila.user.User
+import lishogi.common.{ Bus, EmailAddress, HTTPRequest, IpAddress, ThreadLocalRandom }
+import lishogi.user.User
 
 // codename UGC
 final class GarbageCollector(
     userSpy: UserSpyApi,
     ipTrust: IpTrust,
-    slack: lila.slack.SlackApi,
-    noteApi: lila.user.NoteApi,
+    slack: lishogi.slack.SlackApi,
+    noteApi: lishogi.user.NoteApi,
     isArmed: () => Boolean
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem
 ) {
 
-  private val logger = lila.security.logger.branch("GarbageCollector")
+  private val logger = lishogi.security.logger.branch("GarbageCollector")
 
-  private val done = new lila.memo.ExpireSetMemo(10 minutes)
+  private val done = new lishogi.memo.ExpireSetMemo(10 minutes)
 
   private case class ApplyData(user: User, ip: IpAddress, email: EmailAddress, req: RequestHeader) {
     override def toString = s"${user.username} $ip ${email.value} $req"
@@ -34,7 +34,7 @@ final class GarbageCollector(
       system.scheduler.scheduleOnce(6 seconds) {
         val applyData = ApplyData(user, ip, email, req)
         logger.debug(s"delay $applyData")
-        lila.common.Future
+        lishogi.common.Future
           .retry(
             () => ensurePrintAvailable(applyData),
             delay = 10 seconds,
@@ -61,7 +61,7 @@ final class GarbageCollector(
           val printOpt = spy.prints.headOption
           logger.debug(s"apply ${data.user.username} print=${printOpt}")
           Bus.publish(
-            lila.security.UserSignup(user, email, req, printOpt.map(_.fp.value), ipSusp),
+            lishogi.security.UserSignup(user, email, req, printOpt.map(_.fp.value), ipSusp),
             "userSignup"
           )
           printOpt.filter(_.banned).map(_.fp.value) match {
@@ -69,7 +69,7 @@ final class GarbageCollector(
             case _ =>
               badOtherAccounts(spy.otherUsers.map(_.user)) ?? { others =>
                 logger.debug(s"other ${data.user.username} others=${others.map(_.username)}")
-                lila.common.Future
+                lishogi.common.Future
                   .exists(spy.ips)(ipTrust.isSuspicious)
                   .map {
                     _ ?? collect(
@@ -114,13 +114,13 @@ final class GarbageCollector(
 
   private def doInitialSb(user: User): Unit =
     Bus.publish(
-      lila.hub.actorApi.security.GCImmediateSb(user.id),
+      lishogi.hub.actorApi.security.GCImmediateSb(user.id),
       "garbageCollect"
     )
 
   private def doCollect(user: User): Unit =
     Bus.publish(
-      lila.hub.actorApi.security.GarbageCollect(user.id),
+      lishogi.hub.actorApi.security.GarbageCollect(user.id),
       "garbageCollect"
     )
 }

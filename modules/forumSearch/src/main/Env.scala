@@ -1,12 +1,12 @@
-package lila.forumSearch
+package lishogi.forumSearch
 
 import akka.actor._
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
-import lila.search._
+import lishogi.common.config._
+import lishogi.search._
 import Query.jsonWriter
 
 @Module
@@ -19,8 +19,8 @@ private class ForumSearchConfig(
 final class Env(
     appConfig: Configuration,
     makeClient: Index => ESClient,
-    postApi: lila.forum.PostApi,
-    postRepo: lila.forum.PostRepo
+    postApi: lishogi.forum.PostApi,
+    postRepo: lishogi.forum.PostRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
@@ -37,17 +37,17 @@ final class Env(
     paginatorBuilder(Query(text, troll), page)
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = { case "forum" :: "search" :: "reset" :: Nil =>
         api.reset inject "done"
       }
     }
 
-  private lazy val paginatorBuilder = wire[lila.search.PaginatorBuilder[lila.forum.PostView, Query]]
+  private lazy val paginatorBuilder = wire[lishogi.search.PaginatorBuilder[lishogi.forum.PostView, Query]]
 
   system.actorOf(
     Props(new Actor {
-      import lila.forum.actorApi._
+      import lishogi.forum.actorApi._
       def receive = {
         case InsertPost(post) => api store post
         case RemovePost(id)   => client deleteById Id(id)

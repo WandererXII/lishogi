@@ -1,12 +1,12 @@
-package lila.challenge
+package lishogi.challenge
 
 import reactivemongo.api.bson._
 
 import shogi.Mode
 import shogi.variant.Variant
-import lila.db.BSON
-import lila.db.BSON.{ Reader, Writer }
-import lila.db.dsl._
+import lishogi.db.BSON
+import lishogi.db.BSON.{ Reader, Writer }
+import lishogi.db.dsl._
 
 private object BSONHandlers {
 
@@ -85,7 +85,7 @@ private object BSONHandlers {
       }
   }
 
-  import lila.game.BSONHandlers.FENBSONHandler
+  import lishogi.game.BSONHandlers.FENBSONHandler
 
   implicit val ChallengeBSONHandler = Macros.handler[Challenge]
 }

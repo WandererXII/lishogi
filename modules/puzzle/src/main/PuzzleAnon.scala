@@ -1,12 +1,12 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext
 import scala.util.chaining._
 
-import lila.common.ThreadLocalRandom
-import lila.db.dsl._
-import lila.memo.CacheApi
+import lishogi.common.ThreadLocalRandom
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
 
 final class PuzzleAnon(
     colls: PuzzleColls,
@@ -24,7 +24,7 @@ final class PuzzleAnon(
       .mon(_.puzzle.selector.anon.time(theme.value))
       .addEffect {
         _ foreach { puzzle =>
-          lila.mon.puzzle.selector.anon.vote(theme.value).record(100 + math.round(puzzle.vote * 100))
+          lishogi.mon.puzzle.selector.anon.vote(theme.value).record(100 + math.round(puzzle.vote * 100))
         }
       }
 

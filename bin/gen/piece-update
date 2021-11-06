@@ -2,7 +2,7 @@
 
 file=$1
 single_name=$2
-build_dir=$(mktemp -d /tmp/lila-piece-XXXXXX)
+build_dir=$(mktemp -d /tmp/lishogi-piece-XXXXXX)
 commit_msg=""
 
 unzip $file -d $build_dir

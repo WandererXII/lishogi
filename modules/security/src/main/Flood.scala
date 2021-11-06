@@ -1,11 +1,11 @@
-package lila.security
+package lishogi.security
 
 import com.github.blemale.scaffeine.Cache
 import org.joda.time.Instant
 import scala.concurrent.duration.FiniteDuration
 
-import lila.common.base.StringUtils.levenshtein
-import lila.user.User
+import lishogi.common.base.StringUtils.levenshtein
+import lishogi.user.User
 
 final class Flood(duration: FiniteDuration) {
 
@@ -13,7 +13,7 @@ final class Flood(duration: FiniteDuration) {
 
   private val floodNumber = 4
 
-  private val cache: Cache[User.ID, Messages] = lila.memo.CacheApi.scaffeineNoScheduler
+  private val cache: Cache[User.ID, Messages] = lishogi.memo.CacheApi.scaffeineNoScheduler
     .expireAfterAccess(duration)
     .build[User.ID, Messages]()
 

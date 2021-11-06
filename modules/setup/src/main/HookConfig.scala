@@ -1,10 +1,10 @@
-package lila.setup
+package lishogi.setup
 
 import shogi.Mode
-import lila.lobby.Color
-import lila.lobby.{ Hook, Seek }
-import lila.rating.RatingRange
-import lila.user.User
+import lishogi.lobby.Color
+import lishogi.lobby.{ Hook, Seek }
+import lishogi.rating.RatingRange
+import lishogi.user.User
 
 case class HookConfig(
     variant: shogi.variant.Variant,
@@ -31,7 +31,7 @@ case class HookConfig(
       )
     )) | this
 
-  private def perfType = lila.game.PerfPicker.perfType(makeSpeed, variant, makeDaysPerTurn)
+  private def perfType = lishogi.game.PerfPicker.perfType(makeSpeed, variant, makeDaysPerTurn)
 
   def makeSpeed = shogi.Speed(makeClock)
 
@@ -40,7 +40,7 @@ case class HookConfig(
       color =
         if (
           mode == Mode.Rated &&
-          lila.game.Game.variantsWhereSenteIsBetter(variant) &&
+          lishogi.game.Game.variantsWhereSenteIsBetter(variant) &&
           color != Color.Random
         ) Color.Random
         else color
@@ -69,7 +69,7 @@ case class HookConfig(
     }
 
   def hook(
-      sri: lila.socket.Socket.Sri,
+      sri: lishogi.socket.Socket.Sri,
       user: Option[User],
       sid: Option[String],
       blocking: Set[String]
@@ -82,7 +82,7 @@ case class HookConfig(
             sri = sri,
             variant = variant,
             clock = clock,
-            mode = if (lila.game.Game.allowRated(variant, clock.some)) mode else Mode.Casual,
+            mode = if (lishogi.game.Game.allowRated(variant, clock.some)) mode else Mode.Casual,
             color = color.name,
             user = user,
             blocking = blocking,
@@ -106,7 +106,7 @@ case class HookConfig(
 
   def noRatedUnlimited = mode.casual || hasClock || makeDaysPerTurn.isDefined
 
-  def updateFrom(game: lila.game.Game) =
+  def updateFrom(game: lishogi.game.Game) =
     copy(
       variant = game.variant,
       timeMode = TimeMode ofGame game,
@@ -163,8 +163,8 @@ object HookConfig extends BaseHumanConfig {
     color = Color.default
   )
 
-  import lila.db.BSON
-  import lila.db.dsl._
+  import lishogi.db.BSON
+  import lishogi.db.dsl._
 
   implicit private[setup] val hookConfigBSONHandler = new BSON[HookConfig] {
 

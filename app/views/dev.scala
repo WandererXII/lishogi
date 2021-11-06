@@ -2,15 +2,15 @@ package views.html
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object dev {
 
-  def settings(settings: List[lila.memo.SettingStore[_]])(implicit ctx: Context) = {
+  def settings(settings: List[lishogi.memo.SettingStore[_]])(implicit ctx: Context) = {
     val title = "Settings"
     views.html.base.layout(
       title = title,
@@ -58,7 +58,7 @@ object dev {
         div(id := "dev-cli", cls := "page-menu__content box box-pad")(
           h1(title),
           p(
-            "Run arbitrary lila commands.",
+            "Run arbitrary lishogi commands.",
             br,
             "Only use if you know exactly what you're doing."
           ),

@@ -1,19 +1,19 @@
-package lila.report
+package lishogi.report
 
 import play.api.data._
 import play.api.data.Forms._
 import play.api.data.validation._
 import scala.concurrent.duration._
 
-import lila.common.LightUser
-import lila.user.User
+import lishogi.common.LightUser
+import lishogi.user.User
 
 final private[report] class DataForm(
     lightUserAsync: LightUser.Getter,
-    val captcher: lila.hub.actors.Captcher,
-    domain: lila.common.config.NetDomain
+    val captcher: lishogi.hub.actors.Captcher,
+    domain: lishogi.common.config.NetDomain
 )(implicit ec: scala.concurrent.ExecutionContext)
-    extends lila.hub.CaptchedForm {
+    extends lishogi.hub.CaptchedForm {
   val cheatLinkConstraint: Constraint[ReportSetup] = Constraint("constraints.cheatgamelink") { setup =>
     if (setup.reason != "cheat" || (domain.value + """/(\w{8}|\w{12})""").r.findFirstIn(setup.text).isDefined)
       Valid
@@ -23,7 +23,7 @@ final private[report] class DataForm(
 
   val create = Form(
     mapping(
-      "username" -> lila.user.DataForm.historicalUsernameField.verifying(
+      "username" -> lishogi.user.DataForm.historicalUsernameField.verifying(
         "Unknown username", {
           blockingFetchUser(_).isDefined
         }
@@ -47,7 +47,7 @@ final private[report] class DataForm(
 
   val flag = Form(
     mapping(
-      "username" -> lila.user.DataForm.historicalUsernameField,
+      "username" -> lishogi.user.DataForm.historicalUsernameField,
       "resource" -> nonEmptyText,
       "text"     -> text(minLength = 3, maxLength = 140)
     )(ReportFlag.apply)(ReportFlag.unapply)

@@ -1,11 +1,11 @@
-package lila.timeline
+package lishogi.timeline
 
 import akka.actor._
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 private class TimelineConfig(
@@ -18,10 +18,10 @@ private class TimelineConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    userRepo: lila.user.UserRepo,
-    relationApi: lila.relation.RelationApi,
-    cacheApi: lila.memo.CacheApi
+    db: lishogi.db.Db,
+    userRepo: lishogi.user.UserRepo,
+    relationApi: lishogi.relation.RelationApi,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -52,7 +52,7 @@ final class Env(
 
   system.actorOf(Props(wire[Push]), name = config.userActorName)
 
-  lila.common.Bus.subscribeFun("shadowban") { case lila.hub.actorApi.mod.Shadowban(userId, true) =>
+  lishogi.common.Bus.subscribeFun("shadowban") { case lishogi.hub.actorApi.mod.Shadowban(userId, true) =>
     entryApi removeRecentFollowsBy userId
   }
 }

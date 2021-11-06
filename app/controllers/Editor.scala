@@ -4,12 +4,12 @@ import shogi.format.Forsyth
 import shogi.Situation
 import play.api.libs.json._
 
-import lila.app._
+import lishogi.app._
 import views._
 
-final class Editor(env: Env) extends LilaController(env) {
+final class Editor(env: Env) extends LishogiController(env) {
 
-  private lazy val positionsJson = lila.common.String.html.safeJsonValue {
+  private lazy val positionsJson = lishogi.common.String.html.safeJsonValue {
     JsArray(shogi.StartingPosition.all map { p =>
       Json.obj(
         "eco"  -> p.eco,
@@ -23,7 +23,7 @@ final class Editor(env: Env) extends LilaController(env) {
 
   def load(urlFen: String) =
     Open { implicit ctx =>
-      val fenStr = lila.common.String
+      val fenStr = lishogi.common.String
         .decodeUriPath(urlFen)
         .map(_.replace('_', ' ').trim)
         .filter(_.nonEmpty)

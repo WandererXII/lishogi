@@ -1,4 +1,4 @@
-package lila.tournament
+package lishogi.tournament
 
 import org.joda.time.DateTime
 import org.joda.time.format.ISODateTimeFormat
@@ -7,14 +7,14 @@ import play.api.libs.json._
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext
 
-import lila.common.{ Animal, LightUser, Uptime }
-import lila.game.{ Game, LightPov }
-import lila.hub.LightTeam.TeamID
-import lila.memo.CacheApi._
-import lila.quote.Quote.quoteWriter
-import lila.rating.PerfType
-import lila.socket.Socket.SocketVersion
-import lila.user.{ LightUserApi, User }
+import lishogi.common.{ Animal, LightUser, Uptime }
+import lishogi.game.{ Game, LightPov }
+import lishogi.hub.LightTeam.TeamID
+import lishogi.memo.CacheApi._
+import lishogi.quote.Quote.quoteWriter
+import lishogi.rating.PerfType
+import lishogi.socket.Socket.SocketVersion
+import lishogi.user.{ LightUserApi, User }
 
 final class JsonView(
     lightUserApi: LightUserApi,
@@ -24,8 +24,8 @@ final class JsonView(
     cached: Cached,
     statsApi: TournamentStatsApi,
     shieldApi: TournamentShieldApi,
-    cacheApi: lila.memo.CacheApi,
-    proxyRepo: lila.round.GameProxyRepo,
+    cacheApi: lishogi.memo.CacheApi,
+    proxyRepo: lishogi.round.GameProxyRepo,
     verify: Condition.Verify,
     duelStore: DuelStore,
     standingApi: TournamentStandingApi,
@@ -120,7 +120,7 @@ final class JsonView(
           .add("verdicts" -> verdicts.map(Condition.JSONHandlers.verdictsFor(_, lang)))
           .add("schedule" -> tour.schedule.map(scheduleJson))
           .add("private" -> tour.isPrivate)
-          .add("quote" -> tour.isCreated.option(lila.quote.Quote.one(tour.id)))
+          .add("quote" -> tour.isCreated.option(lishogi.quote.Quote.one(tour.id)))
           .add("defender" -> shieldOwner.map(_.value))
           .add("animal" -> Animal.wikiUrl(tour.name).map { url =>
             Json.obj("name" -> tour.name, "url" -> url)
@@ -261,7 +261,7 @@ final class JsonView(
 
   private def featuredJson(featured: FeaturedGame) = {
     val game = featured.game
-    def ofPlayer(rp: RankedPlayer, p: lila.game.Player) = {
+    def ofPlayer(rp: RankedPlayer, p: lishogi.game.Player) = {
       val light = lightUserApi sync rp.player.userId
       Json
         .obj(

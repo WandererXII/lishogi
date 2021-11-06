@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import com.github.blemale.scaffeine.Cache
 import scala.concurrent.duration._
@@ -9,7 +9,7 @@ import shogi.format.FEN
 
 final class Divider {
 
-  private val cache: Cache[Game.ID, Division] = lila.memo.CacheApi.scaffeineNoScheduler
+  private val cache: Cache[Game.ID, Division] = lishogi.memo.CacheApi.scaffeineNoScheduler
     .expireAfterAccess(5 minutes)
     .build[Game.ID, Division]()
 

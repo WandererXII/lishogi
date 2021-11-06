@@ -1,4 +1,4 @@
-package lila.api
+package lishogi.api
 
 import org.joda.time.DateTime
 import org.joda.time.format.ISODateTimeFormat
@@ -6,7 +6,7 @@ import play.api.libs.json.Json
 import scala.concurrent.duration._
 import scala.util.Try
 
-import lila.hub.actorApi.Announce
+import lishogi.hub.actorApi.Announce
 
 object AnnounceStore {
 

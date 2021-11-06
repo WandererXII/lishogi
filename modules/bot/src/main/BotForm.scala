@@ -1,4 +1,4 @@
-package lila.bot
+package lishogi.bot
 
 import play.api.data._
 import play.api.data.Forms._
@@ -7,7 +7,7 @@ object BotForm {
 
   val chat = Form(
     mapping(
-      "text" -> nonEmptyText(maxLength = lila.chat.Line.textMaxSize),
+      "text" -> nonEmptyText(maxLength = lishogi.chat.Line.textMaxSize),
       "room" -> text.verifying(Set("player", "spectator") contains _)
     )(ChatData.apply)(ChatData.unapply)
   )

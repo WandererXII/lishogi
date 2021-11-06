@@ -1,13 +1,13 @@
-package lila.swiss
+package lishogi.swiss
 
 import scala.concurrent.duration._
 
 import shogi.Clock.{ Config => ClockConfig }
 import shogi.variant.Variant
 import shogi.{ Color, StartingPosition }
-import lila.db.BSON
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.BSON
+import lishogi.db.dsl._
+import lishogi.user.User
 import reactivemongo.api.bson._
 
 private object BsonHandlers {
@@ -27,7 +27,7 @@ private object BsonHandlers {
         "periods"   -> c.periods
       )
   )
-  implicit val variantHandler = lila.db.dsl.quickHandler[Variant](
+  implicit val variantHandler = lishogi.db.dsl.quickHandler[Variant](
     {
       case BSONString(v) => Variant orDefault v
       case _             => Variant.default
@@ -37,7 +37,7 @@ private object BsonHandlers {
   private lazy val fenIndex: Map[String, StartingPosition] = StartingPosition.all.view.map { p =>
     p.fen -> p
   }.toMap
-  implicit val startingPositionHandler = lila.db.dsl.quickHandler[StartingPosition](
+  implicit val startingPositionHandler = lishogi.db.dsl.quickHandler[StartingPosition](
     {
       case BSONString(v) => fenIndex.getOrElse(v, StartingPosition.initial)
       case _             => StartingPosition.initial
@@ -85,7 +85,7 @@ private object BsonHandlers {
       )
   }
 
-  implicit val pairingStatusHandler = lila.db.dsl.quickHandler[SwissPairing.Status](
+  implicit val pairingStatusHandler = lishogi.db.dsl.quickHandler[SwissPairing.Status](
     {
       case BSONBoolean(true)  => Left(SwissPairing.Ongoing)
       case BSONInteger(index) => Right(Color(index == 0).some)

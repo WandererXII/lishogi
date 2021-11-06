@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 object BlogLangs {
   val default = "en-US"

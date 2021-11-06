@@ -1,7 +1,7 @@
-package lila.blog
+package lishogi.blog
 
-import lila.common.BlogLangs
-import lila.memo.{ CacheApi, Syncache }
+import lishogi.common.BlogLangs
+import lishogi.memo.{ CacheApi, Syncache }
 import scala.concurrent.Future
 
 final class LastPostCache(
@@ -25,7 +25,7 @@ final class LastPostCache(
     val miniPosts = {
       Future.sequence(BlogLangs.langs.toList map { langCode =>
         api.prismicApi flatMap { prismic =>
-          api.recent(prismic, page = 1, lila.common.config.MaxPerPage(3), none, langCode) map {
+          api.recent(prismic, page = 1, lishogi.common.config.MaxPerPage(3), none, langCode) map {
             _ ?? {
               _.currentPageResults.toList flatMap MiniPost.fromDocument(
                 config.collection,

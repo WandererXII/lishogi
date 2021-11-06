@@ -1,11 +1,11 @@
-package lila.security
+package lishogi.security
 
 import com.github.blemale.scaffeine.LoadingCache
 import com.sanoma.cda.geoip.{ IpLocation, MaxMindIpGeo }
 import io.methvin.play.autoconfig._
 import scala.concurrent.duration._
 
-import lila.common.IpAddress
+import lishogi.common.IpAddress
 
 final class GeoIP(config: GeoIP.Config) {
 
@@ -21,7 +21,7 @@ final class GeoIP(config: GeoIP.Config) {
     }
 
   private val cache: LoadingCache[IpAddress, Option[Location]] =
-    lila.memo.CacheApi.scaffeineNoScheduler
+    lishogi.memo.CacheApi.scaffeineNoScheduler
       .expireAfterAccess(config.cacheTtl)
       .build(compute)
 

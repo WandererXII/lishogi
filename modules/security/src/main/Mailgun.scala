@@ -1,4 +1,4 @@
-package lila.security
+package lishogi.security
 
 import akka.actor.ActorSystem
 import io.methvin.play.autoconfig._
@@ -7,10 +7,10 @@ import play.api.libs.ws.{ WSAuthScheme, WSClient }
 import scala.concurrent.duration.{ span => _, _ }
 import scalatags.Text.all._
 
-import lila.common.config.Secret
-import lila.common.EmailAddress
-import lila.common.String.html.{ escapeHtml, nl2brUnsafe }
-import lila.i18n.I18nKeys.{ emails => trans }
+import lishogi.common.config.Secret
+import lishogi.common.EmailAddress
+import lishogi.common.String.html.{ escapeHtml, nl2brUnsafe }
+import lishogi.i18n.I18nKeys.{ emails => trans }
 
 final class Mailgun(
     ws: WSClient,
@@ -43,12 +43,12 @@ final class Mailgun(
           }
         )
         .addFailureEffect {
-          case _: java.net.ConnectException => lila.mon.email.send.error("timeout").increment()
+          case _: java.net.ConnectException => lishogi.mon.email.send.error("timeout").increment()
           case _                            =>
         }
         .flatMap {
           case res if res.status >= 300 =>
-            lila.mon.email.send.error(res.status.toString).increment()
+            lishogi.mon.email.send.error(res.status.toString).increment()
             fufail(s"""Can't send to mailgun: ${res.status} to: "${msg.to.value}" ${res.body take 500}""")
           case _ => funit
         }

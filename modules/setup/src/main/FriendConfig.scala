@@ -1,10 +1,10 @@
-package lila.setup
+package lishogi.setup
 
 import shogi.Mode
 import shogi.format.FEN
-import lila.lobby.Color
-import lila.rating.PerfType
-import lila.game.PerfPicker
+import lishogi.lobby.Color
+import lishogi.rating.PerfType
+import lishogi.game.PerfPicker
 
 case class FriendConfig(
     variant: shogi.variant.Variant,
@@ -79,9 +79,9 @@ object FriendConfig extends BaseHumanConfig {
     color = Color.default
   )
 
-  import lila.db.BSON
-  import lila.db.dsl._
-  import lila.game.BSONHandlers.FENBSONHandler
+  import lishogi.db.BSON
+  import lishogi.db.dsl._
+  import lishogi.game.BSONHandlers.FENBSONHandler
 
   implicit private[setup] val friendConfigBSONHandler = new BSON[FriendConfig] {
 

@@ -1,10 +1,10 @@
-package lila.relay
+package lishogi.relay
 
-import lila.common.config.MaxPerPage
-import lila.common.paginator.Paginator
-import lila.db.dsl._
-import lila.db.paginator.{ Adapter, CachedAdapter }
-import lila.user.User
+import lishogi.common.config.MaxPerPage
+import lishogi.common.paginator.Paginator
+import lishogi.db.dsl._
+import lishogi.db.paginator.{ Adapter, CachedAdapter }
+import lishogi.user.User
 
 final class RelayPager(
     repo: RelayRepo,

@@ -1,11 +1,11 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import scala.concurrent.duration._
 
 final private class Monitor(
     repo: FishnetRepo,
     moveDb: MoveDB,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem
@@ -18,7 +18,7 @@ final private class Monitor(
       }
   }
 
-  private val monBy = lila.mon.fishnet.analysis.by
+  private val monBy = lishogi.mon.fishnet.analysis.by
 
   private def sumOf[A](items: List[A])(f: A => Option[Int]) =
     items.foldLeft(0) { case (acc, a) =>
@@ -68,11 +68,11 @@ final private class Monitor(
   }
 
   private def sample[A](elems: List[A], n: Int) =
-    if (elems.size <= n) elems else lila.common.ThreadLocalRandom shuffle elems take n
+    if (elems.size <= n) elems else lishogi.common.ThreadLocalRandom shuffle elems take n
 
   private def monitorClients(): Funit =
     repo.allRecentClients map { clients =>
-      import lila.mon.fishnet.client._
+      import lishogi.mon.fishnet.client._
 
       status(true).update(clients.count(_.enabled))
       status(false).update(clients.count(_.disabled))
@@ -92,12 +92,12 @@ final private class Monitor(
 
   private def monitorStatus(): Funit =
     statusCache.get {} map { c =>
-      lila.mon.fishnet.work("queued", "system").update(c.system.queued)
-      lila.mon.fishnet.work("queued", "user").update(c.user.queued)
-      lila.mon.fishnet.work("acquired", "system").update(c.system.acquired)
-      lila.mon.fishnet.work("acquired", "user").update(c.user.acquired)
-      lila.mon.fishnet.oldest("system").update(c.system.oldest)
-      lila.mon.fishnet.oldest("user").update(c.user.oldest)
+      lishogi.mon.fishnet.work("queued", "system").update(c.system.queued)
+      lishogi.mon.fishnet.work("queued", "user").update(c.user.queued)
+      lishogi.mon.fishnet.work("acquired", "system").update(c.system.acquired)
+      lishogi.mon.fishnet.work("acquired", "user").update(c.user.acquired)
+      lishogi.mon.fishnet.oldest("system").update(c.system.oldest)
+      lishogi.mon.fishnet.oldest("user").update(c.user.oldest)
     }
 
   system.scheduler.scheduleWithFixedDelay(1 minute, 1 minute) { () =>
@@ -110,7 +110,7 @@ object Monitor {
   case class StatusFor(acquired: Int, queued: Int, oldest: Int)
   case class Status(user: StatusFor, system: StatusFor)
 
-  private val monResult = lila.mon.fishnet.client.result
+  private val monResult = lishogi.mon.fishnet.client.result
 
   private[fishnet] def move(work: Work.Move, client: Client) = {
     monResult.success(client.userId.value).increment()
@@ -121,7 +121,7 @@ object Monitor {
     monResult.success(client.userId.value).increment()
 
     work.acquiredAt foreach { acquiredAt =>
-      lila.mon.fishnet.queueTime(if (work.sender.system) "system" else "user").record {
+      lishogi.mon.fishnet.queueTime(if (work.sender.system) "system" else "user").record {
         acquiredAt.getMillis - work.createdAt.getMillis
       }
     }

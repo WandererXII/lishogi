@@ -1,13 +1,13 @@
-package lila.relation
+package lishogi.relation
 
 import akka.stream.scaladsl._
 import reactivemongo.akkastream.cursorProducer
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.common.config.MaxPerSecond
-import lila.db.dsl._
-import lila.user.{ User, UserRepo }
+import lishogi.common.config.MaxPerSecond
+import lishogi.db.dsl._
+import lishogi.user.{ User, UserRepo }
 
 final class RelationStream(
     coll: Coll,

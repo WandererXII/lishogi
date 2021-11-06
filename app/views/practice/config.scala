@@ -2,15 +2,15 @@ package views.html.practice
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object config {
 
-  def apply(structure: lila.practice.PracticeStructure, form: Form[_])(implicit ctx: Context) =
+  def apply(structure: lishogi.practice.PracticeStructure, form: Form[_])(implicit ctx: Context) =
     views.html.base.layout(
       title = "Practice structure",
       moreCss = cssTag("mod.misc")

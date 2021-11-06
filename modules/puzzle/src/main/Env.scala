@@ -1,12 +1,12 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 import scala.concurrent.duration.FiniteDuration
 
-import lila.common.config._
-import lila.db.AsyncColl
+import lishogi.common.config._
+import lishogi.db.AsyncColl
 
 @Module
 private class PuzzleConfig(
@@ -25,13 +25,13 @@ case class PuzzleColls(
 @Module
 final class Env(
     appConfig: Configuration,
-    renderer: lila.hub.actors.Renderer,
-    historyApi: lila.history.HistoryApi,
-    lightUserApi: lila.user.LightUserApi,
-    cacheApi: lila.memo.CacheApi,
-    gameRepo: lila.game.GameRepo,
-    userRepo: lila.user.UserRepo,
-    mongo: lila.db.Env
+    renderer: lishogi.hub.actors.Renderer,
+    historyApi: lishogi.history.HistoryApi,
+    lightUserApi: lishogi.user.LightUserApi,
+    cacheApi: lishogi.memo.CacheApi,
+    gameRepo: lishogi.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    mongo: lishogi.db.Env
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem,
@@ -81,7 +81,7 @@ final class Env(
   lazy val history = wire[PuzzleHistoryApi]
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = { case "puzzle" :: "delete" :: id :: Nil =>
         api.puzzle delete Puzzle.Id(id) inject "Done"
       }

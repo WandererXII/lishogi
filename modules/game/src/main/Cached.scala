@@ -1,11 +1,11 @@
-package lila.game
+package lishogi.game
 
 import com.github.blemale.scaffeine.LoadingCache
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.memo.{ CacheApi, MongoCache }
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.memo.{ CacheApi, MongoCache }
+import lishogi.user.User
 
 final class Cached(
     gameRepo: GameRepo,
@@ -27,7 +27,7 @@ final class Cached(
       .expireAfterWrite(5 seconds)
       .build(gameRepo.lastPlayedPlayingId _)
 
-  lila.common.Bus.subscribeFun("startGame") { case lila.game.actorApi.StartGame(game) =>
+  lishogi.common.Bus.subscribeFun("startGame") { case lishogi.game.actorApi.StartGame(game) =>
     game.userIds foreach { lastPlayedPlayingIdCache.invalidate(_) }
   }
 

@@ -1,4 +1,4 @@
-package lila.plan
+package lishogi.plan
 
 sealed trait CustomerInfo
 

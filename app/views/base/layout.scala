@@ -3,11 +3,11 @@ package views.html.base
 import play.api.i18n.Lang
 import play.api.libs.json.Json
 
-import lila.api.{ AnnounceStore, Context }
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.ContentSecurityPolicy
-import lila.common.String.html.safeJsonValue
+import lishogi.api.{ AnnounceStore, Context }
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.ContentSecurityPolicy
+import lishogi.common.String.html.safeJsonValue
 
 import controllers.routes
 
@@ -32,7 +32,7 @@ object layout {
         s"""<meta name="theme-color" content="${ctx.pref.themeColor}">"""
       }
     def pieceSprite(implicit ctx: Context): Frag = pieceSprite(ctx.currentPieceSet)
-    def pieceSprite(ps: lila.pref.PieceSet): Frag =
+    def pieceSprite(ps: lishogi.pref.PieceSet): Frag =
       link(
         id := "piece-sprite",
         href := assetUrl(s"piece-css/$ps.css"),
@@ -84,7 +84,7 @@ object layout {
       "Disable"
     else "Enable"} blind mode</button></form>""")
   private val zenToggle = raw("""<a data-icon="E" id="zentog" class="text fbt active">ZEN MODE</a>""")
-  private def dasher(me: lila.user.User) =
+  private def dasher(me: lishogi.user.User) =
     raw(
       s"""<div class="dasher"><a id="user_tag" class="toggle link">${me.username}</a><div id="dasher_app" class="dropdown"></div></div>"""
     )
@@ -167,7 +167,7 @@ object layout {
       moreCss: Frag = emptyFrag,
       moreJs: Frag = emptyFrag,
       playing: Boolean = false,
-      openGraph: Option[lila.app.ui.OpenGraph] = None,
+      openGraph: Option[lishogi.app.ui.OpenGraph] = None,
       shogiground: Boolean = true,
       zoomable: Boolean = false,
       deferJs: Boolean = false,
@@ -244,7 +244,7 @@ object layout {
           ctx.pageData.inquiry map { views.html.mod.inquiry(_) },
           ctx.me ifTrue ctx.userContext.impersonatedBy.isDefined map { views.html.mod.impersonate(_) },
           isStage option views.html.base.bits.stage,
-          lila.security.EmailConfirm.cookie.get(ctx.req).map(views.html.auth.bits.checkYourEmailBanner(_)),
+          lishogi.security.EmailConfirm.cookie.get(ctx.req).map(views.html.auth.bits.checkYourEmailBanner(_)),
           playing option zenToggle,
           siteHeader(playing),
           div(
@@ -275,7 +275,7 @@ object layout {
               jsModule("site", defer = deferJs)
             ),
           moreJs,
-          embedJsUnsafe(s"""lishogi.quantity=${lila.i18n.JsQuantity(ctx.lang)};$timeagoLocaleScript"""),
+          embedJsUnsafe(s"""lishogi.quantity=${lishogi.i18n.JsQuantity(ctx.lang)};$timeagoLocaleScript"""),
           ctx.pageData.inquiry.isDefined option jsTag("inquiry.js", defer = deferJs)
         )
       )

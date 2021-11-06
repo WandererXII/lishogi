@@ -3,18 +3,18 @@ package views.html.puzzle
 import controllers.routes
 import play.api.libs.json.{ JsObject, Json }
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
 
 object show {
 
   def apply(
-      puzzle: lila.puzzle.Puzzle,
+      puzzle: lishogi.puzzle.Puzzle,
       data: JsObject,
       pref: JsObject,
-      difficulty: Option[lila.puzzle.PuzzleDifficulty] = None
+      difficulty: Option[lishogi.puzzle.PuzzleDifficulty] = None
   )(implicit
       ctx: Context
   ) =
@@ -37,7 +37,7 @@ object show {
       ),
       csp = defaultCsp.withWebAssembly.some,
       shogiground = false,
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           image = cdnUrl(routes.Export.puzzleThumbnail(puzzle.id.value).url).some,
           title = s"Shogi tactic #${puzzle.id}",

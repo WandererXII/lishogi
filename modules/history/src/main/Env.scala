@@ -1,15 +1,15 @@
-package lila.history
+package lishogi.history
 
 import com.softwaremill.macwire._
 
-import lila.common.config.CollName
+import lishogi.common.config.CollName
 
 @Module
 final class Env(
-    mongoCache: lila.memo.MongoCache.Api,
-    userRepo: lila.user.UserRepo,
-    cacheApi: lila.memo.CacheApi,
-    db: lila.db.Db
+    mongoCache: lishogi.memo.MongoCache.Api,
+    userRepo: lishogi.user.UserRepo,
+    cacheApi: lishogi.memo.CacheApi,
+    db: lishogi.db.Db
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private lazy val coll = db(CollName("history3"))

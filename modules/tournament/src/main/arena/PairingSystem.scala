@@ -1,7 +1,7 @@
-package lila.tournament
+package lishogi.tournament
 package arena
 
-import lila.user.{ User, UserRepo }
+import lishogi.user.{ User, UserRepo }
 
 import scala.util.Random
 
@@ -11,11 +11,11 @@ final private[tournament] class PairingSystem(
     userRepo: UserRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
-    idGenerator: lila.game.IdGenerator
+    idGenerator: lishogi.game.IdGenerator
 ) {
 
   import PairingSystem._
-  import lila.tournament.Tournament.tournamentUrl
+  import lishogi.tournament.Tournament.tournamentUrl
 
   // if waiting users can make pairings
   // then pair all users

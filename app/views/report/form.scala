@@ -2,16 +2,16 @@ package views.html.report
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
 
 import controllers.routes
 
 object form {
 
-  def apply(form: Form[_], reqUser: Option[User] = None, captcha: lila.common.Captcha)(implicit
+  def apply(form: Form[_], reqUser: Option[User] = None, captcha: lishogi.common.Captcha)(implicit
       ctx: Context
   ) =
     views.html.base.layout(

@@ -1,15 +1,15 @@
-package lila.security
+package lishogi.security
 
 import com.github.blemale.scaffeine.AsyncLoadingCache
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 
-import lila.common.IpAddress
+import lishogi.common.IpAddress
 
 final class Ip2Proxy(
     ws: WSClient,
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     checkUrl: String
 )(implicit
     ec: scala.concurrent.ExecutionContext,

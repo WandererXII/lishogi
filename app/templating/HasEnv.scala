@@ -1,4 +1,4 @@
-package lila.app
+package lishogi.app
 package templating
 
 trait HasEnv {

@@ -1,9 +1,9 @@
-package lila.event
+package lishogi.event
 
 import reactivemongo.api.bson._
 import play.api.i18n.Lang
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
 private[event] object BsonHandlers {
 

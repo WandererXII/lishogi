@@ -1,11 +1,11 @@
-package lila.forumSearch
+package lishogi.forumSearch
 
 import akka.stream.scaladsl._
 import play.api.libs.json._
 
-import lila.common.Json.jodaWrites
-import lila.forum.{ Post, PostApi, PostLiteView, PostRepo, PostView }
-import lila.search._
+import lishogi.common.Json.jodaWrites
+import lishogi.forum.{ Post, PostApi, PostLiteView, PostRepo, PostView }
+import lishogi.search._
 
 final class ForumSearchApi(
     client: ESClient,
@@ -47,7 +47,7 @@ final class ForumSearchApi(
         c.putMapping >> {
           postRepo.cursor
             .documentSource()
-            .via(lila.common.LilaStream.logRate[Post]("forum index")(logger))
+            .via(lishogi.common.LishogiStream.logRate[Post]("forum index")(logger))
             .grouped(200)
             .mapAsync(1)(postApi.liteViews)
             .map(_.map(v => Id(v.post.id) -> toDoc(v)))

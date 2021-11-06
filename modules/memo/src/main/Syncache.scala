@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import com.github.benmanes.caffeine.cache._
 import java.util.concurrent.TimeUnit
@@ -6,7 +6,7 @@ import scala.concurrent.duration._
 import scala.util.chaining._
 import scala.util.Success
 
-import lila.common.Uptime
+import lishogi.common.Uptime
 
 /**
   * A synchronous cache from asynchronous computations.
@@ -95,7 +95,7 @@ final private[memo] class Syncache[K, V](
 
   private def waitForResult(k: K, fu: Fu[V], duration: FiniteDuration): V =
     try {
-      lila.common.Chronometer.syncMon(_ => recWait) {
+      lishogi.common.Chronometer.syncMon(_ => recWait) {
         fu.await(duration, "syncache")
       }
     } catch {
@@ -104,10 +104,10 @@ final private[memo] class Syncache[K, V](
         default(k)
     }
 
-  private val incMiss    = lila.mon.syncache.miss(name).increment _
-  private val incTimeout = lila.mon.syncache.timeout(name).increment _
-  private val recWait    = lila.mon.syncache.wait(name)
-  private val recCompute = lila.mon.syncache.compute(name)
+  private val incMiss    = lishogi.mon.syncache.miss(name).increment _
+  private val incTimeout = lishogi.mon.syncache.timeout(name).increment _
+  private val recWait    = lishogi.mon.syncache.wait(name)
+  private val recCompute = lishogi.mon.syncache.compute(name)
 }
 
 object Syncache {

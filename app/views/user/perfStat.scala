@@ -2,12 +2,12 @@ package views.html.user
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.rating.{ Perf, PerfType }
-import lila.perfStat.PerfStat
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.rating.{ Perf, PerfType }
+import lishogi.perfStat.PerfStat
+import lishogi.user.User
 
 import controllers.routes
 
@@ -17,8 +17,8 @@ object perfStat {
 
   def apply(
       u: User,
-      rankMap: lila.rating.UserRankMap,
-      perfType: lila.rating.PerfType,
+      rankMap: lishogi.rating.UserRankMap,
+      perfType: lishogi.rating.PerfType,
       percentile: Option[Double],
       stat: PerfStat,
       ratingChart: Option[String]
@@ -31,7 +31,7 @@ object perfStat {
         ratingChart.map { rc =>
           frag(
             jsTag("chart/ratingHistory.js"),
-            embedJsUnsafe(s"lishogi.ratingHistoryChart($rc,'${perfType.trans(lila.i18n.defaultLang)}');")
+            embedJsUnsafe(s"lishogi.ratingHistoryChart($rc,'${perfType.trans(lishogi.i18n.defaultLang)}');")
           )
         }
       ),
@@ -68,7 +68,7 @@ object perfStat {
       )
     }
 
-  private def decimal(v: Double) = lila.common.Maths.roundAt(v, 2)
+  private def decimal(v: Double) = lishogi.common.Maths.roundAt(v, 2)
 
   private def glicko(u: User, perfType: PerfType, perf: Perf, percentile: Option[Double])(implicit
       ctx: Context
@@ -112,7 +112,7 @@ object perfStat {
         ". ",
         ratingDeviation(
           strong(
-            title := ratingDeviationHelp.txt(lila.rating.Glicko.provisionalDeviation)
+            title := ratingDeviationHelp.txt(lishogi.rating.Glicko.provisionalDeviation)
           )(decimal(perf.glicko.deviation).toString)
         )
       )
@@ -122,7 +122,7 @@ object perfStat {
     (denom != 0) ?? s"${Math.round(num * 100.0 / denom)}%"
   }
 
-  private def counter(count: lila.perfStat.Count)(implicit lang: Lang): Frag =
+  private def counter(count: lishogi.perfStat.Count)(implicit lang: Lang): Frag =
     st.section(cls := "counter split")(
       div(
         table(
@@ -187,7 +187,7 @@ object perfStat {
       )
     )
 
-  private def highlowSide(title: Frag => Frag, opt: Option[lila.perfStat.RatingAt], color: String)(implicit
+  private def highlowSide(title: Frag => Frag, opt: Option[lishogi.perfStat.RatingAt], color: String)(implicit
       lang: Lang
   ): Frag =
     opt match {
@@ -205,7 +205,7 @@ object perfStat {
       highlowSide(lowestRating(_), stat.lowest, "red")
     )
 
-  private def fromTo(s: lila.perfStat.Streak)(implicit lang: Lang): Frag =
+  private def fromTo(s: lishogi.perfStat.Streak)(implicit lang: Lang): Frag =
     s.from match {
       case Some(from) =>
         fromXToY(
@@ -219,7 +219,7 @@ object perfStat {
       case None => nbsp
     }
 
-  private def resultStreakSideStreak(s: lila.perfStat.Streak, title: Frag => Frag, color: String)(implicit
+  private def resultStreakSideStreak(s: lishogi.perfStat.Streak, title: Frag => Frag, color: String)(implicit
       lang: Lang
   ): Frag =
     div(cls := "streak")(
@@ -232,7 +232,7 @@ object perfStat {
       fromTo(s)
     )
 
-  private def resultStreakSide(s: lila.perfStat.Streaks, title: Frag, color: String)(implicit
+  private def resultStreakSide(s: lishogi.perfStat.Streaks, title: Frag, color: String)(implicit
       lang: Lang
   ): Frag =
     div(
@@ -241,13 +241,13 @@ object perfStat {
       resultStreakSideStreak(s.cur, currentStreak(_), color)
     )
 
-  private def resultStreak(streak: lila.perfStat.ResultStreak)(implicit lang: Lang): Frag =
+  private def resultStreak(streak: lishogi.perfStat.ResultStreak)(implicit lang: Lang): Frag =
     st.section(cls := "resultStreak split")(
       resultStreakSide(streak.win, winningStreak(), "green"),
       resultStreakSide(streak.loss, losingStreak(), "red")
     )
 
-  private def resultTable(results: lila.perfStat.Results, title: Frag)(implicit lang: Lang): Frag =
+  private def resultTable(results: lishogi.perfStat.Results, title: Frag)(implicit lang: Lang): Frag =
     div(
       table(
         thead(
@@ -272,7 +272,7 @@ object perfStat {
       resultTable(stat.worstLosses, worstRated())
     )
 
-  private def playStreakNbStreak(s: lila.perfStat.Streak, title: Frag => Frag)(implicit lang: Lang): Frag =
+  private def playStreakNbStreak(s: lishogi.perfStat.Streak, title: Frag => Frag)(implicit lang: Lang): Frag =
     div(
       div(cls := "streak")(
         h3(
@@ -285,19 +285,19 @@ object perfStat {
       )
     )
 
-  private def playStreakNbStreaks(streaks: lila.perfStat.Streaks)(implicit lang: Lang): Frag =
+  private def playStreakNbStreaks(streaks: lishogi.perfStat.Streaks)(implicit lang: Lang): Frag =
     div(cls := "split")(
       playStreakNbStreak(streaks.max, longestStreak(_)),
       playStreakNbStreak(streaks.cur, currentStreak(_))
     )
 
-  private def playStreakNb(playStreak: lila.perfStat.PlayStreak)(implicit lang: Lang): Frag =
+  private def playStreakNb(playStreak: lishogi.perfStat.PlayStreak)(implicit lang: Lang): Frag =
     st.section(cls := "playStreak")(
       h2(span(title := lessThanOneHour.txt())(gamesInARow())),
       playStreakNbStreaks(playStreak.nb)
     )
 
-  private def playStreakTimeStreak(s: lila.perfStat.Streak, title: Frag => Frag)(implicit lang: Lang): Frag =
+  private def playStreakTimeStreak(s: lishogi.perfStat.Streak, title: Frag => Frag)(implicit lang: Lang): Frag =
     div(
       div(cls := "streak")(
         h3(title(showPeriod(s.period))),
@@ -305,13 +305,13 @@ object perfStat {
       )
     )
 
-  private def playStreakTimeStreaks(streaks: lila.perfStat.Streaks)(implicit lang: Lang): Frag =
+  private def playStreakTimeStreaks(streaks: lishogi.perfStat.Streaks)(implicit lang: Lang): Frag =
     div(cls := "split")(
       playStreakTimeStreak(streaks.max, longestStreak(_)),
       playStreakTimeStreak(streaks.cur, currentStreak(_))
     )
 
-  private def playStreakTime(playStreak: lila.perfStat.PlayStreak)(implicit lang: Lang): Frag =
+  private def playStreakTime(playStreak: lishogi.perfStat.PlayStreak)(implicit lang: Lang): Frag =
     st.section(cls := "playStreak")(
       h2(span(title := lessThanOneHour.txt())(maxTimePlaying())),
       playStreakTimeStreaks(playStreak.time)

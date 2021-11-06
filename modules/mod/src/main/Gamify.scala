@@ -1,25 +1,25 @@
-package lila.mod
+package lishogi.mod
 
-import lila.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.BSON.BSONJodaDateTimeHandler
 import org.joda.time.DateTime
 import reactivemongo.api._
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.memo.CacheApi._
-import lila.report.Room
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi._
+import lishogi.report.Room
+import lishogi.user.User
 
 final class Gamify(
     logRepo: ModlogRepo,
-    reportApi: lila.report.ReportApi,
-    cacheApi: lila.memo.CacheApi,
+    reportApi: lishogi.report.ReportApi,
+    cacheApi: lishogi.memo.CacheApi,
     historyRepo: HistoryRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import Gamify._
-  import lila.report.BSONHandlers.RoomBSONHandler
+  import lishogi.report.BSONHandlers.RoomBSONHandler
 
   implicit private val modMixedBSONHandler     = Macros.handler[ModMixed]
   implicit private val historyMonthBSONHandler = Macros.handler[HistoryMonth]

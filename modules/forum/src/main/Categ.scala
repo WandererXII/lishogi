@@ -1,6 +1,6 @@
-package lila.forum
+package lishogi.forum
 
-import lila.user.User
+import lishogi.user.User
 
 case class Categ(
     _id: String, // slug

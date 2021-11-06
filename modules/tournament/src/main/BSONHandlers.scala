@@ -1,12 +1,12 @@
-package lila.tournament
+package lishogi.tournament
 
 import shogi.Clock.{ Config => ClockConfig }
 import shogi.variant.Variant
 import shogi.{ Mode, StartingPosition }
-import lila.db.BSON
-import lila.db.dsl._
-import lila.rating.PerfType
-import lila.user.User.lishogiId
+import lishogi.db.BSON
+import lishogi.db.dsl._
+import lishogi.rating.PerfType
+import lishogi.user.User.lishogiId
 import reactivemongo.api.bson._
 
 object BSONHandlers {

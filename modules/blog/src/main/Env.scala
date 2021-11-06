@@ -1,4 +1,4 @@
-package lila.blog
+package lishogi.blog
 
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
@@ -14,8 +14,8 @@ private class BlogConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    timelineApi: lila.timeline.EntryApi,
-    cacheApi: lila.memo.CacheApi
+    timelineApi: lishogi.timeline.EntryApi,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     ws: play.api.libs.ws.WSClient

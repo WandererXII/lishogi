@@ -1,17 +1,17 @@
-package lila.pool
+package lishogi.pool
 
 import akka.actor._
 
-import lila.game.Game
-import lila.rating.RatingRange
-import lila.socket.Socket.{ Sri, Sris }
-import lila.user.User
+import lishogi.game.Game
+import lishogi.rating.RatingRange
+import lishogi.socket.Socket.{ Sri, Sris }
+import lishogi.user.User
 
 final class PoolApi(
     val configs: List[PoolConfig],
     hookThieve: HookThieve,
     gameStarter: GameStarter,
-    playbanApi: lila.playban.PlaybanApi,
+    playbanApi: lishogi.playban.PlaybanApi,
     system: ActorSystem
 ) {
 

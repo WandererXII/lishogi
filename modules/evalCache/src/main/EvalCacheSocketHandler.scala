@@ -1,11 +1,11 @@
-package lila.evalCache
+package lishogi.evalCache
 
 import shogi.variant.Variant
 import play.api.libs.json._
 
 import shogi.format.FEN
-import lila.socket._
-import lila.user.User
+import lishogi.socket._
+import lishogi.user.User
 
 final private class EvalCacheSocketHandler(
     api: EvalCacheApi,

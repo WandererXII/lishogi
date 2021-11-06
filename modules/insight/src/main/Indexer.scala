@@ -1,4 +1,4 @@
-package lila.insight
+package lishogi.insight
 
 import akka.stream.scaladsl._
 import org.joda.time.DateTime
@@ -6,11 +6,11 @@ import reactivemongo.api._
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.game.BSONHandlers.gameBSONHandler
-import lila.game.{ Game, GameRepo, Query }
-import lila.common.LilaStream
-import lila.user.{ User, UserRepo }
+import lishogi.db.dsl._
+import lishogi.game.BSONHandlers.gameBSONHandler
+import lishogi.game.{ Game, GameRepo, Query }
+import lishogi.common.LishogiStream
+import lishogi.user.{ User, UserRepo }
 
 final private class Indexer(
     povToEntry: PovToEntry,
@@ -23,7 +23,7 @@ final private class Indexer(
 ) {
 
   private val workQueue =
-    new lila.hub.DuctSequencer(maxSize = 64, timeout = 1 minute, name = "insightIndexer")
+    new lishogi.hub.DuctSequencer(maxSize = 64, timeout = 1 minute, name = "insightIndexer")
 
   def all(userId: User.ID): Funit =
     workQueue {
@@ -92,7 +92,7 @@ final private class Indexer(
         .documentSource()
         .take(maxGames)
         .mapAsync(16)(toEntry)
-        .via(LilaStream.collect)
+        .via(LishogiStream.collect)
         .zipWithIndex
         .map { case (e, i) => e.copy(number = fromNumber + i.toInt) }
         .grouped(bulkInsert)

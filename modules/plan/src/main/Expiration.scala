@@ -1,7 +1,7 @@
-package lila.plan
+package lishogi.plan
 
-import lila.db.dsl._
-import lila.user.UserRepo
+import lishogi.db.dsl._
+import lishogi.user.UserRepo
 
 import org.joda.time.DateTime
 

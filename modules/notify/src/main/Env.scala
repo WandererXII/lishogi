@@ -1,12 +1,12 @@
-package lila.notify
+package lishogi.notify
 
 import akka.actor._
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.Bus
-import lila.common.config._
+import lishogi.common.Bus
+import lishogi.common.config._
 
 private class NotifyConfig(
     @ConfigName("collection.notify") val notifyColl: CollName,
@@ -16,11 +16,11 @@ private class NotifyConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    userRepo: lila.user.UserRepo,
-    getLightUser: lila.common.LightUser.Getter,
-    getLightUserSync: lila.common.LightUser.GetterSync,
-    cacheApi: lila.memo.CacheApi
+    db: lishogi.db.Db,
+    userRepo: lishogi.user.UserRepo,
+    getLightUser: lishogi.common.LightUser.Getter,
+    getLightUserSync: lishogi.common.LightUser.GetterSync,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -41,13 +41,13 @@ final class Env(
     system.actorOf(
       Props(new Actor {
         def receive = {
-          case lila.hub.actorApi.notify.Notified(userId) =>
+          case lishogi.hub.actorApi.notify.Notified(userId) =>
             api markAllRead Notification.Notifies(userId)
-          case lila.hub.actorApi.notify.NotifiedBatch(userIds) =>
+          case lishogi.hub.actorApi.notify.NotifiedBatch(userIds) =>
             api markAllRead userIds.map(Notification.Notifies.apply)
-          case lila.game.actorApi.CorresAlarmEvent(pov) =>
+          case lishogi.game.actorApi.CorresAlarmEvent(pov) =>
             pov.player.userId ?? { userId =>
-              lila.game.Namer.playerText(pov.opponent)(getLightUser) foreach { opponent =>
+              lishogi.game.Namer.playerText(pov.opponent)(getLightUser) foreach { opponent =>
                 api addNotification Notification.make(
                   Notification.Notifies(userId),
                   CorresAlarm(

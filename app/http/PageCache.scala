@@ -1,13 +1,13 @@
-package lila.app
+package lishogi.app
 package http
 
 import play.api.mvc._
 import scala.concurrent.duration._
 
-import lila.common.HTTPRequest
-import lila.api.Context
+import lishogi.common.HTTPRequest
+import lishogi.api.Context
 
-final class PageCache(cacheApi: lila.memo.CacheApi) {
+final class PageCache(cacheApi: lishogi.memo.CacheApi) {
 
   private val cache = cacheApi.notLoading[String, Result](16, "pageCache") {
     _.expireAfterWrite(1.seconds).buildAsync()
@@ -23,11 +23,11 @@ final class PageCache(cacheApi: lila.memo.CacheApi) {
     s"${HTTPRequest actionName ctx.req}(${ctx.lang.language})"
 
   private def defaultPrefs(req: RequestHeader) =
-    lila.pref.RequestPref.fromRequest(req) == lila.pref.Pref.default
+    lishogi.pref.RequestPref.fromRequest(req) == lishogi.pref.Pref.default
 
   private val langs =
     Set("en", "ru", "tr", "de", "es", "fr", "pt", "it", "pl", "ar", "fa", "id", "nl", "nb", "sv")
 
   private def hasCookies(req: RequestHeader) =
-    lila.security.EmailConfirm.cookie.has(req)
+    lishogi.security.EmailConfirm.cookie.has(req)
 }

@@ -1,16 +1,16 @@
-package lila.insight
+package lishogi.insight
 
 import scala.util.chaining._
 import scalaz.NonEmptyList
 
 import shogi.format.FEN
 import shogi.{ Board, Centis, Role, Stats }
-import lila.analyse.{ Accuracy, Advice }
-import lila.game.{ Game, Pov }
+import lishogi.analyse.{ Accuracy, Advice }
+import lishogi.game.{ Game, Pov }
 
 final private class PovToEntry(
-    gameRepo: lila.game.GameRepo,
-    analysisRepo: lila.analyse.AnalysisRepo
+    gameRepo: lishogi.game.GameRepo,
+    analysisRepo: lishogi.analyse.AnalysisRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private type Ply = Int
@@ -19,7 +19,7 @@ final private class PovToEntry(
       pov: Pov,
       provisional: Boolean,
       initialFen: Option[FEN],
-      analysis: Option[lila.analyse.Analysis],
+      analysis: Option[lishogi.analyse.Analysis],
       division: shogi.Division,
       moveAccuracy: Option[List[Int]],
       boards: NonEmptyList[Board],
@@ -43,7 +43,7 @@ final private class PovToEntry(
   private def enrich(game: Game, userId: String, provisional: Boolean): Fu[Option[RichPov]] =
     if (removeWrongAnalysis(game)) fuccess(none)
     else
-      lila.game.Pov.ofUserId(game, userId) ?? { pov =>
+      lishogi.game.Pov.ofUserId(game, userId) ?? { pov =>
         gameRepo.initialFen(game) zip
           (game.metadata.analysed ?? analysisRepo.byId(game.id)) map { case (fen, an) =>
             for {

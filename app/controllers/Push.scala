@@ -1,10 +1,10 @@
 package controllers
 
-import lila.app._
-import lila.push.WebSubscription
-import lila.push.WebSubscription.readers._
+import lishogi.app._
+import lishogi.push.WebSubscription
+import lishogi.push.WebSubscription.readers._
 
-final class Push(env: Env) extends LilaController(env) {
+final class Push(env: Env) extends LishogiController(env) {
 
   def mobileRegister(platform: String, deviceId: String) =
     Auth { implicit ctx => me =>

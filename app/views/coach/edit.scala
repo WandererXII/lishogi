@@ -3,11 +3,11 @@ package views.html.coach
 import play.api.data.Form
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.i18n.LangList
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.{ richText, safeJsonValue }
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.i18n.LangList
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.{ richText, safeJsonValue }
 
 import controllers.routes
 
@@ -29,7 +29,7 @@ object edit {
     }
   }
 
-  def apply(c: lila.coach.Coach.WithUser, form: Form[_], reviews: lila.coach.CoachReview.Reviews)(implicit
+  def apply(c: lishogi.coach.Coach.WithUser, form: Form[_], reviews: lishogi.coach.CoachReview.Reviews)(implicit
       ctx: Context
   ) = {
     views.html.account.layout(

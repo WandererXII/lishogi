@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import scala.concurrent.duration.FiniteDuration
 import io.methvin.play.autoconfig._

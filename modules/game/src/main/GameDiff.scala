@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import shogi.{ CheckCount, Clock, Color, Gote, Hands, Sente }
 import Game.BSONFields._
@@ -6,9 +6,9 @@ import reactivemongo.api.bson._
 import scala.util.Try
 
 import shogi.Centis
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.ByteArray
-import lila.db.ByteArray.ByteArrayBSONHandler
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.ByteArray
+import lishogi.db.ByteArray.ByteArrayBSONHandler
 
 object GameDiff {
 
@@ -21,7 +21,7 @@ object GameDiff {
 
   type Diff = (List[Set], List[Unset])
 
-  private val w = lila.db.BSON.writer
+  private val w = lishogi.db.BSON.writer
 
   def apply(a: Game, b: Game): Diff = {
 

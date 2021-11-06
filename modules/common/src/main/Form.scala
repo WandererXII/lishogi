@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import org.joda.time.{ DateTime, DateTimeZone }
 import play.api.data.format.Formats._

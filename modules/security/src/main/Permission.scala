@@ -1,4 +1,4 @@
-package lila.security
+package lishogi.security
 
 sealed abstract class Permission(val key: String, val children: List[Permission] = Nil, val name: String) {
 
@@ -54,7 +54,7 @@ object Permission {
   case object PayPal                extends Permission("PAYPAL", "PayPal")
   case object Relay                 extends Permission("RELAY", "Manage broadcasts")
   case object Cli                   extends Permission("ClI", "Command line")
-  case object Settings              extends Permission("SETTINGS", "Lila settings")
+  case object Settings              extends Permission("SETTINGS", "Lishogi settings")
   case object Streamers             extends Permission("STREAMERS", "Manage streamers")
   case object Verified              extends Permission("VERIFIED", "Verified badge")
   case object Prismic               extends Permission("PRISMIC", "Prismic preview")

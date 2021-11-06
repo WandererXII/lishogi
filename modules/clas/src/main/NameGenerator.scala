@@ -1,8 +1,8 @@
-package lila.clas
+package lishogi.clas
 
 import scala.concurrent.ExecutionContext
 
-final class NameGenerator(userRepo: lila.user.UserRepo)(implicit ec: ExecutionContext) {
+final class NameGenerator(userRepo: lishogi.user.UserRepo)(implicit ec: ExecutionContext) {
 
   def apply(maxSize: Int = 16, triesLeft: Int = 100): Fu[Option[String]] = {
     val name = anyOf(combinations).map(anyOf).mkString
@@ -15,7 +15,7 @@ final class NameGenerator(userRepo: lila.user.UserRepo)(implicit ec: ExecutionCo
   }
 
   private def anyOf[A](vec: Vector[A]): A =
-    vec(lila.common.ThreadLocalRandom.nextInt(vec.size))
+    vec(lishogi.common.ThreadLocalRandom.nextInt(vec.size))
 
   lazy val combinations = Vector(
     List(adjectives, nouns)

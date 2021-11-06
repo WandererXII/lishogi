@@ -1,4 +1,4 @@
-package lila.relation
+package lishogi.relation
 
 import org.joda.time.DateTime
 import reactivemongo.api._
@@ -6,21 +6,21 @@ import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
 import BSONHandlers._
-import lila.common.Bus
-import lila.db.dsl._
-import lila.db.paginator._
-import lila.hub.actorApi.timeline.{ Propagate, Follow => FollowUser }
-import lila.hub.actors
-import lila.memo.CacheApi._
-import lila.user.User
+import lishogi.common.Bus
+import lishogi.db.dsl._
+import lishogi.db.paginator._
+import lishogi.hub.actorApi.timeline.{ Propagate, Follow => FollowUser }
+import lishogi.hub.actors
+import lishogi.memo.CacheApi._
+import lishogi.user.User
 
 final class RelationApi(
     coll: Coll,
     repo: RelationRepo,
     timeline: actors.Timeline,
-    prefApi: lila.pref.PrefApi,
-    cacheApi: lila.memo.CacheApi,
-    userRepo: lila.user.UserRepo,
+    prefApi: lishogi.pref.PrefApi,
+    cacheApi: lishogi.memo.CacheApi,
+    userRepo: lishogi.user.UserRepo,
     config: RelationConfig
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -149,13 +149,13 @@ final class RelationApi(
               countFollowersCache.update(u2, 1 +)
               countFollowingCache.update(u1, prev => (prev + 1) atMost config.maxFollow.value)
               timeline ! Propagate(FollowUser(u1, u2)).toFriendsOf(u1).toUsers(List(u2))
-              Bus.publish(lila.hub.actorApi.relation.Follow(u1, u2), "relation")
-              lila.mon.relation.follow.increment()
+              Bus.publish(lishogi.hub.actorApi.relation.Follow(u1, u2), "relation")
+              lishogi.mon.relation.follow.increment()
             }
         }
     }
 
-  private val limitFollowRateLimiter = new lila.memo.RateLimit[ID](
+  private val limitFollowRateLimiter = new lishogi.memo.RateLimit[ID](
     credits = 1,
     duration = 1 hour,
     key = "follow.limit.cleanup"
@@ -186,12 +186,12 @@ final class RelationApi(
         case true => funit
         case _ =>
           repo.block(u1, u2) >> limitBlock(u1) >> unfollow(u2, u1) >>- {
-            Bus.publish(lila.hub.actorApi.relation.Block(u1, u2), "relation")
+            Bus.publish(lishogi.hub.actorApi.relation.Block(u1, u2), "relation")
             Bus.publish(
-              lila.hub.actorApi.socket.SendTo(u2, lila.socket.Socket.makeMessage("blockedBy", u1)),
+              lishogi.hub.actorApi.socket.SendTo(u2, lishogi.socket.Socket.makeMessage("blockedBy", u1)),
               "socketUsers"
             )
-            lila.mon.relation.block.increment()
+            lishogi.mon.relation.block.increment()
           }
       }
     }
@@ -203,8 +203,8 @@ final class RelationApi(
           repo.unfollow(u1, u2) >>- {
             countFollowersCache.update(u2, _ - 1)
             countFollowingCache.update(u1, _ - 1)
-            Bus.publish(lila.hub.actorApi.relation.UnFollow(u1, u2), "relation")
-            lila.mon.relation.unfollow.increment()
+            Bus.publish(lishogi.hub.actorApi.relation.UnFollow(u1, u2), "relation")
+            lishogi.mon.relation.unfollow.increment()
           }
         case _ => funit
       }
@@ -217,12 +217,12 @@ final class RelationApi(
       fetchBlocks(u1, u2) flatMap {
         case true =>
           repo.unblock(u1, u2) >>- {
-            Bus.publish(lila.hub.actorApi.relation.UnBlock(u1, u2), "relation")
+            Bus.publish(lishogi.hub.actorApi.relation.UnBlock(u1, u2), "relation")
             Bus.publish(
-              lila.hub.actorApi.socket.SendTo(u2, lila.socket.Socket.makeMessage("unblockedBy", u1)),
+              lishogi.hub.actorApi.socket.SendTo(u2, lishogi.socket.Socket.makeMessage("unblockedBy", u1)),
               "socketUsers"
             )
-            lila.mon.relation.unblock.increment()
+            lishogi.mon.relation.unblock.increment()
           }
         case _ => funit
       }

@@ -1,5 +1,5 @@
-package lila.mod
+package lishogi.mod
 
-final class ModlogRepo(val coll: lila.db.dsl.Coll)
-final class AssessmentRepo(val coll: lila.db.dsl.Coll)
-final class HistoryRepo(val coll: lila.db.dsl.Coll)
+final class ModlogRepo(val coll: lishogi.db.dsl.Coll)
+final class AssessmentRepo(val coll: lishogi.db.dsl.Coll)
+final class HistoryRepo(val coll: lishogi.db.dsl.Coll)

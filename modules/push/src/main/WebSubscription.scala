@@ -1,4 +1,4 @@
-package lila.push
+package lishogi.push
 
 final case class WebSubscription(
     endpoint: String,

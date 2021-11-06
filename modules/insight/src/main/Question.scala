@@ -1,4 +1,4 @@
-package lila.insight
+package lishogi.insight
 
 case class Question[X](
     dimension: Dimension[X],

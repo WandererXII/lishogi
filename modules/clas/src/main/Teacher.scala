@@ -1,6 +1,6 @@
-package lila.clas
+package lishogi.clas
 
-import lila.user.User
+import lishogi.user.User
 
 import org.joda.time.DateTime
 

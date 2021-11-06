@@ -1,6 +1,6 @@
-package lila.report
+package lishogi.report
 
-import lila.user.User
+import lishogi.user.User
 
 final class ModReportFilter {
 

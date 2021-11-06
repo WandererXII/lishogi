@@ -1,9 +1,9 @@
 package views.html
 package account
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -15,7 +15,7 @@ object twoFactor {
     """<div style="width: 276px; height: 276px; padding: 10px; background: white; margin: 2em auto;"><div id="qrcode" style="width: 256px; height: 256px;"></div></div>"""
   )
 
-  def setup(u: lila.user.User, form: play.api.data.Form[_])(implicit ctx: Context) =
+  def setup(u: lishogi.user.User, form: play.api.data.Form[_])(implicit ctx: Context) =
     account.layout(
       title = s"${u.username} - ${twoFactorAuth.txt()}",
       active = "twofactor",
@@ -55,7 +55,7 @@ object twoFactor {
       )
     }
 
-  def disable(u: lila.user.User, form: play.api.data.Form[_])(implicit ctx: Context) =
+  def disable(u: lishogi.user.User, form: play.api.data.Form[_])(implicit ctx: Context) =
     account.layout(
       title = s"${u.username} - ${twoFactorAuth.txt()}",
       active = "twofactor"

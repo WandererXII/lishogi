@@ -3,14 +3,14 @@ package controllers
 import play.api.libs.json._
 import play.api.mvc._
 
-import lila.api.Context
-import lila.app._
-import lila.chat.Chat
-import lila.common.HTTPRequest
-import lila.game.{ Pov, Game => GameModel, NotationDump }
-import lila.tournament.{ Tournament => Tour }
-import lila.swiss.Swiss.{ Id => SwissId }
-import lila.user.{ User => UserModel }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.chat.Chat
+import lishogi.common.HTTPRequest
+import lishogi.game.{ Pov, Game => GameModel, NotationDump }
+import lishogi.tournament.{ Tournament => Tour }
+import lishogi.swiss.Swiss.{ Id => SwissId }
+import lishogi.user.{ User => UserModel }
 import views._
 
 final class Round(
@@ -20,7 +20,7 @@ final class Round(
     analyseC: => Analyse,
     tournamentC: => Tournament,
     swissC: => Swiss
-) extends LilaController(env)
+) extends LishogiController(env)
     with TheftPrevention {
 
   private def analyser = env.analyse.analyser
@@ -40,7 +40,7 @@ final class Round(
                   .withMatchup(pov.game)) zip
                 (pov.game.isSwitchable ?? otherPovs(pov.game)) zip
                 env.bookmark.api.exists(pov.game, ctx.me) zip
-                env.api.roundApi.player(pov, tour, lila.api.Mobile.Api.currentVersion) map {
+                env.api.roundApi.player(pov, tour, lishogi.api.Mobile.Api.currentVersion) map {
                   case _ ~ simul ~ chatOption ~ crosstable ~ playing ~ bookmarked ~ data =>
                     simul foreach env.simul.api.onPlayerConnection(pov.game, ctx.me)
                     Ok(
@@ -67,7 +67,7 @@ final class Round(
               env.api.roundApi.player(pov, tour, apiVersion) zip
               getPlayerChat(pov.game, none) map { case _ ~ data ~ chat =>
                 Ok {
-                  data.add("chat", chat.flatMap(_.game).map(c => lila.chat.JsonView(c.chat)))
+                  data.add("chat", chat.flatMap(_.game).map(c => lishogi.chat.JsonView(c.chat)))
                 }
               }
           }
@@ -170,9 +170,9 @@ final class Round(
                     env.api.roundApi.watcher(
                       pov,
                       tour,
-                      lila.api.Mobile.Api.currentVersion,
+                      lishogi.api.Mobile.Api.currentVersion,
                       tv = userTv.map { u =>
-                        lila.round.OnUserTv(u.id)
+                        lishogi.round.OnUserTv(u.id)
                       }
                     ) map { data =>
                       Ok(
@@ -203,15 +203,15 @@ final class Round(
               chat     <- getWatcherChat(pov.game)
             } yield Ok {
               data
-                .add("chat" -> chat.map(c => lila.chat.JsonView(c.chat)))
-                .add("analysis" -> analysis.map(a => lila.analyse.JsonView.mobile(pov.game, a)))
+                .add("chat" -> chat.map(c => lishogi.chat.JsonView(c.chat)))
+                .add("analysis" -> analysis.map(a => lishogi.analyse.JsonView.mobile(pov.game, a)))
             }
         ) map { NoCache(_) }
     }
 
   private[controllers] def getWatcherChat(
       game: GameModel
-  )(implicit ctx: Context): Fu[Option[lila.chat.UserChat.Mine]] = {
+  )(implicit ctx: Context): Fu[Option[lishogi.chat.UserChat.Mine]] = {
     ctx.noKid && ctx.me.fold(true)(env.chat.panic.allowed) && {
       game.finishedOrAborted || !ctx.userId.exists(game.userIds.contains)
     }
@@ -226,13 +226,13 @@ final class Round(
       ctx: Context
   ): Fu[Option[Chat.GameOrEvent]] =
     ctx.noKid ?? {
-      def toEventChat(resource: String)(c: lila.chat.UserChat.Mine) =
+      def toEventChat(resource: String)(c: lishogi.chat.UserChat.Mine) =
         Chat
           .GameOrEvent(
             Right(
               (
                 c truncate 100,
-                lila.chat.Chat.ResourceId(resource)
+                lishogi.chat.Chat.ResourceId(resource)
               )
             )
           )
@@ -322,7 +322,7 @@ final class Round(
     Open { implicit ctx =>
       OptionFuRedirect(env.round.proxyRepo.pov(fullId)) { pov =>
         if (isTheft(pov)) {
-          lila.log("round").warn(s"theft resign $fullId ${HTTPRequest.lastRemoteAddress(ctx.req)}")
+          lishogi.log("round").warn(s"theft resign $fullId ${HTTPRequest.lastRemoteAddress(ctx.req)}")
           fuccess(routes.Lobby.home())
         } else {
           env.round resign pov

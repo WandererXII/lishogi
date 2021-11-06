@@ -1,27 +1,27 @@
-package lila.irwin
+package lishogi.irwin
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 
-import lila.analyse.Analysis.Analyzed
-import lila.analyse.AnalysisRepo
-import lila.common.Bus
-import lila.db.dsl._
-import lila.game.{ Game, GameRepo, Pov, Query }
-import lila.report.{ Mod, ModId, Report, Reporter, Suspect, SuspectId }
-import lila.tournament.{ Tournament, TournamentTop }
-import lila.user.{ User, UserRepo }
+import lishogi.analyse.Analysis.Analyzed
+import lishogi.analyse.AnalysisRepo
+import lishogi.common.Bus
+import lishogi.db.dsl._
+import lishogi.game.{ Game, GameRepo, Pov, Query }
+import lishogi.report.{ Mod, ModId, Report, Reporter, Suspect, SuspectId }
+import lishogi.tournament.{ Tournament, TournamentTop }
+import lishogi.user.{ User, UserRepo }
 
 final class IrwinApi(
     reportColl: Coll,
     gameRepo: GameRepo,
     userRepo: UserRepo,
     analysisRepo: AnalysisRepo,
-    modApi: lila.mod.ModApi,
-    reportApi: lila.report.ReportApi,
-    notifyApi: lila.notify.NotifyApi,
-    thresholds: lila.memo.SettingStore[IrwinThresholds]
+    modApi: lishogi.mod.ModApi,
+    reportApi: lishogi.report.ReportApi,
+    notifyApi: lishogi.notify.NotifyApi,
+    thresholds: lishogi.memo.SettingStore[IrwinThresholds]
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BSONHandlers._
@@ -39,7 +39,7 @@ final class IrwinApi(
       reportColl.update.one($id(report._id), report, upsert = true) >>
         markOrReport(report) >>
         notification(report) >>-
-        lila.mon.mod.irwin.ownerReport(report.owner).increment()
+        lishogi.mon.mod.irwin.ownerReport(report.owner).increment()
 
     def get(user: User): Fu[Option[IrwinReport]] =
       reportColl.ext.find($id(user.id)).one[IrwinReport]
@@ -62,7 +62,7 @@ final class IrwinApi(
     private def markOrReport(report: IrwinReport): Funit =
       if (report.activation >= thresholds.get().mark)
         modApi.autoMark(report.suspectId, ModId.irwin) >>-
-          lila.mon.mod.irwin.mark.increment()
+          lishogi.mon.mod.irwin.mark.increment()
       else if (report.activation >= thresholds.get().report) for {
         suspect <- getSuspect(report.suspectId.value)
         irwin   <- userRepo byId "irwin" orFail s"Irwin user not found" dmap Mod.apply
@@ -70,11 +70,11 @@ final class IrwinApi(
           Report.Candidate(
             reporter = Reporter(irwin.user),
             suspect = suspect,
-            reason = lila.report.Reason.Cheat,
+            reason = lishogi.report.Reason.Cheat,
             text = s"${report.activation}% over ${report.games.size} games"
           )
         )
-      } yield lila.mon.mod.irwin.report.increment()
+      } yield lishogi.mon.mod.irwin.report.increment()
       else funit
   }
 
@@ -104,23 +104,23 @@ final class IrwinApi(
       )
 
     private[irwin] def fromTournamentLeaders(leaders: Map[Tournament, TournamentTop]): Funit =
-      lila.common.Future.applySequentially(leaders.toList) { case (tour, top) =>
+      lishogi.common.Future.applySequentially(leaders.toList) { case (tour, top) =>
         userRepo byIds top.value.zipWithIndex
           .filter(_._2 <= tour.nbPlayers * 2 / 100)
           .map(_._1.userId)
           .take(20) flatMap { users =>
-          lila.common.Future.applySequentially(users) { user =>
+          lishogi.common.Future.applySequentially(users) { user =>
             insert(Suspect(user), _.Tournament)
           }
         }
       }
 
     private[irwin] def fromLeaderboard(leaders: List[User]): Funit =
-      lila.common.Future.applySequentially(leaders) { user =>
+      lishogi.common.Future.applySequentially(leaders) { user =>
         insert(Suspect(user), _.Leaderboard)
       }
 
-    import lila.game.BSONHandlers._
+    import lishogi.game.BSONHandlers._
 
     private def baseQuery(suspect: Suspect) =
       Query.finished ++
@@ -156,7 +156,7 @@ final class IrwinApi(
     private[IrwinApi] def apply(report: IrwinReport): Funit =
       subs.get(report.suspectId) ?? { modId =>
         subs = subs - report.suspectId
-        import lila.notify.{ IrwinDone, Notification }
+        import lishogi.notify.{ IrwinDone, Notification }
         notifyApi.addNotification(
           Notification.make(Notification.Notifies(modId.value), IrwinDone(report.suspectId.value))
         )

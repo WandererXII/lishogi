@@ -1,4 +1,4 @@
-package lila.clas
+package lishogi.clas
 
 import com.github.blemale.scaffeine.LoadingCache
 import com.vladsch.flexmark.ext.gfm.strikethrough.StrikethroughExtension
@@ -29,7 +29,7 @@ final class ClasMarkup {
   private val parser   = Parser.builder(options).build()
   private val renderer = HtmlRenderer.builder(options).build()
 
-  private val cache: LoadingCache[Text, Html] = lila.memo.CacheApi.scaffeineNoScheduler
+  private val cache: LoadingCache[Text, Html] = lishogi.memo.CacheApi.scaffeineNoScheduler
     .expireAfterAccess(20 minutes)
     .maximumSize(256)
     .build((t: Text) => renderer.render(parser.parse(t)))

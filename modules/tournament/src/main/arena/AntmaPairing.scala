@@ -1,8 +1,8 @@
-package lila.tournament
+package lishogi.tournament
 package arena
 
-import lila.common.{ Chronometer, WMMatching }
-import lila.user.User
+import lishogi.common.{ Chronometer, WMMatching }
+import lishogi.user.User
 import PairingSystem.Data
 
 private object AntmaPairing {

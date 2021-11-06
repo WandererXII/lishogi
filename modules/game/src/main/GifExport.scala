@@ -1,19 +1,19 @@
-package lila.game
+package lishogi.game
 
 import akka.stream.scaladsl._
 import akka.util.ByteString
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 
-import lila.common.Maths
-import lila.common.config.BaseUrl
+import lishogi.common.Maths
+import lishogi.common.config.BaseUrl
 
 import shogi.{ Centis, Color, Replay, Situation, Game => ShogiGame }
 import shogi.format.{ FEN, Forsyth, Uci }
 
 final class GifExport(
     ws: WSClient,
-    lightUserApi: lila.user.LightUserApi,
+    lightUserApi: lishogi.user.LightUserApi,
     baseUrl: BaseUrl,
     url: String
 )(implicit ec: scala.concurrent.ExecutionContext) {

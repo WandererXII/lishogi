@@ -1,12 +1,12 @@
-package lila.teamSearch
+package lishogi.teamSearch
 
 import akka.actor._
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
-import lila.search._
+import lishogi.common.config._
+import lishogi.search._
 
 @Module
 private class TeamSearchConfig(
@@ -17,7 +17,7 @@ private class TeamSearchConfig(
 final class Env(
     appConfig: Configuration,
     makeClient: Index => ESClient,
-    teamRepo: lila.team.TeamRepo
+    teamRepo: lishogi.team.TeamRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -29,14 +29,14 @@ final class Env(
 
   private lazy val client = makeClient(Index(config.indexName))
 
-  private lazy val paginatorBuilder = wire[lila.search.PaginatorBuilder[lila.team.Team, Query]]
+  private lazy val paginatorBuilder = wire[lishogi.search.PaginatorBuilder[lishogi.team.Team, Query]]
 
   lazy val api: TeamSearchApi = wire[TeamSearchApi]
 
   def apply(text: String, page: Int) = paginatorBuilder(Query(text), page)
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = { case "team" :: "search" :: "reset" :: Nil =>
         api.reset inject "done"
       }
@@ -44,7 +44,7 @@ final class Env(
 
   system.actorOf(
     Props(new Actor {
-      import lila.team.actorApi._
+      import lishogi.team.actorApi._
       def receive = {
         case InsertTeam(team) => api store team
         case RemoveTeam(id)   => client deleteById Id(id)

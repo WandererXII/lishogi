@@ -2,12 +2,12 @@ package controllers
 
 import play.api.libs.json._
 
-import lila.app._
-import lila.common.LightUser.lightUserWrites
+import lishogi.app._
+import lishogi.common.LightUser.lightUserWrites
 
 final class Msg(
     env: Env
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   def home =
     Auth { implicit ctx => me =>
@@ -51,7 +51,7 @@ final class Msg(
   def search(q: String) =
     Auth { ctx => me =>
       ctx.hasInbox ?? {
-        q.trim.some.filter(_.size > 1).filter(lila.user.User.couldBeUsername) match {
+        q.trim.some.filter(_.size > 1).filter(lishogi.user.User.couldBeUsername) match {
           case None    => env.msg.json.searchResult(me)(env.msg.search.empty) map { Ok(_) }
           case Some(q) => env.msg.search(me, q) flatMap env.msg.json.searchResult(me) map { Ok(_) }
         }
@@ -88,7 +88,7 @@ final class Msg(
     }
 
   def apiPost(username: String) = {
-    val userId = lila.user.User normalize username
+    val userId = lishogi.user.User normalize username
     AuthOrScopedBody(_.Msg.Write)(
       // compat: reply
       auth = implicit ctx =>
@@ -117,7 +117,7 @@ final class Msg(
     )
   }
 
-  private def inboxJson(me: lila.user.User) =
+  private def inboxJson(me: lishogi.user.User) =
     env.msg.api.threadsOf(me) flatMap env.msg.json.threads(me) map { threads =>
       Json.obj(
         "me"       -> lightUserWrites.writes(me.light).add("kid" -> me.kid),

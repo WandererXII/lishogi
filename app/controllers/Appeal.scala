@@ -1,12 +1,12 @@
 package controllers
 
-import lila.api.Context
-import lila.app._
-import lila.report.Suspect
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.report.Suspect
 import play.api.mvc.Result
 import views._
 
-final class Appeal(env: Env, reportC: => Report) extends LilaController(env) {
+final class Appeal(env: Env, reportC: => Report) extends LishogiController(env) {
 
   def home =
     Auth { implicit ctx => me =>
@@ -82,7 +82,7 @@ final class Appeal(env: Env, reportC: => Report) extends LilaController(env) {
 
   private def asMod(
       username: String
-  )(f: (lila.appeal.Appeal, Suspect) => Fu[Result])(implicit ctx: Context): Fu[Result] =
+  )(f: (lishogi.appeal.Appeal, Suspect) => Fu[Result])(implicit ctx: Context): Fu[Result] =
     env.user.repo named username flatMap {
       _ ?? { user =>
         env.appeal.api get user flatMap {

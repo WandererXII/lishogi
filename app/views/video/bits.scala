@@ -1,15 +1,15 @@
 package views.html.video
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
 
 import controllers.routes
 
 object bits {
 
-  private[video] def card(vv: lila.video.VideoView, control: lila.video.UserControl) =
+  private[video] def card(vv: lishogi.video.VideoView, control: lishogi.video.UserControl) =
     a(cls := "card paginated", href := s"${routes.Video.show(vv.video.id)}?${control.queryStringUnlessBot}")(
       vv.view option span(cls := "view")("watched"),
       span(cls := "duration")(vv.video.durationString),
@@ -20,7 +20,7 @@ object bits {
       span(cls := "reveal")(
         span(cls := "full-title")(vv.video.title),
         span(cls := "author")(vv.video.author),
-        span(cls := "target")(vv.video.targets.map(lila.video.Target.name).mkString(", ")),
+        span(cls := "target")(vv.video.targets.map(lishogi.video.Target.name).mkString(", ")),
         span(cls := "tags")(
           vv.video.tags.map { tag =>
             span(dataIcon := "o")(tag.capitalize)
@@ -29,7 +29,7 @@ object bits {
       )
     )
 
-  def author(name: String, videos: Paginator[lila.video.VideoView], control: lila.video.UserControl)(implicit
+  def author(name: String, videos: Paginator[lishogi.video.VideoView], control: lishogi.video.UserControl)(implicit
       ctx: Context
   ) =
     layout(
@@ -58,7 +58,7 @@ object bits {
       )
     )
 
-  def notFound(control: lila.video.UserControl)(implicit ctx: Context) =
+  def notFound(control: lishogi.video.UserControl)(implicit ctx: Context) =
     layout(title = "Video not found", control = control)(
       div(cls := "content_box_top")(
         a(cls := "is4 text lishogi_title", dataIcon := "i", href := routes.Video.index())("Video library")
@@ -78,7 +78,7 @@ object bits {
       input(placeholder := trans.search.search.txt(), tpe := "text", name := "q", value := query)
     )
 
-  def tags(ts: List[lila.video.TagNb], control: lila.video.UserControl)(implicit ctx: Context) =
+  def tags(ts: List[lishogi.video.TagNb], control: lishogi.video.UserControl)(implicit ctx: Context) =
     layout(title = s"Tags • Free Shogi Videos", control = control)(
       div(cls := "box__top")(
         h1(cls := "lishogi_title")(

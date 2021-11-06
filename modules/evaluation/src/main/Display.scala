@@ -1,4 +1,4 @@
-package lila.evaluation
+package lishogi.evaluation
 
 object Display {
 

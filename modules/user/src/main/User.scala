@@ -1,11 +1,11 @@
-package lila.user
+package lishogi.user
 
 import org.joda.time.DateTime
 import play.api.i18n.Lang
 import scala.concurrent.duration._
 
-import lila.common.{ EmailAddress, LightUser, NormalizedEmailAddress }
-import lila.rating.PerfType
+import lishogi.common.{ EmailAddress, LightUser, NormalizedEmailAddress }
+import lishogi.rating.PerfType
 
 case class User(
     id: String,
@@ -141,7 +141,7 @@ object User {
           }
         }
         else InvalidUsernameOrPassword
-      lila.mon.user.auth.count(res.success).increment()
+      lishogi.mon.user.auth.count(res.success).increment()
       res
     }
     def option(p: PasswordAndToken): Option[User] = apply(p).toOption
@@ -253,8 +253,8 @@ object User {
     val marks                 = "marks"
   }
 
-  import lila.db.BSON
-  import lila.db.dsl._
+  import lishogi.db.BSON
+  import lishogi.db.dsl._
 
   implicit val userBSONHandler = new BSON[User] {
 

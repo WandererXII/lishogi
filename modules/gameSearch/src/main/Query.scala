@@ -1,11 +1,11 @@
-package lila.gameSearch
+package lishogi.gameSearch
 
 import shogi.{ Mode, Status }
 import org.joda.time.DateTime
 
-import lila.common.Json.jodaWrites
-import lila.rating.RatingRange
-import lila.search.Range
+import lishogi.common.Json.jodaWrites
+import lishogi.rating.RatingRange
+import lishogi.search.Range
 
 case class Query(
     user1: Option[String] = None,
@@ -52,7 +52,7 @@ case class Query(
 
 object Query {
 
-  import lila.common.Form._
+  import lishogi.common.Form._
   import play.api.libs.json._
 
   import Range.rangeJsonWriter
@@ -104,7 +104,7 @@ object Query {
 
   val winnerColors = List(1 -> "Sente", 2 -> "Gote", 3 -> "None")
 
-  val sources = lila.game.Source.searchable map { v =>
+  val sources = lishogi.game.Source.searchable map { v =>
     v.id -> v.name.capitalize
   }
 

@@ -4,22 +4,22 @@ import play.api.libs.json._
 import play.api.mvc._
 import scala.concurrent.duration._
 
-import lila.api.Context
-import lila.app._
-import lila.chat.Chat
-import lila.common.paginator.{ Paginator, PaginatorJson }
-import lila.common.{ HTTPRequest, IpAddress }
-import lila.study.actorApi.Who
-import lila.study.JsonView.JsData
-import lila.study.Study.WithChapter
-import lila.study.{ Chapter, Order, Study => StudyModel }
-import lila.tree.Node.partitionTreeJsonWriter
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.chat.Chat
+import lishogi.common.paginator.{ Paginator, PaginatorJson }
+import lishogi.common.{ HTTPRequest, IpAddress }
+import lishogi.study.actorApi.Who
+import lishogi.study.JsonView.JsData
+import lishogi.study.Study.WithChapter
+import lishogi.study.{ Chapter, Order, Study => StudyModel }
+import lishogi.tree.Node.partitionTreeJsonWriter
 import views._
 
 final class Study(
     env: Env,
     userAnalysisC: => UserAnalysis
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   def search(text: String, page: Int) =
     OpenBody { implicit ctx =>
@@ -131,7 +131,7 @@ final class Study(
 
   def byTopic(name: String, order: String, page: Int) =
     Open { implicit ctx =>
-      lila.study.StudyTopic fromStr name match {
+      lishogi.study.StudyTopic fromStr name match {
         case None => notFound
         case Some(topic) =>
           env.study.pager.byTopic(topic, ctx.me, Order(order), page) zip
@@ -155,7 +155,7 @@ final class Study(
   private def orRelay(id: String, chapterId: Option[String] = None)(
       f: => Fu[Result]
   )(implicit ctx: Context): Fu[Result] =
-    if (HTTPRequest isRedirectable ctx.req) env.relay.api.getOngoing(lila.relay.Relay.Id(id)) flatMap {
+    if (HTTPRequest isRedirectable ctx.req) env.relay.api.getOngoing(lishogi.relay.Relay.Id(id)) flatMap {
       _.fold(f) { relay =>
         fuccess(Redirect {
           chapterId.fold(routes.Relay.show(relay.slug, relay.id.value)) { c =>
@@ -182,7 +182,7 @@ final class Study(
                 Ok(
                   Json.obj(
                     "study" -> data.study.add("chat" -> chatOpt.map { c =>
-                      lila.chat.JsonView.mobile(
+                      lishogi.chat.JsonView.mobile(
                         chat = c.chat,
                         writeable = ctx.userId.??(sc.study.canChat)
                       )
@@ -221,10 +221,10 @@ final class Study(
       analysis = baseData
         .add(
           "treeParts" -> partitionTreeJsonWriter.writes {
-            lila.study.TreeBuilder(chapter.root, chapter.setup.variant)
+            lishogi.study.TreeBuilder(chapter.root, chapter.setup.variant)
           }.some
         )
-        .add("analysis" -> analysis.map { lila.study.ServerEval.toJson(chapter, _) })
+        .add("analysis" -> analysis.map { lishogi.study.ServerEval.toJson(chapter, _) })
     )
 
   def show(id: String) =
@@ -250,7 +250,7 @@ final class Study(
       }
     }
 
-  private[controllers] def chatOf(study: lila.study.Study)(implicit ctx: Context) = {
+  private[controllers] def chatOf(study: lishogi.study.Study)(implicit ctx: Context) = {
     !ctx.kid &&         // no public chats for kids
     ctx.me.fold(true) { // anon can see public chats
       env.chat.panic.allowed
@@ -263,7 +263,7 @@ final class Study(
   def createAs =
     AuthBody { implicit ctx => me =>
       implicit val req = ctx.body
-      lila.study.StudyForm.importGame.form
+      lishogi.study.StudyForm.importGame.form
         .bindFromRequest()
         .fold(
           _ => Redirect(routes.Study.byOwnerDefault(me.username)).fuccess,
@@ -281,7 +281,7 @@ final class Study(
   def create =
     AuthBody { implicit ctx => me =>
       implicit val req = ctx.body
-      lila.study.StudyForm.importGame.form
+      lishogi.study.StudyForm.importGame.form
         .bindFromRequest()
         .fold(
           _ => Redirect(routes.Study.byOwnerDefault(me.username)).fuccess,
@@ -289,10 +289,10 @@ final class Study(
         )
     }
 
-  private def createStudy(data: lila.study.StudyForm.importGame.Data, me: lila.user.User)(implicit
+  private def createStudy(data: lishogi.study.StudyForm.importGame.Data, me: lishogi.user.User)(implicit
       ctx: Context
   ) =
-    env.study.api.importGame(lila.study.StudyMaker.ImportGame(data), me) flatMap {
+    env.study.api.importGame(lishogi.study.StudyMaker.ImportGame(data), me) flatMap {
       _.fold(notFound) { sc =>
         Redirect(routes.Study.show(sc.study.id.value)).fuccess
       }
@@ -316,7 +316,7 @@ final class Study(
     AuthBody { implicit ctx => me =>
       implicit val req = ctx.body
       get("sri") ?? { sri =>
-        lila.study.StudyForm.importNotation.form
+        lishogi.study.StudyForm.importNotation.form
           .bindFromRequest()
           .fold(
             jsonFormError,
@@ -325,7 +325,7 @@ final class Study(
                 StudyModel.Id(id),
                 data.toChapterDatas,
                 sticky = data.sticky
-              )(Who(me.id, lila.socket.Socket.Sri(sri)))
+              )(Who(me.id, lishogi.socket.Socket.Sri(sri)))
           )
       }
     }
@@ -343,7 +343,7 @@ final class Study(
             chapters <- env.study.chapterRepo.idNames(study.id)
             studyJson <- env.study.jsonView(
               study.copy(
-                members = lila.study.StudyMembers(Map.empty) // don't need no members
+                members = lishogi.study.StudyMembers(Map.empty) // don't need no members
               ),
               List(chapter.metadata),
               chapter,
@@ -354,7 +354,7 @@ final class Study(
             pov        = userAnalysisC.makePov(initialFen, setup.variant)
             baseData = env.round.jsonView.userAnalysisJson(
               pov,
-              lila.pref.Pref.default,
+              lishogi.pref.Pref.default,
               initialFen,
               setup.orientation,
               owner = false,
@@ -362,10 +362,10 @@ final class Study(
             )
             analysis = baseData ++ Json.obj(
               "treeParts" -> partitionTreeJsonWriter.writes {
-                lila.study.TreeBuilder.makeRoot(chapter.root, setup.variant)
+                lishogi.study.TreeBuilder.makeRoot(chapter.root, setup.variant)
               }
             )
-            data = lila.study.JsonView.JsData(study = studyJson, analysis = analysis)
+            data = lishogi.study.JsonView.JsData(study = studyJson, analysis = analysis)
             result <- negotiate(
               html = Ok(html.study.embed(study, chapter, chapters, data)).fuccess,
               api = _ => Ok(Json.obj("study" -> data.study, "analysis" -> data.analysis)).fuccess
@@ -387,13 +387,13 @@ final class Study(
       }
     }
 
-  private val CloneLimitPerUser = new lila.memo.RateLimit[lila.user.User.ID](
+  private val CloneLimitPerUser = new lishogi.memo.RateLimit[lishogi.user.User.ID](
     credits = 10 * 3,
     duration = 24.hour,
     key = "study.clone.user"
   )
 
-  private val CloneLimitPerIP = new lila.memo.RateLimit[IpAddress](
+  private val CloneLimitPerIP = new lishogi.memo.RateLimit[IpAddress](
     credits = 20 * 3,
     duration = 24.hour,
     key = "study.clone.ip"
@@ -415,7 +415,7 @@ final class Study(
       }(rateLimitedFu)
     }
 
-  private val NotationRateLimitPerIp = new lila.memo.RateLimit[IpAddress](
+  private val NotationRateLimitPerIp = new lishogi.memo.RateLimit[IpAddress](
     credits = 30,
     duration = 1.minute,
     key = "export.study.notation.ip"
@@ -426,7 +426,7 @@ final class Study(
       NotationRateLimitPerIp(HTTPRequest lastRemoteAddress ctx.req) {
         OptionFuResult(env.study.api byId id) { study =>
           CanViewResult(study) {
-            lila.mon.export.pgn.study.increment()
+            lishogi.mon.export.pgn.study.increment()
             val flags = requestNotationFlags(ctx.req, csa)
             Ok.chunked(env.study.notationDump(study, flags))
               .withHeaders(
@@ -445,7 +445,7 @@ final class Study(
       env.study.api.byIdWithChapter(id, chapterId) flatMap {
         _.fold(notFound) { case WithChapter(study, chapter) =>
           CanViewResult(study) {
-            lila.mon.export.pgn.studyChapter.increment()
+            lishogi.mon.export.pgn.studyChapter.increment()
             val flags = requestNotationFlags(ctx.req, csa)
             Ok(env.study.notationDump.ofChapter(study, flags)(chapter).toString)
               .withHeaders(
@@ -459,11 +459,11 @@ final class Study(
       }
     }
 
-  private def fileType(flags: lila.study.NotationDump.WithFlags): String =
+  private def fileType(flags: lishogi.study.NotationDump.WithFlags): String =
     if (flags.csa) ".csa" else ".kif"
 
   private def requestNotationFlags(req: RequestHeader, csa: Boolean) =
-    lila.study.NotationDump.WithFlags(
+    lishogi.study.NotationDump.WithFlags(
       csa = getBoolOpt("csa", req) | csa,
       comments = getBoolOpt("comments", req) | true,
       variations = getBoolOpt("variations", req) | true,
@@ -503,7 +503,7 @@ final class Study(
       get("term", req).filter(_.nonEmpty) match {
         case None => BadRequest("No search term provided").fuccess
         case Some(term) =>
-          import lila.study.JsonView._
+          import lishogi.study.JsonView._
           env.study.topicApi.findLike(term, get("user", req)) map { topics =>
             Ok(Json.toJson(topics)) as JSON
           }
@@ -514,7 +514,7 @@ final class Study(
     Open { implicit ctx =>
       env.study.topicApi.popular(50) zip
         ctx.me.??(u => env.study.topicApi.userTopics(u.id) dmap some) map { case (popular, mine) =>
-          val form = mine map lila.study.StudyForm.topicsForm
+          val form = mine map lishogi.study.StudyForm.topicsForm
           Ok(html.study.topic.index(popular, mine, form))
         }
     }
@@ -522,7 +522,7 @@ final class Study(
   def setTopics =
     AuthBody { implicit ctx => me =>
       implicit val req = ctx.body
-      lila.study.StudyForm.topicsForm
+      lishogi.study.StudyForm.topicsForm
         .bindFromRequest()
         .fold(
           _ => Redirect(routes.Study.topics).fuccess,
@@ -534,7 +534,7 @@ final class Study(
 
   private[controllers] def CanViewResult(
       study: StudyModel
-  )(f: => Fu[Result])(implicit ctx: lila.api.Context) =
+  )(f: => Fu[Result])(implicit ctx: lishogi.api.Context) =
     if (canView(study)) f
     else
       negotiate(
@@ -542,7 +542,7 @@ final class Study(
         api = _ => fuccess(Unauthorized(jsonError("This study is now private")))
       )
 
-  private def canView(study: StudyModel)(implicit ctx: lila.api.Context) =
+  private def canView(study: StudyModel)(implicit ctx: lishogi.api.Context) =
     !study.isPrivate || ctx.userId.exists(study.members.contains)
 
   implicit private def makeStudyId(id: String): StudyModel.Id = StudyModel.Id(id)
@@ -550,7 +550,7 @@ final class Study(
 
   private[controllers] def streamsOf(
       study: StudyModel
-  )(implicit ctx: Context): Fu[List[lila.streamer.Stream]] =
+  )(implicit ctx: Context): Fu[List[lishogi.streamer.Stream]] =
     env.streamer.liveStreamApi.all.flatMap {
       _.streams
         .filter { s =>

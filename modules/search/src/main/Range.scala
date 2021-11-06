@@ -1,4 +1,4 @@
-package lila.search
+package lishogi.search
 
 final class Range[A] private (val a: Option[A], val b: Option[A]) {
 

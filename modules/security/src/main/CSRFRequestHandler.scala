@@ -1,9 +1,9 @@
-package lila.security
+package lishogi.security
 
 import play.api.mvc.RequestHeader
 
-import lila.common.HTTPRequest._
-import lila.common.config.NetConfig
+import lishogi.common.HTTPRequest._
+import lishogi.common.config.NetConfig
 
 final class CSRFRequestHandler(net: NetConfig) {
 
@@ -25,7 +25,7 @@ final class CSRFRequestHandler(net: NetConfig) {
   }
 
   private def monitor(tpe: String, req: RequestHeader) =
-    lila.mon.http.csrfError(tpe, actionName(req), clientName(req)).increment()
+    lishogi.mon.http.csrfError(tpe, actionName(req), clientName(req)).increment()
 
   private val topDomain = s"://${net.domain}"
   private val subDomain = s".${net.domain}"

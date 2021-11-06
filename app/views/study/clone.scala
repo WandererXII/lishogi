@@ -1,14 +1,14 @@
 package views.html.study
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object clone {
 
-  def apply(s: lila.study.Study)(implicit ctx: Context) =
+  def apply(s: lishogi.study.Study)(implicit ctx: Context) =
     views.html.site.message(
       title = s"Clone ${s.name}",
       icon = Some("4")

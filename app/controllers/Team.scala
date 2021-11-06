@@ -5,19 +5,19 @@ import play.api.libs.json._
 import play.api.mvc._
 import scala.concurrent.duration._
 
-import lila.api.Context
-import lila.app._
-import lila.common.config.MaxPerSecond
-import lila.hub.LightTeam
-import lila.security.Granter
-import lila.team.{ Joined, Motivate, Team => TeamModel }
-import lila.user.{ User => UserModel }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.common.config.MaxPerSecond
+import lishogi.hub.LightTeam
+import lishogi.security.Granter
+import lishogi.team.{ Joined, Motivate, Team => TeamModel }
+import lishogi.user.{ User => UserModel }
 import views._
 
 final class Team(
     env: Env,
     apiC: => Api
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private def forms     = env.team.forms
   private def api       = env.team.api
@@ -57,7 +57,7 @@ final class Team(
       hasChat = canHaveChat(team, info)
       chat <-
         hasChat ?? env.chat.api.userChat.cached
-          .findMine(lila.chat.Chat.Id(team.id), ctx.me)
+          .findMine(lishogi.chat.Chat.Id(team.id), ctx.me)
           .map(some)
       _ <- env.user.lightUserApi preloadMany {
         info.userIds ::: chat.??(_.chat.userIds)
@@ -65,7 +65,7 @@ final class Team(
       version <- hasChat ?? env.team.version(team.id).dmap(some)
     } yield html.team.show(team, members, info, chat, version)
 
-  private def canHaveChat(team: TeamModel, info: lila.app.mashup.TeamInfo)(implicit ctx: Context): Boolean =
+  private def canHaveChat(team: TeamModel, info: lishogi.app.mashup.TeamInfo)(implicit ctx: Context): Boolean =
     !team.isChatFor(_.NONE) && ctx.noKid && {
       (team.isChatFor(_.LEADERS) && ctx.userId.exists(team.leaders)) ||
       (team.isChatFor(_.MEMBERS) && info.mine) ||
@@ -280,7 +280,7 @@ final class Team(
 
   def requests =
     Auth { implicit ctx => me =>
-      import lila.memo.CacheApi._
+      import lishogi.memo.CacheApi._
       env.team.cached.nbRequests invalidate me.id
       api requestsWithUsers me map { html.team.request.all(_) }
     }
@@ -412,7 +412,7 @@ final class Team(
   def apiAll(page: Int) =
     Action.async {
       import env.team.jsonView._
-      import lila.common.paginator.PaginatorJson._
+      import lishogi.common.paginator.PaginatorJson._
       JsonFuOk {
         paginator popularTeams page flatMap { pager =>
           env.user.lightUserApi.preloadMany(pager.currentPageResults.flatMap(_.leaders)) inject pager
@@ -443,7 +443,7 @@ final class Team(
   def apiSearch(text: String, page: Int) =
     Action.async {
       import env.team.jsonView._
-      import lila.common.paginator.PaginatorJson._
+      import lishogi.common.paginator.PaginatorJson._
       JsonFuOk {
         if (text.trim.isEmpty) paginator popularTeams page
         else env.teamSearch(text, page)
@@ -477,7 +477,7 @@ You received this message because you are part of the team lishogi.org${routes.T
           }
       )
 
-  private val PmAllLimitPerUser = lila.memo.RateLimit.composite[lila.user.User.ID](
+  private val PmAllLimitPerUser = lishogi.memo.RateLimit.composite[lishogi.user.User.ID](
     key = "team.pm.all",
     enforce = env.net.rateLimit.value
   )(
@@ -498,9 +498,9 @@ You received this message because you are part of the team lishogi.org${routes.T
       else renderTeam(team) map { Forbidden(_) }
     }
 
-  private[controllers] def teamsIBelongTo(me: lila.user.User): Fu[List[LightTeam]] =
+  private[controllers] def teamsIBelongTo(me: lishogi.user.User): Fu[List[LightTeam]] =
     api mine me map { _.map(_.light) }
 
-  private[controllers] def teamsILead(me: lila.user.User): Fu[List[LightTeam]] =
+  private[controllers] def teamsILead(me: lishogi.user.User): Fu[List[LightTeam]] =
     api mine me map { _.map(_.light) }
 }

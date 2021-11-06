@@ -1,11 +1,11 @@
-package lila.security
+package lishogi.security
 
 import com.roundeights.hasher.Algo
 import org.mindrot.BCrypt
 import org.joda.time.DateTime
 
-import lila.common.String.base64
-import lila.common.config.Secret
+import lishogi.common.String.base64
+import lishogi.common.config.Secret
 
 import StringToken.ValueChecker
 

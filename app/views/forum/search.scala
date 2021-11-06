@@ -1,16 +1,16 @@
 package views.html.forum
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.common.String.html.nl2br
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.common.String.html.nl2br
 
 import controllers.routes
 
 object search {
 
-  def apply(text: String, pager: Paginator[lila.forum.PostView])(implicit ctx: Context) = {
+  def apply(text: String, pager: Paginator[lishogi.forum.PostView])(implicit ctx: Context) = {
     val title = s"""${trans.search.search.txt()} "${text.trim}""""
     views.html.base.layout(
       title = title,

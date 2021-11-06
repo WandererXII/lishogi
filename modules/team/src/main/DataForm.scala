@@ -1,18 +1,18 @@
-package lila.team
+package lishogi.team
 
 import play.api.data._
 import play.api.data.Forms._
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.common.Form.{ clean, numberIn }
+import lishogi.db.dsl._
+import lishogi.common.Form.{ clean, numberIn }
 
 final private[team] class DataForm(
     teamRepo: TeamRepo,
-    lightUserApi: lila.user.LightUserApi,
-    val captcher: lila.hub.actors.Captcher
+    lightUserApi: lishogi.user.LightUserApi,
+    val captcher: lishogi.hub.actors.Captcher
 )(implicit ec: scala.concurrent.ExecutionContext)
-    extends lila.hub.CaptchedForm {
+    extends lishogi.hub.CaptchedForm {
 
   private object Fields {
     val name        = "name"        -> clean(text(minLength = 3, maxLength = 60))
@@ -76,7 +76,7 @@ final private[team] class DataForm(
 
   val selectMember = Form(
     single(
-      "userId" -> lila.user.DataForm.historicalUsernameField
+      "userId" -> lishogi.user.DataForm.historicalUsernameField
     )
   )
 

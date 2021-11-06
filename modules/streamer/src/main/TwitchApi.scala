@@ -1,10 +1,10 @@
-package lila.streamer
+package lishogi.streamer
 
 import play.api.libs.json._
 import play.api.libs.ws.WSClient
 import scala.concurrent.ExecutionContext
 
-import lila.common.config.Secret
+import lishogi.common.config.Secret
 
 final private class TwitchApi(ws: WSClient, config: TwitchConfig)(implicit ec: ExecutionContext) {
 

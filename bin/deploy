@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 
-"""Deploy lila server and assets from GitHub workflow runs"""
+"""Deploy lishogi server and assets from GitHub workflow runs"""
 
 import argparse
 import sys
@@ -50,7 +50,7 @@ SERVER_FILES = [
     "project",
     "translation",
     "build.sbt",
-    "lila",
+    "lishogi",
     "conf/application.conf.default",
     ".sbtopts.default",
 ]
@@ -71,7 +71,7 @@ def asset_profile(ssh, *,
         "deploy_dir": deploy_dir,
         "files": ASSETS_FILES,
         "workflow_url": ASSETS_BUILD_URL,
-        "artifact_name": "lila-assets",
+        "artifact_name": "lishogi-assets",
         "symlinks": ["public"],
         "post": post,
         "asap": asap,
@@ -86,7 +86,7 @@ def server_profile(ssh, *,
         "deploy_dir": deploy_dir,
         "files": SERVER_FILES,
         "workflow_url": SERVER_BUILD_URL,
-        "artifact_name": "lila-server",
+        "artifact_name": "lishogi-server",
         "symlinks": ["lib", "bin"],
         "post": post,
         "asap": asap,
@@ -260,7 +260,7 @@ def deploy_script(profile, session, run, url):
         for symlink in profile["symlinks"]
     ] + [
         f"chown -R lichess:lichess {deploy_dir}",
-        f"chmod -f +x {deploy_dir}/bin/lila || true",
+        f"chmod -f +x {deploy_dir}/bin/lishogi || true",
         f"echo \"SSH: {profile['ssh']}\"",
         f"echo \"Deploying immediately.\"" if profile["asap"] else f"/bin/bash -c \"read -n 1 -p 'PRESS ENTER TO RUN: {profile['post']}'\"",
         profile["post"],

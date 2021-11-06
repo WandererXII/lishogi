@@ -1,9 +1,9 @@
-package lila.tournament
+package lishogi.tournament
 
 import play.api.data._
 
-import lila.hub.LightTeam.TeamID
-import lila.user.User
+import lishogi.hub.LightTeam.TeamID
+import lishogi.user.User
 
 case class TeamBattle(
     teams: Set[TeamID],

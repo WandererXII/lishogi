@@ -1,22 +1,22 @@
-package lila.video
+package lishogi.video
 
 import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.common.paginator._
-import lila.db.dsl._
-import lila.db.paginator.Adapter
-import lila.memo.CacheApi._
-import lila.user.User
+import lishogi.common.paginator._
+import lishogi.db.dsl._
+import lishogi.db.paginator.Adapter
+import lishogi.memo.CacheApi._
+import lishogi.user.User
 
 final private[video] class VideoApi(
     videoColl: Coll,
     viewColl: Coll,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  import lila.db.BSON.BSONJodaDateTimeHandler
+  import lishogi.db.BSON.BSONJodaDateTimeHandler
   import reactivemongo.api.bson.Macros
   implicit private val YoutubeBSONHandler = {
     import Youtube.Metadata
@@ -42,7 +42,7 @@ final private[video] class VideoApi(
 
   object video {
 
-    private val maxPerPage = lila.common.config.MaxPerPage(18)
+    private val maxPerPage = lishogi.common.config.MaxPerPage(18)
 
     def find(id: Video.ID): Fu[Option[Video]] =
       videoColl.ext.find($id(id)).one[Video]
@@ -187,7 +187,7 @@ final private[video] class VideoApi(
 
     def add(a: View) =
       (viewColl.insert.one(a)).void recover
-        lila.db.recoverDuplicateKey(_ => ())
+        lishogi.db.recoverDuplicateKey(_ => ())
 
     def hasSeen(user: User, video: Video): Fu[Boolean] =
       viewColl.countSel(

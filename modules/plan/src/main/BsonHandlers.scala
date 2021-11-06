@@ -1,6 +1,6 @@
-package lila.plan
+package lishogi.plan
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 import reactivemongo.api.bson._
 
 private[plan] object BsonHandlers {

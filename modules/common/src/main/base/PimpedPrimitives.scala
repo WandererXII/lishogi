@@ -1,4 +1,4 @@
-package lila.base
+package lishogi.base
 
 import java.lang.Math.{ max, min }
 

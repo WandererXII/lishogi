@@ -1,9 +1,9 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import org.joda.time.DateTime
 
-import lila.common.Day
-import lila.user.User
+import lishogi.common.Day
+import lishogi.user.User
 
 case class PuzzleRound(
     id: PuzzleRound.Id,
@@ -72,7 +72,7 @@ object PuzzleRound {
     val theme   = "h"
   }
 
-  import lila.db.dsl._
+  import lishogi.db.dsl._
   def puzzleLookup(colls: PuzzleColls, pipeline: List[Bdoc] = Nil) =
     $doc(
       "$lookup" -> $doc(

@@ -1,4 +1,4 @@
-package lila.hub
+package lishogi.hub
 
 import com.github.blemale.scaffeine.LoadingCache
 import scala.concurrent.duration.FiniteDuration
@@ -40,7 +40,7 @@ final class DuctSequencers(
     sequencers.get(key).run(() => task)
 
   private val sequencers: LoadingCache[String, DuctSequencer] =
-    lila.common.LilaCache
+    lishogi.common.LishogiCache
       .scaffeine(mode)
       .expireAfterAccess(expiration)
       .build(key => new DuctSequencer(maxSize, timeout, s"$name:$key", logging))

@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import scala.concurrent.duration.FiniteDuration
 
@@ -14,14 +14,14 @@ final class RateLimit[K](
 ) extends RateLimit.RateLimiter[K] {
   import RateLimit._
 
-  private val storage = lila.memo.CacheApi.scaffeineNoScheduler
+  private val storage = lishogi.memo.CacheApi.scaffeineNoScheduler
     .expireAfterWrite(duration)
     .build[K, (Cost, ClearAt)]()
 
   private def makeClearAt = nowMillis + duration.toMillis
 
-  private lazy val logger  = lila.log("ratelimit").branch(key)
-  private lazy val monitor = lila.mon.security.rateLimit(key)
+  private lazy val logger  = lishogi.log("ratelimit").branch(key)
+  private lazy val monitor = lishogi.mon.security.rateLimit(key)
 
   def chargeable[A](k: K, cost: Cost = 1, msg: => String = "")(
       op: Charge => A

@@ -6,16 +6,16 @@ import play.api.mvc._
 import scala.concurrent.duration._
 import scala.util.chaining._
 
-import lila.api.{ Context, GameApiV2 }
-import lila.app._
-import lila.common.config.{ MaxPerPage, MaxPerSecond }
-import lila.common.Json.jodaWrites
-import lila.common.{ HTTPRequest, IpAddress }
+import lishogi.api.{ Context, GameApiV2 }
+import lishogi.app._
+import lishogi.common.config.{ MaxPerPage, MaxPerSecond }
+import lishogi.common.Json.jodaWrites
+import lishogi.common.{ HTTPRequest, IpAddress }
 
 final class Api(
     env: Env,
     gameC: => Game
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   import Api._
 
@@ -23,7 +23,7 @@ final class Api(
   private val gameApi = env.api.gameApi
 
   private lazy val apiStatusJson = {
-    val api = lila.api.Mobile.Api
+    val api = lishogi.api.Mobile.Api
     Json.obj(
       "api" -> Json.obj(
         "current" -> api.currentVersion.value,
@@ -40,7 +40,7 @@ final class Api(
 
   val status = Action { req =>
     val appVersion  = get("v", req)
-    val mustUpgrade = appVersion exists lila.api.Mobile.AppVersion.mustUpgrade _
+    val mustUpgrade = appVersion exists lishogi.api.Mobile.AppVersion.mustUpgrade _
     Ok(apiStatusJson.add("mustUpgrade", mustUpgrade)) as JSON
   }
 
@@ -54,7 +54,7 @@ final class Api(
       userApi.extended(name, ctx.me) map toApiResult
     }
 
-  private[controllers] val UsersRateLimitPerIP = lila.memo.RateLimit.composite[IpAddress](
+  private[controllers] val UsersRateLimitPerIP = lishogi.memo.RateLimit.composite[IpAddress](
     key = "users.api.ip",
     enforce = env.net.rateLimit.value
   )(
@@ -68,7 +68,7 @@ final class Api(
       val ip        = HTTPRequest lastRemoteAddress req
       val cost      = usernames.size / 4
       UsersRateLimitPerIP(ip, cost = cost) {
-        lila.mon.api.users.increment(cost.toLong)
+        lishogi.mon.api.users.increment(cost.toLong)
         env.user.repo nameds usernames map {
           _.map { env.user.jsonView(_, none) }
         } map toApiResult map toHttp
@@ -77,12 +77,12 @@ final class Api(
 
   def usersStatus =
     ApiRequest { req =>
-      val ids = get("ids", req).??(_.split(',').take(50).toList map lila.user.User.normalize)
+      val ids = get("ids", req).??(_.split(',').take(50).toList map lishogi.user.User.normalize)
       env.user.lightUserApi asyncMany ids dmap (_.flatten) map { users =>
         val streamingIds = env.streamer.liveStreamApi.userIds
         toApiResult {
           users.map { u =>
-            lila.common.LightUser.lightUserWrites
+            lishogi.common.LightUser.lightUserWrites
               .writes(u)
               .add("online" -> env.socket.isOnline(u.id))
               .add("playing" -> env.round.playing(u.id))
@@ -92,19 +92,19 @@ final class Api(
       }
     }
 
-  private val UserGamesRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
+  private val UserGamesRateLimitPerIP = new lishogi.memo.RateLimit[IpAddress](
     credits = 10 * 1000,
     duration = 10.minutes,
     key = "user_games.api.ip"
   )
 
-  private val UserGamesRateLimitPerUA = new lila.memo.RateLimit[String](
+  private val UserGamesRateLimitPerUA = new lishogi.memo.RateLimit[String](
     credits = 10 * 1000,
     duration = 5.minutes,
     key = "user_games.api.ua"
   )
 
-  private val UserGamesRateLimitGlobal = new lila.memo.RateLimit[String](
+  private val UserGamesRateLimitGlobal = new lishogi.memo.RateLimit[String](
     credits = 20 * 1000,
     duration = 2.minute,
     key = "user_games.api.global"
@@ -122,7 +122,7 @@ final class Api(
   }
 
   private def gameFlagsFromRequest(req: RequestHeader) =
-    lila.api.GameApi.WithFlags(
+    lishogi.api.GameApi.WithFlags(
       analysis = getBool("with_analysis", req),
       moves = getBool("with_moves", req),
       fens = getBool("with_fens", req),
@@ -138,7 +138,7 @@ final class Api(
       val nb   = MaxPerPage((getInt("nb", req) | 10) atLeast 1 atMost 100)
       val cost = page * nb.value + 10
       UserGamesRateLimit(cost, req) {
-        lila.mon.api.userGames.increment(cost.toLong)
+        lishogi.mon.api.userGames.increment(cost.toLong)
         env.user.repo named name flatMap {
           _ ?? { user =>
             gameApi.byUser(
@@ -155,7 +155,7 @@ final class Api(
       }
     }
 
-  private val GameRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
+  private val GameRateLimitPerIP = new lishogi.memo.RateLimit[IpAddress](
     credits = 100,
     duration = 1.minute,
     key = "game.api.one.ip"
@@ -164,12 +164,12 @@ final class Api(
   def game(id: String) =
     ApiRequest { req =>
       GameRateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = 1) {
-        lila.mon.api.game.increment(1)
-        gameApi.one(id take lila.game.Game.gameIdSize, gameFlagsFromRequest(req)) map toApiResult
+        lishogi.mon.api.game.increment(1)
+        gameApi.one(id take lishogi.game.Game.gameIdSize, gameFlagsFromRequest(req)) map toApiResult
       }(fuccess(Limited))
     }
 
-  private val CrosstableRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
+  private val CrosstableRateLimitPerIP = new lishogi.memo.RateLimit[IpAddress](
     credits = 30,
     duration = 10.minutes,
     key = "crosstable.api.ip"
@@ -180,7 +180,7 @@ final class Api(
       CrosstableRateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = 1) {
         env.game.crosstableApi.fetchOrEmpty(u1, u2) map { ct =>
           toApiResult {
-            lila.game.JsonView.crosstableWrites.writes(ct).some
+            lishogi.game.JsonView.crosstableWrites.writes(ct).some
           }
         }
       }(fuccess(Limited))
@@ -241,7 +241,7 @@ final class Api(
     Action.async { implicit req =>
       env.tournament.tournamentRepo byId id flatMap {
         _ ?? { tour =>
-          import lila.tournament.JsonView.playerResultWrites
+          import lishogi.tournament.JsonView.playerResultWrites
           val nb = getInt("nb", req) | Int.MaxValue
           jsonStream {
             env.tournament.api
@@ -285,7 +285,7 @@ final class Api(
 
   def swissGames(id: String) =
     Action.async { req =>
-      env.swiss.api byId lila.swiss.Swiss.Id(id) flatMap {
+      env.swiss.api byId lishogi.swiss.Swiss.Id(id) flatMap {
         _ ?? { swiss =>
           val config = GameApiV2.BySwissConfig(
             swissId = swiss.id,
@@ -328,7 +328,7 @@ final class Api(
     }
 
   private def gamesByUsers(max: Int)(req: Request[String]) = {
-    val userIds = req.body.split(',').view.take(max).map(lila.user.User.normalize).toSet
+    val userIds = req.body.split(',').view.take(max).map(lishogi.user.User.normalize).toSet
     jsonStreamWithKeepAlive(env.game.gamesByUsersStream(userIds))(req).fuccess
   }
 
@@ -341,7 +341,7 @@ final class Api(
       }
     }
 
-  private val UserActivityRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
+  private val UserActivityRateLimitPerIP = new lishogi.memo.RateLimit[IpAddress](
     credits = 15,
     duration = 2.minutes,
     key = "user_activity.api.ip"
@@ -351,7 +351,7 @@ final class Api(
     ApiRequest { implicit req =>
       implicit val lang = reqLang
       UserActivityRateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = 1) {
-        lila.mon.api.activity.increment(1)
+        lishogi.mon.api.activity.increment(1)
         env.user.repo named name flatMap {
           _ ?? { user =>
             env.activity.read.recent(user) flatMap {
@@ -372,7 +372,7 @@ final class Api(
     }
   def MobileApiRequest(js: RequestHeader => Fu[ApiResult]) =
     Action.async { req =>
-      if (lila.api.Mobile.Api requested req) js(req) map toHttp
+      if (lishogi.api.Mobile.Api requested req) js(req) map toHttp
       else fuccess(NotFound)
     }
 
@@ -412,20 +412,20 @@ final class Api(
   private def sourceToNdJsonString(source: Source[String, _]) =
     Ok.chunked(source).as(ndJsonContentType) pipe noProxyBuffer
 
-  private[controllers] val GlobalConcurrencyLimitPerIP = new lila.memo.ConcurrencyLimit[IpAddress](
+  private[controllers] val GlobalConcurrencyLimitPerIP = new lishogi.memo.ConcurrencyLimit[IpAddress](
     name = "API concurrency per IP",
     key = "api.ip",
     ttl = 1.hour,
     maxConcurrency = 2
   )
-  private[controllers] val GlobalConcurrencyLimitUser = new lila.memo.ConcurrencyLimit[lila.user.User.ID](
+  private[controllers] val GlobalConcurrencyLimitUser = new lishogi.memo.ConcurrencyLimit[lishogi.user.User.ID](
     name = "API concurrency per user",
     key = "api.user",
     ttl = 1.hour,
     maxConcurrency = 1
   )
   private[controllers] def GlobalConcurrencyLimitPerUserOption[T](
-      user: Option[lila.user.User]
+      user: Option[lishogi.user.User]
   ): Option[SourceIdentity[T]] =
     user.fold(some[SourceIdentity[T]](identity _)) { u =>
       GlobalConcurrencyLimitUser.compose[T](u.id)
@@ -433,13 +433,13 @@ final class Api(
 
   private[controllers] def GlobalConcurrencyLimitPerIpAndUserOption[T](
       req: RequestHeader,
-      me: Option[lila.user.User]
+      me: Option[lishogi.user.User]
   )(makeSource: => Source[T, _])(makeResult: Source[T, _] => Result): Result =
     GlobalConcurrencyLimitPerIP.compose[T](HTTPRequest lastRemoteAddress req) flatMap { limitIp =>
       GlobalConcurrencyLimitPerUserOption[T](me) map { limitUser =>
         makeResult(limitIp(limitUser(makeSource)))
       }
-    } getOrElse lila.memo.ConcurrencyLimit.limitedDefault(1)
+    } getOrElse lishogi.memo.ConcurrencyLimit.limitedDefault(1)
 
   private type SourceIdentity[T] = Source[T, _] => Source[T, _]
 }

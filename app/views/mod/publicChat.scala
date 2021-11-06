@@ -1,17 +1,17 @@
 package views.html.mod
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
 
 import controllers.routes
 
 object publicChat {
 
   def apply(
-      tourChats: List[(lila.tournament.Tournament, lila.chat.UserChat)],
-      simulChats: List[(lila.simul.Simul, lila.chat.UserChat)]
+      tourChats: List[(lishogi.tournament.Tournament, lishogi.chat.UserChat)],
+      simulChats: List[(lishogi.simul.Simul, lishogi.chat.UserChat)]
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = "Public Chats",

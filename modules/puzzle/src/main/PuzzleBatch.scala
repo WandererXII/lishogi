@@ -1,13 +1,13 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import scala.concurrent.duration._
 import scala.concurrent.ExecutionContext
 
-import lila.common.ThreadLocalRandom
-import lila.db.dsl._
-import lila.memo.CacheApi
-import lila.rating.{ Perf, PerfType }
-import lila.user.{ User, UserRepo }
+import lishogi.common.ThreadLocalRandom
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
+import lishogi.rating.{ Perf, PerfType }
+import lishogi.user.{ User, UserRepo }
 
 // mobile app BC
 final class PuzzleBatch(colls: PuzzleColls, anonApi: PuzzleAnon, pathApi: PuzzlePathApi)(implicit

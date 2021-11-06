@@ -1,7 +1,7 @@
-package lila.notify
+package lishogi.notify
 
-import lila.common.paginator.Paginator
-import lila.notify.MentionedInThread.PostId
+import lishogi.common.paginator.Paginator
+import lishogi.notify.MentionedInThread.PostId
 import org.joda.time.DateTime
 
 case class NewNotification(notification: Notification, unreadNotifications: Int)
@@ -33,7 +33,7 @@ object Notification {
 
   def make(notifies: Notification.Notifies, content: NotificationContent): Notification = {
     val idSize = 8
-    val id     = lila.common.ThreadLocalRandom nextString idSize
+    val id     = lishogi.common.ThreadLocalRandom nextString idSize
     new Notification(id, notifies, content, NotificationRead(false), DateTime.now)
   }
 }
@@ -115,12 +115,12 @@ case class PlanStart(userId: String)  extends NotificationContent("planStart")
 case class PlanExpire(userId: String) extends NotificationContent("planExpire")
 
 case class CorresAlarm(
-    gameId: lila.game.Game.ID,
+    gameId: lishogi.game.Game.ID,
     opponent: String
 ) extends NotificationContent("corresAlarm")
 
 case class IrwinDone(
-    userId: lila.user.User.ID
+    userId: lishogi.user.User.ID
 ) extends NotificationContent("irwinDone")
 
 case class GenericLink(

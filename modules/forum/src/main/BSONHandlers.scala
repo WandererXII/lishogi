@@ -1,6 +1,6 @@
-package lila.forum
+package lishogi.forum
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 import reactivemongo.api.bson._
 
 private object BSONHandlers {

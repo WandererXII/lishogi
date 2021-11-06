@@ -1,4 +1,4 @@
-package lila.security
+package lishogi.security
 
 import org.joda.time.DateTime
 import reactivemongo.api.ReadPreference
@@ -6,9 +6,9 @@ import reactivemongo.api.bson._
 import org.uaparser.scala.{ Parser => UAParser }
 import org.uaparser.scala.Client
 
-import lila.common.{ EmailAddress, IpAddress }
-import lila.db.dsl._
-import lila.user.{ User, UserRepo }
+import lishogi.common.{ EmailAddress, IpAddress }
+import lishogi.db.dsl._
+import lishogi.user.{ User, UserRepo }
 
 case class UserSpy(
     ips: List[UserSpy.IPData],
@@ -142,7 +142,7 @@ final class UserSpyApi(
         )
       }
       .map { docs =>
-        import lila.user.User.userBSONHandler
+        import lishogi.user.User.userBSONHandler
         for {
           doc  <- docs
           user <- doc.getAsOpt[User]("user")

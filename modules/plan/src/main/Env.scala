@@ -1,4 +1,4 @@
-package lila.plan
+package lishogi.plan
 
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
@@ -6,7 +6,7 @@ import play.api.Configuration
 import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 private class PlanConfig(
@@ -18,15 +18,15 @@ private class PlanConfig(
 
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
+    db: lishogi.db.Db,
     ws: WSClient,
-    timeline: lila.hub.actors.Timeline,
-    notifyApi: lila.notify.NotifyApi,
-    cacheApi: lila.memo.CacheApi,
-    mongoCache: lila.memo.MongoCache.Api,
-    lightUserApi: lila.user.LightUserApi,
-    userRepo: lila.user.UserRepo,
-    settingStore: lila.memo.SettingStore.Builder
+    timeline: lishogi.hub.actors.Timeline,
+    notifyApi: lishogi.notify.NotifyApi,
+    cacheApi: lishogi.memo.CacheApi,
+    mongoCache: lishogi.memo.MongoCache.Api,
+    lightUserApi: lishogi.user.LightUserApi,
+    userRepo: lishogi.user.UserRepo,
+    settingStore: lishogi.memo.SettingStore.Builder
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem
@@ -83,7 +83,7 @@ final class Env(
   def webhook = webhookHandler.apply _
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = {
         case "patron" :: "lifetime" :: user :: Nil =>
           userRepo named user flatMap { _ ?? api.setLifetime } inject "ok"

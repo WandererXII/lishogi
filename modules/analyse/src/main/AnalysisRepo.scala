@@ -1,7 +1,7 @@
-package lila.analyse
+package lishogi.analyse
 
-import lila.db.dsl._
-import lila.game.Game
+import lishogi.db.dsl._
+import lishogi.game.Game
 
 final class AnalysisRepo(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

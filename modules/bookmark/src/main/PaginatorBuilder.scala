@@ -1,14 +1,14 @@
-package lila.bookmark
+package lishogi.bookmark
 
-import lila.common.paginator._
-import lila.db.dsl._
-import lila.game.GameRepo
-import lila.user.User
+import lishogi.common.paginator._
+import lishogi.db.dsl._
+import lishogi.game.GameRepo
+import lishogi.user.User
 
 final class PaginatorBuilder(
     coll: Coll,
     gameRepo: GameRepo,
-    maxPerPage: lila.common.config.MaxPerPage
+    maxPerPage: lishogi.common.config.MaxPerPage
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   def byUser(user: User, page: Int): Fu[Paginator[Bookmark]] =

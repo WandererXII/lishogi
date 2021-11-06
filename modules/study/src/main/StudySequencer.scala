@@ -1,8 +1,8 @@
-package lila.study
+package lishogi.study
 
 import scala.concurrent.duration._
 
-import lila.hub.DuctSequencers
+import lishogi.hub.DuctSequencers
 
 final private class StudySequencer(
     studyRepo: StudyRepo,

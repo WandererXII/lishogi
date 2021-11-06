@@ -3,16 +3,16 @@ package forum
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
 
 import controllers.routes
 
 object topic {
 
-  def form(categ: lila.forum.Categ, form: Form[_], captcha: lila.common.Captcha)(implicit ctx: Context) =
+  def form(categ: lishogi.forum.Categ, form: Form[_], captcha: lishogi.common.Captcha)(implicit ctx: Context) =
     views.html.base.layout(
       title = "New forum topic",
       moreCss = cssTag("forum"),
@@ -65,9 +65,9 @@ object topic {
     }
 
   def show(
-      categ: lila.forum.Categ,
-      topic: lila.forum.Topic,
-      posts: Paginator[lila.forum.Post],
+      categ: lishogi.forum.Categ,
+      topic: lishogi.forum.Topic,
+      posts: Paginator[lishogi.forum.Post],
       formWithCaptcha: Option[FormWithCaptcha],
       unsub: Option[Boolean],
       canModCateg: Boolean
@@ -80,7 +80,7 @@ object topic {
         jsAt("compiled/embed-analyse.js")
       ),
       moreCss = cssTag("forum"),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = topic.name,
           url = s"$netBaseUrl${routes.ForumTopic.show(categ.slug, topic.slug, posts.currentPage).url}",

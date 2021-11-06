@@ -2,16 +2,16 @@ package views.html.tournament
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.rating.PerfType
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.rating.PerfType
 
 import controllers.routes
 
 object leaderboard {
 
-  private def freqWinner(w: lila.tournament.Winner, freq: String)(implicit lang: Lang) =
+  private def freqWinner(w: lishogi.tournament.Winner, freq: String)(implicit lang: Lang) =
     li(
       userIdLink(w.userId.some),
       a(title := w.tourName, href := routes.Tournament.show(w.tourId))(freq)
@@ -19,7 +19,7 @@ object leaderboard {
 
   private val section = st.section(cls := "tournament-leaderboards__item")
 
-  private def freqWinners(fws: lila.tournament.FreqWinners, perfType: PerfType, name: String)(implicit
+  private def freqWinners(fws: lishogi.tournament.FreqWinners, perfType: PerfType, name: String)(implicit
       lang: Lang
   ) =
     section(
@@ -40,7 +40,7 @@ object leaderboard {
       )
     )
 
-  def apply(winners: lila.tournament.AllWinners)(implicit ctx: Context) =
+  def apply(winners: lishogi.tournament.AllWinners)(implicit ctx: Context) =
     views.html.base.layout(
       title = "Tournament leaderboard",
       moreCss = cssTag("tournament.leaderboard"),
@@ -87,7 +87,7 @@ object leaderboard {
             freqWinners(winners.rapid, PerfType.Rapid, "Rapid"),
             freqWinners(winners.classical, PerfType.Classical, "Classical"),
             //marathonWinners,
-            lila.tournament.WinnersApi.variants.map { v =>
+            lishogi.tournament.WinnersApi.variants.map { v =>
               PerfType.byVariant(v).map { pt =>
                 winners.variants.get(pt.key).map { w =>
                   freqWinners(w, pt, v.name)

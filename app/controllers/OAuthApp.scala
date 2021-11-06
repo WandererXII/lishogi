@@ -1,10 +1,10 @@
 package controllers
 
-import lila.app._
-import lila.oauth.{ AccessToken, OAuthApp => App }
+import lishogi.app._
+import lishogi.oauth.{ AccessToken, OAuthApp => App }
 import views._
 
-final class OAuthApp(env: Env) extends LilaController(env) {
+final class OAuthApp(env: Env) extends LishogiController(env) {
 
   private val appApi = env.oAuth.appApi
   private val forms  = env.oAuth.forms

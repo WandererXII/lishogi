@@ -1,9 +1,9 @@
 package views.html.tournament
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.tournament.TournamentShield
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.tournament.TournamentShield
 
 import controllers.routes
 

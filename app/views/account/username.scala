@@ -1,15 +1,15 @@
 package views.html
 package account
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object username {
 
-  def apply(u: lila.user.User, form: play.api.data.Form[_])(implicit ctx: Context) =
+  def apply(u: lishogi.user.User, form: play.api.data.Form[_])(implicit ctx: Context) =
     account.layout(
       title = s"${u.username} - ${trans.editProfile.txt()}",
       active = "username"

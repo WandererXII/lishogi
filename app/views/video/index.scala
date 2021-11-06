@@ -1,15 +1,15 @@
 package views.html.video
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
 
 import controllers.routes
 
 object index {
 
-  def apply(videos: Paginator[lila.video.VideoView], count: Long, control: lila.video.UserControl)(implicit
+  def apply(videos: Paginator[lishogi.video.VideoView], count: Long, control: lishogi.video.UserControl)(implicit
       ctx: Context
   ) = {
 
@@ -18,7 +18,7 @@ object index {
 
     layout(
       title = s"${tagString}Free Shogi Videos",
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = s"${tagString}free, carefully curated shogi videos",
           description =

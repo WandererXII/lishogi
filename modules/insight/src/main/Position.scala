@@ -1,4 +1,4 @@
-package lila.insight
+package lishogi.insight
 
 sealed trait Position {
 

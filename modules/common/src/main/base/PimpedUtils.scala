@@ -1,4 +1,4 @@
-package lila.base
+package lishogi.base
 
 import java.util.concurrent.TimeUnit
 import scala.concurrent.duration._
@@ -11,7 +11,7 @@ import ornicar.scalalib.Zero
 import scalaz._
 import Scalaz._
 
-import LilaTypes._
+import LishogiTypes._
 
 final class PimpedOption[A](private val self: Option[A]) extends AnyVal {
 
@@ -31,7 +31,7 @@ final class PimpedOption[A](private val self: Option[A]) extends AnyVal {
   def toTryWith(err: => Exception): Try[A] =
     self.fold[Try[A]](scala.util.Failure(err))(scala.util.Success.apply)
 
-  def toTry(err: => String): Try[A] = toTryWith(lila.base.LilaException(err))
+  def toTry(err: => String): Try[A] = toTryWith(lishogi.base.LishogiException(err))
 
   def err(message: => String): A = self.getOrElse(sys.error(message))
 

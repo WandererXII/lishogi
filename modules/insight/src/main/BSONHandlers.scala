@@ -1,13 +1,13 @@
-package lila.insight
+package lishogi.insight
 
 import reactivemongo.api.bson._
 
 import shogi.opening.{ Ecopening, EcopeningDB }
 import shogi.{ Color, Role }
-import lila.db.BSON
-import lila.db.dsl._
-import lila.rating.BSONHandlers.perfTypeIdHandler
-import lila.rating.PerfType
+import lishogi.db.BSON
+import lishogi.db.dsl._
+import lishogi.rating.BSONHandlers.perfTypeIdHandler
+import lishogi.rating.PerfType
 
 private object BSONHandlers {
 
@@ -62,9 +62,9 @@ private object BSONHandlers {
     v => (v.id * TimeVariance.intFactor).toInt
   )
 
-  implicit val DateRangeBSONHandler = Macros.handler[lila.insight.DateRange]
+  implicit val DateRangeBSONHandler = Macros.handler[lishogi.insight.DateRange]
 
-  implicit val PeriodBSONHandler = intIsoHandler(lila.common.Iso.int[Period](Period.apply, _.days))
+  implicit val PeriodBSONHandler = intIsoHandler(lishogi.common.Iso.int[Period](Period.apply, _.days))
 
   implicit def MoveBSONHandler =
     new BSON[Move] {

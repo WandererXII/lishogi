@@ -1,15 +1,15 @@
 package views.html.video
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
 
 import controllers.routes
 
 object search {
 
-  def apply(videos: Paginator[lila.video.VideoView], control: lila.video.UserControl)(implicit ctx: Context) =
+  def apply(videos: Paginator[lishogi.video.VideoView], control: lishogi.video.UserControl)(implicit ctx: Context) =
     layout(title = s"${control.query.getOrElse("Search")} • Free Shogi Videos", control = control)(
       div(cls := "box__top")(
         h1(pluralize("video", videos.nbResults), " found"),

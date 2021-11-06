@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 object Animal {
 
@@ -65,7 +65,7 @@ object Animal {
     k
   }.toVector
 
-  def randomName: String = names(lila.common.ThreadLocalRandom nextInt size)
+  def randomName: String = names(lishogi.common.ThreadLocalRandom nextInt size)
 
   def wikiUrl(name: String) =
     all get name map { s =>

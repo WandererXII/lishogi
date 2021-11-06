@@ -2,16 +2,16 @@ package views.html.auth
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object checkYourEmail {
 
   def apply(
-      userEmail: Option[lila.security.EmailConfirm.UserEmail],
+      userEmail: Option[lishogi.security.EmailConfirm.UserEmail],
       form: Option[Form[_]] = None
   )(implicit ctx: Context) =
     views.html.base.layout(

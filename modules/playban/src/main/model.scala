@@ -1,9 +1,9 @@
-package lila.playban
+package lishogi.playban
 
 import org.joda.time.DateTime
 import play.api.libs.json._
 
-import lila.common.Json.jodaWrites
+import lishogi.common.Json.jodaWrites
 
 case class UserRecord(
     _id: String,

@@ -1,9 +1,9 @@
 package views.html
 package game
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -17,7 +17,7 @@ object importGame {
       title = trans.importGame.txt(),
       moreCss = cssTag("importer"),
       moreJs = jsTag("importer.js"),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = "Paste KIF or CSA shogi game",
           url = s"$netBaseUrl${routes.Importer.importGame().url}",
@@ -47,7 +47,7 @@ object importGame {
             )
           ),
           form("notation").value flatMap { notation =>
-            lila.importer
+            lishogi.importer
               .ImportData(notation, none)
               .preprocess(none)
               .fold(

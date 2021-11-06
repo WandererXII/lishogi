@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import ornicar.scalalib.Zero
 import scala.util.Success
@@ -28,11 +28,11 @@ object Blurs {
 
   import reactivemongo.api.bson._
 
-  implicit private[game] val BlursBSONHandler = lila.db.dsl.tryHandler[Blurs](
+  implicit private[game] val BlursBSONHandler = lishogi.db.dsl.tryHandler[Blurs](
     {
       case BSONInteger(bits) => Success(Blurs(bits & 0xffffffffL))
       case BSONLong(bits)    => Success(Blurs(bits))
-      case v                 => lila.db.BSON.handlerBadValue(s"Invalid blurs bits $v")
+      case v                 => lishogi.db.BSON.handlerBadValue(s"Invalid blurs bits $v")
     },
     blurs => blurs.asInt.fold[BSONValue](BSONLong(blurs.bits))(BSONInteger.apply)
   )

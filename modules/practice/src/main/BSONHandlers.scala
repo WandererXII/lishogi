@@ -1,9 +1,9 @@
-package lila.practice
+package lishogi.practice
 
 import reactivemongo.api.bson.{ BSONHandler, Macros }
 
-import lila.db.dsl._
-import lila.study.Chapter
+import lishogi.db.dsl._
+import lishogi.study.Chapter
 
 object BSONHandlers {
 

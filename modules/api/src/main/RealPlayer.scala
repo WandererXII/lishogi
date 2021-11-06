@@ -1,13 +1,13 @@
-package lila.api
+package lishogi.api
 
 import shogi.format.{ Notation, Tag, Tags }
 import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 
-import lila.user.User
+import lishogi.user.User
 
 final class RealPlayerApi(
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     ws: WSClient
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -48,7 +48,7 @@ final class RealPlayerApi(
 
 case class RealPlayers(players: Map[User.ID, RealPlayer]) {
 
-  def update(game: lila.game.Game, notation: Notation) =
+  def update(game: lishogi.game.Game, notation: Notation) =
     notation withTags (
       notation.tags ++ Tags {
         game.players.flatMap { player =>

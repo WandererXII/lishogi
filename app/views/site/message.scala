@@ -1,10 +1,10 @@
 package views
 package html.site
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
 
 import controllers.routes
 
@@ -48,7 +48,7 @@ object message {
       "Sorry, your IP address has been used to violate the ToS, and is now blacklisted."
     }
 
-  def privateStudy(study: lila.study.Study)(implicit ctx: Context) =
+  def privateStudy(study: lishogi.study.Study)(implicit ctx: Context) =
     apply(
       title = s"${usernameOrId(study.ownerId)}'s study",
       back = routes.Study.allDefault(1).url.some

@@ -1,9 +1,9 @@
-package lila.storm
+package lishogi.storm
 
 import scalaz.NonEmptyList
 import shogi.format.{ FEN, Forsyth, Uci }
 
-import lila.puzzle.Puzzle
+import lishogi.puzzle.Puzzle
 
 // Only tsume puzzles that are NOT from games
 case class StormPuzzle(

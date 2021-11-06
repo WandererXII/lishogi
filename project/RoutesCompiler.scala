@@ -3,14 +3,14 @@ import play.routes.compiler._
 import java.io.File
 import play.routes.compiler.RoutesCompiler.RoutesCompilerTask
 
-object LilaRoutesGenerator extends RoutesGenerator {
+object LishogiRoutesGenerator extends RoutesGenerator {
 
   val ForwardsRoutesFile = "Routes.scala"
   val ReverseRoutesFile  = "ReverseRoutes.scala"
   val RoutesPrefixFile   = "RoutesPrefix.scala"
   val JavaWrapperFile    = "routes.java"
 
-  val id = "lila"
+  val id = "lishogi"
 
   import InjectedRoutesGenerator.Dependency
 

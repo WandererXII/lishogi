@@ -1,24 +1,24 @@
 package views.html.video
 
-import lila.common.String.html.richText
+import lishogi.common.String.html.richText
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object show {
 
   def apply(
-      video: lila.video.Video,
-      similar: Seq[lila.video.VideoView],
-      control: lila.video.UserControl
+      video: lishogi.video.Video,
+      similar: Seq[lishogi.video.VideoView],
+      control: lishogi.video.UserControl
   )(implicit ctx: Context) =
     layout(
       title = s"${video.title} • Free Shogi Videos",
       control = control,
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = s"${video.title} by ${video.author}",
           description = shorten(~video.metadata.description, 152),
@@ -43,7 +43,7 @@ object show {
           video.title
         ),
         div(cls := "meta box__pad")(
-          div(cls := "target")(video.targets.map(lila.video.Target.name).mkString(", ")),
+          div(cls := "target")(video.targets.map(lishogi.video.Target.name).mkString(", ")),
           a(cls := "author", href := s"${routes.Video.author(video.author)}?${control.queryString}")(
             video.author
           ),

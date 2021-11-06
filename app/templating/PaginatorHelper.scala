@@ -1,7 +1,7 @@
-package lila.app
+package lishogi.app
 package templating
 
-import lila.common.paginator.Paginator
+import lishogi.common.paginator.Paginator
 
 trait PaginatorHelper {
 

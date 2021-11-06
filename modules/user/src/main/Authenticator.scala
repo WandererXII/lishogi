@@ -1,11 +1,11 @@
-package lila.user
+package lishogi.user
 
 import com.roundeights.hasher.Implicits._
 import reactivemongo.api.bson._
 
-import lila.common.NormalizedEmailAddress
-import lila.db.dsl._
-import lila.user.User.{ ClearPassword, PasswordAndToken, BSONFields => F }
+import lishogi.common.NormalizedEmailAddress
+import lishogi.db.dsl._
+import lishogi.user.User.{ ClearPassword, PasswordAndToken, BSONFields => F }
 
 final class Authenticator(
     passHasher: PasswordHasher,
@@ -52,7 +52,7 @@ final class Authenticator(
   private def authWithBenefits(auth: AuthData)(p: ClearPassword): Boolean = {
     val res = compare(auth, p)
     if (res && auth.salt.isDefined)
-      setPassword(id = auth._id, p) >>- lila.mon.user.auth.bcFullMigrate.increment()
+      setPassword(id = auth._id, p) >>- lishogi.mon.user.auth.bcFullMigrate.increment()
     res
   }
 

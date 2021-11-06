@@ -1,6 +1,6 @@
-package lila.notify
+package lishogi.notify
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 import org.joda.time.DateTime
 
 final private class NotificationRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {

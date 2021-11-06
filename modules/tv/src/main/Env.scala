@@ -1,4 +1,4 @@
-package lila.tv
+package lishogi.tv
 
 import akka.actor.ActorSystem
 import com.softwaremill.macwire._
@@ -6,13 +6,13 @@ import scala.concurrent.duration._
 
 @Module
 final class Env(
-    gameRepo: lila.game.GameRepo,
-    renderer: lila.hub.actors.Renderer,
-    lightUser: lila.common.LightUser.GetterSync,
-    gameProxyRepo: lila.round.GameProxyRepo,
+    gameRepo: lishogi.game.GameRepo,
+    renderer: lishogi.hub.actors.Renderer,
+    lightUser: lishogi.common.LightUser.GetterSync,
+    gameProxyRepo: lishogi.round.GameProxyRepo,
     system: ActorSystem,
-    recentTvGames: lila.round.RecentTvGames,
-    rematches: lila.game.Rematches
+    recentTvGames: lishogi.round.RecentTvGames,
+    rematches: lishogi.game.Rematches
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private val tvTrouper = wire[TvTrouper]

@@ -1,14 +1,14 @@
-package lila.gameSearch
+package lishogi.gameSearch
 
-import lila.game.Game
+import lishogi.game.Game
 import play.api.mvc.Request
 
 final class UserGameSearch(
     forms: DataForm,
-    paginator: lila.search.PaginatorBuilder[Game, Query]
+    paginator: lishogi.search.PaginatorBuilder[Game, Query]
 ) {
 
-  def apply(user: lila.user.User, page: Int)(implicit req: Request[_]) =
+  def apply(user: lishogi.user.User, page: Int)(implicit req: Request[_]) =
     paginator(
       query = forms.search
         .bindFromRequest()

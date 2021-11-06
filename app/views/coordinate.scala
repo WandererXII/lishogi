@@ -2,18 +2,18 @@ package views.html
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.pref.Pref.Color
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.pref.Pref.Color
 import play.api.i18n.Lang
 
 import controllers.routes
 
 object coordinate {
 
-  def home(scoreOption: Option[lila.coordinate.Score])(implicit ctx: Context) =
+  def home(scoreOption: Option[lishogi.coordinate.Score])(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.coordinates.coordinateTraining.txt(),
       moreCss = cssTag("coordinate"),
@@ -21,7 +21,7 @@ object coordinate {
         jsTag("vendor/sparkline.min.js"),
         jsAt("compiled/coordinate.js")
       ),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = "Shogi board coordinates trainer",
           url = s"$netBaseUrl${routes.Coordinate.home().url}",
@@ -95,7 +95,7 @@ object coordinate {
       )
     )
 
-  def scoreCharts(score: lila.coordinate.Score)(implicit ctx: Context) =
+  def scoreCharts(score: lishogi.coordinate.Score)(implicit ctx: Context) =
     frag(
       List(
         (trans.coordinates.averageScoreAsWhiteX, score.gote),

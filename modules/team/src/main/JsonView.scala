@@ -1,6 +1,6 @@
-package lila.team
+package lishogi.team
 
-import lila.user.LightUserApi
+import lishogi.user.LightUserApi
 
 import play.api.libs.json._
 

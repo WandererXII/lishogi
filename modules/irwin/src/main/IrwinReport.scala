@@ -1,9 +1,9 @@
-package lila.irwin
+package lishogi.irwin
 
 import org.joda.time.DateTime
 
-import lila.game.{ Game, Pov }
-import lila.report.SuspectId
+import lishogi.game.{ Game, Pov }
+import lishogi.report.SuspectId
 
 case class IrwinReport(
     _id: String,     // user id

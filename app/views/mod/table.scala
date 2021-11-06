@@ -2,15 +2,15 @@ package views.html.mod
 
 import controllers.routes
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object table {
 
   private val dataSort = attr("data-sort")
 
-  def apply(users: List[lila.user.User])(implicit ctx: Context) = {
+  def apply(users: List[lishogi.user.User])(implicit ctx: Context) = {
 
     val title = "All mods"
 
@@ -36,7 +36,7 @@ object table {
                   td(userLink(user)),
                   td(
                     a(href := routes.Mod.permissions(user.username))(
-                      lila.security.Permission(user.roles).map(_.name) mkString ", "
+                      lishogi.security.Permission(user.roles).map(_.name) mkString ", "
                     )
                   ),
                   td(dataSort := user.seenAt.map(_.getMillis.toString))(user.seenAt.map(momentFromNowOnce))

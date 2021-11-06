@@ -1,10 +1,10 @@
 package views.html.challenge
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.challenge.Challenge
-import lila.challenge.Challenge.Status
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.challenge.Challenge
+import lishogi.challenge.Challenge.Status
 
 import controllers.routes
 
@@ -13,7 +13,7 @@ object theirs {
   def apply(
       c: Challenge,
       json: play.api.libs.json.JsObject,
-      user: Option[lila.user.User],
+      user: Option[lishogi.user.User],
       color: Option[shogi.Color]
   )(implicit ctx: Context) =
     views.html.base.layout(

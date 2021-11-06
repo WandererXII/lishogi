@@ -1,6 +1,6 @@
-package lila
+package lishogi
 
 package object oauth extends PackageObject {
 
-  private[oauth] def logger = lila.log("oauth")
+  private[oauth] def logger = lishogi.log("oauth")
 }

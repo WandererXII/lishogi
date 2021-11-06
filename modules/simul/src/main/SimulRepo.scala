@@ -1,13 +1,13 @@
-package lila.simul
+package lishogi.simul
 
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 
 import shogi.{ StartingPosition, Status }
 import shogi.variant.Variant
-import lila.db.BSON
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
+import lishogi.db.BSON
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
 
 final private[simul] class SimulRepo(simulColl: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -15,7 +15,7 @@ final private[simul] class SimulRepo(simulColl: Coll)(implicit ec: scala.concurr
     { case BSONInteger(v) => SimulStatus(v) toTry s"No such simul status: $v" },
     x => BSONInteger(x.id)
   )
-  implicit private val ChessStatusBSONHandler = lila.game.BSONHandlers.StatusBSONHandler
+  implicit private val ChessStatusBSONHandler = lishogi.game.BSONHandlers.StatusBSONHandler
   implicit private val VariantBSONHandler = tryHandler[Variant](
     { case BSONInteger(v) => Variant(v) toTry s"No such variant: $v" },
     x => BSONInteger(x.id)

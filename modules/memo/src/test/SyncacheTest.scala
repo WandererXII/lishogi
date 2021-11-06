@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import akka.actor.ActorSystem
 import akka.testkit.{ ImplicitSender, TestKit }
@@ -36,7 +36,7 @@ class MySpec()
         default = s => s"default $s",
         strategy = Syncache.AlwaysWait(1 second),
         expireAfter = Syncache.ExpireAfterWrite(10 seconds),
-        logger = lila.log("syncache"),
+        logger = lishogi.log("syncache"),
         resultTimeout = 5 seconds
       )
       val threads = 20

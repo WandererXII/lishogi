@@ -3,22 +3,22 @@ package round
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.game.Pov
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.game.Pov
 
 object player {
 
   def apply(
       pov: Pov,
       data: play.api.libs.json.JsObject,
-      tour: Option[lila.tournament.GameView],
-      simul: Option[lila.simul.Simul],
-      cross: Option[lila.game.Crosstable.WithMatchup],
+      tour: Option[lishogi.tournament.GameView],
+      simul: Option[lishogi.simul.Simul],
+      cross: Option[lishogi.game.Crosstable.WithMatchup],
       playing: List[Pov],
-      chatOption: Option[lila.chat.Chat.GameOrEvent],
+      chatOption: Option[lishogi.chat.Chat.GameOrEvent],
       bookmarked: Boolean
   )(implicit ctx: Context) = {
 
@@ -30,7 +30,7 @@ object player {
           timeout = false,
           withNoteAge = ctx.isAuth option pov.game.secondsSinceCreation,
           public = false,
-          resourceId = lila.chat.Chat.ResourceId(s"game/${c.chat.id}"),
+          resourceId = lishogi.chat.Chat.ResourceId(s"game/${c.chat.id}"),
           palantir = ctx.me.exists(_.canPalantir)
         )
       case Right((c, res)) =>

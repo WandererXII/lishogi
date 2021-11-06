@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import akka.stream.scaladsl._
 import akka.stream.{ Materializer, OverflowStrategy, QueueOfferResult }
@@ -34,7 +34,7 @@ final class WorkQueue(buffer: Int, timeout: FiniteDuration, name: String, parall
       case QueueOfferResult.Enqueued =>
         promise.future
       case result =>
-        lila.mon.workQueue.offerFail(name, result.toString).increment()
+        lishogi.mon.workQueue.offerFail(name, result.toString).increment()
         Future failed new WorkQueue.EnqueueException(s"Can't enqueue in $name: $result")
     }
   }
@@ -47,10 +47,10 @@ final class WorkQueue(buffer: Int, timeout: FiniteDuration, name: String, parall
         .tap(promise.completeWith)
         .recover {
           case e: TimeoutException =>
-            lila.mon.workQueue.timeout(name).increment()
-            lila.log(s"WorkQueue:$name").warn(s"task timed out after $timeout", e)
+            lishogi.mon.workQueue.timeout(name).increment()
+            lishogi.log(s"WorkQueue:$name").warn(s"task timed out after $timeout", e)
           case e: Exception =>
-            lila.log(s"WorkQueue:$name").info("task failed", e)
+            lishogi.log(s"WorkQueue:$name").info("task failed", e)
         }
     }
     .toMat(Sink.ignore)(Keep.left)

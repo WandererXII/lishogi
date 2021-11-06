@@ -2,21 +2,21 @@ package controllers
 
 import play.api.mvc._
 
-import lila.api.Context
-import lila.app._
+import lishogi.api.Context
+import lishogi.app._
 import views._
 
-final class Pref(env: Env) extends LilaController(env) {
+final class Pref(env: Env) extends LishogiController(env) {
 
   private def api   = env.pref.api
-  private def forms = lila.pref.DataForm
+  private def forms = lishogi.pref.DataForm
 
   def apiGet =
     Scoped(_.Preference.Read) { _ => me =>
       env.pref.api.getPref(me) map { prefs =>
         JsonOk {
           import play.api.libs.json._
-          import lila.pref.JsonView._
+          import lishogi.pref.JsonView._
           Json.obj("prefs" -> prefs)
         }
       }
@@ -24,7 +24,7 @@ final class Pref(env: Env) extends LilaController(env) {
 
   def form(categSlug: String) =
     Auth { implicit ctx => me =>
-      lila.pref.PrefCateg(categSlug) match {
+      lishogi.pref.PrefCateg(categSlug) match {
         case None => notFound
         case Some(categ) =>
           Ok(html.account.pref(me, forms prefOf ctx.pref, categ)).fuccess
@@ -33,14 +33,14 @@ final class Pref(env: Env) extends LilaController(env) {
 
   def formApply =
     AuthBody { implicit ctx => _ =>
-      def onSuccess(data: lila.pref.DataForm.PrefData) = api.setPref(data(ctx.pref)) inject Ok("saved")
+      def onSuccess(data: lishogi.pref.DataForm.PrefData) = api.setPref(data(ctx.pref)) inject Ok("saved")
       implicit val req                                 = ctx.body
       forms.pref
         .bindFromRequest()
         .fold(
           _ =>
             forms.pref
-              .bindFromRequest(lila.pref.FormCompatLayer(ctx.pref, ctx.body))
+              .bindFromRequest(lishogi.pref.FormCompatLayer(ctx.pref, ctx.body))
               .fold(
                 err => BadRequest(err.toString).fuccess,
                 onSuccess
@@ -52,7 +52,7 @@ final class Pref(env: Env) extends LilaController(env) {
   def set(name: String) =
     OpenBody { implicit ctx =>
       if (name == "zoom") {
-        Ok.withCookies(env.lilaCookie.session("zoom2", (getInt("v") | 185).toString)).fuccess
+        Ok.withCookies(env.lishogiCookie.session("zoom2", (getInt("v") | 185).toString)).fuccess
       } else {
         implicit val req = ctx.body
         (setters get name) ?? { case (form, fn) =>
@@ -96,5 +96,5 @@ final class Pref(env: Env) extends LilaController(env) {
   private def save(name: String)(value: String, ctx: Context): Fu[Cookie] =
     ctx.me ?? {
       api.setPrefString(_, name, value)
-    } inject env.lilaCookie.session(name, value)(ctx.req)
+    } inject env.lishogiCookie.session(name, value)(ctx.req)
 }

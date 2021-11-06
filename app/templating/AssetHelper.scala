@@ -1,11 +1,11 @@
-package lila.app
+package lishogi.app
 package templating
 
 import play.api.mvc.RequestHeader
 
-import lila.api.Context
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.{ AssetVersion, ContentSecurityPolicy, Nonce }
+import lishogi.api.Context
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.{ AssetVersion, ContentSecurityPolicy, Nonce }
 
 trait AssetHelper { self: I18nHelper with SecurityHelper =>
 
@@ -14,7 +14,7 @@ trait AssetHelper { self: I18nHelper with SecurityHelper =>
 
   def minifiedAssets = isProd || isStage
 
-  def netDomain: lila.common.config.NetDomain
+  def netDomain: lishogi.common.config.NetDomain
   lazy val assetDomain    = env.net.assetDomain
   lazy val socketDomains  = env.net.socketDomains
   lazy val vapidPublicKey = env.push.vapidPublicKey

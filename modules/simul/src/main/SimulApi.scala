@@ -1,4 +1,4 @@
-package lila.simul
+package lishogi.simul
 
 import akka.actor._
 import akka.pattern.ask
@@ -6,24 +6,24 @@ import play.api.libs.json.Json
 import scala.concurrent.duration._
 
 import shogi.variant.Variant
-import lila.common.{ Bus, Debouncer }
-import lila.game.{ Game, GameRepo, PerfPicker }
-import lila.hub.actorApi.lobby.ReloadSimuls
-import lila.hub.actorApi.timeline.{ Propagate, SimulCreate, SimulJoin }
-import lila.memo.CacheApi._
-import lila.socket.Socket.SendToFlag
-import lila.user.{ User, UserRepo }
+import lishogi.common.{ Bus, Debouncer }
+import lishogi.game.{ Game, GameRepo, PerfPicker }
+import lishogi.hub.actorApi.lobby.ReloadSimuls
+import lishogi.hub.actorApi.timeline.{ Propagate, SimulCreate, SimulJoin }
+import lishogi.memo.CacheApi._
+import lishogi.socket.Socket.SendToFlag
+import lishogi.user.{ User, UserRepo }
 import makeTimeout.short
 
 final class SimulApi(
     userRepo: UserRepo,
     gameRepo: GameRepo,
-    onGameStart: lila.round.OnStart,
+    onGameStart: lishogi.round.OnStart,
     socket: SimulSocket,
-    renderer: lila.hub.actors.Renderer,
-    timeline: lila.hub.actors.Timeline,
+    renderer: lishogi.hub.actors.Renderer,
+    timeline: lishogi.hub.actors.Timeline,
     repo: SimulRepo,
-    cacheApi: lila.memo.CacheApi
+    cacheApi: lishogi.memo.CacheApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem,
@@ -31,7 +31,7 @@ final class SimulApi(
 ) {
 
   private val workQueue =
-    new lila.hub.DuctSequencers(
+    new lishogi.hub.DuctSequencers(
       maxSize = 128,
       expiration = 10 minutes,
       timeout = 10 seconds,
@@ -172,9 +172,9 @@ final class SimulApi(
   private def onComplete(simul: Simul): Unit = {
     currentHostIdsCache.invalidateUnit()
     Bus.publish(
-      lila.hub.actorApi.socket.SendTo(
+      lishogi.hub.actorApi.socket.SendTo(
         simul.hostId,
-        lila.socket.Socket.makeMessage(
+        lishogi.socket.Socket.makeMessage(
           "simulEnd",
           Json.obj(
             "id"   -> simul.id,
@@ -211,7 +211,7 @@ final class SimulApi(
       senteUser  = hostColor.fold(host, user)
       goteUser   = hostColor.fold(user, host)
       clock      = simul.clock.chessClockOf(hostColor)
-      perfPicker = lila.game.PerfPicker.mainOrDefault(shogi.Speed(clock.config), pairing.player.variant, none)
+      perfPicker = lishogi.game.PerfPicker.mainOrDefault(shogi.Speed(clock.config), pairing.player.variant, none)
       g = shogi.Game(
         variantOption = Some {
           if (simul.position.isEmpty) pairing.player.variant
@@ -221,10 +221,10 @@ final class SimulApi(
       )
       game1 = Game.make(
         shogi = g.copy(clock = clock.start.some, startedAtTurn = g.turns),
-        sentePlayer = lila.game.Player.make(shogi.Sente, senteUser.some, perfPicker),
-        gotePlayer = lila.game.Player.make(shogi.Gote, goteUser.some, perfPicker),
+        sentePlayer = lishogi.game.Player.make(shogi.Sente, senteUser.some, perfPicker),
+        gotePlayer = lishogi.game.Player.make(shogi.Gote, goteUser.some, perfPicker),
         mode = shogi.Mode.Casual,
-        source = lila.game.Source.Simul,
+        source = lishogi.game.Source.Simul,
         notationImport = None
       )
       game2 =

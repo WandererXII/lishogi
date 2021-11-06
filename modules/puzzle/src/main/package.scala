@@ -1,10 +1,10 @@
-package lila
+package lishogi
 
-import lila.rating.Glicko
+import lishogi.rating.Glicko
 
 package object puzzle extends PackageObject {
 
-  private[puzzle] def logger = lila.log("puzzle")
+  private[puzzle] def logger = lishogi.log("puzzle")
 }
 
 package puzzle {

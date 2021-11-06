@@ -1,12 +1,12 @@
 package views.html.clas
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.clas.{ Clas, Student }
-import lila.common.String.html.richText
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.clas.{ Clas, Student }
+import lishogi.common.String.html.richText
+import lishogi.user.User
 
 object studentDashboard {
 
@@ -99,7 +99,7 @@ object studentDashboard {
       )
     )
 
-  private def challengeTd(user: lila.user.User)(implicit ctx: Context) =
+  private def challengeTd(user: lishogi.user.User)(implicit ctx: Context) =
     if (ctx is user) td
     else {
       val online = isOnline(user.id)

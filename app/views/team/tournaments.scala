@@ -2,16 +2,16 @@ package views.html.team
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.app.mashup.TeamInfo
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.app.mashup.TeamInfo
 
 import controllers.routes
 
 object tournaments {
 
-  def page(t: lila.team.Team, tours: TeamInfo.PastAndNext)(implicit ctx: Context) = {
+  def page(t: lishogi.team.Team, tours: TeamInfo.PastAndNext)(implicit ctx: Context) = {
     views.html.base.layout(
       title = s"${t.name} • ${trans.tournaments.txt()}",
       moreCss = cssTag("team"),

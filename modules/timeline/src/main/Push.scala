@@ -1,16 +1,16 @@
-package lila.timeline
+package lishogi.timeline
 
 import akka.actor._
 import org.joda.time.DateTime
 
-import lila.common.config.Max
-import lila.hub.actorApi.timeline.propagation._
-import lila.hub.actorApi.timeline.{ Atom, Propagate, ReloadTimelines }
-import lila.security.Permission
-import lila.user.{ User, UserRepo }
+import lishogi.common.config.Max
+import lishogi.hub.actorApi.timeline.propagation._
+import lishogi.hub.actorApi.timeline.{ Atom, Propagate, ReloadTimelines }
+import lishogi.security.Permission
+import lishogi.user.{ User, UserRepo }
 
 final private[timeline] class Push(
-    relationApi: lila.relation.RelationApi,
+    relationApi: lishogi.relation.RelationApi,
     userRepo: UserRepo,
     entryApi: EntryApi,
     unsubApi: UnsubApi
@@ -24,8 +24,8 @@ final private[timeline] class Push(
     } foreach { users =>
       if (users.nonEmpty)
         makeEntry(users, data) >>-
-          lila.common.Bus.publish(ReloadTimelines(users), "lobbySocket")
-      lila.mon.timeline.notification.increment(users.size)
+          lishogi.common.Bus.publish(ReloadTimelines(users), "lobbySocket")
+      lishogi.mon.timeline.notification.increment(users.size)
     }
   }
 

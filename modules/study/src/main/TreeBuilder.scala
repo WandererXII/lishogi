@@ -1,8 +1,8 @@
-package lila.study
+package lishogi.study
 
 import shogi.opening._
 import shogi.variant.Variant
-import lila.tree
+import lishogi.tree
 
 object TreeBuilder {
 

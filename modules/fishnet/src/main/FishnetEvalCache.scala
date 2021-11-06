@@ -1,11 +1,11 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import shogi.format.{ FEN, Forsyth }
 
 import JsonApi.Request.Evaluation
 
 final private class FishnetEvalCache(
-    evalCacheApi: lila.evalCache.EvalCacheApi
+    evalCacheApi: lishogi.evalCache.EvalCacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   val maxPlies = 15
@@ -34,7 +34,7 @@ final private class FishnetEvalCache(
       }.toMap
     }
 
-  private def rawEvals(game: Work.Game): Fu[List[(Int, lila.evalCache.EvalCacheEntry.Eval)]] =
+  private def rawEvals(game: Work.Game): Fu[List[(Int, lishogi.evalCache.EvalCacheEntry.Eval)]] =
     shogi.Replay
       .situationsFromUci(
         game.uciList.take(maxPlies - 1),
@@ -48,7 +48,7 @@ final private class FishnetEvalCache(
             evalCacheApi.getSinglePvEval(
               game.variant,
               FEN(Forsyth >> sit)
-            ) dmap2 { (eval: lila.evalCache.EvalCacheEntry.Eval) =>
+            ) dmap2 { (eval: lishogi.evalCache.EvalCacheEntry.Eval) =>
               index -> eval
             }
           }

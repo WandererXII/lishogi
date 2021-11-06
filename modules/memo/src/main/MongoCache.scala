@@ -1,4 +1,4 @@
-package lila.memo
+package lishogi.memo
 
 import com.github.blemale.scaffeine.AsyncLoadingCache
 import org.joda.time.DateTime
@@ -6,8 +6,8 @@ import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
 import CacheApi._
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
 
 /**
   * To avoid recomputing very expensive values after deploy
@@ -28,7 +28,7 @@ final class MongoCache[K, V: BSONHandler] private (
     val dbKey = makeDbKey(k)
     coll.one[Entry]($id(dbKey)) flatMap {
       case None =>
-        lila.mon.mongoCache.request(name, false).increment()
+        lishogi.mon.mongoCache.request(name, false).increment()
         loader(k)
           .flatMap { v =>
             coll.update.one(
@@ -39,7 +39,7 @@ final class MongoCache[K, V: BSONHandler] private (
           }
           .mon(_.mongoCache.compute(name))
       case Some(entry) =>
-        lila.mon.mongoCache.request(name, true).increment()
+        lishogi.mon.mongoCache.request(name, true).increment()
         fuccess(entry.v)
     }
   }
@@ -59,7 +59,7 @@ object MongoCache {
   type LoaderWrapper[K, V] = Loader[K, V] => Loader[K, V]
 
   final class Api(
-      db: lila.db.Db,
+      db: lishogi.db.Db,
       config: MemoConfig,
       cacheApi: CacheApi,
       mode: play.api.Mode

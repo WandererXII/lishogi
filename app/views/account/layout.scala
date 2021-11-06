@@ -1,8 +1,8 @@
 package views.html.account
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -22,7 +22,7 @@ object layout {
       def activeCls(c: String) = cls := active.activeO(c)
       main(cls := "account page-menu")(
         st.nav(cls := "page-menu__menu subnav")(
-          lila.pref.PrefCateg.all.map { categ =>
+          lishogi.pref.PrefCateg.all.map { categ =>
             a(activeCls(categ.slug), href := routes.Pref.form(categ.slug))(
               bits.categName(categ)
             )

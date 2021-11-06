@@ -1,14 +1,14 @@
 package views.html.mod
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object emailConfirm {
 
-  def apply(query: String, user: Option[lila.user.User], email: Option[lila.common.EmailAddress])(implicit
+  def apply(query: String, user: Option[lishogi.user.User], email: Option[lishogi.common.EmailAddress])(implicit
       ctx: Context
   ) =
     views.html.base.layout(

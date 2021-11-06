@@ -1,8 +1,8 @@
 package views.html.plan
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -10,7 +10,7 @@ object thanks {
 
   import trans.patron._
 
-  def apply(patron: Option[lila.plan.Patron], customer: Option[lila.plan.StripeCustomer])(implicit
+  def apply(patron: Option[lishogi.plan.Patron], customer: Option[lishogi.plan.StripeCustomer])(implicit
       ctx: Context
   ) =
     views.html.base.layout(

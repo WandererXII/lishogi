@@ -1,18 +1,18 @@
 package views.html.relation
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object mini {
 
   def apply(
-      userId: lila.user.User.ID,
+      userId: lishogi.user.User.ID,
       blocked: Boolean,
       followable: Boolean,
-      relation: Option[lila.relation.Relation] = None
+      relation: Option[lishogi.relation.Relation] = None
   )(implicit ctx: Context) =
     relation match {
       case None if followable && !blocked =>

@@ -3,10 +3,10 @@ package account
 
 import play.api.data.Form
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.security.EmailConfirm.Help._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.security.EmailConfirm.Help._
 
 import controllers.routes
 
@@ -31,7 +31,7 @@ object emailConfirmHelp {
                 trans.username(),
                 help = raw("What username did you create?").some
               ) { f =>
-                form3.input(f)(pattern := lila.user.User.newUsernameRegex.regex)
+                form3.input(f)(pattern := lishogi.user.User.newUsernameRegex.regex)
               },
               div(cls := "form-group")(
                 form3.submit(trans.apply())

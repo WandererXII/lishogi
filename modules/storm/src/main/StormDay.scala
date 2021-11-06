@@ -1,17 +1,17 @@
-package lila.storm
+package lishogi.storm
 
 import org.joda.time.DateTime
 import org.joda.time.Days
 import scala.concurrent.ExecutionContext
 
-import lila.common.Bus
-import lila.common.config.MaxPerPage
-import lila.common.Day
-import lila.common.paginator.Paginator
-import lila.db.dsl._
-import lila.db.paginator.Adapter
-import lila.user.User
-import lila.user.UserRepo
+import lishogi.common.Bus
+import lishogi.common.config.MaxPerPage
+import lishogi.common.Day
+import lishogi.common.paginator.Paginator
+import lishogi.db.dsl._
+import lishogi.db.paginator.Adapter
+import lishogi.user.User
+import lishogi.user.UserRepo
 import reactivemongo.api.ReadPreference
 
 // stores data of the best run of the day
@@ -64,10 +64,10 @@ final class StormDayApi(coll: Coll, highApi: StormHighApi, userRepo: UserRepo, s
   import StormBsonHandlers._
 
   def addRun(data: StormForm.RunData, user: Option[User]): Fu[Option[StormHigh.NewHigh]] = {
-    lila.mon.storm.run.score(user.isDefined).record(data.score)
+    lishogi.mon.storm.run.score(user.isDefined).record(data.score)
     user ?? { u =>
       if (sign.check(u, ~data.signed)) {
-        Bus.publish(lila.hub.actorApi.storm.StormRun(u.id, data.score), "stormRun")
+        Bus.publish(lishogi.hub.actorApi.storm.StormRun(u.id, data.score), "stormRun")
         highApi get u.id flatMap { prevHigh =>
           val todayId = Id today u.id
           coll
@@ -86,7 +86,7 @@ final class StormDayApi(coll: Coll, highApi: StormHighApi, userRepo: UserRepo, s
       } else {
         if (data.time > 40) {
           if (data.score > 99) logger.warn(s"badly signed run from ${u.username} $data")
-          lila.mon.storm.run
+          lishogi.mon.storm.run
             .sign(data.signed match {
               case None              => "missing"
               case Some("")          => "empty"

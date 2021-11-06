@@ -1,10 +1,10 @@
 package views.html.blog
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.blog.MiniPost
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.blog.MiniPost
+import lishogi.common.paginator.Paginator
 
 import controllers.routes
 
@@ -12,7 +12,7 @@ object index {
 
   def apply(
       pager: Paginator[io.prismic.Document]
-  )(implicit ctx: Context, prismic: lila.blog.BlogApi.Context) = {
+  )(implicit ctx: Context, prismic: lishogi.blog.BlogApi.Context) = {
 
     val primaryPost = (pager.currentPage == 1).??(pager.currentPageResults.headOption)
 
@@ -65,7 +65,7 @@ object index {
 
   private def latestPost(
       doc: io.prismic.Document
-  )(implicit ctx: Context, prismic: lila.blog.BlogApi.Context) =
+  )(implicit ctx: Context, prismic: lishogi.blog.BlogApi.Context) =
     st.article(
       doc.getText("blog.title").map { title =>
         h2(a(href := routes.Blog.show(doc.id, doc.slug, prismic.maybeRef))(title))
@@ -79,7 +79,7 @@ object index {
         },
         div(cls := "body")(
           doc.getStructuredText("blog.body").map { body =>
-            raw(lila.blog.BlogApi.extract(body))
+            raw(lishogi.blog.BlogApi.extract(body))
           },
           p(cls := "more")(
             a(

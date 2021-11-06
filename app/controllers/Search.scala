@@ -2,20 +2,20 @@ package controllers
 
 import scala.concurrent.duration._
 
-import lila.app._
-import lila.common.{ HTTPRequest, IpAddress }
+import lishogi.app._
+import lishogi.common.{ HTTPRequest, IpAddress }
 import views._
 
-final class Search(env: Env) extends LilaController(env) {
+final class Search(env: Env) extends LishogiController(env) {
 
   def searchForm = env.gameSearch.forms.search
 
-  private val SearchRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
+  private val SearchRateLimitPerIP = new lishogi.memo.RateLimit[IpAddress](
     credits = 50,
     duration = 5.minutes,
     key = "search.games.ip"
   )
-  private val SearchConcurrencyLimitPerIP = new lila.memo.FutureConcurrencyLimit[IpAddress](
+  private val SearchConcurrencyLimitPerIP = new lishogi.memo.FutureConcurrencyLimit[IpAddress](
     key = "search.games.concurrency.ip",
     ttl = 10.minutes,
     maxConcurrency = 1

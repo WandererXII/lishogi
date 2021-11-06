@@ -1,9 +1,9 @@
-package lila.report
+package lishogi.report
 
 import org.joda.time.DateTime
 import scalaz.NonEmptyList
 
-import lila.user.User
+import lishogi.user.User
 
 case class Report(
     _id: Report.ID, // also the url slug
@@ -98,7 +98,7 @@ object Report {
       else if (value >= 50) "yellow"
       else "green"
   }
-  implicit val scoreIso = lila.common.Iso.double[Score](Score.apply, _.value)
+  implicit val scoreIso = lishogi.common.Iso.double[Score](Score.apply, _.value)
 
   case class Atom(
       by: ReporterId,
@@ -161,7 +161,7 @@ object Report {
       case c @ Candidate.Scored(candidate, score) =>
         existing.fold(
           Report(
-            _id = lila.common.ThreadLocalRandom nextString 8,
+            _id = lishogi.common.ThreadLocalRandom nextString 8,
             user = candidate.suspect.user.id,
             reason = candidate.reason,
             room = Room(candidate.reason),

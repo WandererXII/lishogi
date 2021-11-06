@@ -1,4 +1,4 @@
-package lila.setup
+package lishogi.setup
 
 import shogi.format.FEN
 

@@ -1,15 +1,15 @@
 package views.html.streamer
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object picture {
 
   import trans.streamer._
 
-  def apply(s: lila.streamer.Streamer.WithUser, error: Option[String] = None)(implicit ctx: Context) =
+  def apply(s: lishogi.streamer.Streamer.WithUser, error: Option[String] = None)(implicit ctx: Context) =
     views.html.base.layout(
       title = xStreamerPicture.txt(),
       moreJs = jsTag("streamer.form.js"),
@@ -25,7 +25,7 @@ object picture {
             enctype := "multipart/form-data",
             cls := "upload"
           )(
-            p(maxSize(s"${lila.db.Photographer.uploadMaxMb}MB.")),
+            p(maxSize(s"${lishogi.db.Photographer.uploadMaxMb}MB.")),
             form3.file.image("picture"),
             submitButton(cls := "button")(uploadPicture())
           ),

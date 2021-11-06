@@ -1,11 +1,11 @@
-package lila.coach
+package lishogi.coach
 
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
-import lila.security.Permission
+import lishogi.common.config._
+import lishogi.security.Permission
 
 @Module
 final private class CoachConfig(
@@ -16,18 +16,18 @@ final private class CoachConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    userRepo: lila.user.UserRepo,
-    notifyApi: lila.notify.NotifyApi,
-    cacheApi: lila.memo.CacheApi,
-    db: lila.db.Db,
-    imageRepo: lila.db.ImageRepo
+    userRepo: lishogi.user.UserRepo,
+    notifyApi: lishogi.notify.NotifyApi,
+    cacheApi: lishogi.memo.CacheApi,
+    db: lishogi.db.Db,
+    imageRepo: lishogi.db.ImageRepo
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private val config = appConfig.get[CoachConfig]("coach")(AutoConfig.loader)
 
   private lazy val coachColl = db(config.coachColl)
 
-  private lazy val photographer = new lila.db.Photographer(imageRepo, "coach")
+  private lazy val photographer = new lishogi.db.Photographer(imageRepo, "coach")
 
   lazy val api = new CoachApi(
     coachColl = coachColl,
@@ -40,25 +40,25 @@ final class Env(
 
   lazy val pager = wire[CoachPager]
 
-  lila.common.Bus.subscribeFun("adjustCheater", "finishGame", "shadowban", "setPermissions") {
-    case lila.hub.actorApi.mod.Shadowban(userId, true) =>
+  lishogi.common.Bus.subscribeFun("adjustCheater", "finishGame", "shadowban", "setPermissions") {
+    case lishogi.hub.actorApi.mod.Shadowban(userId, true) =>
       api.toggleApproved(userId, false)
       api.reviews deleteAllBy userId
-    case lila.hub.actorApi.mod.MarkCheater(userId, true) =>
+    case lishogi.hub.actorApi.mod.MarkCheater(userId, true) =>
       api.toggleApproved(userId, false)
       api.reviews deleteAllBy userId
-    case lila.hub.actorApi.mod.SetPermissions(userId, permissions) =>
+    case lishogi.hub.actorApi.mod.SetPermissions(userId, permissions) =>
       api.toggleApproved(userId, permissions.has(Permission.Coach.dbKey))
-    case lila.game.actorApi.FinishGame(game, sente, gote) if game.rated =>
-      if (game.perfType.exists(lila.rating.PerfType.standard.contains)) {
+    case lishogi.game.actorApi.FinishGame(game, sente, gote) if game.rated =>
+      if (game.perfType.exists(lishogi.rating.PerfType.standard.contains)) {
         sente ?? api.setRating
         gote ?? api.setRating
       }
-    case lila.user.User.GDPRErase(user) => api.reviews deleteAllBy user.id
+    case lishogi.user.User.GDPRErase(user) => api.reviews deleteAllBy user.id
   }
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = {
         case "coach" :: "enable" :: username :: Nil  => api.toggleApproved(username, true)
         case "coach" :: "disable" :: username :: Nil => api.toggleApproved(username, false)

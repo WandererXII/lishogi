@@ -1,4 +1,4 @@
-package lila.fishnet
+package lishogi.fishnet
 
 final class AiPerfApi {
 

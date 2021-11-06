@@ -1,16 +1,16 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import org.joda.time.DateTime
 import shogi.format.Forsyth
 import scala.concurrent.duration._
 
-import lila.analyse.AnalysisRepo
-import lila.game.{ Game, UciMemo }
+import lishogi.analyse.AnalysisRepo
+import lishogi.game.{ Game, UciMemo }
 
 final class Analyser(
     repo: FishnetRepo,
     analysisRepo: AnalysisRepo,
-    gameRepo: lila.game.GameRepo,
+    gameRepo: lishogi.game.GameRepo,
     uciMemo: UciMemo,
     evalCache: FishnetEvalCache,
     limiter: Limiter
@@ -21,7 +21,7 @@ final class Analyser(
 
   val maxPlies = 200
 
-  private val workQueue = new lila.hub.DuctSequencer(maxSize = 256, timeout = 5 seconds, "fishnetAnalyser")
+  private val workQueue = new lishogi.hub.DuctSequencer(maxSize = 256, timeout = 5 seconds, "fishnetAnalyser")
 
   def apply(game: Game, sender: Work.Sender): Fu[Boolean] =
     (game.metadata.analysed ?? analysisRepo.exists(game.id)) flatMap {
@@ -41,10 +41,10 @@ final class Analyser(
                   case Some(_) => funit
                   // first request, store
                   case _ =>
-                    lila.mon.fishnet.analysis.requestCount("game").increment()
+                    lishogi.mon.fishnet.analysis.requestCount("game").increment()
                     repo addAnalysis work
                   //evalCache skipPositions work.game flatMap { skipPositions =>
-                  //  lila.mon.fishnet.analysis.evalCacheHits.record(skipPositions.size)
+                  //  lishogi.mon.fishnet.analysis.evalCacheHits.record(skipPositions.size)
                   //  repo addAnalysis work.copy(skipPositions = skipPositions)
                   //}
                 }
@@ -57,12 +57,12 @@ final class Analyser(
   def apply(gameId: String, sender: Work.Sender): Fu[Boolean] =
     gameRepo game gameId flatMap { _ ?? { apply(_, sender) } }
 
-  def study(req: lila.hub.actorApi.fishnet.StudyChapterRequest): Fu[Boolean] =
+  def study(req: lishogi.hub.actorApi.fishnet.StudyChapterRequest): Fu[Boolean] =
     analysisRepo exists req.chapterId flatMap {
       case true => fuFalse
       case _ => {
         import req._
-        val sender = Work.Sender(req.userId.some, none, false, system = lila.user.User isOfficial req.userId)
+        val sender = Work.Sender(req.userId.some, none, false, system = lishogi.user.User isOfficial req.userId)
         limiter(sender, ignoreConcurrentCheck = true) flatMap { accepted =>
           if (!accepted) logger.info(s"Study request declined: ${req.studyId}/${req.chapterId} by $sender")
           accepted ?? {
@@ -81,10 +81,10 @@ final class Analyser(
             workQueue {
               repo getSimilarAnalysis work flatMap {
                 _.isEmpty ?? {
-                  lila.mon.fishnet.analysis.requestCount("study").increment()
+                  lishogi.mon.fishnet.analysis.requestCount("study").increment()
                   repo addAnalysis work
                   //evalCache skipPositions work.game flatMap { skipPositions =>
-                  //  lila.mon.fishnet.analysis.evalCacheHits.record(skipPositions.size)
+                  //  lishogi.mon.fishnet.analysis.evalCacheHits.record(skipPositions.size)
                   //  repo addAnalysis work.copy(skipPositions = skipPositions)
                   //}
                 }

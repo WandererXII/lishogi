@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 import shogi.format.{ Glyph, Tags }
 import shogi.variant.Variant
@@ -6,8 +6,8 @@ import shogi.{ Centis, Color }
 import org.joda.time.DateTime
 
 import shogi.opening.{ FullOpening, FullOpeningDB }
-import lila.tree.Node.{ Comment, Gamebook, Shapes }
-import lila.user.User
+import lishogi.tree.Node.{ Comment, Gamebook, Shapes }
+import lishogi.user.User
 
 case class Chapter(
     _id: Chapter.Id,
@@ -97,10 +97,10 @@ object Chapter {
   val maxNodes = 3000
 
   case class Id(value: String) extends AnyVal with StringValue
-  implicit val idIso = lila.common.Iso.string[Id](Id.apply, _.value)
+  implicit val idIso = lishogi.common.Iso.string[Id](Id.apply, _.value)
 
   case class Name(value: String) extends AnyVal with StringValue
-  implicit val nameIso = lila.common.Iso.string[Name](Name.apply, _.value)
+  implicit val nameIso = lishogi.common.Iso.string[Name](Name.apply, _.value)
 
   sealed trait Like {
     val _id: Chapter.Id
@@ -112,7 +112,7 @@ object Chapter {
   }
 
   case class Setup(
-      gameId: Option[lila.game.Game.ID],
+      gameId: Option[lishogi.game.Game.ID],
       variant: Variant,
       orientation: Color,
       fromFen: Option[Boolean] = None,
@@ -167,7 +167,7 @@ object Chapter {
 
   val idSize = 8
 
-  def makeId = Id(lila.common.ThreadLocalRandom nextString idSize)
+  def makeId = Id(lishogi.common.ThreadLocalRandom nextString idSize)
 
   def make(
       studyId: Study.Id,

@@ -1,4 +1,4 @@
-package lila.coach
+package lishogi.coach
 
 case class CoachProfile(
     headline: Option[String] = None,

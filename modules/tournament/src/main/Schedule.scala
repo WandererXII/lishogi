@@ -1,11 +1,11 @@
-package lila.tournament
+package lishogi.tournament
 
 import shogi.StartingPosition
 import shogi.variant.Variant
 import org.joda.time.DateTime
 import play.api.i18n.Lang
 
-import lila.rating.PerfType
+import lishogi.rating.PerfType
 
 case class Schedule(
     freq: Schedule.Freq,
@@ -19,7 +19,7 @@ case class Schedule(
   def name(full: Boolean = true)(implicit lang: Lang): String = {
     import Schedule.Freq._
     import Schedule.Speed._
-    import lila.i18n.I18nKeys.tourname._
+    import lishogi.i18n.I18nKeys.tourname._
     if (variant.standard && position.initial)
       (conditions.minRating, conditions.maxRating) match {
         case (None, None) =>
@@ -188,7 +188,7 @@ object Schedule {
 
   sealed abstract class Speed(val id: Int) {
     val name = toString
-    val key  = lila.common.String lcfirst name
+    val key  = lishogi.common.String lcfirst name
   }
   object Speed {
     case object UltraBullet extends Speed(5)

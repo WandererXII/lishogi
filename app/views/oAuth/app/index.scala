@@ -1,14 +1,14 @@
 package views.html.oAuth.app
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object index {
 
-  def apply(made: List[lila.oauth.OAuthApp], used: List[lila.oauth.AccessToken.WithApp])(implicit
+  def apply(made: List[lishogi.oauth.OAuthApp], used: List[lishogi.oauth.AccessToken.WithApp])(implicit
       ctx: Context
   ) =
     views.html.account.layout(title = "OAuth Apps", active = "oauth.app")(

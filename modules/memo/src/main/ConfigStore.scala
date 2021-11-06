@@ -1,12 +1,12 @@
-package lila.memo
+package lishogi.memo
 
 import com.typesafe.config.ConfigFactory
 import play.api.ConfigLoader
 import play.api.data.Form
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 
-final class ConfigStore[A](coll: Coll, id: String, cacheApi: CacheApi, logger: lila.log.Logger)(implicit
+final class ConfigStore[A](coll: Coll, id: String, cacheApi: CacheApi, logger: lishogi.log.Logger)(implicit
     ec: scala.concurrent.ExecutionContext,
     loader: ConfigLoader[A]
 ) {
@@ -67,12 +67,12 @@ final class ConfigStore[A](coll: Coll, id: String, cacheApi: CacheApi, logger: l
 
 object ConfigStore {
 
-  final class Builder(db: lila.db.Db, config: MemoConfig, cacheApi: CacheApi)(implicit
+  final class Builder(db: lishogi.db.Db, config: MemoConfig, cacheApi: CacheApi)(implicit
       ec: scala.concurrent.ExecutionContext
   ) {
     private val coll = db(config.configColl)
 
-    def apply[A: ConfigLoader](id: String, logger: lila.log.Logger) =
+    def apply[A: ConfigLoader](id: String, logger: lishogi.log.Logger) =
       new ConfigStore[A](coll, id, cacheApi, logger branch "configStore")
   }
 }

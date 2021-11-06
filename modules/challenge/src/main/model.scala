@@ -1,4 +1,4 @@
-package lila.challenge
+package lishogi.challenge
 
 case class AllChallenges(in: List[Challenge], out: List[Challenge])
 

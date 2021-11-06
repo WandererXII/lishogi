@@ -1,17 +1,17 @@
-package lila.setup
+package lishogi.setup
 
 import com.softwaremill.macwire._
 import play.api.Configuration
 
-import lila.common.config._
+import lishogi.common.config._
 
 @Module
 final class Env(
     appConfig: Configuration,
-    gameRepo: lila.game.GameRepo,
-    fishnetPlayer: lila.fishnet.Player,
-    onStart: lila.round.OnStart,
-    gameCache: lila.game.Cached
+    gameRepo: lishogi.game.GameRepo,
+    fishnetPlayer: lishogi.fishnet.Player,
+    onStart: lishogi.round.OnStart,
+    gameCache: lishogi.game.Cached
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private lazy val maxPlaying = appConfig.get[Max]("setup.max_playing")

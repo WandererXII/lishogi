@@ -1,9 +1,9 @@
-package lila.pref
+package lishogi.pref
 
 import reactivemongo.api.bson._
 
-import lila.db.BSON
-import lila.db.dsl._
+import lishogi.db.BSON
+import lishogi.db.dsl._
 
 private object PrefHandlers {
 

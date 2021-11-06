@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 import scala.Numeric.Implicits._
 import scala.reflect.ClassTag

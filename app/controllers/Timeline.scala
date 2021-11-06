@@ -3,13 +3,13 @@ package controllers
 import play.api.libs.json._
 import scala.concurrent.duration._
 
-import lila.app._
-import lila.common.config.Max
-import lila.common.HTTPRequest
-import lila.timeline.Entry.entryWrites
+import lishogi.app._
+import lishogi.common.config.Max
+import lishogi.common.HTTPRequest
+import lishogi.timeline.Entry.entryWrites
 import views._
 
-final class Timeline(env: Env) extends LilaController(env) {
+final class Timeline(env: Env) extends LishogiController(env) {
 
   def home =
     Auth { implicit ctx => me =>

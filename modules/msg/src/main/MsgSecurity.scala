@@ -1,25 +1,25 @@
-package lila.msg
+package lishogi.msg
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
-import lila.common.Bus
-import lila.db.dsl._
-import lila.hub.actorApi.clas.IsTeacherOf
-import lila.hub.actorApi.report.AutoFlag
-import lila.hub.actorApi.team.IsLeaderOf
-import lila.memo.RateLimit
-import lila.security.Granter
-import lila.shutup.Analyser
-import lila.user.User
+import lishogi.common.Bus
+import lishogi.db.dsl._
+import lishogi.hub.actorApi.clas.IsTeacherOf
+import lishogi.hub.actorApi.report.AutoFlag
+import lishogi.hub.actorApi.team.IsLeaderOf
+import lishogi.memo.RateLimit
+import lishogi.security.Granter
+import lishogi.shutup.Analyser
+import lishogi.user.User
 
 final private class MsgSecurity(
     colls: MsgColls,
-    prefApi: lila.pref.PrefApi,
-    userRepo: lila.user.UserRepo,
-    relationApi: lila.relation.RelationApi,
-    spam: lila.security.Spam,
-    chatPanic: lila.chat.ChatPanic
+    prefApi: lishogi.pref.PrefApi,
+    userRepo: lishogi.user.UserRepo,
+    relationApi: lishogi.relation.RelationApi,
+    spam: lishogi.security.Spam,
+    chatPanic: lishogi.chat.ChatPanic
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem
@@ -133,9 +133,9 @@ final private class MsgSecurity(
 
     private def create(contacts: User.Contacts): Fu[Boolean] =
       prefApi.getPref(contacts.dest.id, _.message) flatMap {
-        case lila.pref.Pref.Message.NEVER  => fuccess(false)
-        case lila.pref.Pref.Message.FRIEND => relationApi.fetchFollows(contacts.dest.id, contacts.orig.id)
-        case lila.pref.Pref.Message.ALWAYS => fuccess(true)
+        case lishogi.pref.Pref.Message.NEVER  => fuccess(false)
+        case lishogi.pref.Pref.Message.FRIEND => relationApi.fetchFollows(contacts.dest.id, contacts.orig.id)
+        case lishogi.pref.Pref.Message.ALWAYS => fuccess(true)
       }
 
     // Even if the dest prefs disallow it,

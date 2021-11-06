@@ -1,9 +1,9 @@
-package lila.analyse
+package lishogi.analyse
 
 import org.joda.time._
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class RequesterApi(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

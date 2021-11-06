@@ -2,9 +2,9 @@ package views.html.plan
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
@@ -13,9 +13,9 @@ object index {
   import trans.patron._
 
   def apply(
-      email: Option[lila.common.EmailAddress],
+      email: Option[lishogi.common.EmailAddress],
       stripePublicKey: String,
-      patron: Option[lila.plan.Patron],
+      patron: Option[lishogi.plan.Patron],
       recentIds: List[String],
       bestIds: List[String]
   )(implicit ctx: Context) = {
@@ -28,7 +28,7 @@ object index {
         jsTag("checkout.js"),
         embedJsUnsafe(s"""lishogi.checkout("$stripePublicKey");""")
       ),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = becomePatron.txt(),
           url = s"$netBaseUrl${routes.Plan.index().url}",
@@ -82,8 +82,8 @@ object index {
                 div(
                   cls := "plan_checkout",
                   attr("data-email") := email.map(_.value),
-                  attr("data-lifetime-usd") := lila.plan.Cents.lifetime.usd.toString,
-                  attr("data-lifetime-cents") := lila.plan.Cents.lifetime.value
+                  attr("data-lifetime-usd") := lishogi.plan.Cents.lifetime.usd.toString,
+                  attr("data-lifetime-cents") := lishogi.plan.Cents.lifetime.value
                 )(
                   raw(s"""
 <form class="paypal_checkout onetime none" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
@@ -137,7 +137,7 @@ object index {
                     p(style := "text-align:center;margin-bottom:1em")(makeExtraDonation()),
                   st.group(cls := "radio buttons freq")(
                     div(
-                      st.title := payLifetimeOnce.txt(lila.plan.Cents.lifetime.usd),
+                      st.title := payLifetimeOnce.txt(lishogi.plan.Cents.lifetime.usd),
                       cls := List("lifetime-check" -> patron.exists(_.isLifetime)),
                       input(
                         tpe := "radio",
@@ -173,7 +173,7 @@ object index {
                   ),
                   div(cls := "amount_choice")(
                     st.group(cls := "radio buttons amount")(
-                      lila.plan.StripePlan.defaultAmounts.map { cents =>
+                      lishogi.plan.StripePlan.defaultAmounts.map { cents =>
                         val id = s"plan_${cents.value}"
                         div(
                           input(
@@ -201,7 +201,7 @@ object index {
                   div(cls := "amount_fixed none")(
                     st.group(cls := "radio buttons amount")(
                       div {
-                        val cents = lila.plan.Cents.lifetime
+                        val cents = lishogi.plan.Cents.lifetime
                         label(`for` := s"plan_${cents.value}")(cents.usd.toString)
                       }
                     )

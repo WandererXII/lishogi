@@ -4,9 +4,9 @@ require 'fileutils'
 require 'base64'
 include FileUtils
 
-lila_dir = pwd()
-source_dir = lila_dir + '/public/piece/'
-dest_dir = lila_dir + '/public/piece-css/'
+lishogi_dir = pwd()
+source_dir = lishogi_dir + '/public/piece/'
+dest_dir = lishogi_dir + '/public/piece-css/'
 
 themes = [
   ['1Kanji_3D', 'svg'],

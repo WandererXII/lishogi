@@ -1,12 +1,12 @@
-package lila.setup
+package lishogi.setup
 
 import play.api.data.Forms._
 import play.api.data.format.Formats._
 
 import shogi.Mode
 import shogi.{ variant => V }
-import lila.rating.RatingRange
-import lila.lobby.Color
+import lishogi.rating.RatingRange
+import lishogi.lobby.Color
 
 private object Mappings {
 

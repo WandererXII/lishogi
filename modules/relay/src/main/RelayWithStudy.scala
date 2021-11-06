@@ -1,7 +1,7 @@
-package lila.relay
+package lishogi.relay
 
-import lila.study.{ Study, StudyApi }
-import lila.user.User
+import lishogi.study.{ Study, StudyApi }
+import lishogi.user.User
 
 final private class RelayWithStudy(studyApi: StudyApi)(implicit ec: scala.concurrent.ExecutionContext) {
 

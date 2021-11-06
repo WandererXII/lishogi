@@ -1,4 +1,4 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import akka.stream.scaladsl._
 import org.joda.time.DateTime
@@ -6,8 +6,8 @@ import reactivemongo.akkastream.cursorProducer
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
-import lila.db.BSON.BSONJodaDateTimeHandler
-import lila.db.dsl._
+import lishogi.db.BSON.BSONJodaDateTimeHandler
+import lishogi.db.dsl._
 
 final private class Cleaner(
     repo: FishnetRepo,

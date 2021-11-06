@@ -11,15 +11,15 @@ import scala.language.existentials
 import scala.util.chaining._
 import scalatags.Text.Frag
 
-import lila.api.{ BodyContext, Context }
-import lila.app._
-import lila.app.mashup.{ GameFilter, GameFilterMenu }
-import lila.common.paginator.Paginator
-import lila.common.{ HTTPRequest, IpAddress }
-import lila.game.{ Pov, Game => GameModel }
-import lila.rating.PerfType
-import lila.socket.UserLagCache
-import lila.user.{ User => UserModel }
+import lishogi.api.{ BodyContext, Context }
+import lishogi.app._
+import lishogi.app.mashup.{ GameFilter, GameFilterMenu }
+import lishogi.common.paginator.Paginator
+import lishogi.common.{ HTTPRequest, IpAddress }
+import lishogi.game.{ Pov, Game => GameModel }
+import lishogi.rating.PerfType
+import lishogi.socket.UserLagCache
+import lishogi.user.{ User => UserModel }
 import views._
 
 final class User(
@@ -27,7 +27,7 @@ final class User(
     roundC: => Round,
     gameC: => Game,
     modC: => Mod
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private def relationApi    = env.relation.api
   private def userGameSearch = env.gameSearch.userGameSearch
@@ -76,7 +76,7 @@ final class User(
         info   <- env.userInfo(u, nbs, ctx)
         social <- env.socialInfo(u, ctx)
       } yield status {
-        lila.mon.chronoSync(_.user segment "renderSync") {
+        lishogi.mon.chronoSync(_.user segment "renderSync") {
           html.user.show.page.activity(u, as, info, social)
         }
       }
@@ -154,12 +154,12 @@ final class User(
                       .withHeaders(CACHE_CONTROL -> "max-age=5")
                   },
                   api = _ => {
-                    import lila.game.JsonView.crosstableWrites
+                    import lishogi.game.JsonView.crosstableWrites
                     fuccess(
                       Ok(
                         Json.obj(
                           "crosstable" -> crosstable,
-                          "perfs"      -> lila.user.JsonView.perfs(user, user.best8Perfs)
+                          "perfs"      -> lishogi.user.JsonView.perfs(user, user.best8Perfs)
                         )
                       )
                     )
@@ -210,7 +210,7 @@ final class User(
         env.round.proxyRepo.upgradeIfPresent(p) dmap some
       })
 
-  private val UserGamesRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
+  private val UserGamesRateLimitPerIP = new lishogi.memo.RateLimit[IpAddress](
     credits = 500,
     duration = 10.minutes,
     key = "user_games.web.ip"
@@ -222,7 +222,7 @@ final class User(
       page: Int
   )(implicit ctx: BodyContext[_]): Fu[Paginator[GameModel]] = {
     UserGamesRateLimitPerIP(HTTPRequest lastRemoteAddress ctx.req, cost = page, msg = s"on ${u.username}") {
-      lila.mon.http.userGamesCost.increment(page.toLong)
+      lishogi.mon.http.userGamesCost.increment(page.toLong)
       for {
         pagFromDb <- env.gamePaginator(
           user = u,
@@ -316,7 +316,7 @@ final class User(
   private def modZoneSegment(fu: Fu[Frag], name: String, user: UserModel): Source[Frag, _] =
     Source futureSource {
       fu.monSuccess(_.mod zoneSegment name)
-        .logFailure(lila.log("modZoneSegment").branch(s"$name ${user.id}"))
+        .logFailure(lishogi.log("modZoneSegment").branch(s"$name ${user.id}"))
         .map(Source.single)
     }
 
@@ -324,7 +324,7 @@ final class User(
     env.user.repo withEmails username orFail s"No such user $username" map {
       case UserModel.WithEmails(user, emails) =>
         import html.user.{ mod => view }
-        import lila.app.ui.ScalatagsExtensions.LilaFragZero
+        import lishogi.app.ui.ScalatagsExtensions.LishogiFragZero
 
         val nbOthers = getInt("nbOthers") | 100
 
@@ -356,7 +356,7 @@ final class User(
             .forMod(familyUserIds)
             .logTimeIfGt(s"$username noteApi.forMod", 2 seconds)) zip
             env.playban.api.bans(familyUserIds).logTimeIfGt(s"$username playban.bans", 2 seconds) zip
-            lila.security.UserSpy.withMeSortedWithEmails(env.user.repo, user, spy) map {
+            lishogi.security.UserSpy.withMeSortedWithEmails(env.user.repo, user, spy) map {
               case notes ~ bans ~ othersWithEmail =>
                 html.user.mod.otherUsers(user, spy, othersWithEmail, notes, bans, nbOthers)
             }
@@ -456,7 +456,7 @@ final class User(
             .zip(followables)
             .map { case ((u, nb), followable) =>
               relationApi.fetchRelation(me.id, u.id) map {
-                lila.relation.Related(u, nb.some, followable, _)
+                lishogi.relation.Related(u, nb.some, followable, _)
               }
             }
             .sequenceFu
@@ -477,7 +477,7 @@ final class User(
                 env.user.rankingApi.weeklyRatingDistribution(perfType) dmap some
               }
               percentile = distribution.map { distrib =>
-                lila.user.Stat.percentile(distrib, u.perfs(perfType).intRating) match {
+                lishogi.user.Stat.percentile(distrib, u.perfs(perfType).intRating) match {
                   case (under, sum) => Math.round(under * 1000.0 / sum) / 10.0
                 }
               }
@@ -502,7 +502,7 @@ final class User(
 
   def autocomplete =
     Open { implicit ctx =>
-      get("term", ctx.req).filter(_.nonEmpty).filter(lila.user.User.couldBeUsername) match {
+      get("term", ctx.req).filter(_.nonEmpty).filter(lishogi.user.User.couldBeUsername) match {
         case None => BadRequest("No search term provided").fuccess
         case Some(term) if getBool("exists") =>
           env.user.repo nameExists term map { r =>
@@ -512,7 +512,7 @@ final class User(
           {
             (get("tour"), get("swiss")) match {
               case (Some(tourId), _)  => env.tournament.playerRepo.searchPlayers(tourId, term, 10)
-              case (_, Some(swissId)) => env.swiss.api.searchPlayers(lila.swiss.Swiss.Id(swissId), term, 10)
+              case (_, Some(swissId)) => env.swiss.api.searchPlayers(lishogi.swiss.Swiss.Id(swissId), term, 10)
               case _ =>
                 ctx.me.ifTrue(getBool("friend")) match {
                   case Some(follower) =>
@@ -521,7 +521,7 @@ final class User(
                       case userIds => fuccess(userIds)
                     }
                   case None if getBool("teacher") =>
-                    env.user.repo.userIdsLikeWithRole(term, lila.security.Permission.Teacher.dbKey)
+                    env.user.repo.userIdsLikeWithRole(term, lishogi.security.Permission.Teacher.dbKey)
                   case None => env.user.cached userIdsLike term
                 }
             }
@@ -532,7 +532,7 @@ final class User(
             else if (getBool("object")) env.user.lightUserApi.asyncMany(userIds) map { users =>
               Json.obj(
                 "result" -> JsArray(users.flatten.map { u =>
-                  lila.common.LightUser.lightUserWrites.writes(u).add("online" -> env.socket.isOnline(u.id))
+                  lishogi.common.LightUser.lightUserWrites.writes(u).add("online" -> env.socket.isOnline(u.id))
                 })
               )
             }

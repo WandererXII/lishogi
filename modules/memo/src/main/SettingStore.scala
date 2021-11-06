@@ -1,10 +1,10 @@
-package lila.memo
+package lishogi.memo
 
 import scala.util.matching.Regex
 import scala.util.Try
 import reactivemongo.api.bson.BSONHandler
 
-import lila.db.dsl._
+import lishogi.db.dsl._
 import play.api.data._, Forms._
 
 final class SettingStore[A: BSONHandler: SettingStore.StringReader: SettingStore.Formable] private (
@@ -45,7 +45,7 @@ object SettingStore {
 
   type Init[A] = (ConfigValue[A], DbValue[A]) => A
 
-  final class Builder(db: lila.db.Db, config: MemoConfig)(implicit ec: scala.concurrent.ExecutionContext) {
+  final class Builder(db: lishogi.db.Db, config: MemoConfig)(implicit ec: scala.concurrent.ExecutionContext) {
     val coll = db(config.configColl)
     def apply[A: BSONHandler: StringReader: Formable](
         id: String,
@@ -68,17 +68,17 @@ object SettingStore {
     )
     implicit val intReader                          = new StringReader[Int](_.toIntOption)
     implicit val stringReader                       = new StringReader[String](some)
-    def fromIso[A](iso: lila.common.Iso[String, A]) = new StringReader[A](v => iso.from(v).some)
+    def fromIso[A](iso: lishogi.common.Iso[String, A]) = new StringReader[A](v => iso.from(v).some)
   }
 
   object Strings {
-    val stringsIso                  = lila.common.Iso.strings(",")
-    implicit val stringsBsonHandler = lila.db.dsl.isoHandler(stringsIso)
+    val stringsIso                  = lishogi.common.Iso.strings(",")
+    implicit val stringsBsonHandler = lishogi.db.dsl.isoHandler(stringsIso)
     implicit val stringsReader      = StringReader.fromIso(stringsIso)
   }
   object Regex {
-    val regexIso                  = lila.common.Iso.string[Regex](_.r, _.toString)
-    implicit val regexBsonHandler = lila.db.dsl.isoHandler(regexIso)
+    val regexIso                  = lishogi.common.Iso.string[Regex](_.r, _.toString)
+    implicit val regexBsonHandler = lishogi.db.dsl.isoHandler(regexIso)
     implicit val regexReader      = StringReader.fromIso(regexIso)
   }
 
@@ -94,7 +94,7 @@ object SettingStore {
     implicit val booleanFormable = new Formable[Boolean](v => Form(single("v" -> boolean)) fill v)
     implicit val intFormable     = new Formable[Int](v => Form(single("v" -> number)) fill v)
     implicit val stringFormable  = new Formable[String](v => Form(single("v" -> text)) fill v)
-    implicit val stringsFormable = new Formable[lila.common.Strings](v =>
+    implicit val stringsFormable = new Formable[lishogi.common.Strings](v =>
       Form(single("v" -> text)) fill Strings.stringsIso.to(v)
     )
   }

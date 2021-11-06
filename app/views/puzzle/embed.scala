@@ -3,10 +3,10 @@ package views.html.puzzle
 import controllers.routes
 import play.api.i18n.Lang
 
-import lila.app.templating.Environment._
-import lila.app.ui.EmbedConfig
-import lila.app.ui.ScalatagsTemplate._
-import lila.puzzle.DailyPuzzle
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.EmbedConfig
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.puzzle.DailyPuzzle
 
 object embed {
 

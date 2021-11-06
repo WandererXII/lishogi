@@ -1,6 +1,6 @@
-package lila.chat
+package lishogi.chat
 
-import lila.user.User
+import lishogi.user.User
 
 import shogi.Color
 

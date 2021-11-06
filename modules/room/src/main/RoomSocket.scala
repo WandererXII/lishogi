@@ -1,12 +1,12 @@
-package lila.room
+package lishogi.room
 
-import lila.chat.{ BusChan, Chat, ChatApi, ChatTimeout, UserLine }
-import lila.hub.actorApi.shutup.PublicSource
-import lila.hub.{ Trouper, TrouperMap }
-import lila.log.Logger
-import lila.socket.RemoteSocket.{ Protocol => P, _ }
-import lila.socket.Socket.{ makeMessage, GetVersion, SocketVersion }
-import lila.user.User
+import lishogi.chat.{ BusChan, Chat, ChatApi, ChatTimeout, UserLine }
+import lishogi.hub.actorApi.shutup.PublicSource
+import lishogi.hub.{ Trouper, TrouperMap }
+import lishogi.log.Logger
+import lishogi.socket.RemoteSocket.{ Protocol => P, _ }
+import lishogi.socket.Socket.{ makeMessage, GetVersion, SocketVersion }
+import lishogi.user.User
 
 import play.api.libs.json._
 import scala.concurrent.duration._
@@ -75,7 +75,7 @@ object RoomSocket {
           chatBusChan
         )
       case Protocol.In.ChatTimeout(roomId, modId, suspect, reason, text) =>
-        lila.chat.ChatTimeout.Reason(reason) foreach { r =>
+        lishogi.chat.ChatTimeout.Reason(reason) foreach { r =>
           localTimeout.?? { _(roomId, modId, suspect) } foreach { local =>
             val scope = if (local) ChatTimeout.Scope.Local else ChatTimeout.Scope.Global
             chat.userChat.timeout(
@@ -108,10 +108,10 @@ object RoomSocket {
   private val chatMsgs = Set("message", "chat_timeout", "chat_reinstate")
 
   def subscribeChat(rooms: TrouperMap[RoomState], busChan: BusChan.Select) = {
-    import lila.chat.actorApi._
-    lila.common.Bus.subscribeFun(busChan(BusChan).chan, BusChan.Global.chan) {
+    import lishogi.chat.actorApi._
+    lishogi.common.Bus.subscribeFun(busChan(BusChan).chan, BusChan.Global.chan) {
       case ChatLine(id, line: UserLine) =>
-        rooms.tellIfPresent(id.value, NotifyVersion("message", lila.chat.JsonView(line), line.troll))
+        rooms.tellIfPresent(id.value, NotifyVersion("message", lishogi.chat.JsonView(line), line.troll))
       case OnTimeout(id, userId) =>
         rooms.tellIfPresent(id.value, NotifyVersion("chat_timeout", userId, false))
       case OnReinstate(id, userId) =>

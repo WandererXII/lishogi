@@ -1,4 +1,4 @@
-package lila.setup
+package lishogi.setup
 
 sealed abstract class TimeMode(val id: Int)
 
@@ -22,7 +22,7 @@ object TimeMode {
 
   def orDefault(id: Int) = apply(id) | default
 
-  def ofGame(game: lila.game.Game) =
+  def ofGame(game: lishogi.game.Game) =
     if (game.hasClock) RealTime
     else if (game.hasCorrespondenceClock) Correspondence
     else Unlimited

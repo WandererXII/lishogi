@@ -1,20 +1,20 @@
-package lila.streamer
+package lishogi.streamer
 
 import org.joda.time.DateTime
 
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.db.Photographer
-import lila.memo.CacheApi._
-import lila.user.{ User, UserRepo }
+import lishogi.db.dsl._
+import lishogi.db.Photographer
+import lishogi.memo.CacheApi._
+import lishogi.user.{ User, UserRepo }
 
 final class StreamerApi(
     coll: Coll,
     userRepo: UserRepo,
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     photographer: Photographer,
-    notifyApi: lila.notify.NotifyApi
+    notifyApi: lishogi.notify.NotifyApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BsonHandlers._
@@ -70,13 +70,13 @@ final class StreamerApi(
           list = prev.approval.granted != streamer.approval.granted option streamer.approval.granted,
           tier = prev.approval.tier != streamer.approval.tier option streamer.approval.tier
         )
-        import lila.notify.Notification.Notifies
-        import lila.notify.Notification
+        import lishogi.notify.Notification.Notifies
+        import lishogi.notify.Notification
         ~modChange.list ?? {
           notifyApi.addNotification(
             Notification.make(
               Notifies(streamer.userId),
-              lila.notify.GenericLink(
+              lishogi.notify.GenericLink(
                 url = s"/streamer/edit",
                 title = "Listed on /streamer".some,
                 text = "Your streamer page is public".some,
@@ -101,7 +101,7 @@ final class StreamerApi(
       .void
 
   def create(u: User): Funit =
-    coll.insert.one(Streamer make u).void.recover(lila.db.ignoreDuplicateKey)
+    coll.insert.one(Streamer make u).void.recover(lishogi.db.ignoreDuplicateKey)
 
   def isPotentialStreamer(user: User): Fu[Boolean] =
     cache.listedIds.getUnit.dmap(_ contains Streamer.Id(user.id))

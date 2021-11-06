@@ -1,11 +1,11 @@
 package views
 package html.tournament
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.richText
-import lila.tournament.{ TeamBattle, Tournament, TournamentShield }
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.richText
+import lishogi.tournament.{ TeamBattle, Tournament, TournamentShield }
 
 import controllers.routes
 
@@ -15,8 +15,8 @@ object side {
 
   def apply(
       tour: Tournament,
-      verdicts: lila.tournament.Condition.All.WithVerdicts,
-      streamers: List[lila.user.User.ID],
+      verdicts: lishogi.tournament.Condition.All.WithVerdicts,
+      streamers: List[lishogi.user.User.ID],
       shieldOwner: Option[TournamentShield.OwnerId],
       chat: Boolean
   )(implicit ctx: Context) =
@@ -50,7 +50,7 @@ object side {
         tour.teamBattle map teamBattle(tour),
         tour.spotlight map { s =>
           st.section(
-            lila.common.String.html.markdownLinks(s.description),
+            lishogi.common.String.html.markdownLinks(s.description),
             shieldOwner map { owner =>
               p(cls := "defender", dataIcon := "5")(
                 "Defender:",
@@ -81,7 +81,7 @@ object side {
                   "refused"        -> !v.verdict.accepted
                 )
               )(v.condition match {
-                case lila.tournament.Condition.TeamMember(teamId, teamName) =>
+                case lishogi.tournament.Condition.TeamMember(teamId, teamName) =>
                   trans.mustBeInTeam(teamLink(teamId, teamName, withIcon = false))
                 case c => c.name
               })

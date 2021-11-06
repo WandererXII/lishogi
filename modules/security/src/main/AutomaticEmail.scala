@@ -1,12 +1,12 @@
-package lila.security
+package lishogi.security
 
 import play.api.i18n.Lang
 
-import lila.common.EmailAddress
-import lila.common.config.BaseUrl
-import lila.i18n.I18nKeys.{ emails => trans }
-import lila.user.{ User, UserRepo }
-import lila.hub.actorApi.msg.SystemMsg
+import lishogi.common.EmailAddress
+import lishogi.common.config.BaseUrl
+import lishogi.i18n.I18nKeys.{ emails => trans }
+import lishogi.user.{ User, UserRepo }
+import lishogi.hub.actorApi.msg.SystemMsg
 
 final class AutomaticEmail(
     userRepo: UserRepo,
@@ -57,7 +57,7 @@ Thank you for using lishogi.org.
 $regards
 """
 
-      lila.common.Bus.publish(SystemMsg(user.id, body), "msgSystemSend")
+      lishogi.common.Bus.publish(SystemMsg(user.id, body), "msgSystemSend")
 
       mailgun send Mailgun.Message(
         to = email,
@@ -83,7 +83,7 @@ Your coach profile awaits you on ${baseUrl}/coach/edit.
 $regards
 """
 
-        lila.common.Bus.publish(SystemMsg(user.id, body), "msgSystemSend")
+        lishogi.common.Bus.publish(SystemMsg(user.id, body), "msgSystemSend")
 
         mailgun send Mailgun.Message(
           to = email,
@@ -118,7 +118,7 @@ Thank you very much for your help! Thanks to you, shogi lovers all around the wo
 $regards
 """
 
-      lila.common.Bus.publish(SystemMsg(user.id, body), "msgSystemSend")
+      lishogi.common.Bus.publish(SystemMsg(user.id, body), "msgSystemSend")
 
       mailgun send Mailgun.Message(
         to = email,
@@ -140,9 +140,9 @@ ${Mailgun.txt.serviceNote}
 $regards
 """
 
-    lila.common.Bus.publish(SystemMsg(user.id, body), "msgSystemSend")
+    lishogi.common.Bus.publish(SystemMsg(user.id, body), "msgSystemSend")
     funit
   }
 
-  private def userLang(user: User) = user.realLang | lila.i18n.defaultLang
+  private def userLang(user: User) = user.realLang | lishogi.i18n.defaultLang
 }

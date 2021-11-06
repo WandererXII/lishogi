@@ -1,10 +1,10 @@
 package views.html.streamer
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
 
 object index {
 
@@ -13,14 +13,14 @@ object index {
   private val dataDedup = attr("data-dedup")
 
   def apply(
-      live: List[lila.streamer.Streamer.WithUserAndStream],
-      pager: Paginator[lila.streamer.Streamer.WithUser],
+      live: List[lishogi.streamer.Streamer.WithUserAndStream],
+      pager: Paginator[lishogi.streamer.Streamer.WithUser],
       requests: Boolean
   )(implicit ctx: Context) = {
 
     val title = if (requests) "Streamer approval requests" else lishogiStreamers.txt()
 
-    def widget(s: lila.streamer.Streamer.WithUser, stream: Option[lila.streamer.Stream]) =
+    def widget(s: lishogi.streamer.Streamer.WithUser, stream: Option[lishogi.streamer.Stream]) =
       frag(
         if (requests) a(href := s"${routes.Streamer.edit}?u=${s.user.username}", cls := "overlay")
         else

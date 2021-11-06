@@ -1,4 +1,4 @@
-package lila.common
+package lishogi.common
 
 case class ContentSecurityPolicy(
     defaultSrc: List[String],

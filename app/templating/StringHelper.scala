@@ -1,4 +1,4 @@
-package lila.app
+package lishogi.app
 package templating
 
 import play.api.i18n.Lang
@@ -7,9 +7,9 @@ import ui.ScalatagsTemplate._
 
 trait StringHelper { self: NumberHelper =>
 
-  val slugify = lila.common.String.slugify _
+  val slugify = lishogi.common.String.slugify _
 
-  def shorten(text: String, length: Int, sep: String = "…") = lila.common.String.shorten(text, length, sep)
+  def shorten(text: String, length: Int, sep: String = "…") = lishogi.common.String.shorten(text, length, sep)
 
   def pluralize(s: String, n: Int) = s"$n $s${if (n > 1) "s" else ""}"
 
@@ -39,7 +39,7 @@ trait StringHelper { self: NumberHelper =>
     }
   }
 
-  def encodeFen(fen: String) = lila.common.String.base64.encode(fen).reverse
+  def encodeFen(fen: String) = lishogi.common.String.base64.encode(fen).reverse
 
   def addQueryParameter(url: String, key: String, value: Any) =
     if (url contains "?") s"$url&$key=$value" else s"$url?$key=$value"
@@ -54,10 +54,10 @@ trait StringHelper { self: NumberHelper =>
         )
     }
 
-  implicit def lilaRichString(str: String): LilaRichString = new LilaRichString(str)
+  implicit def lishogiRichString(str: String): LishogiRichString = new LishogiRichString(str)
 }
 
-final class LilaRichString(val str: String) extends AnyVal {
+final class LishogiRichString(val str: String) extends AnyVal {
   def active(other: String, one: String = "active")  = if (str == other) one else ""
   def activeO(other: String, one: String = "active") = if (str == other) Some(one) else None
 }

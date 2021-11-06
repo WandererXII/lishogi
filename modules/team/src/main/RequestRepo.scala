@@ -1,7 +1,7 @@
-package lila.team
+package lishogi.team
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class RequestRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 

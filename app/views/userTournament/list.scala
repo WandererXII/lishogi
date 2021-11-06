@@ -3,10 +3,10 @@ package userTournament
 
 import play.api.i18n.Lang
 
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.user.User
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.user.User
 
 import controllers.routes
 
@@ -15,7 +15,7 @@ object list {
   def apply(
       u: User,
       path: String,
-      pager: Paginator[lila.tournament.LeaderboardApi.TourEntry],
+      pager: Paginator[lishogi.tournament.LeaderboardApi.TourEntry],
       count: String
   )(implicit lang: Lang) =
     if (pager.nbResults == 0)

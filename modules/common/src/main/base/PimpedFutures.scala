@@ -1,4 +1,4 @@
-package lila.base
+package lishogi.base
 
 import akka.actor.ActorSystem
 import ornicar.scalalib.Zero
@@ -7,8 +7,8 @@ import scala.concurrent.duration._
 import scala.concurrent.{ ExecutionContext => EC, Future, Await }
 import scala.util.Try
 
-import lila.common.Chronometer
-import LilaTypes._
+import lishogi.common.Chronometer
+import LishogiTypes._
 
 final class PimpedFuture[A](private val fua: Fu[A]) extends AnyVal {
 
@@ -51,11 +51,11 @@ final class PimpedFuture[A](private val fua: Fu[A]) extends AnyVal {
   def flatFold[B](fail: Exception => Fu[B], succ: A => Fu[B])(implicit ec: EC): Fu[B] =
     fua flatMap succ recoverWith { case e: Exception => fail(e) }
 
-  def logFailure(logger: => lila.log.Logger, msg: Throwable => String)(implicit ec: EC): Fu[A] =
+  def logFailure(logger: => lishogi.log.Logger, msg: Throwable => String)(implicit ec: EC): Fu[A] =
     addFailureEffect { e =>
       logger.warn(msg(e), e)
     }
-  def logFailure(logger: => lila.log.Logger)(implicit ec: EC): Fu[A] = logFailure(logger, _.toString)
+  def logFailure(logger: => lishogi.log.Logger)(implicit ec: EC): Fu[A] = logFailure(logger, _.toString)
 
   def addFailureEffect(effect: Throwable => Unit)(implicit ec: EC) = {
     fua.failed.foreach { case e: Throwable =>
@@ -97,7 +97,7 @@ final class PimpedFuture[A](private val fua: Fu[A]) extends AnyVal {
 
   def prefixFailure(p: => String)(implicit ec: EC) =
     mapFailure { e =>
-      LilaException(s"$p ${e.getMessage}")
+      LishogiException(s"$p ${e.getMessage}")
     }
 
   def thenPp(implicit ec: EC): Fu[A] = {
@@ -129,7 +129,7 @@ final class PimpedFuture[A](private val fua: Fu[A]) extends AnyVal {
     }
 
   def withTimeout(duration: FiniteDuration)(implicit ec: EC, system: ActorSystem): Fu[A] =
-    withTimeout(duration, LilaException(s"Future timed out after $duration"))
+    withTimeout(duration, LishogiException(s"Future timed out after $duration"))
 
   def withTimeout(
       duration: FiniteDuration,
@@ -152,18 +152,18 @@ final class PimpedFuture[A](private val fua: Fu[A]) extends AnyVal {
   }
 
   def delay(duration: FiniteDuration)(implicit ec: EC, system: ActorSystem) =
-    lila.common.Future.delay(duration)(fua)
+    lishogi.common.Future.delay(duration)(fua)
 
   def chronometer    = Chronometer(fua)
   def chronometerTry = Chronometer.lapTry(fua)
 
-  def mon(path: lila.mon.TimerPath)              = chronometer.mon(path).result
-  def monTry(path: Try[A] => lila.mon.TimerPath) = chronometerTry.mon(r => path(r)(lila.mon)).result
-  def monSuccess(path: lila.mon.type => Boolean => kamon.metric.Timer) =
+  def mon(path: lishogi.mon.TimerPath)              = chronometer.mon(path).result
+  def monTry(path: Try[A] => lishogi.mon.TimerPath) = chronometerTry.mon(r => path(r)(lishogi.mon)).result
+  def monSuccess(path: lishogi.mon.type => Boolean => kamon.metric.Timer) =
     chronometerTry.mon { r =>
-      path(lila.mon)(r.isSuccess)
+      path(lishogi.mon)(r.isSuccess)
     }.result
-  def monValue(path: A => lila.mon.TimerPath) = chronometer.monValue(path).result
+  def monValue(path: A => lishogi.mon.TimerPath) = chronometer.monValue(path).result
 
   def logTime(name: String)                               = chronometer pp name
   def logTimeIfGt(name: String, duration: FiniteDuration) = chronometer.ppIfGt(name, duration)
@@ -172,10 +172,10 @@ final class PimpedFuture[A](private val fua: Fu[A]) extends AnyVal {
 
   def nevermind(default: => A)(implicit ec: EC): Fu[A] =
     fua recover {
-      case _: LilaException                         => default
+      case _: LishogiException                         => default
       case _: java.util.concurrent.TimeoutException => default
       case e: Exception =>
-        lila.log("common").warn("Future.nevermind", e)
+        lishogi.log("common").warn("Future.nevermind", e)
         default
     }
 }

@@ -1,14 +1,14 @@
 package views.html
 package account
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.pref.PrefCateg
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.pref.PrefCateg
 
 object bits {
 
-  def categName(categ: lila.pref.PrefCateg)(implicit ctx: Context): String =
+  def categName(categ: lishogi.pref.PrefCateg)(implicit ctx: Context): String =
     categ match {
       case PrefCateg.GameDisplay  => trans.preferences.gameDisplay.txt()
       case PrefCateg.ChessClock   => trans.preferences.chessClock.txt()

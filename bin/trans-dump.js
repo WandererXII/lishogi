@@ -33,7 +33,7 @@ Promise.all(dbs.map(keyListFrom)).then(objs => {
       `object ${obj.name} {\n${obj.code}}\n`;
   }
   const code = `// Generated with bin/trans-dump.js
-package lila.i18n
+package lishogi.i18n
 
 // format: OFF
 object I18nKeys {

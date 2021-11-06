@@ -1,15 +1,15 @@
-package lila.mod
+package lishogi.mod
 
-import lila.common.{ Bus, EmailAddress }
-import lila.report.{ Mod, ModId, Room, Suspect, SuspectId }
-import lila.security.{ Granter, Permission }
-import lila.user.{ LightUserApi, Title, User, UserRepo }
+import lishogi.common.{ Bus, EmailAddress }
+import lishogi.report.{ Mod, ModId, Room, Suspect, SuspectId }
+import lishogi.security.{ Granter, Permission }
+import lishogi.user.{ LightUserApi, Title, User, UserRepo }
 
 final class ModApi(
     userRepo: UserRepo,
     logApi: ModlogApi,
-    reportApi: lila.report.ReportApi,
-    reporter: lila.hub.actors.Report,
+    reportApi: lishogi.report.ReportApi,
+    reporter: lishogi.hub.actors.Report,
     notifier: ModNotifier,
     lightUserApi: LightUserApi,
     refunder: RatingRefund
@@ -33,7 +33,7 @@ final class ModApi(
         _ <- reportApi.process(mod, sus, Set(Room.Cheat, Room.Print))
         _ <- logApi.engine(mod, sus, v)
       } yield {
-        Bus.publish(lila.hub.actorApi.mod.MarkCheater(sus.user.id, v), "adjustCheater")
+        Bus.publish(lishogi.hub.actorApi.mod.MarkCheater(sus.user.id, v), "adjustCheater")
         if (v) {
           notifier.reporters(mod, sus)
           refunder schedule sus
@@ -48,7 +48,7 @@ final class ModApi(
       _ <- (!sus.user.isBot && !unengined) ?? {
         reportApi.getMod(modId.value) flatMap {
           _ ?? { mod =>
-            lila.mon.cheat.autoMark.increment()
+            lishogi.mon.cheat.autoMark.increment()
             setEngine(mod, sus, true)
           }
         }
@@ -65,7 +65,7 @@ final class ModApi(
         _ <- logApi.booster(mod, sus, v)
       } yield {
         if (v) {
-          Bus.publish(lila.hub.actorApi.mod.MarkBooster(sus.user.id), "adjustBooster")
+          Bus.publish(lishogi.hub.actorApi.mod.MarkBooster(sus.user.id), "adjustBooster")
           notifier.reporters(mod, sus)
         }
         sus
@@ -73,7 +73,7 @@ final class ModApi(
 
   def autoBoost(winnerId: User.ID, loserId: User.ID): Funit =
     logApi.wasUnbooster(loserId) map {
-      case false => reporter ! lila.hub.actorApi.report.Booster(winnerId, loserId)
+      case false => reporter ! lishogi.hub.actorApi.report.Booster(winnerId, loserId)
       case true  => ()
     }
 
@@ -83,7 +83,7 @@ final class ModApi(
     changed ?? {
       userRepo.updateTroll(sus.user).void >>- {
         logApi.troll(mod, sus)
-        Bus.publish(lila.hub.actorApi.mod.Shadowban(sus.user.id, value), "shadowban")
+        Bus.publish(lishogi.hub.actorApi.mod.Shadowban(sus.user.id, value), "shadowban")
       }
     } >>
       reportApi.process(mod, sus, Set(Room.Comm)) >>- {
@@ -144,7 +144,7 @@ final class ModApi(
         permissions.filter(Granter.canGrant(mod.user, _))
       userRepo.setRoles(user.id, finalPermissions.map(_.dbKey).toList) >> {
         Bus.publish(
-          lila.hub.actorApi.mod.SetPermissions(user.id, finalPermissions.map(_.dbKey).toList),
+          lishogi.hub.actorApi.mod.SetPermissions(user.id, finalPermissions.map(_.dbKey).toList),
           "setPermissions"
         )
         logApi.setPermissions(mod, user.id, permissions.toList)
@@ -158,7 +158,7 @@ final class ModApi(
 
   def setRankban(mod: Mod, sus: Suspect, v: Boolean): Funit =
     (sus.user.marks.rankban != v) ?? {
-      if (v) Bus.publish(lila.hub.actorApi.mod.KickFromRankings(sus.user.id), "kickFromRankings")
+      if (v) Bus.publish(lishogi.hub.actorApi.mod.KickFromRankings(sus.user.id), "kickFromRankings")
       userRepo.setRankban(sus.user.id, v) >>- logApi.rankban(mod, sus, v)
     }
 

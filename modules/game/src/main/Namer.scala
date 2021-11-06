@@ -1,6 +1,6 @@
-package lila.game
+package lishogi.game
 
-import lila.common.LightUser
+import lishogi.common.LightUser
 
 object Namer {
 

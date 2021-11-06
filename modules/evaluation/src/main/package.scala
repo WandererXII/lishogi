@@ -1,3 +1,3 @@
-package lila
+package lishogi
 
 package object evaluation extends PackageObject

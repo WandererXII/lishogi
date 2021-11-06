@@ -1,6 +1,6 @@
-package lila.appeal
+package lishogi.appeal
 
-import lila.user.User
+import lishogi.user.User
 import org.joda.time.DateTime
 
 case class Appeal(

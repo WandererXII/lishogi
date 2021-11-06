@@ -1,4 +1,4 @@
-package lila.socket
+package lishogi.socket
 
 import play.api.libs.json._
 import scala.concurrent.Promise
@@ -8,8 +8,8 @@ object Socket extends Socket {
 
   case class Sri(value: String) extends AnyVal with StringValue
 
-  val sriIso             = lila.common.Iso.string[Sri](Sri.apply, _.value)
-  implicit val sriFormat = lila.common.Json.stringIsoFormat(sriIso)
+  val sriIso             = lishogi.common.Iso.string[Sri](Sri.apply, _.value)
+  implicit val sriFormat = lishogi.common.Json.stringIsoFormat(sriIso)
 
   case class Sris(sris: Set[Sri])
 
@@ -18,8 +18,8 @@ object Socket extends Socket {
     def inc                           = SocketVersion(value + 1)
   }
 
-  val socketVersionIso             = lila.common.Iso.int[SocketVersion](SocketVersion.apply, _.value)
-  implicit val socketVersionFormat = lila.common.Json.intIsoFormat(socketVersionIso)
+  val socketVersionIso             = lishogi.common.Iso.int[SocketVersion](SocketVersion.apply, _.value)
+  implicit val socketVersionFormat = lishogi.common.Json.intIsoFormat(socketVersionIso)
   implicit val socketVersionZero   = Zero.instance[SocketVersion](SocketVersion(0))
 
   case class GetVersion(promise: Promise[SocketVersion])

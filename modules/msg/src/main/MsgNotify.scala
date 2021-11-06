@@ -1,17 +1,17 @@
-package lila.msg
+package lishogi.msg
 
 import akka.actor.Cancellable
 import java.util.concurrent.ConcurrentHashMap
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.notify.{ Notification, PrivateMessage }
-import lila.common.String.shorten
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.notify.{ Notification, PrivateMessage }
+import lishogi.common.String.shorten
+import lishogi.user.User
 
 final private class MsgNotify(
     colls: MsgColls,
-    notifyApi: lila.notify.NotifyApi
+    notifyApi: lishogi.notify.NotifyApi
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     scheduler: akka.actor.Scheduler
@@ -29,7 +29,7 @@ final private class MsgNotify(
     !cancel(threadId) ??
       notifyApi
         .markRead(
-          lila.notify.Notification.Notifies(userId),
+          lishogi.notify.Notification.Notifies(userId),
           $doc(
             "content.type" -> "privateMessage",
             "content.user" -> contactId
@@ -44,7 +44,7 @@ final private class MsgNotify(
         cancel(thread.id)
         notifyApi
           .remove(
-            lila.notify.Notification.Notifies(thread other user),
+            lishogi.notify.Notification.Notifies(thread other user),
             $doc("content.user" -> user.id)
           )
           .void
@@ -73,7 +73,7 @@ final private class MsgNotify(
         val msg  = thread.lastMsg
         val dest = thread other msg.user
         !thread.delBy(dest) ?? {
-          lila.common.Bus.publish(MsgThread.Unread(thread), "msgUnread")
+          lishogi.common.Bus.publish(MsgThread.Unread(thread), "msgUnread")
           notifyApi addNotification Notification.make(
             Notification.Notifies(dest),
             PrivateMessage(

@@ -1,22 +1,22 @@
 package views.html
 package practice
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object index {
 
-  def apply(data: lila.practice.UserPractice)(implicit ctx: Context) =
+  def apply(data: lishogi.practice.UserPractice)(implicit ctx: Context) =
     views.html.base.layout(
       title = "Practice shogi positions",
       moreCss = cssTag("practice.index"),
       moreJs = embedJsUnsafe(s"""$$('.do-reset').on('click', function() {
 if (confirm('You will lose your practice progress!')) this.parentNode.submit();
 });"""),
-      openGraph = lila.app.ui
+      openGraph = lishogi.app.ui
         .OpenGraph(
           title = "Practice your shogi",
           description = "Learn how to master the most common shogi positions",

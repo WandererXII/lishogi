@@ -1,22 +1,22 @@
-package lila.activity
+package lishogi.activity
 
 import akka.actor._
 import com.softwaremill.macwire._
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.hub.actorApi.round.CorresMoveEvent
+import lishogi.common.config._
+import lishogi.hub.actorApi.round.CorresMoveEvent
 
 final class Env(
-    db: lila.db.Db,
-    practiceApi: lila.practice.PracticeApi,
-    gameRepo: lila.game.GameRepo,
-    postApi: lila.forum.PostApi,
-    simulApi: lila.simul.SimulApi,
-    studyApi: lila.study.StudyApi,
-    tourLeaderApi: lila.tournament.LeaderboardApi,
-    getTourName: lila.tournament.GetTourName,
-    getTeamName: lila.team.GetTeamName
+    db: lishogi.db.Db,
+    practiceApi: lishogi.practice.PracticeApi,
+    gameRepo: lishogi.game.GameRepo,
+    postApi: lishogi.forum.PostApi,
+    simulApi: lishogi.simul.SimulApi,
+    studyApi: lishogi.study.StudyApi,
+    tourLeaderApi: lishogi.tournament.LeaderboardApi,
+    getTourName: lishogi.tournament.GetTourName,
+    getTeamName: lishogi.team.GetTeamName
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -30,7 +30,7 @@ final class Env(
 
   lazy val jsonView = wire[JsonView]
 
-  lila.common.Bus.subscribeFun(
+  lishogi.common.Bus.subscribeFun(
     "finishGame",
     "forumPost",
     "finishPuzzle",
@@ -44,21 +44,21 @@ final class Env(
     "streamStart",
     "stormRun"
   ) {
-    case lila.game.actorApi.FinishGame(game, _, _) if !game.aborted => write game game
-    case lila.forum.actorApi.CreatePost(post)                       => write.forumPost(post)
-    case res: lila.puzzle.Puzzle.UserResult                         => write puzzle res
-    case prog: lila.practice.PracticeProgress.OnComplete            => write practice prog
-    case lila.simul.Simul.OnStart(simul)                            => write simul simul
+    case lishogi.game.actorApi.FinishGame(game, _, _) if !game.aborted => write game game
+    case lishogi.forum.actorApi.CreatePost(post)                       => write.forumPost(post)
+    case res: lishogi.puzzle.Puzzle.UserResult                         => write puzzle res
+    case prog: lishogi.practice.PracticeProgress.OnComplete            => write practice prog
+    case lishogi.simul.Simul.OnStart(simul)                            => write simul simul
     case CorresMoveEvent(move, Some(userId), _, _, false)           => write.corresMove(move.gameId, userId)
-    case lila.hub.actorApi.plan.MonthInc(userId, months)            => write.plan(userId, months)
-    case lila.hub.actorApi.relation.Follow(from, to)                => write.follow(from, to)
-    case lila.study.actorApi.StartStudy(id)                         =>
+    case lishogi.hub.actorApi.plan.MonthInc(userId, months)            => write.plan(userId, months)
+    case lishogi.hub.actorApi.relation.Follow(from, to)                => write.follow(from, to)
+    case lishogi.study.actorApi.StartStudy(id)                         =>
       // wait some time in case the study turns private
       system.scheduler.scheduleOnce(5 minutes) { write study id }
-    case lila.hub.actorApi.storm.StormRun(userId, score)  => write.storm(userId, score)
-    case lila.hub.actorApi.team.CreateTeam(id, _, userId) => write.team(id, userId)
-    case lila.hub.actorApi.team.JoinTeam(id, userId)      => write.team(id, userId)
-    case lila.hub.actorApi.streamer.StreamStart(userId)   => write.streamStart(userId)
-    case lila.user.User.GDPRErase(user)                   => write erase user
+    case lishogi.hub.actorApi.storm.StormRun(userId, score)  => write.storm(userId, score)
+    case lishogi.hub.actorApi.team.CreateTeam(id, _, userId) => write.team(id, userId)
+    case lishogi.hub.actorApi.team.JoinTeam(id, userId)      => write.team(id, userId)
+    case lishogi.hub.actorApi.streamer.StreamStart(userId)   => write.streamStart(userId)
+    case lishogi.user.User.GDPRErase(user)                   => write erase user
   }
 }

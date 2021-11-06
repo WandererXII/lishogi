@@ -1,7 +1,7 @@
-package lila.game
+package lishogi.game
 package actorApi
 
-import lila.user.User
+import lishogi.user.User
 
 case class StartGame(game: Game)
 

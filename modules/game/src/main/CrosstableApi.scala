@@ -1,10 +1,10 @@
-package lila.game
+package lishogi.game
 
 import org.joda.time.DateTime
 import scala.concurrent.ExecutionContext
 
-import lila.db.dsl._
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class CrosstableApi(
     coll: Coll,
@@ -99,7 +99,7 @@ final class CrosstableApi(
 
   private def create(u1: User.ID, u2: User.ID): Fu[Crosstable] = {
     val crosstable = Crosstable.empty(u1, u2)
-    coll.insert.one(crosstable) recover lila.db.recoverDuplicateKey(_ => ()) inject crosstable
+    coll.insert.one(crosstable) recover lishogi.db.recoverDuplicateKey(_ => ()) inject crosstable
   }
 
   private def select(u1: User.ID, u2: User.ID) =

@@ -1,17 +1,17 @@
 package views.html
 
-import lila.activity.activities._
-import lila.activity.model._
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.user.User
+import lishogi.activity.activities._
+import lishogi.activity.model._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.user.User
 
 import controllers.routes
 
 object activity {
 
-  def apply(u: User, as: Iterable[lila.activity.ActivityView])(implicit ctx: Context) =
+  def apply(u: User, as: Iterable[lishogi.activity.ActivityView])(implicit ctx: Context) =
     div(cls := "activity")(
       as.toSeq map { a =>
         st.section(
@@ -52,7 +52,7 @@ object activity {
       )
     )
 
-  private def renderPractice(p: Map[lila.practice.PracticeStudy, Int])(implicit ctx: Context) = {
+  private def renderPractice(p: Map[lishogi.practice.PracticeStudy, Int])(implicit ctx: Context) = {
     val ps = p.toSeq.sortBy(-_._2)
     entryTag(
       iconTag(""),
@@ -66,7 +66,7 @@ object activity {
     )
   }
 
-  private def onePractice(tup: (lila.practice.PracticeStudy, Int))(implicit ctx: Context) =
+  private def onePractice(tup: (lishogi.practice.PracticeStudy, Int))(implicit ctx: Context) =
     tup match {
       case (study, nb) =>
         val href = routes.Practice.show("-", study.slug, study.id.value)
@@ -108,7 +108,7 @@ object activity {
       )
     }
 
-  private def renderPosts(posts: Map[lila.forum.Topic, List[lila.forum.Post]])(implicit ctx: Context) =
+  private def renderPosts(posts: Map[lishogi.forum.Topic, List[lishogi.forum.Post]])(implicit ctx: Context) =
     ctx.noKid option entryTag(
       iconTag("d"),
       div(
@@ -127,7 +127,7 @@ object activity {
       )
     )
 
-  private def renderCorresMoves(nb: Int, povs: List[lila.game.LightPov])(implicit ctx: Context) =
+  private def renderCorresMoves(nb: Int, povs: List[lishogi.game.LightPov])(implicit ctx: Context) =
     entryTag(
       iconTag(";"),
       div(
@@ -147,7 +147,7 @@ object activity {
       )
     )
 
-  private def renderCorresEnds(score: Score, povs: List[lila.game.LightPov])(implicit ctx: Context) =
+  private def renderCorresEnds(score: Score, povs: List[lishogi.game.LightPov])(implicit ctx: Context) =
     entryTag(
       iconTag(";"),
       div(
@@ -192,7 +192,7 @@ object activity {
       )
     )
 
-  private def renderSimuls(u: User)(simuls: List[lila.simul.Simul])(implicit ctx: Context) =
+  private def renderSimuls(u: User)(simuls: List[lishogi.simul.Simul])(implicit ctx: Context) =
     entryTag(
       iconTag("f"),
       div(
@@ -217,7 +217,7 @@ object activity {
       )
     )
 
-  private def renderStudies(studies: List[lila.study.Study.IdName])(implicit ctx: Context) =
+  private def renderStudies(studies: List[lishogi.study.Study.IdName])(implicit ctx: Context) =
     entryTag(
       iconTag("4"),
       div(
@@ -239,7 +239,7 @@ object activity {
       )
     )
 
-  private def renderTours(tours: lila.activity.ActivityView.Tours)(implicit ctx: Context) =
+  private def renderTours(tours: lishogi.activity.ActivityView.Tours)(implicit ctx: Context) =
     entryTag(
       iconTag("g"),
       div(
@@ -300,7 +300,7 @@ object activity {
       ratingProgress(r.diff)
     )
 
-  private def scoreStr(tag: String, p: Int, name: lila.i18n.I18nKey)(implicit ctx: Context) =
+  private def scoreStr(tag: String, p: Int, name: lishogi.i18n.I18nKey)(implicit ctx: Context) =
     if (p == 0) ""
     else s"""<$tag>${wrapNumber(name.pluralSameTxt(p))}</$tag>"""
 

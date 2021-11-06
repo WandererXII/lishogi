@@ -1,18 +1,18 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import akka.pattern.ask
 import org.joda.time.DateTime
 import Puzzle.{ BSONFields => F }
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.memo.CacheApi._
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi._
 
 final private[puzzle] class DailyPuzzle(
     colls: PuzzleColls,
     pathApi: PuzzlePathApi,
-    renderer: lila.hub.actors.Renderer,
-    cacheApi: lila.memo.CacheApi
+    renderer: lishogi.hub.actors.Renderer,
+    cacheApi: lishogi.memo.CacheApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BsonHandlers._

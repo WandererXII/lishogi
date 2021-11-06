@@ -1,9 +1,9 @@
-package lila.rating
+package lishogi.rating
 
 import com.softwaremill.macwire._
 
 @Module
-final class Env(settingStore: lila.memo.SettingStore.Builder) {
+final class Env(settingStore: lishogi.memo.SettingStore.Builder) {
 
   import RatingFactor.implicits._
 

@@ -1,4 +1,4 @@
-package lila.study
+package lishogi.study
 
 case class MultiPgn(value: List[String]) extends AnyVal
 

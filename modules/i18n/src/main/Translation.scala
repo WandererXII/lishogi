@@ -1,8 +1,8 @@
-package lila.i18n
+package lishogi.i18n
 
 import scalatags.Text.all._
 
-import lila.common.String.html.escapeHtml
+import lishogi.common.String.html.escapeHtml
 
 sealed private trait Translation
 

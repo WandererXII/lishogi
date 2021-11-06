@@ -1,9 +1,9 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.memo.CacheApi
+import lishogi.db.dsl._
+import lishogi.memo.CacheApi
 
 final private class PuzzleCountApi(
     colls: PuzzleColls,

@@ -2,8 +2,8 @@ package views.html.study
 
 import play.api.i18n.Lang
 
-import lila.app.templating.Environment._
-import lila.i18n.{ I18nKeys => trans }
+import lishogi.app.templating.Environment._
+import lishogi.i18n.{ I18nKeys => trans }
 
 object jsI18n {
 
@@ -11,7 +11,7 @@ object jsI18n {
     views.html.board.userAnalysisI18n(withAdvantageChart = true) ++
       i18nJsObject(i18nKeys)
 
-  val i18nKeys: List[lila.i18n.MessageKey] = {
+  val i18nKeys: List[lishogi.i18n.MessageKey] = {
     import trans.study._
     List(
       trans.name,

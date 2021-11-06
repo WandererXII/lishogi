@@ -1,4 +1,4 @@
-package lila.chat
+package lishogi.chat
 package actorApi
 
 case class ChatLine(chatId: Chat.Id, line: Line)

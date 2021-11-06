@@ -1,20 +1,20 @@
-package lila.coach
+package lishogi.coach
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
-import lila.db.dsl._
-import lila.db.Photographer
-import lila.notify.{ Notification, NotifyApi }
-import lila.security.Granter
-import lila.user.{ User, UserRepo }
+import lishogi.db.dsl._
+import lishogi.db.Photographer
+import lishogi.notify.{ Notification, NotifyApi }
+import lishogi.security.Granter
+import lishogi.user.{ User, UserRepo }
 
 final class CoachApi(
     coachColl: Coll,
     reviewColl: Coll,
     userRepo: UserRepo,
     photographer: Photographer,
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     notifyApi: NotifyApi
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -127,7 +127,7 @@ final class CoachApi(
             notifyApi.addNotification(
               Notification.make(
                 notifies = Notification.Notifies(coach.id.value),
-                content = lila.notify.CoachReview
+                content = lishogi.notify.CoachReview
               )
             ) >> refreshCoachNbReviews(coach.id) inject review
         }

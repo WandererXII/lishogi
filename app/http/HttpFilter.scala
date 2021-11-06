@@ -1,16 +1,16 @@
-package lila.app
+package lishogi.app
 package http
 
 import akka.stream.Materializer
 import play.api.mvc._
 
-import lila.common.HTTPRequest
+import lishogi.common.HTTPRequest
 
 final class HttpFilter(env: Env)(implicit val mat: Materializer) extends Filter {
 
-  private val httpMon     = lila.mon.http
+  private val httpMon     = lishogi.mon.http
   private val net         = env.net
-  private val logger      = lila.log("http")
+  private val logger      = lishogi.log("http")
   private val logRequests = env.config.get[Boolean]("net.http.log")
 
   def apply(nextFilter: RequestHeader => Fu[Result])(req: RequestHeader): Fu[Result] =

@@ -1,14 +1,14 @@
-package lila.tournament
+package lishogi.tournament
 
 import reactivemongo.akkastream.{ cursorProducer, AkkaStreamCursor }
 import reactivemongo.api._
 import reactivemongo.api.bson._
 
 import BSONHandlers._
-import lila.db.dsl._
-import lila.hub.LightTeam.TeamID
-import lila.rating.Perf
-import lila.user.{ Perfs, User }
+import lishogi.db.dsl._
+import lishogi.hub.LightTeam.TeamID
+import lishogi.rating.Perf
+import lishogi.user.{ Perfs, User }
 
 final class PlayerRepo(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -165,7 +165,7 @@ final class PlayerRepo(coll: Coll)(implicit ec: scala.concurrent.ExecutionContex
         }
       }
 
-  def teamVs(tourId: Tournament.ID, game: lila.game.Game): Fu[Option[TeamBattle.TeamVs]] =
+  def teamVs(tourId: Tournament.ID, game: lishogi.game.Game): Fu[Option[TeamBattle.TeamVs]] =
     game.twoUserIds ?? { case (s, g) =>
       teamsOfPlayers(tourId, List(s, g)).dmap(_.toMap) map { m =>
         (m.get(s) |@| m.get(g)).tupled ?? { case (st, gt) =>

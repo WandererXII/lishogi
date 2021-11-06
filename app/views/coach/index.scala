@@ -3,11 +3,11 @@ package coach
 
 import play.api.i18n.Lang
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.i18n.LangList
-import lila.common.paginator.Paginator
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.i18n.LangList
+import lishogi.common.paginator.Paginator
 
 import controllers.routes
 
@@ -16,9 +16,9 @@ object index {
   import trans.coach._
 
   def apply(
-      pager: Paginator[lila.coach.Coach.WithUser],
+      pager: Paginator[lishogi.coach.Coach.WithUser],
       lang: Option[Lang],
-      order: lila.coach.CoachPager.Order,
+      order: lishogi.coach.CoachPager.Order,
       langCodes: Set[String]
   )(implicit
       ctx: Context
@@ -28,7 +28,7 @@ object index {
       moreCss = cssTag("coach"),
       moreJs = infiniteScrollTag
     ) {
-      val langSelections = ("all", "All languages") :: lila.i18n.I18nLangPicker
+      val langSelections = ("all", "All languages") :: lishogi.i18n.I18nLangPicker
         .sortFor(LangList.popularNoRegion.filter(l => langCodes(l.code)), ctx.req)
         .map { l =>
           l.code -> LangList.name(l)
@@ -59,7 +59,7 @@ object index {
               views.html.base.bits.mselect(
                 "coach-sort",
                 order.name,
-                lila.coach.CoachPager.Order.all map { o =>
+                lishogi.coach.CoachPager.Order.all map { o =>
                   a(
                     href := routes.Coach.search(lang.fold("all")(_.code), o.key),
                     cls := (order == o).option("current")

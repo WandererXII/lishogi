@@ -1,8 +1,8 @@
-package lila
+package lishogi
 
 package object blog extends PackageObject {
 
-  private[blog] def logger = lila.log("blog")
+  private[blog] def logger = lishogi.log("blog")
 
   lazy val thisYear = org.joda.time.DateTime.now.getYear
 

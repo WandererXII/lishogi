@@ -1,4 +1,4 @@
-package lila.game
+package lishogi.game
 
 import play.api.libs.json._
 
@@ -14,8 +14,8 @@ import shogi.{
   Status
 }
 import JsonView._
-import lila.chat.{ PlayerLine, UserLine }
-import lila.common.ApiVersion
+import lishogi.chat.{ PlayerLine, UserLine }
+import lishogi.common.ApiVersion
 
 sealed trait Event {
   def typ: String
@@ -208,14 +208,14 @@ object Event {
 
   case class PlayerMessage(line: PlayerLine) extends Event {
     def typ            = "message"
-    def data           = lila.chat.JsonView(line)
+    def data           = lishogi.chat.JsonView(line)
     override def owner = true
     override def troll = false
   }
 
   case class UserMessage(line: UserLine, w: Boolean) extends Event {
     def typ              = "message"
-    def data             = lila.chat.JsonView(line)
+    def data             = lishogi.chat.JsonView(line)
     override def troll   = line.troll
     override def watcher = w
     override def owner   = !w
@@ -331,7 +331,7 @@ object Event {
     def data = Json.obj("sente" -> sente, "gote" -> gote)
   }
   object CorrespondenceClock {
-    def apply(clock: lila.game.CorrespondenceClock): CorrespondenceClock =
+    def apply(clock: lishogi.game.CorrespondenceClock): CorrespondenceClock =
       CorrespondenceClock(clock.senteTime, clock.goteTime)
   }
 

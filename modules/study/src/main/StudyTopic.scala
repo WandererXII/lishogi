@@ -1,14 +1,14 @@
-package lila.study
+package lishogi.study
 
 import play.api.libs.json._
 import reactivemongo.api._
 import reactivemongo.api.bson._
 import scala.concurrent.duration._
 
-import lila.common.Future
-import lila.db.AsyncColl
-import lila.db.dsl._
-import lila.user.User
+import lishogi.common.Future
+import lishogi.db.AsyncColl
+import lishogi.db.dsl._
+import lishogi.user.User
 
 case class StudyTopic(value: String) extends AnyVal with StringValue
 
@@ -23,7 +23,7 @@ object StudyTopic {
       case _                                                       => none
     }
 
-  implicit val topicIso = lila.common.Iso.string[StudyTopic](StudyTopic.apply, _.value)
+  implicit val topicIso = lishogi.common.Iso.string[StudyTopic](StudyTopic.apply, _.value)
 }
 
 case class StudyTopics(value: List[StudyTopic]) extends AnyVal {
@@ -141,7 +141,7 @@ final class StudyTopicApi(topicRepo: StudyTopicRepo, userTopicRepo: StudyUserTop
   private def docTopic(doc: Bdoc): Option[StudyTopic] =
     doc.getAsOpt[StudyTopic]("_id")
 
-  private val recomputeWorkQueue = new lila.hub.DuctSequencer(
+  private val recomputeWorkQueue = new lishogi.hub.DuctSequencer(
     maxSize = 1,
     timeout = 61 seconds,
     name = "studyTopicAggregation",
@@ -150,7 +150,7 @@ final class StudyTopicApi(topicRepo: StudyTopicRepo, userTopicRepo: StudyUserTop
 
   def recompute(): Unit =
     recomputeWorkQueue(Future.makeItLast(60 seconds)(recomputeNow)).recover {
-      case _: lila.hub.BoundedDuct.EnqueueException => ()
+      case _: lishogi.hub.BoundedDuct.EnqueueException => ()
       case e: Exception                             => logger.warn("Can't recompute study topics!", e)
     }
 

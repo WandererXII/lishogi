@@ -1,11 +1,11 @@
-package lila.streamer
+package lishogi.streamer
 
 import org.joda.time.DateTime
 import play.api.data._
 import play.api.data.Forms._
 import play.api.data.validation.Constraints
 
-import lila.common.Form.{ constraint, formatter }
+import lishogi.common.Form.{ constraint, formatter }
 
 object StreamerForm {
 

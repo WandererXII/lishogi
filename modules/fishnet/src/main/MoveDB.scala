@@ -1,4 +1,4 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import akka.actor._
 import akka.pattern.ask
@@ -8,9 +8,9 @@ import play.api.Logger
 import scala.concurrent.duration._
 import scala.concurrent.{ ExecutionContext, Future }
 
-import lila.hub.actorApi.map.{ Tell, TellAll }
-import lila.hub.actorApi.round.{ FishnetPlay, FishnetStart }
-import lila.common.{ Bus, Lilakka }
+import lishogi.hub.actorApi.map.{ Tell, TellAll }
+import lishogi.hub.actorApi.round.{ FishnetPlay, FishnetStart }
+import lishogi.common.{ Bus, Lishogikka }
 
 final class MoveDB(implicit system: ActorSystem) {
 

@@ -1,4 +1,4 @@
-package lila.app
+package lishogi.app
 package templating
 
 import java.util.Locale
@@ -9,7 +9,7 @@ import org.joda.time.format._
 import org.joda.time.format.ISODateTimeFormat
 import org.joda.time.{ DateTime, DateTimeZone, DurationFieldType, Period, PeriodType }
 
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.app.ui.ScalatagsTemplate._
 
 trait DateHelper { self: I18nHelper with StringHelper =>
 

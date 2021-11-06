@@ -1,14 +1,14 @@
-package lila.pool
+package lishogi.pool
 
 import org.joda.time.DateTime
 
-import lila.rating.RatingRange
-import lila.user.User
-import lila.playban.RageSit
+import lishogi.rating.RatingRange
+import lishogi.user.User
+import lishogi.playban.RageSit
 
 case class PoolMember(
     userId: User.ID,
-    sri: lila.socket.Socket.Sri,
+    sri: lishogi.socket.Socket.Sri,
     rating: Int,
     ratingRange: Option[RatingRange],
     lame: Boolean,

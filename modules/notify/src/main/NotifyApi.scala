@@ -1,21 +1,21 @@
-package lila.notify
+package lishogi.notify
 
 import scala.concurrent.duration._
 
-import lila.common.Bus
-import lila.common.config.MaxPerPage
-import lila.common.paginator.Paginator
-import lila.db.dsl._
-import lila.db.paginator.Adapter
-import lila.hub.actorApi.socket.SendTo
-import lila.memo.CacheApi._
-import lila.user.UserRepo
+import lishogi.common.Bus
+import lishogi.common.config.MaxPerPage
+import lishogi.common.paginator.Paginator
+import lishogi.db.dsl._
+import lishogi.db.paginator.Adapter
+import lishogi.hub.actorApi.socket.SendTo
+import lishogi.memo.CacheApi._
+import lishogi.user.UserRepo
 
 final class NotifyApi(
     jsonHandlers: JSONHandlers,
     repo: NotificationRepo,
     userRepo: UserRepo,
-    cacheApi: lila.memo.CacheApi,
+    cacheApi: lishogi.memo.CacheApi,
     maxPerPage: MaxPerPage
 )(implicit ec: scala.concurrent.ExecutionContext) {
 

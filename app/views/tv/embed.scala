@@ -1,7 +1,7 @@
 package views.html.tv
 
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 import views.html.base.layout.{ bits => layout }
 
 import controllers.routes
@@ -10,7 +10,7 @@ object embed {
 
   private val dataStreamUrl = attr("data-stream-url")
 
-  def apply(pov: lila.game.Pov)(implicit config: lila.app.ui.EmbedConfig) =
+  def apply(pov: lishogi.game.Pov)(implicit config: lishogi.app.ui.EmbedConfig) =
     frag(
       layout.doctype,
       layout.htmlTag(config.lang)(
@@ -19,7 +19,7 @@ object embed {
           layout.viewport,
           layout.metaCsp(basicCsp(config.req)),
           st.headTitle("lishogi.org shogi TV"),
-          layout.pieceSprite(lila.pref.PieceSet.default),
+          layout.pieceSprite(lishogi.pref.PieceSet.default),
           cssTagWithTheme("tv.embed", config.bg)
         ),
         body(

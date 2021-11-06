@@ -1,11 +1,11 @@
-package lila.user
+package lishogi.user
 
 import play.api.data._
 import play.api.data.validation.Constraints
 import play.api.data.Forms._
 
 import User.ClearPassword
-import lila.common.Form.clean
+import lishogi.common.Form.clean
 
 final class DataForm(authenticator: Authenticator) {
 

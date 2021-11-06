@@ -1,4 +1,4 @@
-package lila.relation
+package lishogi.relation
 
 case class Follower(u1: String) {
   def userId = u1
@@ -13,7 +13,7 @@ case class Blocked(u2: String) {
 }
 
 case class Related(
-    user: lila.user.User,
+    user: lishogi.user.User,
     nbGames: Option[Int],
     followable: Boolean,
     relation: Option[Relation]

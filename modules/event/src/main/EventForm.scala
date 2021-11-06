@@ -1,16 +1,16 @@
-package lila.event
+package lishogi.event
 
 import org.joda.time.DateTime
 import play.api.data._
 import play.api.data.Forms._
 import play.api.i18n.Lang
 
-import lila.i18n.LangList
-import lila.user.User
+import lishogi.i18n.LangList
+import lishogi.user.User
 
 object EventForm {
 
-  import lila.common.Form.UTCDate._
+  import lishogi.common.Form.UTCDate._
 
   val form = Form(
     mapping(
@@ -24,7 +24,7 @@ object EventForm {
       "startsAt"      -> utcDate,
       "finishesAt"    -> utcDate,
       "hostedBy" -> optional {
-        lila.user.DataForm.historicalUsernameField
+        lishogi.user.DataForm.historicalUsernameField
           .transform[User.ID](_.toLowerCase, identity)
       }
     )(Data.apply)(Data.unapply)
@@ -34,7 +34,7 @@ object EventForm {
     description = none,
     homepageHours = 0,
     url = "",
-    lang = lila.i18n.enLang.code,
+    lang = lishogi.i18n.enLang.code,
     enabled = true,
     startsAt = DateTime.now,
     finishesAt = DateTime.now

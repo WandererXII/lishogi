@@ -1,9 +1,9 @@
-package lila.study
+package lishogi.study
 
 import play.api.data._
 import play.api.data.Forms._
 
-import lila.common.Form.clean
+import lishogi.common.Form.clean
 
 object StudyForm {
 

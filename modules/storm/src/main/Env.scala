@@ -1,17 +1,17 @@
-package lila.storm
+package lishogi.storm
 
 import com.softwaremill.macwire._
 import play.api.Configuration
 
-import lila.common.config._
-import lila.user.UserRepo
+import lishogi.common.config._
+import lishogi.user.UserRepo
 
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    colls: lila.puzzle.PuzzleColls,
-    cacheApi: lila.memo.CacheApi,
+    db: lishogi.db.Db,
+    colls: lishogi.puzzle.PuzzleColls,
+    cacheApi: lishogi.memo.CacheApi,
     userRepo: UserRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext
@@ -33,8 +33,8 @@ final class Env(
 
   val forms = StormForm
 
-  lila.common.Bus.subscribeFuns(
-    "gdprErase" -> { case lila.user.User.GDPRErase(user) =>
+  lishogi.common.Bus.subscribeFuns(
+    "gdprErase" -> { case lishogi.user.User.GDPRErase(user) =>
       dayApi.eraseAllFor(user)
     }
   )

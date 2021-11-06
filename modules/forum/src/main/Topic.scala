@@ -1,10 +1,10 @@
-package lila.forum
+package lishogi.forum
 
 import org.joda.time.DateTime
-import lila.common.ThreadLocalRandom
+import lishogi.common.ThreadLocalRandom
 import scala.util.chaining._
 
-import lila.user.User
+import lishogi.user.User
 
 case class Topic(
     _id: Topic.ID,
@@ -60,7 +60,7 @@ object Topic {
   type ID = String
 
   def nameToId(name: String) =
-    (lila.common.String slugify name) pipe { slug =>
+    (lishogi.common.String slugify name) pipe { slug =>
       // if most chars are not latin, go for random slug
       if (slug.size > (name.size / 2)) slug else ThreadLocalRandom nextString 8
     }

@@ -1,4 +1,4 @@
-package lila.pref
+package lishogi.pref
 
 sealed class PieceSet private[pref] (val name: String) {
 

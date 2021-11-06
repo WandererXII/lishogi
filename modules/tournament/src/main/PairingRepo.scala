@@ -1,4 +1,4 @@
-package lila.tournament
+package lishogi.tournament
 
 import akka.stream.Materializer
 import akka.stream.scaladsl._
@@ -8,9 +8,9 @@ import reactivemongo.api.bson._
 import reactivemongo.api.ReadPreference
 
 import BSONHandlers._
-import lila.db.dsl._
-import lila.game.Game
-import lila.user.User
+import lishogi.db.dsl._
+import lishogi.game.Game
+import lishogi.user.User
 
 final class PairingRepo(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext, mat: Materializer) {
 
@@ -166,7 +166,7 @@ final class PairingRepo(coll: Coll)(implicit ec: scala.concurrent.ExecutionConte
       pairingHandler.write(pairing) ++ $doc("d" -> DateTime.now)
     }.void
 
-  def finish(g: lila.game.Game) =
+  def finish(g: lishogi.game.Game) =
     if (g.aborted) coll.delete.one($id(g.id)).void
     else
       coll.update

@@ -3,14 +3,14 @@ package controllers
 import play.api.mvc._
 import views._
 
-import lila.api.Context
-import lila.app._
-import lila.streamer.{ Streamer => StreamerModel, StreamerForm }
+import lishogi.api.Context
+import lishogi.app._
+import lishogi.streamer.{ Streamer => StreamerModel, StreamerForm }
 
 final class Streamer(
     env: Env,
     apiC: => Api
-) extends LilaController(env) {
+) extends LishogiController(env) {
 
   private def api = env.streamer.api
 
@@ -33,7 +33,7 @@ final class Streamer(
         users =>
           apiC.toApiResult {
             users.map { u =>
-              lila.common.LightUser.lightUserWrites.writes(u)
+              lishogi.common.LightUser.lightUserWrites.writes(u)
             }
           }
       }
@@ -76,7 +76,7 @@ final class Streamer(
       }
     }
 
-  private def modData(user: lila.user.User)(implicit ctx: Context) =
+  private def modData(user: lishogi.user.User)(implicit ctx: Context) =
     isGranted(_.ModLog) ?? {
       env.mod.logApi.userHistory(user.id) zip
         env.user.noteApi.forMod(user.id) map some
@@ -108,8 +108,8 @@ final class Streamer(
                 },
               data =>
                 api.update(sws.streamer, data, isGranted(_.Streamers)) flatMap { change =>
-                  change.list foreach { env.mod.logApi.streamerList(lila.report.Mod(me), s.user.id, _) }
-                  change.tier foreach { env.mod.logApi.streamerTier(lila.report.Mod(me), s.user.id, _) }
+                  change.list foreach { env.mod.logApi.streamerList(lishogi.report.Mod(me), s.user.id, _) }
+                  change.tier foreach { env.mod.logApi.streamerTier(lishogi.report.Mod(me), s.user.id, _) }
                   if (data.approval.flatMap(_.quick).isDefined)
                     env.streamer.pager.nextRequestId map { nextId =>
                       Redirect {
@@ -145,7 +145,7 @@ final class Streamer(
       AsStreamer { s =>
         ctx.body.body.file("picture") match {
           case Some(pic) =>
-            api.uploadPicture(s.streamer, pic) recover { case e: lila.base.LilaException =>
+            api.uploadPicture(s.streamer, pic) recover { case e: lishogi.base.LishogiException =>
               BadRequest(html.streamer.picture(s, e.message.some))
             } inject Redirect(routes.Streamer.edit())
           case None => fuccess(Redirect(routes.Streamer.edit()))

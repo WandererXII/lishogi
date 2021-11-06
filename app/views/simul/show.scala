@@ -2,22 +2,22 @@ package views.html.simul
 
 import play.api.libs.json.Json
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
 
 import controllers.routes
 
 object show {
 
   def apply(
-      sim: lila.simul.Simul,
-      socketVersion: lila.socket.Socket.SocketVersion,
+      sim: lishogi.simul.Simul,
+      socketVersion: lishogi.socket.Socket.SocketVersion,
       data: play.api.libs.json.JsObject,
-      chatOption: Option[lila.chat.UserChat.Mine],
-      stream: Option[lila.streamer.Stream],
-      team: Option[lila.team.Team]
+      chatOption: Option[lishogi.chat.UserChat.Mine],
+      stream: Option[lishogi.streamer.Stream],
+      team: Option[lishogi.team.Team]
   )(implicit ctx: Context) =
     views.html.base.layout(
       moreCss = cssTag("simul.show"),
@@ -36,7 +36,7 @@ object show {
                 name = trans.chatRoom.txt(),
                 timeout = c.timeout,
                 public = true,
-                resourceId = lila.chat.Chat.ResourceId(s"simul/${c.chat.id}")
+                resourceId = lishogi.chat.Chat.ResourceId(s"simul/${c.chat.id}")
               )
             }
           )

@@ -1,8 +1,8 @@
-package lila.game
+package lishogi.game
 
 import org.specs2.mutable._
 
-import lila.db.ByteArray
+import lishogi.db.ByteArray
 import shogi.Centis
 
 class BinaryMoveTimeTest extends Specification {

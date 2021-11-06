@@ -1,12 +1,12 @@
-package lila.round
+package lishogi.round
 
 import shogi.{ Color, DecayingStats, Status }
 
-import lila.common.{ Bus, Uptime }
-import lila.game.actorApi.{ AbortedBy, FinishGame }
-import lila.game.{ Game, GameRepo, Pov, RatingDiffs }
-import lila.playban.PlaybanApi
-import lila.user.{ User, UserRepo }
+import lishogi.common.{ Bus, Uptime }
+import lishogi.game.actorApi.{ AbortedBy, FinishGame }
+import lishogi.game.{ Game, GameRepo, Pov, RatingDiffs }
+import lishogi.playban.PlaybanApi
+import lishogi.user.{ User, UserRepo }
 
 final private class Finisher(
     gameRepo: GameRepo,
@@ -15,7 +15,7 @@ final private class Finisher(
     perfsUpdater: PerfsUpdater,
     playban: PlaybanApi,
     notifier: RoundNotifier,
-    crosstableApi: lila.game.CrosstableApi,
+    crosstableApi: lishogi.game.CrosstableApi,
     getSocketStatus: Game => Fu[actorApi.SocketStatus],
     recentTvGames: RecentTvGames
 )(implicit ec: scala.concurrent.ExecutionContext) {
@@ -51,7 +51,7 @@ final private class Finisher(
 
   def noStart(game: Game)(implicit proxy: GameProxy): Fu[Events] =
     game.playerWhoDidNotMove ?? { culprit =>
-      lila.mon.round.expiration.count.increment()
+      lishogi.mon.round.expiration.count.increment()
       playban.noStart(Pov(game, culprit))
       if (game.isMandatory) apply(game, _.NoStart, Some(!culprit.color))
       else apply(game, _.Aborted, None, Some("Game aborted by server"))
@@ -80,7 +80,7 @@ final private class Finisher(
       quotaStr     = f"${lt.quotaGain.centis / 10}%02d"
       compEstOvers = lt.compEstOvers.centis
     } {
-      import lila.mon.round.move.{ lag => lRec }
+      import lishogi.mon.round.move.{ lag => lRec }
       lRec.mean.record(Math.round(10 * mean))
       lRec.stdDev.record(Math.round(10 * sd))
       // wikipedia.org/wiki/Coefficient_of_variation#Estimation
@@ -105,7 +105,7 @@ final private class Finisher(
     val status = makeStatus(Status)
     val prog   = game.finish(status, winnerC)
     if (game.nonAi && game.isCorrespondence) Color.all foreach notifier.gameEnd(prog.game)
-    lila.mon.game
+    lishogi.mon.game
       .finish(
         variant = game.variant.key,
         source = game.source.fold("unknown")(_.name),
@@ -137,7 +137,7 @@ final private class Finisher(
                 newGame foreach proxy.setFinishedGame
                 Bus.publish(finish.copy(game = newGame | g), "finishGame")
               }
-              prog.events :+ lila.game.Event.EndData(g, ratingDiffs)
+              prog.events :+ lishogi.game.Event.EndData(g, ratingDiffs)
             }
           }
         }

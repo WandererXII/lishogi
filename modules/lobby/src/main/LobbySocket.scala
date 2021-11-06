@@ -1,30 +1,30 @@
-package lila.lobby
+package lishogi.lobby
 
 import play.api.libs.json._
 import scala.concurrent.duration._
 import scala.concurrent.Promise
 
 import actorApi._
-import lila.game.Pov
-import lila.hub.actorApi.game.ChangeFeatured
-import lila.hub.actorApi.lobby._
-import lila.hub.actorApi.timeline._
-import lila.hub.Trouper
-import lila.pool.{ PoolApi, PoolConfig }
-import lila.rating.RatingRange
-import lila.socket.RemoteSocket.{ Protocol => P, _ }
-import lila.socket.Socket.{ makeMessage, Sri, Sris }
-import lila.user.User
-import lila.i18n.defaultLang
+import lishogi.game.Pov
+import lishogi.hub.actorApi.game.ChangeFeatured
+import lishogi.hub.actorApi.lobby._
+import lishogi.hub.actorApi.timeline._
+import lishogi.hub.Trouper
+import lishogi.pool.{ PoolApi, PoolConfig }
+import lishogi.rating.RatingRange
+import lishogi.socket.RemoteSocket.{ Protocol => P, _ }
+import lishogi.socket.Socket.{ makeMessage, Sri, Sris }
+import lishogi.user.User
+import lishogi.i18n.defaultLang
 
 case class LobbyCounters(members: Int, rounds: Int)
 
 final class LobbySocket(
     biter: Biter,
-    userRepo: lila.user.UserRepo,
-    remoteSocketApi: lila.socket.RemoteSocket,
+    userRepo: lishogi.user.UserRepo,
+    remoteSocketApi: lishogi.socket.RemoteSocket,
     lobby: LobbyTrouper,
-    relationApi: lila.relation.RelationApi,
+    relationApi: lishogi.relation.RelationApi,
     poolApi: PoolApi,
     system: akka.actor.ActorSystem
 )(implicit ec: scala.concurrent.ExecutionContext) {
@@ -49,8 +49,8 @@ final class LobbySocket(
 
       case GetSrisP(promise) =>
         promise success Sris(members.keySet.view.map(Sri.apply).toSet)
-        lila.mon.lobby.socket.idle.update(idleSris.size)
-        lila.mon.lobby.socket.hookSubscribers.update(hookSubscriberSris.size)
+        lishogi.mon.lobby.socket.idle.update(idleSris.size)
+        lishogi.mon.lobby.socket.hookSubscribers.update(hookSubscriberSris.size)
 
       case Cleanup =>
         idleSris filterInPlace members.contains
@@ -90,12 +90,12 @@ final class LobbySocket(
         system.scheduler.scheduleOnce(1249 millis)(this ! SendHookRemovals)
 
       case JoinHook(sri, hook, game, creatorColor) =>
-        lila.mon.lobby.hook.join.increment()
+        lishogi.mon.lobby.hook.join.increment()
         send(P.Out.tellSri(hook.sri, gameStartRedirect(game pov creatorColor)))
         send(P.Out.tellSri(sri, gameStartRedirect(game pov !creatorColor)))
 
       case JoinSeek(userId, seek, game, creatorColor) =>
-        lila.mon.lobby.seek.join.increment()
+        lishogi.mon.lobby.seek.join.increment()
         send(Out.tellLobbyUsers(List(seek.user.id), gameStartRedirect(game pov creatorColor)))
         send(Out.tellLobbyUsers(List(userId), gameStartRedirect(game pov !creatorColor)))
 
@@ -118,7 +118,7 @@ final class LobbySocket(
         hookSubscriberSris += member.sri.value
     }
 
-    lila.common.Bus.subscribe(this, "changeFeaturedGame", "streams", "poolPairings", "lobbySocket")
+    lishogi.common.Bus.subscribe(this, "changeFeaturedGame", "streams", "poolPairings", "lobbySocket")
     system.scheduler.scheduleOnce(7 seconds)(this ! SendHookRemovals)
     system.scheduler.scheduleWithFixedDelay(1 minute, 1 minute)(() => this ! Cleanup)
 
@@ -135,7 +135,7 @@ final class LobbySocket(
             "id"  -> pov.fullId,
             "url" -> s"/${pov.fullId}"
           )
-          .add("cookie" -> lila.game.AnonCookie.json(pov))
+          .add("cookie" -> lishogi.game.AnonCookie.json(pov))
       )
     }
 
@@ -149,7 +149,7 @@ final class LobbySocket(
   // solve circular reference
   lobby ! LobbyTrouper.SetSocket(trouper)
 
-  private val poolLimitPerSri = new lila.memo.RateLimit[SriStr](
+  private val poolLimitPerSri = new lishogi.memo.RateLimit[SriStr](
     credits = 25,
     duration = 1 minute,
     key = "lobby.hook_pool.member"

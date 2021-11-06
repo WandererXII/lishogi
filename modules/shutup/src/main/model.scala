@@ -1,4 +1,4 @@
-package lila.shutup
+package lishogi.shutup
 
 case class UserRecord(
     _id: String,

@@ -1,13 +1,13 @@
-package lila.report
+package lishogi.report
 
 import org.joda.time.DateTime
 import scala.concurrent.duration._
 
-import lila.game.{ Game, GameRepo }
+import lishogi.game.{ Game, GameRepo }
 
 final class AutoAnalysis(
     gameRepo: GameRepo,
-    fishnet: lila.hub.actors.Fishnet
+    fishnet: lishogi.hub.actors.Fishnet
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: akka.actor.ActorSystem
@@ -27,8 +27,8 @@ final class AutoAnalysis(
       if (games.nonEmpty)
         logger.info(s"Auto-analyse ${games.size} games after report by ${candidate.reporter.user.id}")
       games foreach { game =>
-        lila.mon.cheat.autoAnalysis("Report").increment()
-        fishnet ! lila.hub.actorApi.fishnet.AutoAnalyse(game.id)
+        lishogi.mon.cheat.autoAnalysis("Report").increment()
+        fishnet ! lishogi.hub.actorApi.fishnet.AutoAnalyse(game.id)
       }
     }
 

@@ -1,17 +1,17 @@
-package lila
+package lishogi
 
-import lila.game.Event
+import lishogi.game.Event
 
 package object round extends PackageObject {
 
   private[round] type Events = List[Event]
 
-  private[round] def logger = lila.log("round")
+  private[round] def logger = lishogi.log("round")
 }
 
 package round {
 
-  trait BenignError                        extends lila.base.LilaException
+  trait BenignError                        extends lishogi.base.LishogiException
   case class ClientError(message: String)  extends BenignError
   case class FishnetError(message: String) extends BenignError
 

@@ -1,15 +1,15 @@
-package lila.storm
+package lishogi.storm
 
 import com.github.blemale.scaffeine.LoadingCache
 import com.roundeights.hasher.Algo
 import scala.concurrent.duration._
 
-import lila.common.config
-import lila.common.config.Secret
-import lila.common.ThreadLocalRandom
-import lila.common.Uptime
-import lila.memo.CacheApi
-import lila.user.User
+import lishogi.common.config
+import lishogi.common.config.Secret
+import lishogi.common.ThreadLocalRandom
+import lishogi.common.Uptime
+import lishogi.memo.CacheApi
+import lishogi.user.User
 
 final class StormSign(secret: Secret, cacheApi: CacheApi) {
 

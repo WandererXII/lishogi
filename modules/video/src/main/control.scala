@@ -1,4 +1,4 @@
-package lila.video
+package lishogi.video
 
 case class TagNb(_id: Tag, nb: Int) {
 

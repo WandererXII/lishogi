@@ -1,21 +1,21 @@
-package lila.explorer
+package lishogi.explorer
 
 import akka.stream.scaladsl._
 import shogi.format.Tag
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
-import lila.common.ThreadLocalRandom.nextFloat
+import lishogi.common.ThreadLocalRandom.nextFloat
 import scala.util.{ Failure, Success, Try }
 
-import lila.common.LilaStream
-import lila.db.dsl._
-import lila.game.{ Game, GameRepo, NotationDump, Player, Query }
-import lila.user.{ User, UserRepo }
+import lishogi.common.LishogiStream
+import lishogi.db.dsl._
+import lishogi.game.{ Game, GameRepo, NotationDump, Player, Query }
+import lishogi.user.{ User, UserRepo }
 
 final private class ExplorerIndexer(
     gameRepo: GameRepo,
     userRepo: UserRepo,
-    getBotUserIds: lila.user.GetBotIds,
+    getBotUserIds: lishogi.user.GetBotIds,
     ws: play.api.libs.ws.WSClient,
     internalEndpoint: InternalEndpoint
 )(implicit
@@ -47,10 +47,10 @@ final private class ExplorerIndexer(
         gameRepo
           .sortedCursor(query, Query.sortChronological)
           .documentSource()
-          .via(LilaStream.logRate[Game]("fetch")(logger))
+          .via(LishogiStream.logRate[Game]("fetch")(logger))
           .mapAsyncUnordered(8) { makeFastPgn(_, botUserIds) }
-          .via(LilaStream.collect)
-          .via(LilaStream.logRate("index")(logger))
+          .via(LishogiStream.collect)
+          .via(LishogiStream.logRate("index")(logger))
           .grouped(50)
           .map(_ mkString separator)
           .mapAsyncUnordered(2) { pgn =>
@@ -81,14 +81,14 @@ final private class ExplorerIndexer(
       if (buf.size >= max) {
         ws.url(internalEndPointUrl).put(buf mkString separator) andThen {
           case Success(res) if res.status == 200 =>
-            lila.mon.explorer.index.time.record((nowMillis - startAt) / max)
-            lila.mon.explorer.index.count(true).increment(max)
+            lishogi.mon.explorer.index.time.record((nowMillis - startAt) / max)
+            lishogi.mon.explorer.index.count(true).increment(max)
           case Success(res) =>
             logger.warn(s"[${res.status}]")
-            lila.mon.explorer.index.count(false).increment(max)
+            lishogi.mon.explorer.index.count(false).increment(max)
           case Failure(err) =>
             logger.warn(s"$err", err)
-            lila.mon.explorer.index.count(false).increment(max)
+            lishogi.mon.explorer.index.count(false).increment(max)
         }
         buf.clear()
       }
@@ -105,7 +105,7 @@ final private class ExplorerIndexer(
 
   // probability of the game being indexed, between 0 and 1
   private def probability(game: Game, rating: Int) = {
-    import lila.rating.PerfType._
+    import lishogi.rating.PerfType._
     game.perfType ?? {
       case Correspondence                      => 1
       case Rapid | Classical if rating >= 2000 => 1
@@ -163,5 +163,5 @@ final private class ExplorerIndexer(
       }
     })
 
-  private val logger = lila.log("explorer")
+  private val logger = lishogi.log("explorer")
 }

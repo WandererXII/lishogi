@@ -1,9 +1,9 @@
-package lila.irwin
+package lishogi.irwin
 
 import akka.stream.scaladsl._
 import play.api.libs.json._
 
-import lila.common.Bus
+import lishogi.common.Bus
 
 final class IrwinStream {
 
@@ -20,7 +20,7 @@ final class IrwinStream {
   def apply(): Source[String, _] =
     blueprint mapMaterializedValue { queue =>
       val sub = Bus.subscribeFun(channel) { case req: IrwinRequest =>
-        lila.mon.mod.irwin.streamEventType("request").increment()
+        lishogi.mon.mod.irwin.streamEventType("request").increment()
         queue offer req
       }
 

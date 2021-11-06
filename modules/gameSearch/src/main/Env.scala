@@ -1,13 +1,13 @@
-package lila.gameSearch
+package lishogi.gameSearch
 
 import akka.actor.ActorSystem
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.game.actorApi.{ FinishGame, InsertGame }
-import lila.search._
-import lila.common.config._
+import lishogi.game.actorApi.{ FinishGame, InsertGame }
+import lishogi.search._
+import lishogi.common.config._
 
 @Module
 private class GameSearchConfig(
@@ -19,7 +19,7 @@ private class GameSearchConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    gameRepo: lila.game.GameRepo,
+    gameRepo: lishogi.game.GameRepo,
     makeClient: Index => ESClient
 )(implicit
     ec: scala.concurrent.ExecutionContext,
@@ -32,13 +32,13 @@ final class Env(
 
   lazy val api = wire[GameSearchApi]
 
-  lazy val paginator = wire[PaginatorBuilder[lila.game.Game, Query]]
+  lazy val paginator = wire[PaginatorBuilder[lishogi.game.Game, Query]]
 
   lazy val forms = wire[DataForm]
 
   lazy val userGameSearch = wire[UserGameSearch]
 
-  lila.common.Bus.subscribeFun("finishGame", "gameSearchInsert") {
+  lishogi.common.Bus.subscribeFun("finishGame", "gameSearchInsert") {
     case FinishGame(game, _, _) if !game.aborted => api store game
     case InsertGame(game)                        => api store game
   }

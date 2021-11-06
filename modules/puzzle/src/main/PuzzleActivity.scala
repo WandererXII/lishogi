@@ -1,4 +1,4 @@
-package lila.puzzle
+package lishogi.puzzle
 
 import akka.stream.scaladsl._
 import play.api.libs.json._
@@ -6,11 +6,11 @@ import reactivemongo.akkastream.cursorProducer
 import reactivemongo.api.ReadPreference
 import scala.concurrent.duration._
 
-import lila.common.config.MaxPerSecond
-import lila.common.Json.jodaWrites
-import lila.db.AsyncColl
-import lila.db.dsl._
-import lila.user.User
+import lishogi.common.config.MaxPerSecond
+import lishogi.common.Json.jodaWrites
+import lishogi.db.AsyncColl
+import lishogi.db.dsl._
+import lishogi.user.User
 
 final class PuzzleActivity(
     colls: PuzzleColls

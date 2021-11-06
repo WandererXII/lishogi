@@ -3,22 +3,22 @@ package round
 
 import play.api.libs.json.{ JsObject, Json }
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.String.html.safeJsonValue
-import lila.game.Pov
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.String.html.safeJsonValue
+import lishogi.game.Pov
 
 object watcher {
 
   def apply(
       pov: Pov,
       data: JsObject,
-      tour: Option[lila.tournament.TourAndTeamVs],
-      simul: Option[lila.simul.Simul],
-      cross: Option[lila.game.Crosstable.WithMatchup],
-      userTv: Option[lila.user.User] = None,
-      chatOption: Option[lila.chat.UserChat.Mine],
+      tour: Option[lishogi.tournament.TourAndTeamVs],
+      simul: Option[lishogi.simul.Simul],
+      cross: Option[lishogi.game.Crosstable.WithMatchup],
+      userTv: Option[lishogi.user.User] = None,
+      chatOption: Option[lishogi.chat.UserChat.Mine],
       bookmarked: Boolean
   )(implicit ctx: Context) = {
 
@@ -29,7 +29,7 @@ object watcher {
         timeout = c.timeout,
         withNoteAge = ctx.isAuth option pov.game.secondsSinceCreation,
         public = true,
-        resourceId = lila.chat.Chat.ResourceId(s"game/${c.chat.id}"),
+        resourceId = lishogi.chat.Chat.ResourceId(s"game/${c.chat.id}"),
         palantir = ctx.me.exists(_.canPalantir)
       )
     }

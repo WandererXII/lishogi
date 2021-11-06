@@ -1,28 +1,28 @@
-package lila.forum
+package lishogi.forum
 
 import actorApi._
 import org.joda.time.DateTime
 import scala.util.chaining._
 import reactivemongo.api.ReadPreference
 
-import lila.common.Bus
-import lila.common.paginator._
-import lila.db.dsl._
-import lila.db.paginator._
-import lila.hub.actorApi.timeline.{ ForumPost, Propagate }
-import lila.mod.ModlogApi
-import lila.security.{ Granter => MasterGranter }
-import lila.user.{ User, UserContext }
+import lishogi.common.Bus
+import lishogi.common.paginator._
+import lishogi.db.dsl._
+import lishogi.db.paginator._
+import lishogi.hub.actorApi.timeline.{ ForumPost, Propagate }
+import lishogi.mod.ModlogApi
+import lishogi.security.{ Granter => MasterGranter }
+import lishogi.user.{ User, UserContext }
 
 final class PostApi(
     env: Env,
-    indexer: lila.hub.actors.ForumSearch,
-    maxPerPage: lila.common.config.MaxPerPage,
+    indexer: lishogi.hub.actors.ForumSearch,
+    maxPerPage: lishogi.common.config.MaxPerPage,
     modLog: ModlogApi,
-    spam: lila.security.Spam,
-    timeline: lila.hub.actors.Timeline,
-    shutup: lila.hub.actors.Shutup,
-    detectLanguage: lila.common.DetectLanguage
+    spam: lishogi.security.Spam,
+    timeline: lishogi.hub.actors.Timeline,
+    shutup: lishogi.hub.actors.Shutup,
+    detectLanguage: lishogi.common.DetectLanguage
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BSONHandlers._
@@ -59,8 +59,8 @@ final class PostApi(
               (!categ.quiet ?? env.recent.invalidate()) >>-
               ctx.userId.?? { userId =>
                 shutup ! {
-                  if (post.isTeam) lila.hub.actorApi.shutup.RecordTeamForumMessage(userId, post.text)
-                  else lila.hub.actorApi.shutup.RecordPublicForumMessage(userId, post.text)
+                  if (post.isTeam) lishogi.hub.actorApi.shutup.RecordTeamForumMessage(userId, post.text)
+                  else lishogi.hub.actorApi.shutup.RecordPublicForumMessage(userId, post.text)
                 }
               } >>- {
                 (ctx.userId ifFalse post.troll ifFalse categ.quiet) ?? { userId =>
@@ -68,7 +68,7 @@ final class PostApi(
                     _ toFollowersOf userId toUsers topicUserIds exceptUser userId
                   }
                 }
-                lila.mon.forum.post.create.increment()
+                lishogi.mon.forum.post.create.increment()
                 env.mentionNotifier.notifyMentionedUsers(post, topic)
                 Bus.publish(actorApi.CreatePost(post), "forumPost")
               } inject post
@@ -119,7 +119,7 @@ final class PostApi(
 
   def react(postId: String, me: User, reaction: String, v: Boolean): Fu[Option[Post]] =
     Post.reactions(reaction) ?? {
-      if (v) lila.mon.forum.reaction(reaction).increment()
+      if (v) lishogi.mon.forum.reaction(reaction).increment()
       env.postRepo.coll.ext
         .findAndUpdate[Post](
           selector = $id(postId),

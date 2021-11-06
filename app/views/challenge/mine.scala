@@ -1,15 +1,15 @@
 package views.html.challenge
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.challenge.Challenge.Status
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.challenge.Challenge.Status
 
 import controllers.routes
 
 object mine {
 
-  def apply(c: lila.challenge.Challenge, json: play.api.libs.json.JsObject, error: Option[String])(implicit
+  def apply(c: lishogi.challenge.Challenge, json: play.api.libs.json.JsObject, error: Option[String])(implicit
       ctx: Context
   ) = {
 

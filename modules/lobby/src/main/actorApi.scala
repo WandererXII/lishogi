@@ -1,10 +1,10 @@
-package lila.lobby
+package lishogi.lobby
 package actorApi
 
 import scala.concurrent.Promise
 
-import lila.game.Game
-import lila.socket.Socket.{ Sri, Sris }
+import lishogi.game.Game
+import lishogi.socket.Socket.{ Sri, Sris }
 
 private[lobby] case class SaveSeek(msg: AddSeek)
 private[lobby] case class RemoveHook(hookId: String)

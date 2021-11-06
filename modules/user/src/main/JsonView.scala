@@ -1,12 +1,12 @@
-package lila.user
+package lishogi.user
 
 import play.api.libs.json._
 
-import lila.common.Json.jodaWrites
-import lila.rating.{ Perf, PerfType }
+import lishogi.common.Json.jodaWrites
+import lishogi.rating.{ Perf, PerfType }
 import User.{ LightPerf, PlayTime }
 
-final class JsonView(isOnline: lila.socket.IsOnline) {
+final class JsonView(isOnline: lishogi.socket.IsOnline) {
 
   import JsonView._
   implicit private val profileWrites  = Json.writes[Profile]

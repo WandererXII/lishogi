@@ -1,13 +1,13 @@
-package lila.fishnet
+package lishogi.fishnet
 
 import shogi.format.Uci
 import io.lettuce.core._
 import io.lettuce.core.pubsub._
 import scala.concurrent.Future
 
-import lila.hub.actorApi.map.{ Tell, TellAll }
-import lila.hub.actorApi.round.{ FishnetPlay, FishnetStart }
-import lila.common.{ Bus, Lilakka }
+import lishogi.hub.actorApi.map.{ Tell, TellAll }
+import lishogi.hub.actorApi.round.{ FishnetPlay, FishnetStart }
+import lishogi.common.{ Bus, Lishogikka }
 import akka.actor.CoordinatedShutdown
 
 final class FishnetRedis(
@@ -42,7 +42,7 @@ final class FishnetRedis(
       }
   })
 
-  Lilakka.shutdown(shutdown, _.PhaseServiceUnbind, "Stopping the fishnet redis pool") { () =>
+  Lishogikka.shutdown(shutdown, _.PhaseServiceUnbind, "Stopping the fishnet redis pool") { () =>
     Future {
       stopping = true
       client.shutdown()

@@ -2,9 +2,9 @@ package views
 package html.site
 
 import controllers.routes
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 object variant {
 
@@ -12,7 +12,7 @@ object variant {
       doc: io.prismic.Document,
       resolver: io.prismic.DocumentLinkResolver,
       variant: shogi.variant.Variant,
-      perfType: lila.rating.PerfType
+      perfType: lishogi.rating.PerfType
   )(implicit ctx: Context) =
     layout(
       active = perfType.some,
@@ -35,8 +35,8 @@ object variant {
       h1("Lishogi variants"),
       div(cls := "body box__pad")(raw(~doc.getHtml("doc.content", resolver))),
       div(cls := "variants")(
-        lila.rating.PerfType.variants map { pt =>
-          val variant = lila.rating.PerfType variantOf pt
+        lishogi.rating.PerfType.variants map { pt =>
+          val variant = lishogi.rating.PerfType variantOf pt
           a(cls := "variant text box__pad", href := routes.Page.variant(pt.key), dataIcon := pt.iconChar)(
             span(
               h2(variant.name),
@@ -50,8 +50,8 @@ object variant {
   private def layout(
       title: String,
       klass: String,
-      active: Option[lila.rating.PerfType] = None,
-      openGraph: Option[lila.app.ui.OpenGraph] = None
+      active: Option[lishogi.rating.PerfType] = None,
+      openGraph: Option[lishogi.app.ui.OpenGraph] = None
   )(body: Modifier*)(implicit ctx: Context) =
     views.html.base.layout(
       title = title,
@@ -60,7 +60,7 @@ object variant {
     )(
       main(cls := "page-menu")(
         st.aside(cls := "page-menu__menu subnav")(
-          lila.rating.PerfType.variants map { pt =>
+          lishogi.rating.PerfType.variants map { pt =>
             a(
               cls := List("text" -> true, "active" -> active.has(pt)),
               href := routes.Page.variant(pt.key),

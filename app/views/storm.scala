@@ -4,13 +4,13 @@ import controllers.routes
 import play.api.i18n.Lang
 import play.api.libs.json._
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
-import lila.common.paginator.Paginator
-import lila.common.String.html.safeJsonValue
-import lila.storm.{ StormDay, StormHigh }
-import lila.user.User
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
+import lishogi.common.paginator.Paginator
+import lishogi.common.String.html.safeJsonValue
+import lishogi.storm.{ StormDay, StormHigh }
+import lishogi.user.User
 
 object storm {
 
@@ -136,7 +136,7 @@ object storm {
     )
 
   private val i18nKeys = {
-    import lila.i18n.I18nKeys.{ storm => t }
+    import lishogi.i18n.I18nKeys.{ storm => t }
     List(
       t.moveToStart,
       t.puzzlesSolved,

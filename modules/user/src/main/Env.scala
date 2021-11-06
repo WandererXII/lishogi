@@ -1,4 +1,4 @@
-package lila.user
+package lishogi.user
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -7,9 +7,9 @@ import play.api.Configuration
 import play.api.libs.ws.WSClient
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.common.LightUser
-import lila.db.dsl.Coll
+import lishogi.common.config._
+import lishogi.common.LightUser
+import lishogi.db.dsl.Coll
 
 private class UserConfig(
     @ConfigName("online.ttl") val onlineTtl: FiniteDuration,
@@ -24,11 +24,11 @@ private class UserConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    mongoCache: lila.memo.MongoCache.Api,
-    cacheApi: lila.memo.CacheApi,
-    isOnline: lila.socket.IsOnline,
-    onlineIds: lila.socket.OnlineIds
+    db: lishogi.db.Db,
+    mongoCache: lishogi.memo.MongoCache.Api,
+    cacheApi: lishogi.memo.CacheApi,
+    isOnline: lishogi.socket.IsOnline,
+    onlineIds: lishogi.socket.OnlineIds
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
@@ -65,22 +65,22 @@ final class Env(
   private lazy val passHasher = new PasswordHasher(
     secret = config.passwordBPassSecret,
     logRounds = 10,
-    hashTimer = res => lila.common.Chronometer.syncMon(_.user.auth.hashTime)(res)
+    hashTimer = res => lishogi.common.Chronometer.syncMon(_.user.auth.hashTime)(res)
   )
 
   lazy val authenticator = wire[Authenticator]
 
   lazy val forms = wire[DataForm]
 
-  lila.common.Bus.subscribeFuns(
-    "adjustCheater" -> { case lila.hub.actorApi.mod.MarkCheater(userId, true) =>
+  lishogi.common.Bus.subscribeFuns(
+    "adjustCheater" -> { case lishogi.hub.actorApi.mod.MarkCheater(userId, true) =>
       rankingApi remove userId
       repo.setRoles(userId, Nil)
     },
-    "adjustBooster" -> { case lila.hub.actorApi.mod.MarkBooster(userId) =>
+    "adjustBooster" -> { case lishogi.hub.actorApi.mod.MarkBooster(userId) =>
       rankingApi remove userId
     },
-    "kickFromRankings" -> { case lila.hub.actorApi.mod.KickFromRankings(userId) =>
+    "kickFromRankings" -> { case lishogi.hub.actorApi.mod.KickFromRankings(userId) =>
       rankingApi remove userId
     },
     "gdprErase" -> { case User.GDPRErase(user) =>

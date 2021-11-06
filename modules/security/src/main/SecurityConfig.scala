@@ -1,10 +1,10 @@
-package lila.security
+package lishogi.security
 
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import scala.concurrent.duration.FiniteDuration
 
-import lila.common.config._
+import lishogi.common.config._
 
 import SecurityConfig._
 

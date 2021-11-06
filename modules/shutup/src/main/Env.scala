@@ -1,12 +1,12 @@
-package lila.shutup
+package lishogi.shutup
 
 import akka.actor._
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
-import lila.user.UserRepo
+import lishogi.common.config._
+import lishogi.user.UserRepo
 
 @Module
 private class ShutupConfig(
@@ -16,11 +16,11 @@ private class ShutupConfig(
 
 final class Env(
     appConfig: Configuration,
-    reporter: lila.hub.actors.Report,
-    relationApi: lila.relation.RelationApi,
-    gameRepo: lila.game.GameRepo,
+    reporter: lishogi.hub.actors.Report,
+    relationApi: lishogi.relation.RelationApi,
+    gameRepo: lishogi.game.GameRepo,
     userRepo: UserRepo,
-    db: lila.db.Db
+    db: lishogi.db.Db
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem
@@ -35,7 +35,7 @@ final class Env(
   // api actor
   system.actorOf(
     Props(new Actor {
-      import lila.hub.actorApi.shutup._
+      import lishogi.hub.actorApi.shutup._
       def receive = {
         case RecordPublicForumMessage(userId, text) =>
           api.publicForumMessage(userId, text)

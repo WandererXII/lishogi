@@ -1,10 +1,10 @@
-package lila
+package lishogi
 
 import com.github.benmanes.caffeine.cache.{ Cache => CaffeineCache }
 import kamon.tag.TagSet
 import kamon.metric.{ Counter, Timer }
 
-import lila.common.ApiVersion
+import lishogi.common.ApiVersion
 
 object mon {
 
@@ -644,10 +644,10 @@ object mon {
     def timeout(name: String) = counter("workQueue.timeout").withTag("name", name)
   }
 
-  def chronoSync[A] = lila.common.Chronometer.syncMon[A] _
+  def chronoSync[A] = lishogi.common.Chronometer.syncMon[A] _
 
-  type TimerPath   = lila.mon.type => Timer
-  type CounterPath = lila.mon.type => Counter
+  type TimerPath   = lishogi.mon.type => Timer
+  type CounterPath = lishogi.mon.type => Counter
 
   private var backend: kamon.metric.MetricBuilding = _
 

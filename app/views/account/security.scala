@@ -1,15 +1,15 @@
 package views.html
 package account
 
-import lila.api.Context
-import lila.app.templating.Environment._
-import lila.app.ui.ScalatagsTemplate._
+import lishogi.api.Context
+import lishogi.app.templating.Environment._
+import lishogi.app.ui.ScalatagsTemplate._
 
 import controllers.routes
 
 object security {
 
-  def apply(u: lila.user.User, sessions: List[lila.security.LocatedSession], curSessionId: String)(implicit
+  def apply(u: lishogi.user.User, sessions: List[lishogi.security.LocatedSession], curSessionId: String)(implicit
       ctx: Context
   ) =
     account.layout(title = s"${u.username} - ${trans.security.txt()}", active = "security") {

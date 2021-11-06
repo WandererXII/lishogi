@@ -1,4 +1,4 @@
-package lila.tournament
+package lishogi.tournament
 
 import akka.actor._
 import com.softwaremill.macwire._
@@ -6,9 +6,9 @@ import io.methvin.play.autoconfig._
 import play.api.Configuration
 import scala.concurrent.duration._
 
-import lila.common.config._
-import lila.socket.Socket.{ GetVersion, SocketVersion }
-import lila.user.User
+import lishogi.common.config._
+import lishogi.socket.Socket.{ GetVersion, SocketVersion }
+import lishogi.user.User
 
 @Module
 private class TournamentConfig(
@@ -22,25 +22,25 @@ private class TournamentConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    mongoCache: lila.memo.MongoCache.Api,
-    cacheApi: lila.memo.CacheApi,
-    gameRepo: lila.game.GameRepo,
-    userRepo: lila.user.UserRepo,
-    proxyRepo: lila.round.GameProxyRepo,
-    renderer: lila.hub.actors.Renderer,
-    chatApi: lila.chat.ChatApi,
-    tellRound: lila.round.TellRound,
-    lightUserApi: lila.user.LightUserApi,
-    onStart: lila.round.OnStart,
-    historyApi: lila.history.HistoryApi,
-    trophyApi: lila.user.TrophyApi,
-    remoteSocketApi: lila.socket.RemoteSocket
+    db: lishogi.db.Db,
+    mongoCache: lishogi.memo.MongoCache.Api,
+    cacheApi: lishogi.memo.CacheApi,
+    gameRepo: lishogi.game.GameRepo,
+    userRepo: lishogi.user.UserRepo,
+    proxyRepo: lishogi.round.GameProxyRepo,
+    renderer: lishogi.hub.actors.Renderer,
+    chatApi: lishogi.chat.ChatApi,
+    tellRound: lishogi.round.TellRound,
+    lightUserApi: lishogi.user.LightUserApi,
+    onStart: lishogi.round.OnStart,
+    historyApi: lishogi.history.HistoryApi,
+    trophyApi: lishogi.user.TrophyApi,
+    remoteSocketApi: lishogi.socket.RemoteSocket
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
     mat: akka.stream.Materializer,
-    idGenerator: lila.game.IdGenerator,
+    idGenerator: lishogi.game.IdGenerator,
     mode: play.api.Mode
 ) {
 
@@ -115,7 +115,7 @@ final class Env(
   }
 
   scheduler.scheduleWithFixedDelay(1 minute, 1 minute) { () =>
-    tournamentRepo.countCreated foreach { lila.mon.tournament.created.update(_) }
+    tournamentRepo.countCreated foreach { lishogi.mon.tournament.created.update(_) }
   }
 
   def version(tourId: Tournament.ID): Fu[SocketVersion] =
@@ -127,7 +127,7 @@ final class Env(
     fuccess(socket.hasUser(tourId, userId)) >>| pairingRepo.isPlaying(tourId, userId)
 
   def cli =
-    new lila.common.Cli {
+    new lishogi.common.Cli {
       def process = { case "tournament" :: "leaderboard" :: "generate" :: Nil =>
         leaderboardIndexer.generateAll inject "Done!"
       }

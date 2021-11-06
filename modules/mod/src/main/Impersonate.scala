@@ -1,8 +1,8 @@
-package lila.mod
+package lishogi.mod
 
-import lila.common.Bus
-import lila.hub.actorApi.mod.Impersonate
-import lila.user.{ User, UserRepo }
+import lishogi.common.Bus
+import lishogi.hub.actorApi.mod.Impersonate
+import lishogi.user.{ User, UserRepo }
 
 final class ImpersonateApi(userRepo: UserRepo) {
 

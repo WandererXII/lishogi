@@ -1,12 +1,12 @@
-package lila.bookmark
+package lishogi.bookmark
 
 import akka.actor._
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
 import play.api.Configuration
 
-import lila.common.config._
-import lila.hub.actorApi.bookmark._
+import lishogi.common.config._
+import lishogi.hub.actorApi.bookmark._
 
 @Module
 final private class BookmarkConfig(
@@ -18,8 +18,8 @@ final private class BookmarkConfig(
 @Module
 final class Env(
     appConfig: Configuration,
-    db: lila.db.Db,
-    gameRepo: lila.game.GameRepo
+    db: lishogi.db.Db,
+    gameRepo: lishogi.game.GameRepo
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem

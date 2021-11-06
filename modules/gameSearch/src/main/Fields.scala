@@ -1,4 +1,4 @@
-package lila.gameSearch
+package lishogi.gameSearch
 
 private[gameSearch] object Fields {
 

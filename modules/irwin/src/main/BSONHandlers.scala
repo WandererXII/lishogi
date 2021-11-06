@@ -1,9 +1,9 @@
-package lila.irwin
+package lishogi.irwin
 
 import reactivemongo.api.bson._
 
-import lila.db.dsl._
-import lila.db.BSON
+import lishogi.db.dsl._
+import lishogi.db.BSON
 
 object BSONHandlers {
 

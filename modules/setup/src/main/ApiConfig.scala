@@ -1,11 +1,11 @@
-package lila.setup
+package lishogi.setup
 
 import shogi.Clock
 import shogi.format.{ FEN, Forsyth }
 import shogi.variant.FromPosition
-import lila.lobby.Color
-import lila.rating.PerfType
-import lila.game.PerfPicker
+import lishogi.lobby.Color
+import lishogi.rating.PerfType
+import lishogi.game.PerfPicker
 
 final case class ApiConfig(
     variant: shogi.variant.Variant,

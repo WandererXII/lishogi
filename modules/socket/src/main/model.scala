@@ -1,4 +1,4 @@
-package lila.socket
+package lishogi.socket
 
 final class IsOnline(f: (String => Boolean)) extends (String => Boolean) {
   def apply(id: String) = f(id)
