@@ -110,9 +110,9 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="howToThreeDots">Como...</string>
 	<string name="enableDisableNotificationPopUps">Ativar ou desativar pop-ups de notificação?</string>
 	<string name="viewSiteInformationPopUp">Ver pop-up de informações do site</string>
-	<string name="lishogiCanOptionnalySendPopUps">Lishogi can optionally send popup notifications, for example when it is your turn or you received a private message.
+	<string name="lishogiCanOptionnalySendPopUps">Lishogi pode opcionalmente mandar notificações, por exemplo, quando for sua vez ou quando você receber uma mensagem privada. 
 
-Click the lock icon next to the lishogi.org address in the URL bar of your browser.
+Clique no ícone de cadeado próximo ao endereço lishogi.org barra de URL do seu navegador.
 
-Then select whether to allow or block notifications from Lishogi.</string>
+Em seguida, selecione se deseja permitir ou bloquear notificações do Lishogi.</string>
 </resources>
