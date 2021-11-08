@@ -506,7 +506,7 @@
 	<string name="clockInitialTime">初期持ち時間</string>
 	<string name="clockIncrement">追加時間</string>
 	<string name="clockByoyomi">秒読み</string>
-	<string name="privacy">プライバシー（英文）</string>
+	<string name="privacy">プライバシー</string>
 	<string name="letOtherPlayersFollowYou">他人からのフォローを可能にする</string>
 	<string name="letOtherPlayersChallengeYou">他人からの挑戦を可能にする</string>
 	<string name="letOtherPlayersInviteYouToStudy">研究について他の人からの招待を認める</string>
