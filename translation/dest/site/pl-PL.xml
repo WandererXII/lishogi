@@ -9,14 +9,14 @@
 	<string name="yourTurn">Twój ruch</string>
 	<string name="aiNameLevelAiLevel">%1$s poziom %2$s</string>
 	<string name="level">Poziom</string>
-	<string name="strength">Strength</string>
+	<string name="strength">Siła</string>
 	<string name="toggleTheChat">Pokaż/ukryj rozmowy</string>
 	<string name="toggleSound">Włącz/wyłącz dźwięk</string>
 	<string name="chat">Czat</string>
 	<string name="resign">Poddaj się</string>
 	<string name="checkmate">Mat</string>
 	<string name="stalemate">Pat</string>
-	<string name="impasse">Impasse</string>
+	<string name="impasse">Impas</string>
 	<string name="white">Białe</string>
 	<string name="black">Czarne</string>
 	<string name="shitate">Shitate</string>
@@ -952,7 +952,7 @@
 	<string name="previousBlogPosts">Poprzednie wpisy</string>
 	<string name="continueReadingThis"> Czytaj dalej</string>
 	<string name="discussBlogForum">Dyskutuj o tym wpisie na forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces">Bierki w strefie promocji</string>
+	<string name="enteringKing">Wejście króla</string>
+	<string name="totalImpasseValue">Łączna wartość</string>
 </resources>
