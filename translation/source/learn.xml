@@ -24,6 +24,7 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="rookPromotion">The rook promotes to the powerful dragon. Don\'t forget that you can also promote your piece when you leave the promotion zone.</string>
 	<string name="rookSummary">The rook can go up, down, left or right as much as it wants.</string>
 	<string name="dragonSummary">It can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
+	<string name="dragonSummaryTwo">The dragon can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
 	<string name="grabAllTheStars">Grab all the stars!</string>
 	<string name="theFewerMoves">The fewer moves you make, the more points you win!</string>
 	<string name="rookComplete">Congratulations! You have successfully mastered the rook.</string>
@@ -64,6 +65,7 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="lancePromotion">After the lance is promoted, it moves differently, but you\'ve already seen this somewhere - same as the gold general.</string>
 	<string name="lanceSummary">Moves forward, this is really easy.</string>
 	<string name="planceSummary">It\'s the same as the gold general.</string>
+	<string name="planceSummaryTwo">The promoted lance moves the same as the gold general.</string>
 	<string name="lanceComplete">Great job!</string>
 	<string name="theGold">The gold general</string>
 	<string name="itMovesInAnyDirectionExceptDiagonallyBack">The gold general moves in any direction EXCEPT diagonally back.</string>

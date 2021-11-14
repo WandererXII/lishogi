@@ -37,7 +37,6 @@ var categs = [
     stages: [
       require('./setup'),
       require('./repetition'),
-      require('./value'),
   //    require('./castling'),
   //    require('./enpassant'),
   //    require('./stalemate'),
@@ -47,7 +46,8 @@ var categs = [
     key: 'advanced',
     name: 'advanced',
     stages: [
-       require('./attack'),
+      require('./value'),
+      // require('./attack'),
       // require('./fork'),
     ],
   },

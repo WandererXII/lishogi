@@ -37,7 +37,7 @@ module.exports = {
       shapes: [arrow('e5e9', 'green'), arrow('e5i5', 'green'), arrow('e5e1', 'green'), arrow('e5a5', 'green')],
     },
     {
-      goal: 'dragonSummary',
+      goal: 'dragonSummaryTwo',
       fen: '9/9/9/9/4+R4/9/9/9/9 b -',
       apples: 'e8 d7',
       nbMoves: 2,

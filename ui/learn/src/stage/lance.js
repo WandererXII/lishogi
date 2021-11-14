@@ -31,7 +31,7 @@ module.exports = {
       shapes: [arrow('e4e9', 'green')],
     },
     {
-      goal: 'planceSummary',
+      goal: 'planceSummaryTwo',
       fen: '9/9/9/9/9/4+L4/9/9/9 b -',
       apples: 'e6',
       nbMoves: 2,
