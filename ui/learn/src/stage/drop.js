@@ -26,25 +26,17 @@ module.exports = {
     {
       // knight
       goal: 'takeTheEnemyPiecesAndDontLoseYours',
-      fen: '9/9/9/2g1s1g2/9/5N3/9/9/9 b - 1',
-      nbMoves: 5,
-      captures: 3,
+      fen: '9/9/9/2g1s4/9/5N3/9/9/9 b - 1',
+      nbMoves: 3,
+      captures: 2,
       success: assert.extinct('black'),
     },
     {
       // gold
       goal: 'takeTheEnemyPiecesAndDontLoseYours',
-      fen: '9/9/2s1Gl3/2p1p4/9/5g3/9/9/9 b - 1',
-      nbMoves: 7,
-      captures: 5,
-      success: assert.extinct('black'),
-    },
-    {
-      // silver
-      goal: 'takeTheEnemyPiecesAndDontLoseYours',
-      fen: '9/3rn4/5S3/3lp4/9/7b1/9/9/9 b - 1',
-      nbMoves: 7,
-      captures: 5,
+      fen: '9/5p3/4Gl3/9/9/5g3/9/9/9 b - 1',
+      nbMoves: 4,
+      captures: 3,
       success: assert.extinct('black'),
     },
     {
@@ -53,6 +45,14 @@ module.exports = {
       fen: '4n4/g3g4/8s/9/4B4/9/9/9/9 b - 1',
       nbMoves: 7,
       captures: 4,
+      success: assert.extinct('black'),
+    },
+    {
+      // silver
+      goal: 'takeTheEnemyPiecesAndDontLoseYours',
+      fen: '9/3rn4/5S3/3lp4/9/7b1/9/9/9 b - 1',
+      nbMoves: 7,
+      captures: 5,
       success: assert.extinct('black'),
     },
     {
