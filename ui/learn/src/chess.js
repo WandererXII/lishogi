@@ -100,14 +100,14 @@ module.exports = function (fen, appleKeys) {
       shogi.play({
         from: compat.parseChessSquare(orig),
         to: compat.parseChessSquare(dest),
-        promotion: prom
+        promotion: prom,
       });
       return { from: orig, to: dest, promotion: prom, captured: capturedPiece };
     },
-    drop: function(role, dest) {
+    drop: function (role, dest) {
       shogi.play({
         role: role,
-        to: compat.parseChessSquare(dest)
+        to: compat.parseChessSquare(dest),
       });
       return { from: 'a0', to: dest, role: role };
     },
@@ -119,7 +119,7 @@ module.exports = function (fen, appleKeys) {
       var kingSquare = clone.board.kingOf(c);
       // change king to gold, there is no king in check if the king doesn't exist :)
       clone.board.take(kingSquare);
-      clone.board.set(kingSquare, {'role': 'gold', 'color': 'gote'});
+      clone.board.set(kingSquare, { role: 'gold', color: 'gote' });
       // change pawns to golds
       var pawnSquareSet = clone.board.pieces(c, 'pawn');
       clone.board['pawn'] = clone.board['pawn'].diff(pawnSquareSet);
@@ -132,7 +132,7 @@ module.exports = function (fen, appleKeys) {
     kingKey: function (color) {
       return findKing(color);
     },
-    findNifu: function(c, dest) {
+    findNifu: function (c, dest) {
       // find nifu on the same column as dest (assuming pawn is in dest right now)
       var pawnSquareSet = shogi.board.pieces(c, 'pawn');
       console.log('chess.js dest', dest);
@@ -181,7 +181,7 @@ module.exports = function (fen, appleKeys) {
     checks: function () {
       const clone = shogi.clone();
       clone.turn = util.opposite(clone.turn);
-      const colorInCheck = shogi.isCheck() ? shogi.turn : (clone.isCheck() ? clone.turn : undefined);
+      const colorInCheck = shogi.isCheck() ? shogi.turn : clone.isCheck() ? clone.turn : undefined;
       const checkingColor = util.opposite(colorInCheck);
       if (colorInCheck === undefined) return null;
       const kingPos = this.kingKey(colorInCheck);
@@ -201,11 +201,11 @@ module.exports = function (fen, appleKeys) {
       return checks;
     },
     playRandomMove: function () {
-      const allD = new Map([...shogi.allDests()].filter(
-        function ([k, v]) {
+      const allD = new Map(
+        [...shogi.allDests()].filter(function ([k, v]) {
           return v.nonEmpty();
-        }
-      ));
+        })
+      );
       const keys = Array.from(allD.keys());
       if (keys.length === 0) return;
       const from = keys[Math.floor(Math.random() * keys.length)];
@@ -215,9 +215,9 @@ module.exports = function (fen, appleKeys) {
       return { orig: from, dest: to };
     },
     playLishogiUciMove: function (move) {
-      const parsedMove = compat.parseLishogiUci(move)
+      const parsedMove = compat.parseLishogiUci(move);
       shogi.play(parsedMove);
-      return parsedMove
+      return parsedMove;
     },
 
     findCapturedLessValuablePiece: function () {

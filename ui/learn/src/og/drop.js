@@ -34,4 +34,4 @@ module.exports = {
   setDropMode: setDropMode,
   cancelDropMode: cancelDropMode,
   drop: drop,
-}
+};

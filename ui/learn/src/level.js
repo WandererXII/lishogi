@@ -71,9 +71,13 @@ module.exports = function (blueprint, opts) {
     vm.failed = true;
     ground.stop();
     if (!scenario.failedMovesPlayed()) {
-      ground.showCapture(move, function(){
-        shogi.move(move.orig, move.dest);
-      }, m);
+      ground.showCapture(
+        move,
+        function () {
+          shogi.move(move.orig, move.dest);
+        },
+        m
+      );
     }
     sound.failure();
     return true;
@@ -86,7 +90,7 @@ module.exports = function (blueprint, opts) {
     ground.showNifu([nifu.pos, dest]);
     sound.failure();
     return true;
-  }
+  };
 
   var detectCapturedLessValuablePiece = function () {
     var square = shogi.findCapturedLessValuablePiece();
@@ -95,7 +99,7 @@ module.exports = function (blueprint, opts) {
     ground.setShapes([util.circle(square, 'green')]);
     sound.failure();
     return true;
-  }
+  };
   // if orig is 'a0' then piece was dropped
   // to future self or anyone who wants it: the sendMove function is where you will implement feature for opponent's movement. also see scenario feature.
   var sendMove = function (orig, dest, prom, role) {
@@ -125,28 +129,30 @@ module.exports = function (blueprint, opts) {
     if (!took && move.captured && blueprint.pointsForCapture) {
       if (blueprint.showPieceValues) {
         vm.score += scoring.pieceValue(move.captured);
-      }
-      else {
+      } else {
         vm.score += scoring.capture;
       }
       took = true;
     }
     ground.check(shogi);
     var scenarioData = {
-      move: (move.from === 'a0' ? compat.roleToLishogiChar(move.role) + '*' : move.from) + move.to + (move.promotion ? '+' : ''),
+      move:
+        (move.from === 'a0' ? compat.roleToLishogiChar(move.role) + '*' : move.from) +
+        move.to +
+        (move.promotion ? '+' : ''),
       complete: complete,
-    }
+    };
     scenarioResult = scenario.player(scenarioData);
     if (scenarioResult === true) {
-        vm.score += scoring.scenario;
+      vm.score += scoring.scenario;
       inScenario = true;
     } else {
       captured = detectCapture();
       if (role === 'pawn') nifued = detectNifu(blueprint.color, dest);
-      if (blueprint.capturePiecesInOrderOfValue)
-        notCapturedInOrder = detectCapturedLessValuablePiece();
+      if (blueprint.capturePiecesInOrderOfValue) notCapturedInOrder = detectCapturedLessValuablePiece();
       // see checkmate1.js for an example of typeof(scenarioResult) === string being true. the scenarioResult variable will be set to levelFail if any of the moves in the particular scenario are played
-      vm.failed = vm.failed || typeof(scenarioResult) === 'string' || captured || nifued || notCapturedInOrder || detectFailure();
+      vm.failed =
+        vm.failed || typeof scenarioResult === 'string' || captured || nifued || notCapturedInOrder || detectFailure();
     }
     if (!vm.failed && detectSuccess()) complete();
     if (vm.willComplete) {
@@ -175,9 +181,9 @@ module.exports = function (blueprint, opts) {
         if (blueprint.highlightTakenPieceInPocket && move.captured) {
           ground.data().drawable.piece = {
             role: move.captured.role,
-            color: move.captured.color === 'gote' ? 'sente' : 'gote'
+            color: move.captured.color === 'gote' ? 'sente' : 'gote',
           };
-          ground.setShapes(blueprint.highlightTakenPieceInPocket)
+          ground.setShapes(blueprint.highlightTakenPieceInPocket);
         }
       }
     }
@@ -196,10 +202,10 @@ module.exports = function (blueprint, opts) {
     if (!promotion.start(orig, dest, sendMove)) sendMove(orig, dest);
   };
 
-  var onDrop = function(piece, dest) {
+  var onDrop = function (piece, dest) {
     if (!piece || piece.color !== blueprint.color) return;
     sendMove('a0', dest, undefined, piece.role);
-  }
+  };
 
   var shogi = makeShogi(blueprint.fen, blueprint.emptyApples ? [] : items.appleKeys());
 

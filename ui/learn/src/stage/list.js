@@ -37,9 +37,9 @@ var categs = [
     stages: [
       require('./setup'),
       require('./repetition'),
-  //    require('./castling'),
-  //    require('./enpassant'),
-  //    require('./stalemate'),
+      //    require('./castling'),
+      //    require('./enpassant'),
+      //    require('./stalemate'),
     ],
   },
   {

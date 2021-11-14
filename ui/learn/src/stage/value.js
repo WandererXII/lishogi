@@ -78,7 +78,7 @@ module.exports = {
           wrongMoves: [
             ['c2d2', 'g*d3', 'd2c1', 'g*c2'],
             ['c2b1', 'g*c1'],
-          ]
+          ],
         },
         'g*b5',
       ],
@@ -94,14 +94,8 @@ module.exports = {
       scenario: [
         {
           move: ['g7h8', 'h7h8', 'i7h8'],
-          wrongMoves: [
-            ['g7g8'],
-            ['h7g8'],
-            ['h7i8'],
-            ['i7i8'],
-            ['any', 'g*b4'],
-          ],
-        }
+          wrongMoves: [['g7g8'], ['h7g8'], ['h7i8'], ['i7i8'], ['any', 'g*b4']],
+        },
       ],
       anyOtherMove: 'g*b4',
       nbMoves: 1,
@@ -164,7 +158,7 @@ module.exports = {
           move: 's*h9',
           shapes: [circle('g8', 'green')],
           wrongMoves: [
-            ['c9d8', 's*g1', 'h2i2', 'l*i3', 'i2i3', 'g7h5', 'i3h4', 'g*g5',],
+            ['c9d8', 's*g1', 'h2i2', 'l*i3', 'i2i3', 'g7h5', 'i3h4', 'g*g5'],
             ['s*f9', 'f8f9'],
             ['g*f9', 'f8f9'],
             ['g*g9', 'h8g9'],
@@ -173,11 +167,11 @@ module.exports = {
             ['c9h9', 'g8h9'],
             ['any', 'l*f9'],
           ],
-        }
+        },
       ],
       success: assert.scenarioComplete,
       failure: assert.scenarioFailed,
-      shapes: [arrow('c9c6'), arrow('c9d8'), arrow('c9b9'), circle('c6'), circle('d8'), circle('b9'),],
+      shapes: [arrow('c9c6'), arrow('c9d8'), arrow('c9b9'), circle('c6'), circle('d8'), circle('b9')],
       detectCapture: 'unprotected',
     },
   ].map(function (l, i) {

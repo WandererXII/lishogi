@@ -14,38 +14,39 @@ exports.renderPocket = function (ctrl, position) {
   if (!ctrl.level.pockets) return;
   const data = ground.instance.data;
   const shadowPiece = data.drawable.piece;
-  const bottomColor = ctrl.level.blueprint.color
-  const color = position == 'bottom' ? bottomColor : reverse(bottomColor)
+  const bottomColor = ctrl.level.blueprint.color;
+  const color = position == 'bottom' ? bottomColor : reverse(bottomColor);
   const usable = position == 'bottom';
   const pocket = ctrl.level.pockets[color];
   return m(
     `div.pocket.is2d.pocket-${position}.pos-${ctrl.level.blueprint.color}` + (usable ? '.usable' : ''),
     {
-      config: function(element, isInitialized) {
+      config: function (element, isInitialized) {
         if (isInitialized) return;
-        eventNames1.forEach(function(name) {
-          element.addEventListener(name, function(e) {
+        eventNames1.forEach(function (name) {
+          element.addEventListener(name, function (e) {
             crazyCtrl.drag(ctrl, color, e);
             m.redraw();
           });
         });
-        eventNames2.forEach(function(name) {
-          element.addEventListener(name, function(e) {
+        eventNames2.forEach(function (name) {
+          element.addEventListener(name, function (e) {
             crazyCtrl.selectToDrop(ctrl, color, e);
             m.redraw();
           });
         });
-        eventNames3.forEach(function(name) {
-          element.addEventListener(name, function(e) {
+        eventNames3.forEach(function (name) {
+          element.addEventListener(name, function (e) {
             crazyCtrl.shadowDrop(ctrl, color, e);
           });
         });
-      }
+      },
     },
-    oKeys.map((role) => {
+    oKeys.map(role => {
       let nb = pocket[role];
-      const sp = shadowPiece && (role === shadowPiece.role && color == shadowPiece.color);
-      const selectedSquare = data.dropmode.active &&
+      const sp = shadowPiece && role === shadowPiece.role && color == shadowPiece.color;
+      const selectedSquare =
+        data.dropmode.active &&
         data.dropmode.piece &&
         data.dropmode.piece.color === color &&
         data.dropmode.piece.role === role &&
@@ -55,17 +56,17 @@ exports.renderPocket = function (ctrl, position) {
         m(
           'div.pocket-c2',
           {
-            class: sp ? 'shadow-piece' : ''
+            class: sp ? 'shadow-piece' : '',
           },
           m('piece.' + role + '.' + color, {
-            class: selectedSquare ? 'selected-square': '',
+            class: selectedSquare ? 'selected-square' : '',
             'data-role': role,
             'data-color': color,
             'data-nb': nb,
-            cursor: 'pointer'
+            cursor: 'pointer',
           })
         )
       );
     })
   );
-}
+};

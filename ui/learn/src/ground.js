@@ -137,9 +137,11 @@ module.exports = {
     });
   },
   showNifu: function (squares) {
-    cg.setShapes(squares.map(function(square) {
-      return util.circle(square, 'red');
-    }));
+    cg.setShapes(
+      squares.map(function (square) {
+        return util.circle(square, 'red');
+      })
+    );
   },
   showCheckmate: function (shogi) {
     const kingSquare = shogi.instance.board.kingOf(opposite(shogi.color()));

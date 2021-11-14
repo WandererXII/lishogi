@@ -15,13 +15,12 @@ module.exports = {
     {
       goal: 'ifTheSamePositionOccurs',
       fen: '9/9/9/9/k8/9/+p8/3+p5/K8 b - 1',
-      shapes: [
-        arrow('c6e8', 'green'),
-        arrow('e8e3', 'green'),
-        arrow('c3g3', 'green'),
-      ],
+      shapes: [arrow('c6e8', 'green'), arrow('e8e3', 'green'), arrow('c3g3', 'green')],
       scenario: [
-        'a1b1', 'a5b5', 'b1a1', {
+        'a1b1',
+        'a5b5',
+        'b1a1',
+        {
           move: 'b5a5',
           shapes: [
             arrow('c7d8', 'green'),
@@ -31,7 +30,10 @@ module.exports = {
             arrow('c3g3', 'green'),
           ],
         },
-        'a1b1', 'a5b5', 'b1a1', {
+        'a1b1',
+        'a5b5',
+        'b1a1',
+        {
           move: 'b5a5',
           shapes: [
             arrow('c7d8', 'green'),
@@ -45,13 +47,12 @@ module.exports = {
             arrow('d3c4', 'green'),
           ],
         },
-        'a1b1', 'a5b5', 'b1a1', {
+        'a1b1',
+        'a5b5',
+        'b1a1',
+        {
           move: 'b5a5',
-          shapes: [
-            arrow('f3f8', 'green'),
-            arrow('f8c5', 'green'),
-            arrow('c5g5', 'green'),
-          ],
+          shapes: [arrow('f3f8', 'green'), arrow('f8c5', 'green'), arrow('c5g5', 'green')],
         },
       ],
       nbMoves: 6,
@@ -63,7 +64,7 @@ module.exports = {
     {
       goal: 'perpetualCheckIsALoss',
       fen: '3k5/9/1s+P+P+P4/9/P2+b5/KP7/1+b7/9/9 b -',
-      scenario: ['a4b5', 'b3c4', 'b5a4', 'c4b3', 'a4b5', 'b3c4', 'b5a4', 'c4b3', 'a4b5', 'b3c4', 'b5a4', 'c4b3', ],
+      scenario: ['a4b5', 'b3c4', 'b5a4', 'c4b3', 'a4b5', 'b3c4', 'b5a4', 'c4b3', 'a4b5', 'b3c4', 'b5a4', 'c4b3'],
       nbMoves: 6,
       captures: 0,
       offerIllegalMove: true,

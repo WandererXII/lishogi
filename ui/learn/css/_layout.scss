@@ -24,11 +24,11 @@ $mq-col3: $mq-col3-uniboard;
 
   &--run {
     grid-template-areas:
-    'pocket-top'
-    'main'
-    'pocket-bot'
-    'table'
-    'side';
+      'pocket-top'
+      'main'
+      'pocket-bot'
+      'table'
+      'side';
   }
   &--map {
     grid-template-areas:
@@ -42,10 +42,10 @@ $mq-col3: $mq-col3-uniboard;
       grid-template-columns: $col2-uniboard-width $col2-uniboard-table;
       grid-template-rows: 60px fit-content(0) 60px;
       grid-template-areas:
-      'main pocket-top'
-      'main table'
-      'main pocket-bot'
-      'side .';
+        'main pocket-top'
+        'main table'
+        'main pocket-bot'
+        'side .';
     }
     &--map {
       grid-template-areas: 'side main';
@@ -61,10 +61,10 @@ $mq-col3: $mq-col3-uniboard;
       grid-template-rows: 60px auto 60px;
       grid-template-columns: $col3-uniboard-side $col3-uniboard-width $col3-uniboard-table;
       grid-template-areas:
-      'side main pocket-top'
-      'side main table'
-      'side main pocket-bot'
-      'side . .'
+        'side main pocket-top'
+        'side main table'
+        'side main pocket-bot'
+        'side . .';
     }
   }
 }

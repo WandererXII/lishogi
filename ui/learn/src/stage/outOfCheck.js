@@ -73,7 +73,6 @@ module.exports = {
       success: assert.scenarioComplete,
       failure: assert.scenarioFailed,
     },
-
   ].map(function (l, i) {
     l.detectCapture = 'unprotected';
     l.offerIllegalMove = true;

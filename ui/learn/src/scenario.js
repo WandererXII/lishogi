@@ -27,11 +27,11 @@ module.exports = function (blueprint, opts) {
       failedMovesPlayed = true;
       ground.stop();
       for (var i = 1; i < moveSeq.length; i++) {
-        var makeMoveWrapper = function(i) {
-          return function() {
+        var makeMoveWrapper = function (i) {
+          return function () {
             makeMove(moveSeq[i]);
-          }
-        }
+          };
+        };
         timeouts.setTimeout(makeMoveWrapper(i), defaultDelay * i);
       }
     }
@@ -39,7 +39,7 @@ module.exports = function (blueprint, opts) {
     return false;
   };
 
-  var makeMove = function(stepMove) {
+  var makeMove = function (stepMove) {
     var res;
     var move = util.decomposeUci(stepMove);
     if (stepMove[1] === '*') {
@@ -51,7 +51,7 @@ module.exports = function (blueprint, opts) {
     ground.fen(opts.shogi.fen(), opts.shogi.color(), opts.makeShogiDests(), move);
     ground.data().dropmode.dropDests = opts.shogi.getDropDests();
     m.redraw();
-  }
+  };
 
   var opponent = function (data) {
     var step = steps[it];
@@ -60,9 +60,9 @@ module.exports = function (blueprint, opts) {
     if (failure) return failure;
     it++;
     if (step.shapes)
-    timeouts.setTimeout(function () {
-      ground.setShapes(step.shapes);
-    }, 70);
+      timeouts.setTimeout(function () {
+        ground.setShapes(step.shapes);
+      }, 70);
 
     if (it == steps.length) {
       ground.stop();
@@ -77,7 +77,7 @@ module.exports = function (blueprint, opts) {
     isFailed: function () {
       return isFailed;
     },
-    failedMovesPlayed: function() {
+    failedMovesPlayed: function () {
       return failedMovesPlayed;
     },
     opponent: opponent,
@@ -105,7 +105,7 @@ module.exports = function (blueprint, opts) {
       it++;
       if (step.shapes) ground.setShapes(step.shapes);
       if (step.levelFail) {
-        return step.levelFail
+        return step.levelFail;
       }
       // example case in setup.js
       if (steps[it] && !steps[it].move) {
@@ -113,9 +113,9 @@ module.exports = function (blueprint, opts) {
         opts.shogi.color(shogiopsUtil.opposite(opts.shogi.color()));
         ground.color(opts.shogi.color(), opts.makeShogiDests());
       } else {
-        var opponentWrapper = function() {
+        var opponentWrapper = function () {
           opponent(data);
-        }
+        };
         timeouts.setTimeout(opponentWrapper, steps[it] && steps[it].delay ? steps[it].delay : defaultDelay);
       }
       return true;

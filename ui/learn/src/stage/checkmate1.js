@@ -65,9 +65,9 @@ module.exports = {
         {
           levelFail: 'fail',
           move: 'p*i6',
-          shapes: [circle('i6', 'red')]
-        }
-      ]
+          shapes: [circle('i6', 'red')],
+        },
+      ],
     },
     {
       // pawn 2
@@ -80,9 +80,9 @@ module.exports = {
       scenario: [
         {
           move: 'f8g9+',
-          shapes: [arrow('g9i7', 'yellow')]
-        }
-      ]
+          shapes: [arrow('g9i7', 'yellow')],
+        },
+      ],
     },
     {
       goal: 'attackYourOpponentsKing',
@@ -92,7 +92,6 @@ module.exports = {
       goal: 'attackYourOpponentsKing',
       fen: '2R3gkl/3R3s1/7p1/7Np/9/9/9/9/9 b 2b3g3s3n3l16p 1',
     },
-
   ].map(function (l, i) {
     l.nbMoves = 1;
     l.failure = assert.not(assert.mate);

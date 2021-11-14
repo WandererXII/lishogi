@@ -196,8 +196,7 @@ function renderContent(ctrl) {
   }
   // the hack to drag new pieces on the board (editor and crazyhouse)
   // is to put it on a0 then set it as being dragged
-  if (d.draggable.current && d.draggable.current.newPiece)
-    children.push(renderPiece(d, 'a0', ctx));
+  if (d.draggable.current && d.draggable.current.newPiece) children.push(renderPiece(d, 'a0', ctx));
 
   if (d.draggable.showGhost) {
     var dragOrig = d.draggable.current.orig;
@@ -218,7 +217,7 @@ function startDragOrDraw(d) {
       if (d.dropmode.active && !squareOccupied(d, e)) drop.drop(d, e);
       else {
         drop.cancelDropMode(d);
-        m.redraw()
+        m.redraw();
         drag.start(d, e);
       }
     }

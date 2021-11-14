@@ -16,7 +16,7 @@ module.exports = {
     {
       goal: 'pawnsAreDisposable',
       fen: 'l4g1kl/1r2g1sb1/2npspnp1/p1p1p1p1p/1p7/2P2PPPP/PPB1PG3/3R2SK1/LNS2G1NL b P 1',
-      shapes: [circle('g7', 'red'),],
+      shapes: [circle('g7', 'red')],
       scenario: [
         {
           move: 'g4g5',

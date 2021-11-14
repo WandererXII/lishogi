@@ -95,7 +95,7 @@ function dragNewPiece(data, piece, e) {
     // element: () => pieceElementByKey,
     newPiece: true,
     bounds: bounds,
-  }
+  };
   processDrag(data);
 }
 
@@ -109,9 +109,8 @@ function processDrag(data) {
       }
       // if moving piece is gone, cancel
       if (hashPiece(data.pieces[cur.orig]) !== cur.piece) {
-        cancel(data); 
-      }
-      else {
+        cancel(data);
+      } else {
         if (!cur.started && util.distance(cur.epos, cur.rel) >= data.draggable.distance) cur.started = true;
         if (cur.started) {
           cur.pos = [cur.epos[0] - cur.rel[0], cur.epos[1] - cur.rel[1]];

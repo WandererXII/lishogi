@@ -45,9 +45,9 @@ module.exports = {
       scenario: [
         {
           move: 'g3f5',
-          shapes: [arrow('g7f5', 'red'), arrow('f4f5', 'green')]
-        }
-      ]
+          shapes: [arrow('g7f5', 'red'), arrow('f4f5', 'green')],
+        },
+      ],
     },
     {
       goal: 'makeSureAllSafe',
