@@ -5301,10 +5301,17 @@ shell-quote@^1.4.2, shell-quote@^1.6.1:
   resolved "https://registry.yarnpkg.com/shell-quote/-/shell-quote-1.7.2.tgz#67a7d02c76c9da24f99d20808fcaded0e0e04be2"
   integrity sha512-mRz/m/JVscCrkMyPqHc/bczi3OQHkLTqXHEFu0zDhK/qfv3UcOA4SVmRCLmos4bhjr9ekVQubj/R7waKapmiQg==
 
-shogiops@^0.2.1, shogiops@^0.2.2, shogiops@^0.2.6:
+shogiops@^0.2.2, shogiops@^0.2.6:
   version "0.2.6"
   resolved "https://registry.yarnpkg.com/shogiops/-/shogiops-0.2.6.tgz#e5def0a456f9354b3be79535da3b3f09c87e052d"
   integrity sha512-mEpeFTMEATtjkdS2bzPpmy7L6Q4WbvePdvxYLJYJluPxbG2jLoFjWmk2BJD9rmNpj3c0Ba2j0DCn8CtqGguKng==
+  dependencies:
+    "@badrap/result" "^0.2.6"
+
+shogiops@^0.3.1:
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/shogiops/-/shogiops-0.3.1.tgz#9be5b41a59fb2b04dafdb640036102ad957bc629"
+  integrity sha512-w9Z5cGChIBJTnWnL1H/6NG4guyeZXKtdfHywol+TOopAT6lynZuoW6BWsPPB8+hQ2aSkK2vr1c9rK3DjdKy4FQ==
   dependencies:
     "@badrap/result" "^0.2.6"
 
