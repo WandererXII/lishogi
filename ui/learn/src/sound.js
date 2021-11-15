@@ -7,19 +7,18 @@ var make = function (file, volume, noDuplicates) {
   var sound = new Howl({
     src: [baseUrl + file + '.ogg', baseUrl + file + '.mp3'],
     volume: volume || 1,
-    onend: function() {
+    onend: function () {
       id = null;
     },
-    onstop: function() {
+    onstop: function () {
       id = null;
     },
-    onpause: function() {
+    onpause: function () {
       id = null;
     },
   });
   return function () {
-    if (lishogi.sound.set() !== 'silent')
-     if (!noDuplicates || !id) id = sound.play();
+    if (lishogi.sound.set() !== 'silent') if (!noDuplicates || !id) id = sound.play();
   };
 };
 
