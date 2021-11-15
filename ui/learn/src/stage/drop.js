@@ -26,8 +26,8 @@ module.exports = {
     {
       // knight
       goal: 'takeTheEnemyPiecesAndDontLoseYours',
-      fen: '9/9/9/2g1s4/9/5N3/9/9/9 b - 1',
-      nbMoves: 3,
+      fen: '9/9/9/2g1s4/9/9/9/6N2/9 b - 1',
+      nbMoves: 4,
       captures: 2,
       success: assert.extinct('black'),
     },

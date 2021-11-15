@@ -22,7 +22,7 @@ module.exports = {
       goal: 'grabAllTheStarsRemember',
       fen: '9/9/9/9/9/9/9/9/9 b R',
       apples: 'c3 g3',
-      nbMoves: 2,
+      nbMoves: 3,
       noPocket: false,
       doNotShowPawnsInPocket: true,
     },
