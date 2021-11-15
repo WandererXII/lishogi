@@ -151,12 +151,6 @@ shogi के हर खेल के !
 रानी &gt; बिशप</string>
 	<string name="takeThePieceWithTheHighestValue">टुकड़ा ले लो
 उच्चतम मूल्य के साथ !</string>
-	<string name="pieceValueComplete">बधाई हो! आप मोहरों का मूल्य जानते हैं !
-रानी = 9
-रूक = 5
-बिशप = 3
-नाइट = 3
-पॉन = 1</string>
 	<string name="checkInTwo">दो में चेक करें</string>
 	<string name="twoMovesToGiveCheck">दो चाल मैं चेक दे</string>
 	<string name="checkInTwoIntro">प्रतिद्वंदी के राजा को दो सही चाल चला कर शह दे !</string>

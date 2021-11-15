@@ -140,12 +140,6 @@
 	<string name="queenOverBishop">请吃掉价值大的棋子！
 后&gt;象</string>
 	<string name="takeThePieceWithTheHighestValue">请吃掉价值大的棋子！</string>
-	<string name="pieceValueComplete">恭喜！您已经懂得子力价值！
-后=9
-车=5
-象=3
-马=3
-兵=1</string>
 	<string name="checkInTwo">二步将</string>
 	<string name="twoMovesToGiveCheck">走两步棋并将军对方</string>
 	<string name="checkInTwoIntro">请找到正确的两步棋对敌王将军。</string>

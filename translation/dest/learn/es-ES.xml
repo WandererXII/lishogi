@@ -137,12 +137,6 @@ Y no pierdas las tuyas.</string>
 	<string name="queenOverBishop">¡Captura la pieza más valiosa!
 Dama &gt; Alfil</string>
 	<string name="takeThePieceWithTheHighestValue">¡Captura la pieza más valiosa!</string>
-	<string name="pieceValueComplete">¡Felicidades! ¡Conoces el valor de las piezas!
-Dama = 9
-Torre = 5
-Alfil = 3
-Caballo = 3
-Peón = 1</string>
 	<string name="checkInTwo">Jaque en dos</string>
 	<string name="twoMovesToGiveCheck">Dar jaque en dos jugadas</string>
 	<string name="checkInTwoIntro">¡Encuentra la combinación de dos movimientos que da jaque al rey enemigo!</string>

@@ -148,12 +148,6 @@ Fes un moviment per continuar.</string>
 amb el valor més alt!
 Dama &gt; Àlfil</string>
 	<string name="takeThePieceWithTheHighestValue">Captura la peça amb el valor més alt!</string>
-	<string name="pieceValueComplete">Felicitats! Saps el valor del material! 
-Dama = 9 
-Torre = 5 
-Àlfil = 3 
-Cavall = 3 
-Peó = 1</string>
 	<string name="checkInTwo">Escac en dos</string>
 	<string name="twoMovesToGiveCheck">Dos moviments per fer un escac</string>
 	<string name="checkInTwoIntro">Trobar la combinació correcta de dos moviments que posa en escac el rei del contrincant!</string>

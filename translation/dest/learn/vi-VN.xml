@@ -140,12 +140,6 @@ Nhưng đừng để mất quân của bạn.</string>
 Hậu &gt; Tượng</string>
 	<string name="takeThePieceWithTheHighestValue">Hãy ăn quân
 với giá trị cao nhất!</string>
-	<string name="pieceValueComplete">Chúc mừng! Bạn đã hiểu giá trị từng quân cờ!
-Hậu = 9
-Xe = 5
-Tượng = 3
-Mã = 3
-Tốt = 1</string>
 	<string name="checkInTwo">Chiếu trong hai nước</string>
 	<string name="twoMovesToGiveCheck">Hai nước để chiếu</string>
 	<string name="checkInTwoIntro">Timf sự kết hợp chính xác 2 nước đi để chiếu Vua đối phương!</string>

@@ -150,12 +150,6 @@ con il più alto valore!
 Regina &gt; Alfiere</string>
 	<string name="takeThePieceWithTheHighestValue">Cattura il pezzo 
 con il valore più alto!</string>
-	<string name="pieceValueComplete">Congratulazioni! Ora conosci il valore dei pezzi! 
-Regina = 9 
-Torre = 5 
-Alfiere = 3
-Cavallo = 3 
-Pedone = 1</string>
 	<string name="checkInTwo">Scacco in due mosse</string>
 	<string name="twoMovesToGiveCheck">Due mosse per dare uno scacco</string>
 	<string name="checkInTwoIntro">Trova la combinazione di due mosse che dia scacco al re avversario!</string>

@@ -150,12 +150,6 @@ met de hoogste waarde!
 Koningin &gt; Loper</string>
 	<string name="takeThePieceWithTheHighestValue">Sla het stuk
 met de hoogste waarde!</string>
-	<string name="pieceValueComplete">Gefeliciteerd! Je kent nu de waarde van materiaal! 
-Koningin = 9 
-Toren = 5 
-Loper = 3 
-Paard = 3 
-Pion = 1</string>
 	<string name="checkInTwo">Schaak in twee zetten</string>
 	<string name="twoMovesToGiveCheck">Twee zetten om hem schaak te zetten</string>
 	<string name="checkInTwoIntro">Vind de juiste twee zetten om de vijandige koning schaak te zetten!</string>

@@ -144,12 +144,6 @@ cu cea mai mare valoare!
 Regina &gt; Nebunul</string>
 	<string name="takeThePieceWithTheHighestValue">Capturează piesa
 cu cea mai mare valoare!</string>
-	<string name="pieceValueComplete">Felicitări! Acum știi valoarea pieselor!
-Regina = 9
-Turnul = 5
-Nebunul = 3
-Calul = 3
-Pionul = 1</string>
 	<string name="checkInTwo">Șah mat în două mutări</string>
 	<string name="twoMovesToGiveCheck">Două mutări pentru a da șah</string>
 	<string name="checkInTwoIntro">Găsește combinația corectă de două mutări care dă șah regelui oponentului!</string>

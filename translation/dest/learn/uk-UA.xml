@@ -145,12 +145,6 @@ Make any move to continue.</string>
 	<string name="queenOverBishop">Атакуйте фігури з найбільшою цінністю!
 Ферзь &gt; Слон</string>
 	<string name="takeThePieceWithTheHighestValue">Атакуйте фігури з найбільшою цінністю!</string>
-	<string name="pieceValueComplete">Вітаємо! Ви знаєте цінність фігур!
-Ферзь = 9 пішаків
-Тура = 5 пішаків
-Слон = 3 пішаки
-Кінь = 3 пішаки
-Пішак = 1 пішак</string>
 	<string name="checkInTwo">Шах в 2 ходи</string>
 	<string name="twoMovesToGiveCheck">Два ходи на те, щоб зробити шах</string>
 	<string name="checkInTwoIntro">Знайдіть комбінацію в два ходи, щоб поставити шах королю супротивника!</string>

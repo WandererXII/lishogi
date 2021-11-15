@@ -139,12 +139,6 @@ mit dem höchsten Wert!
 Dame &gt; Läufer</string>
 	<string name="takeThePieceWithTheHighestValue">Schlage die Figur 
 mit dem höchsten Wert!</string>
-	<string name="pieceValueComplete">Herzlichen Glückwunsch! Du kennst jetzt den Wert des Materials!
-Dame = 9
-Turm = 5
-Läufer = 3
-Springer = 3
-Bauer = 1</string>
 	<string name="checkInTwo">Schach in zwei Zügen</string>
 	<string name="twoMovesToGiveCheck">Zwei Züge um Schach zu bieten</string>
 	<string name="checkInTwoIntro">Finde die richtige Kombination von zwei Zügen, die den gegnerischen König Schach setzt!</string>

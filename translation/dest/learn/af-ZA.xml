@@ -149,12 +149,6 @@ met die hoogste waarde!
 Dame &gt; Loper</string>
 	<string name="takeThePieceWithTheHighestValue">Vat die stuk
 met die hoogste waarde!</string>
-	<string name="pieceValueComplete">Jy is aan die brand! Jy ken die waarde van materiaal!
-Dame = 9
-Toring = 5
-Loper = 3
-Ruiter = 3
-Pion = 1</string>
 	<string name="checkInTwo">Skaak in twee</string>
 	<string name="twoMovesToGiveCheck">Twee skuiwe om \'n skaak te gee</string>
 	<string name="checkInTwoIntro">Vind die regte kombinasie van twee skuiwe wat die opponent se koning skaak!</string>

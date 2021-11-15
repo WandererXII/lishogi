@@ -151,12 +151,6 @@ joka on arvokkain!
 Daami &gt; Lähetti</string>
 	<string name="takeThePieceWithTheHighestValue">Lyö nappula
 joka on arvokkain!</string>
-	<string name="pieceValueComplete">Onnittelut! Tunnet nyt materiaalin arvon!
-Daami = 9
-Torni = 5
-Lähetti = 3
-Ratsu = 3
-Sotilas = 1</string>
 	<string name="checkInTwo">Kahden siirron shakki</string>
 	<string name="twoMovesToGiveCheck">Shakkaa kahdella siirrolla</string>
 	<string name="checkInTwoIntro">Löydä sopiva kahden siirron kombinaatio, jolla voit shakata vastustajan kuningasta!</string>

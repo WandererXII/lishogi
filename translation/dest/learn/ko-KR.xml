@@ -142,12 +142,6 @@
 힌트: 
 금장/은장[金将/銀将] &gt; 각행[角行]</string>
 	<string name="takeThePieceWithTheHighestValue">가장 높은 가치가 있는 말을 잡으세요!</string>
-	<string name="pieceValueComplete">축하드립니다! 이제 말의 가치를 아실겁니다!
-금장/은장[金将/銀将] = 9
-비차[飛車] = 5
-각행[角行] = 3
-계마[桂馬] = 3
-보병[歩兵] = 1</string>
 	<string name="checkInTwo">두 수 안에 체크하기</string>
 	<string name="twoMovesToGiveCheck">두 수 만에 위협하기</string>
 	<string name="checkInTwoIntro">두 수 만에 상대의 왕을 체크시킬 방법을 찾아내세요!</string>

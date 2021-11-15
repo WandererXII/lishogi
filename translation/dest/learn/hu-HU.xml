@@ -149,12 +149,6 @@ A játszma döntetlen: senki sem győzött vagy vesztett.</string>
 	<string name="queenOverBishop">Üsd ki a legértékesebb figurát!
 Vezér &gt; Futó</string>
 	<string name="takeThePieceWithTheHighestValue">Üsd ki a legértékesebb figurát!</string>
-	<string name="pieceValueComplete">Gratulálunk! Most már ismered a figurák anyagi értékét!
-Vezér = 9
-Bástya = 5
-Futó = 3
-Huszár = 3
-Gyalog = 1</string>
 	<string name="checkInTwo">Sakk két lépésben</string>
 	<string name="twoMovesToGiveCheck">Adj sakkot két lépésből</string>
 	<string name="checkInTwoIntro">Találd meg azt a kombinációt, ami két lépésben sakkot ad az ellenfél királyának!</string>

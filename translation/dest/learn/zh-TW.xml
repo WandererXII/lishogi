@@ -140,12 +140,6 @@
 	<string name="queenOverBishop">吃掉價值高的棋子！
 皇后　&gt;　主教</string>
 	<string name="takeThePieceWithTheHighestValue">吃掉價值高的棋子！</string>
-	<string name="pieceValueComplete">恭喜！你知道各棋子的價值了！
-皇后 = 9
-城堡 = 5
-主教 = 3
-騎士 = 3
-士兵 = 1</string>
 	<string name="checkInTwo">兩步將</string>
 	<string name="twoMovesToGiveCheck">走兩步棋並將軍對方</string>
 	<string name="checkInTwoIntro">找出可以兩步將軍對手的正確組合！</string>

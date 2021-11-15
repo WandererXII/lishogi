@@ -151,12 +151,6 @@ Make any move to continue.</string>
 Βασίλισσα &gt; Αξιωματικός</string>
 	<string name="takeThePieceWithTheHighestValue">Πάρτε το κομμάτι
 με την υψηλότερη αξία!</string>
-	<string name="pieceValueComplete">Συγχαρητήρια! Γνωρίζετε την αξία του υλικού! 
-Βασίλισσα = 9 
-Πύργος = 5 
-Αξιωματικός = 3 
-Ίππος = 3
-Πιόνι = 1</string>
 	<string name="checkInTwo">Σαχ σε δύο</string>
 	<string name="twoMovesToGiveCheck">Δύο κινήσεις για να κάνετε σαχ</string>
 	<string name="checkInTwoIntro">Βρείτε το σωστό συνδυασμό δύο κινήσεων που κάνει σαχ στον βασιλιά του αντιπάλου!</string>

@@ -141,12 +141,6 @@ nikdo neprohrál.</string>
 s nejvyšší hodnotou!
 Dáma &gt; Střelec</string>
 	<string name="takeThePieceWithTheHighestValue">Vyberte figuru s nejvyšší hodnotou!</string>
-	<string name="pieceValueComplete">Blahopřejeme! Nyní znáte hodnotu materiálu!
-Dáma = 9
-Věž = 5
-Střelec = 3
-Jezdec = 3
-Pěšec = 1</string>
 	<string name="checkInTwo">Šach 2. tahem</string>
 	<string name="twoMovesToGiveCheck">Dejte šach druhým tahem</string>
 	<string name="checkInTwoIntro">Najděte správnou kombinaci dvou tahů, abyste dali soupeřovu králi šach!</string>

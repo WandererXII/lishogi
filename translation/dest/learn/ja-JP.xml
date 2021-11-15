@@ -149,12 +149,6 @@
 クイーン ＞ ビショップ</string>
 	<string name="takeThePieceWithTheHighestValue">いちばん価値の大きい
 駒を取ってください。</string>
-	<string name="pieceValueComplete">おめでとう！　駒の価値を覚えました！
-クイーン = 9
-ルーク = 5
-ビショップ = 3
-ナイト = 3
-ポーン = 1</string>
 	<string name="checkInTwo">３手で王手する</string>
 	<string name="twoMovesToGiveCheck">２手動かして王手する</string>
 	<string name="checkInTwoIntro">相手の王将/玉将を王手する３手の組み合わせを考えてください。</string>

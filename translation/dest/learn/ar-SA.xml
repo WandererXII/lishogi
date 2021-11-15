@@ -138,12 +138,6 @@ Make any move to continue.</string>
 	<string name="evaluatePieceStrength">تقييم قوة قطعة</string>
 	<string name="queenOverBishop">خذ القطعة ذات أعلى قيمة! الملكة &gt; الفيل</string>
 	<string name="takeThePieceWithTheHighestValue">خذ القطعة ذات أعلى قيمة!</string>
-	<string name="pieceValueComplete">تهانينا! أنت تعرف القيم المادية!
-الملكة =9
- الرخ = 5 
-الفيل= 3
-الحصان = 3
-البيدق = 1</string>
 	<string name="checkInTwo">كش في اثنين</string>
 	<string name="twoMovesToGiveCheck">نقلتين لإعطاء كش</string>
 	<string name="checkInTwoIntro">جد التكوينة الصحيحة من نقلتين لإعطاء كش لملك المنافس!</string>

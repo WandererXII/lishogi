@@ -138,12 +138,6 @@ Wykonaj dowolny ruch, aby kontynuować.</string>
 	<string name="queenOverBishop">Zbij figurę o największej wartości!
 hetman &gt; goniec</string>
 	<string name="takeThePieceWithTheHighestValue">Zbij figurę o najwyższej wartości!</string>
-	<string name="pieceValueComplete">Gratulacje! Znasz wartość materiału!
-Hetman – 9
-Wieża – 5
-Goniec – 3
-Skoczek – 3
-Pionek – 1</string>
 	<string name="checkInTwo">Szach w 2 ruchach</string>
 	<string name="twoMovesToGiveCheck">Dwa ruchy aby dać szacha</string>
 	<string name="checkInTwoIntro">Znajdź właściwą kombinację dwóch ruchów, tak aby zaszachować króla przeciwnika!</string>

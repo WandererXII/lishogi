@@ -138,12 +138,6 @@ Make any move to continue.</string>
 	<string name="evaluatePieceStrength">Värdera pjäser</string>
 	<string name="queenOverBishop">Slå den mest värdefulla pjäsen! Dam &gt; löpare</string>
 	<string name="takeThePieceWithTheHighestValue">Slå pjäsen med högst värde!</string>
-	<string name="pieceValueComplete">Grattis! Nu vet du hur schackpjäserna värderas!
-Dam = 9
-Torn = 5
-Löpare = 3
-Springare = 3
-Bonde = 1</string>
 	<string name="checkInTwo">Schacka i två drag</string>
 	<string name="twoMovesToGiveCheck">Schacka efter två drag</string>
 	<string name="checkInTwoIntro">Hitta rätt dragföljd som schackar motståndarens kung i två drag!</string>

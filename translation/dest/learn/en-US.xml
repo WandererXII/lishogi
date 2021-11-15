@@ -151,12 +151,6 @@ with the highest value!
 Queen &gt; Bishop</string>
 	<string name="takeThePieceWithTheHighestValue">Take the piece
 with the highest value!</string>
-	<string name="pieceValueComplete">Congratulations! You know the value of material!
-Queen = 9
-Rook = 5
-Bishop = 3
-Knight = 3
-Pawn = 1</string>
 	<string name="checkInTwo">Check in two</string>
 	<string name="twoMovesToGiveCheck">Two moves to give a check</string>
 	<string name="checkInTwoIntro">Find the right combination of two moves that checks the opponent\'s king!</string>
