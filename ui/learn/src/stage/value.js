@@ -15,8 +15,8 @@ module.exports = {
   levels: [
     {
       goal: 'pawnsAreTheLeastValuable',
-      fen: '9/9/4lp3/4+B4/9/6n2/9/9/9 b - 1',
-      scenario: ['e6g4'],
+      fen: '9/9/3pl4/2n1+R4/9/9/9/9/9 b - 1',
+      scenario: ['e6c6'],
       nbMoves: 1,
       captures: 1,
       success: assert.scenarioComplete,
@@ -37,8 +37,8 @@ module.exports = {
     },
     {
       goal: 'goldBishopRook',
-      fen: '9/9/9/2rl5/2BG5/1N1Kb4/2g6/9/9 b - 1',
-      scenario: ['b4c6'],
+      fen: '9/9/9/5gb2/4r+Bn2/4sbl2/4gs3/9/9 b - 1',
+      scenario: ['f5f4'],
       nbMoves: 1,
       captures: 1,
       offerIllegalMove: true,
