@@ -2,7 +2,7 @@ var util = require('../util');
 var assert = require('../assert');
 var arrow = util.arrow;
 
-var imgUrl = util.assetUrl + 'images/learn/scales.svg';
+var imgUrl = util.assetUrl + 'images/learn/repetition.svg';
 
 module.exports = {
   key: 'repetition',
