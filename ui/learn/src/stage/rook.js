@@ -24,6 +24,7 @@ module.exports = {
       apples: 'c3 g3',
       nbMoves: 2,
       noPocket: false,
+      doNotShowPawnsInPocket: true,
     },
     {
       goal: 'rookPromotion',

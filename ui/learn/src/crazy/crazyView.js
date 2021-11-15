@@ -43,7 +43,8 @@ exports.renderPocket = function (ctrl, position) {
       },
     },
     oKeys.map(role => {
-      let nb = pocket[role];
+      // doNotShowPawnsInPocket is for when the pawns are stars/apples
+      const nb = role === 'pawn' && ctrl.level.blueprint.doNotShowPawnsInPocket ? 0 : pocket[role];
       const sp = shadowPiece && role === shadowPiece.role && color == shadowPiece.color;
       const selectedSquare =
         data.dropmode.active &&

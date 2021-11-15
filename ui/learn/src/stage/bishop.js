@@ -23,8 +23,9 @@ module.exports = {
       fen: '9/9/9/9/9/9/9/9/9 b B',
       apples: 'b2 c1 c5 e1 e3 f2',
       nbMoves: 7,
-      shapes: [circle('e5')],
+      shapes: [circle('e5'), arrow('e5b2')],
       noPocket: false,
+      doNotShowPawnsInPocket: true,
     },
     {
       goal: 'bishopPromotion',

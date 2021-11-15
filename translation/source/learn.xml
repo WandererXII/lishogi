@@ -22,7 +22,7 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="itMovesInStraightLines">It moves in straight lines</string>
 	<string name="rookIntro">The rook is a powerful piece. Are you ready to command it?</string>
 	<string name="rookGoal">Click on the rook to bring it to the star!</string>
-	<string name="grabAllTheStarsRemember">Grab all the stars! Remember, look below.</string>
+	<string name="grabAllTheStarsRemember">Grab all the stars! Remember, look outside of the board.</string>
 	<string name="rookPromotion">The rook promotes to the powerful dragon. Don\'t forget that you can also promote your piece when you leave the promotion zone.</string>
 	<string name="rookSummary">The rook can go up, down, left or right as much as it wants.</string>
 	<string name="dragonSummary">It can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
@@ -33,7 +33,7 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="theBishop">The bishop</string>
 	<string name="itMovesDiagonally">It moves diagonally</string>
 	<string name="bishopIntro">Next we will learn how to manoeuvre a bishop!</string>
-    <string name="ehThereIsNoPiece">Eh? There is no piece on the board. But look below, a bishop! This place is where your captured pieces go. You can place the piece back on the board. As usual, grab all the stars.</string>
+    <string name="ehThereIsNoPiece">Eh? There is no piece on the board. But look outside the board, a bishop! This area is where the pieces you captured go. You can place the piece back on the board. As usual, grab all the stars.</string>
 	<string name="bishopPromotion">Promoting your bishop will make it stronger, it will turn into a piece called "the horse".</string>
 	<string name="bishopSummary">The bishop moves in any diagonal direction.</string>
 	<string name="horseSummary">The promoted bishop moves also diagonally, but it can also go one square up, down, left or right as well.</string>
@@ -204,7 +204,7 @@ Take the most valuable piece.</string>
     <string name="rememberWhichPieceIsTheMostValuable">Do you remember which piece is the most valuable?</string>
 	<string name="takeThePieceWithTheHighestValue">Take the piece
 with the highest value!</string>
-    <string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">The king is more valuable than every other piece combined. It is OK to sacrifice many pieces if it gets you closer to checkmating the king.</string>
+    <string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">The king is more valuable than every other piece combined. It may be OK to sacrifice pieces to attack the opponent's king. Just don't forget your own king's safety as well!</string>
 	<string name="checkInTwo">Check in two</string>
 	<string name="twoMovesToGiveCheck">Two moves to give a check</string>
 	<string name="checkInTwoIntro">Find the right combination of two moves that checks the opponent's king!</string>
