@@ -129,12 +129,6 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="thisIsTheInitialPosition">This is the initial position
 of every game of shogi!
 Make any move to continue.</string>
-Μπαίνουν στις γωνίες.</string>
-Μπαίνουν δίπλα στους πύργους.</string>
-Μπαίνουν δίπλα στους ίππους.</string>
-Μπαίνει στο χρώμα της.</string>
-Ακριβώς δίπλα στη βασίλισσά του.</string>
-Κάντε οποιαδήποτε κίνηση για συνέχεια.</string>
 	<string name="boardSetupComplete">Congratulations! You know how to set up the shogi board.</string>
 	<string name="stalemate">Πατ</string>
 	<string name="theGameIsADraw">Η παρτίδα είναι ισόπαλη</string>
