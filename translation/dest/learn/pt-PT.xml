@@ -135,7 +135,6 @@ de forma a que este não se possa defender!</string>
 	<string name="thisIsTheInitialPosition">This is the initial position
 of every game of shogi!
 Make any move to continue.</string>
-Faz qualquer movimentos para continuar.</string>
 	<string name="boardSetupComplete">Congratulations! You know how to set up the shogi board.</string>
 	<string name="stalemate">Rei afogado</string>
 	<string name="theGameIsADraw">O jogo é um empate</string>
