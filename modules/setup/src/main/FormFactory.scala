@@ -138,9 +138,10 @@ final class FormFactory {
         "color"         -> optional(color),
         "fen"           -> fenField,
         "acceptByToken" -> optional(nonEmptyText)
-      )(ApiConfig.from)(_.>>).verifying("invalidFen", _.validFen)
+      )(ApiConfig.from)(_ => none)
+        .verifying("invalidFen", _.validFen)
+        .verifying("can't be rated", _.validRated)
     )
-
     lazy val ai = Form(
       mapping(
         "level" -> level,

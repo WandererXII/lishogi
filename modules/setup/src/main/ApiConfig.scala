@@ -30,6 +30,8 @@ final case class ApiConfig(
       }
     }
 
+  def validRated = mode.casual || clock.isDefined || variant.standard
+
   def mode = shogi.Mode(rated)
 
   def autoVariant =
