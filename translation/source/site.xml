@@ -19,6 +19,8 @@
 	<string name="impasse">Impasse</string>
 	<string name="white">Gote</string>
 	<string name="black">Sente</string>
+	<string name="asWhite">as Gote</string>
+	<string name="asBlack">as Sente</string>
 	<string name="shitate">Shitate</string>
 	<string name="uwate">Uwate</string>
 	<string name="randomColor">Random side</string>
