@@ -11,13 +11,13 @@
 	<string name="theIntroduction">入门</string>
 	<string name="introBasics">让我们学习基础知识。</string>
 	<string name="introIntro">您的路程从这里在开始</string>
-	<string name="clickHereAfterYouveChosen">Click here after you\'ve chosen the piece design you like.</string>
+	<string name="clickHereAfterYouveChosen">在您选择了您喜欢的棋子设计后，点击此处。</string>
 	<string name="choosePieceDesign">为了确保您能分辨棋子，请做好棋子设定。
 点击右上方的齿轮或您的用户名，再选点棋子设定。</string>
 	<string name="promotionZone">当您棋子进入或退出靠进对手的三底路，您可以选择升变您的棋子。</string>
 	<string name="senteGoesFirst">将棋先行方称先手，后行方称后手。先手偶尔也称黑方，后手称白方。请替先手下任何一步棋而继续。</string>
 	<string name="introComplete">您现在持有基本知识，但此教程还未完成。暂时我们来学各种棋子的走法。</string>
-	<string name="introCompleteTwo">You now know some basics! Now learn how individual pieces move.</string>
+	<string name="introCompleteTwo">你现在知道一些基本知识了！现在我们将学习一些棋子的移动方式。</string>
 	<string name="theRook">飞车</string>
 	<string name="itMovesInStraightLines">它以直线移动</string>
 	<string name="rookIntro">车是强大的棋子。您准备好指挥它了吗？</string>
