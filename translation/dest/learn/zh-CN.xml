@@ -22,7 +22,7 @@
 	<string name="itMovesInStraightLines">它以直线移动</string>
 	<string name="rookIntro">车是强大的棋子。您准备好指挥它了吗？</string>
 	<string name="rookGoal">点击飛車将它移动到星星上！</string>
-	<string name="grabAllTheStarsRemember">Grab all the stars! Remember, look outside of the board.</string>
+	<string name="grabAllTheStarsRemember">获得所有的星星！记住，看棋盘的外面。</string>
 	<string name="rookPromotion">飛車升变成龍王。别忘了走出升变区时也可以升变。</string>
 	<string name="rookSummary">飛車可以向上下左右自由走。</string>
 	<string name="dragonSummary">可以像没变的飛車走，但也可以向四斜走一格，使它更强。</string>
