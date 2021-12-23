@@ -11,18 +11,18 @@
 	<string name="theIntroduction">Wprowadzenie</string>
 	<string name="introBasics">Nauczmy się podstaw.</string>
 	<string name="introIntro">Twoja podróż zaczyna się tutaj.</string>
-	<string name="clickHereAfterYouveChosen">Click here after you\'ve chosen the piece design you like.</string>
+	<string name="clickHereAfterYouveChosen">Kliknij tutaj po wybraniu zestawu bierek, który Ci się podoba.</string>
 	<string name="choosePieceDesign">Ważne jest, byś mógł rozróżniać swoje bierki, więc upewnij się, że wybrałeś prawidłowy zestaw bierek,
 Aby to zrobić, kliknij na zębatkę lub swoją nazwę użytkownika (w górnym prawym rogu), a następnie kliknij \"zestaw bierek\".</string>
 	<string name="promotionZone">Kiedy Twoje bierki osiągną lub opuszczą trzy pierwsze rzędy w terytorium przeciwnika, możesz wybrać, czy chcesz promować bierkę i uczynić ją silniejszą.</string>
 	<string name="senteGoesFirst">W shogi, gracz, który wykonuje ruch jako pierwszy, jest nazywany sente, a gracz, który wykonuje ruch jako drugi, jest nazywany gote. Sente jest czasami oznaczany kolorem czarnym, a gote białym. Wykonaj dowolny ruch jako sente, by kontynuować.</string>
 	<string name="introComplete">Znasz teraz kilka podstaw, ale ta część samouczka jest wciąż w budowie. Na razie możesz dowiedzieć się, jak poruszają się poszczególne bierki.</string>
-	<string name="introCompleteTwo">You now know some basics! Now learn how individual pieces move.</string>
+	<string name="introCompleteTwo">Poznałeś właśnie nieco podstaw! Teraz pora nauczyć się, jak poruszają się poszczególne bierki.</string>
 	<string name="theRook">Wieża</string>
 	<string name="itMovesInStraightLines">Porusza się po liniach prostych</string>
 	<string name="rookIntro">Wieża to silna figura. Czy jesteś gotów aby nauczyć się nią poruszać?</string>
 	<string name="rookGoal">Kliknij wieżę i przemieść ją na gwiazdkę!</string>
-	<string name="grabAllTheStarsRemember">Grab all the stars! Remember, look outside of the board.</string>
+	<string name="grabAllTheStarsRemember">Zbierz wszystkie gwiazdki! Pamiętaj, patrz poza szachownicę.</string>
 	<string name="rookPromotion">Wieża jest promowana na potężnego smoka. Nie zapomnij, że możesz też promować swoją bierkę, gdy opuszczasz strefę promocji.</string>
 	<string name="rookSummary">Wieża może poruszać się do przodu, do tyłu, w lewo lub prawo, ile tylko chce.</string>
 	<string name="dragonSummary">Smok może poruszać się jak niepromowana wieża, ale także o jedno pole na ukos w dowolnym kierunku, co czyni go znacznie silniejszym.</string>
@@ -68,7 +68,7 @@ Aby to zrobić, kliknij na zębatkę lub swoją nazwę użytkownika (w górnym p
 	<string name="lancePromotion">Po promowaniu lancy, porusza się ona inaczej, ale widziałeś już to wcześniej – tak samo jak złoty generał.</string>
 	<string name="lanceSummary">Porusza się do przodu, to naprawdę proste.</string>
 	<string name="planceSummary">Porusza się tak samo jak złoty generał.</string>
-	<string name="planceSummaryTwo">The promoted lance moves the same as the gold general.</string>
+	<string name="planceSummaryTwo">Promowana lanca porusza się tak samo, jak złoty generał.</string>
 	<string name="lanceComplete">Świetna robota!</string>
 	<string name="theGold">Złoty generał</string>
 	<string name="itMovesInAnyDirectionExceptDiagonallyBack">Złoty generał porusza się w dowolnym kierunku OPRÓCZ na ukos do tyłu.</string>
