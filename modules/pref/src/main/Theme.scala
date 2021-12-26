@@ -70,11 +70,25 @@ object Theme extends ThemeObject {
 object ThemeTall extends ThemeObject {
 
   val all = List(
-    "t_wood1",
+    "t_solid-orange",
     "t_solid-natural",
+    "t_wood1",
+    "t_kaya1",
+    "t_kaya2",
+    "t_kaya-light",
+    "t_oak",
+    "t_solid-brown1",
+    "t_solid-wood1",
+    "t_Painting1",
+    "t_Painting2",
+    "t_Kinkaku",
+    "t_space1",
+    "t_space2",
+    "t_whiteBoard",
+    "t_darkBoard",
+    "t_doubutsu",
     "t_transparent",
-    "t_transparent-white",
-    "t_doubutsu"
+    "t_transparent-white"
   ) map { name =>
     new Theme(name, Theme.defaultHexColors)
   }
