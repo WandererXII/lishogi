@@ -24,8 +24,8 @@
   <string name="changeUsernameCase">Gå til denne siden for å endre store/små bokstaver i brukernavnet ditt</string>
   <string name="cantChangeMore">Vi kan ikke endre på mer enn store/små bokstaver. Det er av tekniske årsaker umulig.</string>
   <string name="orCloseAccount">Du kan imidlertid stenge kontoen din for så å opprette en ny en.</string>
-  <string name="wantClearHistory">I want to clear my history or rating</string>
-  <string name="cantClearHistory">It\'s not possible to clear your game history, puzzle history, or ratings.</string>
+  <string name="wantClearHistory">Jeg ønsker å fjerne historikken eller ratingen min.</string>
+  <string name="cantClearHistory">Det er ikke mulig å fjerne noen av disse, enten det gjelder partihistorikk, oppgavehistorikk, eller rating.</string>
   <string name="wantReport">I want to report a player</string>
   <string name="cheating">cheating</string>
   <string name="sandbagging">sandbagging</string>
