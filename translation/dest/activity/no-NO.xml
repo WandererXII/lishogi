@@ -4,7 +4,7 @@
   <string name="hostedALiveStream">Startet en direktestrøm</string>
   <plurals name="supportedNbMonths" comment="supportedNbMonths [one] [other]&#10;&#10;Supported lishogi.org for 4 months as a Patron. The second one always says &quot;Patron&quot; but it's actually a link.">
     <item quantity="one">Har støttet lichess.org i %1$s måned som en %2$s</item>
-    <item quantity="other">Har støttet lichess.org i %1$s måneder som en %2$s</item>
+    <item quantity="other">Har støttet lishogi.org i %1$s måneder som en %2$s</item>
   </plurals>
   <plurals name="practicedNbPositions">
     <item quantity="one">Praktiserte %1$s stilling på %2$s</item>
