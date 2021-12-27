@@ -38,9 +38,9 @@
   <string name="doNotSendReportEmails">Ikke rapporter spillere via epost.</string>
   <string name="doNotMessageModerators">Ikke send direktemeldiger til moderatorer.</string>
   <string name="onlyReports">Den eneste måten å rapportere spillere på er å gå gjennom rapportskjemaet.</string>
-  <string name="wantReportBug">I want to report a bug</string>
-  <string name="reportBugInForum">In the Lishogi Feedback section of the forum</string>
-  <string name="reportWebsiteIssue">As a Lishogi website issue on GitHub</string>
+  <string name="wantReportBug">Jeg vil melde om en feil</string>
+  <string name="reportBugInForum">I tilbakemeldingsseksjonen av Lishogis forum</string>
+  <string name="reportWebsiteIssue">Som et problem med Lishogi-nettsiden på GitHub</string>
   <string name="reportMobileIssue">As a Lishogi mobile app issue on GitHub</string>
   <string name="reportBugInDiscord">In the Lishogi Discord server</string>
   <string name="howToReportBug">Please describe what the bug looks like, what you expected to happen instead, and the steps to reproduce the bug.</string>
