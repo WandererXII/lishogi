@@ -1,6 +1,6 @@
 ---
 name: Bug report
-about: Report something not working on the website. See below for mobile app.
+about: Report something not working on the website.
 title: ''
 labels: bug
 assignees: ''
