@@ -4,11 +4,14 @@ import shogi.format.usi.Usi
 import shogi.{ Centis, MoveMetrics, Status }
 
 import actorApi.round.{ DrawNo, ForecastPlay, HumanPlay, TakebackNo, TooManyPlies }
-import lila.game.actorApi.MoveGameEvent
-import lila.common.Bus
-import lila.game.{ Game, Pov, Progress }
-import lila.game.Game.PlayerId
 import cats.data.Validated
+import java.util.concurrent.TimeUnit
+
+import lila.common.Bus
+import lila.game.actorApi.MoveGameEvent
+import lila.game.Game.PlayerId
+import lila.game.{ Game, Pov, Progress }
+import lila.user.User
 
 final private class Player(
     fishnetPlayer: lila.fishnet.Player,
@@ -17,8 +20,12 @@ final private class Player(
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   sealed private trait MoveResult
-  private case object Flagged                        extends MoveResult
-  private case class MoveApplied(progress: Progress) extends MoveResult
+  private case object Flagged extends MoveResult
+  private case class MoveApplied(progress: Progress, compedLag: Option[Centis])
+      extends MoveResult
+
+  private def monitorUserLag(userId: User.ID) =
+    userId == "thibault" || userId.hashCode % 3500 == 0 // same on lila-ws
 
   private[round] def human(play: HumanPlay, round: RoundDuct)(
       pov: Pov
@@ -35,7 +42,12 @@ final private class Player(
               .fold(errs => fufail(ClientError(errs.toString)), fuccess)
               .flatMap {
                 case Flagged => finisher.outOfTime(game)
-                case MoveApplied(progress) =>
+                case MoveApplied(progress, compedLag) =>
+                  for {
+                    lag    <- compedLag
+                    userId <- pov.player.userId
+                    if monitorUserLag(userId)
+                  } lila.mon.round.move.lag.moveCompByUserId(userId).record(lag.millis, TimeUnit.MILLISECONDS)
                   proxy.save(progress) >>
                     postHumanOrBotPlay(round, pov, progress, usi)
               }
@@ -56,7 +68,7 @@ final private class Player(
           .fold(errs => fufail(ClientError(errs.toString)), fuccess)
           .flatMap {
             case Flagged => finisher.outOfTime(game)
-            case MoveApplied(progress) =>
+            case MoveApplied(progress, _) =>
               proxy.save(progress) >> postHumanOrBotPlay(round, pov, progress, usi)
           }
       case Pov(game, _) if game.finished           => fufail(ClientError(s"$pov game is finished"))
@@ -89,7 +101,7 @@ final private class Player(
         .fold(errs => fufail(ClientError(errs.toString)), fuccess)
         .flatMap {
           case Flagged => finisher.outOfTime(game)
-          case MoveApplied(progress) =>
+          case MoveApplied(progress, _) =>
             proxy.save(progress) >>-
               notifyMove(usi, progress.game) >> {
                 if (progress.game.finished) moveFinish(progress.game) dmap { progress.events ::: _ }
@@ -120,9 +132,12 @@ final private class Player(
       blur: Boolean,
       metrics: MoveMetrics
   ): Validated[String, MoveResult] =
-    game.shogi(usi) map { nsg =>
-      if (nsg.clock.exists(_.outOfTime(game.turnColor, withGrace = false))) Flagged
-      else MoveApplied(game.update(nsg, usi, blur))
+    game.shogi(usi, metrics) map { nsg =>
+      if (nsg.value.clock.exists(_.outOfTime(game.turnColor, withGrace = false))) Flagged
+      else MoveApplied(
+          game.update(nsg.value, usi, blur),
+          nsg.compensated
+        )
     }
 
   private def notifyMove(usi: Usi, game: Game): Unit = {
