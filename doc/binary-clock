@@ -7,3 +7,4 @@ b (centisec)    0-16M         24 bits
 timer (centis)  0-1E12        40 bits
 
 = 13 bytes
+= 14 bytes
