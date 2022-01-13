@@ -118,7 +118,7 @@ final private class Player(
     }
 
   private val fishnetLag = MoveMetrics(clientLag = Centis(5).some)
-  private val botLag     = MoveMetrics(clientLag = Centis(10).some)
+  private val botLag     = MoveMetrics(clientLag = Centis(0).some)
 
   private def applyUsi(
       game: Game,
