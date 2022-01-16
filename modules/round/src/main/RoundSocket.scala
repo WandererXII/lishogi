@@ -266,9 +266,14 @@ object RoundSocket {
               } yield PlayerDo(FullId(fullId), tpe)
             }
           case "r/move" =>
-            raw.get(5) { case Array(fullId, usiS, blurS, lagS, mtS) =>
+            raw.get(6) { case Array(fullId, usiS, blurS, lagS, mtS, fraS) =>
               Usi(usiS) map { usi =>
-                PlayerMove(FullId(fullId), usi, P.In.boolean(blurS), MoveMetrics(centis(lagS), centis(mtS)))
+                PlayerMove(
+                  FullId(fullId),
+                  usi,
+                  P.In.boolean(blurS),
+                  MoveMetrics(centis(lagS), centis(mtS), centis(fraS))
+                )
               }
             }
           case "chat/say" =>
