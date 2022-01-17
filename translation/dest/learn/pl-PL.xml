@@ -26,7 +26,7 @@ Aby to zrobić, kliknij na zębatkę lub swoją nazwę użytkownika (w górnym p
 	<string name="rookPromotion">Wieża jest promowana na potężnego smoka. Nie zapomnij, że możesz też promować swoją bierkę, gdy opuszczasz strefę promocji.</string>
 	<string name="rookSummary">Wieża może poruszać się do przodu, do tyłu, w lewo lub prawo, ile tylko chce.</string>
 	<string name="dragonSummary">Smok może poruszać się jak niepromowana wieża, ale także o jedno pole na ukos w dowolnym kierunku, co czyni go znacznie silniejszym.</string>
-	<string name="dragonSummaryTwo">The dragon can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
+	<string name="dragonSummaryTwo">Smok może poruszać się jak niepromowana wieża, ale także o jedno pole na ukos w dowolnym kierunku, co czyni go znacznie silniejszym.</string>
 	<string name="grabAllTheStars">Zbierz wszystkie gwiazdki!</string>
 	<string name="theFewerMoves">Im mniej ruchów zrobisz, tym więcej punktów zdobędziesz!</string>
 	<string name="rookComplete">Gratulacje! Właśnie nauczyłeś się jak poruszać się wieżą.</string>
@@ -93,12 +93,12 @@ Aby to zrobić, kliknij na zębatkę lub swoją nazwę użytkownika (w górnym p
 	<string name="captureIntro">Znajdź niebronione bierki przeciwnika i zbij je!</string>
 	<string name="takeTheBlackPieces">Zbij czarne bierki!</string>
 	<string name="takeTheBlackPiecesAndDontLoseYours">Zbij czarne bierki! Nie strać swojej.</string>
-	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
-And don\'t lose yours.</string>
+	<string name="takeTheEnemyPiecesAndDontLoseYours">Zbij bierki przeciwnika!
+I nie strać swojej.</string>
 	<string name="captureComplete">Gratulacje! Wiesz jak rozprawić się z bierkami przeciwnika!</string>
 	<string name="pieceDrops">Wstawianie bierek</string>
 	<string name="reuseCapturedPieces">Wykorzystaj zbite bierki!</string>
-	<string name="dropIntro">Once again, capture all the opponent\'s pieces, without losing yours!</string>
+	<string name="dropIntro">Ponownie zdobądź wszystkie bierki przeciwnika, nie tracąc swojej!</string>
 	<string name="capturedPiecesCanBeDropped">Captured pieces can be dropped back on the board on your turn!</string>
 	<string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
 	<string name="protection">Obrona</string>
