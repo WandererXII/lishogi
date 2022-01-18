@@ -99,16 +99,16 @@ I nie strać swojej.</string>
 	<string name="pieceDrops">Wstawianie bierek</string>
 	<string name="reuseCapturedPieces">Wykorzystaj zbite bierki!</string>
 	<string name="dropIntro">Ponownie zdobądź wszystkie bierki przeciwnika, nie tracąc swojej!</string>
-	<string name="capturedPiecesCanBeDropped">Captured pieces can be dropped back on the board on your turn!</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
+	<string name="capturedPiecesCanBeDropped">Zbite bierki mogą zostać wstawione w Twojej kolejce z powrotem na szachownicę.</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">Nie możesz mieć dwóch niepromowanych pionków w tej samej kolumnie.</string>
 	<string name="protection">Obrona</string>
 	<string name="keepYourPiecesSafe">Zabezpiecz swoje figury</string>
 	<string name="protectionIntro">Znajdź figury które przeciwnik atakuje i obroń je!</string>
 	<string name="protectionComplete">Gratulacje! Figura nie stracona to figura wygrana!</string>
 	<string name="escape">Jesteś atakowany! Uciekaj przed zagrożeniem!</string>
 	<string name="noEscape">Nie ma możliwości ucieczki ale można się obronić!</string>
-	<string name="makeSureAllSafe">Make sure all your pieces are safe!</string>
-	<string name="dontForgetYouCanDropToDefend">Don’t forget you can drop pieces to defend!</string>
+	<string name="makeSureAllSafe">Upewnij się, że wszystkie Twoje bierki są bezpieczne!</string>
+	<string name="dontForgetYouCanDropToDefend">Nie zapomnij, że możesz wstawiać bierki dla obrony!</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">Nie pozwól, aby zbito niebronione figury!</string>
 	<string name="combat">Walka</string>
 	<string name="captureAndDefendPieces">Bicie i obrona figur</string>
@@ -127,19 +127,19 @@ I nie strać swojej.</string>
 	<string name="theKingCannotEscapeButBlock">Król nie może uciec, ale możesz zablokować atak!</string>
 	<string name="youCanGetOutOfCheckByTaking">Możesz obronić się przed szachem zbijając bierkę atakującą króla.</string>
 	<string name="thisKnightIsCheckingThroughYourDefenses">Ten skoczek szachuje króla poprzez Twoją obronę!</string>
-	<string name="getOutOfCheck">Get out of check!</string>
+	<string name="getOutOfCheck">Ucieknij spod szacha!</string>
 	<string name="watchOutForYourOpponentsReply">Uważaj na odpowiedź przeciwnika!</string>
 	<string name="escapeOrBlock">Ucieknij królem lub odeprzyj atak!</string>
 	<string name="outOfCheckComplete">Gratulacje! Twój król jest niepokonany, sprawdź czy potrafisz bronić się przed szachem!</string>
 	<string name="mateInOne">Mat w 1 ruchu</string>
 	<string name="defeatTheOpponentsKing">Pokonaj króla przeciwnika</string>
 	<string name="mateInOneIntro">Wygrasz kiedy Twój przeciwnik nie może obronić się przed szachem.</string>
-	<string name="toWinInShogi">To win in shogi, check your opponent\'s king such that they cannot defend. This is mate, or tsume.</string>
-	<string name="dropsCommonDeliverMate">Drops are a very common way to deliver mate.</string>
+	<string name="toWinInShogi">Aby wygrać partię shogi, zaszachuj króla przeciwnika tak, aby nie mógł się obronić. Nazywa się to mat, inaczej tsume.</string>
+	<string name="dropsCommonDeliverMate">Wstawienie jest częstą metodą matowania.</string>
 	<string name="attackYourOpponentsKing">Zaatakuj króla przeciwnika w taki sposób aby nie mógł się obronić!</string>
-	<string name="chooseYourPieceCarefully">Choose your piece carefully!</string>
-	<string name="mateWithADroppedPawnIs">Mate with a dropped pawn is illegal - in a real game you would be forfeited!</string>
-	<string name="mateWithAPushedPawnIs">Mate with a pushed pawn is fine.</string>
+	<string name="chooseYourPieceCarefully">Dobrze przemyśl wybór bierki!</string>
+	<string name="mateWithADroppedPawnIs">Mat przy pomocy wstawionego pionka jest niedozwolony – w prawdziwej partii uznane zostałoby to za złamanie zasad skutkujące Twoją przegraną.</string>
+	<string name="mateWithAPushedPawnIs">Mat przy pomocy posuniętego pionka jest w porządku.</string>
 	<string name="mateInOneComplete">Gratulacje! Tak wygrywa się w shogi!</string>
 	<string name="intermediate">Średnio zaawansowane</string>
 	<string name="boardSetup">Ustawienie początkowe</string>
@@ -157,13 +157,13 @@ Wykonaj dowolny ruch, aby kontynuować.</string>
 	<string name="placeThePawns">Finally, on the 3rd rank, drop pawns the same way you placed the back rank pieces. The circle will be your guide.</string>
 	<string name="pushingThe3rdPawn">Pushing the 3rd pawn to open the bishop’s diagonal is the most common first move. Make this move to continue.</string>
 	<string name="boardSetupComplete">Gratulacje! Wiesz jak ustawiać bierki na szachownicy.</string>
-	<string name="repetition">Repetition</string>
-	<string name="fourfoldRepetitionIsADrawExcept">Fourfold repetition is a draw, EXCEPT...</string>
-	<string name="repetitionIntro">Fourfold repetition is a draw Perpetual check is a loss.</string>
-	<string name="ifTheSamePositionOccurs">If the same position occurs 4 times in Shogi, it is an automatic draw. This situation is called sennichite (千日手). Make the only legal move.</string>
-	<string name="perpetualCheckIsALoss">But, perpetually checking the opponent’s king is a loss for the checking side. Unfortunately for your opponent, they don’t know! Make the only legal move.</string>
-	<string name="boardFlippedFindBestMove">The board was just flipped. What is the best move here?</string>
-	<string name="repetitionComplete">The idea behind perpetual check being a loss is to prevent anyone from forcing a draw.</string>
+	<string name="repetition">Powtórzenie</string>
+	<string name="fourfoldRepetitionIsADrawExcept">Czterokrotne powtórzenie oznacza remis, CHYBA ŻE...</string>
+	<string name="repetitionIntro">Czterokrotne powtórzenie to remis. Wieczny szach to przegrana.</string>
+	<string name="ifTheSamePositionOccurs">Jeśli w shogi ta sama pozycja wystąpi 4 razy, oznacza to automatyczny remis. Tę sytuację nazywa się sennichite (千日手). Wykonaj jedyny legalny ruch.</string>
+	<string name="perpetualCheckIsALoss">Ale ciągłe szachowanie króla przeciwnika oznacza przegraną strony szachującej. Niefortunnie dla Twojego przeciwnika, on tego nie wie! Wykonaj jedyny legalny ruch.</string>
+	<string name="boardFlippedFindBestMove">Szachownica została właśnie odwrócona. Jaki jest teraz najlepszy ruch?</string>
+	<string name="repetitionComplete">Celem zasady, by wieczny szach był przegraną, jest to, by nikt nie mógł wymusić remisu.</string>
 	<string name="stalemate">Pat</string>
 	<string name="theGameIsADraw">Partia zakończona remisem</string>
 	<string name="stalemateIntro">Kiedy gracz nie jest szachowany i nie może zrobić żadnego prawidłowego ruchu to jest to pat. Partia jest zakończona remisem: nikt nie wygrywa, nikt nie przegrywa.</string>
@@ -174,22 +174,22 @@ Wykonaj dowolny ruch, aby kontynuować.</string>
 	<string name="advanced">Zaawansowane</string>
 	<string name="pieceValue">Wartości bierek</string>
 	<string name="evaluatePieceStrength">Oceń siłę bierek</string>
-	<string name="pieceValueIntroNew">Pieces with high mobility have a higher value.
-The king is priceless! Losing it means losing the game.</string>
+	<string name="pieceValueIntroNew">Bierki z dużą mobilnością mają większą wartość.
+Król jest bezcenny! Jego utrata oznacza porażkę w całej grze.</string>
 	<string name="queenOverBishop">Zbij figurę o największej wartości!
 hetman &gt; goniec</string>
-	<string name="pawnsAreTheLeastValuable">Pawns are the least valuable piece, followed by lances. Knights are slightly more valuable than lances.
-Take the most valuable piece.</string>
-	<string name="knightSilverGold">Knight &lt; Silver &lt; Gold
-Take the most valuable piece without losing your own.</string>
-	<string name="goldBishopRook">Gold &lt; Bishop &lt; Rook
-Take the most valuable piece.</string>
-	<string name="takeAllThePiecesStartingFromTheMost">Take all the pieces in order, starting from the most valuable until the least valuable!</string>
-	<string name="anExchangeIs">An exchange is when you capture a piece, and lose another. Which is a better exchange? Silver-for-rook, or gold-for-knight?</string>
-	<string name="theOpponentJustGaveAway">The opponent just gave away his valuable rook for free! Do you take it?</string>
+	<string name="pawnsAreTheLeastValuable">Pionki są najmniej wartościowymi bierkami, drugie są lance. Skoczki mają nieco wyższą wartość niż lance.
+Zbij najbardziej wartościową bierkę.</string>
+	<string name="knightSilverGold">Skoczek &lt; Srebrny &lt; Złoty
+Zbij najbardziej wartościową bierkę, nie tracąc swojej.</string>
+	<string name="goldBishopRook">Złoty &lt; Goniec &lt; Wieża
+Zbij najbardziej wartościową bierkę.</string>
+	<string name="takeAllThePiecesStartingFromTheMost">Zbij wszystkie bierki w kolejności od najmniej wartościowej do najbardziej wartościowej!</string>
+	<string name="anExchangeIs">Wymiana polega na zbiciu jednej bierki i straceniu innej. Która wymiana jest lepsza? Srebrny generał za wieżę, czy złoty generał za skoczka?</string>
+	<string name="theOpponentJustGaveAway">Przeciwnik właśnie oddał swoją cenną wieżę za darmo! Czy ją zbijesz?</string>
 	<string name="yourKingsValueIsInfinite">The king\'s value is infinite, compared to a rook. What is the best move here?</string>
-	<string name="twoGeneralsAreBetter">Two generals can be worth more than one major piece. A knight and lance can be better than a general. Find a way to sacrifice the bishop and win two generals.</string>
-	<string name="rememberWhichPieceIsTheMostValuable">Do you remember which piece is the most valuable?</string>
+	<string name="twoGeneralsAreBetter">Dwaj generałowie mogą być warci więcej, niż jedna ciężka figura. Skoczek i lanca mogą być lepsi, niż generał. Znajdź sposób na poświęcenie gońca w zamian za dwóch generałów.</string>
+	<string name="rememberWhichPieceIsTheMostValuable">Czy pamiętasz, która bierka jest najbardziej wartościowa?</string>
 	<string name="takeThePieceWithTheHighestValue">Zbij figurę o najwyższej wartości!</string>
 	<string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">The king is more valuable than every other piece combined. It may be OK to sacrifice pieces to attack the opponent\'s king. Just don\'t forget your own king\'s safety as well!</string>
 	<string name="checkInTwo">Szach w 2 ruchach</string>
