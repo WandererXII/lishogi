@@ -16,7 +16,7 @@
 	<string name="promotionZone">Quando algumas das suas peças alcançam ou deixam as três primeiras fileiras no território do seu oponente, você pode escolher promover a sua peça e torná-la mais forte.</string>
 	<string name="senteGoesFirst">No shogi, o jogador que faz o primeiro lance é chamado de sente e o jogador que faz o segundo lance é chamado de gote. Sente às vezes é representado pela cor preta e gote pela cor branca. Faça qualquer lance como sente para continuar.</string>
 	<string name="introComplete">Agora você sabe alguns conceitos básicos, mas esta parte do tutorial ainda está em construção. Por enquanto, aprenda como cada peça se move.</string>
-	<string name="introCompleteTwo">You now know some basics! Now learn how individual pieces move.</string>
+	<string name="introCompleteTwo">Agora você sabe alguns conceitos básicos! O próximo passo é aprender como as peças se movimentam individualmente.</string>
 	<string name="theRook">A torre</string>
 	<string name="itMovesInStraightLines">Move-se em linhas retas</string>
 	<string name="rookIntro">A torre é uma peça poderosa. Você está pronto para comandá-la?</string>
@@ -25,7 +25,7 @@
 	<string name="rookPromotion">A torre promove para o poderoso dragão. Não se esqueça que você também pode promover sua peça quando sair da zona de promoção.</string>
 	<string name="rookSummary">A torre pode mover-se para cima, para baixo, para a esquerda ou direita quantas casas quiser.</string>
 	<string name="dragonSummary">Ele pode se mover como a torre não promovida, mas também uma casa em qualquer direção diagonal, tornando-a muito mais forte.</string>
-	<string name="dragonSummaryTwo">The dragon can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
+	<string name="dragonSummaryTwo">O dragão pode se mover como a torre não promovida, mas também pode andar uma casa em qualquer direção diagonal, o que o torna uma peça muito mais forte.</string>
 	<string name="grabAllTheStars">Pegue todas as estrelas!</string>
 	<string name="theFewerMoves">Quanto menos lances você fizer, mais pontos ganhará!</string>
 	<string name="rookComplete">Parabéns! Você dominou a torre com sucesso.</string>
@@ -69,22 +69,22 @@
 	<string name="planceSummary">It\'s the same as the gold general.</string>
 	<string name="planceSummaryTwo">The promoted lance moves the same as the gold general.</string>
 	<string name="lanceComplete">Great job!</string>
-	<string name="theGold">The gold general</string>
-	<string name="itMovesInAnyDirectionExceptDiagonallyBack">The gold general moves in any direction EXCEPT diagonally back.</string>
-	<string name="goldIntro">The gold general movements might be a bit harder to remember at first, but you can surely do it.</string>
-	<string name="goldDoesntPromote">The gold general together with the king is the only piece you CAN\'T promote.</string>
-	<string name="goldSummary">Try to remember these moves, many pieces move the same after they are promoted.</string>
-	<string name="goldComplete">Congratulations! You got this.</string>
-	<string name="theSilver">The silver general</string>
-	<string name="itMovesEitherForwardOrDiagonallyBack">The silver general moves either forward or diagonally back.</string>
-	<string name="silverIntro">Another piece with unusual movements, but this is the last one. Promise!</string>
-	<string name="silverPromotion">When you promote the silver general his movements are the same as the gold general.</string>
-	<string name="silverSummary">You will surely remember these moves with some practice.</string>
-	<string name="psilverSummary">Same as the gold general, you will see this a lot.</string>
-	<string name="silverComplete">Congratulations! You are on a roll.</string>
-	<string name="promotion">This piece can be promoted.</string>
-	<string name="yourPieceReachedThePromotionZone">Your piece reached the promotion zone!</string>
-	<string name="itNowPromotesToAStrongerPiece">It can now be promoted to a stronger piece.</string>
+	<string name="theGold">O general de ouro</string>
+	<string name="itMovesInAnyDirectionExceptDiagonallyBack">O general de ouro se move em qualquer direção, EXCETO diagonalmente para trás.</string>
+	<string name="goldIntro">Os movimentos do general de ouro podem ser um pouco mais difíceis de serem lembrados no início, mas certamente você conseguirá memorizá-los.</string>
+	<string name="goldDoesntPromote">O general de ouro, juntamente com o rei, é a única peça que NÃO pode ser promovida.</string>
+	<string name="goldSummary">Tente se lembrar destes movimentos, muitas peças se movem da mesma maneira depois de serem promovidas.</string>
+	<string name="goldComplete">Parabéns! Você conseguiu.</string>
+	<string name="theSilver">O general de prata</string>
+	<string name="itMovesEitherForwardOrDiagonallyBack">O general de prata se move para frente ou diagonalmente para trás.</string>
+	<string name="silverIntro">Outra peça com movimentos pouco naturais, mas é a última delas. Prometemos!</string>
+	<string name="silverPromotion">Quando você promove o general de prata, seus movimentos são os mesmos do general de ouro.</string>
+	<string name="silverSummary">Você certamente vai lembrar esses movimentos com um pouco de prática.</string>
+	<string name="psilverSummary">Como no general de ouro, você verá isto várias vezes.</string>
+	<string name="silverComplete">Parabéns! Você está em uma excelente fase.</string>
+	<string name="promotion">Esta peça pode ser promovida.</string>
+	<string name="yourPieceReachedThePromotionZone">Sua peça chegou à zona de promoção!</string>
+	<string name="itNowPromotesToAStrongerPiece">Agora ela pode ser promovida a uma peça mais forte.</string>
 	<string name="selectThePieceYouWant">Escolha a peça que desejar!</string>
 	<string name="fundamentals">Fundamentos</string>
 	<string name="capture">Capturar</string>
@@ -93,14 +93,14 @@
 	<string name="takeTheBlackPieces">Capture as peças pretas!</string>
 	<string name="takeTheBlackPiecesAndDontLoseYours">Capture as peças pretas!
 E não perca as suas.</string>
-	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
-And don\'t lose yours.</string>
-	<string name="captureComplete">Congratulations! You know how to fight with shogi pieces!</string>
+	<string name="takeTheEnemyPiecesAndDontLoseYours">Capture as peças do adversário!
+E não perca as suas.</string>
+	<string name="captureComplete">Parabéns! Você já sabe como lutar com peças de shogi!</string>
 	<string name="pieceDrops">Piece drops</string>
-	<string name="reuseCapturedPieces">Reuse captured pieces!</string>
-	<string name="dropIntro">Once again, capture all the opponent\'s pieces, without losing yours!</string>
+	<string name="reuseCapturedPieces">Reutilize peças capturadas!</string>
+	<string name="dropIntro">Mais uma vez, capture todas as peças do adversário, sem perder as suas!</string>
 	<string name="capturedPiecesCanBeDropped">Captured pieces can be dropped back on the board on your turn!</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">Você não pode colocar dois peões não promovidos na mesma coluna.</string>
 	<string name="protection">Defender</string>
 	<string name="keepYourPiecesSafe">Mantenha suas peças em segurança</string>
 	<string name="protectionIntro">Identifique as peças que seu oponente está atacando e defenda-as!</string>
