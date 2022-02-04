@@ -11,7 +11,7 @@
 	<string name="theIntroduction">Introdução</string>
 	<string name="introBasics">Vamos aprender alguns conceitos básicos.</string>
 	<string name="introIntro">Sua jornada começa aqui.</string>
-	<string name="clickHereAfterYouveChosen">Click here after you\'ve chosen the piece design you like.</string>
+	<string name="clickHereAfterYouveChosen">Clique aqui após escolher o desenho das peças que você gostar.</string>
 	<string name="choosePieceDesign">É importante que você consiga identificar as suas peças, então certifique-se de escolher o conjunto certo. Para fazer isso clique no seu nome de usuário (canto superior direito) e, em seguida clique em \'Peças\'.</string>
 	<string name="promotionZone">Quando algumas das suas peças alcançam ou deixam as três primeiras fileiras no território do seu oponente, você pode escolher promover a sua peça e torná-la mais forte.</string>
 	<string name="senteGoesFirst">No shogi, o jogador que faz o primeiro lance é chamado de sente e o jogador que faz o segundo lance é chamado de gote. Sente às vezes é representado pela cor preta e gote pela cor branca. Faça qualquer lance como sente para continuar.</string>
@@ -32,7 +32,7 @@
 	<string name="theBishop">O bispo</string>
 	<string name="itMovesDiagonally">Move-se em diagonais</string>
 	<string name="bishopIntro">A seguir, aprenderemos como o bispo se movimenta!</string>
-	<string name="ehThereIsNoPiece">Eh? There is no piece on the board. But look outside the board, a bishop! This area is where the pieces you captured go. You can place the piece back on the board. As usual, grab all the stars.</string>
+	<string name="ehThereIsNoPiece">Eh? Não há nenhuma peça no tabuleiro. Mas olhe para fora do tabuleiro, um bispo! Esta área é para onde vão as peças que você capturou. Você pode colocar a peça de volta no tabuleiro. Como de costume, pegue todas as estrelas.</string>
 	<string name="bishopPromotion">Promover seu bispo o tornará mais forte, ele se transformará em uma peça chamada \"cavalo\".</string>
 	<string name="bishopSummary">O bispo se move em qualquer direção diagonal.</string>
 	<string name="horseSummary">O bispo promovido também se move diagonalmente, mas também pode ir uma casa para cima, para baixo, esquerda ou direita.</string>
