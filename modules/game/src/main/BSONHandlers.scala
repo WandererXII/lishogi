@@ -2,7 +2,7 @@ package lila.game
 
 import shogi.format.forsyth.Sfen
 import shogi.variant.Variant
-import shogi.{ Color, Clock, Hands, Sente, Gote, Status, Mode, History => ShogiHistory, Game => ShogiGame }
+import shogi.{ Color, Clock, Hands, Sente, Gote, Status, Mode, History => ShogiHistory, Game => ShogiGame, Situation }
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 import scala.util.{ Success, Try }
@@ -42,6 +42,7 @@ object BSONHandlers {
 
       val playedPlies = plies - startedAtPly
       val gameVariant = Variant(r intD F.variant) | shogi.variant.Standard
+      val initialSituation = initialSfen.flatMap { _.toSituation(gameVariant) } | Situation(gameVariant)
 
       val periodEntries = BinaryFormat.periodEntries
         .read(
@@ -51,7 +52,7 @@ object BSONHandlers {
         .getOrElse(PeriodEntries.default)
 
       val usiMoves = BinaryFormat.usi.read(r bytesD F.usiMoves, gameVariant)
-      val pieces   = BinaryFormat.pieces.read(usiMoves, initialSfen, gameVariant)
+      val pieces   = BinaryFormat.pieces.read(usiMoves, initialSituation, gameVariant)
 
       val positionHashes = r.getO[shogi.PositionHash](F.positionHashes) | Array.empty
       val hands          = r.strO(F.hands) flatMap { Sfen.makeHandsFromString(_, gameVariant) }
@@ -65,7 +66,8 @@ object BSONHandlers {
             lastMove = usiMoves.lastOption,
             positionHashes = positionHashes
           ),
-          variant = gameVariant
+          variant = gameVariant,
+          impasseHandicap = initialSituation.impasseHandicap
         ),
         usiMoves = usiMoves,
         clock = r.getO[Color => Clock](F.clock) {

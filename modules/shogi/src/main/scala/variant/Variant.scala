@@ -23,6 +23,7 @@ abstract class Variant private[variant] (
   def numberOfFiles: Int
 
   def allPositions: List[Pos]
+  def supportsImpasse: Boolean
 
   def pieces: PieceMap
   def hands: HandsMap
@@ -179,21 +180,6 @@ abstract class Variant private[variant] (
       hands <- sit.hands.take(piece) toValid s"No $piece to drop on ${usi.pos}"
       board <- sit.board.place(piece, usi.pos) toValid s"Can't drop ${usi.role} on ${usi.pos}, it's occupied"
     } yield finalizeSituation(sit, board, hands, usi)
-
-  def impasse(sit: Situation): Boolean = {
-    val color = sit.color
-    def impasseEligible = {
-      val valuesOfRoles = sit.board.pieces.collect {
-        case (pos, piece) if (piece is color) && (promotionRanks(color) contains pos.rank) =>
-          Role.impasseValueOf(piece.role)
-      }.toList
-      val impasseValue = valuesOfRoles.sum + sit.hands.impasseValueOf(color)
-      valuesOfRoles.size > 10 && impasseValue >= color.fold(28, 27)
-    }
-
-    (sit.board.kingPosOf(sit.color) exists { pos => promotionRanks(sit.color) contains pos.rank }) &&
-    !sit.check && impasseEligible
-  }
 
   def perpetualCheck(sit: Situation): Boolean =
     sit.check && sit.history.fourfoldRepetition

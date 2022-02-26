@@ -19,6 +19,7 @@ case object Minishogi
   val numberOfFiles = 5
 
   val allPositions = (SQ5E upTo SQ1A).toList
+  val supportsImpasse = true
 
   val pieces =
     Map(
@@ -66,7 +67,4 @@ case object Minishogi
     if (color.sente) Rank.A else Rank.E
 
   def promotionRanks(color: Color) = List(backrank(color))
-
-  override def impasse(sit: Situation): Boolean = false
-
 }

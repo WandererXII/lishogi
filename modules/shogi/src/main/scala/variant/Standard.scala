@@ -19,6 +19,7 @@ case object Standard
   val numberOfFiles: Int = 9
 
   val allPositions = Pos.all
+  val supportsImpasse = true
 
   val pieces =
     Map(
@@ -120,5 +121,4 @@ case object Standard
 
   def promotionRanks(color: Color) =
     if (color.sente) List(Rank.A, Rank.B, Rank.C) else List(Rank.G, Rank.H, Rank.I)
-
 }

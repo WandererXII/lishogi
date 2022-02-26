@@ -90,7 +90,8 @@ object Game {
             hands = parsed.situation.hands,
             color = parsed.situation.color,
             history = History.empty,
-            variant = g.variant
+            variant = g.variant,
+            impasseHandicap = parsed.situation.impasseHandicap
           ),
           plies = parsed.plies,
           startedAtPly = parsed.plies,

@@ -13,7 +13,8 @@ case class Situation(
     hands: Hands,
     color: Color,
     history: History,
-    variant: Variant
+    variant: Variant,
+    impasseHandicap: Int
 ) {
 
   def apply(usi: Usi): Validated[String, Situation] =
@@ -106,7 +107,14 @@ case class Situation(
 
   def variantEnd = variant specialEnd this
 
-  def impasse = variant impasse this
+  def impasse = variant.supportsImpasse && !check && {
+    val ranks = variant.promotionRanks(color)
+    val boardRoles = board.pieces.collect {
+      case (pos, piece) if (piece is color) && (ranks contains pos.rank) => piece.role
+    }.toList
+    lazy val points = boardRoles.map(Role.impasseValueOf(_)).sum + hands.impasseValueOf(color)
+    (boardRoles contains King) && boardRoles.size > 10 && points >= color.fold(28 - impasseHandicap, 27)
+  }
 
   def end(withImpasse: Boolean): Boolean =
     checkmate || stalemate || autoDraw || perpetualCheck || variantEnd || (withImpasse && impasse)
@@ -131,10 +139,11 @@ case class Situation(
 
   // Util
 
-  def withBoard(board: Board)                     = copy(board = board)
-  def withHands(hands: Hands)                     = copy(hands = hands)
-  def withHistory(history: History)               = copy(history = history)
-  def withVariant(variant: shogi.variant.Variant) = copy(variant = variant)
+  def withBoard(board: Board)                   = copy(board = board)
+  def withHands(hands: Hands)                   = copy(hands = hands)
+  def withHistory(history: History)             = copy(history = history)
+  def withVariant(variant: Variant)             = copy(variant = variant)
+  def withImpasseHandicap(impasseHandicap: Int) = copy(impasseHandicap = impasseHandicap)
 
   def switch = copy(color = !color)
 
@@ -142,20 +151,24 @@ case class Situation(
 
   def toSfen: Sfen = Sfen(this)
 
-  override def toString = s"${variant.name}\n$visual\nLast Move: ${history.lastMove.fold("-")(_.usi)}\n"
+  override def toString = s"${variant.name}(${impasseHandicap})\n$visual\nLast Move: ${history.lastMove.fold("-")(_.usi)}\n"
 }
 
 object Situation {
 
-  def apply(variant: shogi.variant.Variant): Situation =
+  def apply(variant: Variant): Situation =
     Situation(
       Board(variant),
       Hands(variant),
       Sente,
       History.empty,
-      variant
+      variant,
+      27 - impassePoints(Board(variant), Hands(variant), Sente)
     )
 
   def apply(board: Board, hands: Hands, color: Color, variant: Variant): Situation =
-    Situation(board, hands, color, History.empty, variant)
+    Situation(board, hands, color, History.empty, variant, 27 - impassePoints(board, hands, color))
+
+  def impassePoints(board: Board, hands: Hands, color: Color): Int =
+    board.piecesOf(color).map(_.role).map(Role.impasseValueOf(_)).sum + hands.impasseValueOf(color)
 }

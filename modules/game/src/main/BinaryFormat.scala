@@ -218,6 +218,7 @@ object BinaryFormat {
       )
   }
 
+  // This code likely belongs elsewhere
   object pieces {
     def read(
         usis: UsiMoves,
@@ -227,6 +228,13 @@ object BinaryFormat {
       val init = initialSfen.flatMap { sfen =>
         sfen.toSituation(variant)
       } | Situation(variant)
+      read(usis, init, variant)
+    }
+    def read(
+        usis: UsiMoves,
+        init: Situation,
+        variant: Variant
+    ): PieceMap = {
       val mm    = collection.mutable.Map(init.board.pieces.toSeq: _*)
       var color = init.color
       usis.foreach { case usi =>

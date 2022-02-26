@@ -71,10 +71,10 @@ trait ShogiTest extends Specification with ValidatedMatchers {
 
   implicit def richGame(game: Game) = RichGame(game)
 
-  def sfenToGame(sfen: Sfen, variant: Variant = shogi.variant.Standard) =
+  def sfenToGame(sfen: Sfen, variant: Variant = shogi.variant.Standard, impasseHandicap: Int = 0) =
     sfen.toSituation(variant) toValid "Could not construct situation from SFEN" map { sit =>
       Game(variant).copy(
-        situation = sit
+        situation = sit.withImpasseHandicap(impasseHandicap)
       )
     }
 

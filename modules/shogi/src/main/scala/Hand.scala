@@ -31,6 +31,9 @@ case class Hands(sente: Hand, gote: Hand) {
   def roles: List[Role] =
     (sente.roles ::: gote.roles).distinct
 
+  def rolesOf(color: Color): List[Role] =
+    color.fold(sente.roles, gote.roles)
+
   def size: Int =
     sente.size + gote.size
 
@@ -43,9 +46,8 @@ case class Hands(sente: Hand, gote: Hand) {
   def roleValue: Int =
     sente.roleValue - gote.roleValue
 
-  def impasseValueOf(c: Color) =
-    c.fold(sente.impasseValue, gote.impasseValue)
-
+  def impasseValueOf(color: Color): Int =
+    color.fold(sente.impasseValue, gote.impasseValue)
 }
 
 object Hands {
@@ -95,7 +97,6 @@ case class Hand(handMap: HandMap) extends AnyVal {
     handMap.foldLeft(0) { case (acc, (role, cnt)) =>
       acc + Role.impasseValueOf(role) * cnt
     }
-
 }
 
 object Hand {
