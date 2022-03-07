@@ -15,7 +15,7 @@ mkdir -p public/compiled
 
 apps1="common"
 apps2="ceval game tree chat nvui puz"
-apps3="site msg chat cli challenge notify learn editor round analyse lobby tournament tournamentSchedule tournamentCalendar simul dasher speech palantir serviceWorker puzzle storm"
+apps3="site msg chat cli challenge notify learn editor round analyse lobby tournament tournamentSchedule tournamentCalendar simul dasher speech palantir serviceWorker puzzle storm coordinateTrainer"
 
 if [ $mode == "upgrade" ]; then
   yarn upgrade --non-interactive
