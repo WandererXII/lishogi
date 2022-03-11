@@ -1090,6 +1090,8 @@ val `talkToYourShogiFriends` = new I18nKey("coordinates:talkToYourShogiFriends")
 val `youCanAnalyseAGameMoreEffectively` = new I18nKey("coordinates:youCanAnalyseAGameMoreEffectively")
 val `aSquareNameAppears` = new I18nKey("coordinates:aSquareNameAppears")
 val `startTraining` = new I18nKey("coordinates:startTraining")
+val `findSquare` = new I18nKey("coordinates:findSquare")
+val `nameSquare` = new I18nKey("coordinates:nameSquare")
 }
 
 object study {
