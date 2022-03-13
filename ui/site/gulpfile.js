@@ -122,7 +122,7 @@ const gitSha = cb => {
   if (!fs.existsSync('./dist')) fs.mkdirSync('./dist');
   fs.writeFileSync(
     './dist/consolemsg.js',
-    `window.lishogi=window.lishogi||{};console.info("Lishogi is open source! https://github.com/WandererXII/lila");lishogi.info=${info};`
+    `window.lishogi=window.lishogi||{};console.info("Lishogi is open source! https://github.com/lishogi.org/source");lishogi.info=${info};`
   );
   cb();
 };
