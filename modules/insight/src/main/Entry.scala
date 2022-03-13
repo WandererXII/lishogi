@@ -1,6 +1,6 @@
 package lila.insight
 
-import shogi.{ Color, Role }
+import shogi.{ Color, File, Role, Situation }
 import lila.game.{ Game, Pov }
 import lila.rating.PerfType
 import org.joda.time.DateTime
@@ -15,6 +15,7 @@ case class Entry(
     opponentRating: Int,
     opponentStrength: RelativeStrength,
     moves: List[Move],
+    playStyle: Tuple2[PlayStyle, PlayStyle],
     bishopTrade: BishopTrade,
     rookTrade: RookTrade,
     result: Result,
@@ -42,6 +43,8 @@ case object Entry {
     val opponentStrength         = "os"
     val moves: String            = "m"
     def moves(f: String): String = s"$moves.$f"
+    val sentePlayStyle           = "ss"
+    val gotePlayStyle            = "gs"
     val bishopTrade              = "bt"
     val rookTrade                = "rt"
     val result                   = "r"
@@ -135,6 +138,46 @@ object Phase {
           case _            => End
         }
     }
+}
+
+sealed abstract class PlayStyle(val id: Int, val name: String)
+object PlayStyle {
+  object FreeStyle           extends PlayStyle( 0, "Free style")
+  object StaticRook          extends PlayStyle( 1, "Static Rook")
+  object SleeveRook          extends PlayStyle( 2, "Sleeve Rook")
+  object RightFourthFileRook extends PlayStyle( 3, "Right Fourth File Rook")
+  object DoubleWingAttack    extends PlayStyle( 4, "Double Wing Attack")
+  object Fortress            extends PlayStyle( 5, "Fortress")
+  object BishopExchange      extends PlayStyle( 6, "Bishop exchange")
+  object SidePawnPicker      extends PlayStyle( 7, "Side Pawn Picker")
+  object SwingingRook        extends PlayStyle( 8, "Swinging Rook")
+  object DoubleSwingingRook  extends PlayStyle( 9, "Double Swinging Rook")
+  object OpposingRook        extends PlayStyle(10, "Opposing Rook")
+  object ThirdFileRook       extends PlayStyle(11, "Third File Rook")
+  object FourthFileRook      extends PlayStyle(12, "Fourth File Rook")
+  object CentralFileRook     extends PlayStyle(13, "Central File Rook")
+  val all = List(FreeStyle, StaticRook, DoubleWingAttack, Fortress, BishopExchange, SidePawnPicker, SwingingRook, DoubleSwingingRook, OpposingRook, ThirdFileRook, FourthFileRook, CentralFileRook)
+  val byId = all map { p =>
+    (p.id, p)
+  } toMap
+  def fromSituation(sit: Situation, color: Color): Tuple2[PlayStyle, PlayStyle] = {
+    val bishops = sit.board.piecesOf(shogi.Bishop)
+    lazy val senteRookFiles = sit.board.filesOf(shogi.Sente, shogi.Rook)
+    lazy val goteRookFiles = sit.board.filesOf(shogi.Gote, shogi.Rook)
+    lazy val rookFiles = senteRookFiles zip goteRookFiles
+
+    if (bishops isEmpty) Tuple2(PlayStyle.BishopExchange, PlayStyle.BishopExchange)
+    else if (rookFiles.size == 1) rookFiles.map {
+      case (senteFile, goteFile) => {
+        if (senteFile == goteFile) Tuple2(PlayStyle.OpposingRook, PlayStyle.OpposingRook)
+        if (senteFile < File.Fifth && goteFile > File.Fifth) Tuple2(PlayStyle.DoubleWingAttack, PlayStyle.DoubleWingAttack)
+        if (senteFile >= File.Fifth && goteFile <= File.Fifth) Tuple2(PlayStyle.DoubleSwingingRook, PlayStyle.DoubleSwingingRook)
+        else Tuple2(PlayStyle.FreeStyle, PlayStyle.FreeStyle)
+      }
+      case _ => Tuple2(PlayStyle.OpposingRook, PlayStyle.OpposingRook)
+    }.head
+    else Tuple2(PlayStyle.OpposingRook, PlayStyle.OpposingRook)
+  }
 }
 
 sealed abstract class BishopTrade(val id: Boolean, val name: String)

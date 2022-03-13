@@ -90,7 +90,7 @@ object Dimension {
         "Color",
         F.color,
         Game,
-        raw("The side you are playing: Sente or Gote.")
+        raw("The side you are play: Sente or Gote.")
       )
 
   case object OpponentStrength
@@ -102,6 +102,24 @@ object Dimension {
         raw(
           "Rating of your opponent compared to yours. Much weaker:-200, Weaker:-100, Stronger:+100, Much stronger:+200."
         )
+      )
+
+  case object SentePlayStyle
+      extends Dimension[PlayStyle](
+        "sentePlayStyle",
+        "Sente play style",
+        F.sentePlayStyle,
+        Game,
+        raw("Sente play style: rook and bishop development.")
+      )
+
+  case object GotePlayStyle
+      extends Dimension[PlayStyle](
+        "gotePlayStyle",
+        "Gote play style",
+        F.gotePlayStyle,
+        Game,
+        raw("Gote play style: rook and bishop development.")
       )
 
   case object PieceRole
@@ -187,6 +205,8 @@ object Dimension {
       case OpponentStrength => RelativeStrength.all
       case PieceRole        => shogi.Role.all.reverse
       case MovetimeRange    => lila.insight.MovetimeRange.all
+      case SentePlayStyle   => lila.insight.PlayStyle.all
+      case GotePlayStyle    => lila.insight.PlayStyle.all
       case BishopTrade      => lila.insight.BishopTrade.all
       case RookTrade        => lila.insight.RookTrade.all
       case MaterialRange    => lila.insight.MaterialRange.all
@@ -206,6 +226,8 @@ object Dimension {
       case OpponentStrength => key.toIntOption flatMap RelativeStrength.byId.get
       case PieceRole        => shogi.Role.all.find(_.name == key)
       case MovetimeRange    => key.toIntOption flatMap lila.insight.MovetimeRange.byId.get
+      case SentePlayStyle   => key.toIntOption flatMap lila.insight.PlayStyle.byId.get
+      case GotePlayStyle    => key.toIntOption flatMap lila.insight.PlayStyle.byId.get
       case BishopTrade      => lila.insight.BishopTrade(key == "true").some
       case RookTrade        => lila.insight.RookTrade(key == "true").some
       case MaterialRange    => key.toIntOption flatMap lila.insight.MaterialRange.byId.get
@@ -232,6 +254,8 @@ object Dimension {
       case OpponentStrength => v.id
       case PieceRole        => v.name
       case MovetimeRange    => v.id
+      case SentePlayStyle   => v.id
+      case GotePlayStyle    => v.id
       case BishopTrade      => v.id
       case RookTrade        => v.id
       case MaterialRange    => v.id
@@ -251,6 +275,8 @@ object Dimension {
       case OpponentStrength => JsString(v.name)
       case PieceRole        => JsString(v.toString)
       case MovetimeRange    => JsString(v.name)
+      case SentePlayStyle   => JsString(v.name)
+      case GotePlayStyle    => JsString(v.name)
       case BishopTrade      => JsString(v.name)
       case RookTrade        => JsString(v.name)
       case MaterialRange    => JsString(v.name)

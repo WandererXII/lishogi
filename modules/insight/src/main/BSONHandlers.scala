@@ -39,6 +39,10 @@ private object BSONHandlers {
     { case BSONInteger(v) => MaterialRange.byId get v toTry s"Invalid material range $v" },
     e => BSONInteger(e.id)
   )
+  implicit val PlayStyleBSONHandler = tryHandler[PlayStyle](
+    { case BSONInteger(v) => PlayStyle.byId get v toTry s"Invalid playing style $v" },
+    e => BSONInteger(e.id)
+  )
   implicit val BishopTradeBSONHandler = BSONBooleanHandler.as[BishopTrade](BishopTrade.apply, _.id)
   implicit val RookTradeBSONHandler = BSONBooleanHandler.as[RookTrade](RookTrade.apply, _.id)
 
@@ -103,6 +107,7 @@ private object BSONHandlers {
           opponentRating = r.int(opponentRating),
           opponentStrength = r.get[RelativeStrength](opponentStrength),
           moves = r.get[List[Move]](moves),
+          playStyle = Tuple2(r.get[PlayStyle](sentePlayStyle), r.get[PlayStyle](gotePlayStyle)),
           bishopTrade = r.get[BishopTrade](bishopTrade),
           rookTrade = r.get[RookTrade](rookTrade),
           result = r.get[Result](result),
@@ -122,6 +127,8 @@ private object BSONHandlers {
           opponentRating   -> e.opponentRating,
           opponentStrength -> e.opponentStrength,
           moves            -> e.moves,
+          sentePlayStyle   -> e.playStyle._1,
+          gotePlayStyle    -> e.playStyle._2,
           bishopTrade      -> e.bishopTrade,
           rookTrade        -> e.rookTrade,
           result           -> e.result,

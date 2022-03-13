@@ -13,11 +13,20 @@ case class Board(pieces: PieceMap) {
       case piece if piece is c => piece
     }.toList
 
+  def piecesOf(r: Role): List[Piece] =
+    pieces.values.collect {
+      case piece if piece is r => piece
+    }.toList
+
   lazy val kingPos: Map[Color, Pos] = pieces.collect { case (pos, Piece(color, King)) =>
     color -> pos
   }
 
   def kingPosOf(c: Color): Option[Pos] = kingPos get c
+
+  def filesOf(color: Color, role: Role): List[File] = pieces.collect {
+    case (pos, Piece(color, role)) => pos.file
+  }.toList
 
   def seq(actions: Board => Option[Board]*): Option[Board] =
     actions.foldLeft[Option[Board]](Some(this))(_ flatMap _)

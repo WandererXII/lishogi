@@ -3,8 +3,7 @@ package lila.insight
 import scala.util.chaining._
 import cats.data.NonEmptyList
 
-import shogi.format.forsyth.Sfen
-import shogi.{ Centis, Situation, Stats }
+import shogi.{ Centis, Divider, Division, Situation, Stats }
 import lila.analyse.{ Accuracy, Advice }
 import lila.game.{ Game, Pov }
 
@@ -19,7 +18,7 @@ final private class PovToEntry(
       pov: Pov,
       provisional: Boolean,
       analysis: Option[lila.analyse.Analysis],
-      division: shogi.Division,
+      division: Division,
       moveAccuracy: Option[List[Int]],
       situations: NonEmptyList[Situation],
       movetimes: NonEmptyList[Centis],
@@ -58,7 +57,7 @@ final private class PovToEntry(
             pov = pov,
             provisional = provisional,
             analysis = an,
-            division = shogi.Divider(situations.toList),
+            division = Divider(situations.toList),
             moveAccuracy = an.map { Accuracy.diffsList(pov, _) },
             situations = situations,
             movetimes = movetimes,
@@ -155,28 +154,36 @@ final private class PovToEntry(
     s.stdDev.map { _ / s.mean }
   }
 
-  private def bishopTrade(from: RichPov) =
+  private def playStyle(from: RichPov): Tuple2[PlayStyle, PlayStyle] =
+    from.division.middle.fold(from.situations.last.some)(from.situations.toList.lift) match {
+      case Some(sit) => PlayStyle fromSituation(sit, from.pov.color)
+      case _ =>
+        logger.warn(s"https://lishogi.org/${from.pov.gameId} missing middlegame board")
+        Tuple2(PlayStyle.FreeStyle, PlayStyle.FreeStyle)
+    }
+
+  private def bishopTrade(from: RichPov): BishopTrade =
     BishopTrade {
-      from.division.end.fold(from.situations.last.some)(from.situations.toList.lift) match {
+      from.division.middle.fold(from.situations.last.some)(from.situations.toList.lift) match {
         case Some(sit) =>
           shogi.Color.all.forall { color =>
             !sit.board.hasPiece(shogi.Piece(color, shogi.Bishop))
           }
         case _ =>
-          logger.warn(s"https://lishogi.org/${from.pov.gameId} missing endgame board")
+          logger.warn(s"https://lishogi.org/${from.pov.gameId} missing middlegame board")
           false
       }
     }
 
-  private def rookTrade(from: RichPov) =
+  private def rookTrade(from: RichPov): RookTrade =
     RookTrade {
-      from.division.end.fold(from.situations.last.some)(from.situations.toList.lift) match {
+      from.division.middle.fold(from.situations.last.some)(from.situations.toList.lift) match {
         case Some(sit) =>
           shogi.Color.all.forall { color =>
             !sit.board.hasPiece(shogi.Piece(color, shogi.Rook))
           }
         case _ =>
-          logger.warn(s"https://lishogi.org/${from.pov.gameId} missing endgame board")
+          logger.warn(s"https://lishogi.org/${from.pov.gameId} missing middlegame board")
           false
       }
     }
@@ -198,6 +205,7 @@ final private class PovToEntry(
       opponentRating = opRating,
       opponentStrength = RelativeStrength(opRating - myRating),
       moves = makeMoves(from),
+      playStyle = playStyle(from),
       bishopTrade = bishopTrade(from),
       rookTrade = rookTrade(from),
       result = game.winnerUserId match {

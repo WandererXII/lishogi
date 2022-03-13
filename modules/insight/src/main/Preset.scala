@@ -63,6 +63,26 @@ object Preset {
       Question(D.Phase, M.Opportunism, Nil)
     ),
     Preset(
+      "When sente plays static rook, how do games end?",
+      Question(
+        D.Perf,
+        M.Result,
+        List(
+          Filter(D.SentePlayStyle, List(PlayStyle.StaticRook))
+        )
+      )
+    ),
+    Preset(
+      "When gote plays bishop exchange, how do games end?",
+      Question(
+        D.Perf,
+        M.Result,
+        List(
+          Filter(D.GotePlayStyle, List(PlayStyle.BishopExchange))
+        )
+      )
+    ),
+    Preset(
       "When I trade bishops, how do games end?",
       Question(
         D.Perf,

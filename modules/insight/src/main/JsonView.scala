@@ -25,8 +25,10 @@ final class JsonView {
         )
       ),
       Categ(
-        "Game",
+        "Strategy",
         List(
+          Json.toJson(D.SentePlayStyle: Dimension[_]),
+          Json.toJson(D.GotePlayStyle: Dimension[_]),
           Json.toJson(D.BishopTrade: Dimension[_]),
           Json.toJson(D.RookTrade: Dimension[_])
         )
