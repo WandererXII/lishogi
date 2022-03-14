@@ -20,7 +20,8 @@ final class Coordinate(env: Env) extends LilaController(env) {
         .bindFromRequest()
         .fold(
           _ => fuccess(BadRequest),
-          data => env.coordinate.api.addScore(me.id, data.isSente, data.score) inject Ok(())
+          data =>
+            env.coordinate.api.addScore(me.id, data.isFindSquareMode, data.isSente, data.score) inject Ok(())
         )
     }
 

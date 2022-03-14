@@ -13,18 +13,26 @@ final class CoordinateApi(scoreColl: Coll)(implicit ec: scala.concurrent.Executi
   def getScore(userId: User.ID): Fu[Score] =
     scoreColl.byId[Score](userId) map (_ | Score(userId))
 
-  def addScore(userId: User.ID, sente: Boolean, hits: Int): Funit =
+  def addScore(userId: User.ID, findSquareMode: Boolean, sente: Boolean, hits: Int): Funit =
     scoreColl.update
       .one(
         $id(userId),
         $push(
           $doc(
             "sente" -> BSONDocument(
-              "$each"  -> (sente ?? List(BSONInteger(hits))),
+              "$each"  -> ((findSquareMode && sente) ?? List(BSONInteger(hits))),
               "$slice" -> -20
             ),
             "gote" -> BSONDocument(
-              "$each"  -> (!sente ?? List(BSONInteger(hits))),
+              "$each"  -> ((findSquareMode && !sente) ?? List(BSONInteger(hits))),
+              "$slice" -> -20
+            ),
+            "senteNameSquare" -> BSONDocument(
+              "$each"  -> ((!findSquareMode && sente) ?? List(BSONInteger(hits))),
+              "$slice" -> -20
+            ),
+            "goteNameSquare" -> BSONDocument(
+              "$each"  -> ((!findSquareMode && !sente) ?? List(BSONInteger(hits))),
               "$slice" -> -20
             )
           )
