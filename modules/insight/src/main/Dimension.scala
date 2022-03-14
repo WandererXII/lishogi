@@ -90,7 +90,7 @@ object Dimension {
         "Color",
         F.color,
         Game,
-        raw("The side you are play: Sente or Gote.")
+        raw("The side you played: Sente or Gote.")
       )
 
   case object OpponentStrength
