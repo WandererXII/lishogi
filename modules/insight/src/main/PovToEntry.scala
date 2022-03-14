@@ -175,19 +175,6 @@ final private class PovToEntry(
       }
     }
 
-  private def rookTrade(from: RichPov): RookTrade =
-    RookTrade {
-      from.division.middle.fold(from.situations.last.some)(from.situations.toList.lift) match {
-        case Some(sit) =>
-          shogi.Color.all.forall { color =>
-            !sit.board.hasPiece(shogi.Piece(color, shogi.Rook))
-          }
-        case _ =>
-          logger.warn(s"https://lishogi.org/${from.pov.gameId} missing middlegame board")
-          false
-      }
-    }
-
   private def convert(from: RichPov): Option[Entry] = {
     import from._
     import pov.game
@@ -207,7 +194,6 @@ final private class PovToEntry(
       moves = makeMoves(from),
       playStyle = playStyle(from),
       bishopTrade = bishopTrade(from),
-      rookTrade = rookTrade(from),
       result = game.winnerUserId match {
         case None                 => Result.Draw
         case Some(u) if u == myId => Result.Win

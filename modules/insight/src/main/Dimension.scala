@@ -149,15 +149,6 @@ object Dimension {
         raw("Whether bishops were traded before the endgame or not.")
       )
 
-  case object RookTrade
-      extends Dimension[RookTrade](
-        "rookTrade",
-        "Rook trade",
-        F.rookTrade,
-        Game,
-        raw("Whether rooks were traded before the endgame or not.")
-      )
-
   case object MaterialRange
       extends Dimension[MaterialRange](
         "material",
@@ -208,7 +199,6 @@ object Dimension {
       case SentePlayStyle   => lila.insight.PlayStyle.all
       case GotePlayStyle    => lila.insight.PlayStyle.all
       case BishopTrade      => lila.insight.BishopTrade.all
-      case RookTrade        => lila.insight.RookTrade.all
       case MaterialRange    => lila.insight.MaterialRange.all
       case Blur             => lila.insight.Blur.all
       case TimeVariance     => lila.insight.TimeVariance.all
@@ -229,7 +219,6 @@ object Dimension {
       case SentePlayStyle   => key.toIntOption flatMap lila.insight.PlayStyle.byId.get
       case GotePlayStyle    => key.toIntOption flatMap lila.insight.PlayStyle.byId.get
       case BishopTrade      => lila.insight.BishopTrade(key == "true").some
-      case RookTrade        => lila.insight.RookTrade(key == "true").some
       case MaterialRange    => key.toIntOption flatMap lila.insight.MaterialRange.byId.get
       case Blur             => lila.insight.Blur(key == "true").some
       case TimeVariance     => key.toFloatOption map lila.insight.TimeVariance.byId
@@ -257,7 +246,6 @@ object Dimension {
       case SentePlayStyle   => v.id
       case GotePlayStyle    => v.id
       case BishopTrade      => v.id
-      case RookTrade        => v.id
       case MaterialRange    => v.id
       case Blur             => v.id
       case TimeVariance     => v.id
@@ -278,7 +266,6 @@ object Dimension {
       case SentePlayStyle   => JsString(v.name)
       case GotePlayStyle    => JsString(v.name)
       case BishopTrade      => JsString(v.name)
-      case RookTrade        => JsString(v.name)
       case MaterialRange    => JsString(v.name)
       case Blur             => JsString(v.name)
       case TimeVariance     => JsString(v.name)

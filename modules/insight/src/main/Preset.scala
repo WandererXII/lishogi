@@ -93,16 +93,6 @@ object Preset {
       )
     ),
     Preset(
-      "When I trade rooks, how do games end?",
-      Question(
-        D.Perf,
-        M.Result,
-        List(
-          Filter(D.RookTrade, List(RookTrade.Yes))
-        )
-      )
-    ),
-    Preset(
       "What is the average rating of my opponents across each variant?",
       Question(D.Perf, M.OpponentRating, Nil)
     ),

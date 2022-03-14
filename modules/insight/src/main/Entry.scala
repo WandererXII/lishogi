@@ -17,7 +17,6 @@ case class Entry(
     moves: List[Move],
     playStyle: Tuple2[PlayStyle, PlayStyle],
     bishopTrade: BishopTrade,
-    rookTrade: RookTrade,
     result: Result,
     termination: Termination,
     ratingDiff: Int,
@@ -46,7 +45,6 @@ case object Entry {
     val sentePlayStyle           = "ss"
     val gotePlayStyle            = "gs"
     val bishopTrade              = "bt"
-    val rookTrade                = "rt"
     val result                   = "r"
     val termination              = "t"
     val ratingDiff               = "rd"
@@ -186,14 +184,6 @@ object BishopTrade {
   object No  extends BishopTrade(false, "No bishop trade")
   val all                            = List(Yes, No)
   def apply(v: Boolean): BishopTrade = if (v) Yes else No
-}
-
-sealed abstract class RookTrade(val id: Boolean, val name: String)
-object RookTrade {
-  object Yes extends RookTrade(true, "Rook trade")
-  object No  extends RookTrade(false, "No rook trade")
-  val all                          = List(Yes, No)
-  def apply(v: Boolean): RookTrade = if (v) Yes else No
 }
 
 sealed abstract class RelativeStrength(val id: Int, val name: String)

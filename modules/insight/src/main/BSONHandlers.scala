@@ -44,7 +44,6 @@ private object BSONHandlers {
     e => BSONInteger(e.id)
   )
   implicit val BishopTradeBSONHandler = BSONBooleanHandler.as[BishopTrade](BishopTrade.apply, _.id)
-  implicit val RookTradeBSONHandler = BSONBooleanHandler.as[RookTrade](RookTrade.apply, _.id)
 
   private val BSONBooleanNullHandler = quickHandler[Boolean](
     { case BSONBoolean(v) => v; case BSONNull => false },
@@ -109,7 +108,6 @@ private object BSONHandlers {
           moves = r.get[List[Move]](moves),
           playStyle = Tuple2(r.get[PlayStyle](sentePlayStyle), r.get[PlayStyle](gotePlayStyle)),
           bishopTrade = r.get[BishopTrade](bishopTrade),
-          rookTrade = r.get[RookTrade](rookTrade),
           result = r.get[Result](result),
           termination = r.get[Termination](termination),
           ratingDiff = r.int(ratingDiff),
@@ -130,7 +128,6 @@ private object BSONHandlers {
           sentePlayStyle   -> e.playStyle._1,
           gotePlayStyle    -> e.playStyle._2,
           bishopTrade      -> e.bishopTrade,
-          rookTrade        -> e.rookTrade,
           result           -> e.result,
           termination      -> e.termination,
           ratingDiff       -> e.ratingDiff,
