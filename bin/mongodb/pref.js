@@ -1,7 +1,8 @@
-var props = ['animation', 'autoQueen', 'autoThreefold', 'challenge', 'coordColor', 'takeback'];
-db.pref.find().forEach(function(p) {
-  var set = {}, unset = {};
-  props.forEach(function(prop) {
+var props = ['animation', 'autoQueen', 'autoThreefold', 'challenge', 'takeback'];
+db.pref.find().forEach(function (p) {
+  var set = {},
+    unset = {};
+  props.forEach(function (prop) {
     if (typeof p[prop] !== 'undefined') {
       unset[prop] = true;
       set[prop] = new NumberInt(p[prop]);

@@ -77,7 +77,6 @@ GET   /blog.txt                        controllers.Blog.sitemapTxt
 # Training - Coordinate
 GET   /training/coordinate             controllers.Coordinate.home
 POST  /training/coordinate/score       controllers.Coordinate.score
-POST  /training/coordinate/color       controllers.Coordinate.color
 
 # Training - Puzzle
 GET   /training                        controllers.Puzzle.home

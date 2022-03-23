@@ -28,7 +28,6 @@ case class Pref(
     challenge: Int,
     message: Int,
     studyInvite: Int,
-    coordColor: Int,
     submitMove: Int,
     confirmResign: Int,
     insightShare: Int,
@@ -48,8 +47,7 @@ case class Pref(
 
   def themeColor = if (transp || dark) "#2e2a24" else "#dbd7d1"
 
-  def coordColorName = Color.choices.toMap.get(coordColor).fold("random")(_.toLowerCase)
-  def coordsClass    = Coords classOf coords
+  def coordsClass = Coords classOf coords
 
   def hasSeenVerifyTitle = tags contains Tag.verifyTitle
 
@@ -372,7 +370,6 @@ object Pref {
     challenge = Challenge.ALWAYS,
     message = Message.ALWAYS,
     studyInvite = StudyInvite.ALWAYS,
-    coordColor = Color.RANDOM,
     submitMove = SubmitMove.CORRESPONDENCE_ONLY,
     confirmResign = ConfirmResign.YES,
     insightShare = InsightShare.FRIENDS,
