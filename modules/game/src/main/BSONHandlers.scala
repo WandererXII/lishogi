@@ -51,7 +51,7 @@ object BSONHandlers {
         )
         .getOrElse(PeriodEntries.default)
 
-      val usiMoves = BinaryFormat.usi.read(r bytesD F.usiMoves, gameVariant)
+      val usiMoves = BinaryFormat.usi.read(r bytesD F.usiMoves, gameVariant, Game.maxPlies)
       val pieces   = BinaryFormat.pieces.read(usiMoves, initialSfen, gameVariant)
 
       val positionHashes = r.getO[shogi.PositionHash](F.positionHashes) | Array.empty

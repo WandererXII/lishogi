@@ -35,7 +35,6 @@ case class ImportData(notation: String, analyse: Option[String]) {
 
   private type TagPicker = Tag.type => TagType
 
-  private val maxPlies  = 600
   private val maxLength = 32768
 
   val notationTrunc = notation take (maxLength * 2)
@@ -78,7 +77,7 @@ case class ImportData(notation: String, analyse: Option[String]) {
     parseNotation map { parsed =>
       Reader.fromParsedNotation(
         parsed,
-        parsedMoves => parsedMoves.copy(value = parsedMoves.value take maxPlies)
+        parsedMoves => parsedMoves.copy(value = parsedMoves.value take Game.maxPlies)
       ) pipe evenIncomplete pipe { case replay @ Replay(init, state) =>
         val variant = parsed.tags.variant | shogi.variant.Standard
         val game    = state.copy(situation = state.situation withVariant variant, clock = None)

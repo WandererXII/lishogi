@@ -19,8 +19,8 @@ object BinaryFormat {
         format.usi.Binary.encodeMoves(moves, variant)
       }
 
-    def read(ba: ByteArray, variant: Variant): UsiMoves =
-      format.usi.Binary.decodeMoves(ba.value.toList, variant)
+    def read(ba: ByteArray, variant: Variant, maxPlies: Int): UsiMoves =
+      format.usi.Binary.decodeMoves(ba.value.toList, variant, maxPlies)
 
   }
 

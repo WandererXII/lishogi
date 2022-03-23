@@ -18,7 +18,8 @@ final class Analyser(
     system: akka.actor.ActorSystem
 ) {
 
-  val maxPlies = 200
+  // Limit analysis to conserve fishnet resources
+  val maxPlies = Game.maxPlies / 2
 
   private val workQueue = new lila.hub.DuctSequencer(maxSize = 256, timeout = 5 seconds, "fishnetAnalyser")
 
