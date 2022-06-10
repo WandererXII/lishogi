@@ -116,6 +116,7 @@ final class JsonView(
             "perf"      -> full.option(tour.perfType),
             "clock"     -> full.option(tour.clock),
             "variant"   -> full.option(tour.variant.key)
+            "rated"     -> tour.isRated
           )
           .add("spotlight" -> tour.spotlight)
           .add("berserkable" -> tour.berserkable)
