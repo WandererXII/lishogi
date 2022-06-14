@@ -34,6 +34,7 @@ final class JsonView(
 )(implicit ec: ExecutionContext) {
 
   import JsonView._
+  import Condition.JSONHandlers._
 
   private case class CachableData(
       duels: JsArray,
@@ -130,9 +131,12 @@ final class JsonView(
           .add("teamBattle" -> tour.teamBattle.map { battle =>
             Json
               .obj(
-                "teams" -> JsObject(battle.sortedTeamIds.map { id =>
-                  id -> JsString(getTeamName(id).getOrElse(id))
-                })
+                "teams" -> JsObject(
+                  battle.sortedTeamIds.map { id =>
+                    id -> JsString(getTeamName(id).getOrElse(id))
+                  },
+                  "nbLeaders" -> battle.nbLeaders
+                )
               )
               .add("joinWith" -> me.isDefined.option(teamsToJoinWith.sorted))
           })
