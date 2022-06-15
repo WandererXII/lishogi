@@ -136,6 +136,12 @@ final class JsonView(
               .add("joinWith" -> me.isDefined.option(teamsToJoinWith.sorted))
           })
           .add("description" -> tour.description)
+          .add("myUsername" -> me.map(_.username))
+          .add[Condition.RatingCondition]("minRating", tour.conditions.minRating)
+          .add[Condition.RatingCondition]("maxRating", tour.conditions.maxRating)
+          .add("minRatedGames", tour.conditions.nbRatedGame)
+          .add("onlyTitled", tour.conditions.titled.isDefined)
+          .add("teamMember", tour.conditions.teamMember.map(_.teamId))
       }
 
   def clearCache(tour: Tournament): Unit = {
