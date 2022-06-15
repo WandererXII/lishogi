@@ -141,12 +141,14 @@ final class JsonView(
           })
           .add("description" -> tour.description)
           .add("myUsername" -> me.map(_.username))
-          .add[Condition.RatingCondition]("minRating", tour.conditions.minRating)
-          .add[Condition.RatingCondition]("maxRating", tour.conditions.maxRating)
-          .add("minRatedGames", tour.conditions.nbRatedGame)
-          .add("onlyTitled", tour.conditions.titled.isDefined)
-          .add("teamMember", tour.conditions.teamMember.map(_.teamId))
-      }
+      } ++
+      tour.conditions.relevant ?? Json
+        .obj()
+        .add[Condition.RatingCondition]("minRating", tour.conditions.minRating)
+        .add[Condition.RatingCondition]("maxRating", tour.conditions.maxRating)
+        .add("nbRatedGame", tour.conditions.nbRatedGame)
+        .add("titled", tour.conditions.titled.isDefined)
+        .add("teamMember", tour.conditions.teamMember.map(_.teamId))
 
   def clearCache(tour: Tournament): Unit = {
     standingApi clearCache tour
