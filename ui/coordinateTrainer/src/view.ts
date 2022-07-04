@@ -2,7 +2,7 @@ import { h, VNode, VNodeStyle } from 'snabbdom';
 import { bind, MaybeVNode } from 'common/snabbdom';
 import chessground from './chessground';
 import CoordinateTrainerCtrl, { DURATION } from './ctrl';
-import { ColorChoice, Mode, CoordModifier } from './interfaces';
+import { ColorChoice, TimeControl, Mode, CoordModifier } from './interfaces';
 
 function scoreCharts(ctrl: CoordinateTrainerCtrl): VNode {
   const average = (array: number[]) => array.reduce((a, b) => a + b) / array.length;
@@ -31,6 +31,17 @@ function scoreCharts(ctrl: CoordinateTrainerCtrl): VNode {
   );
 }
 
+const colors: [ColorChoice, string][] = [
+  ['black', 'asBlack'],
+  ['random', 'randomColor'],
+  ['white', 'asWhite'],
+];
+
+const timeControls: [TimeControl, string][] = [
+  ['untimed', '∞'],
+  ['thirtySeconds', '0:30'],
+];
+
 function side(ctrl: CoordinateTrainerCtrl): VNode {
   const { trans } = ctrl;
 
@@ -39,7 +50,11 @@ function side(ctrl: CoordinateTrainerCtrl): VNode {
     sideContent.push(
       h('div.box.current-status', [h('h1', trans('score')), h('div.score', ctrl.score)]),
       ctrl.playing
+<<<<<<< HEAD
         ? h('div.box.current-status', [
+=======
+        ? h('div.box.current-status', { class: { disabled: ctrl.timeDisabled() } }, [
+>>>>>>> 42d37d2656 (remove one minute time option)
             h('h1', trans('time')),
             h('div.timer', { class: { hurry: ctrl.timeLeft <= 10 * 1000 } }, (ctrl.timeLeft / 1000).toFixed(1)),
           ])
@@ -74,6 +89,43 @@ function side(ctrl: CoordinateTrainerCtrl): VNode {
           )
         ),
       ]),
+<<<<<<< HEAD
+=======
+      h('form.timeControl.buttons', [
+        h(
+          'group.radio',
+          timeControls.map(([timeControl, timeControlLabel]) =>
+            h('div.timeControl_option', [
+              h('input', {
+                attrs: {
+                  type: 'radio',
+                  id: `coord_timeControl_${timeControl}`,
+                  name: 'timeControl',
+                  value: timeControl,
+                  checked: timeControl === ctrl.timeControl,
+                },
+                on: {
+                  change: e => {
+                    const target = e.target as HTMLInputElement;
+                    ctrl.setTimeControl(target.value as TimeControl);
+                  },
+                  keyup: ctrl.onRadioInputKeyUp,
+                },
+              }),
+              h(
+                `label.timeControl_${timeControl}`,
+                {
+                  attrs: {
+                    for: `coord_timeControl_${timeControl}`,
+                  },
+                },
+                timeControlLabel
+              ),
+            ])
+          )
+        ),
+      ]),
+>>>>>>> 42d37d2656 (remove one minute time option)
       h('form.color.buttons', [
         h(
           'group.radio',
@@ -195,7 +247,11 @@ function table(ctrl: CoordinateTrainerCtrl): VNode {
 function progress(ctrl: CoordinateTrainerCtrl): VNode {
   return h(
     'div.progress',
+<<<<<<< HEAD
     ctrl.hasPlayed ? h('div.progress_bar', { style: { width: `${100 * (1 - ctrl.timeLeft / DURATION)}%` } }) : null
+=======
+    ctrl.hasPlayed ? h('div.progress__bar', { style: { width: `${100 * (1 - ctrl.timeLeft / DURATION)}%` } }) : null
+>>>>>>> 42d37d2656 (remove one minute time option)
   );
 }
 

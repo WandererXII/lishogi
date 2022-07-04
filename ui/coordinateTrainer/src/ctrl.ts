@@ -2,7 +2,7 @@ import { sparkline } from '@fnando/sparkline';
 import * as xhr from 'common/xhr';
 import throttle from 'common/throttle';
 import { Api as CgApi } from 'chessground/api';
-import { ColorChoice, CoordinateTrainerConfig, InputMethod, Mode, ModeScores, Redraw } from './interfaces';
+import { ColorChoice, TimeControl, CoordinateTrainerConfig, InputMethod, Mode, ModeScores, Redraw } from './interfaces';
 
 const orientationFromColorChoice = (colorChoice: ColorChoice): Color =>
   (colorChoice === 'random' ? ['white', 'black'][Math.round(Math.random())] : colorChoice) as Color;
@@ -40,6 +40,7 @@ export default class CoordinateTrainerCtrl {
   redraw: Redraw;
   score = 0;
   timeAtStart: Date;
+  timeControl: TimeControl;
   timeLeft = DURATION;
   trans: Trans;
   wrong: boolean;
@@ -49,6 +50,9 @@ export default class CoordinateTrainerCtrl {
   constructor(config: CoordinateTrainerConfig, redraw: Redraw) {
     this.config = config;
     this.colorChoice = (lichess.storage.get('coordinateTrainer.colorChoice') as ColorChoice) || 'random';
+    this.timeControl =
+      (lichess.storage.get('coordinateTrainer.timeControl') as TimeControl) ||
+      (document.body.classList.contains('kid') ? 'untimed' : 'thirtySeconds');
     this.orientation = orientationFromColorChoice(this.colorChoice);
     this.modeScores = config.scores;
 
@@ -115,6 +119,14 @@ export default class CoordinateTrainerCtrl {
     this.redraw();
   };
 
+  setTimeControl = (c: TimeControl) => {
+    if (this.timeControl === c) return;
+    this.timeControl = c;
+    lichess.storage.set('coordinateTrainer.timeControl', this.timeControl);
+  };
+
+  timeDisabled = () => this.timeControl === 'untimed';
+
   toggleInputMethod = () => {
     if (this.coordinateInputMethod === 'text') this.coordinateInputMethod = 'buttons';
     else this.coordinateInputMethod = 'text';
@@ -139,10 +151,12 @@ export default class CoordinateTrainerCtrl {
     if (this.mode === 'nameSquare') this.keyboardInput.focus();
 
     setTimeout(() => {
+      // Advance coordinates twice in order to get an entirely new set
+      this.advanceCoordinates();
+      this.advanceCoordinates();
+
       this.timeAtStart = new Date();
-      this.advanceCoordinates();
-      this.advanceCoordinates();
-      this.tick();
+      if (!this.timeDisabled()) this.tick();
     }, 1000);
   };
 
@@ -168,23 +182,24 @@ export default class CoordinateTrainerCtrl {
   stop = () => {
     this.playing = false;
     this.wrong = false;
-    this.updateScoreList();
-    requestAnimationFrame(() => this.updateCharts());
-    this.redraw();
-    this.chessground?.setShapes([]);
-    this.chessground?.redrawAll();
 
     if (this.mode === 'nameSquare') {
       this.keyboardInput.blur();
       this.keyboardInput.value = '';
     }
 
-    if (this.isAuth) {
-      xhr.text('/training/coordinate/score', {
-        method: 'post',
-        body: xhr.form({ mode: this.mode, color: this.orientation, score: this.score }),
-      });
+    if (this.timeControl === 'thirtySeconds') {
+      this.updateScoreList();
+      if (this.isAuth)
+        xhr.text('/training/coordinate/score', {
+          method: 'post',
+          body: xhr.form({ mode: this.mode, color: this.orientation, score: this.score }),
+        });
     }
+
+    this.chessground?.setShapes([]);
+    this.chessground?.redrawAll();
+    this.redraw();
   };
 
   updateScoreList = () => {
@@ -192,6 +207,7 @@ export default class CoordinateTrainerCtrl {
     const scoreList = this.modeScores[this.mode][this.orientation];
     if (scoreList.length >= 20) this.modeScores[this.mode][this.orientation] = scoreList.slice(1, 20);
     this.modeScores[this.mode][this.orientation].push(this.score);
+    requestAnimationFrame(() => this.updateCharts());
   };
 
   updateCharts = () => {
