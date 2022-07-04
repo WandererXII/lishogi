@@ -49,12 +49,8 @@ const side = (ctrl: CoordinateTrainerCtrl): VNode => {
   if (ctrl.playing || ctrl.hasPlayed) {
     sideContent.push(
       h('div.box.current-status', [h('h1', trans('score')), h('div.score', ctrl.score)]),
-      ctrl.playing
-<<<<<<< HEAD
+      ctrl.playing && !ctrl.timeDisabled()
         ? h('div.box.current-status', [
-=======
-        ? h('div.box.current-status', { class: { disabled: ctrl.timeDisabled() } }, [
->>>>>>> 42d37d2656 (remove one minute time option)
             h('h1', trans('time')),
             h('div.timer', { class: { hurry: ctrl.timeLeft <= 10 * 1000 } }, (ctrl.timeLeft / 1000).toFixed(1)),
           ])
@@ -89,8 +85,6 @@ const side = (ctrl: CoordinateTrainerCtrl): VNode => {
           )
         ),
       ]),
-<<<<<<< HEAD
-=======
       h('form.timeControl.buttons', [
         h(
           'group.radio',
@@ -125,7 +119,6 @@ const side = (ctrl: CoordinateTrainerCtrl): VNode => {
           )
         ),
       ]),
->>>>>>> 42d37d2656 (remove one minute time option)
       h('form.color.buttons', [
         h(
           'group.radio',
@@ -247,11 +240,7 @@ const table = (ctrl: CoordinateTrainerCtrl): VNode => {
 const progress = (ctrl: CoordinateTrainerCtrl): VNode => {
   return h(
     'div.progress',
-<<<<<<< HEAD
-    ctrl.hasPlayed ? h('div.progress_bar', { style: { width: `${100 * (1 - ctrl.timeLeft / DURATION)}%` } }) : null
-=======
     ctrl.hasPlayed ? h('div.progress__bar', { style: { width: `${100 * (1 - ctrl.timeLeft / DURATION)}%` } }) : null
->>>>>>> 42d37d2656 (remove one minute time option)
   );
 };
 
