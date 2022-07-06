@@ -14,7 +14,7 @@
 	<string name="toggleSound">切換音效</string>
 	<string name="chat">聊天室</string>
 	<string name="resign">投了</string>
-	<string name="checkmate">將死</string>
+	<string name="checkmate">詰死</string>
 	<string name="stalemate">逼和</string>
 	<string name="impasse">僵局</string>
 	<string name="white">後手</string>
@@ -327,7 +327,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="thisIsAChessCaptcha">這是驗證碼。</string>
 	<string name="clickOnTheBoardToMakeYourMove">點擊棋盤走棋以證明您是人類。</string>
 	<string name="captcha.fail">請完成驗證。</string>
-	<string name="notACheckmate">沒有將死</string>
+	<string name="notACheckmate">沒有詰</string>
 	<string name="whiteCheckmatesInOneMove">後手一手詰</string>
 	<string name="blackCheckmatesInOneMove">先手一手詰</string>
 	<string name="retry">重試</string>
