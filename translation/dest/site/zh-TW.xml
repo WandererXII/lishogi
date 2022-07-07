@@ -312,10 +312,10 @@
 	<string name="save">儲存</string>
 	<string name="leaderboard">排行榜</string>
 	<string name="selectHandicap">選擇讓子</string>
-	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
-	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
+	<string name="pasteTheSfenStringHere">將 SFEN 棋譜在這裡貼上</string>
+	<string name="pasteTheKifCsaStringHere">將 KIF 或是 CSA 棋譜在這裡貼上</string>
 	<string name="fromPosition">自定義局面</string>
-	<string name="default">Default</string>
+	<string name="default">預設值</string>
 	<string name="continueFromHere">從此處繼續</string>
 	<string name="toStudy">研究</string>
 	<string name="importGame">導入棋局</string>
