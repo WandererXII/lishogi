@@ -3,9 +3,9 @@
 	<string name="faqAbbreviation">常見問題</string>
 	<string name="frequentlyAskedQuestions">常見問題</string>
 	<string name="whyIsLishogiCalledLishogi">為什麼叫做Lishogi呢?</string>
-	<string name="forkedFromLichess">Lishogi is open source project forked from liсhess, but since it\'s for playing shogi, it\'s called lishogi.</string>
+	<string name="forkedFromLichess">Lishogi 是一個從 Lichess 分支出來的開源專案，但因為這個網站只專注於將棋，我們便稱他為 Lishogi。</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Because it\'s derived from Liсhess. And Liсhess is called Liсhess because it\'s a combination of live/light/libre and chess. Lishogi is pronounced %1$s.</string>
-	<string name="leechess">lee-shogi</string>
+	<string name="leechess">ㄌㄧ ㄒㄧㄡ ㄍㄧ</string>
 	<string name="whyLiveLightLibre">直播(live)，無時無刻都有人在下棋，而每一場棋局也都被觀賞。光明及自由(light and libre) 代表Lishogi是開源軟體及不被版權蟑螂影響。</string>
 	<string name="whyIsLilaCalledLila">Similarly, the source code for Lishogi, %1$s, stands for li[shogi in sca]la, seeing as the bulk of Lishogi is written in %2$s, an intuitive programming language.</string>
 	<string name="howCanIContributeToLishogi">How can I contribute to Lishogi?</string>
