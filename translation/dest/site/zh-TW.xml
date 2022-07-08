@@ -87,7 +87,7 @@
 	<string name="topGames">評分最高的棋局</string>
 	<string name="noGameFound">未找到遊戲</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">試著從偏好設置中加入更多棋局</string>
-	<string name="openingExplorer">開局瀏覽器</string>
+	<string name="openingExplorer">序盤瀏覽器</string>
 	<string name="xOpeningExplorer">%s開局瀏覽器</string>
 	<string name="allSet">一切就緒！</string>
 	<string name="importKif">匯入 .KIF檔案</string>
@@ -258,7 +258,7 @@
 		<item quantity="other">給對方加%s秒</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">此帳號違反了Lishogi的使用規定</string>
-	<string name="openingExplorerAndTablebase">開局瀏覽器 &amp; 總局資料庫</string>
+	<string name="openingExplorerAndTablebase">序盤瀏覽&amp;終盤資料庫</string>
 	<string name="takeback">悔棋</string>
 	<string name="proposeATakeback">請求悔棋</string>
 	<string name="takebackPropositionSent">悔棋請求已發送</string>
@@ -783,9 +783,9 @@
 	<plurals name="nbSeconds">
 		<item quantity="other">%s 秒</item>
 	</plurals>
-	<string name="opening">開局</string>
-	<string name="middlegame">中場</string>
-	<string name="endgame">殘局</string>
+	<string name="opening">序盤</string>
+	<string name="middlegame">中盤</string>
+	<string name="endgame">終盤</string>
 	<string name="registerToSendChallenges">請登入以挑戰您的朋友</string>
 	<string name="youCannotChallengeX">您不能挑戰%s</string>
 	<string name="xDoesNotAcceptChallenges">%s不接受挑戰</string>
