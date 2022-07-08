@@ -62,7 +62,7 @@
   <string name="tsumeDescription">你的目標是將死你的對手。每一手都必須為王手。</string>
   <string name="strikingPawn">叩擊歩</string>
   <string name="strikingPawnDescription">在對方步兵以外的棋駒前打入步兵以進行施壓的手筋</string>
-  <string name="joiningPawn">續步</string>
+  <string name="joiningPawn">繼步</string>
   <string name="joiningPawnDescription">在對方的步兵前方打入步兵犧牲，再打入一枚步兵的進攻手筋。</string>
   <string name="dancingPawns">跳舞的步兵</string>
   <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
