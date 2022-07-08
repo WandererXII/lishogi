@@ -144,6 +144,12 @@ trait AssetHelper { self: I18nHelper with SecurityHelper =>
     )
   }
 
+  def embedJsUnsafeLoadThen(js: String)(implicit ctx: Context): Frag =
+    embedJsUnsafe(s"""lishogi.load.then(()=>{$js})""")
+
+  def embedJsUnsafeLoadThen(js: String, nonce: Nonce): Frag =
+    embedJsUnsafe(s"""lishogi.load.then(()=>{$js})""", nonce)
+
   def defaultCsp(implicit ctx: Context): ContentSecurityPolicy = {
     val csp = basicCsp(ctx.req)
     ctx.nonce.fold(csp)(csp.withNonce(_))

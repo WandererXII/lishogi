@@ -8,6 +8,7 @@
   "devDependencies": {
     "@babel/core": "^7",
     "@babel/preset-env": "^7",
+    "@types/fnando__sparkline": "^0.3.4",
     "babelify": "^10",
     "browserify": "^16",
     "fancy-log": "^1",

@@ -1,6 +1,5 @@
 package views.html.coordinate
 
-import controllers.routes
 import play.api.libs.json.Json
 
 import lila.api.Context
@@ -12,15 +11,14 @@ object bits {
   def coordinateConfig(scoreOption: Option[lila.coordinate.Score])(implicit ctx: Context) = Json.obj(
     "i18n"       -> i18nJsObject(i18nKeys),
     "resizePref" -> ctx.pref.resizeHandle,
-    "is3d"       -> ctx.pref.is3d,
     "scores" -> Json.obj(
       "findSquare" -> Json.obj(
-        "white" -> scoreOption.fold(List[Int]())(_.white),
-        "black" -> scoreOption.fold(List[Int]())(_.black)
+        "sente" -> scoreOption.??(_.sente),
+        "gote" -> scoreOption.??(_.gote)
       ),
       "nameSquare" -> Json.obj(
-        "white" -> scoreOption.fold(List[Int]())(_.whiteNameSquare),
-        "black" -> scoreOption.fold(List[Int]())(_.blackNameSquare)
+        "sente" -> scoreOption.??(_.senteNameSquare),
+        "gote" -> scoreOption.??(_.goteNameSquare)
       )
     )
   )
@@ -33,18 +31,18 @@ object bits {
     trans.coordinates.averageScoreAsBlackX,
     trans.coordinates.averageScoreAsWhiteX,
     trans.coordinates.coordinates,
-    trans.coordinates.knowingTheChessBoard,
-    trans.coordinates.mostChessCourses,
+    trans.coordinates.knowingTheShogiBoard,
+    trans.coordinates.mostShogiCourses,
     trans.coordinates.startTraining,
-    trans.coordinates.talkToYourChessFriends,
+    trans.coordinates.talkToYourShogiFriends,
     trans.coordinates.youCanAnalyseAGameMoreEffectively,
     trans.coordinates.findSquare,
     trans.coordinates.nameSquare,
     trans.storm.score,
     trans.study.back,
     trans.time,
-    trans.asWhite,
     trans.asBlack,
+    trans.asWhite,
     trans.randomColor
   ).map(_.key)
 }

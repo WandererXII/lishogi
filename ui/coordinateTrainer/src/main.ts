@@ -1,6 +1,6 @@
 import { init, attributesModule, eventListenersModule, classModule, propsModule, styleModule } from 'snabbdom';
 import menuHover from 'common/menuHover';
-import { Chessground } from 'chessground';
+import { Shogiground } from 'shogiground';
 
 import view from './view';
 import { CoordinateTrainerConfig } from './interfaces';
@@ -8,7 +8,7 @@ import CoordinateTrainerCtrl from './ctrl';
 
 const patch = init([classModule, attributesModule, propsModule, eventListenersModule, styleModule]);
 
-export default function LichessCoordinateTrainer(element: HTMLElement, config: CoordinateTrainerConfig): void {
+export default function LishogiCoordinateTrainer(element: HTMLElement, config: CoordinateTrainerConfig): void {
   const ctrl = new CoordinateTrainerCtrl(config, redraw);
   element.innerHTML = '';
   const inner = document.createElement('div');
@@ -22,6 +22,6 @@ export default function LichessCoordinateTrainer(element: HTMLElement, config: C
   menuHover();
 }
 
-// that's for the rest of lichess to access chessground
+// that's for the rest of lishogi to access shogiground
 // without having to include it a second time
-window.Chessground = Chessground;
+window.Shogiground = Shogiground;

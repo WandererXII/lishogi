@@ -14,5 +14,13 @@ final class Env(
 
   lazy val api = wire[CoordinateApi]
 
-  lazy val forms = DataForm
+  lazy val forms = CoordinateForm
+}
+
+sealed abstract class CoordMode(val key: String)
+
+object CoordMode {
+  case object FindSquare extends CoordMode("findSquare")
+  case object NameSquare extends CoordMode("nameSquare")
+  val all = List[CoordMode](FindSquare, NameSquare)
 }

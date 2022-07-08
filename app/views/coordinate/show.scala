@@ -20,26 +20,26 @@ object show {
       moreJs = frag(
         jsModule("coordinateTrainer"),
         embedJsUnsafeLoadThen(
-          s"""LichessCoordinateTrainer(document.getElementById('trainer'), ${safeJsonValue(
-            bits.coordinateConfig(scoreOption)
-          )});"""
+          s"""LishogiCoordinateTrainer(document.getElementById('trainer'), ${safeJsonValue(
+              bits.coordinateConfig(scoreOption)
+            )});"""
         )
       ),
       openGraph = lila.app.ui
         .OpenGraph(
-          title = "Chess board coordinates trainer",
+          title = "Shogi board coordinates trainer",
           url = s"$netBaseUrl${routes.Coordinate.home.url}",
           description =
-            "Knowing the chessboard coordinates is a very important chess skill. A square name appears on the board and you must click on the correct square."
+            "Knowing the shogiboard coordinates is a very important shogi skill. A square name appears on the board and you must click on the correct square."
         )
         .some,
       zoomable = true,
       playing = true
     )(
       main(id := "trainer")(
-        div(cls := "trainer")(
+        div(cls   := "trainer")(
           div(cls := "side"),
-          div(cls := "main-board")(chessgroundBoard),
+          div(cls := "main-board")(shogigroundBoard(shogi.variant.Standard, shogi.Sente.some)),
           div(cls := "table"),
           div(cls := "progress")
         )

@@ -9,6 +9,7 @@ import play.api.data.JodaForms._
 import play.api.data.validation.Constraint
 import play.api.data.{ Field, FormError, Mapping }
 import scala.util.Try
+import shogi.Color
 import shogi.format.forsyth.Sfen
 
 import lila.common.base.StringUtils
@@ -98,6 +99,12 @@ object Form {
     choices.map(_._1).toList contains key
 
   def trueish(v: Any) = v == 1 || v == "1" || v == "true" || v == "on" || v == "yes"
+
+  object color {
+    val mapping: Mapping[Color] = trim(text)
+      .verifying(Color.all.map(_.name).contains _)
+      .transform[Color](c => Color.fromSente(c == "sente"), _.name)
+  }
 
   private def pluralize(pattern: String, nb: Int) =
     pattern.replace("{s}", if (nb == 1) "" else "s")

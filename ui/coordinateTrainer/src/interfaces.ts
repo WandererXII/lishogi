@@ -6,14 +6,14 @@ export type Mode = 'findSquare' | 'nameSquare';
 
 export type InputMethod = 'text' | 'buttons';
 
-interface WhiteBlackScores {
-  white: number[];
-  black: number[];
+interface SenteGoteScores {
+  sente: number[];
+  gote: number[];
 }
 
 export interface ModeScores {
-  findSquare: WhiteBlackScores;
-  nameSquare: WhiteBlackScores;
+  findSquare: SenteGoteScores;
+  nameSquare: SenteGoteScores;
 }
 
 export interface CoordinateTrainerConfig {

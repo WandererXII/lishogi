@@ -56,7 +56,8 @@
 }
 
 form.mode,
-form.color {
+form.color,
+form.timeControl {
   margin-top: $block-gap;
 
   i {
@@ -80,7 +81,7 @@ form.color {
 }
 
 form.color {
-  .color_white i {
+  .color_sente i {
     background-image: url(../piece/cburnett/wK.svg);
   }
 
@@ -88,7 +89,7 @@ form.color {
     background-image: url(../images/wbK.svg);
   }
 
-  .color_black i {
+  .color_gote i {
     background-image: url(../piece/cburnett/bK.svg);
   }
 }
@@ -112,9 +113,13 @@ form.color {
 
 .progress {
   @extend %box-radius;
-  width: 100%;
-  height: 10px;
-  background-color: $c-secondary;
+  background-color: $c-bg-zebra;
+  &__bar {
+    @extend %box-radius;
+    width: 100%;
+    height: 10px;
+    background-color: $c-secondary;
+  }
 }
 
 .table {

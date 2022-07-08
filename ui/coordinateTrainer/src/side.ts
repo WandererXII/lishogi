@@ -4,9 +4,9 @@ import CoordinateTrainerCtrl from './ctrl';
 import { ColorChoice, TimeControl, Mode } from './interfaces';
 
 const colors: [ColorChoice, string][] = [
-  ['black', 'asBlack'],
+  ['sente', 'asBlack'],
   ['random', 'randomColor'],
-  ['white', 'asWhite'],
+  ['gote', 'asWhite'],
 ];
 
 const timeControls: [TimeControl, string][] = [
@@ -119,8 +119,8 @@ const scoreCharts = (ctrl: CoordinateTrainerCtrl): VNode =>
     h(
       'div.scores',
       [
-        ['white', 'averageScoreAsWhiteX', ctrl.modeScores[ctrl.mode].white],
-        ['black', 'averageScoreAsBlackX', ctrl.modeScores[ctrl.mode].black],
+        ['sente', 'averageScoreAsBlackX', ctrl.modeScores[ctrl.mode].sente],
+        ['gote', 'averageScoreAsWhiteX', ctrl.modeScores[ctrl.mode].gote],
       ].map(([color, transKey, scoreList]: [Color, string, number[]]) =>
         scoreList.length
           ? h('div.color-chart', [

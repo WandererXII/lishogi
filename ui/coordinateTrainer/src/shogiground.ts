@@ -1,7 +1,7 @@
 import { h, VNode } from 'snabbdom';
-import { Chessground } from 'chessground';
-import { Config as CgConfig } from 'chessground/config';
-import * as cg from 'chessground/types';
+import { Shogiground } from 'shogiground';
+import { Config as SgConfig } from 'shogiground/config';
+import * as cg from 'shogiground/types';
 import resizeHandle from 'common/resize';
 import CoordinateTrainerCtrl from './ctrl';
 
@@ -10,14 +10,14 @@ export default function (ctrl: CoordinateTrainerCtrl): VNode {
     hook: {
       insert: vnode => {
         const el = vnode.elm as HTMLElement;
-        ctrl.chessground = Chessground(el, makeConfig(ctrl));
+        ctrl.shogiground = Shogiground(el, makeConfig(ctrl));
       },
-      destroy: () => ctrl.chessground!.destroy(),
+      destroy: () => ctrl.shogiground!.destroy(),
     },
   });
 }
 
-function makeConfig(ctrl: CoordinateTrainerCtrl): CgConfig {
+function makeConfig(ctrl: CoordinateTrainerCtrl): SgConfig {
   return {
     orientation: ctrl.orientation,
     blockTouchScroll: true,
@@ -31,7 +31,7 @@ function makeConfig(ctrl: CoordinateTrainerCtrl): CgConfig {
       insert(elements: cg.Elements) {
         resizeHandle(elements, ctrl.config.resizePref, ctrl.playing ? 2 : 0);
       },
-      select: ctrl.onChessgroundSelect,
+      select: ctrl.onShogigroundSelect,
     },
   };
 }

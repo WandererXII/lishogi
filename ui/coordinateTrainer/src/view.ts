@@ -1,6 +1,6 @@
 import { h, VNode, VNodeStyle } from 'snabbdom';
 import { bind, MaybeVNode } from 'common/snabbdom';
-import chessground from './chessground';
+import shogiground from './shogiground';
 import CoordinateTrainerCtrl, { DURATION } from './ctrl';
 import { CoordModifier } from './interfaces';
 import side from './side';
@@ -31,7 +31,7 @@ const board = (ctrl: CoordinateTrainerCtrl): VNode => {
           )
         )
       : null,
-    chessground(ctrl),
+    shogiground(ctrl),
   ]);
 };
 
@@ -42,10 +42,10 @@ const explanation = (ctrl: CoordinateTrainerCtrl): VNode => {
     ' ' +
     trans(ctrl.timeControl === 'thirtySeconds' ? 'youHaveThirtySeconds' : 'goAsLongAsYouWant');
   return h('div.explanation', [
-    h('p', trans('knowingTheChessBoard')),
+    h('p', trans('knowingTheShogiBoard')),
     h('ul', [
-      h('li', trans('mostChessCourses')),
-      h('li', trans('talkToYourChessFriends')),
+      h('li', trans('mostShogiCourses')),
+      h('li', trans('talkToYourShogiFriends')),
       h('li', trans('youCanAnalyseAGameMoreEffectively')),
     ]),
     h('strong', trans(ctrl.mode)),
@@ -99,7 +99,7 @@ const coordinateInput = (ctrl: CoordinateTrainerCtrl): MaybeVNode => {
     ctrl.coordinateInputMethod === 'buttons'
       ? h(
           'div.files-ranks',
-          'abcdefgh12345678'.split('').map((fileOrRank: string) =>
+          '987654321abcdefghi'.split('').map((fileOrRank: string) =>
             h(
               'button.file-rank',
               {
