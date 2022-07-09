@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="activity">Активність</string>
-  <string name="hostedALiveStream">Запустив стрім</string>
+  <string name="activity">Діяльність</string>
+  <string name="hostedALiveStream">Струмив</string>
   <plurals name="supportedNbMonths" comment="supportedNbMonths [one] [other]&#10;&#10;Supported lishogi.org for 4 months as a Patron. The second one always says &quot;Patron&quot; but it's actually a link.">
     <item quantity="one">Підтримує lishogi.org протягом %1$s місяця як %2$s</item>
     <item quantity="few">Підтримує lishogi.org протягом %1$s місяців як %2$s</item>
