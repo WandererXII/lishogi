@@ -1,5 +1,5 @@
 import { h, VNode, VNodeStyle } from 'snabbdom';
-import { bind, MaybeVNode } from 'common/snabbdom';
+import { bind, MaybeVNode } from './snabbdom';
 import shogiground from './shogiground';
 import CoordinateTrainerCtrl, { DURATION } from './ctrl';
 import { CoordModifier } from './interfaces';

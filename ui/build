@@ -17,10 +17,9 @@ ls -l node_modules node_modules/@* ui/node_modules ui/*/node_modules | grep /yar
 mkdir -p public/compiled
 
 apps1="common"
-apps2="palantir"
+apps2="speech palantir"
 apps3="ceval game tree chat nvui puz"
-apps4="site msg cli challenge notify learn editor puzzle round analyse lobby tournament tournamentSchedule tournamentCalendar simul dasher serviceWorker storm coordinateTrainer "
-site_plugins="speech"
+apps4="site msg cli challenge notify learn editor puzzle round analyse lobby tournament tournamentSchedule tournamentCalendar simul dasher serviceWorker storm coordinateTrainer"
 
 if [ $mode == "upgrade" ]; then
   yarn upgrade --non-interactive
@@ -41,20 +40,6 @@ build() {
   fi
 }
 
-build_plugin() {
-  echo $1
-  module="$(cut -d':' -f1 <<<$1)"
-  plugin="$(cut -d':' -f2 <<<$1)"
-  echo "### ui/$module plugin $plugin ###"
-  set -ev
-  cd ui/$module
-  yarn run plugin-$target $plugin
-}
-
-build_site_plugin() {
-  build_plugin "site:$1"
-}
-
 if [ $mode != "upgrade" ] && [ $mode != "js" ]; then
   apps4="css $apps4"
 fi
@@ -71,10 +56,8 @@ else
     parallel --gnu $P_OPTS build ::: $apps2
     parallel --gnu $P_OPTS build ::: $apps3
     parallel --gnu $P_OPTS build ::: $apps4
-    parallel --gnu $P_OPTS build_site_plugin ::: $site_plugins
   else # sequential execution
     echo "For faster builds, install GNU parallel."
     for app in $apps1 $apps2 $apps3 $apps4; do (build $app); done
-    for plugin in $site_plugins; do (build_site_plugin $plugin); done
   fi
 fi

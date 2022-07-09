@@ -1,5 +1,5 @@
 import { h, VNode, VNodes } from 'snabbdom';
-import { bind } from 'common/snabbdom';
+import { bind } from './snabbdom';
 import CoordinateTrainerCtrl from './ctrl';
 import { ColorChoice, TimeControl, Mode } from './interfaces';
 

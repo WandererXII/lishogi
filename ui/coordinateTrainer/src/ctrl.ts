@@ -176,7 +176,12 @@ export default class CoordinateTrainerCtrl {
 
     if (this.mode === 'nameSquare')
       this.shogiground?.setShapes([
-        { orig: this.currentKey as Key, dest: this.currentKey as Key, customSvg: targetSvg('current'), brush: 'current' },
+        {
+          orig: this.currentKey as Key,
+          dest: this.currentKey as Key,
+          customSvg: targetSvg('current'),
+          brush: 'current',
+        },
         { orig: this.nextKey as Key, dest: this.nextKey as Key, customSvg: targetSvg('next'), brush: 'next' },
       ]);
 
