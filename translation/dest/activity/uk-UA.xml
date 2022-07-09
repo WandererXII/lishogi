@@ -94,9 +94,9 @@
   </plurals>
   <string name="signedUp">Записалися на lishogi.org</string>
   <plurals name="joinedNbTeams">
-    <item quantity="one">Приєднався до %s команди</item>
-    <item quantity="few">Приєднався до %s команд</item>
-    <item quantity="many">Приєднався до %s команд</item>
-    <item quantity="other">Приєднався до %s команд</item>
+    <item quantity="one">Долучилися до дружини</item>
+    <item quantity="few">Долучилися до %s дружин</item>
+    <item quantity="many">Долучилися до %s дружин</item>
+    <item quantity="other">Долучилися до %s дружин</item>
   </plurals>
 </resources>
