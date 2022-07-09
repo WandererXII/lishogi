@@ -1,5 +1,5 @@
 import { init, attributesModule, eventListenersModule, classModule, propsModule, styleModule } from 'snabbdom';
-import menuHover from 'common/menuHover';
+import { menuHover } from 'common/menuHover';
 import { Shogiground } from 'shogiground';
 
 import view from './view';
