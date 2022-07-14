@@ -45,8 +45,8 @@ const explanation = (ctrl: CoordinateTrainerCtrl): VNode => {
       h('li', trans('youCanAnalyseAGameMoreEffectively')),
     ]),
     h('strong', trans(ctrl.mode)),
-    h('p', trans(ctrl.mode() === 'findSquare' ? 'aCoordinateAppears' : 'aSquareIsHighlightedExplanation')),
-    h('p', trans(ctrl.timeControl() === 'thirtySeconds' ? 'youHaveThirtySeconds' : 'goAsLongAsYouWant')),
+    h('p', trans(ctrl.mode === 'findSquare' ? 'aCoordinateAppears' : 'aSquareIsHighlightedExplanation')),
+    h('p', trans(ctrl.timeControl === 'thirtySeconds' ? 'youHaveThirtySeconds' : 'goAsLongAsYouWant')),
   ]);
 };
 
