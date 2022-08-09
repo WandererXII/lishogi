@@ -6,8 +6,8 @@
   <string name="newWeeklyHighscore">Nuevo récord semanal!</string>
   <string name="newMonthlyHighscore">Nuevo récord mensual!</string>
   <string name="newAllTimeHighscore">New all-time highscore!</string>
-  <string name="previousHighscoreWasX">Previous highscore was %s</string>
-  <string name="playAgain">Play again</string>
+  <string name="previousHighscoreWasX">El récord anterior era %s</string>
+  <string name="playAgain">Jugar de nuevo</string>
   <plurals name="xRuns">
     <item quantity="one">1 run</item>
     <item quantity="other">%s runs</item>
@@ -16,7 +16,7 @@
     <item quantity="one">Played one run of %2$s</item>
     <item quantity="other">Played %1$s runs of %2$s</item>
   </plurals>
-  <string name="highscoreX">Highscore: %s</string>
+  <string name="highscoreX">Récord: %s</string>
   <string name="score">Puntuación</string>
   <string name="moves">Movimientos</string>
   <string name="accuracy">Precisión</string>
