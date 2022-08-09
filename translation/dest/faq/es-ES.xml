@@ -48,7 +48,7 @@
 	<string name="goodIntroduction">buena introducción</string>
 	<string name="officialRulesPDF">reglas oficiales (pdf)</string>
 	<string name="lishogiTraining">Entrenamiento en Lishogi</string>
-	<string name="fourfoldRepetition">Fourfold repetition</string>
+	<string name="fourfoldRepetition">Repetición cuádruple</string>
 	<string name="handBookPDF">manual (pdf)</string>
 	<string name="notRepeatedMoves">No hemos repetido movimientos, ¿por qué el juego sigue siendo tablas por repetición?</string>
 	<string name="repeatedPositionsThatMatters">La triple repetición se da por repetición de %1$s, no de movimientos. La repetición no tiene ocurrir consecutivamente.</string>
