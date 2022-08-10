@@ -333,8 +333,8 @@
 	<string name="save">Guardar</string>
 	<string name="leaderboard">Clasificación</string>
 	<string name="selectHandicap">Seleccionar ventaja</string>
-	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
-	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
+	<string name="pasteTheSfenStringHere">Pega el texto SFEN aquí</string>
+	<string name="pasteTheKifCsaStringHere">Pega el texto KIF o CSA aquí</string>
 	<string name="fromPosition">Desde posición</string>
 	<string name="default">Predeterminado</string>
 	<string name="continueFromHere">Continuar desde aquí</string>
@@ -749,7 +749,7 @@
 	<string name="gridSlim">Fino</string>
 	<string name="gridThick">Grueso</string>
 	<string name="gridVeryThick">Muy grueso</string>
-	<string name="hands">Hands</string>
+	<string name="hands">Manos</string>
 	<string name="boardTheme">Tema del tablero</string>
 	<string name="boardSize">Tamaño del tablero</string>
 	<string name="pieceSet">Estilo de piezas</string>
@@ -891,7 +891,7 @@
 	<string name="previousBlogPosts">Publicaciones anteriores</string>
 	<string name="continueReadingThis"> Continuar leyendo esta publicación</string>
 	<string name="discussBlogForum">Discutir esta publicación en el foro</string>
-	<string name="invadingPieces">Invading pieces</string>
+	<string name="invadingPieces">Piezas invasoras</string>
 	<string name="enteringKing">Entering king</string>
 	<string name="totalImpasseValue">Valor total</string>
 </resources>
