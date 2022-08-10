@@ -23,7 +23,7 @@
   <string name="goodMove">Buen movimiento</string>
   <string name="bestMove">¡El mejor movimiento!</string>
   <string name="keepGoing">Keep going…</string>
-  <string name="puzzleSuccess">Success!</string>
+  <string name="puzzleSuccess">¡Éxito!</string>
   <string name="puzzleComplete">¡Ejercicio completado!</string>
   <string name="notTheMove">¡Ese no es el movimiento!</string>
   <string name="trySomethingElse">Prueba algo distinto.</string>
@@ -37,15 +37,15 @@
     <item quantity="one">%s movimiento restante</item>
     <item quantity="other">%s movimientos restantes</item>
   </plurals>
-  <string name="fromGameLink">From game %s</string>
+  <string name="fromGameLink">De la partida %s</string>
   <string name="puzzleSource">Fuente: %s</string>
   <string name="continueTraining">Continuar entrenamiento</string>
   <string name="difficultyLevel">Nivel de dificultad</string>
   <string name="normal">Normal</string>
   <string name="easier">Más fácil</string>
-  <string name="easiest">Easiest</string>
+  <string name="easiest">El más fácil</string>
   <string name="harder">Más difícil</string>
-  <string name="hardest">Hardest</string>
+  <string name="hardest">El más difícil</string>
   <string name="example">Ejemplo</string>
   <string name="addAnotherTheme">Añadir otro tema</string>
   <string name="jumpToNextPuzzleImmediately">Ir al siguiente ejercicio inmediatamente</string>
