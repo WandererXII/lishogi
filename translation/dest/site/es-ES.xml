@@ -9,7 +9,7 @@
 	<string name="yourTurn">Tu turno</string>
 	<string name="aiNameLevelAiLevel">%1$s nivel %2$s</string>
 	<string name="level">Nivel</string>
-	<string name="strength">Strength</string>
+	<string name="strength">Fuerza</string>
 	<string name="toggleTheChat">Mostrar/Ocultar chat</string>
 	<string name="toggleSound">Activar/Desactivar sonido</string>
 	<string name="chat">Chat</string>
@@ -892,6 +892,6 @@
 	<string name="continueReadingThis"> Continuar leyendo esta publicación</string>
 	<string name="discussBlogForum">Discutir esta publicación en el foro</string>
 	<string name="invadingPieces">Piezas invasoras</string>
-	<string name="enteringKing">Entering king</string>
+	<string name="enteringKing">Entrando al rey</string>
 	<string name="totalImpasseValue">Valor total</string>
 </resources>
