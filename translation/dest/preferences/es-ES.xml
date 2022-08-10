@@ -14,7 +14,7 @@
 	<string name="zenMode">Modo Zen</string>
 	<string name="displayBoardResizeHandle">Mostrar el control de tamaño del tablero</string>
 	<string name="onlyOnInitialPosition">Sólo en posición inicial</string>
-	<string name="blindfoldShogi">Blindfold shogi (invisible pieces)</string>
+	<string name="blindfoldShogi">Shogi a ciegas (piezas invisibles)</string>
 	<string name="shogiClock">Shogi clock</string>
 	<string name="tenthsOfSeconds">Décimas de segundo</string>
 	<string name="whenTimeRemainingLessThanTenSeconds">Cuando queden menos de 10 segundos</string>
@@ -39,6 +39,6 @@
 	<string name="scrollOnTheBoardToReplayMoves">Scroll on the board to replay moves</string>
 	<string name="westernNotation">Notación occidental</string>
 	<string name="japaneseNotation">Notación japonesa</string>
-	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
+	<string name="kitaoKawasakiNotation">Notación Kitao-Kawasaki</string>
 	<string name="yourPreferencesHaveBeenSaved">Tus preferencias se han guardado.</string>
 </resources>
