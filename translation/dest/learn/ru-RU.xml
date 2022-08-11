@@ -135,8 +135,8 @@
 съев атакующую фигуру.</string>
 	<string name="thisKnightIsCheckingThroughYourDefenses">Конь ставит шах королю
 сквозь его оборону!</string>
-	<string name="getOutOfCheck">Get out of check!</string>
-	<string name="watchOutForYourOpponentsReply">Watch out for your opponent\'s reply!</string>
+	<string name="getOutOfCheck">Уйдите от шаха!</string>
+	<string name="watchOutForYourOpponentsReply">Остерегайтесь ответа оппонента!</string>
 	<string name="escapeOrBlock">Уведите короля из-под атаки
 или защитите его!</string>
 	<string name="outOfCheckComplete">Поздравляем! Вашего короля невозможно взять, но убедитесь, что вы можете защитить его от шаха!</string>
