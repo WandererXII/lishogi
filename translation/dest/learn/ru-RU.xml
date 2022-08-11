@@ -99,9 +99,9 @@
 	<string name="captureComplete">Поздравляем! Теперь вы знаете, как сражаться фигурами сёги!</string>
 	<string name="pieceDrops">Фигура кладется</string>
 	<string name="reuseCapturedPieces">Повторно используйте захваченные фигуры!</string>
-	<string name="dropIntro">Once again, capture all the opponent\'s pieces, without losing yours!</string>
-	<string name="capturedPiecesCanBeDropped">Captured pieces can be dropped back on the board on your turn!</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
+	<string name="dropIntro">Еще раз, захватите все фигуры оппонента не теряя своих!</string>
+	<string name="capturedPiecesCanBeDropped">Захваченные вами фигуры могут быть возвращены на доску во время вашего хода!</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">Вы не можете иметь две не повышенные пешки на одной линии.</string>
 	<string name="protection">Защита</string>
 	<string name="keepYourPiecesSafe">Защищайте ваши фигуры</string>
 	<string name="protectionIntro">Определите, какие ваши фигуры атакует противник, и защитите их!</string>
@@ -111,7 +111,7 @@
 	<string name="noEscape">Нельзя сбежать,
 но можно защитить!</string>
 	<string name="makeSureAllSafe">Убедитесь в том что все ваши фигуры в безопасности!</string>
-	<string name="dontForgetYouCanDropToDefend">Don’t forget you can drop pieces to defend!</string>
+	<string name="dontForgetYouCanDropToDefend">Не забывайте что вы можете возвращать фигуры для защиты!</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">Не позвольте побить ни одну
 незащищённую фигуру!</string>
 	<string name="combat">Сражение</string>
@@ -127,7 +127,7 @@
 	<string name="outOfCheck">Выход из шаха</string>
 	<string name="defendYourKing">Защищайте своего короля</string>
 	<string name="outOfCheckIntro">Вам шах! Вы должны отойти или заблокировать атаку.</string>
-	<string name="ifYourKingIsAttacked">If your king is attacked, you must deal with the attack.</string>
+	<string name="ifYourKingIsAttacked">Если ваш король был атакован, вы должны справиться с нападением.</string>
 	<string name="escapeWithTheKing">Король убегает!</string>
 	<string name="theKingCannotEscapeButBlock">Король не может отойти,
 но вы можете защитить его!</string>
@@ -143,7 +143,7 @@
 	<string name="mateInOne">Мат</string>
 	<string name="defeatTheOpponentsKing">Разгромите короля противника</string>
 	<string name="mateInOneIntro">Вы выиграете, если ваш соперник не сможет защититься от шаха.</string>
-	<string name="toWinInShogi">To win in shogi, check your opponent\'s king such that they cannot defend. This is mate, or tsume.</string>
+	<string name="toWinInShogi">Что бы выиграть в сеги, поставьте королю оппонента такой шах от которого он не сможет защититься. Это называется мат или тсуме.</string>
 	<string name="dropsCommonDeliverMate">Drops are a very common way to deliver mate.</string>
 	<string name="attackYourOpponentsKing">Атакуйте короля вашего противника так,
 чтобы его невозможно было защитить!</string>
@@ -197,7 +197,7 @@ Take the most valuable piece.</string>
 	<string name="theOpponentJustGaveAway">The opponent just gave away his valuable rook for free! Do you take it?</string>
 	<string name="yourKingsValueIsInfinite">The king\'s value is infinite, compared to a rook. What is the best move here?</string>
 	<string name="twoGeneralsAreBetter">Two generals can be worth more than one major piece. A knight and lance can be better than a general. Find a way to sacrifice the bishop and win two generals.</string>
-	<string name="rememberWhichPieceIsTheMostValuable">Do you remember which piece is the most valuable?</string>
+	<string name="rememberWhichPieceIsTheMostValuable">Помните ли вы какая фигура самая ценная?</string>
 	<string name="takeThePieceWithTheHighestValue">Атакуйте фигуры с более высокой ценностью!</string>
 	<string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">The king is more valuable than every other piece combined. It may be OK to sacrifice pieces to attack the opponent\'s king. Just don\'t forget your own king\'s safety as well!</string>
 	<string name="checkInTwo">Шах в два хода</string>
