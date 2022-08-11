@@ -97,10 +97,10 @@
 	<string name="takeTheEnemyPiecesAndDontLoseYours">Захватите фигуры оппонента!
 И не потеряйте свои.</string>
 	<string name="captureComplete">Поздравляем! Теперь вы знаете, как сражаться фигурами сёги!</string>
-	<string name="pieceDrops">Фигура кладется</string>
+	<string name="pieceDrops">Фигура сбрасывается</string>
 	<string name="reuseCapturedPieces">Повторно используйте захваченные фигуры!</string>
 	<string name="dropIntro">Еще раз, захватите все фигуры оппонента не теряя своих!</string>
-	<string name="capturedPiecesCanBeDropped">Захваченные вами фигуры могут быть возвращены на доску во время вашего хода!</string>
+	<string name="capturedPiecesCanBeDropped">Захваченные вами фигуры могут быть сброшены на доску во время вашего хода!</string>
 	<string name="youCannotHaveTwoUnpromotedPawns">Вы не можете иметь две не повышенные пешки на одной линии.</string>
 	<string name="protection">Защита</string>
 	<string name="keepYourPiecesSafe">Защищайте ваши фигуры</string>
@@ -111,7 +111,7 @@
 	<string name="noEscape">Нельзя сбежать,
 но можно защитить!</string>
 	<string name="makeSureAllSafe">Убедитесь в том что все ваши фигуры в безопасности!</string>
-	<string name="dontForgetYouCanDropToDefend">Не забывайте что вы можете возвращать фигуры для защиты!</string>
+	<string name="dontForgetYouCanDropToDefend">Не забывайте что вы можете сбросить фигуры для защиты!</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">Не позвольте побить ни одну
 незащищённую фигуру!</string>
 	<string name="combat">Сражение</string>
@@ -144,11 +144,11 @@
 	<string name="defeatTheOpponentsKing">Разгромите короля противника</string>
 	<string name="mateInOneIntro">Вы выиграете, если ваш соперник не сможет защититься от шаха.</string>
 	<string name="toWinInShogi">Что бы выиграть в сеги, поставьте королю оппонента такой шах от которого он не сможет защититься. Это называется мат или тсуме.</string>
-	<string name="dropsCommonDeliverMate">Drops are a very common way to deliver mate.</string>
+	<string name="dropsCommonDeliverMate">Сброс фигуры это очень распространенный путь для того что бы поставить мат</string>
 	<string name="attackYourOpponentsKing">Атакуйте короля вашего противника так,
 чтобы его невозможно было защитить!</string>
 	<string name="chooseYourPieceCarefully">Выбирайте фигуру тщательно!</string>
-	<string name="mateWithADroppedPawnIs">Mate with a dropped pawn is illegal - in a real game you would be forfeited!</string>
+	<string name="mateWithADroppedPawnIs">Мат со сбросом пешки является нарушением правил - в реальной игре вы бы были дисквалифицированы!</string>
 	<string name="mateWithAPushedPawnIs">Мат пододвинутой пешкой разрешён</string>
 	<string name="mateInOneComplete">Поздравляем! Вот таким образом вы и будете побеждать!</string>
 	<string name="intermediate">Средний уровень</string>
@@ -156,11 +156,11 @@
 	<string name="howTheGameStarts">Начало шахматной партии</string>
 	<string name="boardSetupIntro">Две армии, готовые к бою, встретились лицом к лицу.</string>
 	<string name="thisIsTheInitialPosition">Это начальная позиция в сёги! Сделайте любой ход, чтобы продолжить.</string>
-	<string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.</string>
-	<string name="dropAGold">Drop a gold on the left side of the king, then place another gold on the right.</string>
-	<string name="thenPlaceASilver">Then place the silver next to the left-side gold, and a silver beside the right gold.</string>
-	<string name="dropTheKnights">Drop the knights the same way you placed the silvers. Your opponent will be doing the Itou (伊藤) style.</string>
-	<string name="dropTheLances">Drop the lances. Your opponent will start placing pawns left-to-right before the lances. This is the Itou style.</string>
+	<string name="firstPlaceTheKing">Есть два традиционных пути выставления фигур до игры. Мы научим вас стилю Оохаши (大橋), самому часто использующимся профессионалами. Король идет первым. Передвиньте короля в центральный квадрат вашего заднего ряда.</string>
+	<string name="dropAGold">Сбросьте золотого генерала по левую часть короля, затем выставьте другого золотого генерала по правую часть.</string>
+	<string name="thenPlaceASilver">Затем положите серебряного генерала рядом с левым золотым генералом и серебряного генерала с правым золотым генералом.</string>
+	<string name="dropTheKnights">Сбросьте коней так же как вы сделали это с серебряными генералами. Ваш оппонент будет использовать стиль Итоу (伊藤).</string>
+	<string name="dropTheLances">Сбросьте копье. Ваш оппонент начнет с выставления пешек слева направо перед копьями. Это стиль Итоу.</string>
 	<string name="placeTheBishopThenRook">Place the bishop above the left knight, then the rook above the right knight. Of course, in real games there is no need to be in sync with your opponent during setup.</string>
 	<string name="placeThePawns">Finally, on the 3rd rank, drop pawns the same way you placed the back rank pieces. The circle will be your guide.</string>
 	<string name="pushingThe3rdPawn">Pushing the 3rd pawn to open the bishop’s diagonal is the most common first move. Make this move to continue.</string>
