@@ -15,10 +15,10 @@
 	<string name="displayBoardResizeHandle">Показывать ручку изменения размера доски</string>
 	<string name="onlyOnInitialPosition">Только в начальном положении</string>
 	<string name="blindfoldShogi">Blindfold shogi (invisible pieces)</string>
-	<string name="shogiClock">Shogi clock</string>
+	<string name="shogiClock">Часы сеги</string>
 	<string name="tenthsOfSeconds">Десятые доли секунд</string>
 	<string name="whenTimeRemainingLessThanTenSeconds">Когда остаётся меньше 10 секунд</string>
-	<string name="clockTickingStart">Clock should start ticking at</string>
+	<string name="clockTickingStart">Часы должны начать тикать в</string>
 	<string name="soundWhenTimeGetsCritical">Звук, когда время подходит к концу</string>
 	<string name="giveMoreTime">Добавить времени</string>
 	<string name="gameBehavior">Настройки игры</string>
@@ -36,7 +36,7 @@
 	<string name="correspondenceAndUnlimited">По переписке и без ограничения времени</string>
 	<string name="confirmResignationAndDrawOffers">Подтверждать признание поражения и предложение ничьей</string>
 	<string name="inputMovesWithTheKeyboard">Вводить ходы с помощью клавиатуры</string>
-	<string name="scrollOnTheBoardToReplayMoves">Scroll on the board to replay moves</string>
+	<string name="scrollOnTheBoardToReplayMoves">Прокручивайте колесо мыши над доской, чтобы пересмотреть заново ходы</string>
 	<string name="westernNotation">Западная нотация</string>
 	<string name="japaneseNotation">Японская нотация</string>
 	<string name="kitaoKawasakiNotation">Китайская</string>
