@@ -94,7 +94,7 @@
 	<string name="xOpeningExplorer">База дебютов для %s</string>
 	<string name="allSet">Готово!</string>
 	<string name="importKif">Импортировать партию</string>
-	<string name="importCsa">Import CSA</string>
+	<string name="importCsa">Импортировать CSA</string>
 	<string name="delete">Удалить</string>
 	<string name="deleteThisImportedGame">Удалить эту импортированную игру?</string>
 	<string name="replayMode">Смотреть в повторе</string>
@@ -294,7 +294,7 @@
 		<item quantity="other">%s играются</item>
 	</plurals>
 	<string name="exportGames">Скачать игры</string>
-	<string name="export">Export</string>
+	<string name="export">Экспорт</string>
 	<string name="ratingRange">Рейтинг соперника</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">Дать %s секунду</item>
@@ -376,7 +376,7 @@
 	<string name="leaderboard">Лучшие игроки</string>
 	<string name="selectHandicap">Выберите фору</string>
 	<string name="pasteTheSfenStringHere">Вставьте текст SFEN сюда</string>
-	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
+	<string name="pasteTheKifCsaStringHere">Вставьте текст KIF или CSA здесь</string>
 	<string name="fromPosition">С позиции</string>
 	<string name="default">По умолчанию</string>
 	<string name="continueFromHere">Продолжить с этой позиции</string>
@@ -808,10 +808,10 @@
 	<string name="customTheme">Пользовательская тема</string>
 	<string name="backgroundImageUrl">URL фонового изображения:</string>
 	<string name="backgroundColor">Цвет фона:</string>
-	<string name="gridColor">Grid color:</string>
-	<string name="gridWidth">Grid width:</string>
+	<string name="gridColor">Цвет плитки:</string>
+	<string name="gridWidth">Ширина плитки:</string>
 	<string name="board">Доска</string>
-	<string name="grid">Grid</string>
+	<string name="grid">Плитка</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
