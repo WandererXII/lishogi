@@ -14,7 +14,7 @@
 	<string name="zenMode">Режим Дзен</string>
 	<string name="displayBoardResizeHandle">Показывать ручку изменения размера доски</string>
 	<string name="onlyOnInitialPosition">Только в начальном положении</string>
-	<string name="blindfoldShogi">Blindfold shogi (invisible pieces)</string>
+	<string name="blindfoldShogi">Сеги вслепую (невидимые фигуры)</string>
 	<string name="shogiClock">Часы сеги</string>
 	<string name="tenthsOfSeconds">Десятые доли секунд</string>
 	<string name="whenTimeRemainingLessThanTenSeconds">Когда остаётся меньше 10 секунд</string>
