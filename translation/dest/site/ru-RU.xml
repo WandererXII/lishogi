@@ -815,7 +815,7 @@
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands">Руки</string>
 	<string name="boardTheme">Оформление доски</string>
 	<string name="boardSize">Размер доски</string>
 	<string name="pieceSet">Оформление фигур</string>
@@ -830,8 +830,8 @@
 	<string name="chessBasics">Основы сёги</string>
 	<string name="shogiResources">Ресурсы по сёги</string>
 	<string name="coaches">Тренеры</string>
-	<string name="invalidKif">Invalid KIF</string>
-	<string name="invalidNotation">Invalid notation</string>
+	<string name="invalidKif">Некорректный KIF</string>
+	<string name="invalidNotation">Недопустимая нотация</string>
 	<string name="invalidFen">Некорректный FEN</string>
 	<string name="error.minLength">Минимальная длина — %s</string>
 	<string name="error.maxLength">Максимальная длина — %s</string>
