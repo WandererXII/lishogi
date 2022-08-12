@@ -4,13 +4,13 @@
 	<string name="gameDisplay">Внешний вид</string>
 	<string name="pieceAnimation">Анимация фигур</string>
 	<string name="materialDifference">Показывать разницу в материале</string>
-	<string name="boardHighlightsLastDests">Board highlights - last move/drop</string>
-	<string name="boardHighlightsCheck">Board highlights - check</string>
+	<string name="boardHighlightsLastDests">Доска подсвечивает - последний ход/сброс</string>
+	<string name="boardHighlightsCheck">Доска подсвечивает - шах</string>
 	<string name="pieceDestinations">Показывать допустимые ходы</string>
 	<string name="dropDestinations">Место назначение сбросов (действительные сбросы и пре-сбросы)</string>
 	<string name="boardCoordinates">Координаты доски (A–H, 1–8)</string>
 	<string name="moveListWhilePlaying">Показывать список ходов</string>
-	<string name="displayTouchSquareOverlay">Square highlight overlay on touch devices</string>
+	<string name="displayTouchSquareOverlay">Наложение квадратной подсветки на сенсорные устройства</string>
 	<string name="zenMode">Режим Дзен</string>
 	<string name="displayBoardResizeHandle">Показывать ручку изменения размера доски</string>
 	<string name="onlyOnInitialPosition">Только в начальном положении</string>
