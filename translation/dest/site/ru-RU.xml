@@ -812,9 +812,9 @@
 	<string name="gridWidth">Ширина плитки:</string>
 	<string name="board">Доска</string>
 	<string name="grid">Плитка</string>
-	<string name="gridSlim">Slim</string>
-	<string name="gridThick">Thick</string>
-	<string name="gridVeryThick">Very thick</string>
+	<string name="gridSlim">Тонкий</string>
+	<string name="gridThick">Жирный</string>
+	<string name="gridVeryThick">Очень жирный</string>
 	<string name="hands">Руки</string>
 	<string name="boardTheme">Оформление доски</string>
 	<string name="boardSize">Размер доски</string>
