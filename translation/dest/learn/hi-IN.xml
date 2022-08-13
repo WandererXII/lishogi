@@ -101,6 +101,8 @@
 	<string name="reuseCapturedPieces">पकड़े गए टुकड़ों का उपयोग करें !</string>
 	<string name="dropIntro">एक बार फिर, बिना अपना खोए, प्रतिद्वंद्वी के सभी टुकड़ों पर कब्जा करें!</string>
 	<string name="capturedPiecesCanBeDropped">कैप्चर किए गए टुकड़ों को आपकी बारी पर वापस बोर्ड पर गिराया जा सकता है !</string>
+	<string name="dropLimitations">You cannot drop a piece on another piece or drop it where it cannot have any legal moves. Droppping a piece in promotion zone doesn\'t result in promotion.
+Take the enemy pieces!</string>
 	<string name="youCannotHaveTwoUnpromotedPawns">आपके पास एक ही फ़ाइल में दो अप्रकाशित पॉन्स नहीं हो सकते।</string>
 	<string name="protection">संरक्षण</string>
 	<string name="keepYourPiecesSafe">अपने टुकड़े सुरक्षित रखें</string>
