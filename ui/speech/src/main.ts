@@ -73,10 +73,11 @@ function toNumber(digit: string): string | undefined {
 
 function pronounce(str: string): string | undefined {
   switch (str) {
+    case ',':
     case '-':
     case '(':
     case ')':
-      return '';
+      return ' ';
     case '*':
       return 'drop';
     case 'x':
@@ -88,8 +89,6 @@ function pronounce(str: string): string | undefined {
       return 'unpromotes';
     case '!':
       return 'promoted';
-    default:
-      return;
   }
 }
 
