@@ -89,6 +89,8 @@ function pronounce(str: string): string | undefined {
       return 'unpromotes';
     case '!':
       return 'promoted';
+    default:
+      return;
   }
 }
 
