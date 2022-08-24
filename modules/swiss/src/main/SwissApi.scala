@@ -131,7 +131,7 @@ final class SwissApi(
 
   def join(id: Swiss.Id, me: User, isInTeam: TeamID => Boolean): Fu[Boolean] =
     Sequencing(id)(notFinishedById) { swiss =>
-      if (swiss.settings.password.exists(_ != ~password) || !isInTeam(swiss.teamId)) fuFalse
+      if (!isInTeam(swiss.teamId)) fuFalse
       else
         colls.player // try a rejoin first
           .updateField($id(SwissPlayer.makeId(swiss.id, me.id)), SwissPlayer.Fields.absent, false)
@@ -143,7 +143,6 @@ final class SwissApi(
               }
             }
           }
-        }
     } flatMap { res =>
       recomputeAndUpdateAll(id) inject res
     }
