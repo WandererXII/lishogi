@@ -72,10 +72,9 @@ object side {
               p(
                 cls := List(
                   "condition text" -> true,
-                  "accepted"  -> (ctx.isAuth && v.verdict.accepted),
-                  "refused"   -> (ctx.isAuth && !v.verdict.accepted)
-                ),
-                title := v.verdict.reason.map(_(ctx.lang))
+                  "accepted"       -> v.verdict.accepted,
+                  "refused"        -> !v.verdict.accepted
+                )
               )(v.condition match {
                 case lila.tournament.Condition.TeamMember(teamId, teamName) =>
                   trans.mustBeInTeam(teamLink(teamId, teamName, withIcon = false))
