@@ -9,18 +9,18 @@
 	<string name="yourTurn">Ваш хід</string>
 	<string name="aiNameLevelAiLevel">%1$s рівень %2$s</string>
 	<string name="level">Рівень</string>
-	<string name="strength">Strength</string>
+	<string name="strength">Сила</string>
 	<string name="toggleTheChat">Стан бесіди</string>
 	<string name="toggleSound">Стан звуку</string>
 	<string name="chat">Чат</string>
 	<string name="resign">Здатися</string>
 	<string name="checkmate">Мат</string>
 	<string name="stalemate">Пат</string>
-	<string name="impasse">Impasse</string>
+	<string name="impasse">Безвихідь</string>
 	<string name="white">Білі</string>
 	<string name="black">Чорні</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
+	<string name="shitate">Недоважник</string>
+	<string name="uwate">Переважник</string>
 	<string name="randomColor">Випадковий колір</string>
 	<string name="createAGame">Створи гру</string>
 	<string name="whiteIsVictorious">Білі перемогли</string>
@@ -187,7 +187,7 @@
 	<string name="changeEmail">Змінь скриню</string>
 	<string name="email">Скриня</string>
 	<string name="passwordReset">Скинь ключа</string>
-	<string name="forgotPassword">Забув ключа?</string>
+	<string name="forgotPassword">Забули ключа?</string>
 	<string name="rank">Місце</string>
 	<string name="rankX">Місце: %s</string>
 	<plurals name="rankIsUpdatedEveryNbMinutes">
@@ -429,7 +429,7 @@ computer analysis, game chat and shareable URL.</string>
 	</plurals>
 	<string name="more">Більше</string>
 	<string name="memberSince">Записаний з</string>
-	<string name="lastSeenActive">Був %s</string>
+	<string name="lastSeenActive">Були %s</string>
 	<string name="challengeToPlay">Виклик на гру</string>
 	<string name="player">Гравець</string>
 	<string name="list">Список</string>
