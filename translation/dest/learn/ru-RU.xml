@@ -170,10 +170,10 @@
 	<string name="repetition">Повторение</string>
 	<string name="fourfoldRepetitionIsADrawExcept">Четырехразовое повторение - это ничья, КРОМЕ...</string>
 	<string name="repetitionIntro">Четверное повторение — это ничья. Вечный шах — проигрыш</string>
-	<string name="ifTheSamePositionOccurs">Если похожая позиция повторяется четырежды в Сёги, автоматом выдаётся ничья. Это называется Сенничите (千日手). Делайте только возможный ход.</string>
-	<string name="perpetualCheckIsALoss">Однако, повторяющиеся шахи оппоненту выйдут боком для стороны, ставящей шахи. К сожалению твоего соперника, он не знает! Делайте только возможный ход.</string>
+	<string name="ifTheSamePositionOccurs">Если похожая позиция повторяется четырежды в Сёги, автоматом выдаётся ничья. Это называется Сенничите (千日手). Делайте только возможные ходы.</string>
+	<string name="perpetualCheckIsALoss">Однако, повторяющиеся шахи оппоненту выйдут боком для стороны, ставящей шахи. К сожалению твоего соперника, он сейчас не в курсе! Делайте только возможные ходы.</string>
 	<string name="boardFlippedFindBestMove">Доска перевёрнута. А дальше что лучше делать?</string>
-	<string name="repetitionComplete">Идея проигрыша за повторяющиеся шахи призвана предотвращать вынуждения на ничью.</string>
+	<string name="repetitionComplete">Идея проигрыша за повторяющиеся шахи призвана предотвращать вынужденные ничьи.</string>
 	<string name="stalemate">Пат</string>
 	<string name="theGameIsADraw">Игра заканчивается вничью</string>
 	<string name="stalemateIntro">Если у игрока, чья очередь ходить, нет возможного хода, при этом его король не под шахом, тогда эта ситуация называется «пат». Игра заканчивается вничью: никто не выиграл, никто не проиграл.</string>
@@ -196,12 +196,12 @@
 Ешьте самую ценную фигуру.</string>
 	<string name="takeAllThePiecesStartingFromTheMost">Возьмите все фигуры в следующем порядке, начиная с самой ценной и заканчивая наименее ценной!</string>
 	<string name="anExchangeIs">Обмен — это когда вы захватываете фигуру и теряете другую. Какой из обменов лучше? Серебряный генерал за ладью, или золотой генерал за коня?</string>
-	<string name="theOpponentJustGaveAway">The opponent just gave away his valuable rook for free! Do you take it?</string>
+	<string name="theOpponentJustGaveAway">Вам на блюдечке поднесли бесплатную ладью! Скушаете или воздержитесь?</string>
 	<string name="yourKingsValueIsInfinite">Цена короля бесконечна в сравнении с ладьей. Каким будет наилучший ход здесь?</string>
 	<string name="twoGeneralsAreBetter">Два генерала значат чуть больше, чем одна мощная фигура. А конь с копьём вкупе бывают дороже одного генерала. Найди способ пожертвовать слона ради двух генералов.</string>
-	<string name="rememberWhichPieceIsTheMostValuable">Помните ли вы какая фигура самая ценная?</string>
+	<string name="rememberWhichPieceIsTheMostValuable">Помните ли вы, какая фигура самая ценная?</string>
 	<string name="takeThePieceWithTheHighestValue">Атакуйте фигуры с более высокой ценностью!</string>
-	<string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">Король же ценнее всех фигур, вместе взятых. Бывает ОТЛИЧНО жертвовать войсками для нападения на чужого короля. Только про безопасность своего почаще вспоминайте!</string>
+	<string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">Король ценнее всех фигур, вместе взятых. Бывает ОТЛИЧНО жертвовать войсками для нападения на чужого короля. Только про безопасность своего почаще вспоминайте!</string>
 	<string name="checkInTwo">Шах в два хода</string>
 	<string name="twoMovesToGiveCheck">Два хода на то, чтобы поставить шах</string>
 	<string name="checkInTwoIntro">Найдите комбинацию в два хода, чтобы поставить шах королю противника!</string>
