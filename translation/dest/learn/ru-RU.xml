@@ -172,8 +172,8 @@
 	<string name="repetitionIntro">Четверное повторение — это ничья. Вечный шах — проигрыш</string>
 	<string name="ifTheSamePositionOccurs">Если похожая позиция повторяется четырежды в Сёги, автоматом выдаётся ничья. Это называется Сенничите (千日手). Делайте только возможный ход.</string>
 	<string name="perpetualCheckIsALoss">Однако, повторяющиеся шахи оппоненту выйдут боком для стороны, ставящей шахи. К сожалению твоего соперника, он не знает! Делайте только возможный ход.</string>
-	<string name="boardFlippedFindBestMove">The board was just flipped. What is the best move here?</string>
-	<string name="repetitionComplete">The idea behind perpetual check being a loss is to prevent anyone from forcing a draw.</string>
+	<string name="boardFlippedFindBestMove">Доска перевёрнута. А дальше что лучше делать?</string>
+	<string name="repetitionComplete">Идея проигрыша за повторяющиеся шахи призвана предотвращать вынуждения на ничью.</string>
 	<string name="stalemate">Пат</string>
 	<string name="theGameIsADraw">Игра заканчивается вничью</string>
 	<string name="stalemateIntro">Если у игрока, чья очередь ходить, нет возможного хода, при этом его король не под шахом, тогда эта ситуация называется «пат». Игра заканчивается вничью: никто не выиграл, никто не проиграл.</string>
