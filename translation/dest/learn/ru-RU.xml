@@ -191,17 +191,17 @@
 	<string name="pawnsAreTheLeastValuable">Пешки — самые дешёвые, после копий. Кони стоят чуточку дороже.
 Ешьте самую ценную фигуру.</string>
 	<string name="knightSilverGold">Конь &lt; Серебро &lt; Золото
-Take the most valuable piece without losing your own.</string>
-	<string name="goldBishopRook">Gold &lt; Bishop &lt; Rook
-Take the most valuable piece.</string>
+Ешьте самую ценную фигуру, не теряя своих.</string>
+	<string name="goldBishopRook">Золото &lt; Слон &lt; Ладья
+Ешьте самую ценную фигуру.</string>
 	<string name="takeAllThePiecesStartingFromTheMost">Возьмите все фигуры в следующем порядке, начиная с самой ценной и заканчивая наименее ценной!</string>
-	<string name="anExchangeIs">Обмен это когда вы захватываете фигуру и теряете другую. Какой из обменов лучше? Серебряный генерал за ладью, или золотой генерал за коня?</string>
+	<string name="anExchangeIs">Обмен — это когда вы захватываете фигуру и теряете другую. Какой из обменов лучше? Серебряный генерал за ладью, или золотой генерал за коня?</string>
 	<string name="theOpponentJustGaveAway">The opponent just gave away his valuable rook for free! Do you take it?</string>
 	<string name="yourKingsValueIsInfinite">Цена короля бесконечна в сравнении с ладьей. Каким будет наилучший ход здесь?</string>
-	<string name="twoGeneralsAreBetter">Two generals can be worth more than one major piece. A knight and lance can be better than a general. Find a way to sacrifice the bishop and win two generals.</string>
+	<string name="twoGeneralsAreBetter">Два генерала значат чуть больше, чем одна мощная фигура. А конь с копьём вкупе бывают дороже одного генерала. Найди способ пожертвовать слона ради двух генералов.</string>
 	<string name="rememberWhichPieceIsTheMostValuable">Помните ли вы какая фигура самая ценная?</string>
 	<string name="takeThePieceWithTheHighestValue">Атакуйте фигуры с более высокой ценностью!</string>
-	<string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">The king is more valuable than every other piece combined. It may be OK to sacrifice pieces to attack the opponent\'s king. Just don\'t forget your own king\'s safety as well!</string>
+	<string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">Король же ценнее всех фигур, вместе взятых. Бывает ОТЛИЧНО жертвовать войсками для нападения на чужого короля. Только про безопасность своего почаще вспоминайте!</string>
 	<string name="checkInTwo">Шах в два хода</string>
 	<string name="twoMovesToGiveCheck">Два хода на то, чтобы поставить шах</string>
 	<string name="checkInTwoIntro">Найдите комбинацию в два хода, чтобы поставить шах королю противника!</string>
@@ -220,7 +220,7 @@ Take the most valuable piece.</string>
 	<string name="videos">Видео</string>
 	<string name="watchInstructiveChessVideos">Посмотрите обучающие видеозаписи по сёги</string>
 	<string name="playPeople">Игроки</string>
-	<string name="opponentsFromAroundTheWorld">Сражайтесь с шахматистами со всего мира</string>
+	<string name="opponentsFromAroundTheWorld">Сражайтесь с игроками со всего мира</string>
 	<string name="playMachine">Компьютер</string>
 	<string name="testYourSkillsWithTheComputer">Проверьте свои навыки на искусственном интеллекте</string>
 	<string name="letsGo">Поехали!</string>
