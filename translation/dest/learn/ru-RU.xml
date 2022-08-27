@@ -103,7 +103,7 @@
 	<string name="capturedPiecesCanBeDropped">Захваченные вами фигуры могут быть сброшены на доску во время вашего хода!</string>
 	<string name="dropLimitations">Вы не можете сбросить фигуру на клетку, занятую другой фигурой, или туда, где у неё не будет возможного хода. Фигура, вызванная в зону продвижения, в данный ход не улучшается. 
 Съешьте чужие фигуры!</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">Вы не можете иметь две непродвинутые пешки на одной линии.</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">Вы не можете иметь две неповышенные пешки на одной линии.</string>
 	<string name="protection">Защита</string>
 	<string name="keepYourPiecesSafe">Защищайте ваши фигуры</string>
 	<string name="protectionIntro">Определите, какие ваши фигуры атакует противник, и защитите их!</string>
