@@ -99,11 +99,11 @@
 	<string name="captureComplete">Поздравляем! Теперь вы знаете, как сражаться фигурами сёги!</string>
 	<string name="pieceDrops">Фигура сбрасывается</string>
 	<string name="reuseCapturedPieces">Повторно используйте захваченные фигуры!</string>
-	<string name="dropIntro">Еще раз, захватите все фигуры оппонента не теряя своих!</string>
+	<string name="dropIntro">Еще раз, захватите все фигуры оппонента, не теряя своих!</string>
 	<string name="capturedPiecesCanBeDropped">Захваченные вами фигуры могут быть сброшены на доску во время вашего хода!</string>
 	<string name="dropLimitations">Вы не можете сбросить фигуру на занятое поле или туда, где фигура будет без возможности хода. Фигура, вызванная в зону продвижения, в данный ход не улучшается.
 Скушайте чужие фигуры.</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">Вы не можете иметь две не повышенные пешки на одной линии.</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">Вы не можете иметь две неповышенные пешки на одной линии.</string>
 	<string name="protection">Защита</string>
 	<string name="keepYourPiecesSafe">Защищайте ваши фигуры</string>
 	<string name="protectionIntro">Определите, какие ваши фигуры атакует противник, и защитите их!</string>
@@ -145,8 +145,8 @@
 	<string name="mateInOne">Мат</string>
 	<string name="defeatTheOpponentsKing">Разгромите короля противника</string>
 	<string name="mateInOneIntro">Вы выиграете, если ваш соперник не сможет защититься от шаха.</string>
-	<string name="toWinInShogi">Что бы выиграть в сеги, поставьте королю оппонента такой шах от которого он не сможет защититься. Это называется мат или тсуме.</string>
-	<string name="dropsCommonDeliverMate">Сброс фигуры это очень распространенный путь для того что бы поставить мат</string>
+	<string name="toWinInShogi">Что бы выиграть в сёги, поставьте королю оппонента такой шах от которого он не сможет защититься. Это называется мат или цумэ.</string>
+	<string name="dropsCommonDeliverMate">Сброс фигуры — это очень распространенный путь того, как поставить мат</string>
 	<string name="attackYourOpponentsKing">Атакуйте короля вашего противника так,
 чтобы его невозможно было защитить!</string>
 	<string name="chooseYourPieceCarefully">Выбирайте фигуру тщательно!</string>
@@ -161,17 +161,17 @@
 	<string name="firstPlaceTheKing">Есть два традиционных пути выставления фигур до игры. Мы научим вас стилю Оохаши (大橋), самому часто использующимся профессионалами. Король идет первым. Передвиньте короля в центральный квадрат вашего заднего ряда.</string>
 	<string name="dropAGold">Сбросьте золотого генерала по левую часть короля, затем выставьте другого золотого генерала по правую часть.</string>
 	<string name="thenPlaceASilver">Затем положите серебряного генерала рядом с левым золотым генералом и серебряного генерала с правым золотым генералом.</string>
-	<string name="dropTheKnights">Сбросьте коней так же как вы сделали это с серебряными генералами. Ваш оппонент будет использовать стиль Итоу (伊藤).</string>
+	<string name="dropTheKnights">Сбросьте коней так же, как вы сделали это с серебряными генералами. Ваш оппонент будет использовать стиль Итоу (伊藤).</string>
 	<string name="dropTheLances">Сбросьте копье. Ваш оппонент начнет с выставления пешек слева направо перед копьями. Это стиль Итоу.</string>
 	<string name="placeTheBishopThenRook">Поместите слона перед левым конём, а потом ладью перед правым. Естественно, в настоящих партиях нет нужды в синхронности Вашего с оппонентом процесса расстановки.</string>
 	<string name="placeThePawns">А в конце, на 3-ем ряду, расположите пешки так же, как помещали фигуры заднего ряда. Кружок поможет.</string>
-	<string name="pushingThe3rdPawn">Движение третьей пешки для того что бы открыть диагональ слона считается самым частым первым ходом. Сделайте этот ход, что бы продолжить.</string>
+	<string name="pushingThe3rdPawn">Движение третьей слева пешки для того, что бы открыть диагональ слона, считается самым частым первым ходом. Сделайте этот ход, чтобы продолжить.</string>
 	<string name="boardSetupComplete">Поздравляем! Теперь вы знаете, как расставить фигуры на доске.</string>
 	<string name="repetition">Повторение</string>
 	<string name="fourfoldRepetitionIsADrawExcept">Четырехразовое повторение - это ничья, КРОМЕ...</string>
-	<string name="repetitionIntro">Четверное повторение это ничья. Вечный шах это проигрыш</string>
+	<string name="repetitionIntro">Четверное повторение — это ничья. Вечный шах — проигрыш</string>
 	<string name="ifTheSamePositionOccurs">Если похожая позиция повторяется четырежды в Сёги, автоматом выдаётся ничья. Это называется Сенничите (千日手). Делайте только возможный ход.</string>
-	<string name="perpetualCheckIsALoss">Но повторяющиеся шахи другому королю выйдут боком для стороны, их ставящей. К сожалению, оппонент сейчас не в курсе этого! Делайте только возможный ход.</string>
+	<string name="perpetualCheckIsALoss">Но вечные шахи другому королю выйдут боком для стороны, их ставящей. К сожалению твоего оппонента, он сейчас не в курсе этого! Делайте только возможный ход.</string>
 	<string name="boardFlippedFindBestMove">Доска перевернулась. А дальше что лучше делать?</string>
 	<string name="repetitionComplete">Идея проигрыша за повторяющиеся шахи призвана предотвращать вынужденные ничьи.</string>
 	<string name="stalemate">Пат</string>
@@ -186,19 +186,19 @@
 	<string name="evaluatePieceStrength">Оцените силу фигуры</string>
 	<string name="pieceValueIntroNew">Фигуры с большей подвижностью больше стóят. Король безгранично дорог! Его потеря = проигрыш.</string>
 	<string name="queenOverBishop">Атакуйте фигуры с более высокой ценностью!
-Ферзь &gt; Слон</string>
+Ладья &gt; Слон</string>
 	<string name="pawnsAreTheLeastValuable">Пешки — самые дешёвые, после копий. Кони стоят чуточку дороже.
-Ешьте самую ценную фигуру</string>
+Ешьте самую ценную фигуру.</string>
 	<string name="knightSilverGold">Конь &lt; Серебро &lt; Золото
 Ешьте самую ценную фигуру, не теряя своих.</string>
 	<string name="goldBishopRook">Золото &lt; Слон &lt; Ладья
 Ешьте самую ценную фигуру</string>
 	<string name="takeAllThePiecesStartingFromTheMost">Возьмите все фигуры в следующем порядке, начиная с самой ценной и заканчивая наименее ценной!</string>
-	<string name="anExchangeIs">Обмен это когда вы захватываете фигуру и теряете другую. Какой из обменов лучше? Серебряный генерал за ладью, или золотой генерал за коня?</string>
+	<string name="anExchangeIs">Обмен — это когда вы захватываете фигуру и теряете другую. Какой из обменов лучше? Серебряный генерал за ладью, или золотой генерал за коня?</string>
 	<string name="theOpponentJustGaveAway">Вам на блюдечке поднесли бесплатную ладью! Скушаете или воздержитесь?</string>
 	<string name="yourKingsValueIsInfinite">Цена короля бесконечна в сравнении с ладьей. Каким будет наилучший ход здесь?</string>
 	<string name="twoGeneralsAreBetter">Два генерала иногда значат больше, чем одна мощная фигура, в то время как конь с копьём вкупе иногда лучше одного генерала. Найдите способ пожертвовать слоном ради двух генералов.</string>
-	<string name="rememberWhichPieceIsTheMostValuable">Помните ли вы какая фигура самая ценная?</string>
+	<string name="rememberWhichPieceIsTheMostValuable">Помните ли вы, какая фигура самая ценная?</string>
 	<string name="takeThePieceWithTheHighestValue">Атакуйте фигуры с более высокой ценностью!</string>
 	<string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">Но король ценнее всех фигур, вместе взятых! Бывает ОТЛИЧНО жертвовать войсками для нападения на вражьего короля. Только про безопасность своего почаще вспоминайте!</string>
 	<string name="checkInTwo">Шах в два хода</string>
@@ -219,7 +219,7 @@
 	<string name="videos">Видео</string>
 	<string name="watchInstructiveChessVideos">Посмотрите обучающие видеозаписи по сёги</string>
 	<string name="playPeople">Игроки</string>
-	<string name="opponentsFromAroundTheWorld">Сражайтесь с шахматистами со всего мира</string>
+	<string name="opponentsFromAroundTheWorld">Сражайтесь с людьми со всего мира</string>
 	<string name="playMachine">Компьютер</string>
 	<string name="testYourSkillsWithTheComputer">Проверьте свои навыки на искусственном интеллекте</string>
 	<string name="letsGo">Поехали!</string>
