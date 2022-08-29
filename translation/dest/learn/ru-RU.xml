@@ -155,7 +155,7 @@
 	<string name="mateInOneComplete">Поздравляем! Вот таким образом вы и будете побеждать!</string>
 	<string name="intermediate">Средний уровень</string>
 	<string name="boardSetup">Расстановка фигур</string>
-	<string name="howTheGameStarts">Начало шахматной партии</string>
+	<string name="howTheGameStarts">Начало партии сёги</string>
 	<string name="boardSetupIntro">Две армии, готовые к бою, встретились лицом к лицу.</string>
 	<string name="thisIsTheInitialPosition">Это начальная позиция в сёги! Сделайте любой ход, чтобы продолжить.</string>
 	<string name="firstPlaceTheKing">Есть два традиционных пути выставления фигур до игры. Мы научим вас стилю Оохаши (大橋), самому часто использующимся профессионалами. Король идет первым. Передвиньте короля в центральный квадрат вашего заднего ряда.</string>
