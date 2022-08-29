@@ -74,7 +74,7 @@ final class FormFactory {
         "byoyomi"     -> byoyomi,
         "periods"     -> periods,
         "days"        -> days,
-        "mode"        -> mode(ctx.isAuth),
+        "mode"        -> mode(withRated = ctx.isAuth),
         "ratingRange" -> optional(ratingRange),
         "color"       -> color
       )(HookConfig.from)(_.>>)
