@@ -27,6 +27,7 @@ export function render(ctrl: LobbyController) {
     .map(pool => {
       const active = !!member && member.id === pool.id,
         transp = !!member && !active;
+      const clock = pool.inc ? `${pool.lim}+${pool.inc}` : `${pool.lim}|${pool.byo}`;
       return h(
         'div',
         {
@@ -37,7 +38,7 @@ export function render(ctrl: LobbyController) {
           attrs: { 'data-id': pool.id },
         },
         [
-          h('div.clock', pool.lim + '+' + pool.inc),
+          h('div.clock', clock),
           active && member!.range ? renderRange(member!.range!) : h('div.perf', pool.perf),
           active ? spinner() : null,
         ]

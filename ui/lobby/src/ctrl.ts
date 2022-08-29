@@ -76,7 +76,7 @@ export default class LobbyController {
       if (this.tab === 'real_time') {
         this.data.hooks = [];
         this.socket.realTimeIn();
-      } //else if (this.tab === "pools" && this.poolMember) this.poolIn();
+      } else if (this.tab === 'pools' && this.poolMember) this.poolIn();
     });
 
     window.addEventListener('beforeunload', () => {
@@ -233,7 +233,7 @@ export default class LobbyController {
         range = poolRangeStorage.get(member.id);
       if (range) member.range = range;
       if (match) {
-        //this.setTab("pools");
+        this.setTab('pools');
         if (this.data.me) this.enterPool(member);
         else setTimeout(() => this.clickPool(member.id), 1500);
         history.replaceState(null, '', '/');

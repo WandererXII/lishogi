@@ -1,7 +1,17 @@
 export default function boot(cfg, element) {
   cfg.pools = [
     // mirrors modules/pool/src/main/PoolList.scala
-    //{ id: "1+0", lim: 1, inc: 0, perf: "Bullet" }
+    { id: '0.0.5.1', lim: 0, inc: 0, byo: 5, perf: 'Bullet' },
+    { id: '120.2.0.1', lim: 2, inc: 2, byo: 0, perf: 'Bullet' },
+    { id: '180.0.5.1', lim: 3, inc: 0, byo: 5, perf: 'Blitz' },
+    { id: '300.3.0.1', lim: 5, inc: 3, byo: 0, perf: 'Blitz' },
+    { id: '300.0.10.1', lim: 5, inc: 0, byo: 10, perf: 'Blitz' },
+    { id: '600.10.0.1', lim: 10, inc: 10, byo: 0, perf: 'Rapid' },
+    { id: '600.0.30.1', lim: 10, inc: 0, byo: 30, perf: 'Rapid' },
+    { id: '900.30.0.1', lim: 15, inc: 30, byo: 0, perf: 'Classical' },
+    { id: '900.0.60.1', lim: 15, inc: 0, byo: 60, perf: 'Classical' },
+    { id: '1800.45.0.1', lim: 30, inc: 45, byo: 0, perf: 'Classical' },
+    { id: '1800.0.60.1', lim: 30, inc: 0, byo: 60, perf: 'Classical' },
   ];
   let lobby;
   const nbRoundSpread = spreadNumber('#nb_games_in_play > strong', 8),

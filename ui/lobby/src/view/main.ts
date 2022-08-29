@@ -1,7 +1,7 @@
 import { h, VNodeData } from 'snabbdom';
 import spinner from 'common/spinner';
 import renderTabs from './tabs';
-//import * as renderPools from './pools';
+import * as renderPools from './pools';
 import renderRealTime from './realTime/main';
 import renderSeeks from './correspondence';
 import renderPlaying from './playing';
@@ -14,8 +14,8 @@ export default function (ctrl: LobbyController) {
   else
     switch (ctrl.tab) {
       case 'pools':
-        //body = renderPools.render(ctrl);
-        //data = { hook: renderPools.hooks(ctrl) };
+        body = renderPools.render(ctrl);
+        data = { hook: renderPools.hooks(ctrl) };
         break;
       case 'real_time':
         body = renderRealTime(ctrl);

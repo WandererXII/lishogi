@@ -60,7 +60,7 @@ final class Setup(
           forms.friendFilled(get("sfen").map(Sfen.clean), get("variant").flatMap(shogi.variant.Variant.apply))
         ) flatMap { form =>
           val variant   = form("variant").value.flatMap(shogi.variant.Variant.apply) | shogi.variant.Standard
-          val validSfen = form("sfen").value map Sfen.clean flatMap ValidSfen(false, variant)
+          val validSfen = form("sfen").value map Sfen.clean flatMap ValidSfen(strict = false, variant)
           userId ?? env.user.repo.named flatMap {
             case None => Ok(html.setup.forms.friend(form, none, none, validSfen)).fuccess
             case Some(user) =>

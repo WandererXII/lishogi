@@ -25,6 +25,7 @@ export function anonPoolSeek(pool) {
       timeMode: 1,
       time: pool.lim,
       increment: pool.inc,
+      byoyomi: pool.byo,
       days: 1,
       color: 'random',
     },

@@ -84,7 +84,7 @@ case class Hook(
 
   lazy val compatibleWithPools =
     realMode.rated && realVariant.standard && randomColor &&
-      lila.pool.PoolList.clockStringSet.contains(clock.show)
+      lila.pool.PoolList.clockStringSet.contains(clock.toString)
 
   def compatibleWithPool(poolClock: shogi.Clock.Config) =
     compatibleWithPools && clock == poolClock

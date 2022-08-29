@@ -23,7 +23,7 @@ export default function (ctrl: LobbyController) {
   }).length;
   const active = ctrl.tab;
   return [
-    //ctrl.isBot ? undefined : tab(ctrl, 'pools', active, [ctrl.trans.noarg('quickPairing')]),
+    ctrl.isBot ? undefined : tab(ctrl, 'pools', active, [ctrl.trans.noarg('quickPairing')]),
     ctrl.isBot ? undefined : tab(ctrl, 'real_time', active, [ctrl.trans.noarg('lobby')]),
     ctrl.isBot ? undefined : tab(ctrl, 'seeks', active, [ctrl.trans.noarg('correspondence')]),
     active === 'now_playing' || ctrl.data.nbNowPlaying > 0 || ctrl.isBot

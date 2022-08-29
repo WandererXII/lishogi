@@ -21,7 +21,7 @@ object PoolConfig {
 
   case class Wave(every: FiniteDuration, players: NbPlayers)
 
-  def clockToId(clock: shogi.Clock.Config) = Id(clock.show)
+  def clockToId(clock: shogi.Clock.Config) = Id(clock.toString)
 
   import play.api.libs.json._
   implicit val poolConfigJsonWriter = OWrites[PoolConfig] { p =>
