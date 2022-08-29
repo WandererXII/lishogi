@@ -16,7 +16,7 @@ export function nowPlaying() {
   }).then(o => o.nowPlaying);
 }
 
-export function anonPoolSeek(pool) {
+export function poolSeek(pool, anon) {
   return $.ajax({
     method: 'POST',
     url: '/setup/hook/' + window.lishogi.sri,
@@ -28,6 +28,7 @@ export function anonPoolSeek(pool) {
       byoyomi: pool.byo,
       periods: 1,
       days: 1,
+      mode: anon ? 0 : 1,
       color: 'random',
     },
   });
