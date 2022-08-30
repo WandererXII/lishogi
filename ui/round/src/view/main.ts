@@ -5,15 +5,7 @@ import * as util from '../util';
 import * as keyboard from '../keyboard';
 import { render as keyboardMove } from '../keyboardMove';
 import RoundController from '../ctrl';
-
-function wheel(ctrl: RoundController, e: WheelEvent): boolean {
-  if (ctrl.isPlaying()) return true;
-  e.preventDefault();
-  if (e.deltaY > 0) keyboard.next(ctrl);
-  else if (e.deltaY < 0) keyboard.prev(ctrl);
-  ctrl.redraw();
-  return false;
-}
+import stepwiseScroll from 'common/wheel';
 
 export function main(ctrl: RoundController): VNode {
   const d = ctrl.data;
@@ -23,7 +15,7 @@ export function main(ctrl: RoundController): VNode {
     : h(
         'div.round__app.variant-' + d.game.variant.key,
         {
-          class: { 'move-confirm': !!(ctrl.moveToSubmit || ctrl.dropToSubmit) },
+          class: { 'move-confirm': !!ctrl.usiToSubmit },
         },
         [
           h(
@@ -32,7 +24,19 @@ export function main(ctrl: RoundController): VNode {
               hook:
                 window.lishogi.hasTouchEvents || window.lishogi.storage.get('scrollMoves') == '0'
                   ? undefined
-                  : util.bind('wheel', (e: WheelEvent) => wheel(ctrl, e), undefined, false),
+                  : util.bind(
+                      'wheel',
+                      stepwiseScroll((e: WheelEvent, scroll: boolean) => {
+                        if (!ctrl.isPlaying()) {
+                          e.preventDefault();
+                          if (e.deltaY > 0 && scroll) keyboard.next(ctrl);
+                          else if (e.deltaY < 0 && scroll) keyboard.prev(ctrl);
+                          ctrl.redraw();
+                        }
+                      }),
+                      undefined,
+                      false
+                    ),
             },
             shogiground.renderBoard(ctrl)
           ),

@@ -20,11 +20,28 @@
   .color-icon::before {
     vertical-align: text-bottom;
   }
-  tr.symbol {
-    cursor: pointer;
-  }
-  tr.symbol:hover {
-    color: #3893e8;
+  tr {
+    &.symbol {
+      cursor: pointer;
+    }
+    &.inaccuracy {
+      color: $c-inaccuracy;
+      &:hover {
+        color: c-clearer(saturate($c-inaccuracy, 100%), 40%);
+      }
+    }
+    &.mistake {
+      color: $c-mistake;
+      &:hover {
+        color: c-clearer($c-mistake, 40%);
+      }
+    }
+    &.blunder {
+      color: $c-blunder;
+      &:hover {
+        color: c-clearer(saturate($c-blunder, 100%), 40%);
+      }
+    }
   }
   .button {
     margin: 0.6em 0;

@@ -10,7 +10,7 @@ import scala.util.chaining._
 import actorApi._, round._
 import shogi.{ Centis, Color, Gote, Sente }
 import lila.game.Game.{ FullId, PlayerId }
-import lila.game.{ Game, GameRepo, Pov, Event, Progress, Player => GamePlayer }
+import lila.game.{ Event, Game, GameRepo, Player => GamePlayer, Pov, Progress }
 import lila.hub.actorApi.round.{
   Abort,
   BotPlay,
@@ -204,13 +204,9 @@ final private[round] class RoundDuct(
                 "analysis" -> lila.analyse.JsonView.bothPlayers(a.game, a.analysis),
                 "tree" -> lila.tree.Node.minimalNodeJsonWriter.writes {
                   TreeBuilder(
-                    id = a.analysis.id,
-                    usiMoves = a.game.usiMoves,
-                    variant = a.variant,
-                    analysis = a.analysis.some,
-                    initialSfen = a.game.initialSfen | a.variant.initialSfen,
-                    withFlags = JsonView.WithFlags(),
-                    clocks = none
+                    a.game,
+                    a.analysis.some,
+                    JsonView.WithFlags()
                   )
                 }
               )

@@ -58,6 +58,7 @@ final class JsonView(
   def userJson(u: User) =
     Json
       .obj(
+        "id"     -> u.id,
         "rating" -> u.perfs.puzzle.intRating
       )
       .add(
@@ -82,16 +83,16 @@ final class JsonView(
 
   def pref(p: lila.pref.Pref) =
     Json.obj(
-      "blindfold"       -> p.blindfold,
-      "coords"          -> p.coords,
-      "animation"       -> Json.obj("duration" -> p.animationMillis),
-      "destination"     -> p.destination,
-      "dropDestination" -> p.dropDestination,
-      "moveEvent"       -> p.moveEvent,
+      "blindfold"          -> p.blindfold,
+      "coords"             -> p.coords,
+      "animation"          -> Json.obj("duration" -> p.animationMillis),
+      "destination"        -> p.destination,
+      "dropDestination"    -> p.dropDestination,
+      "moveEvent"          -> p.moveEvent,
       "highlightLastDests" -> p.highlightLastDests,
-      "highlightCheck"    -> p.highlightCheck,
-      "squareOverlay"   -> p.squareOverlay,
-      "notation"   -> p.notation
+      "highlightCheck"     -> p.highlightCheck,
+      "squareOverlay"      -> p.squareOverlay,
+      "notation"           -> p.notation
     )
 
   def dashboardJson(dash: PuzzleDashboard, days: Int)(implicit lang: Lang) = Json.obj(
@@ -199,7 +200,7 @@ final class JsonView(
       val (_, branchList) = solution.foldLeft[(shogi.Game, List[tree.Branch])]((init, Nil)) {
         case ((prev, branches), usi) =>
           val game =
-            prev(usi).fold(err => sys error s"puzzle ${puzzle.id} $err", identity) // todo
+            prev(usi).getOrElse(prev) // fold(err => sys error s"puzzle ${puzzle.id} $err", identity) // todo
           val branch = tree.Branch(
             id = shogi.format.usi.UsiCharPair(usi, shogi.variant.Standard),
             ply = game.plies,

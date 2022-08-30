@@ -1,5 +1,5 @@
 import { h, VNode } from 'snabbdom';
-import { defined } from 'common';
+import { defined } from 'common/common';
 import { view as cevalView, renderEval as normalizeEval } from 'ceval';
 import { renderTime } from './clocks';
 import { notationsWithColor } from 'common/notation';
@@ -34,7 +34,7 @@ export function renderIndexText(ply: Ply, offset?: number, withDots?: boolean): 
 }
 
 export function renderIndex(ply: Ply, offset?: number, withDots?: boolean): VNode {
-  return h('index', renderIndexText(ply, offset, withDots));
+  return h(`index.sbhint${ply}`, renderIndexText(ply, offset, withDots));
 }
 
 export function renderMove(ctx: Ctx, node: Tree.Node, moveTime?: number): VNode[] {

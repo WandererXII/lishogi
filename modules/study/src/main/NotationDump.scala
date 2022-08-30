@@ -1,7 +1,7 @@
 package lila.study
 
 import akka.stream.scaladsl._
-import shogi.{ Pos, Piece }
+import shogi.{ Piece, Pos }
 import shogi.format.forsyth.Sfen
 import shogi.format.kif.Kif
 import shogi.format.csa.Csa
@@ -76,6 +76,7 @@ final class NotationDump(
       val genTags = List(
         Tag(_.Event, s"${study.name} - ${chapter.name}"),
         Tag(_.Site, chapterUrl(study.id, chapter.id)),
+        Tag(_.Variant, chapter.setup.variant.name.capitalize),
         Tag(_.Annotator, ownerName(study))
       ) ::: (!chapter.root.sfen.initialOf(chapter.setup.variant)) ?? (
         List(
@@ -144,7 +145,6 @@ object NotationDump {
       root.sfen,
       variant,
       root.children.variations,
-      root.ply,
       root.hasMultipleCommentAuthors
     )
 
@@ -153,7 +153,6 @@ object NotationDump {
       initialSfen: Sfen,
       variant: Variant,
       variations: Variations,
-      startingPly: Int,
       showAuthors: Boolean
   )(implicit flags: WithFlags): Vector[NotationMove] = {
     val enriched = shogi.Replay.usiWithRoleWhilePossible(line.map(_.usi), initialSfen.some, variant)
@@ -161,7 +160,7 @@ object NotationDump {
       .zip(enriched)
       .foldLeft(variations -> Vector.empty[NotationMove]) { case ((variations, moves), (node, usiWithRole)) =>
         node.children.variations -> (NotationMove(
-          moveNumber = node.ply - startingPly,
+          moveNumber = node.ply,
           usiWithRole = usiWithRole,
           glyphs = if (flags.comments) node.glyphs else Glyphs.empty,
           comments = flags.comments ?? {
@@ -170,7 +169,7 @@ object NotationDump {
           result = none,
           variations = flags.variations ?? {
             variations.view.map { child =>
-              toMoves(child.mainline, child.sfen, variant, noVariations, startingPly, showAuthors).toList
+              toMoves(child.mainline, node.sfen, variant, noVariations, showAuthors).toList
             }.toList
           }
         ) +: moves)

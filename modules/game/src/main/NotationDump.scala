@@ -152,7 +152,7 @@ final class NotationDump(
       clocksTotal: Vector[Centis]
   ): List[NotationMove] = extendedMoves.zipWithIndex.map { case (usiWithRole, index) =>
       NotationMove(
-        moveNumber = index + 1 + startedAtMove,
+        moveNumber = index + startedAtMove,
         usiWithRole = usiWithRole,
         secondsSpent = clocksSpent lift (index - clockOffset) map (_.roundSeconds),
         secondsTotal = clocksTotal lift (index - clockOffset) map (_.roundSeconds)

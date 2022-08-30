@@ -7,8 +7,9 @@ import { game as gameRoute } from 'game/router';
 import viewStatus from 'game/view/status';
 import * as util from '../util';
 import RoundController from '../ctrl';
-import { MaybeVNodes, RoundData } from '../interfaces';
+import { RoundData } from '../interfaces';
 import { notationsWithColor } from 'common/notation';
+import { MaybeVNodes } from 'common/snabbdom';
 import { toBlackWhite } from 'shogiops/util';
 
 const scrollMax = 99999,
@@ -72,7 +73,7 @@ function renderMoves(ctrl: RoundController): MaybeVNodes {
     els.push(
       h(
         moveTag +
-          (useColorIcon ? '.color-icon.' + ((i + (ctrl.data.game.startedAtPly || 0)) % 2 ? 'sente' : 'gote') : ''),
+          (useColorIcon ? '.color-icon.' + ((i + (ctrl.data.game.startedAtPly || 0)) % 2 ? 'gote' : 'sente') : ''),
         {
           class: { active: moveNumber === curMove },
         },

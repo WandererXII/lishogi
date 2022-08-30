@@ -19,6 +19,7 @@ final class BotJsonView(
       "state" -> gameState(game)
     )
 
+  // Everything marked backwards will be removed soon
   def gameImmutable(game: Game)(implicit lang: Lang): JsObject = {
     Json
       .obj(
@@ -32,10 +33,11 @@ final class BotJsonView(
         "rated"       -> game.rated,
         "createdAt"   -> game.createdAt,
         "sente"       -> playerJson(game.sentePov),
-        "white"       -> playerJson(game.sentePov), // backwards support
+        "white"       -> playerJson(game.sentePov),                 // backwards support
         "gote"        -> playerJson(game.gotePov),
-        "black"       -> playerJson(game.gotePov), // backwards support
-        "initialSfen" -> game.initialSfen.fold("startpos")(_.value)
+        "black"       -> playerJson(game.gotePov),                  // backwards support
+        "initialSfen" -> game.initialSfen.fold("startpos")(_.value),
+        "initialFen"  -> game.initialSfen.fold("startpos")(_.value) // backwards support
       )
       .add("tournamentId" -> game.tournamentId)
   }
@@ -43,17 +45,16 @@ final class BotJsonView(
   def gameState(game: Game): JsObject = {
     Json
       .obj(
-        "type"     -> "gameState",
-        "moves"    -> game.usiMoves.map(_.uci).mkString(" "), // backwards support
-        "usiMoves" -> game.usiMoves.map(_.usi).mkString(" "),
-        "btime"    -> millisOf(game.sentePov),
-        "wtime"    -> millisOf(game.gotePov),
-        "binc"     -> game.clock.??(_.config.increment.millis),
-        "winc"     -> game.clock.??(_.config.increment.millis),
-        "byo"      -> game.clock.??(_.config.byoyomi.millis),
-        "sdraw"    -> game.sentePlayer.isOfferingDraw,
-        "gdraw"    -> game.gotePlayer.isOfferingDraw,
-        "status"   -> game.status.name
+        "type"   -> "gameState",
+        "moves"  -> game.usiMoves.map(_.usi).mkString(" "),
+        "btime"  -> millisOf(game.sentePov),
+        "wtime"  -> millisOf(game.gotePov),
+        "binc"   -> game.clock.??(_.config.increment.millis),
+        "winc"   -> game.clock.??(_.config.increment.millis),
+        "byo"    -> game.clock.??(_.config.byoyomi.millis),
+        "sdraw"  -> game.sentePlayer.isOfferingDraw,
+        "gdraw"  -> game.gotePlayer.isOfferingDraw,
+        "status" -> game.status.name
       )
       .add("winner" -> game.winnerColor)
       .add("rematch" -> rematches.of(game.id))

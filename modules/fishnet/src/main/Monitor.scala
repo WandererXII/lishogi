@@ -32,11 +32,11 @@ final private class Monitor(
   ) = {
     Monitor.success(work, client)
 
-    val threads = result.stockfish.options.threadsInt
+    val threads = result.yaneuraou.options.threadsInt
     val userId  = client.userId.value
 
-    result.stockfish.options.hashInt foreach { monBy.hash(userId).update(_) }
-    result.stockfish.options.threadsInt foreach { monBy.threads(userId).update(_) }
+    result.yaneuraou.options.hashInt foreach { monBy.hash(userId).update(_) }
+    result.yaneuraou.options.threadsInt foreach { monBy.threads(userId).update(_) }
 
     monBy.totalSecond(userId).increment(sumOf(result.evaluations)(_.time) * threads.|(1) / 1000)
     monBy
@@ -82,7 +82,7 @@ final private class Monitor(
       instances.map(_.version.value).groupBy(identity).view.mapValues(_.size) foreach { case (v, nb) =>
         version(v).update(nb)
       }
-      instances.map(_.engines.stockfish.name).groupBy(identity).view.mapValues(_.size) foreach {
+      instances.map(_.engines.yaneuraou.name).groupBy(identity).view.mapValues(_.size) foreach {
         case (s, nb) => stockfish(s).update(nb)
       }
       instances.map(_.python.value).groupBy(identity).view.mapValues(_.size) foreach { case (s, nb) =>
@@ -132,13 +132,6 @@ object Monitor {
   private[fishnet] def failure(work: Work, client: Client, e: Exception) = {
     logger.warn(s"Received invalid analysis ${work.id} for ${work.game.id} by ${client.fullId}", e)
     monResult.failure(client.userId.value).increment()
-  }
-
-  private[fishnet] def weak(work: Work, client: Client, data: JsonApi.Request.CompleteAnalysis) = {
-    logger.warn(
-      s"Received weak analysis ${work.id} (nodes: ${~data.medianNodes}) for ${work.game.id} by ${client.fullId}"
-    )
-    monResult.weak(client.userId.value).increment()
   }
 
   private[fishnet] def timeout(userId: Client.UserId) =

@@ -25,6 +25,7 @@ sealed trait Work {
   def isAcquired                   = acquired.isDefined
   def nonAcquired                  = !isAcquired
   def canAcquire(client: Client)   = lastTryByKey.fold(true)(client.key !=)
+  def isStandard = game.variant.standard && game.initialSfen.fold(true)(_.initialOf(game.variant))
 
   def acquiredBefore(date: DateTime) = acquiredAt.??(_ isBefore date)
 }
@@ -130,7 +131,6 @@ object Work {
 
     def timeout = copy(acquired = none)
     def invalid = copy(acquired = none)
-    def weak    = copy(acquired = none)
 
     def isOutOfTries = tries >= maxTries
 

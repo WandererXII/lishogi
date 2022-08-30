@@ -25,15 +25,15 @@ object show {
         jsModule("puzzle", true),
         embedJsUnsafe(s"""$$(function() {
           LishogiPuzzle(${safeJsonValue(
-          Json
-            .obj(
-              "data" -> data,
-              "pref" -> pref,
-              "i18n" -> bits.jsI18n
-            )
-            .add("themes" -> ctx.isAuth.option(bits.jsonThemes))
-            .add("difficulty" -> difficulty.map(_.key))
-        )})})""")
+            Json
+              .obj(
+                "data" -> data,
+                "pref" -> pref,
+                "i18n" -> bits.jsI18n
+              )
+              .add("themes" -> ctx.isAuth.option(bits.jsonThemes))
+              .add("difficulty" -> difficulty.map(_.key))
+          )})})""")
       ),
       csp = defaultCsp.withWebAssembly.some,
       shogiground = false,
@@ -55,11 +55,12 @@ object show {
     ) {
       main(cls := "puzzle")(
         st.aside(cls := "puzzle__side")(
-          div(cls := "puzzle__side__metas")
+          div(cls    := "puzzle__side__metas")
         ),
-        div(cls := "puzzle__board main-board")
-          (shogigroundBoard(shogi.variant.Standard, puzzle.color.some)),
+        div(cls := "puzzle__board main-board")(shogigroundBoard(shogi.variant.Standard, puzzle.color.some)),
+        sgHandTop,
         div(cls := "puzzle__tools"),
+        sgHandBottom,
         div(cls := "puzzle__controls")
       )
     }

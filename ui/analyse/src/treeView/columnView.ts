@@ -1,23 +1,25 @@
 import { h, VNode } from 'snabbdom';
-import { empty } from 'common';
+import { isEmpty } from 'common/common';
+import { MaybeVNodes } from 'common/snabbdom';
 import { path as treePath, ops as treeOps } from 'tree';
 import * as moveView from '../moveView';
 import { authorText as commentAuthorText } from '../study/studyComments';
 import AnalyseCtrl from '../ctrl';
-import { MaybeVNodes, ConcealOf, Conceal } from '../interfaces';
+import { ConcealOf, Conceal } from '../interfaces';
+import { enrichText, innerHTML } from '../util';
 import {
-  nonEmpty,
   mainHook,
   nodeClasses,
+  nonEmpty,
+  Ctx as BaseCtx,
+  Opts as BaseOpts,
+  usiToNotation,
   findCurrentPath,
   renderInlineCommentsOf,
   truncateComment,
   retroLine,
-  Ctx as BaseCtx,
-  Opts as BaseOpts,
-  usiToNotation,
-} from './treeView';
-import { enrichText, innerHTML } from '../util';
+} from './util';
+import { notationsWithColor } from 'common/notation';
 
 interface Ctx extends BaseCtx {
   concealOf: ConcealOf;
@@ -35,7 +37,7 @@ function renderChildrenOf(ctx: Ctx, node: Tree.Node, opts: Opts): MaybeVNodes | 
   if (conceal === 'hide') return;
   if (opts.isMainline) {
     const commentTags = renderMainlineCommentsOf(ctx, main, opts, conceal, true).filter(nonEmpty);
-    if (!cs[1] && empty(commentTags) && !main.forceVariation)
+    if (!cs[1] && isEmpty(commentTags) && !main.forceVariation)
       return ([moveView.renderIndex(main.ply, ctx.ctrl.plyOffset(), false)] as MaybeVNodes).concat(
         renderMoveAndChildrenOf(ctx, main, {
           parentPath: opts.parentPath,
@@ -104,7 +106,6 @@ function renderLines(ctx: Ctx, nodes: Tree.Node[], opts: Opts): VNode {
           renderMoveAndChildrenOf(ctx, n, {
             parentPath: opts.parentPath,
             isMainline: false,
-            withIndex: true,
             noConceal: opts.noConceal,
             truncate: n.comp && !treePath.contains(ctx.ctrl.path, opts.parentPath + n.id) ? 3 : undefined,
           })
@@ -120,7 +121,7 @@ function renderMoveOf(ctx: Ctx, node: Tree.Node, opts: Opts): VNode {
 
 function renderMainlineMoveOf(ctx: Ctx, node: Tree.Node, opts: Opts): VNode {
   const path = opts.parentPath + node.id,
-    classes = nodeClasses(ctx, path);
+    classes = nodeClasses(ctx, node, path);
   if (opts.conceal) classes[opts.conceal as string] = true;
   return h(
     'move',
@@ -134,8 +135,14 @@ function renderMainlineMoveOf(ctx: Ctx, node: Tree.Node, opts: Opts): VNode {
 
 function renderVariationMoveOf(ctx: Ctx, node: Tree.Node, opts: Opts): VNode {
   const path = opts.parentPath + node.id,
-    content: MaybeVNodes = [moveView.renderIndex(node.ply, ctx.ctrl.plyOffset(), true), node.notation],
-    classes = nodeClasses(ctx, path);
+    colorIcon = notationsWithColor.includes(ctx.ctrl.data.pref.notation)
+      ? '.color-icon.' + (node.ply % 2 ? 'sente' : 'gote')
+      : '',
+    content: MaybeVNodes = [
+      moveView.renderIndex(node.ply, ctx.ctrl.plyOffset(), true),
+      h('move-notation' + colorIcon, node.notation),
+    ],
+    classes = nodeClasses(ctx, node, path);
   if (opts.conceal) classes[opts.conceal as string] = true;
   if (node.glyphs) moveView.renderGlyphs(node.glyphs).forEach(g => content.push(g));
   return h(
@@ -177,7 +184,6 @@ function renderInline(ctx: Ctx, node: Tree.Node, opts: Opts): VNode {
   return h(
     'inline',
     renderMoveAndChildrenOf(ctx, node, {
-      withIndex: true,
       parentPath: opts.parentPath,
       isMainline: false,
       noConceal: opts.noConceal,
@@ -193,9 +199,9 @@ function renderMainlineCommentsOf(
   conceal: Conceal,
   withColor: boolean
 ): MaybeVNodes {
-  if (!ctx.ctrl.showComments || empty(node.comments)) return [];
+  if (!ctx.ctrl.showComments || isEmpty(node.comments)) return [];
 
-  const colorClass = withColor ? (node.ply % 2 === 0 ? '.gote ' : '.sente ') : '';
+  const colorClass = withColor ? (node.ply % 2 ? '.sente ' : '.gote ') : '';
   const withAuthor = node.comments!.some(c => c.by !== node.comments![0].by);
 
   return node.comments!.map(comment => {
@@ -208,9 +214,9 @@ function renderMainlineCommentsOf(
     const by = withAuthor ? `<span class="by">${commentAuthorText(comment.by)}</span>` : '',
       truncated = truncateComment(comment.text, 400, ctx);
     return h(sel, {
-      hook: innerHTML(by + usiToNotation(ctx, node, opts.parentPath, truncated), text => {
+      hook: innerHTML(by + truncated, text => {
         const s = text.split('</span>');
-        return by + enrichText(s[s.length - 1]);
+        return by + enrichText(usiToNotation(ctx, node, opts.parentPath, s[s.length - 1]));
       }),
     });
   });
@@ -242,7 +248,7 @@ export default function (ctrl: AnalyseCtrl, concealOf?: ConcealOf): VNode {
     {
       hook: mainHook(ctrl),
     },
-    ([empty(commentTags) ? null : h('interrupt', commentTags)] as MaybeVNodes).concat(
+    ([isEmpty(commentTags) ? null : h('interrupt', commentTags)] as MaybeVNodes).concat(
       renderChildrenOf(ctx, root, {
         parentPath: '',
         isMainline: true,

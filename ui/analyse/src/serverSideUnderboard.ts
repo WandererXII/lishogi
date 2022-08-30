@@ -1,7 +1,9 @@
 import AnalyseCtrl from './ctrl';
-import { defined } from 'common';
+import { defined } from 'common/common';
 import { baseUrl } from './util';
 import { AnalyseData } from './interfaces';
+import { initialSfen } from 'shogiops/sfen';
+import { handicaps } from 'game/handicaps';
 
 export default function (element: HTMLElement, ctrl: AnalyseCtrl) {
   const li = window.lishogi;
@@ -76,7 +78,13 @@ export default function (element: HTMLElement, ctrl: AnalyseCtrl) {
   }
 
   function chartLoader() {
-    return `<div id="acpl-chart-loader"><span>YaneuraOu V6<br>server analysis</span>${li.spinnerHtml}</div>`;
+    const engineName =
+      ctrl.data.game.initialSfen &&
+      ctrl.data.game.initialSfen !== initialSfen('standard') &&
+      !handicaps.includes(ctrl.data.game.initialSfen)
+        ? 'Fairy Stockfish'
+        : 'YaneuraOu V7';
+    return `<div id="acpl-chart-loader"><span>${engineName}<br>server analysis</span>${li.spinnerHtml}</div>`;
   }
   function startAdvantageChart() {
     if (li.advantageChart || li.AnalyseNVUI) return;
@@ -140,7 +148,7 @@ export default function (element: HTMLElement, ctrl: AnalyseCtrl) {
   });
   $panels.on('click', '.embed-howto', function (this: HTMLElement) {
     const url = `${baseUrl()}/embed/${data.game.id}${location.hash}`;
-    const iframe = '<iframe src="' + url + '?theme=auto&bg=auto"\nwidth=600 height=397 frameborder=0></iframe>';
+    const iframe = '<iframe src="' + url + '?theme=auto&bg=auto"\nwidth=600 height=400 frameborder=0></iframe>';
     $.modal(
       $(
         '<strong style="font-size:1.5em">' +

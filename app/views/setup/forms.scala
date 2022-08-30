@@ -69,7 +69,7 @@ object forms {
               ),
               div(cls := "ai_info")(
                 ratings.toList.map { case (level, _) =>
-                  div(cls := s"${prefix}level_$level")(trans.aiNameLevelAiLevel("YaneuraOu V6.00", level))
+                  div(cls := s"${prefix}level_$level")(trans.aiNameLevelAiLevel("YaneuraOu V7.00", level))
                 }
               )
             )
@@ -140,10 +140,10 @@ object forms {
                   case (key, name, _) => {
                     submitButton(
                       (typ == "hook") option disabled,
-                      title := name,
-                      cls := s"color-submits__button button button-metal $key",
+                      title   := name,
+                      cls     := s"color-submits__button button button-metal $key",
                       st.name := "color",
-                      value := key
+                      value   := key
                     )(i)
                   }
                 },
@@ -157,9 +157,9 @@ object forms {
             div(cls := perfType.key)(
               trans.perfRatingX(
                 raw(s"""<strong data-icon="${perfType.iconChar}">${me
-                  .perfs(perfType.key)
-                  .map(_.intRating)
-                  .getOrElse("?")}</strong> ${perfType.trans}""")
+                    .perfs(perfType.key)
+                    .map(_.intRating)
+                    .getOrElse("?")}</strong> ${perfType.trans}""")
               )
             )
           }

@@ -36,8 +36,8 @@ object index {
                 td(cls := "action")(
                   postForm(action := routes.OAuthApp.revoke(t.token.id.value))(
                     submitButton(
-                      cls := "button button-empty button-red confirm text",
-                      title := s"Revoke access from ${t.app.name}",
+                      cls      := "button button-empty button-red confirm text",
+                      title    := s"Revoke access from ${t.app.name}",
                       dataIcon := "q"
                     )("Revoke")
                   )
@@ -58,11 +58,9 @@ object index {
             a(href := "https://github.com/lichess-org/api/tree/master/example/oauth-authorization-code")(
               "Lichess OAuth app example"
             ),
-            ", and ",
-            a(href := "https://lichess.org/api")(
-              "Lichess' API documentation"
-            ),
-            " to get an idea on how Lishogi's API looks."
+            ", and the ",
+            a(href := routes.Api.index)("API documentation (WIP)"),
+            "."
           ),
           table(cls := "slist slist-pad")(
             made.map { t =>
@@ -80,15 +78,15 @@ object index {
                 ),
                 td(cls := "action")(
                   a(
-                    href := routes.OAuthApp.edit(t.clientId.value),
-                    cls := "button button-empty",
-                    title := "Edit this app",
+                    href     := routes.OAuthApp.edit(t.clientId.value),
+                    cls      := "button button-empty",
+                    title    := "Edit this app",
                     dataIcon := "m"
                   ),
                   postForm(action := routes.OAuthApp.delete(t.clientId.value))(
                     submitButton(
-                      cls := "button button-empty button-red confirm",
-                      title := "Delete this app",
+                      cls      := "button button-empty button-red confirm",
+                      title    := "Delete this app",
                       dataIcon := "q"
                     )
                   )

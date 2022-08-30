@@ -10,18 +10,39 @@
   }
   move {
     @extend %move;
+    &.inaccuracy {
+      color: $c-inaccuracy;
+    }
+    &.mistake {
+      color: $c-mistake;
+    }
+    &.blunder {
+      color: $c-blunder;
+    }
+    &.good-move {
+      color: $c-good-move;
+    }
+    &.brilliant {
+      color: $c-brilliant;
+    }
+    &.interesting {
+      color: $c-interesting;
+    }
+    move-notation::before {
+      color: $c-font;
+    }
+    @media (hover: none) {
+      user-select: none;
+    }
   }
   &-column move {
     font-size: 1.092em;
-    padding: 0 2px;
+    padding: 0 3px;
   }
   &-inline move {
-    padding: 0.25em 0.17em;
+    padding: 0.25em 0.2em;
     white-space: nowrap;
     font-weight: bold;
-  }
-  move.parent {
-    color: $c-primary;
   }
   comment a {
     vertical-align: top;
@@ -31,10 +52,21 @@
   }
   move.active {
     font-weight: bold;
-    background: mix($c-primary, $c-bg-box, 20%);
+    background: mix($c-primary, $c-bg-box, 25%);
+    color: $c-font-clear;
+    move-notation::before {
+      color: $c-font-clear;
+    }
   }
-  &-inline move.active {
+  &-inline move.active,
+  line move.active {
     @extend %box-radius;
+    background: mix($c-primary, $c-bg-box, 40%);
+    color: $c-font-clearer;
+    outline: 1px solid mix($c-primary, $c-bg-box, 60%);
+    move-notation::before {
+      color: $c-font-clearer;
+    }
   }
   move.nongame {
     font-style: italic;
@@ -43,11 +75,13 @@
     &,
     index,
     eval,
-    movetime {
+    movetime,
+    move-notation::before {
       background: $c-primary;
       color: $c-primary-over;
     }
   }
+  interrupt move:hover,
   &-inline move:hover {
     @extend %box-radius;
   }
@@ -160,13 +194,13 @@
     overflow-x: hidden;
   }
   &-column comment.inaccuracy {
-    border-color: #56b4e9;
+    border-color: $c-inaccuracy;
   }
   &-column comment.mistake {
-    border-color: #e69f00;
+    border-color: $c-mistake;
   }
   &-column comment.blunder {
-    border-color: #df5353;
+    border-color: $c-blunder;
   }
   &-column comment.undefined {
     border-color: #66558c;
@@ -206,7 +240,7 @@
     padding-left: 7px;
   }
   &-column line {
-    margin: 2px 0;
+    margin: 2px 0 0 0;
   }
   lines lines move {
     font-size: 13px;
@@ -223,12 +257,12 @@
     height: 6px;
   }
   lines line::before {
-    margin-top: 0.65em;
+    margin-top: 0.7em;
     margin-left: -8px;
     content: ' ';
     border-top: 2px solid $c-border;
     position: absolute;
-    width: 8px;
+    width: 7px;
     height: 6px;
   }
   lines lines:last-child {

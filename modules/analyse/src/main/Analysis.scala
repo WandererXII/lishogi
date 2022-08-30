@@ -42,7 +42,7 @@ case class Analysis(
   def valid = infos.nonEmpty
 
   def nbEmptyInfos       = infos.count(_.isEmpty)
-  def emptyRatio: Double = nbEmptyInfos.toDouble / infos.size
+  def emptyRatio: Double = nbEmptyInfos.toDouble / infos.size.atLeast(1)
 }
 
 object Analysis {
@@ -61,7 +61,7 @@ object Analysis {
       Analysis(
         id = r str "_id",
         studyId = r strO "studyId",
-        infos = Info.decodeList(raw, startPly) err s"Invalid analysis data $raw",
+        infos = Info.decodeList(raw, startPly),
         startPly = startPly,
         uid = r strO "uid",
         by = r strO "by",

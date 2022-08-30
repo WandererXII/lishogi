@@ -17,7 +17,7 @@ import lila.user.User
 final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 
   import BSONHandlers._
-  import Game.{ ID, BSONFields => F }
+  import Game.{ BSONFields => F, ID }
   import Player.holdAlertBSONHandler
 
   def game(gameId: ID): Fu[Option[Game]] = coll.byId[Game](gameId)
@@ -338,7 +338,7 @@ final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
   def findRandomStandardCheckmate(distribution: Int): Fu[Option[Game]] =
     coll.ext
       .find(
-        Query.mate ++ Query.variantStandard
+        Query.mate ++ Query.variantStandard ++ Query.notFromPosition
       )
       .sort(Query.sortCreated)
       .skip(ThreadLocalRandom nextInt distribution)

@@ -13,7 +13,7 @@ import { storedProp, StoredBooleanProp } from 'common/storage';
 import { make as makeSocket, Socket } from './socket';
 import { ForecastCtrl } from './forecast/interfaces';
 import { make as makeForecast } from './forecast/forecastCtrl';
-import { ctrl as cevalCtrl, isEvalBetter, CevalCtrl, Work as CevalWork, CevalOpts } from 'ceval';
+import { ctrl as cevalCtrl, isEvalBetter, CevalCtrl, EvalMeta } from 'ceval';
 import explorerCtrl from './explorer/explorerCtrl';
 import { ExplorerCtrl } from './explorer/interfaces';
 import * as game from 'game';
@@ -36,7 +36,7 @@ import { Outcome, Piece } from 'shogiops/types';
 import { parseSfen } from 'shogiops/sfen';
 import { Position, PositionError } from 'shogiops/shogi';
 import { Result } from '@badrap/result';
-import { makeNotation, Notation } from 'common/notation';
+import { makeNotation } from 'common/notation';
 import { Shogiground } from 'shogiground';
 import { makeConfig } from './ground';
 
@@ -104,6 +104,8 @@ export default class AnalyseCtrl {
   // misc
   music?: any;
   nvui?: NvuiPlugin;
+
+  pvUsiQueue: Usi[] = [];
 
   constructor(readonly opts: AnalyseOpts, readonly redraw: Redraw) {
     this.data = opts.data;
@@ -188,7 +190,7 @@ export default class AnalyseCtrl {
     const prevTree = merge && this.tree.root;
     this.tree = makeTree(treeOps.reconstruct(this.data.treeParts));
     if (prevTree) this.tree.merge(prevTree);
-    this.initNotation(data.pref.notation, data.game.variant.key);
+    this.initNotation();
 
     this.actionMenu = new ActionMenuCtrl();
     this.autoplay = new Autoplay(this);
@@ -251,7 +253,7 @@ export default class AnalyseCtrl {
     this.onChange();
     if (!skip) this.shogiground.set(this.makeSgOpts());
     this.setAutoShapes();
-    if (this.node.shapes) this.shogiground.setShapes(this.node.shapes as DrawShape[]);
+    this.setShapes(this.node.shapes as DrawShape[] | undefined);
   }
 
   private getMoveDests(): sg.Dests {
@@ -505,7 +507,9 @@ export default class AnalyseCtrl {
     }
     this.jump(newPath);
     this.redraw();
-    this.shogiground.playPremove();
+    const queuedUsi = this.pvUsiQueue.shift();
+    if (queuedUsi) this.playUsi(queuedUsi, this.pvUsiQueue);
+    else this.shogiground.playPremove();
   }
 
   deleteNode(path: Tree.Path): void {
@@ -565,7 +569,13 @@ export default class AnalyseCtrl {
     this.shogiground.setAutoShapes(computeAutoShapes(this));
   };
 
-  private initNotation = (notation: Notation, variant: VariantKey): void => {
+  setShapes = (shapes?: DrawShape[]): void => {
+    if (shapes) this.shogiground.setShapes(shapes);
+  };
+
+  private initNotation = (): void => {
+    const notation = this.data.pref.notation,
+      variant = this.data.game.variant.key;
     function update(node: Tree.Node, prev?: Tree.Node) {
       if (prev && node.usi && !node.notation)
         node.notation = makeNotation(notation, prev.sfen, variant, node.usi, prev.usi);
@@ -578,9 +588,14 @@ export default class AnalyseCtrl {
     this.tree.updateAt(path, (node: Tree.Node) => {
       if (node.sfen !== ev.sfen && !isThreat) return;
       if (isThreat) {
-        if (!node.threat || isEvalBetter(ev, node.threat) || node.threat.maxDepth < ev.maxDepth) node.threat = ev;
-      } else if (isEvalBetter(ev, node.ceval)) node.ceval = ev;
-      else if (node.ceval && ev.maxDepth > node.ceval.maxDepth) node.ceval.maxDepth = ev.maxDepth;
+        const threat = ev as Tree.LocalEval;
+        if (!node.threat || isEvalBetter(threat, node.threat) || node.threat.maxDepth < threat.maxDepth)
+          node.threat = threat;
+      } else if (!node.ceval || isEvalBetter(ev, node.ceval)) node.ceval = ev;
+      else if (!ev.cloud) {
+        if (node.ceval.cloud && ev.maxDepth > node.ceval.depth) node.ceval = ev;
+        else if (ev.maxDepth > node.ceval.maxDepth!) node.ceval.maxDepth = ev.maxDepth;
+      }
 
       if (path === this.path) {
         this.setAutoShapes();
@@ -598,20 +613,22 @@ export default class AnalyseCtrl {
 
   private instanciateCeval(): void {
     if (this.ceval) this.ceval.destroy();
-    const cfg: CevalOpts = {
+    this.ceval = cevalCtrl({
       variant: this.data.game.variant,
+      initialSfen: this.data.game.initialSfen,
       possible: !this.embed && (this.synthetic || !game.playable(this.data)),
-      emit: (ev: Tree.ClientEval, work: CevalWork) => {
+      emit: (ev: Tree.ClientEval, work: EvalMeta) => {
         this.onNewCeval(ev, work.path, work.threatMode);
       },
       setAutoShapes: this.setAutoShapes,
       redraw: this.redraw,
-    };
-    if (this.opts.study && this.opts.practice) {
-      cfg.storageKeyPrefix = 'practice';
-      cfg.multiPvDefault = 1;
-    }
-    this.ceval = cevalCtrl(cfg);
+      ...(this.opts.study && this.opts.practice
+        ? {
+            storageKeyPrefix: 'practice',
+            multiPvDefault: 1,
+          }
+        : {}),
+    });
   }
 
   getCeval() {
@@ -636,7 +653,7 @@ export default class AnalyseCtrl {
   startCeval = throttle(800, () => {
     if (this.ceval.enabled()) {
       if (this.canUseCeval()) {
-        this.ceval.start(this.path, this.nodeList, this.threatMode(), false);
+        this.ceval.start(this.path, this.nodeList, this.threatMode());
         this.evalCache.fetch(this.path, parseInt(this.ceval.multiPv()));
       } else this.ceval.stop();
     }
@@ -687,20 +704,24 @@ export default class AnalyseCtrl {
   };
 
   cevalSetThreads = (v: number): void => {
-    if (!this.ceval.threads) return;
-    this.ceval.threads(v);
+    this.ceval.setThreads(v);
     this.cevalReset();
   };
 
   cevalSetHashSize = (v: number): void => {
-    if (!this.ceval.hashSize) return;
-    this.ceval.hashSize(v);
+    this.ceval.setHashSize(v);
     this.cevalReset();
   };
 
   cevalSetInfinite = (v: boolean): void => {
     this.ceval.infinite(v);
     this.cevalReset();
+  };
+
+  cevalSetEnableNnue = (v: boolean): void => {
+    this.ceval.enableNnue(v);
+    this.ceval.stop();
+    alert('Reload the window to see changes.');
   };
 
   showEvalGauge(): boolean {
@@ -754,6 +775,7 @@ export default class AnalyseCtrl {
   mergeAnalysisData(data: ServerEvalData): void {
     if (this.study && this.study.data.chapter.id !== data.ch) return;
     this.tree.merge(data.tree);
+    this.initNotation();
     if (!this.showComputer()) this.tree.removeComputerVariations();
     this.data.analysis = data.analysis;
     if (data.analysis)
@@ -765,7 +787,16 @@ export default class AnalyseCtrl {
     this.redraw();
   }
 
-  playUsi = this.sendUsi;
+  playUsi(usi: Usi, usiQueue?: Usi[]) {
+    this.pvUsiQueue = usiQueue ?? [];
+    this.sendUsi(usi);
+  }
+
+  playUsiList(usiList: Usi[]): void {
+    this.pvUsiQueue = usiList;
+    const firstUsi = this.pvUsiQueue.shift();
+    if (firstUsi) this.playUsi(firstUsi, this.pvUsiQueue);
+  }
 
   explorerMove(usi: Usi) {
     this.playUsi(usi);
@@ -796,6 +827,7 @@ export default class AnalyseCtrl {
       variant: this.data.game.variant.key,
       canGet: () => this.canEvalGet(),
       canPut: () =>
+        this.ceval?.cachable &&
         this.data.evalPut &&
         this.canEvalGet() &&
         // if not in study, only put decent opening moves

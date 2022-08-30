@@ -2,6 +2,8 @@ import { renderMove as jRenderMove } from './japanese';
 
 function toRole(char: string): string | undefined {
   switch (char) {
+    case 'と':
+      return 'promoted pawn';
     case '馬':
       return 'horse';
     case '龍':
@@ -37,7 +39,7 @@ function toRole(char: string): string | undefined {
 }
 
 function toNumber(digit: string): string | undefined {
-  if (parseInt(digit)) digit;
+  if (parseInt(digit)) return digit;
   switch (digit) {
     case '一':
     case '１':
@@ -71,6 +73,10 @@ function toNumber(digit: string): string | undefined {
   }
 }
 
+function toLetter(str: string): string | undefined {
+  return ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i'].includes(str) ? str.toUpperCase() : '';
+}
+
 function pronounce(str: string): string | undefined {
   switch (str) {
     case '-':
@@ -94,17 +100,18 @@ function pronounce(str: string): string | undefined {
 }
 
 // P-76, G79-78
-// P-7f
+// P-7f, G7i-7h
 // 歩-76, 金(79)-78
+// ７六歩, ７八金直
 function renderMove(move: string) {
   // avoiding the collision
   if (move[0] === '+' || move[0] === '成') move = '!' + move.substring(1);
   return move
     .replace('不成', '=')
     .split('')
-    .map(c => pronounce(c) || toRole(c) || toNumber(c) || c)
-    .filter(s => s.length)
-    .join(',');
+    .map(c => pronounce(c) || toRole(c) || toNumber(c) || toLetter(c))
+    .filter(s => s && s.length)
+    .join(' ');
 }
 
 export function step(s: { notation?: string }, cut: boolean) {

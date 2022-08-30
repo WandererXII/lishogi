@@ -1,4 +1,4 @@
-import { prop } from 'common';
+import { prop } from 'common/common';
 import { ForecastCtrl, ForecastData, ForecastStep } from './interfaces';
 import { AnalyseData } from '../interfaces';
 
@@ -100,7 +100,7 @@ export function make(cfg: ForecastData, data: AnalyseData, redraw: () => void): 
   }
 
   function encodeUsi(usi: string): string {
-    return usi.replace(/\+/, '%2B');
+    return usi.replace(/\+/, '%2B').replace(/=/, '%3D');
   }
 
   function playAndSave(node: ForecastStep) {

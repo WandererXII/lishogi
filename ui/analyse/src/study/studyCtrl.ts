@@ -1,4 +1,4 @@
-import { prop } from 'common';
+import { prop } from 'common/common';
 import throttle from 'common/throttle';
 import AnalyseCtrl from '../ctrl';
 import { ctrl as memberCtrl } from './studyMembers';
@@ -22,6 +22,7 @@ import { DescriptionCtrl } from './description';
 import RelayCtrl from './relay/relayCtrl';
 import { RelayData } from './relay/interfaces';
 import { MultiBoardCtrl } from './multiBoard';
+import { makeNotation } from 'common/notation';
 
 const li = window.lishogi;
 
@@ -354,6 +355,20 @@ export default function (
         node = d.n,
         who = d.w,
         sticky = d.s;
+      const parent = ctrl.tree.nodeAtPath(position.path);
+      if (node.usi) {
+        node.notation = makeNotation(
+          ctrl.data.pref.notation,
+          parent.sfen,
+          ctrl.data.game.variant.key,
+          node.usi,
+          parent.usi
+        );
+        node.capture =
+          (parent.sfen.split(' ')[0].match(/[a-z]/gi) || []).length >
+          (node.sfen.split(' ')[0].match(/[a-z]/gi) || []).length;
+      }
+
       setMemberActive(who);
       if (vm.toolTab() == 'multiBoard' || (relay && relay.intro.active)) multiBoard.addNode(d.p, d.n);
       if (sticky && !vm.mode.sticky) vm.behind++;
@@ -462,7 +477,7 @@ export default function (
       if (wrongChapter(d)) return;
       if (who && who.s === li.sri) return;
       ctrl.tree.setShapes(d.s, ctrl.path);
-      if (ctrl.path === position.path) ctrl.shogiground.setShapes(d.s);
+      if (ctrl.path === position.path) ctrl.setShapes(d.s);
       redraw();
     },
     validationError(d) {

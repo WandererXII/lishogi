@@ -40,7 +40,12 @@ object BSONHandlers {
   )
 
   implicit private val PosOrPieceBSONHandler = tryHandler[Shape.PosOrPiece](
-    { case BSONString(v) => Pos.fromKey(v).map(Left(_).withRight[Piece]).orElse(Piece.fromForsyth(v).map(Right(_).withLeft[Pos])) toTry s"No such pos or piece: $v" },
+    { case BSONString(v) =>
+      Pos
+        .fromKey(v)
+        .map(Left(_).withRight[Piece])
+        .orElse(Piece.fromForsyth(v).map(Right(_).withLeft[Pos])) toTry s"No such pos or piece: $v"
+    },
     x => BSONString(x.fold(_.usiKey, _.forsyth))
   )
 
@@ -48,13 +53,17 @@ object BSONHandlers {
     def reads(r: Reader) = {
       val brush = r str "b"
       r.getO[Shape.PosOrPiece]("p") map { pos =>
-        Shape.Circle(brush, pos, r.getO[Piece]("k"))
-      } getOrElse Shape.Arrow(brush, r.get[Shape.PosOrPiece]("o"), r.get[Shape.PosOrPiece]("d"))
+        Shape.Circle(brush, pos, None)
+      } getOrElse {
+        r.getO[Shape.PosOrPiece]("d") map { dest =>
+          Shape.Arrow(brush, r.get[Shape.PosOrPiece]("o"), dest)
+        } getOrElse Shape.Circle(brush, r.get[Shape.PosOrPiece]("o"), r.getO[Piece]("k"))
+      }
     }
     def writes(w: Writer, t: Shape) =
       t match {
         case Shape.Circle(brush, pop, None)        => $doc("b" -> brush, "p" -> pop)
-        case Shape.Circle(brush, pop, Some(piece)) => $doc("b" -> brush, "p" -> pop, "k" -> piece.forsyth)
+        case Shape.Circle(brush, pop, Some(piece)) => $doc("b" -> brush, "o" -> pop, "k" -> piece.forsyth)
         case Shape.Arrow(brush, origPop, destPop)  => $doc("b" -> brush, "o" -> origPop, "d" -> destPop)
       }
   }
@@ -245,7 +254,7 @@ object BSONHandlers {
     },
     t => BSONString(s"${t.name}:${t.value}")
   )
-  implicit val tagsHandler                     = implicitly[BSONHandler[List[Tag]]].as[Tags](Tags.apply, _.value)
+  implicit val tagsHandler = implicitly[BSONHandler[List[Tag]]].as[Tags](Tags.apply, _.value)
   implicit private val ChapterSetupBSONHandler = Macros.handler[Chapter.Setup]
   implicit val ChapterRelayBSONHandler         = Macros.handler[Chapter.Relay]
   implicit val ChapterServerEvalBSONHandler    = Macros.handler[Chapter.ServerEval]

@@ -2,7 +2,7 @@ package lila.game
 
 import play.api.libs.json._
 
-import shogi.{ Centis, Color, Situation, Clock => ShogiClock, Status }
+import shogi.{ Centis, Clock => ShogiClock, Color, Situation, Status }
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
 import JsonView._
@@ -96,12 +96,6 @@ object Event {
     override def troll   = line.troll
     override def watcher = w
     override def owner   = !w
-  }
-
-  // for mobile app BC only
-  case class End(winner: Option[Color]) extends Event {
-    def typ  = "end"
-    def data = Json.toJson(winner)
   }
 
   case class EndData(game: Game, ratingDiff: Option[RatingDiffs]) extends Event {

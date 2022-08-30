@@ -10,6 +10,7 @@ import * as speech from './speech';
 import * as sg from 'shogiground/types';
 import { Config as SgConfig } from 'shogiground/config';
 import { Api as SgApi } from 'shogiground/api';
+import { samePiece } from 'shogiground/util';
 import { ClockController } from './clock/clockCtrl';
 import { initialSfen } from 'shogiops/sfen';
 import { CorresClockController, ctrl as makeCorresClock } from './corresClock/corresClockCtrl';
@@ -29,12 +30,11 @@ import {
   ApiMove,
   ApiEnd,
   Redraw,
-  SocketMove,
-  SocketDrop,
   SocketOpts,
   MoveMetadata,
   Position,
   NvuiPlugin,
+  SocketUsi,
 } from './interfaces';
 import { makeNotation, makeNotationLine } from 'common/notation';
 import { isDrop, Role, Piece } from 'shogiops/types';
@@ -71,8 +71,7 @@ export default class RoundController {
   redirecting: boolean = false;
   impasseHelp: boolean = false;
   transientMove: TransientMove;
-  moveToSubmit?: SocketMove;
-  dropToSubmit?: SocketDrop;
+  usiToSubmit?: SocketUsi;
   goneBerserk: GoneBerserk = {};
   resignConfirm?: Timeout = undefined;
   drawConfirm?: Timeout = undefined;
@@ -235,7 +234,7 @@ export default class RoundController {
       splitSfen = s.sfen.split(' '),
       config: SgConfig = {
         sfen: { board: splitSfen[0], hands: splitSfen[2] },
-        lastDests: (s.usi ? usiToSquareNames(s.usi) : []) as Key[],
+        lastDests: s.usi ? (usiToSquareNames(s.usi) as Key[]) : undefined,
         check: !!s.check,
         turnColor: this.ply % 2 === 0 ? 'sente' : 'gote',
         activeColor: this.isPlaying() ? this.data.player.color : undefined,
@@ -249,9 +248,11 @@ export default class RoundController {
         dests: this.isPlaying() ? util.getDropDests(s.sfen, this.data.game.variant.key) : new Map(),
       };
     }
+    const move = s.usi && parseUsi(s.usi),
+      capture = isForwardStep && move && this.shogiground.state.pieces.get(makeSquare(move.to) as Key);
     this.shogiground.set(config);
     if (s.usi && isForwardStep) {
-      if (s.capture) sound.capture();
+      if (capture) sound.capture();
       else sound.move();
       if (s.check) sound.check();
     }
@@ -308,14 +309,14 @@ export default class RoundController {
   };
 
   sendMove = (orig: sg.Key, dest: sg.Key, prom: boolean, meta: sg.MoveMetadata) => {
-    const move: SocketMove = {
+    const move: SocketUsi = {
       u: orig + dest,
     };
     if (prom) move.u += '+';
     if (blur.get()) move.b = 1;
     this.resign(false);
     if (this.data.pref.submitMove && !meta.premade) {
-      this.moveToSubmit = move;
+      this.usiToSubmit = move;
       this.redraw();
     } else {
       this.sendUsi(move, meta);
@@ -323,13 +324,13 @@ export default class RoundController {
   };
 
   sendDrop = (role: Role, key: sg.Key, meta: sg.MoveMetadata): void => {
-    const drop: SocketDrop = {
+    const drop: SocketUsi = {
       u: roleToString(role).toUpperCase() + '*' + key,
     };
     if (blur.get()) drop.b = 1;
     this.resign(false);
     if (this.data.pref.submitMove && !meta.premade) {
-      this.dropToSubmit = drop;
+      this.usiToSubmit = drop;
       this.redraw();
     } else {
       this.sendUsi(drop, meta);
@@ -372,7 +373,7 @@ export default class RoundController {
 
     d.game.plies = o.ply;
     d.game.player = o.ply % 2 === 0 ? 'sente' : 'gote';
-    const playedColor = o.ply % 2 === 0 ? 'gote' : 'sente',
+    const playedColor: Color = o.ply % 2 === 0 ? 'gote' : 'sente',
       activeColor = d.player.color === d.game.player;
     if (o.status) d.game.status = o.status;
     if (o.winner) d.game.winner = o.winner;
@@ -380,18 +381,17 @@ export default class RoundController {
     this.playerByColor('gote').offeringDraw = o.gDraw;
     this.setTitle();
     const move = parseUsi(o.usi!)!;
-    const capture = this.shogiground.state.pieces.get(makeSquare(move.to) as Key);
     if (!this.replaying()) {
       this.ply++;
-      if (isDrop(move))
-        this.shogiground.drop(
-          {
+      if (isDrop(move)) {
+        const capture = this.shogiground.state.pieces.get(makeSquare(move.to) as Key),
+          piece = {
             role: move.role,
             color: playedColor,
-          },
-          o.usi!.substring(2, 4) as sg.Key
-        );
-      else {
+          };
+        // no need to drop the piece if it is already there - would play the sound again
+        if (!capture || !samePiece(capture, piece)) this.shogiground.drop(piece, o.usi!.substring(2, 4) as sg.Key);
+      } else {
         // This block needs to be idempotent
         const keys = usiToSquareNames(o.usi!) as Key[];
         this.shogiground.move(keys[0], keys[1], move.promotion);
@@ -420,7 +420,6 @@ export default class RoundController {
         usi: o.usi,
         notation: makeNotation(d.pref.notation, lastStep.sfen, this.data.game.variant.key, o.usi!, lastStep.usi),
         check: o.check,
-        capture: !!capture,
       };
     d.steps.push(step);
     game.setOnGame(d, playedColor, true);
@@ -456,13 +455,11 @@ export default class RoundController {
     speech.step(step);
   };
 
-  private clearJust() {}
-
   reload = (d: RoundData): void => {
     if (d.steps.length !== this.data.steps.length) this.ply = d.steps[d.steps.length - 1].ply;
     round.massage(d);
     this.data = d;
-    this.clearJust();
+    this.initNotation();
     this.shouldSendMoveTime = false;
     if (this.clock) this.clock.setClock(d, d.clock!.sente, d.clock!.gote, d.clock!.sPeriods, d.clock!.gPeriods);
     if (this.corresClock) this.corresClock.update(d.correspondence.sente, d.correspondence.gote);
@@ -499,7 +496,6 @@ export default class RoundController {
     }
     if (!d.player.spectator && d.game.plies > 1)
       li.sound[o.winner ? (d.player.color === o.winner ? 'victory' : 'defeat') : 'draw']();
-    this.clearJust();
     this.setTitle();
     this.moveOn.next();
     this.setQuietMode();
@@ -624,19 +620,15 @@ export default class RoundController {
   };
 
   submitMove = (v: boolean): void => {
-    const toSubmit = this.moveToSubmit || this.dropToSubmit;
-    if (v && toSubmit) {
-      if (this.moveToSubmit) this.sendUsi(this.moveToSubmit);
-      else this.sendUsi(this.dropToSubmit);
-      //li.sound.confirmation();
-    } else this.jump(this.ply);
+    const toSubmit = this.usiToSubmit;
+    if (v && this.usiToSubmit) this.sendUsi(this.usiToSubmit);
+    else this.jump(this.ply);
     this.cancelMove();
     if (toSubmit) this.setLoading(true, 300);
   };
 
   cancelMove = (): void => {
-    this.moveToSubmit = undefined;
-    this.dropToSubmit = undefined;
+    this.usiToSubmit = undefined;
   };
 
   private onChange = () => {

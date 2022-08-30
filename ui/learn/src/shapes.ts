@@ -6,19 +6,19 @@ import { UsiWithColor, Level, VmEvaluation, Shape } from './interfaces';
 import { findCaptures, inCheck } from './shogi';
 import { currentPosition } from './util';
 
-export function arrow(orig: Key | Piece, dest: Key | Piece, brush?: string): DrawShape {
+export function arrow(orig: Key | Piece, dest: Key | Piece, brush?: 'green' | 'red'): DrawShape {
   return {
     orig,
     dest,
-    brush: brush || 'paleGreen',
+    brush: brush || 'green',
   };
 }
 
-export function circle(key: Key | Piece, brush?: string): DrawShape {
+export function circle(key: Key | Piece, brush?: 'green' | 'red'): DrawShape {
   return {
     orig: key,
     dest: key,
-    brush: brush || 'paleGreen',
+    brush: brush || 'green',
   };
 }
 
@@ -47,6 +47,13 @@ export function initial<T extends Shape>(shapes: T[]): VmEvaluation<T[]> {
   return onPly<T>(0, shapes);
 }
 
+export function onUsi<T extends Shape>(usi: Usi, shapes: T[]): VmEvaluation<T[]> {
+  return (_level: Level, usiCList: UsiWithColor[]): T[] => {
+    if (usiCList.length && usi === usiCList[usiCList.length - 1].usi) return shapes;
+    else return [];
+  };
+}
+
 export function onDest<T extends Shape>(dest: Key, shapes: T[]): VmEvaluation<T[]> {
   return (_level: Level, usiCList: UsiWithColor[]): T[] => {
     if (usiCList.length && dest === usiCList[usiCList.length - 1].usi.slice(2, 4)) return shapes;
@@ -56,7 +63,9 @@ export function onDest<T extends Shape>(dest: Key, shapes: T[]): VmEvaluation<T[
 
 export function onSuccess<T extends Shape>(shapes: T[]): VmEvaluation<T[]> {
   return (level: Level, usiCList: UsiWithColor[]): T[] => {
-    if (level.success(level, usiCList)) return shapes;
+    const usiCListTrim =
+      usiCList.length && usiCList[usiCList.length - 1].color !== level.color ? usiCList.slice(0, -1) : usiCList;
+    if (level.success(level, usiCListTrim)) return shapes;
     else return [];
   };
 }

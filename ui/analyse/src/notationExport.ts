@@ -1,18 +1,14 @@
-import AnalyseCtrl from './ctrl';
-import { h } from 'snabbdom';
-import { MaybeVNodes } from './interfaces';
-import { makeNotationLine } from 'common/notation';
-import { ForecastStep } from './forecast/interfaces';
-import { ops as treeOps } from 'tree';
-
 import { makeKifHeader, makeKifMove } from 'shogiops/notation/kif/kif';
 import { makeCsaHeader, makeCsaMove } from 'shogiops/notation/csa/csa';
 import { initialSfen, parseSfen } from 'shogiops/sfen';
-import { defined } from 'common';
-import { parseUsi } from 'shogiops/util';
-import { Square } from 'shogiops/types';
-import { renderTime } from './clocks';
 import { Position } from 'shogiops/shogi';
+import { Square } from 'shogiops/types';
+import { parseUsi } from 'shogiops/util';
+import { defined } from 'common/common';
+import { ops as treeOps } from 'tree';
+
+import AnalyseCtrl from './ctrl';
+import { renderTime } from './clocks';
 
 function makeKifTime(moveTime: number, totalTime: number): string {
   return '   (' + renderTime(moveTime, false) + '/' + renderTime(totalTime, true) + ')';
@@ -76,7 +72,7 @@ export function renderFullKif(ctrl: AnalyseCtrl): string {
 
   const tags = ctrl.data.tags ?? [];
   // We either don't want to display these or we display them through other means
-  const unwatedTagNames = ['先手', '下手', '後手', '上手', '手合割', '図', 'SFEN', 'Result', 'Variant'];
+  const unwatedTagNames = ['先手', '下手', '後手', '上手', '手合割', '図', 'Sfen', 'Result', 'Variant'];
   const otherTags = tags.filter(t => !unwatedTagNames.includes(t[0])).map(t => t[0] + '：' + t[1]);
 
   // We want these even empty
@@ -164,24 +160,4 @@ export function renderFullCsa(ctrl: AnalyseCtrl): string {
   const pos = parseSfen('standard', g.initialSfen ?? initialSfen('standard'), false).unwrap();
   const moves = makeCsaMainline(ctrl.tree.root, pos).join('\n');
   return [...tags, makeCsaHeader(pos), moves].join('\n');
-}
-
-export function renderNodesHtml(
-  nodes: ForecastStep[],
-  initialSfen: Sfen,
-  notation: number,
-  variant: VariantKey
-): MaybeVNodes {
-  if (!nodes[0]) return [];
-  if (!nodes[0].usi) nodes = nodes.slice(1);
-  if (!nodes[0]) return [];
-  const tags: MaybeVNodes = [];
-  const usis = nodes.map(n => n.usi);
-
-  const movesNotation = makeNotationLine(notation, initialSfen, variant, usis);
-  movesNotation.forEach((moveNotation, index) => {
-    tags.push(h('index', index + 1 + '.'));
-    tags.push(h('move-notation', moveNotation));
-  });
-  return tags;
 }

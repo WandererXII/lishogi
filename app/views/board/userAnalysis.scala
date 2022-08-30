@@ -24,15 +24,15 @@ object userAnalysis {
         analyseTag,
         analyseNvuiTag,
         embedJsUnsafe(s"""lishogi=lishogi||{};lishogi.user_analysis=${safeJsonValue(
-          Json.obj(
-            "data" -> data,
-            "i18n" -> userAnalysisI18n(withForecast = withForecast),
-            "explorer" -> Json.obj(
-              "endpoint"          -> explorerEndpoint,
-              "tablebaseEndpoint" -> tablebaseEndpoint
+            Json.obj(
+              "data" -> data,
+              "i18n" -> userAnalysisI18n(withForecast = withForecast),
+              "explorer" -> Json.obj(
+                "endpoint"          -> explorerEndpoint,
+                "tablebaseEndpoint" -> tablebaseEndpoint
+              )
             )
-          )
-        )}""")
+          )}""")
       ),
       csp = defaultCsp.withWebAssembly.some,
       shogiground = false,
@@ -45,7 +45,7 @@ object userAnalysis {
         .some,
       zoomable = true
     ) {
-      main(cls := s"analyse variant-${pov.game.variant}")(
+      main(cls := s"analyse variant-${pov.game.variant.key}")(
         pov.game.synthetic option st.aside(cls := "analyse__side")(
           views.html.base.bits.mselect(
             "analyse-variant",
@@ -53,15 +53,16 @@ object userAnalysis {
             shogi.variant.Variant.all.map { v =>
               a(
                 dataIcon := iconByVariant(v),
-                cls := (pov.game.variant == v).option("current"),
-                href := routes.UserAnalysis.parseArg(v.key)
+                cls      := (pov.game.variant == v).option("current"),
+                href     := routes.UserAnalysis.parseArg(v.key)
               )(v.name)
             }
           )
         ),
-        div(cls := "analyse__board main-board")
-          (shogigroundBoard(pov.game.variant, pov.color.some)),
+        div(cls := "analyse__board main-board")(shogigroundBoard(pov.game.variant, pov.color.some)),
+        sgHandTop,
         div(cls := "analyse__tools"),
+        sgHandBottom,
         div(cls := "analyse__controls")
       )
     }

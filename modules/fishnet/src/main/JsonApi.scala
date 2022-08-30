@@ -6,6 +6,7 @@ import play.api.libs.json._
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
 import shogi.variant.Variant
+import shogi.StartingPosition
 
 import lila.common.{ IpAddress, Maths }
 import lila.common.Json._
@@ -16,15 +17,17 @@ import lila.tree.Eval.{ Cp, Mate }
 object JsonApi {
 
   sealed trait Request {
-    val fishnet: Request.Fishnet
-    val stockfish: Request.Engine
+    val shoginet: Request.Fishnet
+    val yaneuraou: Request.Engine
+    val fairy: Request.Engine
 
     def instance(ip: IpAddress) =
       Client.Instance(
-        fishnet.version,
-        fishnet.python | Client.Python(""),
+        shoginet.version,
+        shoginet.python | Client.Python(""),
         Client.Engines(
-          stockfish = Client.Engine(stockfish.name)
+          yaneuraou = Client.Engine(yaneuraou.name),
+          fairy = Client.Engine(fairy.name)
         ),
         ip,
         DateTime.now
@@ -61,13 +64,15 @@ object JsonApi {
     }
 
     case class Acquire(
-        fishnet: Fishnet,
-        stockfish: BaseEngine
+        shoginet: Fishnet,
+        yaneuraou: BaseEngine,
+        fairy: BaseEngine
     ) extends Request
 
     case class PostMove(
-        fishnet: Fishnet,
-        stockfish: FullEngine,
+        shoginet: Fishnet,
+        yaneuraou: FullEngine,
+        fairy: FullEngine,
         move: MoveResult
     ) extends Request
         with Result {}
@@ -77,20 +82,23 @@ object JsonApi {
     }
 
     case class PostAnalysis(
-        fishnet: Fishnet,
-        stockfish: FullEngine,
+        shoginet: Fishnet,
+        yaneuraou: FullEngine,
+        fairy: FullEngine,
         analysis: List[Option[Evaluation.OrSkipped]]
     ) extends Request
         with Result {
 
       def completeOrPartial =
-        if (analysis.headOption.??(_.isDefined)) CompleteAnalysis(fishnet, stockfish, analysis.flatten)
-        else PartialAnalysis(fishnet, stockfish, analysis)
+        if (analysis.headOption.??(_.isDefined))
+          CompleteAnalysis(shoginet, yaneuraou, fairy, analysis.flatten)
+        else PartialAnalysis(shoginet, yaneuraou, fairy, analysis)
     }
 
     case class CompleteAnalysis(
-        fishnet: Fishnet,
-        stockfish: FullEngine,
+        shoginet: Fishnet,
+        yaneuraou: FullEngine,
+        fairy: FullEngine,
         analysis: List[Evaluation.OrSkipped]
     ) {
 
@@ -104,13 +112,12 @@ object JsonApi {
             .flatMap(_.nodes)
         }
 
-      def strong = medianNodes.fold(true)(_ > Evaluation.acceptableNodes)
-      def weak   = !strong
     }
 
     case class PartialAnalysis(
-        fishnet: Fishnet,
-        stockfish: FullEngine,
+        shoginet: Fishnet,
+        yaneuraou: FullEngine,
+        fairy: FullEngine,
         analysis: List[Option[Evaluation.OrSkipped]]
     )
 
@@ -144,8 +151,6 @@ object JsonApi {
 
       val npsCeil = 10 * 1000 * 1000
 
-      val desiredNodes    = 3 * 1000 * 1000
-      val acceptableNodes = desiredNodes * 0.7
     }
   }
 
@@ -237,13 +242,22 @@ object JsonApi {
     implicit val WorkIdWrites = Writes[Work.Id] { id =>
       JsString(id.value)
     }
+    private def fairyOrYane(sfen: Sfen, variant: Variant) =
+      if (
+        variant.standard && Some(sfen)
+          .filterNot(_.initialOf(variant))
+          .fold(true)(StartingPosition isHandicap _)
+      ) None
+      else Some("fairy")
+
     implicit val WorkWrites = OWrites[Work] { work =>
       (work match {
         case a: Analysis =>
           Json.obj(
             "work" -> Json.obj(
-              "type" -> "analysis",
-              "id"   -> a.id
+              "type"   -> "analysis",
+              "id"     -> a.id,
+              "flavor" -> fairyOrYane(a.game.position, a.game.variant)
             ),
             "nodes"         -> a.nodes,
             "skipPositions" -> a.skipPositions
@@ -251,10 +265,11 @@ object JsonApi {
         case m: Move =>
           Json.obj(
             "work" -> Json.obj(
-              "type"  -> "move",
-              "id"    -> m.id,
-              "level" -> m.level,
-              "clock" -> m.clock
+              "type"   -> "move",
+              "id"     -> m.id,
+              "level"  -> m.level,
+              "clock"  -> m.clock,
+              "flavor" -> fairyOrYane(m.game.position, m.game.variant)
             )
           )
       }) ++ Json.toJson(work.game).as[JsObject]

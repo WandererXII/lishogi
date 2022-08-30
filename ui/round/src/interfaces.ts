@@ -7,9 +7,6 @@ import { ChatPlugin } from 'chat';
 import { Role } from 'shogiops/types';
 import { MoveMetadata as SgMoveMetadata } from 'shogiground/types';
 
-export type MaybeVNode = VNode | null | undefined;
-export type MaybeVNodes = MaybeVNode[];
-
 export type Redraw = () => void;
 
 export interface Untyped {
@@ -26,11 +23,7 @@ export interface SocketOpts {
   millis?: number;
 }
 
-export interface SocketMove {
-  u: Usi;
-  b?: 1;
-}
-export interface SocketDrop {
+export interface SocketUsi {
   u: Usi;
   b?: 1;
 }
@@ -90,7 +83,6 @@ export interface Step {
   usi?: Usi;
   notation?: string;
   check?: boolean;
-  capture?: boolean;
 }
 
 export interface ApiMove extends Step {
@@ -132,7 +124,6 @@ export interface ApiEnd {
 export interface Pref {
   animationDuration: number;
   blindfold: boolean;
-  clockBar: boolean;
   clockSound: boolean;
   clockTenths: 0 | 1 | 2;
   clockCountdown: 0 | 3 | 5 | 10;

@@ -27,36 +27,36 @@ object show {
         analyseTag,
         analyseNvuiTag,
         embedJsUnsafe(s"""lishogi=window.lishogi||{};lishogi.relay=${safeJsonValue(
-          Json.obj(
-            "relay"    -> data.relay,
-            "study"    -> data.study.add("admin" -> isGranted(_.StudyAdmin)),
-            "data"     -> data.analysis,
-            "i18n"     -> views.html.study.jsI18n(),
-            "tagTypes" -> lila.study.KifTags.typesToString,
-            "userId"   -> ctx.userId,
-            "chat" -> chatOption.map(c =>
-              chat.json(
-                c.chat,
-                name = trans.chatRoom.txt(),
-                timeout = c.timeout,
-                writeable = ctx.userId.??(s.canChat),
-                public = false,
-                resourceId = lila.chat.Chat.ResourceId(s"relay/${c.chat.id}"),
-                localMod = ctx.userId.??(s.canContribute)
-              )
-            ),
-            "explorer" -> Json.obj(
-              "endpoint"          -> explorerEndpoint,
-              "tablebaseEndpoint" -> tablebaseEndpoint
-            ),
-            "socketUrl"     -> views.html.study.show.socketUrl(s.id.value),
-            "socketVersion" -> socketVersion.value
-          )
-        )}""")
+            Json.obj(
+              "relay"    -> data.relay,
+              "study"    -> data.study.add("admin" -> isGranted(_.StudyAdmin)),
+              "data"     -> data.analysis,
+              "i18n"     -> views.html.study.jsI18n(),
+              "tagTypes" -> lila.study.KifTags.typesToString,
+              "userId"   -> ctx.userId,
+              "chat" -> chatOption.map(c =>
+                chat.json(
+                  c.chat,
+                  name = trans.chatRoom.txt(),
+                  timeout = c.timeout,
+                  writeable = ctx.userId.??(s.canChat),
+                  public = true,
+                  resourceId = lila.chat.Chat.ResourceId(s"relay/${c.chat.id}"),
+                  localMod = ctx.userId.??(s.canContribute)
+                )
+              ),
+              "explorer" -> Json.obj(
+                "endpoint"          -> explorerEndpoint,
+                "tablebaseEndpoint" -> tablebaseEndpoint
+              ),
+              "socketUrl"     -> views.html.study.show.socketUrl(s.id.value),
+              "socketVersion" -> socketVersion.value
+            )
+          )}""")
       ),
       shogiground = false,
       zoomable = true,
-      csp = defaultCsp.withWebAssembly.withTwitch.some,
+      csp = defaultCsp.withWebAssembly.some,
       openGraph = lila.app.ui
         .OpenGraph(
           title = r.name,
@@ -73,7 +73,7 @@ object show {
 
   def widget(r: lila.relay.Relay.WithStudyAndLiked, extraCls: String = "") =
     div(cls := s"relay-widget $extraCls", dataIcon := "")(
-      a(cls := "overlay", href := routes.Relay.show(r.relay.slug, r.relay.id.value)),
+      a(cls := "overlay", href                     := routes.Relay.show(r.relay.slug, r.relay.id.value)),
       div(
         h3(r.relay.name),
         p(r.relay.description)

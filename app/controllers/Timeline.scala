@@ -1,7 +1,6 @@
 package controllers
 
 import play.api.libs.json._
-import scala.concurrent.duration._
 import views._
 
 import lila.app._
@@ -27,7 +26,11 @@ final class Timeline(env: Env) extends LilaController(env) {
         _ =>
           for {
             entries <- env.timeline.entryApi
-              .moreUserEntries(me.id, Max(getInt("nb") | 10) atMost env.apiTimelineSetting.get(), ctx.lang.code)
+              .moreUserEntries(
+                me.id,
+                Max(getInt("nb") | 10) atMost env.apiTimelineSetting.get(),
+                ctx.lang.code
+              )
             users <- env.user.lightUserApi.asyncManyFallback(entries.flatMap(_.userIds).distinct)
             userMap = users.view.map { u => u.id -> u }.toMap
           } yield Ok(Json.obj("entries" -> entries, "users" -> userMap))

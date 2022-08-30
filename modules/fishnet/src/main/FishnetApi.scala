@@ -5,7 +5,7 @@ import reactivemongo.api.bson._
 import scala.concurrent.duration._
 import scala.util.{ Failure, Success, Try }
 
-import Client.{ Evaluation, Skill }
+import Client.Skill
 import lila.common.IpAddress
 import lila.db.dsl._
 
@@ -32,15 +32,12 @@ final class FishnetApi(
 
   def keyExists(key: Client.Key) = repo.getEnabledClient(key).map(_.isDefined)
 
-  def clientUserId(key: Client.Key): Fu[Option[Client.UserId]] =
-    repo.getEnabledClient(key).map(_.map(_.userId))
-
   def authenticateClient(req: JsonApi.Request, ip: IpAddress): Fu[Try[Client]] = {
-    if (config.offlineMode && req.fishnet.apikey.value.isEmpty) repo.getOfflineClient map some
-    else repo.getEnabledClient(req.fishnet.apikey)
+    if (config.offlineMode && req.shoginet.apikey.value.isEmpty) repo.getOfflineClient map some
+    else repo.getEnabledClient(req.shoginet.apikey)
   } map {
     case None         => Failure(new Exception("Can't authenticate: invalid key or disabled client"))
-    case Some(client) => clientVersion accept req.fishnet.version map (_ => client)
+    case Some(client) => clientVersion accept req.shoginet.version map (_ => client)
   } flatMap {
     case Success(client) => repo.updateClientInstance(client, req instance ip) map Success.apply
     case failure         => fuccess(failure)
@@ -48,9 +45,9 @@ final class FishnetApi(
 
   def acquire(client: Client, slow: Boolean = false): Fu[Option[JsonApi.Work]] =
     (client.skill match {
-      case Skill.Move     => acquireMove(client)
-      case Skill.Analysis => acquireAnalysis(client, slow)
-      case Skill.All      => acquireMove(client) orElse acquireAnalysis(client, slow)
+      case Skill.Move | Skill.MoveStd => acquireMove(client)
+      case Skill.Analysis             => acquireAnalysis(client, slow)
+      case Skill.All                  => acquireMove(client) orElse acquireAnalysis(client, slow)
     }).monSuccess(_.fishnet.acquire)
       .recover { case e: Exception =>
         logger.error("Fishnet.acquire", e)
@@ -68,21 +65,12 @@ final class FishnetApi(
             $doc("lastTryByKey" $ne client.key) // client alternation
           } ++ {
             slow ?? $doc("sender.system" -> true)
-          } ++ {
-            client.isNNUE ?? $doc("game.initialSfen" $exists false)
-          } ++ {
-            repo.selectVariants(client.supportedVariants.map(_.id)) // only variants client supports
-          } ++ {
-            !client.isNNUE ?? $or(
-              "game.initialSfen" $exists true,
-              "game.variant" $ne "1"
-            )
           }
         )
         .sort(
           $doc(
             "sender.system" -> 1, // user requests first, then lishogi auto analysis
-            "createdAt"     -> 1 // oldest requests first
+            "createdAt"     -> 1  // oldest requests first
           )
         )
         .one[Work.Analysis]
@@ -113,14 +101,10 @@ final class FishnetApi(
           data.completeOrPartial match {
             case complete: CompleteAnalysis =>
               {
-                if (complete.weak && work.game.variant.standard) {
-                  Monitor.weak(work, client, complete)
-                  repo.updateOrGiveUpAnalysis(work.weak) >> fufail(WeakAnalysis(client))
-                } else
-                  analysisBuilder(client, work, complete.analysis) flatMap { analysis =>
-                    monitor.analysis(work, client, complete)
-                    repo.deleteAnalysis(work) inject PostAnalysisResult.Complete(analysis)
-                  }
+                analysisBuilder(client, work, complete.analysis) flatMap { analysis =>
+                  monitor.analysis(work, client, complete)
+                  repo.deleteAnalysis(work) inject PostAnalysisResult.Complete(analysis)
+                }
               } recoverWith { case e: Exception =>
                 Monitor.failure(work, client, e)
                 repo.updateOrGiveUpAnalysis(work.invalid) >> fufail(e)
@@ -193,7 +177,6 @@ final class FishnetApi(
       _id = Client.makeKey,
       userId = userId,
       skill = Skill.Analysis,
-      evaluation = Evaluation.NNUE,
       instance = None,
       enabled = true,
       createdAt = DateTime.now
@@ -210,10 +193,6 @@ object FishnetApi {
       offlineMode: Boolean,
       analysisNodes: Int
   )
-
-  case class WeakAnalysis(client: Client) extends LilaException {
-    val message = s"$client: Analysis nodes per move is too low"
-  }
 
   case object WorkNotFound extends LilaException {
     val message = "The work has disappeared"
