@@ -2,7 +2,7 @@ import { defined } from 'common/common';
 import { Work } from './types';
 
 const minDepth = 6;
-const maxStockfishPlies = 245;
+const maxSearchPlies = 245;
 
 export class Protocol {
   public engineName: string | undefined;
@@ -19,10 +19,8 @@ export class Protocol {
   connected(send: (cmd: string) => void): void {
     this.send = send;
 
-    // Get engine name, version and options.
     this.options = new Map([
       ['Threads', '1'],
-      ['USI_Hash', '16'],
       ['MultiPV', '1'],
     ]);
     this.send('usi');
@@ -45,11 +43,10 @@ export class Protocol {
   received(command: string): void {
     const parts = command.trim().split(/\s+/g);
     if (parts[0] === 'usiok') {
-      if (this.work?.variant === 'standard') {
+      if (this.engineName?.startsWith('YaneuraOu')) {
+        this.setOption('USI_Hash', '16'); // default is 1024, so set something more reasonable
         this.setOption('EnteringKingRule', 'CSARule27H');
-      } else {
-        this.setOption('USI_AnalyseMode', 'true');
-      }
+      } else this.setOption('USI_AnalyseMode', 'true');
 
       this.send?.('usinewgame');
       this.send?.('isready');
@@ -103,7 +100,14 @@ export class Protocol {
       // Track max pv index to determine when pv prints are done.
       if (this.expectedPvs < multiPv) this.expectedPvs = multiPv;
 
-      if (depth < minDepth || !defined(nodes) || !defined(elapsedMs) || !defined(isMate) || !defined(povEv)) return;
+      if (
+        (depth < minDepth && !isMate) ||
+        !defined(nodes) ||
+        !defined(elapsedMs) ||
+        !defined(isMate) ||
+        !defined(povEv)
+      )
+        return;
 
       const pivot = this.work.threatMode ? 0 : 1;
       const ev = this.work.ply % 2 === pivot ? -povEv : povEv;
@@ -176,7 +180,7 @@ export class Protocol {
       this.send(['position sfen', this.work.initialSfen, 'moves', ...this.work.moves].join(' '));
       this.send(
         this.work.maxDepth >= 99
-          ? `go depth ${maxStockfishPlies}` // 'go infinite' would not finish even if entire tree search completed
+          ? `go depth ${maxSearchPlies}` // 'go infinite' would not finish even if entire tree search completed
           : 'go movetime 90000'
       );
     }

@@ -33,7 +33,14 @@ function localEvalInfo(ctrl: ParentCtrl, evs: NodeEvals): Array<VNode | string> 
 
   const depth = evs.client.depth || 0;
   const t: Array<VNode | string> = evs.client.cloud
-    ? [trans('depthX', depth), h('span.cloud', { attrs: { title: trans.noarg('cloudAnalysis') } }, 'Cloud')]
+    ? [
+        trans('depthX', depth),
+        h(
+          'span.cloud',
+          { attrs: { title: trans.noarg('cloudAnalysis') } },
+          `Cloud - ${ceval.shouldUseYaneuraou ? 'NNUE' : 'HCE'}`
+        ),
+      ]
     : [trans('depthX', depth + '/' + Math.max(depth, evs.client.maxDepth))];
   if (ceval.canGoDeeper())
     t.push(
@@ -429,8 +436,6 @@ function renderPvMoves(pos: Position, pv: Usi[], notation: Notation): VNode[] {
     const usi = pv[i],
       sfen = makeSfen(pos);
     key += '|' + usi;
-    // move number separately for notations with color icon
-    if (addColorIcon) vnodes.push(h('index', moveNumber));
     vnodes.push(
       h(
         'span.pv-move' + colorIcon,

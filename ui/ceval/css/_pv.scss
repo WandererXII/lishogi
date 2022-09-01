@@ -27,16 +27,17 @@
       width: 34px;
       text-align: center;
     }
-    index {
-      margin-left: 6px;
-      margin-right: -6px;
-    }
     span {
       @extend %move-notation;
       display: inline-block; // takes whole height - easier to hover then
       margin-left: 6px;
+      .notation-2 & {
+        margin-left: 4px; // special case, because '同　' makes it harder to read  ☗同　銀 ☖２六歩 ☗５二金右
+      }
     }
-
+    .pv-move:hover {
+      color: $c-font-clearer;
+    }
     &[data-usi] .pv-move:hover {
       color: $c-primary;
     }
@@ -69,7 +70,7 @@
     max-width: 240px;
     right: 8px; // so moves are still visible
     margin-top: 8px;
-    z-index: 1;
+    z-index: 3;
     sg-hand-wrap {
       background: $c-bg-zebra;
       .hand-top {

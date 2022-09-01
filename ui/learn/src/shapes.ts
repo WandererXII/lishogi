@@ -6,19 +6,19 @@ import { UsiWithColor, Level, VmEvaluation, Shape } from './interfaces';
 import { findCaptures, inCheck } from './shogi';
 import { currentPosition } from './util';
 
-export function arrow(orig: Key | Piece, dest: Key | Piece, brush?: string): DrawShape {
+export function arrow(orig: Key | Piece, dest: Key | Piece, brush?: 'green' | 'red'): DrawShape {
   return {
     orig,
     dest,
-    brush: brush || 'paleGreen',
+    brush: brush || 'green',
   };
 }
 
-export function circle(key: Key | Piece, brush?: string): DrawShape {
+export function circle(key: Key | Piece, brush?: 'green' | 'red'): DrawShape {
   return {
     orig: key,
     dest: key,
-    brush: brush || 'paleGreen',
+    brush: brush || 'green',
   };
 }
 
@@ -45,6 +45,13 @@ export function onPly<T extends Shape>(ply: number, shapes: T[]): VmEvaluation<T
 
 export function initial<T extends Shape>(shapes: T[]): VmEvaluation<T[]> {
   return onPly<T>(0, shapes);
+}
+
+export function onUsi<T extends Shape>(usi: Usi, shapes: T[]): VmEvaluation<T[]> {
+  return (_level: Level, usiCList: UsiWithColor[]): T[] => {
+    if (usiCList.length && usi === usiCList[usiCList.length - 1].usi) return shapes;
+    else return [];
+  };
 }
 
 export function onDest<T extends Shape>(dest: Key, shapes: T[]): VmEvaluation<T[]> {
