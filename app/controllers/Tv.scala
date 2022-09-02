@@ -68,7 +68,7 @@ final class Tv(
       lila.tv.Tv.Channel.byKey.get(chanKey) ?? { channel =>
         env.tv.tv.getChampions zip env.tv.tv.getGames(channel, 15) map { case (champs, games) =>
           NoCache {
-            Ok(html.tv.games(channel, games map Pov.naturalOrientation, champs))
+            Ok(html.tv.games(channel, games map Pov.first, champs))
           }
         }
       }
