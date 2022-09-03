@@ -8051,6 +8051,19 @@ components:
           "name": "Blitz",
           "position": 1
         },
+        "maxRating": {
+          "perf": "blitz",
+          "rating": 2000
+        },
+        "minRating": {
+          "perf": "blitz",
+          "rating": 1500
+        },
+        "minRatedGames": {
+          "nb": 5,
+          "perf": "blitz"
+        },
+        "onlyTitled": true,
         "schedule": {
           "freq": "hourly",
           "speed": "superblitz"
