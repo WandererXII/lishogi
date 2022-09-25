@@ -37,9 +37,7 @@ const spamRegex = new RegExp(
     'wyon.de',
     'sexdatingcz.club',
   ]
-    .map(url => {
-      return url.replace(/\./g, '\\.').replace(/\//g, '\\/');
-    })
+    .map(url => url.replace(/\./g, '\\.').replace(/\//g, '\\/'))
     .join('|')
 );
 
