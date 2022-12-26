@@ -1,9 +1,9 @@
-import { h, VNode } from 'snabbdom';
-import { makeNotation, makeNotationLine, Notation, notationsWithColor } from 'common/notation';
+import { Notation, makeNotation, makeNotationLine, notationsWithColor } from 'common/notation';
+import { MaybeVNodes, bind, dataIcon } from 'common/snabbdom';
 import spinner from 'common/spinner';
-import { bind, dataIcon, MaybeVNodes } from 'common/snabbdom';
-import { ForecastCtrl, ForecastStep } from './interfaces';
+import { VNode, h } from 'snabbdom';
 import AnalyseCtrl from '../ctrl';
+import { ForecastCtrl, ForecastStep } from './interfaces';
 
 function onMyTurn(ctrl: AnalyseCtrl, fctrl: ForecastCtrl, cNodes: ForecastStep[]): VNode | undefined {
   var firstNode = cNodes[0];
@@ -13,8 +13,10 @@ function onMyTurn(ctrl: AnalyseCtrl, fctrl: ForecastCtrl, cNodes: ForecastStep[]
   var lines = fcs.filter(function (fc) {
     return fc.length > 1;
   });
-  const initialSfen = firstNode.sfen;
-  const moveNotation = makeNotation(ctrl.data.pref.notation, initialSfen, ctrl.data.game.variant.key, cNodes[0].usi);
+  const initialSfen = firstNode.sfen,
+    moveNotation =
+      firstNode.notation ||
+      makeNotation(ctrl.data.pref.notation, initialSfen, ctrl.data.game.variant.key, cNodes[0].usi);
   return h(
     'button.on-my-turn.button.text',
     {
@@ -23,7 +25,7 @@ function onMyTurn(ctrl: AnalyseCtrl, fctrl: ForecastCtrl, cNodes: ForecastStep[]
     },
     [
       h('span', [
-        h('strong', ctrl.trans('playX', moveNotation!)),
+        h('strong', ctrl.trans('playX', moveNotation)),
         lines.length
           ? h('span', ctrl.trans.plural('andSaveNbPremoveLines', lines.length))
           : h('span', ctrl.trans.noarg('noConditionalPremoves')),

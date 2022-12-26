@@ -1,6 +1,5 @@
-import { h, VNode } from 'snabbdom';
-
-import { Redraw, Close, bind, header, validateUrl } from './util';
+import { VNode, h } from 'snabbdom';
+import { Close, Redraw, bind, header, validateUrl } from './util';
 
 type Key = 'light' | 'dark' | 'transp';
 
@@ -122,10 +121,7 @@ function applyBackground(data: BackgroundData, list: Background[]) {
   });
 
   if (key === 'transp') {
-    const bgData = document.getElementById('bg-data');
-    bgData
-      ? (bgData.innerHTML = 'body.transp::before{background-image:url(' + data.image + ');}')
-      : $('head').append('<style id="bg-data">body.transp::before{background-image:url(' + data.image + ');}</style>');
+    document.body.style.setProperty('--tr-bg-url', 'url(' + data.image + ')');
   }
 }
 

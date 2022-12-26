@@ -1,7 +1,7 @@
-import { FormStore, toFormLines, makeStore } from './form';
-import LobbyController from './ctrl';
 import { handicaps } from 'game/handicaps';
 import { initialSfen } from 'shogiops/sfen';
+import LobbyController from './ctrl';
+import { FormStore, makeStore, toFormLines } from './form';
 
 const li = window.lishogi;
 
@@ -132,6 +132,8 @@ export default class Setup {
 
   private ratingKey = (variantId: string, realTime: boolean, timeSum: number): string => {
     switch (variantId) {
+      case '3':
+        return 'chushogi';
       case '2':
         return 'minishogi';
       default:
@@ -196,10 +198,7 @@ export default class Setup {
         per = $periodsInput.filter(':checked').val(),
         hasSfen = !!$sfenInput.val(),
         cantBeRated =
-          hasSfen ||
-          (typ === 'hook' && timeMode === '0') ||
-          (variantId !== '1' && timeMode !== '1') ||
-          (timeMode === '1' && (per > 1 || (inc > 0 && byo > 0)));
+          hasSfen || (typ === 'hook' && timeMode === '0') || (timeMode === '1' && (per > 1 || (inc > 0 && byo > 0)));
 
       if (variantId != '1') $handicap.hide();
       else $handicap.css('display', 'flex');

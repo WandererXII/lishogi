@@ -1,6 +1,8 @@
-import { Dests, DropDests, Pieces } from 'shogiground/types';
-import { readBoard, inferDimensions } from 'shogiground/sfen';
-import { roleToString } from 'shogiops/util';
+import { DropDests, MoveDests } from 'shogiground/types';
+import { Board } from 'shogiops';
+import { parseSfen, roleToForsyth } from 'shogiops/sfen';
+import { PieceName, Role } from 'shogiops/types';
+import { parsePieceName, parseSquare } from 'shogiops/util';
 import { KeyboardMove } from '../keyboardMove';
 
 // TODO
@@ -92,10 +94,9 @@ window.lishogi.keyboardMove = function (opts: { input: HTMLInputElement; ctrl: K
     opts.input.classList.remove('wrong');
   };
   makeBindings(opts, submit, clear);
-  return function (sfen: string, dests: Dests | undefined, dropDests: DropDests | undefined, yourMove: boolean) {
-    const dims = inferDimensions(sfen),
-      pieces = readBoard(sfen, dims);
-    const eUsis = createExtendedUsi(pieces, dests || new Map(), dropDests || new Map());
+  return function (sfen: string, dests: MoveDests | undefined, dropDests: DropDests | undefined, yourMove: boolean) {
+    const board = parseSfen('standard', sfen).unwrap().board;
+    const eUsis = createExtendedUsi(board, dests || new Map(), dropDests || new Map());
     console.log('kkkb:', eUsis);
     submit(opts.input.value, {
       isTrusted: true,
@@ -147,17 +148,18 @@ function alpha(coordinate: string): Key {
 //  return [...pieces].filter(([_key, boardPiece]) => samePiece(piece, boardPiece)).map(([key, _piece]) => key);
 //}
 
-function createExtendedUsi(pieces: Pieces, dests: Dests, dropDests: DropDests): string[] {
+function createExtendedUsi(board: Board, dests: MoveDests, dropDests: DropDests): string[] {
   const eUsis: string[] = [];
   for (const [orig, d] of dests) {
-    const role = pieces.get(orig)?.role,
-      roleStr = role && roleToString(role);
+    const role = board.get(parseSquare(orig))?.role as Role,
+      roleStr = role && roleToForsyth('standard')(role);
     if (roleStr) {
       d.forEach(dest => eUsis.push(roleStr + orig + dest));
     }
   }
-  for (const [role, d] of dropDests) {
-    d.forEach(dest => eUsis.push(roleToString(role) + '*' + dest));
+  for (const [pn, d] of dropDests) {
+    const role = parsePieceName(pn as PieceName)!.role;
+    d.forEach(dest => eUsis.push(roleToForsyth('standard')(role) + '*' + dest));
   }
   return eUsis;
 }

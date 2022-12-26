@@ -1,7 +1,7 @@
-import { bind, MaybeVNode } from 'common/snabbdom';
+import { MaybeVNode, bind } from 'common/snabbdom';
+import { VNode, h } from 'snabbdom';
 import { Controller } from '../interfaces';
 import afterView from './after';
-import { h, VNode } from 'snabbdom';
 
 function viewSolution(ctrl: Controller): VNode {
   return h(
@@ -24,7 +24,6 @@ function viewSolution(ctrl: Controller): VNode {
 function initial(ctrl: Controller): VNode {
   return h('div.puzzle__feedback.play', [
     h('div.player', [
-      h('div.no-square', h('div.color-piece.' + ctrl.vm.pov)),
       h('div.instruction', [
         h('strong', ctrl.trans.noarg('yourTurn')),
         h('em', ctrl.trans.noarg(ctrl.vm.pov === 'sente' ? 'findTheBestMoveForBlack' : 'findTheBestMoveForWhite')),

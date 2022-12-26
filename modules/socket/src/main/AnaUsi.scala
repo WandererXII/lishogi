@@ -26,8 +26,7 @@ case class AnaUsi(
 
   def branch: Validated[String, Branch] = {
     shogi.Game(variant.some, sfen.some)(usi) map { game =>
-      val movable = game.situation.playable(strict = false, withImpasse = false)
-      val sfen    = game.toSfen
+      val sfen = game.toSfen
       Branch(
         id = UsiCharPair(usi, variant),
         ply = game.plies,
@@ -46,8 +45,10 @@ object AnaUsi {
 
   def parse(o: JsObject) = {
     for {
-      d    <- o obj "d"
-      usi  <- d str "usi" flatMap shogi.format.usi.Usi.apply
+      d <- o obj "d"
+      usi <- d str "usi" flatMap { u =>
+        shogi.format.usi.Usi.apply(u).orElse(shogi.format.usi.UciToUsi.apply(u))
+      }
       sfen <- d str "sfen" map Sfen.apply
       path <- d str "path"
     } yield AnaUsi(

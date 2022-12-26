@@ -3,7 +3,7 @@ package lila.bot
 import scala.concurrent.duration._
 import scala.concurrent.Promise
 
-import shogi.format.usi.Usi
+import shogi.format.usi.{ UciToUsi, Usi }
 import lila.common.Bus
 import lila.game.Game.PlayerId
 import lila.game.{ Game, GameRepo, Pov }
@@ -25,7 +25,7 @@ final class BotPlayer(
 
   def apply(pov: Pov, me: User, usiStr: String, offeringDraw: Option[Boolean]): Funit =
     lila.common.Future.delay((pov.game.hasAi ?? 500) millis) {
-      Usi(usiStr).fold(clientError[Unit](s"Invalid USI: $usiStr")) { usi =>
+      Usi(usiStr).orElse(UciToUsi(usiStr)).fold(clientError[Unit](s"Invalid USI: $usiStr")) { usi =>
         lila.mon.bot.moves(me.username).increment()
         if (!pov.isMyTurn) clientError("Not your turn, or game already over")
         else {
@@ -60,7 +60,7 @@ final class BotPlayer(
         // delay so it feels more natural
         lila.common.Future.delay(if (accept) 100.millis else 2.seconds) {
           fuccess {
-            tellRound(pov.gameId, (if (accept) RematchYes else RematchNo)(pov.playerId))
+            tellRound(pov.gameId, (if (accept) RematchYes else RematchNo) (pov.playerId))
           }
         }
         true
@@ -89,7 +89,7 @@ final class BotPlayer(
       tellRound(pov.gameId, DrawNo(PlayerId(pov.playerId)))
 
   def offerDraw(pov: Pov): Unit =
-    if (pov.game.drawable && pov.game.playerCanOfferDraw)
+    if (pov.game.drawable && pov.game.playerCanOfferDraw(pov.color))
       tellRound(pov.gameId, DrawYes(PlayerId(pov.playerId)))
 
   def setDraw(pov: Pov, v: Boolean): Unit =

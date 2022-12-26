@@ -1,6 +1,6 @@
-import { h, VNode } from 'snabbdom';
 import spinner from 'common/spinner';
-import { Ctrl, NotifyData, Notification } from './interfaces';
+import { VNode, h } from 'snabbdom';
+import { Ctrl, Notification, NotifyData } from './interfaces';
 import { renderers } from './renderers';
 
 export default function (ctrl: Ctrl): VNode {
@@ -30,6 +30,20 @@ function renderContent(ctrl: Ctrl, d: NotifyData): VNode[] {
       h('div.pager.prev.disabled', {
         attrs: { 'data-icon': 'S' },
       })
+    );
+
+  if (nb > 0 && pager.currentPage == 1)
+    nodes.push(
+      h(
+        'div.clear',
+        h('button.delete.button.button-empty', {
+          attrs: {
+            'data-icon': 'q',
+            title: 'Clear',
+          },
+          hook: clickHook(ctrl.clear),
+        })
+      )
     );
 
   nodes.push(nb ? recentNotifications(d, ctrl.scrolling()) : empty());

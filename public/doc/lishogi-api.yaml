@@ -253,6 +253,7 @@ paths:
               - rapid
               - classical
               - minishogi
+              - chushogi
           required: true
       responses:
         "200":
@@ -3383,7 +3384,7 @@ components:
       enum:
         - standard
         - minishogi
-        - fromPosition
+        - chushogi
       example: standard
       default: standard
 
@@ -3417,6 +3418,7 @@ components:
         - classical
         - correspondence
         - minishogi
+        - chushogi
 
     Clock:
       type: object
@@ -3446,7 +3448,8 @@ components:
         - cheat
         - noStart
         - unknownFinish
-        - variantEnd
+        - royalsLost
+        - bareKing
 
     ChallengeUser:
       allOf:
@@ -4580,7 +4583,8 @@ components:
         "rapid": [],
         "classical": [],
         "ultraBullet": [],
-        "minishogi": []
+        "minishogi": [],
+        "chushogi": []
       }
 
     Leaderboard:

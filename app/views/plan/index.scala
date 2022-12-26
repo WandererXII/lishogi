@@ -1,7 +1,5 @@
 package views.html.plan
 
-import play.api.i18n.Lang
-
 import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
@@ -74,8 +72,7 @@ object index {
           div(cls := "box__pad")(
             div(cls := "wrapper")(
               div(cls := "text")(
-                p(weRelyOnSupport()),
-                p("Donations through Patreon will be handled manually within 24 hours.")
+                p(if (ctx.isAuth) weRelyOnSupport() else donationSupport())
               ),
               div(cls := "content")(
                 div(
@@ -134,7 +131,12 @@ object index {
 </form>"""),
                   patron.exists(_.isLifetime) option
                     p(style := "text-align:center;margin-bottom:1em")(makeExtraDonation()),
-                  st.group(cls := "radio buttons freq")(
+                  st.group(
+                    cls := List(
+                      "radio buttons freq" -> true,
+                      "anon"               -> ctx.isAnon
+                    )
+                  )(
                     div(
                       st.title := payLifetimeOnce.txt(lila.plan.Cents.lifetime.usd),
                       cls      := List("lifetime-check" -> patron.exists(_.isLifetime)),
@@ -206,16 +208,13 @@ object index {
                     )
                   ),
                   div(cls := "service")(
-                    a(cls := "patreon button", href := "https://www.patreon.com/lishogi", target := "_blank")(
-                      "Patreon"
-                    ),
                     button(cls := "paypal button")(withPaypal())
                   )
                 )
               )
             ),
             p(id := "error")(),
-            p(cls := "small_team")(weAreSmallTeam()),
+            ctx.isAuth option p(cls := "small_team")(weAreSmallTeam()),
             faq,
             div(cls := "best_patrons")(
               h2(celebratedPatrons()),
@@ -231,23 +230,29 @@ object index {
     }
   }
 
-  private def faq(implicit lang: Lang) =
+  private def faq(implicit ctx: Context) =
     div(cls := "faq")(
-      dl(
+      ctx.isAuth option dl(
         dt(changeMonthlySupport()),
         dd(
           changeOrContact(a(href := routes.Main.contact, target := "_blank")(contactSupport()))
-        ),
+        )
+      ),
+      dl(
         dt(otherMethods()),
         dd(
-          bitcoin(code("13kg1w1K3TXr1y82cDQHKAGQJphz4qGUDH"))
+          frag(trans.yes(), " - "),
+          a(cls := "patreon", href := "https://www.patreon.com/lishogi", target := "_blank")(
+            "Patreon"
+          ),
+          ".",
+          ctx.isAuth option " Donations through Patreon will be handled manually within few days."
         )
       ),
       dl(
         dt(patronFeatures()),
         dd(
-          noPatronFeatures(),
-          br,
+          if (ctx.isAuth) frag(noPatronFeatures(), br) else frag(trans.no(), ". "),
           a(href := routes.Plan.features, target := "_blank")(featuresComparison()),
           "."
         )

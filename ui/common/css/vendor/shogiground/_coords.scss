@@ -116,3 +116,15 @@ coords {
     }
   }
 }
+
+.d-12x12 coords {
+  coord {
+    flex: 1 1 calc(100% / 12);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  &.ranks coord {
+    transform: unset;
+  }
+}

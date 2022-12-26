@@ -1,19 +1,19 @@
-import * as xhr from './xhr';
-import config from './config';
-import sign from 'puz/sign';
-import { Api as SgApi } from 'shogiground/api';
-import { getNow, puzzlePov, sound } from 'puz/util';
 import { prop } from 'common/common';
-import { StormOpts, StormData, StormVm, StormRecap, StormPrefs } from './interfaces';
-import { Run } from 'puz/interfaces';
+import { Clock } from 'puz/clock';
 import { Combo } from 'puz/combo';
 import CurrentPuzzle from 'puz/current';
-import { Clock } from 'puz/clock';
-import { isDrop, Move, Role, Piece } from 'shogiops/types';
-import { backrank, secondBackrank } from 'shogiops/variantUtil';
-import { makeUsi, parseSquare, parseUsi } from 'shogiops/util';
-import { Shogiground } from 'shogiground';
+import { Run } from 'puz/interfaces';
 import { makeSgOpts } from 'puz/run';
+import sign from 'puz/sign';
+import { getNow, puzzlePov, sound } from 'puz/util';
+import { Shogiground } from 'shogiground';
+import { Api as SgApi } from 'shogiground/api';
+import { SquareSet } from 'shogiops/squareSet';
+import { Move, Piece, Role, isDrop } from 'shogiops/types';
+import { makeUsi, parseSquare, parseUsi } from 'shogiops/util';
+import config from './config';
+import { StormData, StormOpts, StormPrefs, StormRecap, StormVm } from './interfaces';
+import * as xhr from './xhr';
 
 export default class StormCtrl {
   private data: StormData;
@@ -150,14 +150,20 @@ export default class StormCtrl {
     window.lishogi.pubsub.emit('ply', this.run.moves);
   }
 
+  private backrank(color: Color): SquareSet {
+    return SquareSet.fromRank(color === 'sente' ? 0 : 8);
+  }
+  private secondBackrank(color: Color): SquareSet {
+    return color === 'sente' ? SquareSet.ranksAbove(2) : SquareSet.ranksBelow(6);
+  }
   // When not promotion isn't an option usi in solution might not contain '+'
   private isForcedPromotion(u1: string, u2: string, turn: Color, role?: Role): boolean {
     const m1 = parseUsi(u1);
     const m2 = parseUsi(u2);
     if (!role || !m1 || !m2 || isDrop(m1) || isDrop(m2) || m1.from != m2.from || m1.to != m2.to) return false;
     return (
-      (role === 'knight' && secondBackrank('standard')(turn).has(m1.to)) ||
-      ((role === 'pawn' || role === 'lance' || role === 'knight') && backrank('standard')(turn).has(m1.to))
+      (role === 'knight' && this.secondBackrank(turn).has(m1.to)) ||
+      ((role === 'pawn' || role === 'lance' || role === 'knight') && this.backrank(turn).has(m1.to))
     );
   }
 

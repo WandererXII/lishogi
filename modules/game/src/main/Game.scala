@@ -318,7 +318,13 @@ case class Game(
       gotePlayer = f(gotePlayer)
     )
 
-  def playerCanOfferDraw = false
+  def playerCanOfferDraw(color: Color) =
+    variant.chushogi &&
+      started && playable &&
+      plies >= 2 &&
+      !player(color).isOfferingDraw &&
+      !opponent(color).isAi &&
+      !playerHasOfferedDraw(color)
 
   def playerHasOfferedDraw(color: Color) =
     player(color).lastDrawOffer ?? (_ >= plies - 20)
@@ -620,7 +626,8 @@ object Game {
 
   val maxPlayingRealtime = 100 // plus 200 correspondence games
 
-  val maxPlies = 600 // unlimited can cause StackOverflowError
+  val maxPlies         = 700 // unlimited can cause StackOverflowError
+  val maxChushogiPlies = 1200
 
   val analysableVariants: Set[Variant] = Set(
     shogi.variant.Standard,
@@ -634,7 +641,7 @@ object Game {
   )
 
   def allowRated(initialSfen: Option[Sfen], clock: Option[Clock.Config], variant: Variant) =
-    initialSfen.filterNot(_.initialOf(variant)).isEmpty && clock.fold(variant.standard) { c =>
+    initialSfen.filterNot(_.initialOf(variant)).isEmpty && clock.fold(true) { c =>
       c.periodsTotal <= 1 && (!c.hasByoyomi || !c.hasIncrement)
     }
 
@@ -724,41 +731,43 @@ object Game {
 
   object BSONFields {
 
-    val id                = "_id"
-    val sentePlayer       = "p0"
-    val gotePlayer        = "p1"
-    val playerIds         = "is"
-    val playerUids        = "us"
-    val playingUids       = "pl"
-    val usiMoves          = "um"
-    val status            = "s"
-    val plies             = "t"
-    val clock             = "c"
-    val positionHashes    = "ph"
-    val daysPerTurn       = "cd"
-    val moveTimes         = "mt"
-    val senteClockHistory = "cw"
-    val goteClockHistory  = "cb"
-    val periodsSente      = "pw"
-    val periodsGote       = "pb"
-    val rated             = "ra"
-    val analysed          = "an"
-    val variant           = "v"
-    val hands             = "hs"
-    val bookmarks         = "bm"
-    val createdAt         = "ca"
-    val movedAt           = "ua"   // ua = updatedAt (bc)
-    val source            = "so"
-    val notationImport    = "pgni" // todo - rename
-    val tournamentId      = "tid"
-    val swissId           = "iid"
-    val simulId           = "sid"
-    val tvAt              = "tv"
-    val winnerColor       = "w"
-    val winnerId          = "wid"
-    val initialSfen       = "if"
-    val checkAt           = "ck"
-    val perfType          = "pt"   // only set on student games for aggregation
+    val id                 = "_id"
+    val sentePlayer        = "p0"
+    val gotePlayer         = "p1"
+    val playerIds          = "is"
+    val playerUids         = "us"
+    val playingUids        = "pl"
+    val usiMoves           = "um"
+    val status             = "s"
+    val plies              = "t"
+    val clock              = "c"
+    val positionHashes     = "ph"
+    val daysPerTurn        = "cd"
+    val moveTimes          = "mt"
+    val senteClockHistory  = "cw"
+    val goteClockHistory   = "cb"
+    val periodsSente       = "pw"
+    val periodsGote        = "pb"
+    val rated              = "ra"
+    val analysed           = "an"
+    val variant            = "v"
+    val lastLionCapture    = "llc"
+    val consecutiveAttacks = "cna"
+    val hands              = "hs"
+    val bookmarks          = "bm"
+    val createdAt          = "ca"
+    val movedAt            = "ua"   // ua = updatedAt (bc)
+    val source             = "so"
+    val notationImport     = "pgni" // todo - rename
+    val tournamentId       = "tid"
+    val swissId            = "iid"
+    val simulId            = "sid"
+    val tvAt               = "tv"
+    val winnerColor        = "w"
+    val winnerId           = "wid"
+    val initialSfen        = "if"
+    val checkAt            = "ck"
+    val perfType           = "pt"   // only set on student games for aggregation
   }
 }
 

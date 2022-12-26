@@ -1,13 +1,8 @@
-import { Puzzle } from './interfaces';
-import { parseSfen } from 'shogiops/sfen';
 import throttle from 'common/throttle';
+import { parseSfen } from 'shogiops/sfen';
+import { Puzzle } from './interfaces';
 
 export const getNow = (): number => Math.round(performance.now());
-
-export const usiToLastMove = (usi: string): [Key, Key] | [Key] => {
-  if (usi[1] === '*') return [usi.substr(2, 2) as Key];
-  return [usi.substr(0, 2) as Key, usi.substr(2, 2) as Key];
-};
 
 export const puzzlePov = (puzzle: Puzzle) => parseSfen('standard', puzzle.sfen, false).unwrap().turn;
 
