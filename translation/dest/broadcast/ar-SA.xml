@@ -2,15 +2,15 @@
 <resources>
   <string name="broadcasts">البثوث</string>
   <string name="liveBroadcasts">بث البطولة المباشرة</string>
-  <string name="newBroadcast">New live broadcast</string>
-  <string name="ongoing">Ongoing</string>
-  <string name="upcoming">Upcoming</string>
-  <string name="completed">Completed</string>
-  <string name="eventName">Event name</string>
-  <string name="eventDescription">Short event description</string>
-  <string name="fullDescription">Full event description</string>
-  <string name="fullDescriptionHelp">Optional long description of the broadcast. %1$s is available. Length must be less than %2$s characters.</string>
-  <string name="sourceUrl">Source URL</string>
+  <string name="newBroadcast">بث مباشر جديد</string>
+  <string name="ongoing">جاري</string>
+  <string name="upcoming">قادم</string>
+  <string name="completed">مكتمل</string>
+  <string name="eventName">اسم الحدث</string>
+  <string name="eventDescription">وصف ملخص للحدث</string>
+  <string name="fullDescription">وصف كامل للحدث</string>
+  <string name="fullDescriptionHelp">الوصف الطويل الاختياري للبث. الترميز %1$s متاح. يجب ألا يزيد الحجم عن %2$s حرف.</string>
+  <string name="sourceUrl">مصدر URL</string>
   <string name="sourceUrlHelp">URL that Lishogi will check to get PGN updates. It must be publicly accessible from the Internet.</string>
   <string name="roundNumber">Round number</string>
   <string name="startDate">Start date in your own timezone</string>
