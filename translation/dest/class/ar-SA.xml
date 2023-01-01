@@ -24,11 +24,11 @@
 	<string name="visibleByBothStudentsAndTeachers">مرئي من قبل كِلا المدرسين و التلاميذ</string>
 	<string name="teachersOfTheClass">مدرسون القسم</string>
 	<string name="addLishogiUsernames">أضف أسماء مستخدمي Lishogi لدعوتهم كمعلمين. واحد في كل سطر.</string>
-	<string name="theyMustFirstApply">They must first apply to be Lishogi Teachers.</string>
+	<string name="theyMustFirstApply">يجب أن يتقدموا أولاً ليصبحوا معلمين في Lishogi.</string>
 	<string name="resetPassword">إعاده تعيين كلمة المرور</string>
 	<string name="makeSureToCopy">تأكد من حفظ أو كتابه كلمه المرور. لن تتمكن من رؤيتها مجددا!</string>
-	<string name="passwordX">Password: %s</string>
-	<string name="generateANewPassword">Generate a new password for the student</string>
+	<string name="passwordX">كلمة المرور: %s</string>
+	<string name="generateANewPassword">إنشاء كلمة مرور جديدة للتلميذ</string>
 	<string name="invitedToXByY">Invited to %1$s by %2$s</string>
 	<string name="realName">الاسم الحقيقي</string>
 	<string name="privateWillNeverBeShown">Private. Will never be shown outside the class. Helps remember who the student is.</string>
