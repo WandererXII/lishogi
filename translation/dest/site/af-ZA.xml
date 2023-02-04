@@ -782,7 +782,7 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="chessBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">Afrigters</string>
-	<string name="invalidKif">Invalid KIF</string>
+	<string name="invalidKif">Ongeldige KIF</string>
 	<string name="invalidNotation">Invalid notation</string>
 	<string name="invalidFen">Ongeldige FEN</string>
 	<string name="error.minLength">Minimum lengte is %s</string>
@@ -811,7 +811,7 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="evaluatingYourMove">Jou skuif word geëvalueer ...</string>
 	<string name="whiteWinsGame">Wit wen</string>
 	<string name="blackWinsGame">Swart wen</string>
-	<string name="xWinsGame">%s wins</string>
+	<string name="xWinsGame">%s gewen</string>
 	<string name="learnFromYourMistakes">Leer uit jou foute</string>
 	<string name="learnFromThisMistake">Leer uit hierdie fout</string>
 	<string name="skipThisMove">Slaan hierdie skuif oor</string>
@@ -836,7 +836,7 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="doItAgain">Doen dit weer</string>
 	<string name="reviewWhiteMistakes">Hersien wit se foute</string>
 	<string name="reviewBlackMistakes">Hersien swart se foute</string>
-	<string name="reviewXMistakes">Review %s mistakes</string>
+	<string name="reviewXMistakes">Hersien %s se foute</string>
 	<string name="advantage">Voordeel</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s sekonde</item>
