@@ -31,10 +31,10 @@
 	<string name="createAGame">Neue Partie</string>
 	<string name="whiteIsVictorious">Weiß gewinnt</string>
 	<string name="blackIsVictorious">Schwarz gewinnt</string>
-	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s gewinnt</string>
 	<string name="youPlayTheWhitePieces">Du spielst mit den weißen Figuren</string>
 	<string name="youPlayTheBlackPieces">Du spielst mit den schwarzen Figuren</string>
-	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">Du spielst als %s</string>
 	<string name="itsYourTurn">Du bist am Zug!</string>
 	<string name="cheatDetected">Betrug erkannt</string>
 	<string name="variantEnding">Ende der Variante</string>
@@ -356,7 +356,7 @@
 	<string name="save">Speichern</string>
 	<string name="leaderboard">Rangliste</string>
 	<string name="selectHandicap">Select handicap</string>
-	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
+	<string name="pasteTheSfenStringHere">Füge den SFEN-Text hier ein</string>
 	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
 	<string name="fromPosition">Von Stellung</string>
 	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
@@ -369,7 +369,7 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="one">%s importierte Partie</item>
 		<item quantity="other">%s importierte Partien</item>
 	</plurals>
-	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">Dies ist ein Shogi-CAPTCHA.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Mach einen Zug, um zu beweisen, dass du ein Mensch bist.</string>
 	<string name="captcha.fail">Bitte löse die Shogi-Aufgabe.</string>
 	<string name="notACheckmate">Kein Matt</string>
@@ -736,7 +736,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="revokeAllSessions">alle Sitzungen beenden</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">Kostenlos wie Lishogi</string>
-	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Aus Liebe zum Shogi</string>
 	<string name="everybodyGetsAllFeaturesForFree">Jeder erhält alle Funktionen völlig kostenlos</string>
 	<string name="zeroAdvertisement">Keine Werbung</string>
 	<string name="fullFeatured">Keine Einschränkungen</string>
