@@ -254,7 +254,7 @@
 	<string name="incrementInSeconds">Thêm giây</string>
 	<string name="byoyomiInSeconds">Byoyomi theo giây</string>
 	<string name="numberOfPeriods">Số các chu kì</string>
-	<string name="freeOnlineShogi">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Shogi online và miễn phí</string>
 	<string name="spectators">Khán giả:</string>
 	<plurals name="nbRated">
 		<item quantity="other">%s tính elo</item>
@@ -346,7 +346,7 @@ computer analysis, game chat and shareable URL.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="other">%s các ván cờ đã nhập</item>
 	</plurals>
-	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">Đây là mã CAPTCHA shogi.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Bấm vào bàn cờ để di chuyển, chứng minh bạn là con người</string>
 	<string name="captcha.fail">Hãy giải captcha shogi.</string>
 	<string name="notACheckmate">Không phải là một nước chiếu hết</string>
@@ -752,7 +752,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="usernameUnacceptable">Username này không được chấp nhận.</string>
 	<string name="directlySupportLishogi">Ủng hộ trực tiếp Lishogi</string>
 	<string name="playShogiInStyle">Play shogi in style</string>
-	<string name="shogiBasics">Shogi basics</string>
+	<string name="shogiBasics">Shogi cơ bản</string>
 	<string name="shogiResources">Tài nguyên về Shogi</string>
 	<string name="coaches">Huấn luyện viên</string>
 	<string name="invalidKif">PGN không hợp lệ</string>
@@ -834,7 +834,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="weHadToTimeYouOutForAWhile">Chúng tôi phải ngừng bạn lại một thời gian.</string>
 	<string name="timeoutExpires">Hiệu lực đến %s.</string>
 	<string name="why">Vì sao?</string>
-	<string name="pleasantShogiExperience">We aim to provide a pleasant shogi experience for everyone.</string>
+	<string name="pleasantShogiExperience">Mục tiêu của chúng tôi là cung cấp trải nghiệm chơi cờ vui vẻ cho mọi người.</string>
 	<string name="goodPractice">Để đạt được mục đích, chúng tôi phải chắc chắn rằng mọi người phải tuân thủ tốt.</string>
 	<string name="potentialProblem">Khi có vấn đề tiềm ẩn, chúng tôi sẽ cho hiển thị lỗi này.</string>
 	<string name="howToAvoidThis">Làm thế nào để tránh điều này?</string>
