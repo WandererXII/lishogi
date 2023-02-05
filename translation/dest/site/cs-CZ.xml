@@ -25,8 +25,8 @@
 	<string name="white" comment="Alternative to gote">Bílý</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">Sente</string>
 	<string name="black" comment="Alternative to sente">Černý</string>
-	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Slabší hráč</string>
-	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Omezený hráč</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
 	<string name="randomColor" comment="Side - sente/gote">Náhodná barva</string>
 	<string name="createAGame">Vytvořit hru</string>
 	<string name="whiteIsVictorious">Vyhrál bílý</string>
@@ -86,10 +86,10 @@
 	<string name="forceVariation">Zobrazit jako variantu</string>
 	<string name="move">Tah</string>
 	<plurals name="moves">
-		<item quantity="one">%s move</item>
-		<item quantity="few">%s moves</item>
-		<item quantity="many">%s moves</item>
-		<item quantity="other">%s moves</item>
+		<item quantity="one">%s tah</item>
+		<item quantity="few">%s tahy</item>
+		<item quantity="many">%s tahů</item>
+		<item quantity="other">%s tahů</item>
 	</plurals>
 	<string name="variantLoss">Prohra</string>
 	<string name="variantWin">Výhra</string>
@@ -944,7 +944,7 @@
 	<string name="weHadToTimeYouOutForAWhile">Museli jsme tě odpojit na chvíli.</string>
 	<string name="timeoutExpires">Odpojení skončí za %s.</string>
 	<string name="why">Proč?</string>
-	<string name="pleasantShogiExperience">We aim to provide a pleasant shogi experience for everyone.</string>
+	<string name="pleasantShogiExperience">Naším cílem je poskytnout všem příjemný zážitek ze shogi.</string>
 	<string name="goodPractice">Proto se musíme ujistit, že se všichni chovají správně.</string>
 	<string name="potentialProblem">Tato zpráva se ukáže když zjistíme problém.</string>
 	<string name="howToAvoidThis">Jak se tomuto vyhnout?</string>
