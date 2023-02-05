@@ -284,7 +284,7 @@
 	<string name="incrementInSeconds">Добавление секунд на ход</string>
 	<string name="byoyomiInSeconds">Бёёми в секундах</string>
 	<string name="numberOfPeriods">Количество периодов</string>
-	<string name="freeOnlineShogi">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Бесплатное онлайн-сёги</string>
 	<string name="spectators">Зрители:</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s рейтинговая</item>
@@ -414,7 +414,7 @@
 		<item quantity="many">%s импортированных</item>
 		<item quantity="other">%s импортированных</item>
 	</plurals>
-	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">Это CAPTCHA.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Кликните по доске и сделайте ход, чтобы доказать, что вы человек, а не компьютер. (Всем известно, что компьютеры не умеют играть в сёги!).</string>
 	<string name="captcha.fail">Пожалуйста, решите капчу.</string>
 	<string name="notACheckmate">Это не мат</string>
@@ -710,7 +710,7 @@
 	<string name="webmasters">Разработчикам</string>
 	<string name="about">О сайте</string>
 	<string name="aboutX">О %s</string>
-	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s — бесплатный (%2$s) сервер сёги с открытым исходным кодом без рекламы.</string>
 	<string name="really">именно так</string>
 	<string name="contribute">Внести вклад в развитие</string>
 	<string name="termsOfService">Пользовательское соглашение</string>
@@ -799,9 +799,9 @@
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Это список устройств, с которых входили в ваш аккаунт. Закройте все подозрительные сеансы.</string>
 	<string name="alternativelyYouCanX">Также вы можете %s.</string>
 	<string name="revokeAllSessions">закрыть все сессии</string>
-	<string name="playShogiEverywhere">Play shogi everywhere</string>
+	<string name="playShogiEverywhere">Играйте в сёги везде</string>
 	<string name="asFreeAsLishogi">Бесплатен, как Lishogi</string>
-	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
+	<string name="builtForTheLoveOfShogiNotMoney">С любовью к сёги, а не деньгам</string>
 	<string name="everybodyGetsAllFeaturesForFree">Все возможности для всех бесплатно</string>
 	<string name="zeroAdvertisement">Никакой рекламы</string>
 	<string name="fullFeatured">Максимальная функциональность</string>
@@ -853,7 +853,7 @@
 	<string name="usernameUnacceptable">Это имя пользователя уже занято или недопустимо.</string>
 	<string name="directlySupportLishogi">Поддержать Lishogi</string>
 	<string name="playShogiInStyle">Play shogi in style</string>
-	<string name="shogiBasics">Shogi basics</string>
+	<string name="shogiBasics">Основы сёги</string>
 	<string name="shogiResources">Ресурсы по сёги</string>
 	<string name="coaches">Тренеры</string>
 	<string name="invalidKif">Некорректный KIF</string>
@@ -944,7 +944,7 @@
 	<string name="weHadToTimeYouOutForAWhile">Мы вынуждены отключить вас на время.</string>
 	<string name="timeoutExpires">Вы можете вернуться через %s.</string>
 	<string name="why">Почему?</string>
-	<string name="pleasantShogiExperience">We aim to provide a pleasant shogi experience for everyone.</string>
+	<string name="pleasantShogiExperience">Наша цель — сделать сёги интересным для всех.</string>
 	<string name="goodPractice">Чтобы этого добиться, мы должны сделать так, чтобы все игроки следовали правилам хорошего тона.</string>
 	<string name="potentialProblem">Когда мы обнаруживаем потенциальную проблему, мы показываем это сообщение.</string>
 	<string name="howToAvoidThis">Как избежать этого?</string>
