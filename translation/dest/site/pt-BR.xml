@@ -356,7 +356,7 @@
 	<string name="save">Salvar</string>
 	<string name="leaderboard">Classificação</string>
 	<string name="selectHandicap">Selecionar desigualdade</string>
-	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
+	<string name="pasteTheSfenStringHere">Cole a notação SFEN aqui</string>
 	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
 	<string name="fromPosition">A partir da posição</string>
 	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
@@ -369,7 +369,7 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="one">%s de partidas importadas</item>
 		<item quantity="other">%s de partidas importadas</item>
 	</plurals>
-	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">Este é um CAPTCHA de shogi.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Clique no tabuleiro para fazer sua jogada, provando que é humano.</string>
 	<string name="captcha.fail">Por favor, resolva o captcha de shogi.</string>
 	<string name="notACheckmate">Não é xeque-mate.</string>
