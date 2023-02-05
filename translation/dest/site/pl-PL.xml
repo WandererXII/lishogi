@@ -284,7 +284,7 @@
 	<string name="incrementInSeconds">Dodawany czas w sekundach</string>
 	<string name="byoyomiInSeconds">Byoyomi w sekundach</string>
 	<string name="numberOfPeriods">Liczba okresów</string>
-	<string name="freeOnlineShogi">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Darmowe shogi online</string>
 	<string name="spectators">Widzowie:</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s rankingowa</item>
@@ -414,7 +414,7 @@
 		<item quantity="many">%s zaimportowana partii</item>
 		<item quantity="other">%s zaimportowana partii</item>
 	</plurals>
-	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">To jest CAPTCHA shogi.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Wykonaj ruch i udowodnij, że jesteś człowiekiem.</string>
 	<string name="captcha.fail">Rozwiąż zadanie shogi.</string>
 	<string name="notACheckmate">To nie jest mat</string>
@@ -710,7 +710,7 @@
 	<string name="webmasters">Webmasterzy</string>
 	<string name="about">Informacje o</string>
 	<string name="aboutX">Informacje o %s</string>
-	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s jest darmowym (%2$s), wolnym, bez reklam, otwartym serwerem shogi.</string>
 	<string name="really">naprawdę</string>
 	<string name="contribute">Wsparcie</string>
 	<string name="termsOfService">Regulamin</string>
@@ -799,9 +799,9 @@
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">To jest lista urządzeń, z których logowałeś się na swoje konto. Unieważnij sesje, których nie rozpoznajesz.</string>
 	<string name="alternativelyYouCanX">Możesz również %s.</string>
 	<string name="revokeAllSessions">unieważnić wszystkie sesje</string>
-	<string name="playShogiEverywhere">Play shogi everywhere</string>
+	<string name="playShogiEverywhere">Graj w shogi wszędzie</string>
 	<string name="asFreeAsLishogi">Darmowa jak całe Lishogi</string>
-	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Stworzona z miłości do shogi, nie dla pieniędzy</string>
 	<string name="everybodyGetsAllFeaturesForFree">Wszystkie funkcje za darmo dla każdego</string>
 	<string name="zeroAdvertisement">Brak reklam</string>
 	<string name="fullFeatured">Bez ograniczeń</string>
@@ -853,7 +853,7 @@
 	<string name="usernameUnacceptable">Ta nazwa użytkownika jest niedozwolona.</string>
 	<string name="directlySupportLishogi">Wspomóż nas!</string>
 	<string name="playShogiInStyle">Play shogi in style</string>
-	<string name="shogiBasics">Shogi basics</string>
+	<string name="shogiBasics">Podstawy shogi</string>
 	<string name="shogiResources">Materiały o shogi</string>
 	<string name="coaches">Trenerzy</string>
 	<string name="invalidKif">Nieprawidłowy KIF</string>
