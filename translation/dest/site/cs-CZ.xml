@@ -388,7 +388,7 @@
 	<string name="backToGame">Zpět do hry</string>
 	<string name="siteDescription">Shogi online zdarma. Hrajte přímo ve vašem prohlížeči, bez registrace, bez reklam, bez dalšího stahování. Hrajte proti počítači, kamarádům nebo náhodně vybraným soupeřům.</string>
 	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
-	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
+	<string name="learnShogiHereX">Pokud nejste obeznámeni s pravidly shogi, podívejte se na - %s.</string>
 	<string name="xJoinedTeamY">%1$s se přidal k týmu %2$s</string>
 	<string name="xCreatedTeamY">%1$s založil tým %2$s</string>
 	<string name="xStartedStreaming">%s začal streamovat</string>
@@ -895,7 +895,7 @@
 	<string name="xWasPlayed">Bylo zahráno %s</string>
 	<string name="findBetterMoveForWhite">Najděte lepší tah bílého</string>
 	<string name="findBetterMoveForBlack">Najděte lepší tah černého</string>
-	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Najděte lepší tah pro %s</string>
 	<string name="resumeLearning">Pokračovat v učení</string>
 	<string name="youCanDoBetter">Máte lepší tah</string>
 	<string name="tryAnotherMoveForWhite">Zkuste jiný tah bílého</string>
