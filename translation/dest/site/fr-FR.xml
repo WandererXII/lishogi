@@ -264,7 +264,7 @@
 	<string name="incrementInSeconds">Incrément en secondes</string>
 	<string name="byoyomiInSeconds">Byôyomi en secondes</string>
 	<string name="numberOfPeriods">Nombre de périodes</string>
-	<string name="freeOnlineShogi">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Jeu de shogi gratuit en ligne</string>
 	<string name="spectators">Spectateurs :</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s évaluée</item>
@@ -356,7 +356,7 @@
 	<string name="save">Enregistrer</string>
 	<string name="leaderboard">Classements</string>
 	<string name="selectHandicap">Sélectionnez le handicap</string>
-	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
+	<string name="pasteTheSfenStringHere">Coller le SFEN ici</string>
 	<string name="pasteTheKifCsaStringHere">Coller le KIF ou le CSA ici</string>
 	<string name="fromPosition">Depuis une position</string>
 	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
@@ -368,13 +368,13 @@
 		<item quantity="one">%s partie importée</item>
 		<item quantity="other">%s parties importées</item>
 	</plurals>
-	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">Ceci est un CAPTCHA de shogi.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Cliquez sur l\'échiquier pour jouer un coup, et prouver que vous êtes humain.</string>
 	<string name="captcha.fail">Vous devez résoudre le diagramme de shogi.</string>
 	<string name="notACheckmate">Ce n\'est pas un échec et mat</string>
 	<string name="whiteCheckmatesInOneMove">Gote mate en un coup</string>
 	<string name="blackCheckmatesInOneMove">Sente mate en un coup</string>
-	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
+	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s mate en un coup</string>
 	<string name="retry">Réessayer</string>
 	<string name="reconnecting">Reconnexion en cours</string>
 	<plurals name="nbFriendsOnline">
@@ -445,7 +445,7 @@
 	<string name="movesPlayed">Coups joués</string>
 	<string name="whiteWins">Gains par gote</string>
 	<string name="blackWins">Gains par sente</string>
-	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s victoires</string>
 	<string name="draws">Nulles</string>
 	<string name="nextXTournament">Prochain tournoi de %s :</string>
 	<string name="averageOpponent">Opposition moyenne</string>
@@ -646,7 +646,7 @@
 	<string name="webmasters">Webmestres</string>
 	<string name="about">À propos</string>
 	<string name="aboutX">À propos de %s</string>
-	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s est un serveur de shogi gratuit (%2$s), libre, sans pubs et open source.</string>
 	<string name="really">pour de vrai</string>
 	<string name="contribute">Contribuer</string>
 	<string name="termsOfService">Conditions d\'utilisation</string>
@@ -733,9 +733,9 @@
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Voici une liste de périphériques qui sont connectés à votre compte. Supprimez les sessions que vous ne reconnaissez pas.</string>
 	<string name="alternativelyYouCanX">Vous pouvez également %s.</string>
 	<string name="revokeAllSessions">supprimer toutes les sessions</string>
-	<string name="playShogiEverywhere">Play shogi everywhere</string>
+	<string name="playShogiEverywhere">Jouer au shogi partout</string>
 	<string name="asFreeAsLishogi">Aussi gratuit que Lishogi</string>
-	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Construit pour l\'amour du jeu de shogi, pas pour l\'argent</string>
 	<string name="everybodyGetsAllFeaturesForFree">Toutes les fonctionnalités sont gratuites pour tout le monde</string>
 	<string name="zeroAdvertisement">Aucune publicité</string>
 	<string name="fullFeatured">Tout Lishogi, et encore plus</string>
@@ -785,7 +785,7 @@
 	<string name="usernameUnacceptable">Nom d\'utilisateur refusé.</string>
 	<string name="directlySupportLishogi">Financer Lishogi</string>
 	<string name="playShogiInStyle">Play shogi in style</string>
-	<string name="shogiBasics">Shogi basics</string>
+	<string name="shogiBasics">Bases du shogi</string>
 	<string name="shogiResources">Ressources pour le shogi</string>
 	<string name="coaches">Entraîneurs</string>
 	<string name="invalidKif">KIF non valid</string>
@@ -817,7 +817,7 @@
 	<string name="evaluatingYourMove">Evaluation de votre coup ...</string>
 	<string name="whiteWinsGame">Gote gagne</string>
 	<string name="blackWinsGame">Sente gagne</string>
-	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s gagne</string>
 	<string name="learnFromYourMistakes">Apprendre de vos erreurs</string>
 	<string name="learnFromThisMistake">Apprendre de cette erreur</string>
 	<string name="skipThisMove">Passer ce coup</string>
