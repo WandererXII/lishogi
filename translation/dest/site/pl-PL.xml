@@ -21,20 +21,20 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="gote">Gote</string>
-	<string name="white">Białe</string>
-	<string name="sente">Sente</string>
-	<string name="black">Czarne</string>
-	<string name="shitate" comment="https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
-	<string name="uwate" comment="https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
-	<string name="randomColor">Losowo</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">Gote</string>
+	<string name="white" comment="Alternative to gote">Białe</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">Sente</string>
+	<string name="black" comment="Alternative to sente">Czarne</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
+	<string name="randomColor" comment="Side - sente/gote">Losowo</string>
 	<string name="createAGame">Nowa partia</string>
 	<string name="whiteIsVictorious">Zwycięstwo białych</string>
 	<string name="blackIsVictorious">Zwycięstwo czarnych</string>
-	<string name="xIsVictorious">%s is victorious</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
 	<string name="youPlayTheWhitePieces">Grasz białymi</string>
 	<string name="youPlayTheBlackPieces">Grasz czarnymi</string>
-	<string name="youPlayAsX">You play as %s</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Twój ruch!</string>
 	<string name="cheatDetected">Wykryto oszustwo</string>
 	<string name="variantEnding">Wariant zakończony</string>
@@ -43,7 +43,7 @@
 	<string name="joinTheGame">Dołącz do gry</string>
 	<string name="whitePlays">Ruch białych</string>
 	<string name="blackPlays">Ruch czarnych</string>
-	<string name="xPlays">%s to play</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<string name="shitatePlays">Ruch shitate</string>
 	<string name="uwatePlays">Ruch uwate</string>
 	<plurals name="opponentLeftCounter">
@@ -60,11 +60,11 @@
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Pierwsza osoba, która przejdzie pod ten adres, dołączy do Twojej partii.</string>
 	<string name="whiteResigned">Białe poddały się</string>
 	<string name="blackResigned">Czarne poddały się</string>
-	<string name="xResigned">%s resigned</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
 	<string name="whiteLeftTheGame">Białe porzuciły partię</string>
 	<string name="blackLeftTheGame">Czarne porzuciły partię</string>
-	<string name="xLeftTheGame">%s left the game</string>
-	<string name="xDidntMove">%s didn\'t move</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Udostępnij ten adres innym, by mogli zobaczyć tę partię</string>
 	<string name="theComputerAnalysisHasFailed">Nie udało się przeanalizować tej partii</string>
 	<string name="viewTheComputerAnalysis">Zobacz analizę komputerową</string>
@@ -85,6 +85,12 @@
 	<string name="deleteFromHere">Usuń od tego miejsca</string>
 	<string name="forceVariation">Przedstaw jako wariant</string>
 	<string name="move">Ruch</string>
+	<plurals name="moves">
+		<item quantity="one">%s move</item>
+		<item quantity="few">%s moves</item>
+		<item quantity="many">%s moves</item>
+		<item quantity="other">%s moves</item>
+	</plurals>
 	<string name="variantLoss">Wariant przegrywający</string>
 	<string name="variantWin">Wariant wygrywający</string>
 	<string name="insufficientMaterial">Niewystarczający materiał</string>
@@ -229,10 +235,10 @@
 	<string name="drawOfferCanceled">Wycofano propozycję remisu</string>
 	<string name="whiteOffersDraw">Białe proponują remis</string>
 	<string name="blackOffersDraw">Czarne proponują remis</string>
-	<string name="xOffersDraw">%s offers draw</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
 	<string name="whiteDeclinesDraw">Białe odrzucają propozycję remisu</string>
 	<string name="blackDeclinesDraw">Czarne odrzucają propozycję remisu</string>
-	<string name="xDeclinesDraw">%s declines draw</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Przeciwnik proponuje remis</string>
 	<string name="accept">Przyjmij</string>
 	<string name="decline">Odrzuć</string>
@@ -256,7 +262,7 @@
 	<string name="rematchOfferSent">Wysłano propozycję rewanżu</string>
 	<string name="rematchOfferSentWhite">Białe proponują rewanż</string>
 	<string name="rematchOfferSentBlack">Czarne proponują rewanż</string>
-	<string name="rematchOfferSentX">%s offers rematch</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Przyjęto propozycję rewanżu</string>
 	<string name="rematchOfferCanceled">Wycofano propozycję rewanżu</string>
 	<string name="rematchOfferDeclined">Odrzucono propozycję rewanżu</string>
@@ -414,7 +420,7 @@
 	<string name="notACheckmate">To nie jest mat</string>
 	<string name="whiteCheckmatesInOneMove">Białe dają mata w jednym ruchu</string>
 	<string name="blackCheckmatesInOneMove">Czarne dają mata w jednym ruchu</string>
-	<string name="xCheckmatesInOneMove">%s to checkmate in one move</string>
+	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Spróbuj jeszcze raz</string>
 	<string name="reconnecting">Ponowne łączenie</string>
 	<plurals name="nbFriendsOnline">
@@ -881,7 +887,7 @@
 	<string name="evaluatingYourMove">Ocenianie Twojego ruchu…</string>
 	<string name="whiteWinsGame">Wygrana białych</string>
 	<string name="blackWinsGame">Wygrana czarnych</string>
-	<string name="xWinsGame">%s wins</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Ucz się na swoich błędach</string>
 	<string name="learnFromThisMistake">Ucz się na tym błędzie</string>
 	<string name="skipThisMove">Pomiń ten ruch</string>
@@ -889,24 +895,24 @@
 	<string name="xWasPlayed">Zagrano %s</string>
 	<string name="findBetterMoveForWhite">Znajdź lepszy ruch dla białych</string>
 	<string name="findBetterMoveForBlack">Znajdź lepszy ruch dla czarnych</string>
-	<string name="findBetterMoveForX">Find a better move for %s</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Wznów naukę</string>
 	<string name="youCanDoBetter">Możesz zrobić to lepiej</string>
 	<string name="tryAnotherMoveForWhite">Znajdź inny ruch dla białych</string>
 	<string name="tryAnotherMoveForBlack">Znajdź inny ruch dla czarnych</string>
-	<string name="tryAnotherMoveForX">Try another move for %s</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Rozwiązanie</string>
 	<string name="waitingForAnalysis">Oczekiwanie na wynik analizy</string>
 	<string name="noMistakesFoundForWhite">Nie znaleziono błędów białych</string>
 	<string name="noMistakesFoundForBlack">Nie znaleziono błędów czarnych</string>
-	<string name="noMistakesFoundForX">No mistakes found for %s</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
 	<string name="doneReviewingWhiteMistakes">Przejrzano błędy białych</string>
 	<string name="doneReviewingBlackMistakes">Przejrzano błędy czarnych</string>
-	<string name="doneReviewingXMistakes">Done reviewing %s mistakes</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Zrób to jeszcze raz</string>
 	<string name="reviewWhiteMistakes">Przejrzyj błędy białych</string>
 	<string name="reviewBlackMistakes">Przejrzyj błędy czarnych</string>
-	<string name="reviewXMistakes">Review %s mistakes</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Przewaga</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s sekunda</item>
