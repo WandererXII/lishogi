@@ -31,7 +31,7 @@
 	<string name="createAGame">Create a game</string>
 	<string name="whiteIsVictorious">Gote is victorious</string>
 	<string name="blackIsVictorious">Sente is victorious</string>
-	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s vann partiet</string>
 	<string name="youPlayTheWhitePieces">You play as gote</string>
 	<string name="youPlayTheBlackPieces">You play as sente</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
