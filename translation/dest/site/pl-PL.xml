@@ -34,7 +34,7 @@
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
 	<string name="youPlayTheWhitePieces">Grasz białymi</string>
 	<string name="youPlayTheBlackPieces">Grasz czarnymi</string>
-	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">Grasz jako %s</string>
 	<string name="itsYourTurn">Twój ruch!</string>
 	<string name="cheatDetected">Wykryto oszustwo</string>
 	<string name="variantEnding">Wariant zakończony</string>
@@ -403,7 +403,7 @@
 	<string name="pasteTheSfenStringHere">Wklej tutaj pozycję w formacie SFEN</string>
 	<string name="pasteTheKifCsaStringHere">Wklej KIF lub CSA tutaj</string>
 	<string name="fromPosition">Z pozycji</string>
-	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">Standardowa</string>
 	<string name="continueFromHere">Kontynuuj z tej pozycji</string>
 	<string name="toStudy">Opracowanie</string>
 	<string name="importGame">Importuj partię</string>
