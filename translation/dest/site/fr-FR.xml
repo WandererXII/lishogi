@@ -22,19 +22,19 @@
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">Gote</string>
-	<string name="white" comment="Alternative to gote">Gote</string>
+	<string name="white" comment="Alternative to gote">Blancs</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">Sente</string>
-	<string name="black" comment="Alternative to sente">Sente</string>
+	<string name="black" comment="Alternative to sente">Noirs</string>
 	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
 	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
 	<string name="randomColor" comment="Side - sente/gote">Couleur aléatoire</string>
 	<string name="createAGame">Créer une partie</string>
 	<string name="whiteIsVictorious">Victoire de gote</string>
 	<string name="blackIsVictorious">Victoire de sente</string>
-	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">Victoire de %s</string>
 	<string name="youPlayTheWhitePieces">Vous jouez gote</string>
 	<string name="youPlayTheBlackPieces">Vous jouez sente</string>
-	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">Vous jouez %s</string>
 	<string name="itsYourTurn">C\'est votre tour !</string>
 	<string name="cheatDetected">Tricherie détectée</string>
 	<string name="variantEnding">Fin par variante</string>
@@ -43,7 +43,7 @@
 	<string name="joinTheGame">Rejoindre la partie</string>
 	<string name="whitePlays">Trait à gote</string>
 	<string name="blackPlays">Trait à sente</string>
-	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">Trait à %s</string>
 	<string name="shitatePlays">Trait à shitate</string>
 	<string name="uwatePlays">Trait à uwate</string>
 	<plurals name="opponentLeftCounter">
@@ -58,10 +58,10 @@
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">La première personne qui cliquera sur ce lien jouera avec vous.</string>
 	<string name="whiteResigned">Gote abandonne</string>
 	<string name="blackResigned">Sente abandonne</string>
-	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s abandonne</string>
 	<string name="whiteLeftTheGame">Gote a quitté la partie</string>
 	<string name="blackLeftTheGame">Sente a quitté la partie</string>
-	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s a quitté la partie</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Partagez ce lien pour permettre à des spectateurs de voir la partie</string>
 	<string name="theComputerAnalysisHasFailed">L\'analyse automatique a échoué</string>
@@ -215,10 +215,10 @@
 	<string name="drawOfferCanceled">Proposition de nulle annulée</string>
 	<string name="whiteOffersDraw">Gote propose la nulle</string>
 	<string name="blackOffersDraw">Sente propose la nulle</string>
-	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s propose la nulle</string>
 	<string name="whiteDeclinesDraw">Gote refuse la nulle</string>
 	<string name="blackDeclinesDraw">Sente refuse la nulle</string>
-	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s refuse la nulle</string>
 	<string name="yourOpponentOffersADraw">Votre adversaire propose la nulle</string>
 	<string name="accept">Accepter</string>
 	<string name="decline">Refuser</string>
@@ -242,7 +242,7 @@
 	<string name="rematchOfferSent">Proposition de revanche envoyée</string>
 	<string name="rematchOfferSentWhite">Gote propose une revanche</string>
 	<string name="rematchOfferSentBlack">Sente propose une revanche</string>
-	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s propose une revanche</string>
 	<string name="rematchOfferAccepted">Proposition de revanche acceptée</string>
 	<string name="rematchOfferCanceled">Proposition de revanche annulée</string>
 	<string name="rematchOfferDeclined">Proposition de revanche déclinée</string>
