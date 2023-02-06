@@ -22,16 +22,16 @@
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">Gote</string>
-	<string name="white" comment="Alternative to gote">Gote</string>
+	<string name="white" comment="Alternative to gote">Brancas</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">Sente</string>
-	<string name="black" comment="Alternative to sente">Sente</string>
+	<string name="black" comment="Alternative to sente">Pretas</string>
 	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
 	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
 	<string name="randomColor" comment="Side - sente/gote">Cor aleatória</string>
 	<string name="createAGame">Criar uma partida</string>
 	<string name="whiteIsVictorious">Brancas vencem</string>
 	<string name="blackIsVictorious">Pretas vencem</string>
-	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s vencem</string>
 	<string name="youPlayTheWhitePieces">Você joga com as peças brancas</string>
 	<string name="youPlayTheBlackPieces">Você joga com as peças pretas</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
@@ -215,7 +215,7 @@
 	<string name="drawOfferCanceled">Proposta de empate cancelada</string>
 	<string name="whiteOffersDraw">Brancas oferecem empate</string>
 	<string name="blackOffersDraw">Pretas oferecem empate</string>
-	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s oferecem empate</string>
 	<string name="whiteDeclinesDraw">Brancas recusam empate</string>
 	<string name="blackDeclinesDraw">Pretas recusam empate</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
@@ -242,7 +242,7 @@
 	<string name="rematchOfferSent">Oferta de revanche enviada</string>
 	<string name="rematchOfferSentWhite">Gote oferece revanche</string>
 	<string name="rematchOfferSentBlack">Sente oferece revanche</string>
-	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s oferece revanche</string>
 	<string name="rematchOfferAccepted">Oferta de revanche aceita</string>
 	<string name="rematchOfferCanceled">Oferta de revanche cancelada</string>
 	<string name="rematchOfferDeclined">Oferta de revanche recusada</string>
@@ -264,7 +264,7 @@
 	<string name="incrementInSeconds">Acréscimo em segundos</string>
 	<string name="byoyomiInSeconds">Byoyomi em segundos</string>
 	<string name="numberOfPeriods">Número de períodos</string>
-	<string name="freeOnlineShogi">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Shogi Online Gratuito</string>
 	<string name="spectators">Espectadores:</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s valendo pontos</item>
@@ -647,7 +647,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="webmasters">Webmasters</string>
 	<string name="about">Sobre</string>
 	<string name="aboutX">Sobre %s</string>
-	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s é um servidor de shogi gratuito (%2$s), livre, sem anúncios e de código aberto.</string>
 	<string name="really">realmente</string>
 	<string name="contribute">Contribuir</string>
 	<string name="termsOfService">Condições de uso</string>
