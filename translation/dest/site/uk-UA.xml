@@ -406,7 +406,7 @@
 	<string name="default" comment="Default starting position as opposed to custom starting position">Відсутньо</string>
 	<string name="continueFromHere">Продовж звідси</string>
 	<string name="toStudy">Дослід</string>
-	<string name="importGame">Принеси гру</string>
+	<string name="importGame">Імпортувати гру</string>
 	<string name="importGameKifCsaExplanation">Встав KIF чи CSA, аби отримати огляд гри,
 розбір обчислювача, ігрову бесіду і ширильну ланку.</string>
 	<plurals name="nbImportedGames">
