@@ -91,8 +91,6 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="capture">Взяття</string>
 	<string name="takeTheEnemyPieces">З\'їжте фігури противника</string>
 	<string name="captureIntro">Визначте незахищені фігури противника й з\'їжте їх!</string>
-	<string name="takeTheBlackPieces">З\'їжте чорні фігури!</string>
-	<string name="takeTheBlackPiecesAndDontLoseYours">З\'їжте всі чорні фігури! І не втратьте свої.</string>
 	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
 And don\'t lose yours.</string>
 	<string name="captureComplete">Congratulations! You know how to fight with shogi pieces!</string>
@@ -172,13 +170,6 @@ Make any move to continue.</string>
 	<string name="perpetualCheckIsALoss">But, perpetually checking the opponent’s king is a loss for the checking side. Unfortunately for your opponent, they don’t know! Make the only legal move.</string>
 	<string name="boardFlippedFindBestMove">The board was just flipped. What is the best move here?</string>
 	<string name="repetitionComplete">The idea behind perpetual check being a loss is to prevent anyone from forcing a draw.</string>
-	<string name="stalemate">Пат</string>
-	<string name="theGameIsADraw">Гра є нічийною</string>
-	<string name="stalemateIntro">Коли гравцеві не поставлено шах і немає можливості зробити хід, це пат. Гра закінчується: без переможців та переможених.</string>
-	<string name="stalemateGoal">Пат чорним: 
-- Чорні не можуть сходити.
-- Король не під шахом.</string>
-	<string name="stalemateComplete">Вітаємо! Краще отримати пат, ніж мат!</string>
 	<string name="advanced">Просунутий етап</string>
 	<string name="pieceValue">Цінність фігур</string>
 	<string name="evaluatePieceStrength">Оцініть силу фігури</string>
