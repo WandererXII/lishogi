@@ -28,7 +28,7 @@
 	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Недоважник</string>
 	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Переважник</string>
 	<string name="randomColor" comment="Side - sente/gote">Випадковий колір</string>
-	<string name="createAGame">Створи гру</string>
+	<string name="createAGame">Створити гру</string>
 	<string name="whiteIsVictorious">Перемога наступника</string>
 	<string name="blackIsVictorious">Перемога попередника</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
@@ -398,7 +398,7 @@
 	<string name="fromPosition">З розташови</string>
 	<string name="default" comment="Default starting position as opposed to custom starting position">Відсутньо</string>
 	<string name="continueFromHere">Продовж звідси</string>
-	<string name="toStudy">Дослід</string>
+	<string name="toStudy">Дослідження</string>
 	<string name="importGame">Імпортувати гру</string>
 	<string name="importGameKifCsaExplanation">Встав KIF чи CSA, аби отримати огляд гри,
 розбір обчислювача, ігрову бесіду і ширильну ланку.</string>
@@ -667,7 +667,7 @@
 	<string name="playOnTheBoardOffline">Над дошкою</string>
 	<string name="playOfflineComputer">Обчислювач</string>
 	<string name="opponent">Суперник</string>
-	<string name="learnMenu">Вчи</string>
+	<string name="learnMenu">Навчатися</string>
 	<string name="studyMenu">Дослід</string>
 	<string name="practice">Вправи</string>
 	<string name="community">Спільнота</string>
