@@ -8,8 +8,8 @@
 	<string name="youWillLoseAllYourProgress">Весь ваш прогрес буде втрачено!</string>
 	<string name="play">грати!</string>
 	<string name="shogiPieces">Shogi pieces</string>
-	<string name="theIntroduction">Introduction</string>
-	<string name="introBasics">Let\'s learn some basics.</string>
+	<string name="theIntroduction">Вступ</string>
+	<string name="introBasics">Давайте вивчимо деякі основи.</string>
 	<string name="introIntro">Your journey begins here.</string>
 	<string name="clickHereAfterYouveChosen">Click here after you\'ve chosen the piece design you like.</string>
 	<string name="choosePieceDesign">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.
@@ -70,7 +70,7 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="planceSummary">It\'s the same as the gold general.</string>
 	<string name="planceSummaryTwo">The promoted lance moves the same as the gold general.</string>
 	<string name="lanceComplete">Great job!</string>
-	<string name="theGold">The gold general</string>
+	<string name="theGold">Золотий генерал</string>
 	<string name="itMovesInAnyDirectionExceptDiagonallyBack">The gold general moves in any direction EXCEPT diagonally back.</string>
 	<string name="goldIntro">The gold general movements might be a bit harder to remember at first, but you can surely do it.</string>
 	<string name="goldDoesntPromote">The gold general together with the king is the only piece you CAN\'T promote.</string>
