@@ -29,8 +29,6 @@
 	<string name="weAreSmallTeam">Jsme malý tým, takže vaše podpora dělá velké změny!</string>
 	<string name="celebratedPatrons">Slavní Patroni, kteří umožňují fungování Lishogi</string>
 	<string name="whereMoneyGoes">Kam jdou ty peníze?</string>
-	<string name="serversAndDeveloper">First of all, powerful servers.
-Then we pay a full-time developer: %s, the founder of Lishogi.</string>
 	<string name="costBreakdown">Viz podrobný rozpis nákladů</string>
 	<string name="changeMonthlySupport">Mohu změnit/zrušit svou měsíční podporu?</string>
 	<string name="changeOrContact">Ano, kdykoli z této stránky.
