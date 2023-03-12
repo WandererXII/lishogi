@@ -70,7 +70,7 @@
   <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
   <string name="veryLong">Very long puzzle</string>
   <string name="veryLongDescription">Seven moves or more to win.</string>
-  <string name="lishogiGames">From Lishogi games</string>
+  <string name="lishogiGames">Z Lishogi her</string>
   <string name="lishogiGamesDescription">Puzzles generated from games played on Lishogi.</string>
   <string name="otherSources">From other sources</string>
   <string name="otherSourcesDescription">Many thanks to everyone who submitted or allowed Lishogi to use these puzzles!</string>
