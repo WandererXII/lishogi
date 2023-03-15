@@ -46,7 +46,7 @@
   <string name="oneMoveDescription">A puzzle that is only one move long.</string>
   <string name="opening">Дебют</string>
   <string name="openingDescription">A tactic during the first phase of the game.</string>
-  <string name="pin">Pin</string>
+  <string name="pin">Зв\'язування</string>
   <string name="pinDescription">A tactic involving pins, where a piece is unable to move without revealing an attack on a higher value piece.</string>
   <string name="quietMove">Quiet move</string>
   <string name="quietMoveDescription">A move that does not make a check or capture, but does prepare an unavoidable threat for a later move.</string>
