@@ -656,7 +656,7 @@
 	<string name="listBlockedPlayers">Lista zablokowanych przez Ciebie graczy</string>
 	<string name="human">Człowiek</string>
 	<string name="computer">Komputer</string>
-	<string name="side">Strona</string>
+	<string name="side">Z boku</string>
 	<string name="clock">Zegar</string>
 	<string name="unauthorizedError">Brak dostępu.</string>
 	<string name="noInternetConnection">Brak połączenia z internetem. Nadal możesz wybrać z menu opcję gry offline.</string>
