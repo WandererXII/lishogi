@@ -187,11 +187,11 @@
 	<string name="cancel">Batal</string>
 	<string name="timeOut">Time out</string>
 	<string name="drawOfferSent">Tawaran remis terkirim</string>
-	<string name="drawOfferDeclined">Draw offer declined</string>
+	<string name="drawOfferDeclined">Tawaran remis ditolak</string>
 	<string name="drawOfferAccepted">Tawaran remis diterima</string>
 	<string name="drawOfferCanceled">Tawaran remis dibatalkan</string>
-	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
-	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s menawarkan remis</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s menolak remis</string>
 	<string name="yourOpponentOffersADraw">Lawan anda menawar remis</string>
 	<string name="accept">Terima</string>
 	<string name="decline">Tolak</string>
@@ -235,7 +235,7 @@
 	<string name="incrementInSeconds">Kenaikan dalam detik</string>
 	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
 	<string name="numberOfPeriods">Number of periods</string>
-	<string name="freeOnlineShogi">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Sogi online gratis!</string>
 	<string name="spectators">Spectators:</string>
 	<plurals name="nbRated">
 		<item quantity="other">%s dengan rating</item>
