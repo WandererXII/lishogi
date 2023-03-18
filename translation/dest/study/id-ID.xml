@@ -96,7 +96,7 @@
   <string name="loadAPositionFromSfen">Load a position from SFEN</string>
   <string name="automatic">Otomatis</string>
   <string name="urlOfTheGame">URL permainan</string>
-  <string name="loadAGameFromXOrY">Muat permainan dari %1$s atau %2$s</string>
+  <string name="loadAGameFromX">Load games from %1$s</string>
   <string name="createChapter">Buat bab</string>
   <string name="configureLiveBroadcast">Konfigurasi siaran langsung</string>
   <string name="createStudy">Buat studi</string>
