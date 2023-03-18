@@ -1,78 +1,78 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="shogi">Shogi</string>
-	<string name="playWithAFriend">Play with a friend</string>
-	<string name="playWithTheMachine">Play with the computer</string>
-	<string name="toInviteSomeoneToPlayGiveThisUrl">To invite someone to play, give this URL</string>
-	<string name="gameOver">Game Over</string>
-	<string name="waitingForOpponent">Waiting for opponent</string>
-	<string name="waiting">Waiting</string>
-	<string name="yourTurn">Your turn</string>
-	<string name="aiNameLevelAiLevel">%1$s level %2$s</string>
-	<string name="level">Level</string>
-	<string name="strength">Strength</string>
-	<string name="toggleTheChat">Toggle the chat</string>
-	<string name="toggleSound">Toggle sound</string>
-	<string name="chat">Chat</string>
-	<string name="resign">Resign</string>
-	<string name="checkmate">Checkmate</string>
-	<string name="stalemate">Stalemate</string>
-	<string name="impasse">Impasse</string>
-	<string name="perpetualCheck">Perpetual check</string>
-	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
-	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="shogi">Шогі</string>
+	<string name="playWithAFriend">Гуляць з сябрам</string>
+	<string name="playWithTheMachine">Гуляць з камп\'ютарам</string>
+	<string name="toInviteSomeoneToPlayGiveThisUrl">Каб запрасіць каго-небудзь гуляць, падзяліцеся гэтым URL</string>
+	<string name="gameOver">Канец Гульні</string>
+	<string name="waitingForOpponent">Чаканне ворага</string>
+	<string name="waiting">Чаканне</string>
+	<string name="yourTurn">Ваш ход</string>
+	<string name="aiNameLevelAiLevel">%1$s узровень %2$s</string>
+	<string name="level">Узровень</string>
+	<string name="strength">Магутнасць</string>
+	<string name="toggleTheChat">Пераключыць чат</string>
+	<string name="toggleSound">Пераключыць гук</string>
+	<string name="chat">Чат</string>
+	<string name="resign">Здацца</string>
+	<string name="checkmate">Мат</string>
+	<string name="stalemate">Зарэз</string>
+	<string name="impasse">Зарэз</string>
+	<string name="perpetualCheck">Бестэрміновы шах</string>
+	<string name="royalsLost" comment="Used in chushogi">Усе каралеўскія фігуры згублены</string>
+	<string name="bareKing" comment="Used in chushogi">Голы кароль</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
-	<string name="white" comment="Alternative to gote">White</string>
-	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
-	<string name="black" comment="Alternative to sente">Black</string>
+	<string name="white" comment="Alternative to gote">Белы</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Сэнтэ</string>
+	<string name="black" comment="Alternative to sente">Чорны</string>
 	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
 	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
-	<string name="randomColor" comment="Side - sente/gote">Random side</string>
-	<string name="createAGame">Create a game</string>
-	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
-	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
-	<string name="itsYourTurn">It\'s your turn!</string>
-	<string name="cheatDetected">Cheat Detected</string>
-	<string name="variantEnding">Variant ending</string>
-	<string name="newOpponent">New opponent</string>
-	<string name="yourOpponentWantsToPlayANewGameWithYou">Your opponent wants to play a new game with you</string>
-	<string name="joinTheGame">Join the game</string>
-	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
+	<string name="randomColor" comment="Side - sente/gote">Выпадковы бок</string>
+	<string name="createAGame">Стварыць гульню</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s перамагае</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">Вы гуляеце як %s</string>
+	<string name="itsYourTurn">Ваша чарга!</string>
+	<string name="cheatDetected">Выяўлены падман</string>
+	<string name="variantEnding">Варыянт заканчэння</string>
+	<string name="newOpponent">Новы супраціўнік</string>
+	<string name="yourOpponentWantsToPlayANewGameWithYou">Ваш супраціўнік хоча згуляць з вамі новую гульню</string>
+	<string name="joinTheGame">Далучыцца да гульні</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s гуляць</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Your opponent left the game. You can claim victory in %s second.</item>
 		<item quantity="few">Your opponent left the game. You can claim victory in %s seconds.</item>
 		<item quantity="many">Your opponent left the game. You can claim victory in %s seconds.</item>
-		<item quantity="other">Your opponent left the game. You can claim victory in %s seconds.</item>
+		<item quantity="other">Ваш супраціўнік пакінуў гульню. Вы можаце аб\'явіць перамогу праз %s секунд.</item>
 	</plurals>
-	<string name="opponentLeftChoices">Your opponent left the game. You can claim victory, call the game a draw, or wait.</string>
-	<string name="makeYourOpponentResign">Make your opponent resign</string>
-	<string name="forceResignation">Claim victory</string>
-	<string name="forceDraw">Call draw</string>
-	<string name="talkInChat">Please be nice in the chat!</string>
-	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">The first person to come to this URL will play with you.</string>
-	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
-	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
-	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Share this URL to let spectators see the game</string>
-	<string name="theComputerAnalysisHasFailed">The computer analysis has failed</string>
-	<string name="viewTheComputerAnalysis">View the computer analysis</string>
-	<string name="requestAComputerAnalysis">Request a computer analysis</string>
-	<string name="computerAnalysis">Computer analysis</string>
-	<string name="computerAnalysisAvailable">Computer analysis available</string>
-	<string name="analysis">Analysis board</string>
-	<string name="depthX">Depth %s</string>
-	<string name="usingServerAnalysis">Using server analysis</string>
-	<string name="loadingEngine">Loading engine ...</string>
-	<string name="cloudAnalysis">Cloud analysis</string>
-	<string name="goDeeper" comment="Engine depth">Go deeper</string>
-	<string name="showThreat">Show threat</string>
-	<string name="inLocalBrowser">in local browser</string>
-	<string name="toggleLocalEvaluation">Toggle local evaluation</string>
-	<string name="promoteVariation">Promote variation</string>
-	<string name="makeMainLine">Make mainline</string>
-	<string name="deleteFromHere">Delete from here</string>
+	<string name="opponentLeftChoices">Ваш супраціўнік пакінуў гульню. Вы можаце абвясціць сваю перамогу ці нічыю, або пачакаць.</string>
+	<string name="makeYourOpponentResign">Прымусіць супраціўніка здацца</string>
+	<string name="forceResignation">Заявіць аб перамозе</string>
+	<string name="forceDraw">Прапанаваць нічыю</string>
+	<string name="talkInChat">Калі ласка, будзьце ветлівы ў чаце!</string>
+	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Той, хто перайдзе па гэтай спасылцы, будзе гуляць з вамі.</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s здаўся</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s пакінуў гульню</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s не пахадзіў</string>
+	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Падзяліцеся гэтай спасылкай, каб дазволіць назіральнікам глядзець гульню</string>
+	<string name="theComputerAnalysisHasFailed">Камп\'ютарны аналіз не ўдаўся</string>
+	<string name="viewTheComputerAnalysis">Прагледзець камп\'ютарны аналіз</string>
+	<string name="requestAComputerAnalysis">Запытаць камп\'ютарны аналіз</string>
+	<string name="computerAnalysis">Камп’ютарны аналіз</string>
+	<string name="computerAnalysisAvailable">Камп’ютарны аналіз даступны</string>
+	<string name="analysis">Аналізаваць дошку</string>
+	<string name="depthX">Глыбіня %s</string>
+	<string name="usingServerAnalysis">Выкарыстоўваецца серверны аналіз</string>
+	<string name="loadingEngine">Загрузка рухавічка...</string>
+	<string name="cloudAnalysis">Воблачны аналіз</string>
+	<string name="goDeeper" comment="Engine depth">Перайсці глыбей</string>
+	<string name="showThreat">Паказваць пагрозы</string>
+	<string name="inLocalBrowser">у лакальным браўзеры</string>
+	<string name="toggleLocalEvaluation">Укл./адкл. лакальны аналіз</string>
+	<string name="promoteVariation">Узвысіць прыярытэт</string>
+	<string name="makeMainLine">Зрабіць асноўным</string>
+	<string name="deleteFromHere">Выдаліць адсюль</string>
 	<string name="forceVariation">Force variation</string>
-	<string name="move">Move</string>
+	<string name="move">Ход</string>
 	<plurals name="nbMoves">
 		<item quantity="one">%s move</item>
 		<item quantity="few">%s moves</item>
@@ -106,125 +106,125 @@
 	<string name="realtimeReplay">Realtime</string>
 	<string name="byCPL">By CPL</string>
 	<string name="openStudy">Open study</string>
-	<string name="enable">Enable</string>
-	<string name="bestMoveArrow">Best move arrow</string>
-	<string name="evaluationGauge">Evaluation gauge</string>
-	<string name="multipleLines">Multiple lines</string>
-	<string name="cpus">CPUs</string>
-	<string name="memory">Memory</string>
-	<string name="infiniteAnalysis">Infinite analysis</string>
-	<string name="removesTheDepthLimit">Removes the depth limit, and keeps your computer warm</string>
-	<string name="blunder">Blunder</string>
-	<string name="blunders">Blunders</string>
-	<string name="mistake">Mistake</string>
-	<string name="mistakes">Mistakes</string>
-	<string name="inaccuracy">Inaccuracy</string>
-	<string name="inaccuracies">Inaccuracies</string>
-	<string name="moveTimes">Move times</string>
-	<string name="flipBoard">Flip board</string>
-	<string name="claimADraw">Claim a draw</string>
-	<string name="offerDraw">Offer draw</string>
-	<string name="draw">Draw</string>
+	<string name="enable">Уключыць</string>
+	<string name="bestMoveArrow">Паказваць стрэлкай найлепшы ход</string>
+	<string name="evaluationGauge">Шкала ацэнкі</string>
+	<string name="multipleLines">Мноства варыянтаў</string>
+	<string name="cpus">Працэсар</string>
+	<string name="memory">Памяць</string>
+	<string name="infiniteAnalysis">Бясконцы аналіз</string>
+	<string name="removesTheDepthLimit">Здымае абмежаванне на глыбіню. Асцярожна, ваш кампутар можа перагрэцца!</string>
+	<string name="blunder">Грубая памылка</string>
+	<string name="blunders">Грубыя памылкі</string>
+	<string name="mistake">Памылка</string>
+	<string name="mistakes">Памылкі</string>
+	<string name="inaccuracy">Недакладнасць</string>
+	<string name="inaccuracies">Недакладнасці</string>
+	<string name="moveTimes">Час на ход</string>
+	<string name="flipBoard">Развярнуць дошку</string>
+	<string name="claimADraw">Запатрабаваць нічыю</string>
+	<string name="offerDraw">Прапанаваць нічыю</string>
+	<string name="draw">Нічыя</string>
 	<plurals name="nbPlayers">
-		<item quantity="one">%s player</item>
+		<item quantity="one">%s гулец</item>
 		<item quantity="few">%s players</item>
 		<item quantity="many">%s players</item>
 		<item quantity="other">%s players</item>
 	</plurals>
-	<string name="currentGames">Current games</string>
+	<string name="currentGames">Бягучыя гульні</string>
 	<plurals name="nbGames">
-		<item quantity="one">%s game</item>
+		<item quantity="one">%s гульня</item>
 		<item quantity="few">%s games</item>
 		<item quantity="many">%s games</item>
 		<item quantity="other">%s games</item>
 	</plurals>
 	<plurals name="nbBookmarks">
-		<item quantity="one">%s bookmark</item>
+		<item quantity="one">%s закладка</item>
 		<item quantity="few">%s bookmarks</item>
 		<item quantity="many">%s bookmarks</item>
 		<item quantity="other">%s bookmarks</item>
 	</plurals>
-	<string name="viewInFullSize">View in full size</string>
-	<string name="logOut">Sign out</string>
-	<string name="signIn">Sign in</string>
-	<string name="youNeedAnAccountToDoThat">You need an account to do that</string>
-	<string name="signUp">Register</string>
-	<string name="computersAreNotAllowedToPlay">Computers and computer-assisted players are not allowed to play. Please do not get assistance from engines, databases, or from other players while playing. Also note that making multiple accounts is strongly discouraged and excessive multi-accounting will lead to being banned.</string>
-	<string name="games">Games</string>
-	<string name="forum">Forum</string>
-	<string name="xPostedInForumY">%1$s posted in topic %2$s</string>
-	<string name="latestForumPosts">Latest forum posts</string>
-	<string name="players">Players</string>
-	<string name="friends">Friends</string>
-	<string name="discussions">Conversations</string>
-	<string name="today">Today</string>
-	<string name="yesterday">Yesterday</string>
-	<string name="minutesPerSide">Minutes per side</string>
-	<string name="variant">Variant</string>
-	<string name="variants">Variants</string>
-	<string name="timeControl">Time control</string>
-	<string name="realTime">Real time</string>
-	<string name="correspondence">Correspondence</string>
-	<string name="daysPerTurn">Days per turn</string>
-	<string name="oneDay">One day</string>
+	<string name="viewInFullSize">Глядзець у поўным памеры</string>
+	<string name="logOut">Выйсці</string>
+	<string name="signIn">Увайсці</string>
+	<string name="youNeedAnAccountToDoThat">Неабходна ўвайсці, каб зрабіць гэта.</string>
+	<string name="signUp">Рэгістрацыя</string>
+	<string name="computersAreNotAllowedToPlay">Кампутары і гульцы, якія карыстаюцца дапамогай кампутара, не дапускаюцца да гульні. Калі ласка, не карыстайцеся шахматнымі рухавікамі, базамі, або гульнямі іншых гульцоў. Таксама майце на ўвазе, што ствараць два і болей акаўнта не рэкамендавана і надта вялікая іх колькасць прывядзе да блакіроўкі</string>
+	<string name="games">Гульні</string>
+	<string name="forum">Форум</string>
+	<string name="xPostedInForumY">%1$s апублікавана на форуме %2$s</string>
+	<string name="latestForumPosts">Апошнія допісы на форуме</string>
+	<string name="players">Гульцы</string>
+	<string name="friends">Сябры</string>
+	<string name="discussions">Размовы</string>
+	<string name="today">Сёння</string>
+	<string name="yesterday">Учора</string>
+	<string name="minutesPerSide">Хвілін на кожны бок</string>
+	<string name="variant">Варыянт</string>
+	<string name="variants">Варыянты</string>
+	<string name="timeControl">Кіраванне часам</string>
+	<string name="realTime">Жывая гульня</string>
+	<string name="correspondence">Перапіска</string>
+	<string name="daysPerTurn">Дзён на кожны ход</string>
+	<string name="oneDay">Штодзень</string>
 	<plurals name="nbDays">
 		<item quantity="one">%s day</item>
 		<item quantity="few">%s days</item>
 		<item quantity="many">%s days</item>
-		<item quantity="other">%s days</item>
+		<item quantity="other">%s дзён</item>
 	</plurals>
 	<plurals name="nbHours">
 		<item quantity="one">%s hour</item>
 		<item quantity="few">%s hours</item>
 		<item quantity="many">%s hours</item>
-		<item quantity="other">%s hours</item>
+		<item quantity="other">%s гадзіны</item>
 	</plurals>
-	<string name="time">Time</string>
-	<string name="rating">Rating</string>
-	<string name="ratingStats">Rating stats</string>
-	<string name="username">User name</string>
-	<string name="usernameOrEmail">User name or email</string>
-	<string name="changeUsername">Change username</string>
-	<string name="changeUsernameNotSame">Only the case of the letters can change. For example \"johndoe\" to \"JohnDoe\".</string>
-	<string name="changeUsernameDescription">Change your username. This can only be done once and you are only allowed to change the case of the letters in your username.</string>
-	<string name="password">Password</string>
-	<string name="changePassword">Change password</string>
-	<string name="changeEmail">Change email</string>
-	<string name="email">Email</string>
-	<string name="passwordReset">Password reset</string>
-	<string name="forgotPassword">Forgot password?</string>
-	<string name="rank">Rank</string>
-	<string name="rankX">Rank: %s</string>
+	<string name="time">Час</string>
+	<string name="rating">Рэйтынг</string>
+	<string name="ratingStats">Статыстыка рэйтыгнаў</string>
+	<string name="username">Імя карыстальніка</string>
+	<string name="usernameOrEmail">Імя карыстальніка або адрас электроннай пошты</string>
+	<string name="changeUsername">Змяніць імя карыстальніка</string>
+	<string name="changeUsernameNotSame">Можна мяняць толькі рэгістр літар, да прыкладу, \"janlucevich\" на \"JanLucevich\".</string>
+	<string name="changeUsernameDescription">Вы можаце змяніць рэгістр літар у вашым імені карыстальніка. Зрабіць гэта можна толькі адзін раз.</string>
+	<string name="password">Пароль</string>
+	<string name="changePassword">Змяніць пароль</string>
+	<string name="changeEmail">Змяніць адрас электроннай пошты</string>
+	<string name="email">Электронная пошта</string>
+	<string name="passwordReset">Скінуць пароль</string>
+	<string name="forgotPassword">Забылі пароль?</string>
+	<string name="rank">Ранг</string>
+	<string name="rankX">Ранг: %s</string>
 	<plurals name="rankIsUpdatedEveryNbMinutes">
 		<item quantity="one">Rank is updated every minute</item>
 		<item quantity="few">Rank is updated every %s minutes</item>
 		<item quantity="many">Rank is updated every %s minutes</item>
-		<item quantity="other">Rank is updated every %s minutes</item>
+		<item quantity="other">Рэйтынг абнаўляецца кожныя %s хвілін</item>
 	</plurals>
 	<plurals name="nbPuzzles">
 		<item quantity="one">%s puzzle</item>
 		<item quantity="few">%s puzzles</item>
 		<item quantity="many">%s puzzles</item>
-		<item quantity="other">%s puzzles</item>
+		<item quantity="other">%s галаваломак</item>
 	</plurals>
-	<string name="gamesPlayed">Games played</string>
+	<string name="gamesPlayed">Згуляна партый</string>
 	<plurals name="nbGamesWithYou">
 		<item quantity="one">%s game with you</item>
 		<item quantity="few">%s games with you</item>
 		<item quantity="many">%s games with you</item>
-		<item quantity="other">%s games with you</item>
+		<item quantity="other">%s партый з вамі</item>
 	</plurals>
-	<string name="cancel">Cancel</string>
-	<string name="timeOut">Time out</string>
-	<string name="drawOfferSent">Draw offer sent</string>
-	<string name="drawOfferDeclined">Draw offer declined</string>
-	<string name="drawOfferAccepted">Draw offer accepted</string>
-	<string name="drawOfferCanceled">Draw offer cancelled</string>
-	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
-	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
-	<string name="yourOpponentOffersADraw">Your opponent offers a draw</string>
-	<string name="accept">Accept</string>
-	<string name="decline">Decline</string>
+	<string name="cancel">Скасаваць</string>
+	<string name="timeOut">Час скончыўся</string>
+	<string name="drawOfferSent">Прапанова нічыі даслана</string>
+	<string name="drawOfferDeclined">Прапанова нічыі адхілена</string>
+	<string name="drawOfferAccepted">Прапанова нічыі прынята</string>
+	<string name="drawOfferCanceled">Прапанова нічыі скасавана</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s прапанаваў нічыю.</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s адхіляюць нічыю</string>
+	<string name="yourOpponentOffersADraw">Супраціўнік прапануе нічыю</string>
+	<string name="accept">Прыняць</string>
+	<string name="decline">Адхіліць</string>
 	<string name="playingRightNow">Playing right now</string>
 	<string name="eventInProgress">Playing right now</string>
 	<string name="finished">Finished</string>
@@ -329,28 +329,28 @@
 		<item quantity="one">%s study</item>
 		<item quantity="few">%s studies</item>
 		<item quantity="many">%s studies</item>
-		<item quantity="other">%s studies</item>
+		<item quantity="other">%s студый</item>
 	</plurals>
-	<string name="viewTournament">View tournament</string>
-	<string name="backToTournament">Back to tournament</string>
-	<string name="thematic">Thematic</string>
+	<string name="viewTournament">Глядзець турнір</string>
+	<string name="backToTournament">Вярнуцца да турніру</string>
+	<string name="thematic">Тэматычны</string>
 	<plurals name="moreThanNbRatedGames">
 		<item quantity="one">≥ %s rated game</item>
 		<item quantity="few">≥ %s rated games</item>
 		<item quantity="many">≥ %s rated games</item>
-		<item quantity="other">≥ %s rated games</item>
+		<item quantity="other">≥%s рэйтынгавых гульняў</item>
 	</plurals>
 	<plurals name="moreThanNbPerfRatedGames">
 		<item quantity="one">≥ %1$s %2$s rated game</item>
 		<item quantity="few">≥ %1$s %2$s rated games</item>
 		<item quantity="many">≥ %1$s %2$s rated games</item>
-		<item quantity="other">≥ %1$s %2$s rated games</item>
+		<item quantity="other">≥ %1$s %2$s рэйтынгавыя гульні</item>
 	</plurals>
 	<plurals name="needNbMorePerfGames">
 		<item quantity="one">You need to play %1$s more %2$s rated game</item>
 		<item quantity="few">You need to play %1$s more %2$s rated games</item>
 		<item quantity="many">You need to play %1$s more %2$s rated games</item>
-		<item quantity="other">You need to play %1$s more %2$s rated games</item>
+		<item quantity="other">Вы павінны згуляць яшчэ %1$s рэйтынгавых гульняў у рэжыме «%2$s»</item>
 	</plurals>
 	<plurals name="needNbMoreGames">
 		<item quantity="one">You need to play %s more rated game</item>
