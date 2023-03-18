@@ -258,7 +258,7 @@
 	<plurals name="giveNbSeconds">
 		<item quantity="other">Berikan %s detik</item>
 	</plurals>
-	<string name="thisAccountViolatedTos">Akun ini melanggar Ketentuan Layanan Lichess</string>
+	<string name="thisAccountViolatedTos">Akun ini melanggar Ketentuan Layanan Lishogi</string>
 	<string name="openingExplorerAndTablebase">Penjelajah pembukaan &amp; tablebase</string>
 	<string name="takeback">Langkah Batal</string>
 	<string name="proposeATakeback">Ajukan langkah batal</string>
@@ -808,14 +808,14 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="tryToWin">Usahakan untuk menang (atau setidaknya remis) disetiap permainan yang kau mainkan.</string>
 	<string name="resignLostGames">Ajukan menyerah untuk permainan yang kalah (jangan sampai waktu habis).</string>
 	<string name="temporaryInconvenience">Kami mohon maaf atas ketidaknyamanan ini,</string>
-	<string name="wishYouGreatGames">dan doakan Anda untuk mendapatkan pengalaman bermain yang hebat di lichess.org.</string>
+	<string name="wishYouGreatGames">dan doakan Anda untuk mendapatkan pengalaman bermain yang hebat di lishogi.org.</string>
 	<string name="thankYouForReading">Terima kasih sudah membacanya!</string>
 	<string name="lifetimeScore">Skor seumur hidup</string>
 	<string name="currentMatchScore">Skor pertandingan saat ini</string>
 	<string name="agreementAssistance">Saya menyetujui bahwa saya tidak akan pernah menerima bantuan selama pertandingan (dari komputer catur, buku, database ataupun orang lain).</string>
 	<string name="agreementNice">Saya menyetujui bahwa saya akan selalu bersikap baik kepada pemain lain.</string>
 	<string name="agreementAccount">I agree that I will not create multiple accounts.</string>
-	<string name="agreementPolicy">Saya menyetujui bahwa saya akan mengikuti semua kebijakan yang ada di Lichess.</string>
+	<string name="agreementPolicy">Saya menyetujui bahwa saya akan mengikuti semua kebijakan yang ada di Lishogi.</string>
 	<string name="searchOrStartNewDiscussion">Cari atau mulai diskusi baru</string>
 	<string name="edit">Ubah</string>
 	<string name="rapid">Cepat</string>
