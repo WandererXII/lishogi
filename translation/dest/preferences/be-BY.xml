@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="preferences">Налады</string>
-	<string name="gameDisplay">Game display</string>
-	<string name="boardLayout">Board layout</string>
-	<string name="clearHands">Hide ghosts of pieces in hand</string>
+	<string name="gameDisplay">Выгляд дошкі</string>
+	<string name="boardLayout">Расклад дошкі</string>
+	<string name="clearHands">Схаваць фігуры, калі яны на руцэ</string>
 	<string name="pieceAnimation">Анімацыя фігур</string>
 	<string name="materialDifference">Паказваць розніцу ў фігурах</string>
 	<string name="boardHighlightsLastDests">Board highlights - last move/drop</string>
@@ -18,7 +18,7 @@
 	<string name="displayBoardResizeHandle">Паказваць ручку змены памеру дошкі</string>
 	<string name="onlyOnInitialPosition">Толькі ў пачатковым становішчы</string>
 	<string name="blindfoldShogi">Blindfold shogi (invisible pieces)</string>
-	<string name="shogiClock">Shogi clock</string>
+	<string name="shogiClock">Гадзіннік сёгі</string>
 	<string name="tenthsOfSeconds">Дзясятыя долі секунды</string>
 	<string name="whenTimeRemainingLessThanTenSeconds">Калі засталося менш за 10 с</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
@@ -40,8 +40,8 @@
 	<string name="confirmResignationAndDrawOffers">Пацвярджаць здаччу і прапановы нічый</string>
 	<string name="inputMovesWithTheKeyboard">Уводзіць хады з дапамогай клавіятуры</string>
 	<string name="scrollOnTheBoardToReplayMoves">Гартайце колцам мышцы на дошцы, каб прайграць хады</string>
-	<string name="westernNotation">Western notation</string>
-	<string name="japaneseNotation">Japanese notatation</string>
-	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
+	<string name="westernNotation">Заходнія абазначэнні</string>
+	<string name="japaneseNotation">Японскія абазначэнні</string>
+	<string name="kitaoKawasakiNotation">Абазначэнні Кітаа-Кавасакі</string>
 	<string name="yourPreferencesHaveBeenSaved">Вашы налады былі захаваныя.</string>
 </resources>
