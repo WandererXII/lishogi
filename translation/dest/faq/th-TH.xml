@@ -11,7 +11,6 @@
 เพราะว่าโค้ดส่วนใหญ่ของ Lishogi ถูกเขียนในภาษา %2$s ซึ่งเป็นภาษาที่ใช้งานง่าย</string>
 	<string name="howCanIContributeToLishogi">ฉันจะช่วยสนับสนุน Lishogi ได้อย่างไร?</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi ได้รับการสนับสนุนโดยการบริจาคจากผู้อุปถัมภ์ และการร่วมมือกันของทีมอาสาสมัคร</string>
-	<string name="findMoreAndSeeHowHelp">คุณสามารถเรียนรู้เพิ่มเติมเกี่ยวกับ %1$s (รวมถึง %2$s) ถ้าคุณอยากช่วย Lishogi โดยการอาสาสมัครด้วยเวลาและฝีมือ มี %3$s</string>
 	<string name="beingAPatron">เป็นผู้อุปถัมภ์</string>
 	<string name="otherWaysToContribute">Here are many other ways you could contribute to Lishogi.</string>
 	<string name="breakdownOfOurCosts">สรุปค่าใช้จ่ายของ Lishogi</string>
