@@ -8,7 +8,7 @@
 	<string name="youWillLoseAllYourProgress">Увесь ваш прагрэс будзе скінуты!</string>
 	<string name="play">гуляць!</string>
 	<string name="shogiPieces">Фігуры сёгі</string>
-	<string name="theIntroduction">Introduction</string>
+	<string name="theIntroduction">Увядзенне</string>
 	<string name="introBasics">Давайце вывучым некалькі асноў</string>
 	<string name="introIntro">Ваша падарожжа пачынаецца тут</string>
 	<string name="clickHereAfterYouveChosen">Click here after you\'ve chosen the piece design you like.</string>
@@ -71,14 +71,14 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="lanceSummary">Moves forward, this is really easy.</string>
 	<string name="planceSummary">It\'s the same as the gold general.</string>
 	<string name="planceSummaryTwo">The promoted lance moves the same as the gold general.</string>
-	<string name="lanceComplete">Great job!</string>
-	<string name="theGold">The gold general</string>
+	<string name="lanceComplete">Малайчына!</string>
+	<string name="theGold">Залаты генерал</string>
 	<string name="itMovesInAnyDirectionExceptDiagonallyBack">The gold general moves in any direction EXCEPT diagonally back.</string>
 	<string name="goldIntro">The gold general movements might be a bit harder to remember at first, but you can surely do it.</string>
 	<string name="goldDoesntPromote">The gold general together with the king is the only piece you CAN\'T promote.</string>
 	<string name="goldSummary">Try to remember these moves, many pieces move the same after they are promoted.</string>
-	<string name="goldComplete">Congratulations! You got this.</string>
-	<string name="theSilver">The silver general</string>
+	<string name="goldComplete">Віншуем! У вас атрымалася.</string>
+	<string name="theSilver">Сярэбраны генерал</string>
 	<string name="itMovesEitherForwardOrDiagonallyBack">The silver general moves either forward or diagonally back.</string>
 	<string name="silverIntro">Another piece with unusual movements, but this is the last one. Promise!</string>
 	<string name="silverPromotion">When you promote the silver general his movements are the same as the gold general.</string>
@@ -96,10 +96,10 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
 And don\'t lose yours.</string>
 	<string name="captureComplete">Віншуем! Цяпер вы ведаеце, як браць фігуры!</string>
-	<string name="pieceDrops">Piece drops</string>
-	<string name="reuseCapturedPieces">Reuse captured pieces!</string>
-	<string name="dropIntro">Once again, capture all the opponent\'s pieces, without losing yours!</string>
-	<string name="capturedPiecesCanBeDropped">Captured pieces can be dropped back on the board on your turn!</string>
+	<string name="pieceDrops">Фігура скідаецца</string>
+	<string name="reuseCapturedPieces">Выкарыстайце варожыя фігуры яшчэ раз</string>
+	<string name="dropIntro">Зноў захапіце ўсё варожыя фігуры, не страціўшы сваіх!</string>
+	<string name="capturedPiecesCanBeDropped">Захопленыя фігуры могуць быць скінуты на дошку падчас вашага ходу</string>
 	<string name="dropLimitations">You cannot drop a piece on another piece or drop it where it cannot have any legal moves. Dropping a piece in promotion zone doesn\'t result in promotion.
 Take the enemy pieces!</string>
 	<string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
@@ -162,7 +162,7 @@ Take the enemy pieces!</string>
 	<string name="placeThePawns">Finally, on the 3rd rank, drop pawns the same way you placed the back rank pieces. The circle will be your guide.</string>
 	<string name="pushingThe3rdPawn">Pushing the 3rd pawn to open the bishop’s diagonal is the most common first move. Make this move to continue.</string>
 	<string name="boardSetupComplete">Віншуем! Зараз вы ведаеце, як ставіць фігуры на шахматнай дошцы.</string>
-	<string name="repetition">Repetition</string>
+	<string name="repetition">Паўтарэнне</string>
 	<string name="fourfoldRepetitionIsADrawExcept">Fourfold repetition is a draw, EXCEPT...</string>
 	<string name="repetitionIntro">Fourfold repetition is a draw Perpetual check is a loss.</string>
 	<string name="ifTheSamePositionOccurs">If the same position occurs 4 times in Shogi, it is an automatic draw. This situation is called sennichite (千日手). Make the only legal move.</string>
