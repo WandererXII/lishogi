@@ -45,10 +45,10 @@
 Капмутарны аналіз на Lishogi выкарыстоўвае YaneuraOu/Fairy-Stockfish.</string>
 	<string name="insufficientMaterial">Параза па часе, нічыя і недастатковы матэрыял</string>
 	<string name="goodIntroduction">добрае тлумачэнне</string>
-	<string name="officialRulesPDF">official rules (PDF)</string>
+	<string name="officialRulesPDF">афіцыйныя правілы (PDF)</string>
 	<string name="lishogiTraining">Lishogi практыку</string>
 	<string name="fourfoldRepetition">Fourfold repetition</string>
-	<string name="handBookPDF">handbook (PDF)</string>
+	<string name="handBookPDF">даведнік(PDF)</string>
 	<string name="notRepeatedMoves">Мы не паўтаралі хады. Чаму гульня скончылася ўнічыю праз паўтарэнне?</string>
 	<string name="repeatedPositionsThatMatters">Трохразовае паўтарэнне гэта пра паўтораныя %1$s, не хады. Паўтарэнні могуць адбыцца і не запар.</string>
 	<string name="positions">пазіцыі</string>
@@ -94,7 +94,7 @@
 	<string name="ratingLeaderboards">дошку лідараў рэйтынгу</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">сыграць па меншай меры 30 рэйтынгавых партый у дадзеным варыянце,</string>
 	<string name="havePlayedARatedGameAtLeastOneWeekAgo">сыграць хаця б адну рэйтынгавую партыю на працягу мінулага тыдня ў гэтым варыянце,</string>
-	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
+	<string name="ratingDeviationLowerThanXinShogiYinVariants">мець адхіленне рэйтынгу менш за %1$s у звычайных сёгі, і менш за %2$s у варыянтах,</string>
 	<string name="beInTopTen">уваходзіць у першую 10 па рэйтынгу.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Другое патрабаванне для таго, каб гульцы, якія больш не карыстаюцца сваімі ўліковымі запісамі, не адабражаліся на дошках лідараў.</string>
 	<string name="whyAreRatingHigher">Чаму рэйтынгі вышэй, чым на іншых сайтах та арганісацыях такіх як ФІДЭ, USCF і ICC?</string>
