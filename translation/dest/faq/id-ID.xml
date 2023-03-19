@@ -10,7 +10,6 @@
 	<string name="whyIsLilaCalledLila">Demikian pula, kode sumber untuk Lishogi, %1$s, singkatan dari li[shogi in sca]la, mengingat sebagian besar Lishogi ditulis dalam %2$s, bahasa pemrograman yang intuitif.</string>
 	<string name="howCanIContributeToLishogi">How can I contribute to Lishogi?</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi is powered by donations from patrons and the efforts of a team of volunteers.</string>
-	<string name="findMoreAndSeeHowHelp">Anda dapat mengetahui lebih tentang %1$s. Jika anda ingin membantu Lishogi dengan volunter waktu dan keahlian, terdapat %2$s.</string>
 	<string name="beingAPatron">menjadi pendukung</string>
 	<string name="otherWaysToContribute">Here are many other ways you could contribute to Lishogi.</string>
 	<string name="breakdownOfOurCosts">rincian biaya kami</string>
@@ -42,7 +41,7 @@ Gerakan komputer teratas akan kehilangan centipawn kosong, tetapi gerakan yang l
 
 Nilai ini dapat digunakan sebagai indikator kualitas bermain. Semakin sedikit centipawn yang kalah per gerakan, semakin kuat permainannya.
 
-Analisis komputer pada Lichess didukung oleh YaneuraOu atau Fairy-Stockfish.</string>
+Analisis komputer pada Lishogi didukung oleh YaneuraOu atau Fairy-Stockfish.</string>
 	<string name="insufficientMaterial">Kehabisan waktu, seri dan kurang materi</string>
 	<string name="goodIntroduction">pengenalan yang baik</string>
 	<string name="officialRulesPDF">official rules (PDF)</string>
@@ -63,7 +62,7 @@ Terakhir, terdapat gelar kehormatan %2$s.</string>
 	<string name="verificationForm">form verifikasi</string>
 	<string name="canIbecomeLM">Bisakah saya mendapatkan gelar Lishogi Master (LM)?</string>
 	<string name="noUpperCaseDot">Tidak.</string>
-	<string name="lMtitleComesToYouDoNotRequestIt">Gelar kehormatan ini tidak resmi dan hanya terdapat di Lichess.
+	<string name="lMtitleComesToYouDoNotRequestIt">Gelar kehormatan ini tidak resmi dan hanya terdapat di Lishogi.
 
 Kami memberikan gelar tersebut pada pemain terkemuka yang merupakan warga Lishogi yang baik, sesuai kebijakan kami. Anda tidak mencari gelar LM, gelar LM yang mencari Anda. Jika Anda memenuhi syarat, Anda akan mendapat pesan dari kami dan pilihan untuk menerima atau menolaknya.</string>
 	<string name="whatUsernameCanIchoose">Apa yang dapat digunakan sebagai username saya?</string>
