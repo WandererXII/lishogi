@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="learnShogi">Learn shogi</string>
+	<string name="learnShogi">Вучыць сёгі</string>
 	<string name="byPlaying">гуляючы!</string>
 	<string name="menu">Меню</string>
 	<string name="progressX">Прагрэс: %s</string>
 	<string name="resetMyProgress">Скінуць прагрэс</string>
 	<string name="youWillLoseAllYourProgress">Увесь ваш прагрэс будзе скінуты!</string>
 	<string name="play">гуляць!</string>
-	<string name="shogiPieces">Shogi pieces</string>
+	<string name="shogiPieces">Фігуры сёгі</string>
 	<string name="theIntroduction">Introduction</string>
-	<string name="introBasics">Let\'s learn some basics.</string>
-	<string name="introIntro">Your journey begins here.</string>
+	<string name="introBasics">Давайце вывучым некалькі асноў</string>
+	<string name="introIntro">Ваша падарожжа пачынаецца тут</string>
 	<string name="clickHereAfterYouveChosen">Click here after you\'ve chosen the piece design you like.</string>
 	<string name="choosePieceDesign">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.
 To do that click on the cog wheel or your username(top right corner) and then click on \'piece set\'.</string>
