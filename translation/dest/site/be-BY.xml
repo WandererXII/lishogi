@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="shogi">Шогі</string>
+	<string name="shogi">Сёгі</string>
 	<string name="playWithAFriend">Гуляць з сябрам</string>
 	<string name="playWithTheMachine">Гуляць з камп\'ютарам</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Каб запрасіць каго-небудзь гуляць, падзяліцеся гэтым URL</string>
@@ -74,7 +74,7 @@
 	<string name="forceVariation">Узначаліць варыянт</string>
 	<string name="move">Ход</string>
 	<plurals name="nbMoves">
-		<item quantity="one">%s move</item>
+		<item quantity="one">%s ход</item>
 		<item quantity="few">%s moves</item>
 		<item quantity="many">%s moves</item>
 		<item quantity="other">%s хады</item>
