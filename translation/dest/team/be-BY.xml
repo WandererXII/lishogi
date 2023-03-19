@@ -15,7 +15,7 @@
   <string name="joinTeam">Далучыцца да каманды</string>
   <string name="quitTeam">Выйсці з каманды</string>
   <string name="anyoneCanJoin">Free for all</string>
-  <string name="aConfirmationIsRequiredToJoin">A confirmation is required to join</string>
+  <string name="aConfirmationIsRequiredToJoin">Патрэбна пацвярджэнне , каб далучыцца</string>
   <string name="joiningPolicy">Joining policy</string>
   <plurals name="teamLeaders">
     <item quantity="one">Лідар каманды</item>
