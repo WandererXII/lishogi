@@ -17,5 +17,5 @@
   <string name="startDateHelp">Па жаданні, калі вы ведаеце пачатак падзеі</string>
   <string name="credits">Падзякаваць крыніцы</string>
   <string name="cloneBroadcast">Зрабіць клона трансляцыі</string>
-  <string name="resetBroadcast">Reset the broadcast</string>
+  <string name="resetBroadcast">Скінуць трансляцыю</string>
 </resources>
