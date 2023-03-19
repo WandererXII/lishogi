@@ -879,7 +879,7 @@
 	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Разгляд памылак для %s скончаны</string>
 	<string name="doItAgain">Яшчэ раз</string>
 	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Разабраць памылкі %s</string>
-	<string name="advantage">Advantage</string>
+	<string name="advantage">Перавага</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s second</item>
 		<item quantity="few">%s seconds</item>
