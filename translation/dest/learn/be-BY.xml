@@ -34,7 +34,7 @@
 	<string name="theBishop">Слон</string>
 	<string name="itMovesDiagonally">Рухаецца па дыяганалях</string>
 	<string name="bishopIntro">Далей мы навучымся хадзіць сланом!</string>
-	<string name="ehThereIsNoPiece">Eh? There is no piece on the board. But look outside the board, a bishop! This area is where the pieces you captured go. You can place the piece back on the board. As usual, grab all the stars.</string>
+	<string name="ehThereIsNoPiece">Што? На дошцы няма ніякіх фігур. Але гледзіце за межы дошкі, слон! Сюды пападаюць постаці, якія вы захапілі. Вы можаце паставіць іх назад на дошку. Як звычайна, збярыце ўсе зоркі.</string>
 	<string name="bishopPromotion">Promoting your bishop will make it stronger, it will turn into a piece called \"the horse\".</string>
 	<string name="bishopSummary">The bishop moves in any diagonal direction.</string>
 	<string name="horseSummary">The promoted bishop moves also diagonally, but it can also go one square up, down, left or right as well.</string>
