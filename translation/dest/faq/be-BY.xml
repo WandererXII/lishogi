@@ -16,7 +16,7 @@
 	<string name="otherWaysToHelp">іншых спосабаў дапамогі</string>
 	<string name="fairPlay">Сумленная гульня</string>
 	<string name="whyFlaggedRatingManipulationOrCheater">Чаму мяне падазраваюць у жульніцтве? Як тое: выкарыстанне дапамогі іншых гульцоў, дагаворныя гульні або падказкі камп\'ютарных праграм?</string>
-	<string name="cheatDetectionMethods">Lishogi has strong detection methods and a very thorough process for reviewing all the evidence and making a decision. The process often involves many moderators and can take a long time. Other than the mark itself, we will not go into details about evidence or the decision making process for individual cases. Doing so would make it easier to avoid detection in the future, and be an invitation to unproductive debates. That time and effort is better spent on other important cases. Users can appeal by emailing %1$s, but decisions are rarely overturned.</string>
+	<string name="cheatDetectionMethods">Lishogi выкарыстоўвае вельмі надзейныя спосабы і старанна прапрацаваны працэс для вывучэння доказаў і прыняцця рашэнняў. У гэты працэс уцягнута мноства мадэратараў і ён можа заняць даволі працяглы час. У выніку выносіцца толькі рашэнне аб тым, ці быў гулец несумленны, але ніякія падрабязнасці не выдаюцца, інакш гэта магло б аблегчыць несумленным гульцам магчымасць абыходзіць спосабы іх выяўлення. Акрамя таго, чым больш дэталяў, тым больш пустых спрэчак, а гэты час лепш выдаткаваць на нешта больш стаялае. Гульцы могуць абскардзіць рашэнне па электроннай пошце %1$s, але трэба мець на ўвазе, што адказ на яго не гарантуецца, і рашэнні адмяняюцца вельмі рэдка.</string>
 	<string name="whenAmIEligibleRatinRefund">Калі я магу разлічваць на аўтаматычную кампенсацыю рэйтынга, згубленага чыцеру?</string>
 	<string name="ratingRefundExplanation">Праз хвіліну пасля выяўлення такога гульца, 40 апошніх рэйтынгавых гульняў за апошнія 3 дні бяруцца. Калі вы адзін з супернікаў у гэтых гульнях, вы згубілі рэйтынг (праз паразу або нічыю), і ваш рэйтынг не быў умоўным, вы атрымліваецце кампенсацыю рэйтынгу. Кампенсацыя абмежавана вашым пікавым рэйтынгам і вашым прагрэсам рэйтынгу пасля гульні.
  (Напрыклад, калі ваш рэйтынг значна ўзрос пасля такіх гульняў, вы можаце атрымаць частковую кампенсацыю або ўвогуле нічога.) Кампенсацыя ніколі не перавысіць 150 балаў рэйтынгу.</string>
@@ -34,7 +34,7 @@
 	<string name="inferiorThanXsEqualYtimeControl">&lt; %1$s с = %2$s</string>
 	<string name="superiorThanXsEqualYtimeControl">≥ %1$s с = %2$s</string>
 	<string name="whatVariantsCanIplay">У якія разнастайнасці шахмат магчыма згуляць на Lishogi?</string>
-	<string name="lishogiSupportShogiAnd">Lishogi supports standard shogi and %1$s.</string>
+	<string name="lishogiSupportShogiAnd">Lishogi падтрымлівае класічныя сёгі і %1$s.</string>
 	<string name="whatIsACPL">Што такое сярэдняя страта санціпешкі (ACPL)?</string>
 	<string name="acplExplanation">Санціпешка - адзінка вымярэння, якая выкарыстоўваецца ў шахматах для адлюстравання перавагі. Санціпешка = 1/100 пешкі. Таму 100 санціпешак = 1 пешка. Гэтыя значэнні не граюць аніякай афіцыйнай ролі ў гульні, але карысныя гульцам і асабліва ў кампутарных шахматах, каб ацаніць пазіцыю.
 
@@ -47,7 +47,7 @@
 	<string name="goodIntroduction">добрае тлумачэнне</string>
 	<string name="officialRulesPDF">афіцыйныя правілы (PDF)</string>
 	<string name="lishogiTraining">Lishogi практыку</string>
-	<string name="fourfoldRepetition">Fourfold repetition</string>
+	<string name="fourfoldRepetition">Чатырохразовае паўтарэнне пазіцыі</string>
 	<string name="handBookPDF">даведнік(PDF)</string>
 	<string name="notRepeatedMoves">Мы не паўтаралі хады. Чаму гульня скончылася ўнічыю праз паўтарэнне?</string>
 	<string name="repeatedPositionsThatMatters">Трохразовае паўтарэнне гэта пра паўтораныя %1$s, не хады. Паўтарэнні могуць адбыцца і не запар.</string>
