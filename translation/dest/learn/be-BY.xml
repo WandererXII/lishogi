@@ -11,18 +11,18 @@
 	<string name="theIntroduction">Увядзенне</string>
 	<string name="introBasics">Давайце вывучым некалькі асноў</string>
 	<string name="introIntro">Ваша падарожжа пачынаецца тут</string>
-	<string name="clickHereAfterYouveChosen">Click here after you\'ve chosen the piece design you like.</string>
-	<string name="choosePieceDesign">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.
-To do that click on the cog wheel or your username(top right corner) and then click on \'piece set\'.</string>
-	<string name="promotionZone">When some of your pieces reach or leave the first three ranks in your opponent\'s territory you can choose to promote your piece and make it stronger.</string>
-	<string name="senteGoesFirst">In shogi the player who goes first is called sente and the player who goes second is called gote. Sente is sometimes represented by black color and gote by white. Make any move as sente to continue.</string>
-	<string name="introComplete">You now know some basics, but this part of tutorial is still under construction. For now learn how individual pieces move.</string>
-	<string name="introCompleteTwo">You now know some basics! Now learn how individual pieces move.</string>
+	<string name="clickHereAfterYouveChosen">Націсніце тут пасля таго, як вы выбралі дызайн, які вам падабаецца</string>
+	<string name="choosePieceDesign">Важна, каб вы маглі адрозніць свае фігуры, таму пераканайцеся, што вы выбралі правільны набор дэталяў.
+Каб зрабіць гэта, націсніце на зубчастае кола або ваша імя карыстальніка (правы верхні вугал), а затым націсніце на «набор частак»</string>
+	<string name="promotionZone">Калі некаторыя з вашых фігур дасягаюць або пакідаюць першыя тры шэрагі на тэрыторыі суперніка, вы можаце выбраць прасоўванне сваёй фігуры і зрабіць яе мацнейшай.</string>
+	<string name="senteGoesFirst">У сёгі гулец, які ідзе першым, называецца сентэ, а гулец, які ідзе другім, - готэ. Сентэ часам прадстаўлены чорным колерам, а готэ - белым. Каб працягнуць, зрабіце любы рух за сентэ</string>
+	<string name="introComplete">Цяпер вы ведаеце некаторыя асновы, але гэтая частка падручніка яшчэ распрацоўваецца. А пакуль даведайцеся, як рухаюцца асобныя часткі.</string>
+	<string name="introCompleteTwo">Цяпер вы ведаеце некаторыя асновы! А пакуль даведайцеся , як рухаюцца асобныя часткі</string>
 	<string name="theRook">Ладдзя</string>
 	<string name="itMovesInStraightLines">Рухаецца па простых лініях</string>
 	<string name="rookIntro">Ладдзя — гэта цяжкая фігура. Ці гатовы вы кіраваць ёй?</string>
 	<string name="rookGoal">Націсніце на ладдзю і давядзіце яе да зорачкі!</string>
-	<string name="grabAllTheStarsRemember">Grab all the stars! Remember, look outside of the board.</string>
+	<string name="grabAllTheStarsRemember">Хапай усе зоркі! Памятайце, каб глядзець за мяжы дошкі</string>
 	<string name="rookPromotion">The rook promotes to the powerful dragon. Don\'t forget that you can also promote your piece when you leave the promotion zone.</string>
 	<string name="rookSummary">The rook can go up, down, left or right as much as it wants.</string>
 	<string name="dragonSummary">It can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
