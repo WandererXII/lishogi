@@ -1,3 +1,4 @@
+import { colorName, transWithColorName } from 'common/colorName';
 import { MaybeVNodes } from 'common/snabbdom';
 import * as game from 'game';
 import * as status from 'game/status';
@@ -19,7 +20,7 @@ function renderPlayer(ctrl: RoundController, position: Position) {
     ? h('div.user-link.online.ruser.ruser-' + position, [
         h(`div.player-color.${player.color}`, {
           attrs: {
-            title: player.color === 'sente' ? 'Sente' : 'Gote',
+            title: colorName(ctrl.trans.noarg, player.color, ctrl.data.game.initialSfen),
           },
         }),
         h('i.line'),
@@ -88,7 +89,10 @@ export const renderTablePlay = (ctrl: RoundController) => {
       h(
         'div.ricons',
         {
-          class: { confirm: !!(ctrl.drawConfirm || ctrl.resignConfirm) },
+          class: {
+            confirm: !!(ctrl.drawConfirm || ctrl.resignConfirm),
+            empty: icons.length === 0,
+          },
         },
         icons
       ),
@@ -104,7 +108,7 @@ function whosTurn(ctrl: RoundController, color: Color, position: Position) {
       ? h(
           'div.rclock-turn__text',
           d.player.spectator
-            ? ctrl.trans(d.game.player + 'Plays')
+            ? transWithColorName(ctrl.trans, 'xPlays', d.game.player, d.game.initialSfen)
             : ctrl.trans(d.game.player === d.player.color ? 'yourTurn' : 'waitingForOpponent')
         )
       : null,

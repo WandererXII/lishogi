@@ -14,9 +14,13 @@ object jsI18n {
   val i18nKeys: List[lila.i18n.MessageKey] = {
     import trans.study._
     List(
-      trans.name,
-      trans.white,
       trans.black,
+      trans.white,
+      trans.sente,
+      trans.gote,
+      trans.shitate,
+      trans.uwate,
+      trans.name,
       trans.variant,
       trans.clearBoard,
       trans.startPosition,
@@ -93,10 +97,9 @@ object jsI18n {
       startFromCustomPosition,
       loadAGameByUrl,
       loadAPositionFromSfen,
-      loadAGameFromKif,
       automatic,
       urlOfTheGame,
-      loadAGameFromXOrY,
+      loadAGameFromX,
       createChapter,
       configureLiveBroadcast,
       createStudy,
@@ -125,7 +128,10 @@ object jsI18n {
       whereDoYouWantToStudyThat,
       nbChapters,
       nbGames,
-      nbMembers
+      nbMembers,
+      trans.rematch,
+      trans.backToGame,
+      trans.newOpponent
     ).map(_.key)
   }
 }

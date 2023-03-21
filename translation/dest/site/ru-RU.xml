@@ -21,19 +21,15 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">Gote</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Белые</string>
-	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">Sente</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
 	<string name="black" comment="Alternative to sente">Чёрные</string>
-	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Шитатэ</string>
-	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Уватэ</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Шитатэ</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Уватэ</string>
 	<string name="randomColor" comment="Side - sente/gote">Случайный цвет</string>
 	<string name="createAGame">Создать игру</string>
-	<string name="whiteIsVictorious">Победа белых</string>
-	<string name="blackIsVictorious">Победа чёрных</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
-	<string name="youPlayTheWhitePieces">Вы играете белыми фигурами</string>
-	<string name="youPlayTheBlackPieces">Вы играете чёрными фигурами</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Ваш ход!</string>
 	<string name="cheatDetected">Обнаружено жульничество</string>
@@ -41,11 +37,7 @@
 	<string name="newOpponent">Найти другого соперника</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Соперник предлагает вам сыграть ещё раз</string>
 	<string name="joinTheGame">Принять вызов</string>
-	<string name="whitePlays">Ход белых</string>
-	<string name="blackPlays">Ход чёрных</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
-	<string name="shitatePlays">Ход шитатэ</string>
-	<string name="uwatePlays">Ход уватэ</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Ваш соперник покинул игру. Вы можете объявить победу через %s секунду.</item>
 		<item quantity="few">Ваш соперник покинул игру. Вы можете объявить победу через %s секунды.</item>
@@ -58,11 +50,7 @@
 	<string name="forceDraw">Объявить ничью</string>
 	<string name="talkInChat">Будьте вежливы в чате!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">С вами сыграет первый, кто перейдёт по этой ссылке.</string>
-	<string name="whiteResigned">Белые сдались</string>
-	<string name="blackResigned">Чёрные сдались</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="whiteLeftTheGame">Белые вышли из игры</string>
-	<string name="blackLeftTheGame">Чёрные вышли из игры</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Пригласите зрителей с помощью этой ссылки</string>
@@ -76,7 +64,7 @@
 	<string name="usingServerAnalysis">Используется серверный анализ</string>
 	<string name="loadingEngine">Загрузка движка...</string>
 	<string name="cloudAnalysis">Облачный анализ</string>
-	<string name="goDeeper">Анализировать глубже</string>
+	<string name="goDeeper" comment="Engine depth">Анализировать глубже</string>
 	<string name="showThreat">Показать ответную угрозу</string>
 	<string name="inLocalBrowser">в браузере</string>
 	<string name="toggleLocalEvaluation">Включить локальный анализ</string>
@@ -85,7 +73,7 @@
 	<string name="deleteFromHere">Удалить с этого места</string>
 	<string name="forceVariation">Сделать вариант главным</string>
 	<string name="move">Ход</string>
-	<plurals name="moves">
+	<plurals name="nbMoves">
 		<item quantity="one">%s move</item>
 		<item quantity="few">%s moves</item>
 		<item quantity="many">%s moves</item>
@@ -102,7 +90,6 @@
 	<string name="drawn">Вничью</string>
 	<string name="unknown">Неизвестно</string>
 	<string name="database">Архив партий</string>
-	<string name="whiteDrawBlack">Белые / Ничья / Чёрные</string>
 	<string name="averageRatingX">Средний рейтинг: %s</string>
 	<string name="recentGames">Недавние игры</string>
 	<string name="topGames">Лучшие игры</string>
@@ -233,11 +220,7 @@
 	<string name="drawOfferDeclined">Предложение ничьей отклонено</string>
 	<string name="drawOfferAccepted">Предложение ничьей принято</string>
 	<string name="drawOfferCanceled">Предложение ничьей отменено</string>
-	<string name="whiteOffersDraw">Белые предлагают ничью</string>
-	<string name="blackOffersDraw">Чёрные предлагают ничью</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
-	<string name="whiteDeclinesDraw">Белые отклонили предложение ничьей</string>
-	<string name="blackDeclinesDraw">Чёрные отклонили предложение ничьей</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Ваш соперник предлагает вам ничью</string>
 	<string name="accept">Принять</string>
@@ -248,7 +231,7 @@
 	<string name="finishesX">завершится %s</string>
 	<string name="abortGame">Отменить игру</string>
 	<string name="gameAborted">Игра отменена</string>
-	<string name="standard">Классические сёги</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Классические сёги</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
 	<string name="unlimited">Отсутствует</string>
@@ -260,8 +243,6 @@
 	<string name="thisGameIsRated">Игра на рейтинг</string>
 	<string name="rematch">Реванш</string>
 	<string name="rematchOfferSent">Предложение реванша отправлено</string>
-	<string name="rematchOfferSentWhite">Белые предлагают реванш</string>
-	<string name="rematchOfferSentBlack">Чёрные предлагают реванш</string>
 	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Предложение реванша принято</string>
 	<string name="rematchOfferCanceled">Предложение реванша отменено</string>
@@ -418,8 +399,6 @@
 	<string name="clickOnTheBoardToMakeYourMove">Кликните по доске и сделайте ход, чтобы доказать, что вы человек, а не компьютер. (Всем известно, что компьютеры не умеют играть в сёги!).</string>
 	<string name="captcha.fail">Пожалуйста, решите капчу.</string>
 	<string name="notACheckmate">Это не мат</string>
-	<string name="whiteCheckmatesInOneMove">Белые ставят мат в один ход</string>
-	<string name="blackCheckmatesInOneMove">Чёрные ставят мат в один ход</string>
 	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Повторить</string>
 	<string name="reconnecting">Переподключение</string>
@@ -482,6 +461,7 @@
 	<string name="showAdvancedSettings">Показать дополнительные настройки</string>
 	<string name="makePrivateTournament">Сделать турнир закрытым и ограничить доступ паролем</string>
 	<string name="join">Участвовать</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Покинуть</string>
 	<string name="points">Очки</string>
 	<string name="wins">Победы</string>
@@ -497,8 +477,6 @@
 	<string name="performance">Перфоманс</string>
 	<string name="tournamentComplete">Турнир завершён</string>
 	<string name="movesPlayed">Сделано ходов</string>
-	<string name="whiteWins">Побед белыми</string>
-	<string name="blackWins">Побед чёрными</string>
 	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Ничьих</string>
 	<string name="nextXTournament">Следующий турнир по %s:</string>
@@ -511,7 +489,7 @@
 	<string name="handicap">Фора</string>
 	<string name="startPosition">Начальная позиция</string>
 	<string name="clearBoard">Очистить доску</string>
-	<string name="fillGotesHand">Заполнить руку готэ</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Сохранить позицию</string>
 	<string name="loadPosition">Загрузить позицию</string>
 	<string name="isPrivate">Закрытый</string>
@@ -798,6 +776,7 @@
 	<string name="security">Безопасность</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Это список устройств, с которых входили в ваш аккаунт. Закройте все подозрительные сеансы.</string>
 	<string name="alternativelyYouCanX">Также вы можете %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">закрыть все сессии</string>
 	<string name="playShogiEverywhere">Играйте в сёги везде</string>
 	<string name="asFreeAsLishogi">Бесплатен, как Lishogi</string>
@@ -841,7 +820,7 @@
 	<string name="gridSlim">Тонкий</string>
 	<string name="gridThick">Жирный</string>
 	<string name="gridVeryThick">Очень жирный</string>
-	<string name="hands">Руки</string>
+	<string name="hands" comment="Title in custom board theme editor">Руки</string>
 	<string name="boardTheme">Оформление доски</string>
 	<string name="boardSize">Размер доски</string>
 	<string name="pieceSet">Оформление фигур</string>
@@ -856,9 +835,8 @@
 	<string name="shogiBasics">Основы сёги</string>
 	<string name="shogiResources">Ресурсы по сёги</string>
 	<string name="coaches">Тренеры</string>
-	<string name="invalidKif">Некорректный KIF</string>
 	<string name="invalidNotation">Недопустимая нотация</string>
-	<string name="invalidFen">Некорректный FEN</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">Минимальная длина — %s</string>
 	<string name="error.maxLength">Максимальная длина — %s</string>
 	<string name="error.min">Значение должно быть больше либо равным %s</string>
@@ -885,33 +863,21 @@
 	<string name="hideBestMove">Скрыть лучший ход</string>
 	<string name="getAHint">Взять подсказку</string>
 	<string name="evaluatingYourMove">Оценка вашего хода...</string>
-	<string name="whiteWinsGame">Белые выиграли</string>
-	<string name="blackWinsGame">Чёрные выиграли</string>
 	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Разобрать свои ошибки</string>
 	<string name="learnFromThisMistake">Разобрать эту ошибку</string>
 	<string name="skipThisMove">Пропустить этот ход</string>
 	<string name="next">Далее</string>
 	<string name="xWasPlayed">Было сыграно %s</string>
-	<string name="findBetterMoveForWhite">Найдите более сильный ход за белых</string>
-	<string name="findBetterMoveForBlack">Найдите более сильный ход за чёрных</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Вернуться к обучению</string>
 	<string name="youCanDoBetter">Есть более сильный ход</string>
-	<string name="tryAnotherMoveForWhite">Попробуйте другой ход за белых</string>
-	<string name="tryAnotherMoveForBlack">Попробуйте другой ход за чёрных</string>
 	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Ответ</string>
 	<string name="waitingForAnalysis">Ожидание получения анализа</string>
-	<string name="noMistakesFoundForWhite">Ошибок белых не найдено</string>
-	<string name="noMistakesFoundForBlack">Ошибок чёрных не найдено</string>
 	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingWhiteMistakes">Ошибки белых разобраны</string>
-	<string name="doneReviewingBlackMistakes">Ошибки чёрных разобраны</string>
 	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Выполнить ещё раз</string>
-	<string name="reviewWhiteMistakes">Разобрать ошибки белых</string>
-	<string name="reviewBlackMistakes">Разобрать ошибки чёрных</string>
 	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Преимущество</string>
 	<plurals name="nbSeconds">
@@ -990,7 +956,15 @@
 	<string name="previousBlogPosts">Предыдущие записи блога</string>
 	<string name="continueReadingThis"> Продолжить чтение поста</string>
 	<string name="discussBlogForum">Обсудить этот пост на форуме</string>
-	<string name="invadingPieces">Фигуры в лагере соперника</string>
-	<string name="enteringKing">Король в лагере противника</string>
-	<string name="totalImpasseValue">Суммарная стоимость</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Фигуры в лагере соперника</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Король в лагере противника</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Суммарная стоимость</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

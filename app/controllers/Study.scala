@@ -130,6 +130,26 @@ final class Study(
       }
     }
 
+  def minePostGameStudies(order: String, page: Int) =
+    Auth { implicit ctx => me =>
+      env.study.pager.minePostGameStudies(me, Order(order), page) flatMap { pag =>
+        negotiate(
+          html = Ok(html.study.list.minePostGameStudies(pag, Order(order))).fuccess,
+          api = _ => apiStudies(pag)
+        )
+      }
+    }
+
+  def postGameStudiesOf(gameId: String, order: String, page: Int) =
+    Open { implicit ctx =>
+      env.study.pager.postGameStudiesOf(gameId.take(8), ctx.me, Order(order), page) flatMap { pag =>
+        negotiate(
+          html = Ok(html.study.list.postGameStudiesOf(gameId.take(8), pag, Order(order))).fuccess,
+          api = _ => apiStudies(pag)
+        )
+      }
+    }
+
   def byTopic(name: String, order: String, page: Int) =
     Open { implicit ctx =>
       lila.study.StudyTopic fromStr name match {
@@ -300,20 +320,55 @@ final class Study(
       }
     }
 
+  def postGameStudyWithOpponent(gameId: String) =
+    AuthBody { implicit ctx => me =>
+      env.study.postGameStudyApi.getGameOfUser(gameId, me) flatMap {
+        _.fold(
+          BadRequest(
+            jsonError("Game doesn't exist, isn't finished yet or you are not a player in this game")
+          ).fuccess
+        ) { g =>
+          env.study.postGameStudyApi.studyWithOpponent(g) map { sid =>
+            Redirect(routes.Study.show(sid.value))
+          }
+        }
+      }
+    }
+
+  private val PostGameStudyPerUser = new lila.memo.RateLimit[lila.user.User.ID](
+    credits = 10,
+    duration = 30.minute,
+    key = "study.post_game_study.user"
+  )
+
   def postGameStudy =
     AuthBody { implicit ctx => me =>
-      implicit val req = ctx.body
-      lila.study.StudyForm.postGameStudy.form
-        .bindFromRequest()
-        .fold(
-          err => BadRequest(err.toString).fuccess,
-          data =>
-            env.study.postGameStudyApi.get(data, me).flatMap { maybeStudyId =>
-              maybeStudyId.fold(
-                BadRequest(jsonError("Game doesn't exists or isn't finished yet")).fuccess
-              )(sid => Redirect(routes.Study.show(sid.value)).fuccess)
-            }
-        )
+      PostGameStudyPerUser(me.id) {
+        implicit val req = ctx.body
+        lila.study.StudyForm.postGameStudy.form
+          .bindFromRequest()
+          .fold(
+            err => BadRequest(err.toString).fuccess,
+            data =>
+              for {
+                gameOpt  <- env.study.postGameStudyApi.getGame(data.gameId)
+                invitedV <- env.study.postGameStudyApi.getInvitedUser(data.invitedUsername, me)
+                res <- gameOpt.fold(
+                  BadRequest(jsonError("Game doesn't exists or isn't finished yet")).fuccess
+                ) { game =>
+                  invitedV.fold(
+                    e => BadRequest(jsonError(e.take(64))).fuccess,
+                    invited =>
+                      env.study.postGameStudyApi
+                        .study(game, data.orientation, invited, me)
+                        .map(sid =>
+                          Ok(Json.obj("redirect" -> routes.Study.show(sid.value).url))
+                        ) // I want to handle the redirect myself
+                  )
+                }
+              } yield (res)
+          )
+      }(rateLimitedFu)
     }
 
   def delete(id: String) =

@@ -21,19 +21,15 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">Gote</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Bianco</string>
-	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">Sente</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
 	<string name="black" comment="Alternative to sente">Nero</string>
-	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
-	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
 	<string name="randomColor" comment="Side - sente/gote">Colore casuale</string>
 	<string name="createAGame">Crea una partita</string>
-	<string name="whiteIsVictorious">Vince il Bianco</string>
-	<string name="blackIsVictorious">Vince il Nero</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
-	<string name="youPlayTheWhitePieces">Sei il Bianco</string>
-	<string name="youPlayTheBlackPieces">Sei il Nero</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Tocca a te!</string>
 	<string name="cheatDetected">Cheat Detected</string>
@@ -41,11 +37,7 @@
 	<string name="newOpponent">Nuovo avversario</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Il tuo avversario vuole giocare un\'altra partita con te</string>
 	<string name="joinTheGame">Unisciti alla partita</string>
-	<string name="whitePlays">Tocca al Bianco</string>
-	<string name="blackPlays">Tocca al Nero</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Il tuo avversario ha lasciato la partita. Puoi reclamare la vittoria fra %s secondo.</item>
 		<item quantity="other">Il tuo avversario ha lasciato la partita. Puoi reclamare la vittoria fra %s secondi.</item>
@@ -56,11 +48,7 @@
 	<string name="forceDraw">Stabilisci la patta</string>
 	<string name="talkInChat">Sii educato in chat!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">La prima persona che si presenta a questo URL giocherà con te.</string>
-	<string name="whiteResigned">Il Bianco ha abbandonato</string>
-	<string name="blackResigned">Il Nero ha abbandonato</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="whiteLeftTheGame">Il Bianco ha lasciato la partita</string>
-	<string name="blackLeftTheGame">Il Nero ha lasciato la partita</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Condividi questo URL per ammettere spettatori alla partita</string>
@@ -74,7 +62,7 @@
 	<string name="usingServerAnalysis">Analisi del computer in uso</string>
 	<string name="loadingEngine">Caricamento del motore di analisi...</string>
 	<string name="cloudAnalysis">Analisi nel cloud</string>
-	<string name="goDeeper">Aumenta la profondità</string>
+	<string name="goDeeper" comment="Engine depth">Aumenta la profondità</string>
 	<string name="showThreat">Mostra minaccia</string>
 	<string name="inLocalBrowser">nel browser locale</string>
 	<string name="toggleLocalEvaluation">Attiva/disattiva analisi locale</string>
@@ -83,7 +71,7 @@
 	<string name="deleteFromHere">Elimina da qui</string>
 	<string name="forceVariation">Mostra come variante</string>
 	<string name="move">Mossa</string>
-	<plurals name="moves">
+	<plurals name="nbMoves">
 		<item quantity="one">%s move</item>
 		<item quantity="other">%s moves</item>
 	</plurals>
@@ -98,7 +86,6 @@
 	<string name="drawn">Patta</string>
 	<string name="unknown">Posizioni sconosciute</string>
 	<string name="database">Database</string>
-	<string name="whiteDrawBlack">Bianco / Patta / Nero</string>
 	<string name="averageRatingX">Punteggio medio: %s</string>
 	<string name="recentGames">Partite recenti</string>
 	<string name="topGames">Migliori partite</string>
@@ -213,11 +200,7 @@
 	<string name="drawOfferDeclined">Offerta di patta rifiutata</string>
 	<string name="drawOfferAccepted">Offerta di patta accettata</string>
 	<string name="drawOfferCanceled">Offerta di patta annullata</string>
-	<string name="whiteOffersDraw">Il Bianco offre patta</string>
-	<string name="blackOffersDraw">Il Nero offre patta</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
-	<string name="whiteDeclinesDraw">Il Bianco rifiuta la patta</string>
-	<string name="blackDeclinesDraw">Il Nero rifiuta la patta</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Il tuo avversario offre patta</string>
 	<string name="accept">Accetta</string>
@@ -228,7 +211,7 @@
 	<string name="finishesX">finisce %s</string>
 	<string name="abortGame">Interrompi la partita</string>
 	<string name="gameAborted">Partita interrotta</string>
-	<string name="standard">Standard</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
 	<string name="unlimited">Illimitato</string>
@@ -240,8 +223,6 @@
 	<string name="thisGameIsRated">Questa partita è classificata</string>
 	<string name="rematch">Rivincita</string>
 	<string name="rematchOfferSent">Offerta di rivincita inviata</string>
-	<string name="rematchOfferSentWhite">Il Bianco offre la rivincita</string>
-	<string name="rematchOfferSentBlack">Il Nero offre la rivincita</string>
 	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Rivincita accettata</string>
 	<string name="rematchOfferCanceled">Offerta di rivincita annullata</string>
@@ -373,8 +354,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Clicca sulla scacchiera e fai la tua mossa, per provare che sei un umano.</string>
 	<string name="captcha.fail">Please solve the shogi captcha.</string>
 	<string name="notACheckmate">Non è scacco matto</string>
-	<string name="whiteCheckmatesInOneMove">Il Bianco dà matto in una mossa</string>
-	<string name="blackCheckmatesInOneMove">Il Nero dà matto in una mossa</string>
 	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Riprova</string>
 	<string name="reconnecting">Riconnessione</string>
@@ -429,6 +408,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="showAdvancedSettings">Mostra impostazioni avanzate</string>
 	<string name="makePrivateTournament">Rendi privato il torneo e limita l\'accesso con una password</string>
 	<string name="join">Unisciti</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Ritirati</string>
 	<string name="points">Punti</string>
 	<string name="wins">Vittorie</string>
@@ -444,8 +424,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">Performance</string>
 	<string name="tournamentComplete">Torneo terminato</string>
 	<string name="movesPlayed">Mosse giocate</string>
-	<string name="whiteWins">Il Bianco vince</string>
-	<string name="blackWins">Il Nero vince</string>
 	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Patte</string>
 	<string name="nextXTournament">Prossimo torneo %s:</string>
@@ -458,7 +436,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="handicap">Handicap</string>
 	<string name="startPosition">Posizione iniziale</string>
 	<string name="clearBoard">Svuota scacchiera</string>
-	<string name="fillGotesHand">Fill Gote\'s hand</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Salva la posizione</string>
 	<string name="loadPosition">Carica una posizione</string>
 	<string name="isPrivate">Privato</string>
@@ -733,6 +711,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="security">Sicurezza</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Questa è la lista di dispositivi collegata al tuo account. Rimuovi ogni istanza che non riconosci.</string>
 	<string name="alternativelyYouCanX">In alternativa è possibile %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">rimuovi tutte le sessioni</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">As free as Lishogi</string>
@@ -774,7 +753,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">Tema scacchiera</string>
 	<string name="boardSize">Dimensione scacchiera</string>
 	<string name="pieceSet">Set pezzi</string>
@@ -789,9 +768,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">Istruttori</string>
-	<string name="invalidKif">Invalid KIF</string>
 	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">FEN non valido</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">La lunghezza minima è %s</string>
 	<string name="error.maxLength">La lunghezza massima è %s</string>
 	<string name="error.min">Deve essere più grande o uguale a %s</string>
@@ -816,33 +794,21 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">Nascondi la mossa migliore</string>
 	<string name="getAHint">Vuoi un suggerimento?</string>
 	<string name="evaluatingYourMove">Valutazione della tua mossa in corso...</string>
-	<string name="whiteWinsGame">Il Bianco vince</string>
-	<string name="blackWinsGame">Il Nero vince</string>
 	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Impara dai tuoi errori</string>
 	<string name="learnFromThisMistake">Impara da questo errore</string>
 	<string name="skipThisMove">Salta questa mossa</string>
 	<string name="next">Successivo</string>
 	<string name="xWasPlayed">Ultima mossa %s</string>
-	<string name="findBetterMoveForWhite">Trova una mossa migliore per il Bianco</string>
-	<string name="findBetterMoveForBlack">Trova una mossa migliore per il Nero</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Continua ad imparare</string>
 	<string name="youCanDoBetter">Puoi fare di meglio</string>
-	<string name="tryAnotherMoveForWhite">Prova un\'altra mossa per il bianco</string>
-	<string name="tryAnotherMoveForBlack">Prova un\'altra mossa per il nero</string>
 	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Soluzione</string>
 	<string name="waitingForAnalysis">In attesa dell\'analisi</string>
-	<string name="noMistakesFoundForWhite">Nessun errore trovato per il bianco</string>
-	<string name="noMistakesFoundForBlack">Nessun errore trovato per il nero</string>
 	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingWhiteMistakes">Hai finito di rivedere gli errori del Bianco</string>
-	<string name="doneReviewingBlackMistakes">Hai finito di rivedere gli errori del Nero</string>
 	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Rifallo</string>
-	<string name="reviewWhiteMistakes">Analizza gli errori del Bianco</string>
-	<string name="reviewBlackMistakes">Analizza gli errori del Nero</string>
 	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Vantaggio</string>
 	<plurals name="nbSeconds">
@@ -917,7 +883,15 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="previousBlogPosts">Previous blog posts</string>
 	<string name="continueReadingThis"> Continue reading this post</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="puzzles">Puzzles</string>
-  <string name="puzzleThemes">Puzzle themes</string>
+  <string name="puzzleThemes">Теми задач</string>
   <string name="recommended">Recommended</string>
   <string name="phases">Phases</string>
   <string name="motifs">Motifs</string>
@@ -14,8 +14,6 @@
   <string name="didYouLikeThisPuzzle">Did you like this puzzle?</string>
   <string name="voteToLoadNextOne">Vote to load the next one!</string>
   <string name="yourPuzzleRatingX">Your puzzle rating: %s</string>
-  <string name="findTheBestMoveForWhite">Find the best move for gote.</string>
-  <string name="findTheBestMoveForBlack">Find the best move for sente.</string>
   <string name="findTheBestMoveForX" comment="%s - sente(black)/gote(white)">Find the best move for %s.</string>
   <string name="toGetPersonalizedPuzzles">To get personalized puzzles:</string>
   <string name="puzzleId">Puzzle %s</string>
@@ -54,7 +52,7 @@
   <string name="example">Example</string>
   <string name="addAnotherTheme">Add another theme</string>
   <string name="jumpToNextPuzzleImmediately">Jump to next puzzle immediately</string>
-  <string name="puzzleDashboard">Puzzle dashboard</string>
+  <string name="puzzleDashboard">Панель задач</string>
   <string name="improvementAreas">Improvement areas</string>
   <string name="strengths">Strengths</string>
   <string name="history">Puzzle history</string>

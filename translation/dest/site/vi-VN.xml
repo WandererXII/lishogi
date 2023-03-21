@@ -21,19 +21,15 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">Gote</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Trắng</string>
-	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">Sente</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
 	<string name="black" comment="Alternative to sente">Đen</string>
-	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Người được chấp quân</string>
-	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Người chấp quân</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Người được chấp quân</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Người chấp quân</string>
 	<string name="randomColor" comment="Side - sente/gote">Chọn màu quân ngẫu nhiên</string>
 	<string name="createAGame">Khởi tạo ván cờ</string>
-	<string name="whiteIsVictorious">Bên Trắng thắng</string>
-	<string name="blackIsVictorious">Bên Đen thắng</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
-	<string name="youPlayTheWhitePieces">Bạn chơi quân trắng</string>
-	<string name="youPlayTheBlackPieces">Bạn chơi quân đen</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Đến lượt bạn!</string>
 	<string name="cheatDetected">Phát hiện gian lận</string>
@@ -41,11 +37,7 @@
 	<string name="newOpponent">Đối thủ mới</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Đối thủ muốn chơi một ván cờ mới với bạn</string>
 	<string name="joinTheGame">Tham gia ván cờ</string>
-	<string name="whitePlays">Lượt Trắng đi</string>
-	<string name="blackPlays">Lượt Đen đi</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
-	<string name="shitatePlays">Người được chấp quân đi</string>
-	<string name="uwatePlays">Người chấp quân đi</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">Đối thủ bỏ cuộc. Bạn có thể tuyên bố thắng cuộc trong %s giây.</item>
 	</plurals>
@@ -55,11 +47,7 @@
 	<string name="forceDraw">Bắt buộc hòa</string>
 	<string name="talkInChat">Thảo luận trong chat</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Người đầu tiên sử dụng url này sẽ bắt đầu chơi với bạn</string>
-	<string name="whiteResigned">Trắng chịu thua</string>
-	<string name="blackResigned">Đen chịu thua</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="whiteLeftTheGame">Trắng đã thoát khỏi ván cờ</string>
-	<string name="blackLeftTheGame">Đen đã thoát khỏi ván cờ</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Chia sẻ url này để mời khán giả đến xem ván cờ</string>
@@ -73,7 +61,7 @@
 	<string name="usingServerAnalysis">Bạn đang sử dụng máy chủ để phân tích</string>
 	<string name="loadingEngine">Đang tải động cơ máy tính ...</string>
 	<string name="cloudAnalysis">Phân tích đám mây</string>
-	<string name="goDeeper">Máy tính phân tích sâu hơn</string>
+	<string name="goDeeper" comment="Engine depth">Máy tính phân tích sâu hơn</string>
 	<string name="showThreat">Hiện những bước đi sai lầm</string>
 	<string name="inLocalBrowser">ở trình duyệt địa phương</string>
 	<string name="toggleLocalEvaluation">Kích hoạt đánh giá địa phương</string>
@@ -82,7 +70,7 @@
 	<string name="deleteFromHere">Xoá từ đây</string>
 	<string name="forceVariation">Đổi biến</string>
 	<string name="move">Các nước đi</string>
-	<plurals name="moves">
+	<plurals name="nbMoves">
 		<item quantity="other">%s moves</item>
 	</plurals>
 	<string name="variantLoss">Bước đi sai lầm dẫn đến chiếu hết</string>
@@ -96,7 +84,6 @@
 	<string name="drawn">Hòa cờ</string>
 	<string name="unknown">Không chắc</string>
 	<string name="database">Cơ sở dữ liệu</string>
-	<string name="whiteDrawBlack">Trắng / Hòa / Đen</string>
 	<string name="averageRatingX">Xếp loại bình quân: %s</string>
 	<string name="recentGames">Ván gần đây</string>
 	<string name="topGames">Các ván đấu hàng đầu</string>
@@ -106,7 +93,7 @@
 	<string name="xOpeningExplorer">Sách khai cuộc %s</string>
 	<string name="allSet">Đã xong!</string>
 	<string name="importKif">Import KIF</string>
-	<string name="importCsa">Nhập PGN</string>
+	<string name="importCsa">Nhập CSA</string>
 	<string name="delete">Xóa</string>
 	<string name="deleteThisImportedGame">Bạn muốn xóa ván đấu đã được nhập?</string>
 	<string name="replayMode">Chế độ xem lại</string>
@@ -203,11 +190,7 @@
 	<string name="drawOfferDeclined">Từ chối hoà</string>
 	<string name="drawOfferAccepted">Đồng ý hoà</string>
 	<string name="drawOfferCanceled">Yêu cầu hoà bị hủy bỏ</string>
-	<string name="whiteOffersDraw">Trắng đề nghị hòa</string>
-	<string name="blackOffersDraw">Đen đề nghị hòa</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
-	<string name="whiteDeclinesDraw">Trắng từ chối hòa</string>
-	<string name="blackDeclinesDraw">Đen từ chối hòa</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Đối phương xin hoà</string>
 	<string name="accept">Đồng ý</string>
@@ -218,7 +201,7 @@
 	<string name="finishesX">kết thúc %s</string>
 	<string name="abortGame">Hủy ván cờ</string>
 	<string name="gameAborted">Ván cờ đã bị hủy bỏ</string>
-	<string name="standard">Bình thường</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Bình thường</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
 	<string name="unlimited">Không giới hạn</string>
@@ -230,8 +213,6 @@
 	<string name="thisGameIsRated">Ván cờ đã được đánh giá</string>
 	<string name="rematch">Đấu lại</string>
 	<string name="rematchOfferSent">Yêu cầu đấu lại đã được gửi</string>
-	<string name="rematchOfferSentWhite">Trắng đề nghị đánh ván khác</string>
-	<string name="rematchOfferSentBlack">Đen đề nghị đánh ván khác</string>
 	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Yêu cầu đấu lại được chấp nhận</string>
 	<string name="rematchOfferCanceled">Hủy chơi lại</string>
@@ -334,8 +315,8 @@
 	<string name="save">Lưu</string>
 	<string name="leaderboard">Bảng dẫn đầu</string>
 	<string name="selectHandicap">Lựa chọn chấp quân</string>
-	<string name="pasteTheSfenStringHere">Dán chuỗi FEN ở đây</string>
-	<string name="pasteTheKifCsaStringHere">Dán chuỗi FEN ở đây</string>
+	<string name="pasteTheSfenStringHere">Dán chuỗi SFEN ở đây</string>
+	<string name="pasteTheKifCsaStringHere">Dán văn bản KIF hoặc CSA vào đây</string>
 	<string name="fromPosition">Từ thế trận</string>
 	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
 	<string name="continueFromHere">Tiếp tục từ đây</string>
@@ -350,8 +331,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Bấm vào bàn cờ để di chuyển, chứng minh bạn là con người</string>
 	<string name="captcha.fail">Hãy giải captcha shogi.</string>
 	<string name="notACheckmate">Không phải là một nước chiếu hết</string>
-	<string name="whiteCheckmatesInOneMove">Trắng chiếu chiếu hết trong một nước đi</string>
-	<string name="blackCheckmatesInOneMove">Đen chiếu chiếu hết trong một nước đi</string>
 	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Thử lại</string>
 	<string name="reconnecting">Kết nối lại</string>
@@ -402,6 +381,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="showAdvancedSettings">Hiện thiết lập cao cấp</string>
 	<string name="makePrivateTournament">Đặt giải đấu riêng tư và giới hạn truy cập bởi mật khẩu</string>
 	<string name="join">Tham gia</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Xin rút</string>
 	<string name="points">Điểm</string>
 	<string name="wins">Thắng</string>
@@ -417,8 +397,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">Hiệu suất</string>
 	<string name="tournamentComplete">Kết thúc giải đấu</string>
 	<string name="movesPlayed">Số nước đi</string>
-	<string name="whiteWins">Trắng thắng</string>
-	<string name="blackWins">Đen thắng</string>
 	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Hoà</string>
 	<string name="nextXTournament">Giải đấu tiếp theo %s:</string>
@@ -431,7 +409,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="handicap">Chấp quân</string>
 	<string name="startPosition">Thế trận ban đầu</string>
 	<string name="clearBoard">Xóa bàn cờ</string>
-	<string name="fillGotesHand">Làm đầy số quân Trắng có trên tay</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Lưu lại thế trận</string>
 	<string name="loadPosition">Tải thế trận</string>
 	<string name="isPrivate">Riêng tư</string>
@@ -700,6 +678,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="security">Bảo mật</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Đây là danh sách các thiết bị đã đăng nhập bằng tài khoản của bạn. Hãy xóa những phiên đăng nhập mà bạn không hận ra.</string>
 	<string name="alternativelyYouCanX">Ngoài ra, bạn có thể %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">xóa toàn bộ phiên đăng nhập</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">Miễn phí như Lishogi</string>
@@ -740,7 +719,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="gridSlim">Gọn mặt</string>
 	<string name="gridThick">Đồ dày</string>
 	<string name="gridVeryThick">Rất dày</string>
-	<string name="hands">Ván bài</string>
+	<string name="hands" comment="Title in custom board theme editor">Ván bài</string>
 	<string name="boardTheme">Theme bàn cờ</string>
 	<string name="boardSize">Cỡ bàn cờ</string>
 	<string name="pieceSet">Bộ cờ</string>
@@ -755,9 +734,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="shogiBasics">Shogi cơ bản</string>
 	<string name="shogiResources">Tài nguyên về Shogi</string>
 	<string name="coaches">Huấn luyện viên</string>
-	<string name="invalidKif">PGN không hợp lệ</string>
 	<string name="invalidNotation">Ký hiệu bên trong bàn cờ</string>
-	<string name="invalidFen">PEN không hợp lệ</string>
+	<string name="invalidSfen">SFEN không hợp lệ</string>
 	<string name="error.minLength">Độ dài tối thiểu là %s</string>
 	<string name="error.maxLength">Độ dài tối đa là %s</string>
 	<string name="error.min">Phải lớn hơn hoặc bằng %s</string>
@@ -781,33 +759,21 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">Ẩn nước đi tốt nhất</string>
 	<string name="getAHint">Xem gợi ý</string>
 	<string name="evaluatingYourMove">Đánh giá nước đi của bạn...</string>
-	<string name="whiteWinsGame">Trắng thắng</string>
-	<string name="blackWinsGame">Đen thắng</string>
 	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Học từ lỗi của mình</string>
 	<string name="learnFromThisMistake">Học từ sai lầm này</string>
 	<string name="skipThisMove">Bỏ qua nước này</string>
 	<string name="next">Tiếp</string>
 	<string name="xWasPlayed">Đã chơi %s</string>
-	<string name="findBetterMoveForWhite">Tìm nước đi tốt hơn cho trắng</string>
-	<string name="findBetterMoveForBlack">Tìm nước đi tốt hơn cho đen</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Tiếp tục học</string>
 	<string name="youCanDoBetter">Bạn có thể đi tốt hơn</string>
-	<string name="tryAnotherMoveForWhite">Tìm nước đi khác cho trắng</string>
-	<string name="tryAnotherMoveForBlack">Tìm nước đi khách cho đen</string>
 	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Lời giải</string>
 	<string name="waitingForAnalysis">Chờ phân tích</string>
-	<string name="noMistakesFoundForWhite">Không có lỗi nào của bên trắng</string>
-	<string name="noMistakesFoundForBlack">Không có lỗi nào của bên đen</string>
 	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingWhiteMistakes">Đánh giá lỗi bên trắng đã hoàn thành</string>
-	<string name="doneReviewingBlackMistakes">Đánh giá lỗi bên đen đã hoàn thành</string>
 	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Làm lại</string>
-	<string name="reviewWhiteMistakes">Đánh giá lỗi bên trắng</string>
-	<string name="reviewBlackMistakes">Đánh giá lỗi bên đen</string>
 	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Lợi thế</string>
 	<plurals name="nbSeconds">
@@ -880,7 +846,15 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="previousBlogPosts">Bài blog trước</string>
 	<string name="continueReadingThis"> Tiếp tục đọc bài này</string>
 	<string name="discussBlogForum">Bàn luận về bài blog trong forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Tổng giá trị</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Tổng giá trị</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

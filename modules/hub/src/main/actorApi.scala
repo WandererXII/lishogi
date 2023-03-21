@@ -222,6 +222,12 @@ package team {
 package fishnet {
   case class AutoAnalyse(gameId: String)
   case class NewKey(userId: String, key: String)
+  case class PostGameStudyRequest(
+      userId: String,
+      gameId: String,
+      studyId: String,
+      chapterId: String
+  )
   case class StudyChapterRequest(
       studyId: String,
       chapterId: String,
@@ -257,6 +263,7 @@ package round {
       simulId: String,
       opponentUserId: String
   )
+  case class PostGameStudy(studyId: String)
   case class Berserk(gameId: String, userId: String)
   case class IsOnGame(color: shogi.Color, promise: Promise[Boolean])
   case class TourStandingOld(data: JsArray)
@@ -291,6 +298,8 @@ package relation {
 
 package study {
   case class RemoveStudy(studyId: String, contributors: Set[String])
+  case class RoundRematch(studyId: String, gameId: String)
+  case class RoundRematchOffer(studyId: String, by: Option[shogi.Color])
 }
 
 package plan {

@@ -100,10 +100,9 @@
   <string name="startFromCustomPosition">Începeți de la o poziție personalizată</string>
   <string name="loadAGameByUrl">Încărcați meciul din URL</string>
   <string name="loadAPositionFromSfen">Load a position from SFEN</string>
-  <string name="loadAGameFromKif">Load games from KIF</string>
   <string name="automatic">Automată</string>
   <string name="urlOfTheGame">URL-ul jocului</string>
-  <string name="loadAGameFromXOrY">Încărcați un joc de pe %1$s</string>
+  <string name="loadAGameFromX">Load games from %1$s</string>
   <string name="createChapter">Creați capitolul</string>
   <string name="configureLiveBroadcast">Configurați o transmisiune live</string>
   <string name="createStudy">Creați studiul</string>

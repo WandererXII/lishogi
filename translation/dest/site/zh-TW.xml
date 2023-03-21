@@ -21,19 +21,15 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">後手</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">後手</string>
 	<string name="white" comment="Alternative to gote">白方</string>
-	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">先手</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">先手</string>
 	<string name="black" comment="Alternative to sente">黑方</string>
-	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">下手</string>
-	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">上手</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">下手</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">上手</string>
 	<string name="randomColor" comment="Side - sente/gote">隨機選色</string>
 	<string name="createAGame">開始對局</string>
-	<string name="whiteIsVictorious">後手勝利</string>
-	<string name="blackIsVictorious">先手勝利</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s勝利</string>
-	<string name="youPlayTheWhitePieces">您為後手</string>
-	<string name="youPlayTheBlackPieces">您使用黑棋</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">您的回合!</string>
 	<string name="cheatDetected">偵測到作弊行為</string>
@@ -41,11 +37,7 @@
 	<string name="newOpponent">換個對手</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">您的對手想和你複賽</string>
 	<string name="joinTheGame">加入這盤棋</string>
-	<string name="whitePlays">輪到後手</string>
-	<string name="blackPlays">輪到先手</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
-	<string name="shitatePlays">輪到下手</string>
-	<string name="uwatePlays">輪到上手</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">你的對手已經離開了遊戲。你將在 %s 秒內獲勝。</item>
 	</plurals>
@@ -55,11 +47,7 @@
 	<string name="forceDraw">和棋</string>
 	<string name="talkInChat">請在聊天室裡文明一點</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">第一個訪問該網址的人將與您下棋。</string>
-	<string name="whiteResigned">後手投了</string>
-	<string name="blackResigned">先手投了</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="whiteLeftTheGame">後手離開遊戲</string>
-	<string name="blackLeftTheGame">先手離開遊戲</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">分享這個網址，邀請觀眾觀戰</string>
@@ -73,7 +61,7 @@
 	<string name="usingServerAnalysis">使用伺服器分析</string>
 	<string name="loadingEngine">正在載入引擎 ...</string>
 	<string name="cloudAnalysis">雲端分析</string>
-	<string name="goDeeper">深入分析</string>
+	<string name="goDeeper" comment="Engine depth">深入分析</string>
 	<string name="showThreat">顯示敵方威脅</string>
 	<string name="inLocalBrowser">在本地瀏覽器</string>
 	<string name="toggleLocalEvaluation">使用您當地的伺服器分析</string>
@@ -82,7 +70,7 @@
 	<string name="deleteFromHere">從這處開始刪除</string>
 	<string name="forceVariation">移除變化</string>
 	<string name="move">走棋</string>
-	<plurals name="moves">
+	<plurals name="nbMoves">
 		<item quantity="other">%s moves</item>
 	</plurals>
 	<string name="variantLoss">您因特殊規則而輸了</string>
@@ -96,7 +84,6 @@
 	<string name="drawn">和局</string>
 	<string name="unknown">未知</string>
 	<string name="database">資料庫</string>
-	<string name="whiteDrawBlack">後手獲勝 / 平局 / 先手獲勝</string>
 	<string name="averageRatingX">平均評分: %s</string>
 	<string name="recentGames">最近的棋局</string>
 	<string name="topGames">評分最高的棋局</string>
@@ -203,11 +190,7 @@
 	<string name="drawOfferDeclined">和棋請求被拒絕</string>
 	<string name="drawOfferAccepted">同意和棋</string>
 	<string name="drawOfferCanceled">和棋取消</string>
-	<string name="whiteOffersDraw">後手提出和棋</string>
-	<string name="blackOffersDraw">先手提出和棋</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
-	<string name="whiteDeclinesDraw">後手拒絕和棋</string>
-	<string name="blackDeclinesDraw">先手拒絕和棋</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">您的對手提出和棋</string>
 	<string name="accept">接受</string>
@@ -218,7 +201,7 @@
 	<string name="finishesX">%s 後結束</string>
 	<string name="abortGame">中止本局</string>
 	<string name="gameAborted">棋局已中止</string>
-	<string name="standard">標準</string>
+	<string name="standard" comment="Variant - meaning standard shogi">標準</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
 	<string name="unlimited">無限</string>
@@ -230,8 +213,6 @@
 	<string name="thisGameIsRated">這場棋局有算積分</string>
 	<string name="rematch">重賽</string>
 	<string name="rematchOfferSent">重賽請求已發送</string>
-	<string name="rematchOfferSentWhite">後手請求重賽</string>
-	<string name="rematchOfferSentBlack">先手請求重賽</string>
 	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">重賽請求被接受</string>
 	<string name="rematchOfferCanceled">重賽請求被取消</string>
@@ -349,8 +330,6 @@
 	<string name="clickOnTheBoardToMakeYourMove">點擊棋盤走棋以證明您是人類。</string>
 	<string name="captcha.fail">請完成驗證。</string>
 	<string name="notACheckmate">沒有詰</string>
-	<string name="whiteCheckmatesInOneMove">後手一手詰</string>
-	<string name="blackCheckmatesInOneMove">先手一手詰</string>
 	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">重試</string>
 	<string name="reconnecting">重新連接中</string>
@@ -401,6 +380,7 @@
 	<string name="showAdvancedSettings">顯示進階設定</string>
 	<string name="makePrivateTournament">把錦標賽設定為私人，並設定密碼來限制進入。</string>
 	<string name="join">加入</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">離開</string>
 	<string name="points">分數</string>
 	<string name="wins">勝</string>
@@ -416,8 +396,6 @@
 	<string name="performance">表現</string>
 	<string name="tournamentComplete">錦標賽結束</string>
 	<string name="movesPlayed">步數</string>
-	<string name="whiteWins">後手獲勝</string>
-	<string name="blackWins">先手獲勝</string>
 	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">和棋</string>
 	<string name="nextXTournament">下一個%s錦標賽</string>
@@ -430,7 +408,7 @@
 	<string name="handicap">讓子</string>
 	<string name="startPosition">初始佈局</string>
 	<string name="clearBoard">清空棋盤</string>
-	<string name="fillGotesHand">輸入後手的著法</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">保存佈局</string>
 	<string name="loadPosition">裝入佈局</string>
 	<string name="isPrivate">私人</string>
@@ -699,6 +677,7 @@
 	<string name="security">資訊安全相關設定</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">這是已登入到您帳戶的裝置列表，您可以登出任何您無法識別的裝置。</string>
 	<string name="alternativelyYouCanX">或者，您可以%s</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">登出所有裝置</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">完全免費。</string>
@@ -739,7 +718,7 @@
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">棋盤主題</string>
 	<string name="boardSize">棋盤大小</string>
 	<string name="pieceSet">棋子外觀設定</string>
@@ -754,9 +733,8 @@
 	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">將棋資源</string>
 	<string name="coaches">教練</string>
-	<string name="invalidKif">無效的 KIF 檔案</string>
 	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">無效的FEN</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">%s 字以上</string>
 	<string name="error.maxLength">不超過 %s 字</string>
 	<string name="error.min">必須起碼 %s 字或以上</string>
@@ -780,33 +758,21 @@
 	<string name="hideBestMove">隱藏最佳移動</string>
 	<string name="getAHint">得到提示</string>
 	<string name="evaluatingYourMove">分析您的移動</string>
-	<string name="whiteWinsGame">後手勝利</string>
-	<string name="blackWinsGame">先手獲勝</string>
 	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">從您的失誤中學習</string>
 	<string name="learnFromThisMistake">從您的失誤中學習</string>
 	<string name="skipThisMove">跳過這一步</string>
 	<string name="next">下一個</string>
 	<string name="xWasPlayed">走了%s</string>
-	<string name="findBetterMoveForWhite">找出後手的最善手</string>
-	<string name="findBetterMoveForBlack">找出先手的最善手</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">回復學習</string>
 	<string name="youCanDoBetter">您還可以做得更好</string>
-	<string name="tryAnotherMoveForWhite">嘗試後手的其他手</string>
-	<string name="tryAnotherMoveForBlack">嘗試先手的其他手</string>
 	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">解決方案</string>
 	<string name="waitingForAnalysis">等待分析</string>
-	<string name="noMistakesFoundForWhite">沒有找到後手的失誤</string>
-	<string name="noMistakesFoundForBlack">沒有找到先手的失誤</string>
 	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingWhiteMistakes">已複習後手的失誤</string>
-	<string name="doneReviewingBlackMistakes">已完成回顧先手的惡手</string>
 	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">重作一次</string>
-	<string name="reviewWhiteMistakes">複習後手失誤</string>
-	<string name="reviewBlackMistakes">複習先手惡手</string>
 	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">優勢</string>
 	<plurals name="nbSeconds">
@@ -879,7 +845,15 @@
 	<string name="previousBlogPosts">上一則貼文</string>
 	<string name="continueReadingThis"> 繼續閱讀</string>
 	<string name="discussBlogForum">在論壇上討論這篇貼文</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">入玉</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">入玉</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

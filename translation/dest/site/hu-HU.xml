@@ -21,19 +21,15 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">Gote</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Világos</string>
-	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">Sente</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
 	<string name="black" comment="Alternative to sente">Sötét</string>
-	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
-	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
 	<string name="randomColor" comment="Side - sente/gote">Véletlen szín</string>
 	<string name="createAGame">Játék létrehozása</string>
-	<string name="whiteIsVictorious">Világos nyert</string>
-	<string name="blackIsVictorious">Sötét nyert</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
-	<string name="youPlayTheWhitePieces">Fehérrel fogsz játszani</string>
-	<string name="youPlayTheBlackPieces">Sötéttel fogsz játszani</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Te következel</string>
 	<string name="cheatDetected">Cheat Detected</string>
@@ -41,11 +37,7 @@
 	<string name="newOpponent">Új ellenfél</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Az ellenfeled visszavágót szeretne</string>
 	<string name="joinTheGame">Csatlakozás a játékhoz</string>
-	<string name="whitePlays">Világos lép</string>
-	<string name="blackPlays">Sötét lép</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Az ellenfél elhagyta a játékot, %s másodperc múlva tied a győzelem.</item>
 		<item quantity="other">Az ellenfeled elhagyta a játékot, %s másodperc múlva győzelmet igényelhetsz.</item>
@@ -56,11 +48,7 @@
 	<string name="forceDraw">Döntetlen</string>
 	<string name="talkInChat">Légy udvarias másokkal!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Az első ember, aki felkeresi ezt a címet, az lesz az ellenfeled.</string>
-	<string name="whiteResigned">Világos feladta</string>
-	<string name="blackResigned">Sötét feladta</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="whiteLeftTheGame">Világos elhagyta a játékot</string>
-	<string name="blackLeftTheGame">Sötét elhagyta a játékot</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Oszd meg ezt az linket, hogy mások nézhessék a játszmát</string>
@@ -74,7 +62,7 @@
 	<string name="usingServerAnalysis">A szerver elemzését használja</string>
 	<string name="loadingEngine">Motor betöltése ...</string>
 	<string name="cloudAnalysis">Elemzés felhőben</string>
-	<string name="goDeeper">Mélyebben</string>
+	<string name="goDeeper" comment="Engine depth">Mélyebben</string>
 	<string name="showThreat">Fenyegetés mutatása</string>
 	<string name="inLocalBrowser">a böngészőben</string>
 	<string name="toggleLocalEvaluation">Helyi elemzés bekapcsolása</string>
@@ -83,7 +71,7 @@
 	<string name="deleteFromHere">Törlés innentől</string>
 	<string name="forceVariation">Mentés változatként</string>
 	<string name="move">Lépés</string>
-	<plurals name="moves">
+	<plurals name="nbMoves">
 		<item quantity="one">%s move</item>
 		<item quantity="other">%s moves</item>
 	</plurals>
@@ -98,7 +86,6 @@
 	<string name="drawn">Döntetlen</string>
 	<string name="unknown">Ismeretlen</string>
 	<string name="database">Adatbázis</string>
-	<string name="whiteDrawBlack">Világos / Döntetlen / Sötét</string>
 	<string name="averageRatingX">Átlagos értékszám: %s</string>
 	<string name="recentGames">Legutóbbi játszmák</string>
 	<string name="topGames">Legjobb játszmák</string>
@@ -213,11 +200,7 @@
 	<string name="drawOfferDeclined">Döntetlen felajánlás elutasítva</string>
 	<string name="drawOfferAccepted">Döntetlen elfogadva</string>
 	<string name="drawOfferCanceled">Döntetlen ajánlás elvetve</string>
-	<string name="whiteOffersDraw">Világos döntetlent ajánl</string>
-	<string name="blackOffersDraw">Sötét döntetlent ajánl</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
-	<string name="whiteDeclinesDraw">Világos elutasította a döntetlen ajánlatot</string>
-	<string name="blackDeclinesDraw">Sötét elutasította a döntetlen ajánlatot</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Az ellenfeled döntetlent ajánl</string>
 	<string name="accept">Elfogad</string>
@@ -228,7 +211,7 @@
 	<string name="finishesX">vége %s</string>
 	<string name="abortGame">Játszma elvetése</string>
 	<string name="gameAborted">Játszma elvetve</string>
-	<string name="standard">Hagyományos</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Hagyományos</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
 	<string name="unlimited">Végtelen</string>
@@ -240,8 +223,6 @@
 	<string name="thisGameIsRated">Ez egy rangsorolt játszma</string>
 	<string name="rematch">Visszavágó</string>
 	<string name="rematchOfferSent">Visszavágó felajánlva</string>
-	<string name="rematchOfferSentWhite">Világos visszavágót szeretne</string>
-	<string name="rematchOfferSentBlack">Sötét visszavágót szeretne</string>
 	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Visszavágó elfogadva</string>
 	<string name="rematchOfferCanceled">Visszavágó lemondva</string>
@@ -373,8 +354,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Kattints a táblára és lépj - innen tudjuk, hogy ember vagy.</string>
 	<string name="captcha.fail">Please solve the shogi captcha.</string>
 	<string name="notACheckmate">Ez nem matt</string>
-	<string name="whiteCheckmatesInOneMove">Fehér következő lépésben mattot ad</string>
-	<string name="blackCheckmatesInOneMove">Fekete a következő lépésben mattot ad</string>
 	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Újra</string>
 	<string name="reconnecting">Újrakapcsolódás</string>
@@ -429,6 +408,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="showAdvancedSettings">Haladó beállítások megjelenítése</string>
 	<string name="makePrivateTournament">Készíts privát tornát és a hozzáférést védd le jelszóval</string>
 	<string name="join">Csatlakozás</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Visszavon</string>
 	<string name="points">Pontok</string>
 	<string name="wins">Győzelmek</string>
@@ -444,8 +424,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">Teljesítmény</string>
 	<string name="tournamentComplete">Verseny összefoglaló</string>
 	<string name="movesPlayed">Lépések száma</string>
-	<string name="whiteWins">Világos győzelmek</string>
-	<string name="blackWins">Sötét győzelmek</string>
 	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Döntetlenek</string>
 	<string name="nextXTournament">Következő %s verseny:</string>
@@ -458,7 +436,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="handicap">Handicap</string>
 	<string name="startPosition">Alapállás</string>
 	<string name="clearBoard">Üres tábla</string>
-	<string name="fillGotesHand">Fill Gote\'s hand</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Állás mentése</string>
 	<string name="loadPosition">Állás betöltése</string>
 	<string name="isPrivate">Privát</string>
@@ -733,6 +711,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="security">Biztonság</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Ezen a listán megtalálod az összes eszközt, amin be vagy jelentkezve. Ha nem ismersz fel egy eszközt, vond vissza.</string>
 	<string name="alternativelyYouCanX">Ha úgy gondolod %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">eltávolíthatod az összes eszközt</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">As free as Lishogi</string>
@@ -774,7 +753,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">Tábla szín</string>
 	<string name="boardSize">Tábla mérete</string>
 	<string name="pieceSet">Figurakészlet</string>
@@ -789,9 +768,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">Oktatók</string>
-	<string name="invalidKif">Invalid KIF</string>
 	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">Hibás FEN</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">A legkisebb megengedett karakterszám %s</string>
 	<string name="error.maxLength">A maximális megengedett karakterszám %s</string>
 	<string name="error.min">Nagyobbnak vagy egyenlőnek kell lennie mint %s</string>
@@ -816,33 +794,21 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">A legjobb lépés elrejtése</string>
 	<string name="getAHint">Tipp kérése</string>
 	<string name="evaluatingYourMove">Lépés értékelése ...</string>
-	<string name="whiteWinsGame">Világos nyert</string>
-	<string name="blackWinsGame">Sötét nyert</string>
 	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Tanulj a hibáidból</string>
 	<string name="learnFromThisMistake">Tanulok a hibámból</string>
 	<string name="skipThisMove">Lépés kihagyása</string>
 	<string name="next">Tovább</string>
 	<string name="xWasPlayed">%s a lépés</string>
-	<string name="findBetterMoveForWhite">Találj egy jobb lépést világosnak</string>
-	<string name="findBetterMoveForBlack">Találj egy jobb lépést sötétnek</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Tanulás folytatása</string>
 	<string name="youCanDoBetter">Van jobb lépés is</string>
-	<string name="tryAnotherMoveForWhite">Próbálj mást lépni fehérrel</string>
-	<string name="tryAnotherMoveForBlack">Próbálj mást lépni feketével</string>
 	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Megoldás</string>
 	<string name="waitingForAnalysis">Készül az analízis</string>
-	<string name="noMistakesFoundForWhite">Nem talált hibát világos játékában</string>
-	<string name="noMistakesFoundForBlack">Nem talált hibát sötét játékában</string>
 	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingWhiteMistakes">Világos hibáinak elemzése befejeződött</string>
-	<string name="doneReviewingBlackMistakes">Sötét hibáinak elemzése befejeződött</string>
 	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Újra</string>
-	<string name="reviewWhiteMistakes">Világos hibáinak áttekintése</string>
-	<string name="reviewBlackMistakes">Sötét hibáinak áttekintése</string>
 	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Előny</string>
 	<plurals name="nbSeconds">
@@ -917,7 +883,15 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="previousBlogPosts">Previous blog posts</string>
 	<string name="continueReadingThis"> Continue reading this post</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

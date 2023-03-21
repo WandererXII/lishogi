@@ -3,14 +3,13 @@
 	<string name="faqAbbreviation">Συχνές ερωτήσεις</string>
 	<string name="frequentlyAskedQuestions">Frequently Asked Questions</string>
 	<string name="whyIsLishogiCalledLishogi">Why is Lishogi called Lishogi?</string>
-	<string name="forkedFromLichess">Lishogi is open source project forked from liсhess, but since it\'s for playing shogi, it\'s called lishogi.</string>
-	<string name="lishogiCombinationLiveLightLibrePronounced">Because it\'s derived from Liсhess. And Liсhess is called Liсhess because it\'s a combination of live/light/libre and chess. Lishogi is pronounced %1$s.</string>
+	<string name="forkedFromLichess">Lishogi is open source project forked from Lichess, but since it\'s for playing shogi, it\'s called Lishogi.</string>
+	<string name="lishogiCombinationLiveLightLibrePronounced">Because it\'s derived from Lichess. And Lichess is called Lichess because it\'s a combination of live/light/libre and chess. Lishogi is pronounced %1$s.</string>
 	<string name="leeshogi">lee-shogi</string>
 	<string name="whyLiveLightLibre">Live, because games are played and watched in real-time 24/7; light and libre for the fact that Lishogi is open-source and unencumbered by proprietary junk that plagues other websites.</string>
 	<string name="whyIsLilaCalledLila">Similarly, the source code for Lishogi, %1$s, stands for li[shogi in sca]la, seeing as the bulk of Lishogi is written in %2$s, an intuitive programming language.</string>
 	<string name="howCanIContributeToLishogi">Πώς μπορώ να συνεισφέρω στο Lishogi;</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi is powered by donations from patrons and the efforts of a team of volunteers.</string>
-	<string name="findMoreAndSeeHowHelp">You can find out more about %1$s. If you want to help Lishogi by volunteering your time and skills, there are many %2$s.</string>
 	<string name="beingAPatron">Become a Patron.</string>
 	<string name="otherWaysToContribute">Εδώ είναι πολλοί άλλοι τρόποι που θα μπορούσατε να συνεισφέρετε στο Lishogi.</string>
 	<string name="breakdownOfOurCosts">breakdown of our costs</string>
@@ -42,7 +41,7 @@ The top computer move will lose zero centipawns, but lesser moves will result in
 
 This value can be used as an indicator of the quality of play. The fewer centipawns one loses per move, the stronger the play.
 
-The computer analysis on Lishogi is powered by Stockfish.</string>
+The computer analysis on Lishogi is powered by YaneuraOu and Fairy-Stockfish.</string>
 	<string name="insufficientMaterial">Losing on time, drawing and insufficient material</string>
 	<string name="goodIntroduction">good introduction</string>
 	<string name="officialRulesPDF">official rules (PDF)</string>

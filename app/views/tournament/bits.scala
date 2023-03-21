@@ -52,6 +52,12 @@ object bits {
   def jsI18n(implicit ctx: Context) = i18nJsObject(i18nKeys)
 
   private val i18nKeys = List(
+    trans.black,
+    trans.white,
+    trans.sente,
+    trans.gote,
+    trans.shitate,
+    trans.uwate,
     trans.standing,
     trans.starting,
     trans.tournamentIsStarting,
@@ -59,6 +65,7 @@ object bits {
     trans.standByX,
     trans.tournamentPairingsAreNowClosed,
     trans.join,
+    trans.pause,
     trans.withdraw,
     trans.joinTheGame,
     trans.signIn,
@@ -70,8 +77,7 @@ object bits {
     trans.performance,
     trans.tournamentComplete,
     trans.movesPlayed,
-    trans.whiteWins,
-    trans.blackWins,
+    trans.xWins,
     trans.draws,
     trans.nextXTournament,
     trans.averageOpponent,

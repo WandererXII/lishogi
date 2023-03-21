@@ -10,7 +10,6 @@
 	<string name="whyIsLilaCalledLila">Benzer şekilde, Lishogi\'nin kaynak kodu %1$s\'dur. Zira Lishogi\'nin büyük bir bölümü sezgisel bir programlama dili olan %2$s ile yazılmıştır.</string>
 	<string name="howCanIContributeToLishogi">Lishogi\'ye nasıl katkıda bulunabilirim?</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi, sizlerin bağışları ve gönüllülerden oluşan bir ekibin gayretleriyle ayakta kalmaktadır.</string>
-	<string name="findMoreAndSeeHowHelp">%1$s hakkında daha fazla bilgi edinebilirsiniz. Lishogi\'ye zamanınızı ve becerilerinizi gönüllü olarak göstererek yardım etmek istiyorsanız, birçok %2$s var.</string>
 	<string name="beingAPatron">Destek olun</string>
 	<string name="otherWaysToContribute">Here are many other ways you could contribute to Lishogi.</string>
 	<string name="breakdownOfOurCosts">giderlerimizin dağılışı</string>
@@ -46,7 +45,7 @@ Lishogi üzerindeki bilgisayar analizi Stockfish tarafından desteklenmektedir.<
 	<string name="insufficientMaterial">Zaman kaybı, beraberlik ve yetersiz taş</string>
 	<string name="goodIntroduction">iyi giriş</string>
 	<string name="officialRulesPDF">resmi kurallar (PDF)</string>
-	<string name="lishogiTraining">Lishgoi antrenmanları</string>
+	<string name="lishogiTraining">Lishogi antrenmanları</string>
 	<string name="fourfoldRepetition">Fourfold repetition</string>
 	<string name="handBookPDF">el kitabı (PDF)</string>
 	<string name="notRepeatedMoves">Biz hamle tekrarı yapmadık. Oyun neden hamle tekrarından berabere bitti?</string>

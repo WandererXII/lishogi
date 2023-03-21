@@ -21,19 +21,15 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">後手</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">後手</string>
 	<string name="white" comment="Alternative to gote">白</string>
-	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">先手</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">先手</string>
 	<string name="black" comment="Alternative to sente">黒</string>
-	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">下手</string>
-	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">上手</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">下手</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">上手</string>
 	<string name="randomColor" comment="Side - sente/gote">ランダム</string>
 	<string name="createAGame">対局を作成する</string>
-	<string name="whiteIsVictorious">後手の勝ちです</string>
-	<string name="blackIsVictorious">先手の勝ちです</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%sの勝ちです</string>
-	<string name="youPlayTheWhitePieces">あなたは後手です</string>
-	<string name="youPlayTheBlackPieces">あなたは先手です</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">あなたは%sです</string>
 	<string name="itsYourTurn">あなたの手番です！</string>
 	<string name="cheatDetected">不正行為検出</string>
@@ -41,11 +37,7 @@
 	<string name="newOpponent">新しい相手</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">相手が再対局を申し込みました。</string>
 	<string name="joinTheGame">対局に参加する</string>
-	<string name="whitePlays">後手番です</string>
-	<string name="blackPlays">先手番です</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s番です</string>
-	<string name="shitatePlays">下手の番です</string>
-	<string name="uwatePlays">上手の番です</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">相手がいなくなりました。後 %s 秒で勝ちにできます。</item>
 	</plurals>
@@ -55,11 +47,7 @@
 	<string name="forceDraw">引き分けにする</string>
 	<string name="talkInChat">チャットでは礼儀を忘れず</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">このURLを最初にクリックした人があなたと対局します。</string>
-	<string name="whiteResigned">後手が投了しました</string>
-	<string name="blackResigned">先手が投了しました</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%sが投了しました</string>
-	<string name="whiteLeftTheGame">後手が退席しました</string>
-	<string name="blackLeftTheGame">先手が退席しました</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%sが退席しました</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">誰かに対局を見てほしい場合、このURLを共有してください</string>
@@ -73,7 +61,7 @@
 	<string name="usingServerAnalysis">サーバー解析を使用</string>
 	<string name="loadingEngine">エンジン読み込み中…</string>
 	<string name="cloudAnalysis">クラウド解析</string>
-	<string name="goDeeper">もっと深く</string>
+	<string name="goDeeper" comment="Engine depth">もっと深く</string>
 	<string name="showThreat">狙いを表示</string>
 	<string name="inLocalBrowser">ローカル ブラウザ内での解析</string>
 	<string name="toggleLocalEvaluation">ローカル評価値のオン/オフ</string>
@@ -82,7 +70,7 @@
 	<string name="deleteFromHere">ここから削除</string>
 	<string name="forceVariation">変化として表示</string>
 	<string name="move">手</string>
-	<plurals name="moves">
+	<plurals name="nbMoves">
 		<item quantity="other">%s moves</item>
 	</plurals>
 	<string name="variantLoss">バリアント負け</string>
@@ -96,7 +84,6 @@
 	<string name="drawn">引き分け</string>
 	<string name="unknown">不明</string>
 	<string name="database">データベース</string>
-	<string name="whiteDrawBlack">後手勝ち / 引き分け / 先手勝ち</string>
 	<string name="averageRatingX">平均レーティング: %s</string>
 	<string name="recentGames">最近のゲーム</string>
 	<string name="topGames">トップのゲーム</string>
@@ -203,11 +190,7 @@
 	<string name="drawOfferDeclined">引き分けの申し込みは拒否されました</string>
 	<string name="drawOfferAccepted">引き分けの申し込みに合意しました</string>
 	<string name="drawOfferCanceled">引き分けの申し込みをキャンセルしました</string>
-	<string name="whiteOffersDraw">後手が引き分けを申し込んでいます</string>
-	<string name="blackOffersDraw">先手が引き分けを申し込んでいます</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%sが引き分けを申し込んでいます</string>
-	<string name="whiteDeclinesDraw">後手が引き分けを拒否しました</string>
-	<string name="blackDeclinesDraw">先手が引き分けを拒否しました</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%sが引き分けを拒否しました</string>
 	<string name="yourOpponentOffersADraw">相手が引き分けを申し込みました</string>
 	<string name="accept">承諾</string>
@@ -218,7 +201,7 @@
 	<string name="finishesX">終了まで %s</string>
 	<string name="abortGame">対局を中止する</string>
 	<string name="gameAborted">対局を中止しました</string>
-	<string name="standard">本将棋</string>
+	<string name="standard" comment="Variant - meaning standard shogi">本将棋</string>
 	<string name="minishogi">5五将棋</string>
 	<string name="chushogi">中将棋</string>
 	<string name="unlimited">無制限</string>
@@ -230,8 +213,6 @@
 	<string name="thisGameIsRated">この対局はレート戦です</string>
 	<string name="rematch">再対局</string>
 	<string name="rematchOfferSent">再対局の申し込みを送信しました</string>
-	<string name="rematchOfferSentWhite">後手が再戦を求めています</string>
-	<string name="rematchOfferSentBlack">先手が再戦を求めています</string>
 	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%sが再戦を求めています</string>
 	<string name="rematchOfferAccepted">再対局の申し込みを受け入れました</string>
 	<string name="rematchOfferCanceled">再対局キャンセル</string>
@@ -350,8 +331,6 @@
 	<string name="clickOnTheBoardToMakeYourMove">駒を動かしてあなたが人間である事を証明して下さい。</string>
 	<string name="captcha.fail">問題を解いて人間だと証明してください。</string>
 	<string name="notACheckmate">詰みではありません</string>
-	<string name="whiteCheckmatesInOneMove">後手 1 手で詰み</string>
-	<string name="blackCheckmatesInOneMove">先手 1 手で詰み</string>
 	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s 1 手で詰み</string>
 	<string name="retry">もう一度</string>
 	<string name="reconnecting">再接続</string>
@@ -402,6 +381,7 @@
 	<string name="showAdvancedSettings">「高度な設定」を表示</string>
 	<string name="makePrivateTournament">トーナメントを「非公開」にすると参加にパスワードが必要になります</string>
 	<string name="join">参加する</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">一時停止する</string>
 	<string name="points">ポイント</string>
 	<string name="wins">勝</string>
@@ -417,8 +397,6 @@
 	<string name="performance">パフォーマンス</string>
 	<string name="tournamentComplete">トーナメント終了</string>
 	<string name="movesPlayed">総手数</string>
-	<string name="whiteWins">後手勝ち</string>
-	<string name="blackWins">先手勝ち</string>
 	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s 勝</string>
 	<string name="draws">引き分け</string>
 	<string name="nextXTournament">次の %s トーナメント:</string>
@@ -431,7 +409,7 @@
 	<string name="handicap">手合割</string>
 	<string name="startPosition">開始局面</string>
 	<string name="clearBoard">盤面をクリアする</string>
-	<string name="fillGotesHand">後手番の手を入力する</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">盤面を保存</string>
 	<string name="loadPosition">局面を読み込む</string>
 	<string name="isPrivate">プライベート</string>
@@ -700,6 +678,7 @@
 	<string name="security">セキュリティ</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">これはあなたのアカウントにログインしたデバイスの一覧です。覚えのないセッションは削除してください。</string>
 	<string name="alternativelyYouCanX">あるいは %s こともできます。</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">すべてのセッションを取り消す</string>
 	<string name="playShogiEverywhere">どこでも将棋を対局</string>
 	<string name="asFreeAsLishogi">Lishogi は常に無料</string>
@@ -740,7 +719,7 @@
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">盤のデザイン</string>
 	<string name="boardSize">盤のサイズ</string>
 	<string name="pieceSet">駒のデザイン</string>
@@ -755,9 +734,8 @@
 	<string name="shogiBasics">将棋の基本</string>
 	<string name="shogiResources">将棋資料</string>
 	<string name="coaches">コーチ</string>
-	<string name="invalidKif">無効なKIF</string>
 	<string name="invalidNotation">無効な棋譜</string>
-	<string name="invalidFen">無効な FEN</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">最小の長さは %s 文字です</string>
 	<string name="error.maxLength">最大の長さは %s 文字です</string>
 	<string name="error.min">%s 以上にしてください</string>
@@ -781,33 +759,21 @@
 	<string name="hideBestMove">最善手をかくす</string>
 	<string name="getAHint">ヒントを見る</string>
 	<string name="evaluatingYourMove">あなたの手を評価中…</string>
-	<string name="whiteWinsGame">後手勝ち</string>
-	<string name="blackWinsGame">先手勝ち</string>
 	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s勝</string>
 	<string name="learnFromYourMistakes">自分の悪手に学ぼう</string>
 	<string name="learnFromThisMistake">この悪手に学ぶ</string>
 	<string name="skipThisMove">この手を飛ばす</string>
 	<string name="next">次</string>
 	<string name="xWasPlayed">指されたのは %s</string>
-	<string name="findBetterMoveForWhite">後手のもっといい手を見つけてください</string>
-	<string name="findBetterMoveForBlack">先手のもっといい手を見つけてください</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">%sのもっといい手を見つけてください</string>
 	<string name="resumeLearning">学習を続ける</string>
 	<string name="youCanDoBetter">もっといい手があります</string>
-	<string name="tryAnotherMoveForWhite">後手の別の手を考えてください</string>
-	<string name="tryAnotherMoveForBlack">先手の別の手を考えてください</string>
 	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">答え</string>
 	<string name="waitingForAnalysis">解析を待っています</string>
-	<string name="noMistakesFoundForWhite">白に悪手はありませんでした</string>
-	<string name="noMistakesFoundForBlack">先手に悪手はありませんでした</string>
 	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingWhiteMistakes">後手の悪手チェックが終了</string>
-	<string name="doneReviewingBlackMistakes">先手の悪手チェックが終了</string>
 	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">もう一度どうぞ</string>
-	<string name="reviewWhiteMistakes">後手の悪手を確認する</string>
-	<string name="reviewBlackMistakes">先手の悪手を確認する</string>
 	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">優位</string>
 	<plurals name="nbSeconds">
@@ -880,7 +846,15 @@
 	<string name="previousBlogPosts">前のブログ投稿</string>
 	<string name="continueReadingThis">続けてこの投稿を読む</string>
 	<string name="discussBlogForum">フォーラムでこのブログ記事を議論する</string>
-	<string name="invadingPieces">無効な駒</string>
-	<string name="enteringKing">入玉</string>
-	<string name="totalImpasseValue">合計点数</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">無効な駒</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">入玉</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">合計点数</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

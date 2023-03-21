@@ -21,19 +21,15 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="gote" comment="Should be 'Gote', unless equivalent exists (ex. 後手 in JP)">Gote</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Λευκά</string>
-	<string name="sente" comment="Should be 'Sente', unless equivalent exists (ex. 先手 in JP)">Sente</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
 	<string name="black" comment="Alternative to sente">Μαύρα</string>
-	<string name="shitate" comment="Should be 'Shitate', unless equivalent exists (ex. 下手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
-	<string name="uwate" comment="Should be 'Uwate', unless equivalent exists (ex. 上手 in JP) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
 	<string name="randomColor" comment="Side - sente/gote">Τυχαίο χρώμα</string>
 	<string name="createAGame">Δημιουργήστε παιχνίδι</string>
-	<string name="whiteIsVictorious">Τα λευκά νίκησαν</string>
-	<string name="blackIsVictorious">Τα μαύρα νίκησαν</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
-	<string name="youPlayTheWhitePieces">Παίζετε τα λευκά</string>
-	<string name="youPlayTheBlackPieces">Παίζετε τα μαύρα</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Είναι η σειρά σας!</string>
 	<string name="cheatDetected">Cheat Detected</string>
@@ -41,11 +37,7 @@
 	<string name="newOpponent">Νέος αντίπαλος</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Ο αντίπαλος θέλει να παίξει νέο παιχνίδι μαζί σας</string>
 	<string name="joinTheGame">Λάβετε μέρος στο παιχνίδι</string>
-	<string name="whitePlays">Παίζουν τα λευκά</string>
-	<string name="blackPlays">Παίζουν τα μαύρα</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Ο αντίπαλος έφυγε. Διεκδίκηση νίκης σε %s δευτερόλεπτο.</item>
 		<item quantity="other">Ο αντίπαλος έφυγε. Διεκδίκηση νίκης σε %s δευτερόλεπτα.</item>
@@ -56,11 +48,7 @@
 	<string name="forceDraw">Δηλώστε ισοπαλία</string>
 	<string name="talkInChat">Παρακαλούμε να είστε ευγενικοί στη συνομιλία!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Ο πρώτος που θα επισκεφθεί αυτήν τη διεύθυνση θα παίξει μαζί σας.</string>
-	<string name="whiteResigned">Τα λευκά παραιτήθηκαν</string>
-	<string name="blackResigned">Τα μαύρα παραιτήθηκαν</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="whiteLeftTheGame">Τα λευκά έφυγαν από το παιχνίδι</string>
-	<string name="blackLeftTheGame">Τα μαύρα έφυγαν από το παιχνίδι</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Στείλτε αυτήν τη διεύθυνση για να επιτρέψετε σε θεατές να δουν το παιχνίδι</string>
@@ -74,7 +62,7 @@
 	<string name="usingServerAnalysis">Ανάλυση διακομιστή</string>
 	<string name="loadingEngine">Εκκίνηση μηχανής ...</string>
 	<string name="cloudAnalysis">Ανάλυση σε νέφος</string>
-	<string name="goDeeper">Βαθύτερα</string>
+	<string name="goDeeper" comment="Engine depth">Βαθύτερα</string>
 	<string name="showThreat">Εμφάνιση απειλής</string>
 	<string name="inLocalBrowser">σε τοπικό περιηγητή</string>
 	<string name="toggleLocalEvaluation">Εναλλαγή τοπικής αξιολόγησης</string>
@@ -83,7 +71,7 @@
 	<string name="deleteFromHere">Διαγραφή από εδώ</string>
 	<string name="forceVariation">Θέσε σε βαριάντα</string>
 	<string name="move">Κίνηση</string>
-	<plurals name="moves">
+	<plurals name="nbMoves">
 		<item quantity="one">%s move</item>
 		<item quantity="other">%s moves</item>
 	</plurals>
@@ -98,7 +86,6 @@
 	<string name="drawn">Ισοπαλία</string>
 	<string name="unknown">Άγνωστο</string>
 	<string name="database">Βάση δεδομένων</string>
-	<string name="whiteDrawBlack">Λευκά / Ισοπαλία / Μαύρα</string>
 	<string name="averageRatingX">Μέση βαθμολογία: %s</string>
 	<string name="recentGames">Πρόσφατα παιχνίδια</string>
 	<string name="topGames">Κορυφαίες παρτίδες</string>
@@ -213,11 +200,7 @@
 	<string name="drawOfferDeclined">Πρόταση ισοπαλίας μη αποδεκτή</string>
 	<string name="drawOfferAccepted">Πρόταση ισοπαλίας αποδεκτή</string>
 	<string name="drawOfferCanceled">Πρόταση ισοπαλίας ακυρώθηκε</string>
-	<string name="whiteOffersDraw">Τα λευκά προσφέρουν ισοπαλία</string>
-	<string name="blackOffersDraw">Τα μαύρα προσφέρουν ισοπαλία</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
-	<string name="whiteDeclinesDraw">Τα λευκά απορρίπτουν την ισοπαλία</string>
-	<string name="blackDeclinesDraw">Τα μαύρα απορρίπτουν την ισοπαλία</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Ο αντίπαλος σας προτείνει ισοπαλία</string>
 	<string name="accept">Αποδοχή</string>
@@ -228,7 +211,7 @@
 	<string name="finishesX">τελειώνει %s</string>
 	<string name="abortGame">Εγκαταλείψτε το παιχνίδι</string>
 	<string name="gameAborted">Παιχνίδι εγκατελήφθη</string>
-	<string name="standard">Κανονικό</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Κανονικό</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
 	<string name="unlimited">Απεριόριστου χρόνου</string>
@@ -240,8 +223,6 @@
 	<string name="thisGameIsRated">Το παιχνίδι βαθμολογείται</string>
 	<string name="rematch">Ξαναπαίξτε</string>
 	<string name="rematchOfferSent">Πρόταση επανάληψης εστάλη</string>
-	<string name="rematchOfferSentWhite">Ο Λευκός προσφέρει ρεβάνς</string>
-	<string name="rematchOfferSentBlack">Ο Μαύρος προσφέρει ρεβάνς</string>
 	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Πρόταση επανάληψης αποδεκτή</string>
 	<string name="rematchOfferCanceled">Πρόταση επανάληψης ακυρώθηκε</string>
@@ -373,8 +354,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Κάνετε κλικ στη σκακιέρα για να κινήσετε τα πιόνια και να αποδείξετε πως είστε άνθρωπος.</string>
 	<string name="captcha.fail">Please solve the shogi captcha.</string>
 	<string name="notACheckmate">Δεν είναι ματ</string>
-	<string name="whiteCheckmatesInOneMove">Παίζουν τα λευκά, κάντε ματ με μια κίνηση</string>
-	<string name="blackCheckmatesInOneMove">Παίζουν τα μαύρα, κάντε ματ με μια κίνηση</string>
 	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Επανάληψη</string>
 	<string name="reconnecting">Επανασύνδεση</string>
@@ -429,6 +408,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="showAdvancedSettings">Εμφάνιση ρυθμίσεων για προχωρημένους</string>
 	<string name="makePrivateTournament">Κάντε το τουρνουά ιδιωτικό, και περιορίστε την πρόσβαση με κωδικό</string>
 	<string name="join">Συμμετοχή</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Απόσυρση</string>
 	<string name="points">Πόντοι</string>
 	<string name="wins">Νίκες</string>
@@ -444,8 +424,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">Επίδοση</string>
 	<string name="tournamentComplete">Το πρωτάθλημα ολοκληρώθηκε</string>
 	<string name="movesPlayed">Παιγμένες κινήσεις</string>
-	<string name="whiteWins">Τα άσπρα νικούν</string>
-	<string name="blackWins">Τα μαύρα νικούν</string>
 	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Ισοπαλίες</string>
 	<string name="nextXTournament">Επόμενο %s πρωτάθλημα:</string>
@@ -458,7 +436,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="handicap">Handicap</string>
 	<string name="startPosition">Αρχική διάταξη</string>
 	<string name="clearBoard">Εκκαθάριση σκακιέρας</string>
-	<string name="fillGotesHand">Fill Gote\'s hand</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Αποθηκεύστε τη θέση</string>
 	<string name="loadPosition">Φορτώστε θέση</string>
 	<string name="isPrivate">Ιδιωτικό</string>
@@ -733,6 +711,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="security">Ασφάλεια</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Αυτή είναι η λίστα συσκευών συνδεδεμένες με τον λογαριασμό σας. Ανακαλέστε τις συνεδρίες που δεν αναγνωρίζετε.</string>
 	<string name="alternativelyYouCanX">Εναλλακτικά, μπορείτε να %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">ανακαλέστε όλες τις συνεδρίες</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">As free as Lishogi</string>
@@ -774,7 +753,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">Θέμα σκακιέρας</string>
 	<string name="boardSize">Μέγεθος σκακιέρας</string>
 	<string name="pieceSet">Επιλογή κομματιών</string>
@@ -789,9 +768,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">Προπονητές</string>
-	<string name="invalidKif">Invalid KIF</string>
 	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">Μη έγκυρο FEN</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">Ελάχιστο μήκος είναι %s</string>
 	<string name="error.maxLength">Μέγιστο μήκος είναι %s</string>
 	<string name="error.min">Πρέπει να είναι μεγαλύτερος ή ίσος με %s</string>
@@ -816,33 +794,21 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">Απόκρυψη καλύτερης κίνησης</string>
 	<string name="getAHint">Λάβετε μια υπόδειξη</string>
 	<string name="evaluatingYourMove">Αξιολογώντας την κίνηση σας...</string>
-	<string name="whiteWinsGame">Κερδίζουν τα λευκά</string>
-	<string name="blackWinsGame">Κερδίζουν τα μαύρα</string>
 	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Μάθετε από τα λάθη σας</string>
 	<string name="learnFromThisMistake">Μάθετε από αυτό το λάθος</string>
 	<string name="skipThisMove">Παραλείψτε αυτό το βήμα</string>
 	<string name="next">Επόμενο</string>
 	<string name="xWasPlayed">%s παίχτηκε</string>
-	<string name="findBetterMoveForWhite">Βρείτε μια καλύτερη κίνηση για τα λευκά</string>
-	<string name="findBetterMoveForBlack">Βρείτε μια καλύτερη κίνηση για τα μαύρα</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Συνεχίστε την μάθηση</string>
 	<string name="youCanDoBetter">Μπορείτε και καλύτερα</string>
-	<string name="tryAnotherMoveForWhite">Δοκιμάστε μια άλλη κίνηση για τα λευκά</string>
-	<string name="tryAnotherMoveForBlack">Δοκιμάστε μια άλλη κίνηση για τα μαύρα</string>
 	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Λύση</string>
 	<string name="waitingForAnalysis">Αναμονή για την ανάλυση</string>
-	<string name="noMistakesFoundForWhite">Δεν βρέθηκαν λάθη για τα λευκά</string>
-	<string name="noMistakesFoundForBlack">Δεν βρέθηκαν λάθη για τα μαύρα</string>
 	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingWhiteMistakes">Έγινε έλεγχος λαθών για τα λευκά</string>
-	<string name="doneReviewingBlackMistakes">Έγινε έλεγχος λαθών για τα μαύρα</string>
 	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Κάντε το ξανά</string>
-	<string name="reviewWhiteMistakes">Ανασκόπηση λαθών λευκών</string>
-	<string name="reviewBlackMistakes">Ανασκόπηση λαθών μαύρων</string>
 	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Πλεονέκτημα</string>
 	<plurals name="nbSeconds">
@@ -917,7 +883,15 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="previousBlogPosts">Previous blog posts</string>
 	<string name="continueReadingThis"> Continue reading this post</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

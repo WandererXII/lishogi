@@ -10,7 +10,6 @@
 	<string name="whyIsLilaCalledLila">Del mismo modo, el código fuente de Lishogi, %1$s, significa li[shogi en sca]la, dado que la mayor parte de Lishogi está escrito en %2$s, un intuitivo lenguaje de programación.</string>
 	<string name="howCanIContributeToLishogi">¿Cómo puedo contribuir a Lishogi?</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi se mantiene mediante donaciones de patrocinadores y los esfuerzos de un equipo de voluntarios.</string>
-	<string name="findMoreAndSeeHowHelp">Puedes aprender más sobre %1$s. Si quieres ayudar a Lishogi voluntariamente con tu tiempo y habilidades, hay muchas %2$s.</string>
 	<string name="beingAPatron">Conviértete en un mecenas</string>
 	<string name="otherWaysToContribute">Aquí puedes encontrar muchas otras formas de contribuir a Lishogi.</string>
 	<string name="breakdownOfOurCosts">desglose de nuestros gastos</string>
@@ -109,9 +108,9 @@ Otro punto que cabe señalar es que, si pasa un tiempo sin jugar, el intervalo d
 	<string name="howToThreeDots">Cómo...</string>
 	<string name="enableDisableNotificationPopUps">¿Activar o desactivar ventanas emergentes de notificación?</string>
 	<string name="viewSiteInformationPopUp">Ver ventana emergente de información del sitio</string>
-	<string name="lishogiCanOptionnalySendPopUps">Opcionalmente, Lichess puede enviar notificaciones emergentes, por ejemplo cuando sea tu turno o hayas recibido un mensaje privado.
+	<string name="lishogiCanOptionnalySendPopUps">Opcionalmente, Lishogi puede enviar notificaciones emergentes, por ejemplo cuando sea tu turno o hayas recibido un mensaje privado.
 
- Haz clic en el icono de bloqueo junto a la dirección de lichess.org, en la barra de URL de tu navegador.
+ Haz clic en el icono de bloqueo junto a la dirección de lishogi.org, en la barra de URL de tu navegador.
 
- Luego selecciona si permitir o bloquear notificaciones de Lichess.</string>
+ Luego selecciona si permitir o bloquear notificaciones de Lishogi.</string>
 </resources>

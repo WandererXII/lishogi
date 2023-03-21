@@ -71,14 +71,18 @@ object widgets {
                   g.winner.map { winner =>
                     frag(
                       ", ",
-                      winner.color.fold(trans.blackIsVictorious(), trans.whiteIsVictorious())
+                      transWithColorName(trans.xIsVictorious, winner.color, g.isHandicap)
                     )
                   }
                 )
-              else g.turnColor.fold(trans.blackPlays(), trans.whitePlays())
+              else transWithColorName(trans.xPlays, g.turnColor, g.isHandicap)
             }
           ),
-          frag(br, br),
+          if (g.playedPlies > 0)
+            div(cls := "moves-count")(
+              strong(trans.nbMoves.pluralSame(g.playedPlies))
+            )
+          else frag(br, br),
           g.metadata.analysed option
             div(cls := "metadata text", dataIcon := "")(trans.computerAnalysisAvailable()),
           g.notationImport.flatMap(_.user).map { user =>
