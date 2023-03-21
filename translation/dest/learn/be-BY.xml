@@ -23,10 +23,10 @@
 	<string name="rookIntro">Ладдзя — гэта цяжкая фігура. Ці гатовы вы кіраваць ёй?</string>
 	<string name="rookGoal">Націсніце на ладдзю і давядзіце яе да зорачкі!</string>
 	<string name="grabAllTheStarsRemember">Хапай усе зоркі! Памятайце, каб глядзець за мяжы дошкі</string>
-	<string name="rookPromotion">The rook promotes to the powerful dragon. Don\'t forget that you can also promote your piece when you leave the promotion zone.</string>
-	<string name="rookSummary">The rook can go up, down, left or right as much as it wants.</string>
-	<string name="dragonSummary">It can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
-	<string name="dragonSummaryTwo">The dragon can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
+	<string name="rookPromotion">Ладдзя павышаецца да магутнага дракона. Не забывайце, што вы таксама можаце прасоўваць сваю фігуру, калі пакідаеце зону прасоўвання.</string>
+	<string name="rookSummary">Ладдзя можа пайсці ўверх, уніз, налева альбо направа</string>
+	<string name="dragonSummary">Яна можа рухацца гэтак жа, як і звычайная ладдзя, але таксама на адно поле ў любым дыяганальным кірунку, што робіць яе значна мацнейшай.</string>
+	<string name="dragonSummaryTwo">Яна можа рухацца гэтак жа, як і звычайная ладдзя, але таксама на адно поле ў любым дыяганальным кірунку, што робіць яе значна мацнейшай.</string>
 	<string name="grabAllTheStars">Збярыце ўсе зоркі!</string>
 	<string name="theFewerMoves">Чым менш хадоў вы зробіце,
 тым больш балаў атрымаеце!</string>
