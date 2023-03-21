@@ -85,24 +85,23 @@
 	<string name="silverSummary">Вы, напэўна, запомніце хады фігур пасля некаторай практыкі.</string>
 	<string name="psilverSummary">Гэтак сама, як залаты генэрал.</string>
 	<string name="silverComplete">Віншуем. Вы на кані!</string>
-	<string name="promotion">This piece can be promoted.</string>
-	<string name="yourPieceReachedThePromotionZone">Your piece reached the promotion zone!</string>
+	<string name="promotion">Гэту фігуру можна перавярнуць.</string>
+	<string name="yourPieceReachedThePromotionZone">Ваша фігура дасягнула зоны ператварэння!</string>
 	<string name="itNowPromotesToAStrongerPiece">Цяпер яна можа стаць любой іншай фігурай.</string>
 	<string name="selectThePieceYouWant">Абярыце якую захочаце!</string>
 	<string name="fundamentals">Асновы</string>
 	<string name="capture">Узяцце</string>
 	<string name="takeTheEnemyPieces">Забярыце фігуры суперніка</string>
 	<string name="captureIntro">Знайдзіце неабароненыя фігуры суперніка і забярыце іх!</string>
-	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
-And don\'t lose yours.</string>
+	<string name="takeTheEnemyPiecesAndDontLoseYours">Забярыце ўсе варожыя фігуры! І не страцьце свае.</string>
 	<string name="captureComplete">Віншуем! Цяпер вы ведаеце, як браць фігуры!</string>
 	<string name="pieceDrops">Фігура скідаецца</string>
 	<string name="reuseCapturedPieces">Выкарыстайце варожыя фігуры яшчэ раз</string>
 	<string name="dropIntro">Зноў захапіце ўсё варожыя фігуры, не страціўшы сваіх!</string>
 	<string name="capturedPiecesCanBeDropped">Захопленыя фігуры могуць быць скінуты на дошку падчас вашага ходу</string>
-	<string name="dropLimitations">You cannot drop a piece on another piece or drop it where it cannot have any legal moves. Dropping a piece in promotion zone doesn\'t result in promotion.
-Take the enemy pieces!</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
+	<string name="dropLimitations">Вы не можаце скінуць фігуру на занятае поле ці туды, дзе фігура будзе без магчымасці ходу. Фігура, выкліканая ў зону прасоўвання, у дадзены ход не паляпшаецца.
+З\'ешце чужыя постаці.</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">Вы не можаце мець дзве непавышаныя пешкі на адной лініі.</string>
 	<string name="protection">Абарона</string>
 	<string name="keepYourPiecesSafe">Бараніце вашы фігуры</string>
 	<string name="protectionIntro">Вызначыце, якія вашы фігуры атакуе супернік, і абараніце іх!</string>
@@ -110,7 +109,7 @@ Take the enemy pieces!</string>
 	<string name="escape">Вас атакуюць! Ухіліцеся ад пагрозы!</string>
 	<string name="noEscape">Няма куды бегчы,
 але вы можаце абараніцца!</string>
-	<string name="makeSureAllSafe">Make sure all your pieces are safe!</string>
+	<string name="makeSureAllSafe">Пераканайцеся ў тым, што ўсе вашыя фігуры ў небяспецы!</string>
 	<string name="dontForgetYouCanDropToDefend">Don’t forget you can drop pieces to defend!</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">Не дайце ім забраць
 ніводнай неабароненай фігуры!</string>
