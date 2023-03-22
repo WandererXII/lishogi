@@ -926,6 +926,7 @@
 	<string name="agreementNice">Я згаджаюся, што я заўсёды адносіцца з павагай да другіх гульцоў.</string>
 	<string name="agreementAccount">Я згаджаюся, што я не буду ствараць некалькі ўліковых запісаў.</string>
 	<string name="agreementPolicy">Я згаджаюся, што я буду прытрымлівацца ўсіх правіл Lishogi.</string>
+	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Знайсці або пачаць новую размову </string>
 	<string name="edit">Рэдагаваць</string>
 	<string name="rapid">Рапід</string>
@@ -964,6 +965,7 @@
 	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
 	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
 	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyOfPlayers">Study of players</string>
 	<string name="studyWith">Аналізуй з:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Змяняльны</string>
 	<string name="standardStudy">Standard study</string>
