@@ -110,7 +110,7 @@
 	<string name="noEscape">Няма куды бегчы,
 але вы можаце абараніцца!</string>
 	<string name="makeSureAllSafe">Пераканайцеся ў тым, што ўсе вашыя фігуры ў небяспецы!</string>
-	<string name="dontForgetYouCanDropToDefend">Don’t forget you can drop pieces to defend!</string>
+	<string name="dontForgetYouCanDropToDefend">Не забывайце, што вы можаце скінуць фігуры для абароны!</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">Не дайце ім забраць
 ніводнай неабароненай фігуры!</string>
 	<string name="combat">Бой</string>
@@ -126,14 +126,14 @@
 	<string name="outOfCheck">Сыход з-пад шаха</string>
 	<string name="defendYourKing">Абараніце свайго караля</string>
 	<string name="outOfCheckIntro">Вам шах! Вы павінны сыходзіць ці бараніцца ад атакі.</string>
-	<string name="ifYourKingIsAttacked">If your king is attacked, you must deal with the attack.</string>
+	<string name="ifYourKingIsAttacked">Калі ваш кароль быў атакаваны, вы павінны справіцца з нападам.</string>
 	<string name="escapeWithTheKing">Адводзьце свайго караля!</string>
 	<string name="theKingCannotEscapeButBlock">Каралю няма куды бегчы, але можна абараніцца!</string>
 	<string name="youCanGetOutOfCheckByTaking">Вы можаце забраць фігуру, якая ставіць шах.</string>
 	<string name="thisKnightIsCheckingThroughYourDefenses">Гэты конь ставіць шах,
 абыходзячы вашую абарону!</string>
-	<string name="getOutOfCheck">Get out of check!</string>
-	<string name="watchOutForYourOpponentsReply">Watch out for your opponent\'s reply!</string>
+	<string name="getOutOfCheck">Адыдзіце ад шаха!</string>
+	<string name="watchOutForYourOpponentsReply">Сцеражыцеся адказу апанента!</string>
 	<string name="escapeOrBlock">Адвядзіце караля
 ці бараніцеся!</string>
 	<string name="outOfCheckComplete">Віншуем! Цяпер вы ведаеце, як абараніць свайго караля ад шаха!</string>
