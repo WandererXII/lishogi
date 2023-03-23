@@ -39,7 +39,7 @@
 	<string name="joinTheGame">Далучыцца да гульні</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s гуляць</string>
 	<plurals name="opponentLeftCounter">
-		<item quantity="one">Ваш супернік пакінуў гульню. Вы можаце аб\'явіць перамогу праз %s секунду.</item>
+		<item quantity="one">Ваш супраціўнік пакінуў гульню. Вы можаце аб\'явіць перамогу праз %s секунду</item>
 		<item quantity="few">Your opponent left the game. You can claim victory in %s seconds.</item>
 		<item quantity="many">Your opponent left the game. You can claim victory in %s seconds.</item>
 		<item quantity="other">Ваш супраціўнік пакінуў гульню. Вы можаце аб\'явіць перамогу праз %s секунды.</item>
