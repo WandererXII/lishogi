@@ -42,7 +42,7 @@
 		<item quantity="one">Ваш супраціўнік пакінуў гульню. Вы можаце аб\'явіць перамогу праз %s секунду</item>
 		<item quantity="few">Your opponent left the game. You can claim victory in %s seconds.</item>
 		<item quantity="many">Your opponent left the game. You can claim victory in %s seconds.</item>
-		<item quantity="other">Ваш супраціўнік пакінуў гульню. Вы можаце аб\'явіць перамогу праз %s секунды.</item>
+		<item quantity="other">Ваш супраціўнік пакінуў гульню. Вы можаце абвясціць перамогу праз %s секунды.</item>
 	</plurals>
 	<string name="opponentLeftChoices">Ваш супраціўнік пакінуў гульню. Вы можаце абвясціць сваю перамогу ці нічыю, або пачакаць.</string>
 	<string name="makeYourOpponentResign">Прымусіць супраціўніка здацца</string>
