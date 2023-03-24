@@ -109,7 +109,7 @@
 	<string name="noEscape">逃げ道はない、
 でも守ることができる！</string>
 	<string name="makeSureAllSafe">すべての駒が安全であることを確認しましょう！</string>
-	<string name="dontForgetYouCanDropToDefend">Don’t forget you can drop pieces to defend!</string>
+	<string name="dontForgetYouCanDropToDefend">守りのために駒を打つことができることを忘れないでください！</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">どの駒もただで
 取られないように！</string>
 	<string name="combat">攻防</string>
