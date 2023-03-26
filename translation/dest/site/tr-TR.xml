@@ -720,7 +720,7 @@
 	<string name="fullFeatured">Tüm özellikler</string>
 	<string name="phoneAndTablet">Telefon ve tablet</string>
 	<string name="bulletBlitzClassical">Kurşun, yıldırım, klasik</string>
-	<string name="correspondenceShogi">Correspondence shogi</string>
+	<string name="correspondenceShogi">Karşılıklı Shogi</string>
 	<string name="onlineAndOfflinePlay">Çevrimiçi ve çevrimdışı oyna</string>
 	<string name="viewTheSolution">Çözümü göster</string>
 	<string name="followAndChallengeFriends">Takip edin ve arkadaşlarınıza meydan okuyun</string>
@@ -742,17 +742,17 @@
 	<string name="light">Açık</string>
 	<string name="dark">Koyu</string>
 	<string name="transparent">Şeffaf</string>
-	<string name="customTheme">Custom theme</string>
+	<string name="customTheme">Özel tema</string>
 	<string name="backgroundImageUrl">Arka plan resim linki:</string>
-	<string name="backgroundColor">Background color:</string>
-	<string name="gridColor">Grid color:</string>
-	<string name="gridWidth">Grid width:</string>
-	<string name="board">Board</string>
-	<string name="grid">Grid</string>
-	<string name="gridSlim">Slim</string>
-	<string name="gridThick">Thick</string>
-	<string name="gridVeryThick">Very thick</string>
-	<string name="hands" comment="Title in custom board theme editor">Hands</string>
+	<string name="backgroundColor">Arkaplan rengi:</string>
+	<string name="gridColor">Renk Kılavuzu:</string>
+	<string name="gridWidth">Renk genişliği:</string>
+	<string name="board">Tahta</string>
+	<string name="grid">Kılavuz</string>
+	<string name="gridSlim">İnce</string>
+	<string name="gridThick">Kalın</string>
+	<string name="gridVeryThick">Çok kalın</string>
+	<string name="hands" comment="Title in custom board theme editor">Eller</string>
 	<string name="boardTheme">Tahta teması</string>
 	<string name="boardSize">Tahta boyutu</string>
 	<string name="pieceSet">Taş seti</string>
@@ -763,12 +763,12 @@
 	<string name="usernameCharsInvalid">Kullanıcı adı yalnızca harf, sayı, alt çizgi ve çizgi içerebilir.</string>
 	<string name="usernameUnacceptable">Bu kullanıcı adı uygun değil.</string>
 	<string name="directlySupportLishogi">Lishogi\'yi destekleyin</string>
-	<string name="playShogiInStyle">Play shogi in style</string>
-	<string name="shogiBasics">Shogi basics</string>
+	<string name="playShogiInStyle">Shogiyi tarz ile oynayın</string>
+	<string name="shogiBasics">Shogi temelleri</string>
 	<string name="shogiResources">Shogi kaynakları</string>
 	<string name="coaches">Eğitmenler</string>
-	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidSfen">Invalid SFEN</string>
+	<string name="invalidNotation">Hatalı notasyon</string>
+	<string name="invalidSfen">Hatalı SFEN</string>
 	<string name="error.minLength">Asgari uzunluk: %s</string>
 	<string name="error.maxLength">Azami uzunluk: %s</string>
 	<string name="error.min">Şu sayıdan büyük veya şu sayıya eşit olması gerekir: %s</string>
@@ -793,22 +793,22 @@
 	<string name="hideBestMove">En iyi hamleyi gizle</string>
 	<string name="getAHint">İpucu</string>
 	<string name="evaluatingYourMove">Hamleniz değerlendiriliyor...</string>
-	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s galip</string>
 	<string name="learnFromYourMistakes">Hatalarından ders al</string>
 	<string name="learnFromThisMistake">Bu hatadan ders çıkart</string>
 	<string name="skipThisMove">Bu hamleyi geç</string>
 	<string name="next">Sonraki</string>
 	<string name="xWasPlayed">%s oynandı</string>
-	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">%s için daha iyi bir hamle bulun</string>
 	<string name="resumeLearning">Kaldığınız yerden devam edin</string>
 	<string name="youCanDoBetter">Daha iyisini yapabilirsin</string>
-	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">%s için başka bir hamle bulun</string>
 	<string name="solution">Çözüm</string>
 	<string name="waitingForAnalysis">Analiz bekleniyor</string>
-	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">%s için bir hata bulunamadı</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">%s\'in hataları incelendi</string>
 	<string name="doItAgain">Tekrarlayın</string>
-	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">%s\'in hatalarını incele</string>
 	<string name="advantage">Avantaj</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s saniye</item>
