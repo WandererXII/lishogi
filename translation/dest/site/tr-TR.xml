@@ -710,7 +710,7 @@
 	<string name="security">Güvenlik</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Bu, hesabınıza giriş yaptığınız cihazların listesidir. Tanımadığınız veya bilmediğiniz tüm oturumları kapatın.</string>
 	<string name="alternativelyYouCanX">Ayrıca %s de yapabilirsiniz.</string>
-	<string name="sessions">Sessions</string>
+	<string name="sessions">Oturumlar</string>
 	<string name="revokeAllSessions">tüm oturumları kaldır</string>
 	<string name="playShogiEverywhere">Her yerde shogi oyna</string>
 	<string name="asFreeAsLishogi">Lishogi kadar özgür</string>
