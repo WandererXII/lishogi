@@ -10,17 +10,17 @@
 	<string name="yourTurn">Tocca a te</string>
 	<string name="aiNameLevelAiLevel">%1$s livello %2$s</string>
 	<string name="level">Livello</string>
-	<string name="strength">Strength</string>
+	<string name="strength">Forza</string>
 	<string name="toggleTheChat">Attiva/disattiva la chat</string>
 	<string name="toggleSound">Attiva/disattiva audio</string>
 	<string name="chat">Chat</string>
 	<string name="resign">Abbandona</string>
 	<string name="checkmate">Scacco matto</string>
 	<string name="stalemate">Stallo</string>
-	<string name="impasse">Impasse</string>
-	<string name="perpetualCheck">Perpetual check</string>
-	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
-	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="impasse">Impraticabile</string>
+	<string name="perpetualCheck">Scacco perpetuo</string>
+	<string name="royalsLost" comment="Used in chushogi">Tutti i pezzi reali sono persi</string>
+	<string name="bareKing" comment="Used in chushogi">Re scoperto</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Bianco</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
@@ -29,15 +29,15 @@
 	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
 	<string name="randomColor" comment="Side - sente/gote">Colore casuale</string>
 	<string name="createAGame">Crea una partita</string>
-	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
-	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s ha vinto</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">Stai giocando come %s</string>
 	<string name="itsYourTurn">Tocca a te!</string>
-	<string name="cheatDetected">Cheat Detected</string>
+	<string name="cheatDetected">Cheat Rilevato</string>
 	<string name="variantEnding">Fine variante</string>
 	<string name="newOpponent">Nuovo avversario</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Il tuo avversario vuole giocare un\'altra partita con te</string>
 	<string name="joinTheGame">Unisciti alla partita</string>
-	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">Tocca a %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Il tuo avversario ha lasciato la partita. Puoi reclamare la vittoria fra %s secondo.</item>
 		<item quantity="other">Il tuo avversario ha lasciato la partita. Puoi reclamare la vittoria fra %s secondi.</item>
@@ -48,9 +48,9 @@
 	<string name="forceDraw">Stabilisci la patta</string>
 	<string name="talkInChat">Sii educato in chat!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">La prima persona che si presenta a questo URL giocherà con te.</string>
-	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
-	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s si è arreso</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s ha lasciato la partita</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s non ha mosso</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Condividi questo URL per ammettere spettatori alla partita</string>
 	<string name="theComputerAnalysisHasFailed">Il computer ha fallito l\'analisi</string>
 	<string name="viewTheComputerAnalysis">Guarda l\'analisi del computer</string>
@@ -72,8 +72,8 @@
 	<string name="forceVariation">Mostra come variante</string>
 	<string name="move">Mossa</string>
 	<plurals name="nbMoves">
-		<item quantity="one">%s move</item>
-		<item quantity="other">%s moves</item>
+		<item quantity="one">%s muove</item>
+		<item quantity="other">%s muovono</item>
 	</plurals>
 	<string name="variantLoss">Sconfitta per variante</string>
 	<string name="variantWin">Vittoria per variante</string>
