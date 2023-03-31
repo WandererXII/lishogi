@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="advantage">Advantage</string>
-  <string name="advantageDescription">Seize your chance to get a decisive advantage.</string>
-  <string name="castling">Castling</string>
-  <string name="castlingDescription">Bring the king to safety.</string>
-  <string name="crushing">Crushing</string>
-  <string name="crushingDescription">Spot the opponent blunder to obtain a crushing advantage.</string>
-  <string name="equality">Equality</string>
-  <string name="equalityDescription">Come back from a losing position, and secure a draw or a balanced position.</string>
+  <string name="advantage">Vantaggio</string>
+  <string name="advantageDescription">Sfrutta la tua occasione per ottenere un vantaggio decisivo.</string>
+  <string name="castling">Arrocco</string>
+  <string name="castlingDescription">Porta il re in sicurezza.</string>
+  <string name="crushing">Schiacciante</string>
+  <string name="crushingDescription">Trova l\'errore grave del tuo avversario per ottenere un vantaggio schiacciante.</string>
+  <string name="equality">Parità</string>
+  <string name="equalityDescription">Recupera una posizione persa e assicurati la patta o una posizione equa.</string>
   <string name="defensiveMove">Mossa difensiva</string>
-  <string name="defensiveMoveDescription">A precise move or sequence of moves that is needed to avoid losing material or another advantage.</string>
-  <string name="deflection">Deflection</string>
-  <string name="deflectionDescription">A move that distracts an opponent piece from another duty that it performs, such as guarding a key square. Sometimes also called \"overloading\".</string>
-  <string name="discoveredAttack">Discovered attack</string>
-  <string name="discoveredAttackDescription">Moving a piece (such as a knight), that previously blocked an attack by a long range piece (such as a rook), out of the way of that piece.</string>
-  <string name="doubleCheck">Double check</string>
+  <string name="defensiveMoveDescription">Una mossa precisa o una sequenza di mosse necessarie ad evitare perdite di materiale o di altri vantaggi.</string>
+  <string name="deflection">Deflessione</string>
+  <string name="deflectionDescription">Una mossa che distrae un pezzo avversario da un compito, come ad esempio difendere una casa chiave. A volte chiamata \"sovraccarico\".</string>
+  <string name="discoveredAttack">Attacco di scoperta</string>
+  <string name="discoveredAttackDescription">Mossa di un pezzo che precedentemente bloccava un attacco di un pezzo a lungo raggio, come ad esempio un cavallo che si sposta da una casa in fronte ad una torre.</string>
+  <string name="doubleCheck">Doppio scacco</string>
   <string name="doubleCheckDescription">Checking with two pieces at once, as a result of a discovered attack where both the moving piece and the unveiled piece attack the opponent\'s king.</string>
   <string name="endgame">Endgame</string>
   <string name="endgameDescription">A tactic during the last phase of the game.</string>
