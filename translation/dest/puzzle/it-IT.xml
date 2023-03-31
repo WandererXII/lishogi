@@ -12,7 +12,7 @@
   <string name="origin">Origine</string>
   <string name="specialMoves">Mosse speciali</string>
   <string name="didYouLikeThisPuzzle">Ti è piaciuto questo problema?</string>
-  <string name="voteToLoadNextOne">Vote to load the next one!</string>
+  <string name="voteToLoadNextOne">Vota per caricare il prossimo!</string>
   <string name="yourPuzzleRatingX">Il tuo punteggio nei problemi: %s</string>
   <string name="findTheBestMoveForX" comment="%s - sente(black)/gote(white)">Trova la mossa migliore per %s</string>
   <string name="toGetPersonalizedPuzzles">Per ottenere problemi personalizzati:</string>
@@ -52,6 +52,6 @@
   <string name="improvementAreas">Aree di miglioramento</string>
   <string name="strengths">Punti di forza</string>
   <string name="history">Cronologia dei problemi</string>
-  <string name="solved">solved</string>
-  <string name="failed">failed</string>
+  <string name="solved">risolto</string>
+  <string name="failed">non riuscito</string>
 </resources>
