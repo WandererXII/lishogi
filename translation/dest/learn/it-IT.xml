@@ -168,20 +168,20 @@ Il tuo avversario userà il metodo Itou (伊藤).</string>
 	<string name="repetition">Ripetizione</string>
 	<string name="fourfoldRepetitionIsADrawExcept">Quattro ripetizioni è un pareggio, TRANNE...</string>
 	<string name="repetitionIntro">Quattro ripetizioni è un pareggio, lo scacco continuo è una sconfitta.</string>
-	<string name="ifTheSamePositionOccurs">If the same position occurs 4 times in Shogi, it is an automatic draw. This situation is called sennichite (千日手). Make the only legal move.</string>
-	<string name="perpetualCheckIsALoss">But, perpetually checking the opponent’s king is a loss for the checking side. Unfortunately for your opponent, they don’t know! Make the only legal move.</string>
-	<string name="boardFlippedFindBestMove">The board was just flipped. What is the best move here?</string>
-	<string name="repetitionComplete">The idea behind perpetual check being a loss is to prevent anyone from forcing a draw.</string>
+	<string name="ifTheSamePositionOccurs">Se la stessa posizione avviene 4 volte nello Shogi, è un pareggio. Questa situazione è chiamata \"Sennichite\" (千日手). Ora fai l\'unica mossa legale.</string>
+	<string name="perpetualCheckIsALoss">Ma lo scacco continuo al re avversario, risulta in una sconfitta per l\'attaccante. Sfortunatamente per il tuo avversario, lui non lo sa! Fai l\'unica mossa legale.</string>
+	<string name="boardFlippedFindBestMove">La scacchiera è stata girata. Qual è la mossa migliore qui?</string>
+	<string name="repetitionComplete">L\'idea di una sconfitta a causa dello scacco continuo serve a prevenire che chiunque forzi il pareggio.</string>
 	<string name="advanced">Livello avanzato</string>
 	<string name="pieceValue">Il valore del pezzo</string>
 	<string name="evaluatePieceStrength">Valuta la forza del pezzo</string>
-	<string name="pieceValueIntroNew">Pieces with high mobility have a higher value.
-The king is priceless! Losing it means losing the game.</string>
+	<string name="pieceValueIntroNew">I pezzi con alta mobilità hanno un valore più alto.
+Il re è inestimabile! Perderlo significa perdere la partita.</string>
 	<string name="queenOverBishop">Cattura il pezzo
 con il più alto valore!
 Regina &gt; Alfiere</string>
-	<string name="pawnsAreTheLeastValuable">Pawns are the least valuable piece, followed by lances. Knights are slightly more valuable than lances.
-Take the most valuable piece.</string>
+	<string name="pawnsAreTheLeastValuable">I pedoni sono i pezzi che valgono meno, seguiti dalle lance. I cavalieri valgono poco più delle lance.
+Prendi il pezzo più prezioso.</string>
 	<string name="knightSilverGold">Cavaliere &lt; Argento &lt; Oro
 Prendi il pezzo con più valore senza perdere il tuo.</string>
 	<string name="goldBishopRook">Oro &lt; Alfiere &lt; Torre
