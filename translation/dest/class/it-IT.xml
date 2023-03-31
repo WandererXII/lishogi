@@ -42,12 +42,12 @@ Password: %3$s</string>
 	<string name="inviteDesc2">Riceveranno un messaggio su Lishogi con un link per unirsi alla lezione.</string>
 	<string name="inviteDesc3">Importante: invita solo gli studenti che conosci e che desiderano partecipare attivamente alla classe.</string>
 	<string name="inviteDesc4">Non inviare mai inviti indesiderati a giocatori arbitrari.</string>
-	<string name="createANewLishogiAccount">Create a new Lishogi account</string>
+	<string name="createANewLishogiAccount">Crea un nuovo account Lishogi</string>
 	<string name="createDesc1">Se lo studente non ha ancora un account di Lishogi, puoi crearne per loro uno qui.</string>
 	<string name="createDesc2">Non è richiesto alcun indirizzo email. Verrà generata una password e dovrai trasmetterla allo studente, in modo che possa accedere.</string>
 	<string name="createDesc3">Importante: uno studente non deve avere account multipli.</string>
 	<string name="createDesc4">Se ne ha già uno, utilizza invece il modulo di invito.</string>
-	<string name="lishogiUsername">Lishogi username</string>
+	<string name="lishogiUsername">Nome utente Lishogi</string>
 	<string name="generateANewUsername">Genera un nuovo nome utente</string>
 	<string name="welcomeToClass">Benvenuto nella lezione: %s
 Questo è il link per accedere alla lezione.</string>
@@ -85,7 +85,7 @@ Questo è il link per accedere alla lezione.</string>
 	<string name="timePlaying">Tempo giocato</string>
 	<string name="variantXOverLastY">%1$s sopra gli ultimi %2$s</string>
 	<string name="winrate">Percentuale di vittorie</string>
-	<string name="na">N/A</string>
+	<string name="na">Non Disponibile</string>
 	<string name="news">News della classe</string>
 	<string name="editNews">Modifica notizie</string>
 	<string name="notifyAllStudents">Notifica tutti gli studenti</string>
