@@ -882,18 +882,18 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="officialBlog">Blog Ufficiale di Lishogi</string>
 	<string name="blogPostsFromYear">Post del Blog dal %1$s</string>
 	<string name="previousBlogPosts">Post del Blog precedenti</string>
-	<string name="continueReadingThis"> Continue reading this post</string>
-	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
-	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
-	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
-	<string name="postGameStudy">Post-game study</string>
-	<string name="postGameStudies">Post-game studies</string>
-	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
-	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
-	<string name="studyWithOpponent">Study with opponent</string>
-	<string name="studyOfPlayers">Study of players</string>
-	<string name="studyWith">Study with:</string>
-	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
-	<string name="standardStudy">Standard study</string>
+	<string name="continueReadingThis"> Continua a leggere questo post</string>
+	<string name="discussBlogForum">Discuti di questo post del Blog sul forum</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Disposizione dei pezzi non valida</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Re in posizione avanzata</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Valore totale</string>
+	<string name="postGameStudy">Studio post-partita</string>
+	<string name="postGameStudies">Studi post-partita</string>
+	<string name="postGameStudyExplanation">Gli studi post-partita sono elencati nella loro categoria e permettono direttamente di proporre una rivincita o di cercare una nuova partita.</string>
+	<string name="postGameStudiesOfGame">Studi post-partita di questa partita</string>
+	<string name="studyWithOpponent">Studio con avversario</string>
+	<string name="studyOfPlayers">Studio dei giocatori</string>
+	<string name="studyWith">Studio con:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Opzionale</string>
+	<string name="standardStudy">Sudio standard</string>
 </resources>
