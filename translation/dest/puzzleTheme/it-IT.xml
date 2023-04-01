@@ -15,8 +15,8 @@
   <string name="discoveredAttack">Attacco di scoperta</string>
   <string name="discoveredAttackDescription">Mossa di un pezzo che precedentemente bloccava un attacco di un pezzo a lungo raggio, come ad esempio un cavallo che si sposta da una casa in fronte ad una torre.</string>
   <string name="doubleCheck">Doppio scacco</string>
-  <string name="doubleCheckDescription">Checking with two pieces at once, as a result of a discovered attack where both the moving piece and the unveiled piece attack the opponent\'s king.</string>
-  <string name="endgame">Endgame</string>
+  <string name="doubleCheckDescription">Mettere sotto scacco con due pezzi allo stesso tempo, come risultato di un attacco scoperto dove entrambi i pezzi mossi e il pezzo svelato attaccano il re avversario.</string>
+  <string name="endgame">Fase finale</string>
   <string name="endgameDescription">A tactic during the last phase of the game.</string>
   <string name="fork">Fork</string>
   <string name="forkDescription">A move where the moved piece attacks two opponent pieces at once.</string>
