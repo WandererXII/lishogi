@@ -46,6 +46,7 @@ final class JsonView(rematches: Rematches) {
         "color"    -> pov.color.name,
         "lastMove" -> ~pov.game.lastUsiStr,
         "source"   -> pov.game.source,
+        "status"   -> pov.game.status,
         "variant" -> Json.obj(
           "key"  -> pov.game.variant.key,
           "name" -> pov.game.variant.name
@@ -67,6 +68,7 @@ final class JsonView(rematches: Rematches) {
       )
       .add("secondsLeft" -> pov.remainingSeconds)
       .add("tournamentId" -> pov.game.tournamentId)
+      .add("winner" -> pov.game.winnerColor)
 }
 
 object JsonView {
