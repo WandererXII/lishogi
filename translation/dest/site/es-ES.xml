@@ -72,7 +72,7 @@
 	<string name="forceVariation">Convertir en variante</string>
 	<string name="move">Movimiento</string>
 	<plurals name="nbMoves">
-		<item quantity="one">%s move</item>
+		<item quantity="one">%s movimiento</item>
 		<item quantity="other">%s movimientos</item>
 	</plurals>
 	<string name="variantLoss">Variante perdedora</string>
