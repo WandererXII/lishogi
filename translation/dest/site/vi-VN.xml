@@ -204,6 +204,8 @@
 	<string name="standard" comment="Variant - meaning standard shogi">Bình thường</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">Không giới hạn</string>
 	<string name="mode">Chế độ</string>
 	<string name="casual">Không tính elo</string>
