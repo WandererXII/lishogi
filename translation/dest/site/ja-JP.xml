@@ -204,6 +204,8 @@
 	<string name="standard" comment="Variant - meaning standard shogi">本将棋</string>
 	<string name="minishogi">5五将棋</string>
 	<string name="chushogi">中将棋</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">無制限</string>
 	<string name="mode">モード</string>
 	<string name="casual">非レート戦</string>
