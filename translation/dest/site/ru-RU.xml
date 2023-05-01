@@ -234,6 +234,8 @@
 	<string name="standard" comment="Variant - meaning standard shogi">Классические сёги</string>
 	<string name="minishogi">Минисёги</string>
 	<string name="chushogi">Чу Сёги</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">Отсутствует</string>
 	<string name="mode">Режим</string>
 	<string name="casual">Товарищеская</string>
