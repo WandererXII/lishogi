@@ -132,15 +132,15 @@
   <string name="timeControlTag" comment="Tags for kif and csa">Control de tiempo</string>
   <string name="xEloTag" comment="Tags for kif and csa">%s Elo</string>
   <string name="xTitleTag" comment="Tags for kif and csa">%s título</string>
-  <string name="xTeamTag" comment="Tags for kif and csa">%s team</string>
+  <string name="xTeamTag" comment="Tags for kif and csa">%s equipo</string>
   <string name="openingTag" comment="Tags for kif and csa">%s Elo</string>
-  <string name="resultTag" comment="Tags for kif and csa">Result</string>
-  <string name="problemNameTag" comment="Tags for kif and csa">Problem name</string>
-  <string name="problemIdTag" comment="Tags for kif and csa">Problem Id</string>
-  <string name="dateOfPublicationTag" comment="Tags for kif and csa">Date of publication</string>
-  <string name="composerTag" comment="Tags for kif and csa">Composer</string>
-  <string name="publicationTag" comment="Tags for kif and csa">Publication</string>
-  <string name="collectionTag" comment="Tags for kif and csa">Collection</string>
-  <string name="lengthTag" comment="Tags for kif and csa">Length</string>
-  <string name="prizeTag" comment="Tags for kif and csa">Prize</string>
+  <string name="resultTag" comment="Tags for kif and csa">Resultado</string>
+  <string name="problemNameTag" comment="Tags for kif and csa">Nombre del problema</string>
+  <string name="problemIdTag" comment="Tags for kif and csa">ID del problema</string>
+  <string name="dateOfPublicationTag" comment="Tags for kif and csa">Fecha de publicación</string>
+  <string name="composerTag" comment="Tags for kif and csa">Compositor</string>
+  <string name="publicationTag" comment="Tags for kif and csa">Publicación</string>
+  <string name="collectionTag" comment="Tags for kif and csa">Colección</string>
+  <string name="lengthTag" comment="Tags for kif and csa">Longitud</string>
+  <string name="prizeTag" comment="Tags for kif and csa">Premio</string>
 </resources>
