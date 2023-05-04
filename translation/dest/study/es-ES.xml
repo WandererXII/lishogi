@@ -125,13 +125,13 @@
   <string name="deleteStudy">Borrar estudio</string>
   <string name="deleteTheEntireStudy">¿Realmente quieres borrar todo el estudio? ¡Esta acción no se puede deshacer!</string>
   <string name="whereDoYouWantToStudyThat">¿Dónde quieres estudiar eso?</string>
-  <string name="startTag" comment="Tags for kif and csa">Start</string>
-  <string name="endTag" comment="Tags for kif and csa">End</string>
-  <string name="siteTag" comment="Tags for kif and csa">Site</string>
-  <string name="eventTag" comment="Tags for kif and csa">Event</string>
-  <string name="timeControlTag" comment="Tags for kif and csa">Time control</string>
+  <string name="startTag" comment="Tags for kif and csa">Comenzar</string>
+  <string name="endTag" comment="Tags for kif and csa">Finalizar</string>
+  <string name="siteTag" comment="Tags for kif and csa">Lugar</string>
+  <string name="eventTag" comment="Tags for kif and csa">Evento</string>
+  <string name="timeControlTag" comment="Tags for kif and csa">Control de tiempo</string>
   <string name="xEloTag" comment="Tags for kif and csa">%s Elo</string>
-  <string name="xTitleTag" comment="Tags for kif and csa">%s title</string>
+  <string name="xTitleTag" comment="Tags for kif and csa">%s título</string>
   <string name="xTeamTag" comment="Tags for kif and csa">%s team</string>
   <string name="openingTag" comment="Tags for kif and csa">%s Elo</string>
   <string name="resultTag" comment="Tags for kif and csa">Result</string>
