@@ -131,8 +131,8 @@
   <string name="deleteStudy">Выдаліць навучанне</string>
   <string name="deleteTheEntireStudy">Выдаліць навучанне цалкам? Гэта нельга будзе адмяніць!</string>
   <string name="whereDoYouWantToStudyThat">Дзе вы жадаеце навучацца?</string>
-  <string name="startTag" comment="Tags for kif and csa">Start</string>
-  <string name="endTag" comment="Tags for kif and csa">End</string>
+  <string name="startTag" comment="Tags for kif and csa">Пачаць</string>
+  <string name="endTag" comment="Tags for kif and csa">Скончыць</string>
   <string name="siteTag" comment="Tags for kif and csa">Site</string>
   <string name="eventTag" comment="Tags for kif and csa">Event</string>
   <string name="timeControlTag" comment="Tags for kif and csa">Time control</string>
