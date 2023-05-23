@@ -119,6 +119,8 @@ object HTTPRequest {
     }
   }
 
+  def isAppeal(req: RequestHeader) = req.path.startsWith("/appeal")
+
   def clientName(req: RequestHeader) =
     if (isXhr(req)) "xhr"
     else if (isCrawler(req)) "crawler"
