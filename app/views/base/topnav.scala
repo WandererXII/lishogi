@@ -46,13 +46,14 @@ object topnav {
         linkTitle(routes.Learn.index.toString, trans.learnMenu()),
         div(role := "group")(
           ctx.noBot option frag(
-            a(href := routes.Learn.index)(trans.chessBasics()),
+            a(href := routes.Learn.index)(trans.shogiBasics()),
             // a(href := routes.Practice.index)(trans.practice()),
             a(href := routes.Coordinate.home)(trans.coordinates.coordinates())
           ),
           a(href := routes.Study.allDefault(1))(trans.studyMenu()),
           // ctx.noKid option a(href := routes.Coach.all(1))(trans.coaches()),
-          canSeeClasMenu option a(href := routes.Clas.index)(trans.clas.lishogiClasses())
+          canSeeClasMenu option a(href := routes.Clas.index)(trans.clas.lishogiClasses()),
+          a(href := routes.Page.variantHome)(trans.variants())
         )
       ),
       st.section(

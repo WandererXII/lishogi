@@ -33,19 +33,12 @@ final class Pref(env: Env) extends LilaController(env) {
 
   def formApply =
     AuthBody { implicit ctx => _ =>
-      def onSuccess(data: lila.pref.DataForm.PrefData) = api.setPref(data(ctx.pref)) inject Ok("saved")
-      implicit val req                                 = ctx.body
+      implicit val req = ctx.body
       forms.pref
         .bindFromRequest()
         .fold(
-          _ =>
-            forms.pref
-              .bindFromRequest(lila.pref.FormCompatLayer(ctx.pref, ctx.body))
-              .fold(
-                err => BadRequest(err.toString).fuccess,
-                onSuccess
-              ),
-          onSuccess
+          err => BadRequest(err.toString).fuccess,
+          data => api.setPref(data(ctx.pref)) inject Ok("saved")
         )
     }
 
@@ -88,13 +81,14 @@ final class Pref(env: Env) extends LilaController(env) {
     }
 
   private lazy val setters = Map(
-    "theme"    -> (forms.theme    -> save("theme") _),
-    "pieceSet" -> (forms.pieceSet -> save("pieceSet") _),
-    "soundSet" -> (forms.soundSet -> save("soundSet") _),
-    "bg"       -> (forms.bg       -> save("bg") _),
-    "bgImg"    -> (forms.bgImg    -> save("bgImg") _),
-    "zen"      -> (forms.zen      -> save("zen") _),
-    "notation" -> (forms.notation -> save("notation") _)
+    "theme"       -> (forms.theme       -> save("theme") _),
+    "pieceSet"    -> (forms.pieceSet    -> save("pieceSet") _),
+    "chuPieceSet" -> (forms.chuPieceSet -> save("chuPieceSet") _),
+    "soundSet"    -> (forms.soundSet    -> save("soundSet") _),
+    "bg"          -> (forms.bg          -> save("bg") _),
+    "bgImg"       -> (forms.bgImg       -> save("bgImg") _),
+    "zen"         -> (forms.zen         -> save("zen") _),
+    "notation"    -> (forms.notation    -> save("notation") _)
   )
 
   private def save(name: String)(value: String, ctx: Context): Fu[Cookie] =

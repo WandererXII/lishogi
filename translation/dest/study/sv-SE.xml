@@ -97,10 +97,9 @@
   <string name="startFromCustomPosition">Starta från anpassad position</string>
   <string name="loadAGameByUrl">Importera ett spel med URL</string>
   <string name="loadAPositionFromSfen">Load a position from SFEN</string>
-  <string name="loadAGameFromKif">Load games from KIF</string>
   <string name="automatic">Automatisk</string>
   <string name="urlOfTheGame">URL till partiet</string>
-  <string name="loadAGameFromXOrY">Importera ett parti från %1$s</string>
+  <string name="loadAGameFromX">Load games from %1$s</string>
   <string name="createChapter">Skapa kapitel</string>
   <string name="configureLiveBroadcast">Konfigurera direktsändning</string>
   <string name="createStudy">Skapa en studie</string>
@@ -126,4 +125,22 @@
   <string name="deleteStudy">Ta bort studie</string>
   <string name="deleteTheEntireStudy">Vill du ta bort hela studien? Detta går inte att ångra!</string>
   <string name="whereDoYouWantToStudyThat">Var vill du studera detta?</string>
+  <string name="startTag" comment="Tags for kif and csa">Start</string>
+  <string name="endTag" comment="Tags for kif and csa">End</string>
+  <string name="siteTag" comment="Tags for kif and csa">Site</string>
+  <string name="eventTag" comment="Tags for kif and csa">Event</string>
+  <string name="timeControlTag" comment="Tags for kif and csa">Time control</string>
+  <string name="xEloTag" comment="Tags for kif and csa">%s Elo</string>
+  <string name="xTitleTag" comment="Tags for kif and csa">%s title</string>
+  <string name="xTeamTag" comment="Tags for kif and csa">%s team</string>
+  <string name="openingTag" comment="Tags for kif and csa">%s Elo</string>
+  <string name="resultTag" comment="Tags for kif and csa">Result</string>
+  <string name="problemNameTag" comment="Tags for kif and csa">Problem name</string>
+  <string name="problemIdTag" comment="Tags for kif and csa">Problem Id</string>
+  <string name="dateOfPublicationTag" comment="Tags for kif and csa">Date of publication</string>
+  <string name="composerTag" comment="Tags for kif and csa">Composer</string>
+  <string name="publicationTag" comment="Tags for kif and csa">Publication</string>
+  <string name="collectionTag" comment="Tags for kif and csa">Collection</string>
+  <string name="lengthTag" comment="Tags for kif and csa">Length</string>
+  <string name="prizeTag" comment="Tags for kif and csa">Prize</string>
 </resources>

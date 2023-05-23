@@ -301,7 +301,6 @@ final class GameApiV2(
       )
       .add("initialSfen" -> g.initialSfen)
       .add("winner" -> g.winnerColor.map(_.name))
-      .add("opening" -> g.opening.ifTrue(withFlags.opening))
       .add("moves" -> withFlags.moves.option {
         withFlags keepDelayIf g.playable applyDelay g.usiMoves.map(_.usi) mkString " "
       })

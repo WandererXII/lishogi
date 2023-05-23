@@ -35,7 +35,7 @@
   <string name="leaveTheStudy">Rời khỏi nghiên cứu</string>
   <string name="youAreNowAContributor">Bây giờ bạn là người đóng góp</string>
   <string name="youAreNowASpectator">Bây giờ bạn là khán giả</string>
-  <string name="tags">Tags</string>
+  <string name="tags">Nhãn</string>
   <string name="like">Thích</string>
   <string name="newTag">Nhãn mới</string>
   <string name="commentThisPosition">Bình luận về thế cờ này</string>
@@ -57,8 +57,8 @@
   <string name="downloadAllGames">Tải xuống tất cả các ván đấu</string>
   <string name="downloadGame">Tải xuống ván cờ</string>
   <string name="studyKif">Study KIF</string>
-  <string name="chapterKif">Chapter KIF</string>
-  <string name="chapterCsa">Chapter CSA</string>
+  <string name="chapterKif">PGN chương</string>
+  <string name="chapterCsa">CSA chương</string>
   <string name="studyUrl">URL nghiên cứu</string>
   <string name="broadcastUrl">URL phát sóng</string>
   <string name="currentChapterUrl">URL chương hiện tại</string>
@@ -93,11 +93,10 @@
   <string name="editor">Biên tập viên</string>
   <string name="startFromCustomPosition">Bắt đầu từ thế cờ tùy chỉnh</string>
   <string name="loadAGameByUrl">Tải ván cờ bằng URL</string>
-  <string name="loadAPositionFromSfen">Load a position from SFEN</string>
-  <string name="loadAGameFromKif">Load games from KIF</string>
+  <string name="loadAPositionFromSfen">Tải thế cờ từ mã SFEN</string>
   <string name="automatic">Tự động</string>
   <string name="urlOfTheGame">URL tới ván đấu, mỗi URL một dòng</string>
-  <string name="loadAGameFromXOrY">Tải ván cờ từ %1$s</string>
+  <string name="loadAGameFromX">Load games from %1$s</string>
   <string name="createChapter">Tạo chương mới</string>
   <string name="configureLiveBroadcast">Cấu hình truyền hình trực tiếp</string>
   <string name="createStudy">Tạo nghiên cứu</string>
@@ -123,4 +122,22 @@
   <string name="deleteStudy">Xóa nghiên cứu</string>
   <string name="deleteTheEntireStudy">Xóa bài nghiên cứu hiện tại? Cái này không quay đầu được đâu!</string>
   <string name="whereDoYouWantToStudyThat">Bạn muốn nghiên cứu ở đâu?</string>
+  <string name="startTag" comment="Tags for kif and csa">Start</string>
+  <string name="endTag" comment="Tags for kif and csa">End</string>
+  <string name="siteTag" comment="Tags for kif and csa">Site</string>
+  <string name="eventTag" comment="Tags for kif and csa">Event</string>
+  <string name="timeControlTag" comment="Tags for kif and csa">Time control</string>
+  <string name="xEloTag" comment="Tags for kif and csa">%s Elo</string>
+  <string name="xTitleTag" comment="Tags for kif and csa">%s title</string>
+  <string name="xTeamTag" comment="Tags for kif and csa">%s team</string>
+  <string name="openingTag" comment="Tags for kif and csa">%s Elo</string>
+  <string name="resultTag" comment="Tags for kif and csa">Result</string>
+  <string name="problemNameTag" comment="Tags for kif and csa">Problem name</string>
+  <string name="problemIdTag" comment="Tags for kif and csa">Problem Id</string>
+  <string name="dateOfPublicationTag" comment="Tags for kif and csa">Date of publication</string>
+  <string name="composerTag" comment="Tags for kif and csa">Composer</string>
+  <string name="publicationTag" comment="Tags for kif and csa">Publication</string>
+  <string name="collectionTag" comment="Tags for kif and csa">Collection</string>
+  <string name="lengthTag" comment="Tags for kif and csa">Length</string>
+  <string name="prizeTag" comment="Tags for kif and csa">Prize</string>
 </resources>

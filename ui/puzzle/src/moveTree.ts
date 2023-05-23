@@ -1,12 +1,13 @@
-import { Position, Shogi } from 'shogiops/shogi';
+import { makeNotationWithPosition } from 'common/notation';
 import { initialSfen, makeSfen, parseSfen } from 'shogiops/sfen';
 import { Move } from 'shogiops/types';
-import { makeSquare, makeUsi, parseUsi } from 'shogiops/util';
+import { makeUsi, parseUsi } from 'shogiops/util';
+import { Position } from 'shogiops/variant/position';
+import { Shogi } from 'shogiops/variant/shogi';
 import { TreeWrapper } from 'tree';
-import { makeNotationWithPosition, Notation } from 'common/notation';
 import { scalashogiCharPair } from './util';
 
-export function usiToTree(usis: Usi[], notation: Notation): Tree.Node {
+export function usiToTree(usis: Usi[]): Tree.Node {
   const pos = Shogi.default();
   const root: Tree.Node = {
     ply: 0,
@@ -18,7 +19,7 @@ export function usiToTree(usis: Usi[], notation: Notation): Tree.Node {
   usis.forEach((usi, i) => {
     const move = parseUsi(usi)!,
       captured = pos.board.has(move.to),
-      notationMove = makeNotationWithPosition(notation, pos, move, pos.lastMove);
+      notationMove = makeNotationWithPosition(pos, move, pos.lastMove);
     pos.play(move);
     const nextNode = makeNode(pos, move, notationMove, captured, i + 1);
     current.children.push(nextNode);
@@ -37,13 +38,7 @@ export function sfenToTree(sfen: string): Tree.Node {
   } as Tree.Node;
 }
 
-export function mergeSolution(
-  root: TreeWrapper,
-  initialPath: Tree.Path,
-  solution: Usi[],
-  pov: Color,
-  notation: Notation
-): void {
+export function mergeSolution(root: TreeWrapper, initialPath: Tree.Path, solution: Usi[], pov: Color): void {
   const initialNode = root.nodeAtPath(initialPath),
     pos = parseSfen('standard', initialNode.sfen, false).unwrap(),
     fromPly = initialNode.ply;
@@ -51,7 +46,7 @@ export function mergeSolution(
   const nodes = solution.map((usi, i) => {
     const move = parseUsi(usi)!,
       captured = pos.board.has(move.to),
-      notationMove = makeNotationWithPosition(notation, pos, move, pos.lastMove);
+      notationMove = makeNotationWithPosition(pos, move, pos.lastMove);
     pos.play(move);
     const node = makeNode(pos, move, notationMove, captured, fromPly + i + 1);
     if ((pov == 'sente') == (node.ply % 2 == 1)) (node as any).puzzle = 'good';
@@ -67,6 +62,6 @@ const makeNode = (pos: Position, move: Move, notation: MoveNotation, capture: bo
   usi: makeUsi(move),
   notation: notation,
   capture: capture,
-  check: pos.isCheck() ? (makeSquare(pos.board.kingOf(pos.turn)!) as Key) : undefined,
+  check: pos.isCheck(),
   children: [],
 });

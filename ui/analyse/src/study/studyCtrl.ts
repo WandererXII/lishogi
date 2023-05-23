@@ -1,28 +1,28 @@
 import { prop } from 'common/common';
+import { makeNotation } from 'common/notation';
 import throttle from 'common/throttle';
+import { path as treePath } from 'tree';
 import AnalyseCtrl from '../ctrl';
-import { ctrl as memberCtrl } from './studyMembers';
-import { ctrl as chapterCtrl } from './studyChapters';
-import practiceCtrl from './practice/studyPracticeCtrl';
-import { StudyPracticeData, StudyPracticeCtrl } from './practice/interfaces';
-import { ctrl as commentFormCtrl, CommentForm } from './commentForm';
-import { ctrl as glyphFormCtrl, GlyphCtrl } from './studyGlyph';
-import { ctrl as studyFormCtrl, StudyFormCtrl } from './studyForm';
-import { ctrl as topicsCtrl, TopicsCtrl } from './topics';
+import { CommentForm, ctrl as commentFormCtrl } from './commentForm';
+import { DescriptionCtrl } from './description';
+import GamebookPlayCtrl from './gamebook/gamebookPlayCtrl';
+import { ReloadData, StudyChapterMeta, StudyCtrl, StudyData, StudyVm, Tab, TagTypes, ToolTab } from './interfaces';
+import { MultiBoardCtrl } from './multiBoard';
 import { ctrl as notifCtrl } from './notif';
+import { StudyPracticeCtrl, StudyPracticeData } from './practice/interfaces';
+import practiceCtrl from './practice/studyPracticeCtrl';
+import { RelayData } from './relay/interfaces';
+import RelayCtrl from './relay/relayCtrl';
+import { ctrl as serverEvalCtrl } from './serverEval';
+import { ctrl as chapterCtrl } from './studyChapters';
+import { StudyFormCtrl, ctrl as studyFormCtrl } from './studyForm';
+import { GlyphCtrl, ctrl as glyphFormCtrl } from './studyGlyph';
+import { ctrl as memberCtrl } from './studyMembers';
 import { ctrl as shareCtrl } from './studyShare';
 import { ctrl as tagsCtrl } from './studyTags';
-import { ctrl as serverEvalCtrl } from './serverEval';
 import * as tours from './studyTour';
 import * as xhr from './studyXhr';
-import { path as treePath } from 'tree';
-import { StudyCtrl, StudyVm, Tab, ToolTab, TagTypes, StudyData, StudyChapterMeta, ReloadData } from './interfaces';
-import GamebookPlayCtrl from './gamebook/gamebookPlayCtrl';
-import { DescriptionCtrl } from './description';
-import RelayCtrl from './relay/relayCtrl';
-import { RelayData } from './relay/interfaces';
-import { MultiBoardCtrl } from './multiBoard';
-import { makeNotation } from 'common/notation';
+import { TopicsCtrl, ctrl as topicsCtrl } from './topics';
 
 const li = window.lishogi;
 
@@ -199,6 +199,7 @@ export default function (
 
   function onReload(d: ReloadData) {
     const s = d.study!;
+
     const prevPath = ctrl.path;
     const sameChapter = data.chapter.id === s.chapter.id;
     vm.mode.sticky = (vm.mode.sticky && s.features.sticky) || (!data.features.sticky && s.features.sticky);
@@ -212,6 +213,7 @@ export default function (
     members.dict(s.members);
     chapters.list(s.chapters);
     ctrl.flipped = false;
+    if (!!s.postGameStudy) ctrl.setOrientation();
 
     const merge = !vm.mode.write && sameChapter;
     ctrl.reloadData(d.analysis, merge);
@@ -271,16 +273,7 @@ export default function (
     return ctrl.node;
   }
 
-  const share = shareCtrl(
-    data,
-    currentChapter,
-    currentNode,
-    !!relay,
-    redraw,
-    ctrl.data.pref.notation,
-    ctrl.plyOffset(),
-    ctrl.trans
-  );
+  const share = shareCtrl(data, currentChapter, currentNode, !!relay, redraw, ctrl.plyOffset(), ctrl.trans);
 
   const practice: StudyPracticeCtrl | undefined = practiceData && practiceCtrl(ctrl, data, practiceData);
 
@@ -332,6 +325,7 @@ export default function (
   }
 
   const likeToggler = li.debounce(() => send('like', { liked: data.liked }), 1000);
+  const rematcher = li.debounce(yes => send('rematch', { yes: yes }), 1000, true);
 
   const socketHandlers = {
     path(d) {
@@ -357,13 +351,7 @@ export default function (
         sticky = d.s;
       const parent = ctrl.tree.nodeAtPath(position.path);
       if (node.usi) {
-        node.notation = makeNotation(
-          ctrl.data.pref.notation,
-          parent.sfen,
-          ctrl.data.game.variant.key,
-          node.usi,
-          parent.usi
-        );
+        node.notation = makeNotation(parent.sfen, ctrl.data.game.variant.key, node.usi, parent.usi);
         node.capture =
           (parent.sfen.split(' ')[0].match(/[a-z]/gi) || []).length >
           (node.sfen.split(' ')[0].match(/[a-z]/gi) || []).length;
@@ -546,6 +534,16 @@ export default function (
     crowd(d) {
       members.setSpectators(d.users);
     },
+    rematchOffer(d) {
+      if (data.postGameStudy) {
+        if (d.by) data.postGameStudy.rematches[d.by] = true;
+        else data.postGameStudy.rematches.sente = data.postGameStudy.rematches.gote = false;
+      }
+      redraw();
+    },
+    rematch(d) {
+      window.lishogi.redirect(d.g);
+    },
     error(msg: string) {
       alert(msg);
     },
@@ -575,6 +573,9 @@ export default function (
       data.liked = !data.liked;
       redraw();
       likeToggler();
+    },
+    rematch(yes: boolean) {
+      rematcher(yes);
     },
     position() {
       return data.position;

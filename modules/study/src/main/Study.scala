@@ -13,6 +13,7 @@ case class Study(
     visibility: Study.Visibility,
     settings: Settings,
     from: Study.From,
+    postGameStudy: Option[Study.PostGameStudy],
     likes: Study.Likes,
     description: Option[String] = None,
     topics: Option[StudyTopics] = None,
@@ -122,6 +123,23 @@ object Study {
       else (5 * math.log(likes.value) + 1).toInt.min(likes.value) * 24
   }
 
+  case class GamePlayer(playerId: lila.game.Player.ID, userId: lila.game.Player.UserId)
+  object GamePlayer {
+    def fromGamePlayer(gp: lila.game.Player) =
+      GamePlayer(gp.id, gp.userId)
+  }
+
+  case class PostGameStudy(
+      gameId: lila.game.Game.ID,
+      withOpponent: Boolean,
+      sentePlayer: GamePlayer,
+      gotePlayer: GamePlayer
+  ) {
+    def players = List(sentePlayer, gotePlayer)
+    def findPlayer(userId: User.ID): Option[GamePlayer] =
+      players.find(_.userId.exists(_ == userId))
+  }
+
   sealed trait From
   object From {
     case object Scratch                      extends From
@@ -170,22 +188,27 @@ object Study {
   def makeId = Id(lila.common.ThreadLocalRandom nextString idSize)
 
   def make(
-      user: User,
+      name: Name,
+      ownerId: User.ID,
       from: From,
       id: Option[Study.Id] = None,
-      name: Option[Name] = None,
-      settings: Option[Settings] = None
+      settings: Option[Settings] = None,
+      members: Option[List[StudyMember]] = None,
+      postGameStudy: Option[PostGameStudy] = None
   ) = {
-    val owner = StudyMember(id = user.id, role = StudyMember.Role.Write)
+    val membersMap = members.fold(
+      Map(ownerId -> StudyMember(id = ownerId, role = StudyMember.Role.Write))
+    )(_.map(m => (m.id -> m)).toMap)
     Study(
       _id = id | makeId,
-      name = name | Name(s"${user.username}'s Study"),
-      members = StudyMembers(Map(user.id -> owner)),
+      name = name,
+      members = StudyMembers(membersMap),
       position = Position.Ref(Chapter.Id(""), Path.root),
-      ownerId = user.id,
+      ownerId = ownerId,
       visibility = Visibility.Public,
       settings = settings | Settings.init,
       from = from,
+      postGameStudy = postGameStudy,
       likes = Likes(1),
       createdAt = DateTime.now,
       updatedAt = DateTime.now

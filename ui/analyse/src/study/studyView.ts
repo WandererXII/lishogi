@@ -1,25 +1,26 @@
-import { h, VNode } from 'snabbdom';
-import { bind, dataIcon, MaybeVNodes } from 'common/snabbdom';
+import { MaybeVNodes, bind, dataIcon, MaybeVNode } from 'common/snabbdom';
+import { opposite } from 'shogiground/util';
+import { VNode, h } from 'snabbdom';
+import AnalyseCtrl from '../ctrl';
 import { iconTag, richHTML } from '../util';
-import { view as memberView } from './studyMembers';
-import { view as chapterView } from './studyChapters';
-import { view as chapterNewFormView } from './chapterNewForm';
 import { view as chapterEditFormView } from './chapterEditForm';
+import { view as chapterNewFormView } from './chapterNewForm';
 import * as commentForm from './commentForm';
-import * as glyphForm from './studyGlyph';
+import { view as descView } from './description';
+import { overrideButton as gbOverrideButton, playButtons as gbPlayButtons } from './gamebook/gamebookButtons';
+import { StudyCtrl, Tab, ToolTab } from './interfaces';
 import { view as inviteFormView } from './inviteForm';
-import { view as studyFormView } from './studyForm';
-import { view as studyShareView } from './studyShare';
 import { view as multiBoardView } from './multiBoard';
 import { view as notifView } from './notif';
-import { view as tagsView } from './studyTags';
-import { view as topicsView, formView as topicsFormView } from './topics';
-import { view as serverEvalView } from './serverEval';
 import * as practiceView from './practice/studyPracticeView';
-import { playButtons as gbPlayButtons, overrideButton as gbOverrideButton } from './gamebook/gamebookButtons';
-import { view as descView } from './description';
-import AnalyseCtrl from '../ctrl';
-import { StudyCtrl, Tab, ToolTab } from './interfaces';
+import { view as serverEvalView } from './serverEval';
+import { view as chapterView } from './studyChapters';
+import { view as studyFormView } from './studyForm';
+import * as glyphForm from './studyGlyph';
+import { view as memberView } from './studyMembers';
+import { view as studyShareView } from './studyShare';
+import { view as tagsView } from './studyTags';
+import { formView as topicsFormView, view as topicsView } from './topics';
 
 interface ToolButtonOpts {
   ctrl: StudyCtrl;
@@ -82,7 +83,7 @@ function buttons(root: AnalyseCtrl): VNode {
       toolButton({
         ctrl,
         tab: 'tags',
-        hint: noarg('kifTags'),
+        hint: noarg('tags'),
         icon: iconTag('o'),
       }),
       toolButton({
@@ -132,6 +133,66 @@ function buttons(root: AnalyseCtrl): VNode {
     ]),
     h('div.right', [gbOverrideButton(ctrl)]),
   ]);
+}
+
+function postGameButtons(ctrl: StudyCtrl): MaybeVNode {
+  if (ctrl.data.postGameStudy) {
+    const usersGameColor = (userId: string): Color | undefined => {
+      return ctrl.data.postGameStudy?.players.sente.userId === userId
+        ? 'sente'
+        : ctrl.data.postGameStudy?.players.gote.userId === userId
+        ? 'gote'
+        : undefined;
+    };
+    const userId = document.body.dataset.user,
+      myColor = userId ? usersGameColor(userId) : undefined,
+      me = myColor && ctrl.data.postGameStudy.players[myColor],
+      gameBackButton = h(
+        'a.button.button-empty.text',
+        {
+          attrs: {
+            title: ctrl.trans.noarg('backToGame'),
+            href: '/' + ctrl.data.postGameStudy.gameId + (me?.playerId || ''),
+            ...dataIcon('i'),
+          },
+        },
+        !me ? ctrl.trans.noarg('backToGame') : null
+      );
+    if (me) {
+      const myOpponent = ctrl.data.postGameStudy.players[opposite(myColor)],
+        isOnline = myOpponent.userId && ctrl.members.isOnline(myOpponent.userId),
+        offering = !!ctrl.data.postGameStudy.rematches[myColor],
+        offered = !!ctrl.data.postGameStudy.rematches[opposite(myColor)];
+      return h('div.game_info', [
+        gameBackButton,
+        h(
+          'button.button.button-empty' + (!isOnline || !myOpponent.userId ? '.disabled' : ''),
+          {
+            class: {
+              offering: offering,
+              glowing: offered,
+            },
+            attrs: {
+              title: offering
+                ? ctrl.trans.noarg('cancel')
+                : myOpponent.userId
+                ? `${ctrl.trans.noarg('rematch')} ${myOpponent.userId}`
+                : 'Cannot rematch anonymous player in study',
+            },
+            hook: bind('click', () => {
+              ctrl.rematch(!ctrl.data.postGameStudy?.rematches[myColor]);
+            }),
+          },
+          offering ? h('span', { attrs: dataIcon('L') }) : ctrl.trans.noarg('rematch')
+        ),
+        h(
+          'a.button.button-empty',
+          { attrs: { href: '/?hook_like=' + ctrl.data.postGameStudy.gameId } },
+          ctrl.trans.noarg('newOpponent')
+        ),
+      ]);
+    } else return h('div.game_info', gameBackButton);
+  } else return null;
 }
 
 function metadata(ctrl: StudyCtrl): VNode {
@@ -217,7 +278,11 @@ export function side(ctrl: StudyCtrl): VNode {
       : null,
   ]);
 
-  return h('div.study__side', [tabs, (activeTab === 'members' ? memberView : chapterView)(ctrl)]);
+  return h('div.study__side', [
+    tabs,
+    (activeTab === 'members' ? memberView : chapterView)(ctrl),
+    postGameButtons(ctrl),
+  ]);
 }
 
 export function contextMenu(ctrl: StudyCtrl, path: Tree.Path, node: Tree.Node): VNode[] {

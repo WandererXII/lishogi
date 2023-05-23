@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Pelaa ystävää vastaan</string>
 	<string name="playWithTheMachine">Pelaa tietokonetta vastaan</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Anna tämä linkki hänelle, jonka kanssa haluat pelata</string>
@@ -17,26 +18,26 @@
 	<string name="checkmate">Shakkimatti</string>
 	<string name="stalemate">Patti</string>
 	<string name="impasse">Impasse</string>
-	<string name="white">Valkea</string>
-	<string name="black">Musta</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
-	<string name="randomColor">Satunnainen</string>
+	<string name="perpetualCheck">Perpetual check</string>
+	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
+	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
+	<string name="white" comment="Alternative to gote">Valkea</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
+	<string name="black" comment="Alternative to sente">Musta</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
+	<string name="randomColor" comment="Side - sente/gote">Satunnainen</string>
 	<string name="createAGame">Luo uusi peli</string>
-	<string name="whiteIsVictorious">Valkea voittaa</string>
-	<string name="blackIsVictorious">Musta voittaa</string>
-	<string name="youPlayTheWhitePieces">Sinä pelaat valkeilla</string>
-	<string name="youPlayTheBlackPieces">Sinä pelaat mustilla</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Sinun vuorosi!</string>
 	<string name="cheatDetected">Cheat Detected</string>
 	<string name="variantEnding">Lopetus varianttisääntöjen mukaan</string>
 	<string name="newOpponent">Uusi vastustaja</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Vastustajasi haluaa pelata uudelleen</string>
 	<string name="joinTheGame">Liity peliin</string>
-	<string name="whitePlays">Valkean vuoro</string>
-	<string name="blackPlays">Mustan vuoro</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Vastustajasi poistui pelistä. Voit vaatia voiton %s sekunnin kuluttua.</item>
 		<item quantity="other">Vastustajasi poistui pelistä. Voit vaatia voiton %s sekunnin kuluttua.</item>
@@ -47,10 +48,9 @@
 	<string name="forceDraw">Pakota tasapeli</string>
 	<string name="talkInChat">Kirjoita keskusteluun. Ole kohtelias!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Peli aukeaa henkilölle, joka avaa tämän linkin ensimmäiseksi.</string>
-	<string name="whiteResigned">Valkea luovutti</string>
-	<string name="blackResigned">Musta luovutti</string>
-	<string name="whiteLeftTheGame">Valkea lähti pelistä</string>
-	<string name="blackLeftTheGame">Musta lähti pelistä</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Jaa tämä linkki pelin katsojille</string>
 	<string name="theComputerAnalysisHasFailed">Tietokoneanalyysi epäonnistui</string>
 	<string name="viewTheComputerAnalysis">Katso tietokoneanalyysi</string>
@@ -62,7 +62,7 @@
 	<string name="usingServerAnalysis">Palvelimen analyysi</string>
 	<string name="loadingEngine">Tietokonetta ladataan ...</string>
 	<string name="cloudAnalysis">Pilvianalyysi</string>
-	<string name="goDeeper">Syvennä analyysiä</string>
+	<string name="goDeeper" comment="Engine depth">Syvennä analyysiä</string>
 	<string name="showThreat">Näytä uhka</string>
 	<string name="inLocalBrowser">paikallisesta selaimesta</string>
 	<string name="toggleLocalEvaluation">Paikallinen analyysi päälle/päältä</string>
@@ -71,6 +71,10 @@
 	<string name="deleteFromHere">Poista tästä alkaen</string>
 	<string name="forceVariation">Pakota muunnelmaksi</string>
 	<string name="move">Siirto</string>
+	<plurals name="nbMoves">
+		<item quantity="one">%s move</item>
+		<item quantity="other">%s moves</item>
+	</plurals>
 	<string name="variantLoss">Variantin tappio</string>
 	<string name="variantWin">Variantin voitto</string>
 	<string name="insufficientMaterial">Riittämätön materiaali</string>
@@ -82,7 +86,6 @@
 	<string name="drawn">Tasapeli</string>
 	<string name="unknown">Tuntematon</string>
 	<string name="database">Tietokanta</string>
-	<string name="whiteDrawBlack">Valkea / Tasapeli / Musta</string>
 	<string name="averageRatingX">Vahvuuslukukeskiarvo %s</string>
 	<string name="recentGames">Viimeaikaiset pelit</string>
 	<string name="topGames">Kärkipelit</string>
@@ -197,10 +200,8 @@
 	<string name="drawOfferDeclined">Tasapeliehdotus hylätty</string>
 	<string name="drawOfferAccepted">Tasapeliehdotus hyväksytty</string>
 	<string name="drawOfferCanceled">Tasapeliehdotus peruttu</string>
-	<string name="whiteOffersDraw">Valkea ehdottaa tasapeliä</string>
-	<string name="blackOffersDraw">Musta ehdottaa tasapeliä</string>
-	<string name="whiteDeclinesDraw">Valkea kieltäytyy tasapelistä</string>
-	<string name="blackDeclinesDraw">Musta kieltäytyy tasapelistä</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Vastustajasi ehdottaa tasapeliä</string>
 	<string name="accept">Hyväksy</string>
 	<string name="decline">Hylkää</string>
@@ -210,7 +211,11 @@
 	<string name="finishesX">päättyy %s</string>
 	<string name="abortGame">Keskeytä peli</string>
 	<string name="gameAborted">Peli keskeytetty</string>
-	<string name="standard">Tavallinen</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Tavallinen</string>
+	<string name="minishogi">Minishogi</string>
+	<string name="chushogi">Chushogi</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">Rajaton</string>
 	<string name="mode">Tyyppi</string>
 	<string name="casual">Rento</string>
@@ -220,8 +225,7 @@
 	<string name="thisGameIsRated">Tämä peli on pisteytetty</string>
 	<string name="rematch">Revanssi</string>
 	<string name="rematchOfferSent">Revanssipyyntö lähetetty</string>
-	<string name="rematchOfferSentWhite">Valkea ehdottaa revanssia</string>
-	<string name="rematchOfferSentBlack">Musta ehdottaa revanssia</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Revanssipyyntö hyväksytty</string>
 	<string name="rematchOfferCanceled">Revanssipyyntö peruttu</string>
 	<string name="rematchOfferDeclined">Revanssipyyntö hylätty</string>
@@ -243,7 +247,7 @@
 	<string name="incrementInSeconds">Lisäaika sekunteina</string>
 	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
 	<string name="numberOfPeriods">Number of periods</string>
-	<string name="freeOnlineChess">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Free Online Shogi</string>
 	<string name="spectators">Katsojat:</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s pisteytetty</item>
@@ -322,6 +326,8 @@
 	<string name="youAreNotInTeam">Et ole joukkueessa %s</string>
 	<string name="backToGame">Takaisin peliin</string>
 	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
+	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s liittyi joukkueeseen %2$s</string>
 	<string name="xCreatedTeamY">%1$s loi joukkueen %2$s</string>
 	<string name="xStartedStreaming">%s alkoi striimata</string>
@@ -336,7 +342,7 @@
 	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
 	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
 	<string name="fromPosition">Asemasta</string>
-	<string name="default">Default</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
 	<string name="continueFromHere">Jatka tästä</string>
 	<string name="toStudy">Tutki</string>
 	<string name="importGame">Tuo peli</string>
@@ -346,12 +352,11 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="one">%s Tuotua peliä</item>
 		<item quantity="other">%s Tuotua peliä</item>
 	</plurals>
-	<string name="thisIsAChessCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Tee siirtosi todistaaksesi olevasi ihminen.</string>
 	<string name="captcha.fail">Please solve the shogi captcha.</string>
 	<string name="notACheckmate">Siirto ei ole shakkimatti</string>
-	<string name="whiteCheckmatesInOneMove">Valkean yhden siirron matti</string>
-	<string name="blackCheckmatesInOneMove">Mustan yhden siirron matti</string>
+	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Yritä uudelleen</string>
 	<string name="reconnecting">Yhdistetään uudelleen</string>
 	<plurals name="nbFriendsOnline">
@@ -405,6 +410,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="showAdvancedSettings">Näytä lisäasetukset</string>
 	<string name="makePrivateTournament">Tee turnauksesta yksityinen ja aseta salasana, jolla siihen pääsee</string>
 	<string name="join">Liity</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Peru osallistuminen</string>
 	<string name="points">Pisteet</string>
 	<string name="wins">Voitot</string>
@@ -420,8 +426,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">Suoritus</string>
 	<string name="tournamentComplete">Turnaus päättynyt</string>
 	<string name="movesPlayed">Siirtoja</string>
-	<string name="whiteWins">Valkean voittoja</string>
-	<string name="blackWins">Mustan voittoja</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Tasapelejä</string>
 	<string name="nextXTournament">Seuraava %s-turnaus:</string>
 	<string name="averageOpponent">Keskimääräinen vastustaja</string>
@@ -433,7 +438,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="handicap">Handicap</string>
 	<string name="startPosition">Alkuasema</string>
 	<string name="clearBoard">Tyhjennä lauta</string>
-	<string name="fillGotesHand">Fill Gote\'s hand</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Tallenna asema</string>
 	<string name="loadPosition">Lataa asema</string>
 	<string name="isPrivate">Yksityinen</string>
@@ -457,8 +462,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="activePlayers">Aktiiviset pelaajat</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Huomaa, että peli on pisteytetty, vaikka siinä ei olekaan aikarajoitetta!</string>
 	<string name="yourPuzzleRatingX">Tehtävävahvuuslukusi: %s</string>
-	<string name="findTheBestMoveForWhite">Etsi valkean paras siirto.</string>
-	<string name="findTheBestMoveForBlack">Etsi paras siirto mustalle.</string>
 	<string name="toTrackYourProgress">Seurataksesi edistymistäsi:</string>
 	<string name="puzzleId">Tehtävä %s</string>
 	<string name="puzzleOfTheDay">Päivän tehtävä</string>
@@ -544,6 +547,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="fast">Nopea</string>
 	<string name="normal">Normaali</string>
 	<string name="slow">Hidas</string>
+	<string name="compact">Compact</string>
 	<string name="insideTheBoard">Laudan sisäpuolella</string>
 	<string name="outsideTheBoard">Laudan ulkopuolella</string>
 	<string name="edgeOfTheBoard">Edge of the board</string>
@@ -623,7 +627,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="webmasters">Ylläpitäjät</string>
 	<string name="about">Tietoa sivustosta</string>
 	<string name="aboutX">Tietoa %s</string>
-	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
 	<string name="really">oikeasti</string>
 	<string name="contribute">Osallistu</string>
 	<string name="termsOfService">Käyttöehdot</string>
@@ -709,16 +713,17 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="security">Turvallisuus</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Lista laitteista joihin olet kirjautunut tunnuksellasi. Katkaise sessiot, joita et tunnista.</string>
 	<string name="alternativelyYouCanX">Tai voit %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">katkaista kaikki sessiot</string>
-	<string name="playChessEverywhere">Play shogi everywhere</string>
+	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">As free as Lishogi</string>
-	<string name="builtForTheLoveOfChessNotMoney">Built for the love of shogi, not money</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">Jokainen saa kaikki ominaisuudet ilmaiseksi</string>
 	<string name="zeroAdvertisement">Ei mainoksia</string>
 	<string name="fullFeatured">Kaikki ominaisuudet</string>
 	<string name="phoneAndTablet">Puhelin ja tabletti</string>
 	<string name="bulletBlitzClassical">Luoti, blitz, klassinen</string>
-	<string name="correspondenceChess">Correspondence shogi</string>
+	<string name="correspondenceShogi">Correspondence shogi</string>
 	<string name="onlineAndOfflinePlay">Online- ja offline-peli</string>
 	<string name="viewTheSolution">Katso ratkaisu</string>
 	<string name="followAndChallengeFriends">Seuraa ja haasta ystäviäsi</string>
@@ -750,7 +755,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">Laudan tyyli</string>
 	<string name="boardSize">Laudan koko</string>
 	<string name="pieceSet">Nappuloiden tyyli</string>
@@ -761,13 +766,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="usernameCharsInvalid">Käyttäjänimi voi sisältää vain kirjaimia, numeroita, alaviivoja ja väliviivoja.</string>
 	<string name="usernameUnacceptable">Käyttäjänimi ei kelpaa.</string>
 	<string name="directlySupportLishogi">Directly support Lishogi</string>
-	<string name="playChessInStyle">Play shogi in style</string>
-	<string name="chessBasics">Shogi basics</string>
+	<string name="playShogiInStyle">Play shogi in style</string>
+	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">Valmentajat</string>
-	<string name="invalidKif">Invalid KIF</string>
 	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">FEN ei kelpaa</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">Vähimmäispituus on %s</string>
 	<string name="error.maxLength">Enimmäispituus on %s</string>
 	<string name="error.min">Täytyy olla vähintään %s</string>
@@ -792,28 +796,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">Piilota paras siirto</string>
 	<string name="getAHint">Haluan vihjeen</string>
 	<string name="evaluatingYourMove">Siirtoasi arvioidaan...</string>
-	<string name="whiteWinsGame">Valkea voittaa</string>
-	<string name="blackWinsGame">Musta voittaa</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Opi virheistäsi</string>
 	<string name="learnFromThisMistake">Opi tästä virheestä</string>
 	<string name="skipThisMove">Ohita tämä siirto</string>
 	<string name="next">Seuraava</string>
 	<string name="xWasPlayed">%s pelattiin</string>
-	<string name="findBetterMoveForWhite">Mieti parempi siirto valkealle</string>
-	<string name="findBetterMoveForBlack">Löydä parempi siirto mustalle</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Jatka oppimista</string>
 	<string name="youCanDoBetter">Parempikin löytyy</string>
-	<string name="tryAnotherMoveForWhite">Kokeile muuta valkean siirtoa</string>
-	<string name="tryAnotherMoveForBlack">Kokeile muuta mustan siirtoa</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Ratkaisu</string>
 	<string name="waitingForAnalysis">Analyysi käynnissä</string>
-	<string name="noMistakesFoundForWhite">Ei löytynyt valkean virheitä</string>
-	<string name="noMistakesFoundForBlack">Ei löytynyt mustan virheitä</string>
-	<string name="doneReviewingWhiteMistakes">Olen tutkinut valkean virheitä kylliksi</string>
-	<string name="doneReviewingBlackMistakes">Olen tutkinut mustan virheitä kylliksi</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Sama uudelleen</string>
-	<string name="reviewWhiteMistakes">Tutki valkean virheitä</string>
-	<string name="reviewBlackMistakes">Tutki mustan virheitä</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Etu</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s sekunti</item>
@@ -841,7 +839,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="weHadToTimeYouOutForAWhile">Meidän täytyi komentaa sinut jäähylle hetkeksi.</string>
 	<string name="timeoutExpires">Jäähy päättyy %s.</string>
 	<string name="why">Miksi?</string>
-	<string name="pleasantChessExperience">We aim to provide a pleasant shogi experience for everyone.</string>
+	<string name="pleasantShogiExperience">We aim to provide a pleasant shogi experience for everyone.</string>
 	<string name="goodPractice">Siksi meidän tulee huolehtia siitä, että kaikki käyttäytyvät asiallisesti.</string>
 	<string name="potentialProblem">Kun mahdollinen ongelma havaitaan, näytämme tämän viestin.</string>
 	<string name="howToAvoidThis">Miten tämän välttää?</string>
@@ -857,6 +855,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="agreementNice">Vakuutan että käyttäydyn aina muita pelaajia kunnioittaen.</string>
 	<string name="agreementAccount">Vakuutan etten luo useita tunnuksia.</string>
 	<string name="agreementPolicy">Vakuutan että noudatan Lishogiin sääntöjä.</string>
+	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Etsi tai aloita uusi keskustelu</string>
 	<string name="edit">Muokkaa</string>
 	<string name="rapid">Nopea</string>
@@ -881,18 +880,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="youCannotPostYetPlaySomeGames">Et voi vielä lähettää viestejä foorumeihin. Pelaa ensin muutama peli!</string>
 	<string name="subscribe">Tilaa</string>
 	<string name="unsubscribe">Peruuta tilaus</string>
-	<string name="blackDeclinesImpasse">Sente declines impasse</string>
-	<string name="blackOffersImpasse">Sente offers impasse</string>
-	<string name="notationType">Notation</string>
-	<string name="whiteDeclinesImpasse">Gote declines impasse</string>
-	<string name="whiteOffersImpasse">Gote offers impasse</string>
 	<string name="notationSystem">Notation</string>
 	<string name="officialBlog">Lishogi Official Blog</string>
 	<string name="blogPostsFromYear">Blog posts from %1$s</string>
 	<string name="previousBlogPosts">Previous blog posts</string>
 	<string name="continueReadingThis"> Continue reading this post</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyOfPlayers">Study of players</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

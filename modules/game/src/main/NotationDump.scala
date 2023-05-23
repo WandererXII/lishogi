@@ -26,7 +26,14 @@ final class NotationDump(
   ): Fu[Notation] = {
     val tagsFuture =
       if (flags.tags)
-        tags(game, withOpening = flags.opening, csa = flags.csa, teams = teams)
+        tags(
+          game,
+          if (flags.csa && game.variant.standard)
+            Tag.timeControlCsa(game.clock.map(_.config))
+          else
+            Tag.timeControlKif(game.clock.map(_.config)),
+          teams = teams
+        )
       else fuccess(Tags(Nil))
     tagsFuture map { ts =>
       val moves = flags.moves ?? {
@@ -52,15 +59,19 @@ final class NotationDump(
         )
       }
       val terminationMove =
-        if (flags.csa)
+        if (flags.csa && game.variant.standard)
           Csa.createTerminationMove(
             game.status,
             game.winnerColor.fold(false)(_ == game.turnColor),
             game.winnerColor
           )
+        else if (game.drawn && game.variant.chushogi) "引き分け".some
         else
           Kif.createTerminationMove(game.status, game.winnerColor.fold(false)(_ == game.turnColor))
-      val notation = if (flags.csa) Csa(ts, moves) else Kif(ts, moves)
+      val notation =
+        if (flags.csa && game.variant.standard)
+          Csa(moves, game.initialSfen, shogi.format.Initial.empty, ts)
+        else Kif(moves, game.initialSfen, game.variant, shogi.format.Initial.empty, ts)
       if (game.finished) {
         terminationMove.fold(
           notation.updateLastPly(
@@ -99,20 +110,17 @@ final class NotationDump(
 
   def tags(
       game: Game,
-      withOpening: Boolean,
-      csa: Boolean,
+      timeControlTag: Tag,
       teams: Option[Color.Map[String]] = None
   ): Fu[Tags] =
-    gameLightUsers(game) map { case (wu, bu) =>
+    gameLightUsers(game) map { case (sente, gote) =>
       Tags {
         val imported = game.notationImport flatMap { _.parseNotation }
 
         List(
           Tag(_.Site, gameUrl(game.id)),
-          Tag(_.Sente, player(game.sentePlayer, wu)),
-          Tag(_.Gote, player(game.gotePlayer, bu)),
-          Tag(_.Sfen, (game.initialSfen | game.variant.initialSfen).value),
-          Tag(_.Variant, game.variant.name.capitalize),
+          Tag(_.Sente, player(game.sentePlayer, sente)),
+          Tag(_.Gote, player(game.gotePlayer, gote)),
           Tag(
             _.Event,
             imported.flatMap(_.tags(_.Event)) | { if (game.imported) "Import" else eventOf(game) }
@@ -130,17 +138,10 @@ final class NotationDump(
             List(
               Tag(_.Start, dateAndTime(game.createdAt)),
               Tag(_.End, dateAndTime(game.movedAt)),
-              if (csa)
-                Tag.timeControlCsa(game.clock.map(_.config))
-              else
-                Tag.timeControlKif(game.clock.map(_.config))
+              timeControlTag
             )
           }
-        } ::: (withOpening && game.opening.isDefined) ?? (
-          List(
-            Tag(_.Opening, game.opening.fold("")(_.opening.japanese))
-          )
-        )
+        }
       }
     }
 
@@ -171,8 +172,8 @@ object NotationDump {
       moves: Boolean = true,
       tags: Boolean = true,
       evals: Boolean = true,
-      opening: Boolean = true,
       literate: Boolean = false,
+      shiftJis: Boolean = false,
       notationInJson: Boolean = false,
       delayMoves: Boolean = false
   ) {

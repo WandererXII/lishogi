@@ -34,7 +34,7 @@
     position: absolute;
     width: 100%;
     height: calc(100% / 11);
-    padding: 0;
+    padding: 0 !important;
     left: 0;
     &.hand-top {
       top: 0;
@@ -91,6 +91,15 @@
           width: calc(100% / 5);
         }
       }
+    }
+  }
+  &.d-12x12 {
+    padding-bottom: calc(100% * 12 / 11);
+    margin-top: calc(100% * 12 / 9 / 11);
+    margin-bottom: calc(100% * 12 / 9 / 11);
+    sg-board {
+      top: 0;
+      height: calc(100%);
     }
   }
 }

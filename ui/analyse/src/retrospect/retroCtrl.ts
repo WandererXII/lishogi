@@ -1,17 +1,17 @@
-import { opposite } from 'shogiground/util';
-import { evalSwings } from '../nodeFinder';
 import { winningChances } from 'ceval';
-import { path as treePath } from 'tree';
 import { isEmpty, prop } from 'common/common';
-import { OpeningData } from '../explorer/interfaces';
+import { opposite } from 'shogiground/util';
+import { path as treePath } from 'tree';
 import AnalyseCtrl from '../ctrl';
+import { OpeningData } from '../explorer/interfaces';
+import { evalSwings } from '../nodeFinder';
 
 export interface RetroCtrl {
   isSolving(): boolean;
   trans: Trans;
   [key: string]: any;
-  notation: number;
   variant: VariantKey;
+  initialSfen: Sfen | undefined;
   offset: number;
 }
 
@@ -210,8 +210,8 @@ export function make(root: AnalyseCtrl, color: Color): RetroCtrl {
     noarg: root.trans.noarg,
     node: () => root.node,
     redraw,
-    notation: root.data.pref.notation,
     variant: root.data.game.variant.key,
+    initialSfen: root.data.game.initialSfen,
     offset: root.plyOffset(),
   };
 }

@@ -2,6 +2,8 @@
 <resources>
 	<string name="preferences">偏好設置</string>
 	<string name="gameDisplay">棋局顯示</string>
+	<string name="boardLayout">Board layout</string>
+	<string name="clearHands">Hide ghosts of pieces in hand</string>
 	<string name="pieceAnimation">棋子動畫</string>
 	<string name="materialDifference">子力差距</string>
 	<string name="boardHighlightsLastDests">Board highlights - last move/drop</string>
@@ -10,6 +12,7 @@
 	<string name="dropDestinations">棋駒著法提示</string>
 	<string name="boardCoordinates">棋盤座標</string>
 	<string name="moveListWhilePlaying">遊戲進行時顯示棋譜</string>
+	<string name="colorName">Name used for individual players</string>
 	<string name="displayTouchSquareOverlay">Square highlight overlay on touch devices</string>
 	<string name="zenMode">禪意模式</string>
 	<string name="displayBoardResizeHandle">顯示大小調整區塊</string>
@@ -40,5 +43,6 @@
 	<string name="westernNotation">西洋記法</string>
 	<string name="japaneseNotation">日本記法</string>
 	<string name="kitaoKawasakiNotation">北尾-川崎記法</string>
+	<string name="kifNotation">Kif notation</string>
 	<string name="yourPreferencesHaveBeenSaved">已儲存您的設定。</string>
 </resources>

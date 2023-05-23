@@ -1,21 +1,25 @@
-import { Puzzle } from './interfaces';
-import { parseSfen } from 'shogiops/sfen';
 import throttle from 'common/throttle';
+import { parseSfen } from 'shogiops/sfen';
+import { Puzzle } from './interfaces';
 
 export const getNow = (): number => Math.round(performance.now());
 
-export const usiToLastMove = (usi: string): [Key, Key] | [Key] => {
-  if (usi[1] === '*') return [usi.substr(2, 2) as Key];
-  return [usi.substr(0, 2) as Key, usi.substr(2, 2) as Key];
-};
-
 export const puzzlePov = (puzzle: Puzzle) => parseSfen('standard', puzzle.sfen, false).unwrap().turn;
 
-const throttleSound = (delay: number, name: string) => throttle(delay, () => window.lishogi.sound[name]());
+function make(file: string, volume?: number) {
+  const baseUrl = $('body').data('asset-url') + '/assets/sound/';
+  const sound = new window.Howl({
+    src: [baseUrl + file + '.ogg', baseUrl + file + '.mp3'],
+    volume: volume || 1,
+  });
+  return function () {
+    if (window.lishogi.sound.set() !== 'silent') throttle(1000, sound.play());
+  };
+}
 
 export const sound = {
   move: (take: boolean = false) => window.lishogi.sound[take ? 'capture' : 'move'](),
-  wrong: throttleSound(1000, 'stormWrong'),
-  good: throttleSound(1000, 'stormGood'),
-  end: throttleSound(5000, 'stormEnd'),
+  wrong: make('storm/stormWrong'),
+  good: make('storm/stormGood'),
+  end: make('storm/stormEnd'),
 };

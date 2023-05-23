@@ -3,17 +3,18 @@ package controllers
 import play.api.libs.json._
 import play.api.mvc._
 import scala.concurrent.duration._
+import java.nio.charset.StandardCharsets.UTF_8
 
 import lila.api.Context
 import lila.app._
 import lila.chat.Chat
 import lila.common.paginator.{ Paginator, PaginatorJson }
 import lila.common.{ HTTPRequest, IpAddress }
+import lila.common.String.getBytesShiftJis
 import lila.study.actorApi.Who
 import lila.study.JsonView.JsData
 import lila.study.Study.WithChapter
 import lila.study.{ Chapter, Order, Study => StudyModel }
-import lila.tree.Node.partitionTreeJsonWriter
 import views._
 
 final class Study(
@@ -129,6 +130,26 @@ final class Study(
       }
     }
 
+  def minePostGameStudies(order: String, page: Int) =
+    Auth { implicit ctx => me =>
+      env.study.pager.minePostGameStudies(me, Order(order), page) flatMap { pag =>
+        negotiate(
+          html = Ok(html.study.list.minePostGameStudies(pag, Order(order))).fuccess,
+          api = _ => apiStudies(pag)
+        )
+      }
+    }
+
+  def postGameStudiesOf(gameId: String, order: String, page: Int) =
+    Open { implicit ctx =>
+      env.study.pager.postGameStudiesOf(gameId.take(8), ctx.me, Order(order), page) flatMap { pag =>
+        negotiate(
+          html = Ok(html.study.list.postGameStudiesOf(gameId.take(8), pag, Order(order))).fuccess,
+          api = _ => apiStudies(pag)
+        )
+      }
+    }
+
   def byTopic(name: String, order: String, page: Int) =
     Open { implicit ctx =>
       lila.study.StudyTopic fromStr name match {
@@ -204,7 +225,17 @@ final class Study(
       _ <- env.user.lightUserApi preloadMany study.members.ids.toList
       _   = if (HTTPRequest isSynchronousHttp ctx.req) env.study.studyRepo.incViews(study)
       pov = userAnalysisC.makePov(chapter.root.sfen.some, chapter.setup.variant, chapter.setup.fromNotation)
-      analysis <- chapter.serverEval.exists(_.done) ?? env.analyse.analyser.byId(chapter.id.value)
+      analysis <- chapter.serverEval.exists(_.done) ?? {
+        chapter.setup.gameId
+          .ifTrue(chapter.isFirstGameRootChapter)
+          .fold(
+            env.analyse.analyser.byId(chapter.id.value)
+          ) { gameId =>
+            env.analyse.analyser
+              .byId(gameId)
+              .map2(_.copy(id = chapter.id.value, studyId = sc.study.id.value.some))
+          }
+      }
       division = analysis.isDefined option env.study.serverEvalMerger.divisionOf(chapter)
       baseData = env.round.jsonView.userAnalysisJson(
         pov,
@@ -219,9 +250,11 @@ final class Study(
       study = studyJson,
       analysis = baseData
         .add(
-          "treeParts" -> partitionTreeJsonWriter.writes {
-            lila.study.TreeBuilder(chapter.root, chapter.setup.variant)
-          }.some
+          "treeParts" -> lila.study.JsonView.partitionTreeJsonWriter
+            .writes(
+              chapter.root
+            )
+            .some
         )
         .add("analysis" -> analysis.map { lila.study.ServerEval.toJson(chapter, _) })
     )
@@ -292,9 +325,60 @@ final class Study(
       ctx: Context
   ) =
     env.study.api.importGame(lila.study.StudyMaker.ImportGame(data), me) flatMap {
-      _.fold(notFound) { sc =>
-        Redirect(routes.Study.show(sc.study.id.value)).fuccess
+      _.fold(notFound) { s =>
+        Redirect(routes.Study.show(s.id.value)).fuccess
       }
+    }
+
+  def postGameStudyWithOpponent(gameId: String) =
+    AuthBody { implicit ctx => me =>
+      env.study.postGameStudyApi.getGameOfUser(gameId, me) flatMap {
+        _.fold(
+          BadRequest(
+            jsonError("Game doesn't exist, isn't finished yet or you are not a player in this game")
+          ).fuccess
+        ) { g =>
+          env.study.postGameStudyApi.studyWithOpponent(g) map { sid =>
+            Redirect(routes.Study.show(sid.value))
+          }
+        }
+      }
+    }
+
+  private val PostGameStudyPerUser = new lila.memo.RateLimit[lila.user.User.ID](
+    credits = 10,
+    duration = 30.minute,
+    key = "study.post_game_study.user"
+  )
+
+  def postGameStudy =
+    AuthBody { implicit ctx => me =>
+      PostGameStudyPerUser(me.id) {
+        implicit val req = ctx.body
+        lila.study.StudyForm.postGameStudy.form
+          .bindFromRequest()
+          .fold(
+            err => BadRequest(err.toString).fuccess,
+            data =>
+              for {
+                gameOpt  <- env.study.postGameStudyApi.getGame(data.gameId)
+                invitedV <- env.study.postGameStudyApi.getInvitedUser(data.invitedUsername, me)
+                res <- gameOpt.fold(
+                  BadRequest(jsonError("Game doesn't exists or isn't finished yet")).fuccess
+                ) { game =>
+                  invitedV.fold(
+                    e => BadRequest(jsonError(e.take(64))).fuccess,
+                    invited =>
+                      env.study.postGameStudyApi
+                        .study(game, data.orientation, invited, me)
+                        .map(sid =>
+                          Ok(Json.obj("redirect" -> routes.Study.show(sid.value).url))
+                        ) // I want to handle the redirect myself
+                  )
+                }
+              } yield (res)
+          )
+      }(rateLimitedFu)
     }
 
   def delete(id: String) =
@@ -359,9 +443,9 @@ final class Study(
               me = none
             )
             analysis = baseData ++ Json.obj(
-              "treeParts" -> partitionTreeJsonWriter.writes {
-                lila.study.TreeBuilder.makeRoot(chapter.root, setup.variant)
-              }
+              "treeParts" -> lila.study.JsonView.partitionTreeJsonWriter.writes(
+                chapter.root
+              )
             )
             data = lila.study.JsonView.JsData(study = studyJson, analysis = analysis)
             result <- negotiate(
@@ -444,8 +528,10 @@ final class Study(
         _.fold(notFound) { case WithChapter(study, chapter) =>
           CanViewResult(study) {
             lila.mon.notation.studyChapter.increment()
-            val flags = requestNotationFlags(ctx.req, csa)
-            Ok(env.study.notationDump.ofChapter(study, flags)(chapter).toString)
+            val flags          = requestNotationFlags(ctx.req, csa)
+            val content        = env.study.notationDump.ofChapter(study, flags)(chapter).toString
+            val contentEncoded = if (flags.shiftJis) getBytesShiftJis(content) else content.getBytes(UTF_8)
+            Ok(contentEncoded)
               .withHeaders(
                 CONTENT_DISPOSITION -> s"attachment; filename=${env.study.notationDump
                     .filename(study, chapter)}${fileType(flags)}"
@@ -465,6 +551,7 @@ final class Study(
       csa = getBoolOpt("csa", req) | csa,
       comments = getBoolOpt("comments", req) | true,
       variations = getBoolOpt("variations", req) | true,
+      shiftJis = getBoolOpt("shiftJis", req) | false,
       clocks = getBoolOpt("clocks", req) | true
     )
 

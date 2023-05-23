@@ -1,22 +1,21 @@
-import { h, Hooks, VNode } from 'snabbdom';
 import { defined, isEmpty } from 'common/common';
 import { bindMobileTapHold } from 'common/mobile';
 import { makeNotation } from 'common/notation';
+import { MaybeVNodes } from 'common/snabbdom';
 import throttle from 'common/throttle';
+import { playable } from 'game';
 import { makeUsi, parseUsi, toBW } from 'shogiops/util';
+import { Hooks, VNode, h } from 'snabbdom';
 import { path as treePath } from 'tree';
 import AnalyseCtrl from '../ctrl';
-import contextMenu from './contextMenu';
-import { enrichText, innerHTML, plyColor } from '../util';
 import { authorText as commentAuthorText } from '../study/studyComments';
-import { MaybeVNodes } from 'common/snabbdom';
-import { playable } from 'game';
+import { enrichText, innerHTML, plyColor } from '../util';
+import contextMenu from './contextMenu';
 
 export interface Ctx {
   ctrl: AnalyseCtrl;
   showComputer: boolean;
   showGlyphs: boolean;
-  notation: number;
   variant: VariantKey;
   showEval: boolean;
   truncateComments: boolean;
@@ -39,17 +38,20 @@ export interface NodeClasses {
   [key: string]: boolean;
 }
 
-export function nodeClasses(ctx: Ctx, node: Tree.Node, path: Tree.Path): NodeClasses {
+export function nodeClasses(ctx: Ctx, node: Tree.Node, path: Tree.Path, mainline = false): NodeClasses {
   const glyphIds = ctx.showGlyphs && node.glyphs ? node.glyphs.map(g => g.id) : [];
   return {
     active: path === ctx.ctrl.path,
     'context-menu': path === ctx.ctrl.contextMenuPath,
     current: path === ctx.currentPath,
     nongame:
-      !ctx.currentPath &&
-      !!ctx.ctrl.gamePath &&
-      treePath.contains(path, ctx.ctrl.gamePath) &&
-      path !== ctx.ctrl.gamePath,
+      (!ctx.currentPath &&
+        !!ctx.ctrl.gamePath &&
+        treePath.contains(path, ctx.ctrl.gamePath) &&
+        path !== ctx.ctrl.gamePath) ||
+      (mainline &&
+        !!ctx.ctrl.study?.data.chapter.gameLength &&
+        ctx.ctrl.study?.data.chapter.gameLength < path.length / 2),
     inaccuracy: glyphIds.includes(6),
     mistake: glyphIds.includes(2),
     blunder: glyphIds.includes(4),
@@ -126,14 +128,7 @@ export function usiToNotation(ctx: Ctx, node: Tree.Node, parentPath: Tree.Path, 
             !node.usi && useParentNode ? refNode.sfen.replace(/ (b|w) /, ' ' + toBW(textPlyColor) + ' ') : refNode.sfen, // for initial node
           moveOrDrop = match[2] && parseUsi(match[2]), // to make sure we have valid usi
           notation =
-            moveOrDrop &&
-            makeNotation(
-              ctx.ctrl.data.pref.notation,
-              refSfen,
-              ctx.ctrl.data.game.variant.key,
-              makeUsi(moveOrDrop),
-              refNode.usi
-            );
+            moveOrDrop && makeNotation(refSfen, ctx.ctrl.data.game.variant.key, makeUsi(moveOrDrop), refNode.usi);
         if (notation) text = text.replace(mText, notation);
         else text = text.replace(mText, 'Invalid move');
       }

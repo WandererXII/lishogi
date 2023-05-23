@@ -33,7 +33,7 @@ object faq {
           howCanIContributeToLishogi.txt(),
           p(lishogiPoweredByDonationsAndVolunteers()),
           p(
-            a(href := routes.Page.patron)(beingAPatron())
+            a(href := routes.Plan.index)(beingAPatron())
           ),
           p(
             a(href := routes.Page.help)(otherWaysToContribute())
@@ -80,7 +80,7 @@ object faq {
           "time-controls",
           howBulletBlitzEtcDecided.txt(),
           p(
-            basedOnGameDuration(strong(durationFormula()))
+            basedOnGameDuration(strong(formulaOfDuration()))
           ),
           ul(
             li(inferiorThanXsEqualYtimeControl(60, "UltraBullet")),
@@ -144,7 +144,7 @@ object faq {
             li(havePlayedMoreThanThirtyGamesInThatRating()),
             li(havePlayedARatedGameAtLeastOneWeekAgo()),
             li(
-              ratingDeviationLowerThanXinChessYinVariants(
+              ratingDeviationLowerThanXinShogiYinVariants(
                 lila.rating.Glicko.standardRankableDeviation,
                 lila.rating.Glicko.variantRankableDeviation
               )

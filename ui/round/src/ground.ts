@@ -1,30 +1,37 @@
-import { h } from 'snabbdom';
-import { Config } from 'shogiground/config';
+import { notationFiles, notationRanks } from 'common/notation';
+import { predrop, premove } from 'common/pre-sg';
 import resizeHandle from 'common/resize';
-import * as util from './util';
-import { plyStep } from './round';
+import { Config } from 'shogiground/config';
+import { checksSquareNames, usiToSquareNames } from 'shogiops/compat';
+import { forsythToRole, parseSfen, roleToForsyth } from 'shogiops/sfen';
+import { Piece, Role } from 'shogiops/types';
+import { makeSquareName, parseSquareName } from 'shogiops/util';
+import { handRoles, pieceCanPromote, pieceForcePromote, promotableOnDrop, promote } from 'shogiops/variant/util';
+import { h } from 'snabbdom';
 import RoundController from './ctrl';
 import { RoundData } from './interfaces';
-import { handRoles, pieceCanPromote, pieceInDeadZone, promote } from 'shogiops/variantUtil';
-import { parseSquare, Role } from 'shogiops';
-import { usiToSquareNames } from 'shogiops/compat';
+import { plyStep } from './round';
+import * as util from './util';
 
 export function makeConfig(ctrl: RoundController): Config {
   const data = ctrl.data,
+    variant = data.game.variant.key,
     hooks = ctrl.makeSgHooks(),
     step = plyStep(data, ctrl.ply),
     playing = ctrl.isPlaying(),
+    posRes = playing || (step.check && variant === 'chushogi') ? parseSfen(variant, step.sfen, false) : undefined,
     splitSfen = step.sfen.split(' ');
   return {
     sfen: { board: splitSfen[0], hands: splitSfen[2] },
     orientation: boardOrientation(data, ctrl.flip),
     turnColor: step.ply % 2 === 0 ? 'sente' : 'gote',
     activeColor: playing ? data.player.color : undefined,
-    lastDests: step.usi ? (usiToSquareNames(step.usi) as Key[]) : undefined,
-    check: !!step.check,
+    lastDests: step.usi ? usiToSquareNames(step.usi) : undefined,
+    checks: variant === 'chushogi' && posRes?.isOk ? checksSquareNames(posRes.value) : step.check,
     coordinates: {
       enabled: data.pref.coords !== 0,
-      notation: data.pref.notation,
+      files: notationFiles(),
+      ranks: notationRanks(),
     },
     highlight: {
       lastDests: data.pref.highlightLastDests,
@@ -33,16 +40,23 @@ export function makeConfig(ctrl: RoundController): Config {
     events: {
       move: hooks.onMove,
       drop: hooks.onDrop,
+      unselect: (key: Key) => {
+        if (ctrl.lionFirstMove && ctrl.lionFirstMove.to === parseSquareName(key)) {
+          const from = ctrl.lionFirstMove.from,
+            to = ctrl.lionFirstMove.to;
+          hooks.onUserMove(makeSquareName(from), makeSquareName(to), false, { premade: false });
+        }
+      },
       insert(elements) {
-        if (elements) resizeHandle(elements, ctrl.data.pref.resizeHandle, ctrl.ply);
+        if (elements) resizeHandle(elements, data.pref.resizeHandle, ctrl.ply);
       },
     },
     hands: {
-      roles: handRoles(ctrl.data.game.variant.key),
+      roles: handRoles(variant),
     },
     movable: {
       free: false,
-      dests: playing ? util.getMoveDests(step.sfen, data.game.variant.key) : new Map(),
+      dests: playing && posRes ? util.getMoveDests(posRes) : new Map(),
       showDests: data.pref.destination,
       events: {
         after: hooks.onUserMove,
@@ -50,7 +64,7 @@ export function makeConfig(ctrl: RoundController): Config {
     },
     droppable: {
       free: false,
-      dests: playing ? util.getDropDests(step.sfen, data.game.variant.key) : new Map(),
+      dests: playing && posRes ? util.getDropDests(posRes) : new Map(),
       showDests: data.pref.destination && data.pref.dropDestination,
       events: {
         after: hooks.onUserDrop,
@@ -58,20 +72,28 @@ export function makeConfig(ctrl: RoundController): Config {
     },
     promotion: {
       promotesTo: (role: Role) => {
-        return promote(ctrl.data.game.variant.key)(role);
+        return promote(variant)(role);
       },
       movePromotionDialog: (orig: Key, dest: Key) => {
-        const piece = ctrl.shogiground.state.pieces.get(orig);
+        const piece = ctrl.shogiground.state.pieces.get(orig) as Piece | undefined,
+          capture = ctrl.shogiground.state.pieces.get(dest) as Piece | undefined;
         return (
           !!piece &&
-          pieceCanPromote(ctrl.data.game.variant.key)(piece, parseSquare(orig)!, parseSquare(dest)!) &&
-          !pieceInDeadZone(ctrl.data.game.variant.key)(piece, parseSquare(dest)!)
+          pieceCanPromote(variant)(piece, parseSquareName(orig)!, parseSquareName(dest)!, capture) &&
+          !pieceForcePromote(variant)(piece, parseSquareName(dest)!)
         );
       },
-      forceMovePromotion: (orig: Key, dest: Key) => {
-        const piece = ctrl.shogiground.state.pieces.get(orig);
-        return !!piece && pieceInDeadZone(ctrl.data.game.variant.key)(piece, parseSquare(dest)!);
+      dropPromotionDialog(piece) {
+        return promotableOnDrop(variant)(piece as Piece);
       },
+      forceMovePromotion: (orig: Key, dest: Key) => {
+        const piece = ctrl.shogiground.state.pieces.get(orig) as Piece | undefined;
+        return !!piece && pieceForcePromote(variant)(piece, parseSquareName(dest)!);
+      },
+    },
+    forsyth: {
+      fromForsyth: forsythToRole(variant),
+      toForsyth: roleToForsyth(variant),
     },
     animation: {
       enabled: true,
@@ -79,10 +101,12 @@ export function makeConfig(ctrl: RoundController): Config {
     },
     premovable: {
       enabled: data.pref.enablePremove,
+      generate: data.pref.enablePremove ? premove(variant) : undefined,
       showDests: data.pref.destination,
     },
     predroppable: {
       enabled: data.pref.enablePremove,
+      generate: data.pref.enablePremove ? predrop(variant) : undefined,
       showDests: data.pref.destination && data.pref.dropDestination,
     },
     draggable: {
@@ -95,6 +119,7 @@ export function makeConfig(ctrl: RoundController): Config {
     },
     drawable: {
       enabled: true,
+      squares: [],
     },
   };
 }

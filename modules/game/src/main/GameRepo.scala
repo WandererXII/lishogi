@@ -244,6 +244,9 @@ final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
   def setAnalysed(id: ID): Unit   = coll.updateFieldUnchecked($id(id), F.analysed, true)
   def setUnanalysed(id: ID): Unit = coll.updateFieldUnchecked($id(id), F.analysed, false)
 
+  def setPostGameStudy(id: ID, studyId: String): Unit =
+    coll.updateFieldUnchecked($id(id), F.postGameStudy, studyId)
+
   def isAnalysed(id: ID): Fu[Boolean] =
     coll.exists($id(id) ++ Query.analysed(true))
 
@@ -303,6 +306,8 @@ final class GameRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
   private val finishUnsets = $doc(
     F.positionHashes                              -> true,
     F.playingUids                                 -> true,
+    F.consecutiveAttacks                          -> true,
+    F.lastLionCapture                             -> true,
     ("p0." + Player.BSONFields.lastDrawOffer)     -> true,
     ("p1." + Player.BSONFields.lastDrawOffer)     -> true,
     ("p0." + Player.BSONFields.isOfferingDraw)    -> true,

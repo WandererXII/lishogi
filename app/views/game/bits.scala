@@ -81,9 +81,9 @@ object bits {
 
     if (!variant.standard)
       link(
-        href = routes.Page.variant(variant.key).url,
+        href = routes.Page.variant(variant.key, none).url,
         title = variant.title,
-        name = variant.name.toUpperCase
+        name = variantName(variant)
       )
     else
       perfType match {
@@ -94,7 +94,7 @@ object bits {
             name = Correspondence.trans
           )
         case Some(pt) => span(title := pt.desc)(pt.trans)
-        case _        => variant.name.toUpperCase
+        case _        => variantName(variant)
       }
   }
 

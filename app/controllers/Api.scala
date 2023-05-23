@@ -126,7 +126,6 @@ final class Api(
       analysis = getBool("with_analysis", req),
       moves = getBool("with_moves", req),
       sfens = getBool("with_sfens", req),
-      opening = getBool("with_opening", req),
       moveTimes = getBool("with_movetimes", req),
       token = get("token", req)
     )
@@ -384,7 +383,7 @@ final class Api(
   def toHttp(result: ApiResult): Result =
     result match {
       case Limited        => tooManyRequests
-      case NoData         => NotFound
+      case NoData         => notFoundJsonSync()
       case Custom(result) => result
       case Data(json)     => Ok(json) as JSON
     }

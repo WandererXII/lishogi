@@ -6,13 +6,14 @@
 	<string name="becomePatron">Staňte se Lishogi Patronem</string>
 	<string name="xBecamePatron">%s se stal Lishogi Patronem</string>
 	<string name="newPatrons">Noví Patroni</string>
-	<string name="freeChess">Shogi zdarma pro všechny, navždy!</string>
+	<string name="freeShogi">Shogi zdarma pro všechny, navždy!</string>
 	<string name="noAdsNoSubs">Žádné reklamy, žádné předplatné, ale otevřený kód a vášeň.</string>
 	<string name="thankYou">Děkujeme za váš příspěvek!</string>
 	<string name="youHaveLifetime">Máte doživotní Patron účet. To je docela úžasné!</string>
 	<string name="patronUntil">Máte Patron účet do %s.</string>
 	<string name="ifNotRenewed">Pokud nedojde k obnoveni, budete poníženi na variantu zdarma.</string>
 	<string name="weRelyOnSupport">Spoléháme na podporu lidí, jako jste Vy, aby nám to umožnili. Pokud se vám líbí používání Lishogi, zvažte prosím podporu tím, že přispějete a stanete se Patronem!</string>
+	<string name="donationSupport">Pokud chcete podpořit Lishogi a otevřený software, zvažte darování! Nezískáte nic navíc, neboť Lishogi zachází se všemi uživateli rovnoměrně, ale Vašeho daru si budu velmi vážit!</string>
 	<string name="lifetime">Doživotní</string>
 	<string name="payLifetimeOnce">Zaplaťte %s jednou. Buďte navždy Lishogi Patronem!</string>
 	<string name="lifetimePatron">Doživotní Lishogi Patron</string>
@@ -28,8 +29,6 @@
 	<string name="weAreSmallTeam">Jsme malý tým, takže vaše podpora dělá velké změny!</string>
 	<string name="celebratedPatrons">Slavní Patroni, kteří umožňují fungování Lishogi</string>
 	<string name="whereMoneyGoes">Kam jdou ty peníze?</string>
-	<string name="serversAndDeveloper">First of all, powerful servers.
-Then we pay a full-time developer: %s, the founder of Lishogi.</string>
 	<string name="costBreakdown">Viz podrobný rozpis nákladů</string>
 	<string name="changeMonthlySupport">Mohu změnit/zrušit svou měsíční podporu?</string>
 	<string name="changeOrContact">Ano, kdykoli z této stránky.
@@ -72,4 +71,5 @@ Patroni se však blýsknou novou cool ikonou profilu.</string>
 	<string name="nowLifetime">Nyní jste doživotním Lishogi Patronem!</string>
 	<string name="nowOneMonth">Nyní jste Lishogi Patronem na jeden měsíc!</string>
 	<string name="downgradeNextMonth">Jeden měsíc Vám NEBUDE znovu účtován poplatek a váš Lishogi účet bude ponížen na bezplatný.</string>
+	<string name="donationPolicy">Darovací podmínky</string>
 </resources>

@@ -1,17 +1,18 @@
 import { Prop } from 'common/common';
-import { NotifCtrl } from './notif';
+import { Status } from 'game';
 import { AnalyseData, Redraw } from '../interfaces';
-import { StudyPracticeCtrl } from './practice/interfaces';
-import { StudyChaptersCtrl } from './studyChapters';
+import { CommentForm } from './commentForm';
 import { DescriptionCtrl } from './description';
 import GamebookPlayCtrl from './gamebook/gamebookPlayCtrl';
 import { GamebookOverride } from './gamebook/interfaces';
-import { GlyphCtrl } from './studyGlyph';
-import { CommentForm } from './commentForm';
-import { TopicsCtrl } from './topics';
+import { MultiBoardCtrl } from './multiBoard';
+import { NotifCtrl } from './notif';
+import { StudyPracticeCtrl } from './practice/interfaces';
 import RelayCtrl from './relay/relayCtrl';
 import { ServerEvalCtrl } from './serverEval';
-import { MultiBoardCtrl } from './multiBoard';
+import { StudyChaptersCtrl } from './studyChapters';
+import { GlyphCtrl } from './studyGlyph';
+import { TopicsCtrl } from './topics';
 
 export interface StudyCtrl {
   data: StudyData;
@@ -33,6 +34,7 @@ export interface StudyCtrl {
   studyDesc: DescriptionCtrl;
   chapterDesc: DescriptionCtrl;
   toggleLike(): void;
+  rematch(yes: boolean): void;
   position(): Position;
   isChapterOwner(): boolean;
   canJumpTo(path: Tree.Path): boolean;
@@ -91,6 +93,17 @@ export interface StudyData {
   visibility: 'public' | 'unlisted' | 'private';
   createdAt: number;
   from: string;
+  postGameStudy?: {
+    gameId: string;
+    players: {
+      sente: GamePlayer;
+      gote: GamePlayer;
+    };
+    rematches: {
+      sente: boolean;
+      gote: boolean;
+    };
+  };
   likes: number;
   isNew?: boolean;
   liked: boolean;
@@ -151,6 +164,7 @@ export interface StudyChapter {
   name: string;
   ownerId: string;
   setup: StudyChapterSetup;
+  initialSfen: Sfen;
   tags: TagArray[];
   practice: boolean;
   conceal?: number;
@@ -158,6 +172,7 @@ export interface StudyChapter {
   features: StudyChapterFeatures;
   description?: string;
   relay?: StudyChapterRelay;
+  gameLength?: number;
 }
 
 export interface StudyChapterRelay {
@@ -169,10 +184,14 @@ export interface StudyChapterRelay {
 interface StudyChapterSetup {
   gameId?: string;
   variant: {
-    key: string;
+    key: VariantKey;
     name: string;
   };
   orientation: Color;
+  endStatus?: {
+    status: Status;
+    winner?: Color;
+  };
   fromSfen?: string;
   fromNotation?: string;
 }
@@ -220,4 +239,9 @@ export interface ChapterPreviewPlayer {
   name: string;
   title?: string;
   rating?: number;
+}
+
+export interface GamePlayer {
+  playerId: string;
+  userId?: string;
 }

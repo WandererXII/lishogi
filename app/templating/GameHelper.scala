@@ -11,7 +11,13 @@ import lila.game.{ Game, Namer, Player, Pov }
 import lila.i18n.{ defaultLang, I18nKeys => trans }
 import lila.user.{ Title, User }
 
-trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHelper with ShogigroundHelper =>
+trait GameHelper {
+  self: I18nHelper
+    with UserHelper
+    with AiHelper
+    with StringHelper
+    with ShogigroundHelper
+    with ColorNameHelper =>
 
   private val dataLive     = attr("data-live")
   private val dataColor    = attr("data-color")
@@ -64,13 +70,11 @@ trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHel
       case (Some(w), _, TryRule)                            => s"${playerText(w)} won by try rule"
       case (Some(w), _, Impasse27)                          => s"${playerText(w)} won by impasse"
       case (_, Some(l), PerpetualCheck)                     => s"${playerText(l)} lost due to perpetual check"
-      case (_, _, Draw | UnknownFinish)                     => "Game is a draw"
-      case (_, _, Aborted)                                  => "Game has been aborted"
-      case (_, _, VariantEnd) =>
-        game.variant match {
-          case _ => "Perpetual check"
-        }
-      case _ => "Game is still being played"
+      case (Some(w), _, RoyalsLost)     => s"${playerText(w)} won by capturing all royal pieces"
+      case (Some(w), _, BareKing)       => s"${playerText(w)} won due to bare king rule"
+      case (_, _, Draw | UnknownFinish) => "Game is a draw"
+      case (_, _, Aborted)              => "Game has been aborted"
+      case _                            => "Game is still being played"
     }
     val moves = s"${game.shogi.plies} moves"
     s"$p1 plays $p2 in a $mode $speedAndClock game of $variant. $result after $moves. Click to replay, analyse, and discuss the game!"
@@ -147,7 +151,7 @@ trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHel
         )
       case Some(user) =>
         frag(
-          (if (link) a else span)(
+          (if (link) a else span) (
             cls  := userClass(user.id, cssClass, withOnline),
             href := s"${routes.User show user.name}${if (mod) "?mod" else ""}"
           )(
@@ -166,38 +170,35 @@ trait GameHelper { self: I18nHelper with UserHelper with AiHelper with StringHel
     }
   }
 
-  def gameEndStatus(game: Game)(implicit lang: Lang): String =
+  def gameEndStatus(game: Game)(implicit ctx: Context): String =
     game.status match {
       case S.Aborted => trans.gameAborted.txt()
       case S.Mate    => trans.checkmate.txt()
       case S.Resign =>
-        game.loser match {
-          case Some(p) if p.color.sente => trans.blackResigned.txt()
-          case _                        => trans.whiteResigned.txt()
-        }
+        game.loserColor
+          .map(l => transWithColorName(trans.xResigned, l, game.isHandicap))
+          .getOrElse(trans.finished.txt())
       case S.UnknownFinish  => trans.finished.txt()
       case S.Stalemate      => trans.stalemate.txt()
-      case S.TryRule        => "Try Rule"
+      case S.TryRule        => "Try Rule" // games before July 2021 might still have this status
       case S.Impasse27      => trans.impasse.txt()
-      case S.PerpetualCheck => "Perpetual Check"
+      case S.PerpetualCheck => trans.perpetualCheck.txt()
+      case S.RoyalsLost     => trans.royalsLost.txt()
+      case S.BareKing       => trans.bareKing.txt()
       case S.Timeout =>
-        game.loser match {
-          case Some(p) if p.color.sente => trans.blackLeftTheGame.txt()
-          case Some(_)                  => trans.whiteLeftTheGame.txt()
-          case None                     => trans.draw.txt()
-        }
+        game.loserColor
+          .map(l => transWithColorName(trans.xLeftTheGame, l, game.isHandicap))
+          .getOrElse(
+            trans.draw.txt()
+          )
       case S.Draw      => trans.draw.txt()
       case S.Outoftime => trans.timeOut.txt()
-      case S.NoStart => {
-        val color = game.loser.fold(Color.sente)(_.color).name.capitalize
-        s"$color didn't move"
-      }
+      case S.NoStart =>
+        game.loserColor
+          .map(l => transWithColorName(trans.xDidntMove, l, game.isHandicap))
+          .getOrElse(trans.finished.txt())
       case S.Cheat => trans.cheatDetected.txt()
-      case S.VariantEnd =>
-        game.variant match {
-          case _ => trans.variantEnding.txt()
-        }
-      case _ => ""
+      case _       => ""
     }
 
   private def gameTitle(game: Game, color: Color): String = {

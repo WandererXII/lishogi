@@ -14,7 +14,10 @@ private object Mappings {
   val aiVariants = number.verifying(Config.aiVariants contains _)
   val boardApiVariants = Set(
     V.Standard.key,
-    V.Minishogi.key
+    V.Minishogi.key,
+    V.Chushogi.key,
+    V.Annanshogi.key,
+    V.Kyotoshogi.key
   )
   val boardApiVariantKeys      = text.verifying(boardApiVariants contains _)
   val time                     = of[Double].verifying(HookConfig validateTime _)
@@ -32,5 +35,5 @@ private object Mappings {
   val color       = text.verifying(Color.names contains _)
   val level       = number.verifying(AiConfig.levels contains _)
   val speed       = number.verifying(Config.speeds contains _)
-  val sfenField   = optional(nonEmptyText)
+  val sfenField   = optional(nonEmptyText.transform[String](_.replace("_", " "), identity))
 }

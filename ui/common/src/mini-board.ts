@@ -21,13 +21,13 @@ export const initWith = (node: HTMLElement, sfen: string, orientation: Color, lm
         hands: {
           inlined: true,
         },
-        lastDests: lm ? (usiToSquareNames(lm) as Key[]) : undefined,
+        lastDests: lm ? usiToSquareNames(lm) : undefined,
         drawable: {
           enabled: false,
           visible: false,
         },
       };
-    domData.set(node, 'shogiground', window.Shogiground(config, node));
+    domData.set(node, 'shogiground', window.Shogiground(config, { board: node }));
   }
 };
 

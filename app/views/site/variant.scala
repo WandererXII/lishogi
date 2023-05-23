@@ -16,10 +16,10 @@ object variant {
   )(implicit ctx: Context) =
     layout(
       active = perfType.some,
-      title = s"${variant.name} • ${variant.title}",
+      title = s"${variantName(variant)} • ${variant.title}",
       klass = "box-pad page variant"
     )(
-      h1(cls := "text", dataIcon := perfType.iconChar)(variant.name),
+      h1(cls := "text", dataIcon := perfType.iconChar)(variantName(variant)),
       h2(cls := "headline")(variant.title),
       div(cls := "body")(raw(~doc.getHtml("variant.content", resolver)))
     )
@@ -37,9 +37,13 @@ object variant {
       div(cls := "variants")(
         lila.rating.PerfType.variants map { pt =>
           val variant = lila.rating.PerfType variantOf pt
-          a(cls := "variant text box__pad", href := routes.Page.variant(pt.key), dataIcon := pt.iconChar)(
+          a(
+            cls      := "variant text box__pad",
+            href     := routes.Page.variant(pt.key, none),
+            dataIcon := pt.iconChar
+          )(
             span(
-              h2(variant.name),
+              h2(variantName(variant)),
               h3(cls := "headline")(variant.title)
             )
           )
@@ -63,7 +67,7 @@ object variant {
           lila.rating.PerfType.variants map { pt =>
             a(
               cls      := List("text" -> true, "active" -> active.has(pt)),
-              href     := routes.Page.variant(pt.key),
+              href     := routes.Page.variant(pt.key, none),
               dataIcon := pt.iconChar
             )(pt.trans)
           }

@@ -8,11 +8,12 @@ import scala.concurrent.duration._
 import lila.api.Context
 import lila.app._
 import lila.challenge.{ Challenge => ChallengeModel }
-import lila.common.{ HTTPRequest, IpAddress }
+import lila.common.{ Bearer, HTTPRequest, IpAddress }
 import lila.game.{ AnonCookie, Pov }
 import lila.socket.Socket.SocketVersion
 import lila.user.{ User => UserModel }
 import views.html
+import play.api.mvc.RequestHeader
 
 final class Challenge(
     env: Env
@@ -190,7 +191,8 @@ final class Challenge(
               username =>
                 ChallengeIpRateLimit(HTTPRequest lastRemoteAddress req) {
                   env.user.repo named username flatMap {
-                    case None => Redirect(routes.Challenge.show(c.id)).fuccess
+                    case None                       => Redirect(routes.Challenge.show(c.id)).fuccess
+                    case Some(dest) if ctx.is(dest) => Redirect(routes.Challenge.show(c.id)).fuccess
                     case Some(dest) =>
                       env.challenge.granter(ctx.me, dest, c.perfType.some) flatMap {
                         case Some(denied) =>
@@ -261,10 +263,11 @@ final class Challenge(
       dest: UserModel,
       challenge: lila.challenge.Challenge,
       strToken: String
-  ) =
-    env.security.api.oauthScoped(
-      lila.oauth.AccessToken.Id(strToken),
-      List(lila.oauth.OAuthScope.Challenge.Write)
+  )(implicit req: RequestHeader) =
+    env.oAuth.server.auth(
+      Bearer(strToken),
+      List(lila.oauth.OAuthScope.Challenge.Write),
+      req.some
     ) flatMap {
       _.fold(
         err => BadRequest(jsonError(err.message)).fuccess,

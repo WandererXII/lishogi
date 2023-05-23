@@ -18,6 +18,7 @@ interface Lishogi {
   loadedCss: { [key: string]: boolean };
   loadCss(path: string): void;
   loadCssPath(path: string): void;
+  loadChushogiPieceSprite(): void;
   compiledScript(path: string): string;
   loadScript(url: string, opts?: AssetUrlOpts): Promise<unknown>;
   hopscotch: any;
@@ -109,14 +110,16 @@ interface AssetUrlOpts {
 
 declare type SocketSend = (type: string, data?: any, opts?: any, noRetry?: boolean) => void;
 
-type TransNoArg = (key: string) => string;
+type I18nKey = import('./i18n').I18nKey;
+
+type TransNoArg = (key: I18nKey) => string;
 
 interface Trans {
-  (key: string, ...args: Array<string | number>): string;
+  (key: I18nKey, ...args: Array<string | number>): string;
   noarg: TransNoArg;
-  plural(key: string, count: number, ...args: Array<string | number>): string;
-  vdom<T>(key: string, ...args: T[]): (string | T)[];
-  vdomPlural<T>(key: string, count: number, countArg: T, ...args: T[]): (string | T)[];
+  plural(key: I18nKey, count: number, ...args: Array<string | number>): string;
+  vdom<T>(key: I18nKey, ...args: T[]): (string | T)[];
+  vdomPlural<T>(key: I18nKey, count: number, countArg: T, ...args: T[]): (string | T)[];
 }
 
 type PubsubCallback = (...data: any[]) => void;
@@ -197,16 +200,40 @@ interface Navigator {
   deviceMemory: number;
 }
 
-declare type VariantKey = 'standard' | 'minishogi';
+declare type VariantKey = 'standard' | 'minishogi' | 'chushogi' | 'annanshogi' | 'kyotoshogi';
 
 declare type Speed = 'bullet' | 'blitz' | 'classical' | 'correspondence' | 'unlimited';
 
-declare type Perf = 'bullet' | 'blitz' | 'classical' | 'correspondence' | 'minishogi';
+declare type Perf =
+  | 'bullet'
+  | 'blitz'
+  | 'classical'
+  | 'correspondence'
+  | 'minishogi'
+  | 'chushogi'
+  | 'annanshogi'
+  | 'kyotoshogi';
 
 declare type Color = 'sente' | 'gote';
 
-declare type Files = '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | '10' | '11' | '12';
-declare type Ranks = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l';
+declare type Files =
+  | '1'
+  | '2'
+  | '3'
+  | '4'
+  | '5'
+  | '6'
+  | '7'
+  | '8'
+  | '9'
+  | '10'
+  | '11'
+  | '12'
+  | '13'
+  | '14'
+  | '15'
+  | '16';
+declare type Ranks = 'a' | 'b' | 'c' | 'd' | 'e' | 'f' | 'g' | 'h' | 'i' | 'j' | 'k' | 'l' | 'm' | 'n' | 'o' | 'p';
 declare type Key = `${Files}${Ranks}`;
 
 declare type MoveNotation = string;
@@ -217,7 +244,6 @@ declare type Ply = number;
 interface Variant {
   key: VariantKey;
   name: string;
-  short: string;
   title?: string;
 }
 
@@ -281,7 +307,7 @@ declare namespace Tree {
     children: Node[];
     comments?: Comment[];
     gamebook?: Gamebook;
-    check?: Key;
+    check?: boolean;
     capture?: boolean;
     threat?: LocalEval;
     ceval?: ClientEval;
@@ -334,7 +360,7 @@ interface JQueryStatic {
 }
 
 interface LishogiModal {
-  (html: string | JQuery, cls?: string, onClose?: () => void): JQuery;
+  (html: string | JQuery, cls?: string, onClose?: () => void, withDataAndEvents?: boolean): JQuery;
   close(): void;
 }
 

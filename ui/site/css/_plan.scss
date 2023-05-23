@@ -113,6 +113,9 @@
       text-transform: uppercase;
       margin: 0;
     }
+    group.anon {
+      display: none;
+    }
     group {
       margin-bottom: 2em;
       overflow: visible;
@@ -151,6 +154,13 @@
     }
     .service .button:first-child {
       margin-right: 1em;
+    }
+    .service .spinner {
+      width: 53px;
+      height: 53px;
+    }
+    .confirm-policy input {
+      margin-right: 1rem;
     }
   }
 

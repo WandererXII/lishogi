@@ -1,10 +1,11 @@
+import { notationFiles, notationRanks } from 'common/notation';
 import resizeHandle from 'common/resize';
 import { Config as SgConfig } from 'shogiground/config';
+import { Piece, Role } from 'shogiops/types';
+import { parseSquareName } from 'shogiops/util';
+import { pieceCanPromote, pieceForcePromote, promote } from 'shogiops/variant/util';
+import { VNode, h } from 'snabbdom';
 import { Controller } from '../interfaces';
-import { h, VNode } from 'snabbdom';
-import { Role } from 'shogiops/types';
-import { pieceCanPromote, pieceInDeadZone, promote } from 'shogiops/variantUtil';
-import { parseSquare } from 'shogiops/util';
 
 export function renderBoard(ctrl: Controller): VNode {
   return h('div.sg-wrap', {
@@ -39,11 +40,12 @@ function makeConfig(ctrl: Controller): SgConfig {
     orientation: opts.orientation,
     turnColor: opts.turnColor,
     activeColor: opts.activeColor,
-    check: opts.check,
+    checks: opts.checks,
     lastDests: opts.lastDests,
     coordinates: {
       enabled: ctrl.pref.coords !== 0,
-      notation: ctrl.pref.notation,
+      files: notationFiles(),
+      ranks: notationRanks(),
     },
     movable: {
       free: false,
@@ -60,16 +62,16 @@ function makeConfig(ctrl: Controller): SgConfig {
         return promote('standard')(role);
       },
       movePromotionDialog: (orig: Key, dest: Key) => {
-        const piece = ctrl.shogiground.state.pieces.get(orig);
+        const piece = ctrl.shogiground.state.pieces.get(orig) as Piece;
         return (
           !!piece &&
-          pieceCanPromote('standard')(piece, parseSquare(orig)!, parseSquare(dest)!) &&
-          !pieceInDeadZone('standard')(piece, parseSquare(dest)!)
+          pieceCanPromote('standard')(piece, parseSquareName(orig)!, parseSquareName(dest)!, undefined) &&
+          !pieceForcePromote('standard')(piece, parseSquareName(dest)!)
         );
       },
       forceMovePromotion: (orig: Key, dest: Key) => {
-        const piece = ctrl.shogiground.state.pieces.get(orig);
-        return !!piece && pieceInDeadZone('standard')(piece, parseSquare(dest)!);
+        const piece = ctrl.shogiground.state.pieces.get(orig) as Piece;
+        return !!piece && pieceForcePromote('standard')(piece, parseSquareName(dest)!);
       },
     },
     draggable: {

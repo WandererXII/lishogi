@@ -91,9 +91,6 @@ To do that click on the cog wheel or your username(top right corner) and then cl
 	<string name="capture">Capture</string>
 	<string name="takeTheEnemyPieces">Take the enemy pieces</string>
 	<string name="captureIntro">Identify the opponent's undefended pieces, and capture them!</string>
-	<string name="takeTheBlackPieces">Take the black pieces!</string>
-	<string name="takeTheBlackPiecesAndDontLoseYours">Take the black pieces!
-And don't lose yours.</string>
 	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
 And don't lose yours.</string>
 	<string name="captureComplete">Congratulations! You know how to fight with shogi pieces!</string>
@@ -177,13 +174,6 @@ Make any move to continue.</string>
     <string name="perpetualCheckIsALoss">But, perpetually checking the opponent’s king is a loss for the checking side. Unfortunately for your opponent, they don’t know! Make the only legal move.</string>
     <string name="boardFlippedFindBestMove">The board was just flipped. What is the best move here?</string>
     <string name="repetitionComplete">The idea behind perpetual check being a loss is to prevent anyone from forcing a draw.</string>
-	<string name="stalemate">Stalemate</string>
-	<string name="theGameIsADraw">The game is a draw</string>
-	<string name="stalemateIntro">When a player is not in check and does not have a legal move, it's a stalemate. The game is drawn: no one wins, no one loses.</string>
-	<string name="stalemateGoal">To stalemate black:
-- Black cannot move anywhere
-- There is no check.</string>
-	<string name="stalemateComplete">Congratulations! Better be stalemated than checkmated!</string>
 	<string name="advanced">Advanced</string>
 	<string name="pieceValue">Piece value</string>
 	<string name="evaluatePieceStrength">Evaluate piece strength</string>
@@ -214,17 +204,17 @@ with the highest value!</string>
 in two moves!</string>
 	<string name="checkInTwoComplete">Congratulations! You checked your opponent, forcing them to defend their king!</string>
 	<string name="whatNext">What next?</string>
-	<string name="youKnowHowToPlayChess">You know how to play shogi, congratulations! Do you want to become a stronger player?</string>
+	<string name="youKnowHowToPlayShogi">You know how to play shogi, congratulations! Do you want to become a stronger player?</string>
 	<string name="register">Register</string>
 	<string name="getAFreeLishogiAccount">Get a free Lishogi account</string>
 	<string name="practice">Practise</string>
-	<string name="learnCommonChessPositions">Learn common shogi positions</string>
+	<string name="learnCommonShogiPositions">Learn common shogi positions</string>
 	<string name="puzzles">Puzzles</string>
 	<string name="exerciseYourTacticalSkills">Exercise your tactical skills</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="curatedShogiResources">See our curated list of shogi resources</string>
 	<string name="videos">Videos</string>
-	<string name="watchInstructiveChessVideos">Watch instructive shogi videos</string>
+	<string name="watchInstructiveShogiVideos">Watch instructive shogi videos</string>
 	<string name="playPeople">Play people</string>
 	<string name="opponentsFromAroundTheWorld">Opponents from around the world</string>
 	<string name="playMachine">Play machine</string>

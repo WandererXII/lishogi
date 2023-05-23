@@ -29,8 +29,7 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
                 "highlightLastDests" -> pref.highlightLastDests,
                 "highlightCheck"     -> pref.highlightCheck,
                 "squareOverlay"      -> pref.squareOverlay,
-                "resizeHandle"       -> pref.resizeHandle,
-                "notation"           -> pref.notation
+                "resizeHandle"       -> pref.resizeHandle
               ),
               "i18n" -> i18nJsObject(i18nKeys)
             )
@@ -51,6 +50,12 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
 
   private val i18nKeys: List[lila.i18n.MessageKey] =
     List(
+      trans.black,
+      trans.white,
+      trans.sente,
+      trans.gote,
+      trans.shitate,
+      trans.uwate,
       learnShogi,
       byPlaying,
       menu,
@@ -136,8 +141,6 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
       capture,
       takeTheEnemyPieces,
       captureIntro,
-      takeTheBlackPieces,
-      takeTheBlackPiecesAndDontLoseYours,
       takeTheEnemyPiecesAndDontLoseYours,
       captureComplete,
       pieceDrops,
@@ -207,11 +210,6 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
       perpetualCheckIsALoss,
       boardFlippedFindBestMove,
       repetitionComplete,
-      stalemate,
-      theGameIsADraw,
-      stalemateIntro,
-      stalemateGoal,
-      stalemateComplete,
       advanced,
       pieceValue,
       evaluatePieceStrength,
@@ -233,17 +231,16 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
       checkInTwoGoal,
       checkInTwoComplete,
       whatNext,
-      youKnowHowToPlayChess,
+      youKnowHowToPlayShogi,
       register,
       getAFreeLishogiAccount,
       shogiResources,
       curatedShogiResources,
       practice,
-      learnCommonChessPositions,
       puzzles,
       exerciseYourTacticalSkills,
       videos,
-      watchInstructiveChessVideos,
+      watchInstructiveShogiVideos,
       playPeople,
       opponentsFromAroundTheWorld,
       playMachine,

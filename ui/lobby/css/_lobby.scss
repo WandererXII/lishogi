@@ -41,6 +41,12 @@ body {
 .lobby__side {
   @extend %flex-column;
   overflow: hidden;
+  @include breakpoint($mq-col2) {
+    overflow: visible;
+  }
+  @include breakpoint($mq-col3) {
+    overflow: hidden;
+  }
 }
 
 .lobby__nope {
@@ -60,6 +66,38 @@ body {
   li {
     list-style: disc outside;
     font-size: 1.1em;
+  }
+}
+
+.lobby__description #shogi_description p {
+  margin: 0.5rem 0.75rem;
+}
+
+.lobby__variants #variants_list {
+  display: flex;
+  flex-wrap: wrap;
+  .variants_item {
+    padding: 0.5rem 0;
+    width: 50%;
+    text-align: center;
+    &:hover {
+      background: mix($c-primary, $c-bg-box, 20%);
+    }
+    h3 {
+      font-size: 1.2rem;
+      color: $c-font;
+      &::before {
+        float: left;
+        padding-left: 0.75rem;
+        color: $c-primary;
+      }
+    }
+    &:nth-child(odd) {
+      border-right: $border;
+    }
+    &:nth-child(n + 3) {
+      border-top: $border;
+    }
   }
 }
 

@@ -1,7 +1,8 @@
-import { FormStore, toFormLines, makeStore } from './form';
-import LobbyController from './ctrl';
-import { handicaps } from 'game/handicaps';
+import { colorName } from 'common/colorName';
+import { findHandicaps, isHandicap } from 'shogiops/handicaps';
 import { initialSfen } from 'shogiops/sfen';
+import LobbyController from './ctrl';
+import { FormStore, makeStore, toFormLines } from './form';
 
 const li = window.lishogi;
 
@@ -134,6 +135,12 @@ export default class Setup {
     switch (variantId) {
       case '2':
         return 'minishogi';
+      case '3':
+        return 'chushogi';
+      case '4':
+        return 'annanshogi';
+      case '5':
+        return 'kyotoshogi';
       default:
         if (realTime) {
           if (timeSum < 60) return 'ultraBullet';
@@ -142,6 +149,21 @@ export default class Setup {
           else if (timeSum < 1500) return 'rapid';
           else return 'classical';
         } else return 'correspondence';
+    }
+  };
+
+  private idToRules = (id: number | string): VariantKey => {
+    switch (typeof id === 'string' ? parseInt(id) : id) {
+      case 2:
+        return 'minishogi';
+      case 3:
+        return 'chushogi';
+      case 4:
+        return 'annanshogi';
+      case 5:
+        return 'kyotoshogi';
+      default:
+        return 'standard';
     }
   };
 
@@ -196,13 +218,7 @@ export default class Setup {
         per = $periodsInput.filter(':checked').val(),
         hasSfen = !!$sfenInput.val(),
         cantBeRated =
-          hasSfen ||
-          (typ === 'hook' && timeMode === '0') ||
-          (variantId !== '1' && timeMode !== '1') ||
-          (timeMode === '1' && (per > 1 || (inc > 0 && byo > 0)));
-
-      if (variantId != '1') $handicap.hide();
-      else $handicap.css('display', 'flex');
+          hasSfen || (typ === 'hook' && timeMode === '0') || (timeMode === '1' && (per > 1 || (inc > 0 && byo > 0)));
 
       $periods.toggle(byo > 0);
 
@@ -398,11 +414,35 @@ export default class Setup {
       })
       .trigger('change');
 
+    const updateHandicaps = () => {
+      const buildOption = (value: string, name: string, selected = false): string => {
+        return `<option ${selected ? 'selected ' : ''}value="${value}">${name}</option>`;
+      };
+      const rules = this.idToRules($variantSelect.val()),
+        handicaps = findHandicaps({ rules }),
+        options = handicaps
+          .map(h => {
+            return buildOption(h.sfen, `${h.japaneseName} (${h.englishName})`);
+          })
+          .join(''),
+        defaultOption = buildOption(initialSfen(rules), this.root.trans.noarg('startPosition'), true);
+      $handicapSelect.html(defaultOption + options);
+    };
+
     const updateEngineName = () => {
       const sfen = $sfenInput.val(),
         variant = $variantSelect.val(),
         $infos = $('div.level').find('.ai_info > div'),
-        useYane = variant == 1 && (!sfen || handicaps.includes(sfen) || initialSfen('standard') === sfen);
+        rules = this.idToRules(variant),
+        useYane =
+          variant == 1 && (!sfen || isHandicap({ sfen: sfen, rules: 'standard' }) || initialSfen('standard') === sfen);
+
+      $form
+        .find('.color-submits button[value="sente"]')
+        .attr('title', colorName(this.root.trans.noarg, 'sente', isHandicap({ sfen, rules })));
+      $form
+        .find('.color-submits button[value="gote"]')
+        .attr('title', colorName(this.root.trans.noarg, 'gote', isHandicap({ sfen, rules })));
 
       $infos.text((_, text) => {
         const from = useYane ? 'Fairy Stockfish' : 'YaneuraOu V7.00';
@@ -474,6 +514,7 @@ export default class Setup {
       $default.trigger('change');
 
       toggleButtons();
+      updateHandicaps();
       save();
     });
 
@@ -529,6 +570,7 @@ export default class Setup {
         $positionWrap.hide();
       }
       updateEngineName();
+      updateHandicaps();
       initAdvancedTimeSetup();
       toggleButtons();
     };

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Играј са пријатељем</string>
 	<string name="playWithTheMachine">Играј са рачунаром</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Да позовете некога да игра, проследите овaј УРЛ</string>
@@ -17,26 +18,26 @@
 	<string name="checkmate">Шах-мат</string>
 	<string name="stalemate">Пат</string>
 	<string name="impasse">Impasse</string>
-	<string name="white">Бели</string>
-	<string name="black">Црни</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
-	<string name="randomColor">Насумична боја</string>
+	<string name="perpetualCheck">Perpetual check</string>
+	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
+	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
+	<string name="white" comment="Alternative to gote">Бели</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
+	<string name="black" comment="Alternative to sente">Црни</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
+	<string name="randomColor" comment="Side - sente/gote">Насумична боја</string>
 	<string name="createAGame">Започни нову партију</string>
-	<string name="whiteIsVictorious">Бели је победник</string>
-	<string name="blackIsVictorious">Црни је победник</string>
-	<string name="youPlayTheWhitePieces">Играш са белим фигурама</string>
-	<string name="youPlayTheBlackPieces">Играш са црним фигурама</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Ти си на потезу!</string>
 	<string name="cheatDetected">Cheat Detected</string>
 	<string name="variantEnding">Крај варијацијом</string>
 	<string name="newOpponent">Нови противник</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Твој противник жели да игра нову партију са тобом</string>
 	<string name="joinTheGame">Придружи се партији</string>
-	<string name="whitePlays">Бели је на потезу</string>
-	<string name="blackPlays">Црни је на потезу</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Ваш противник је напустио игру. Победа ће Вам бити приписана за %s секунди.</item>
 		<item quantity="few">Ваш противник је напустио игру. Победа ће Вам бити приписана за %s секунди.</item>
@@ -48,10 +49,9 @@
 	<string name="forceDraw">Приморај на реми</string>
 	<string name="talkInChat">Буди љубазан у ћаскању!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Прва особа која кликне на овај линк ће играти са тобом.</string>
-	<string name="whiteResigned">Бели је предао</string>
-	<string name="blackResigned">Црни је предао</string>
-	<string name="whiteLeftTheGame">Бели је напустио партију</string>
-	<string name="blackLeftTheGame">Црни је напустио партију</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Подели овај линк како би посматрачи могли да гледају партију</string>
 	<string name="theComputerAnalysisHasFailed">Рачунарска анализа није успела</string>
 	<string name="viewTheComputerAnalysis">Погледај рачунарску анализу</string>
@@ -63,7 +63,7 @@
 	<string name="usingServerAnalysis">Анализа помоћу сервера</string>
 	<string name="loadingEngine">Рачунар се учитава...</string>
 	<string name="cloudAnalysis">Анализа у облаку</string>
-	<string name="goDeeper">Иди дубље</string>
+	<string name="goDeeper" comment="Engine depth">Иди дубље</string>
 	<string name="showThreat">Прикажи претњу</string>
 	<string name="inLocalBrowser">у локалном прегледачу</string>
 	<string name="toggleLocalEvaluation">Укључи/искључи локалну процену</string>
@@ -72,6 +72,11 @@
 	<string name="deleteFromHere">Избриши одавде</string>
 	<string name="forceVariation">Промакни варијацију</string>
 	<string name="move">Потез</string>
+	<plurals name="nbMoves">
+		<item quantity="one">%s move</item>
+		<item quantity="few">%s moves</item>
+		<item quantity="other">%s moves</item>
+	</plurals>
 	<string name="variantLoss">Губитак из варијанте</string>
 	<string name="variantWin">Победа из варијанте</string>
 	<string name="insufficientMaterial">Недовољно материјала</string>
@@ -83,7 +88,6 @@
 	<string name="drawn">Реми</string>
 	<string name="unknown">Не зна се</string>
 	<string name="database">База података</string>
-	<string name="whiteDrawBlack">Бели / Реми / Црни</string>
 	<string name="averageRatingX">Просечан рејтинг: %s</string>
 	<string name="recentGames">Недавне партије</string>
 	<string name="topGames">Најбоље партије</string>
@@ -206,10 +210,8 @@
 	<string name="drawOfferDeclined">Предлог за реми је одбијен</string>
 	<string name="drawOfferAccepted">Предлог за реми је прихваћен</string>
 	<string name="drawOfferCanceled">Предлог за реми је повучен</string>
-	<string name="whiteOffersDraw">Бели нуди реми</string>
-	<string name="blackOffersDraw">Црни нуди реми</string>
-	<string name="whiteDeclinesDraw">Бели одбија реми</string>
-	<string name="blackDeclinesDraw">Црни одбија реми</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Противник нуди реми</string>
 	<string name="accept">Прихвати</string>
 	<string name="decline">Одбиј</string>
@@ -219,7 +221,11 @@
 	<string name="finishesX">завршава се %s</string>
 	<string name="abortGame">Прекините партију</string>
 	<string name="gameAborted">Партија прекинута</string>
-	<string name="standard">Стандардно</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Стандардно</string>
+	<string name="minishogi">Minishogi</string>
+	<string name="chushogi">Chushogi</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">Неограничено</string>
 	<string name="mode">Начин</string>
 	<string name="casual">Неформална</string>
@@ -229,8 +235,7 @@
 	<string name="thisGameIsRated">Ова партија се рангира</string>
 	<string name="rematch">Реванш</string>
 	<string name="rematchOfferSent">Понуда за реванш је послата</string>
-	<string name="rematchOfferSentWhite">Бели нуди реванш</string>
-	<string name="rematchOfferSentBlack">Црни нуди реванш</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Понуда за реванш је прихваћена</string>
 	<string name="rematchOfferCanceled">Понуда за реванш је отказана</string>
 	<string name="rematchOfferDeclined">Понуда за реванш је одбијена</string>
@@ -252,7 +257,7 @@
 	<string name="incrementInSeconds">Додавање у секундама</string>
 	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
 	<string name="numberOfPeriods">Number of periods</string>
-	<string name="freeOnlineChess">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Free Online Shogi</string>
 	<string name="spectators">Посматрачи:</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s рангирана</item>
@@ -343,6 +348,8 @@
 	<string name="youAreNotInTeam">Ви нисте члан тима %s</string>
 	<string name="backToGame">Повратак у игру</string>
 	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
+	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s придружио/ла се тиму %2$s</string>
 	<string name="xCreatedTeamY">%1$s креирао/ла тим %2$s</string>
 	<string name="xStartedStreaming">%s је почео са приказивањем</string>
@@ -357,7 +364,7 @@
 	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
 	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
 	<string name="fromPosition">Од позиције</string>
-	<string name="default">Default</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
 	<string name="continueFromHere">Настави одавде</string>
 	<string name="toStudy">Проучи</string>
 	<string name="importGame">Увези игру</string>
@@ -368,12 +375,11 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="few">%s увезене игре</item>
 		<item quantity="other">%s увезених игара</item>
 	</plurals>
-	<string name="thisIsAChessCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Кликни на таблу и направи потез да би доказао да си човек.</string>
 	<string name="captcha.fail">Please solve the shogi captcha.</string>
 	<string name="notACheckmate">Није шахмат</string>
-	<string name="whiteCheckmatesInOneMove">Бели матирау једном потезу</string>
-	<string name="blackCheckmatesInOneMove">Црни матирау једном потезу</string>
+	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Покушај поново</string>
 	<string name="reconnecting">Поновно повезивање</string>
 	<plurals name="nbFriendsOnline">
@@ -431,6 +437,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="showAdvancedSettings">Покажи напредна подешавања</string>
 	<string name="makePrivateTournament">Учини турнир приватним и ограничи приступ са шифром</string>
 	<string name="join">Придружи се</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Повуци се</string>
 	<string name="points">Поена</string>
 	<string name="wins">Победа</string>
@@ -446,8 +453,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">Перформанса</string>
 	<string name="tournamentComplete">Турнир завршен</string>
 	<string name="movesPlayed">Одиграно потеза</string>
-	<string name="whiteWins">Победе као бели</string>
-	<string name="blackWins">Победе као црни</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Ремија</string>
 	<string name="nextXTournament">Следећи %s турнир:</string>
 	<string name="averageOpponent">Просечан противник</string>
@@ -459,7 +465,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="handicap">Handicap</string>
 	<string name="startPosition">Почетна позиција</string>
 	<string name="clearBoard">Уклони фигуре</string>
-	<string name="fillGotesHand">Fill Gote\'s hand</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Сачувај позицију</string>
 	<string name="loadPosition">Учитај позицију</string>
 	<string name="isPrivate">Приватно</string>
@@ -483,8 +489,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="activePlayers">Активни играчи</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Пажња, партија је рангирана али се не игра на време!</string>
 	<string name="yourPuzzleRatingX">Ваш рејтинг у тренингу: %s</string>
-	<string name="findTheBestMoveForWhite">Пронађите најбољи потез за белог.</string>
-	<string name="findTheBestMoveForBlack">Пронађите најбољи потез за црног.</string>
 	<string name="toTrackYourProgress">Да пратите свој напредак:</string>
 	<string name="puzzleId">Вежба %s</string>
 	<string name="puzzleOfTheDay">Вежба дана</string>
@@ -572,6 +576,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="fast">Брзо</string>
 	<string name="normal">Нормално</string>
 	<string name="slow">Споро</string>
+	<string name="compact">Compact</string>
 	<string name="insideTheBoard">Унутар табле</string>
 	<string name="outsideTheBoard">Ван табле</string>
 	<string name="edgeOfTheBoard">Edge of the board</string>
@@ -654,7 +659,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="webmasters">Вебмастери</string>
 	<string name="about">О нама</string>
 	<string name="aboutX">О %s</string>
-	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
 	<string name="really">стварно</string>
 	<string name="contribute">Допринос</string>
 	<string name="termsOfService">Услови коришћења услуге</string>
@@ -741,16 +746,17 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="security">Сигурност</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Ово је листа уређаја који су евидентирани у ваш налог. Опозовите све сесије које не препознајете.</string>
 	<string name="alternativelyYouCanX">Алтернативно, можете %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">опозвати све сесије</string>
-	<string name="playChessEverywhere">Play shogi everywhere</string>
+	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">As free as Lishogi</string>
-	<string name="builtForTheLoveOfChessNotMoney">Built for the love of shogi, not money</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">Сви добијају све функције бесплатно</string>
 	<string name="zeroAdvertisement">Без огласа</string>
 	<string name="fullFeatured">Потпуно опремљен</string>
 	<string name="phoneAndTablet">Телефон или таблет</string>
 	<string name="bulletBlitzClassical">Булит, Блиц, Класична</string>
-	<string name="correspondenceChess">Correspondence shogi</string>
+	<string name="correspondenceShogi">Correspondence shogi</string>
 	<string name="onlineAndOfflinePlay">Играјте онлине и оффлине</string>
 	<string name="viewTheSolution">Погледај решење</string>
 	<string name="followAndChallengeFriends">Прати и изазови пријатеља</string>
@@ -783,7 +789,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">Тема табле</string>
 	<string name="boardSize">Величина табле</string>
 	<string name="pieceSet">Скуп фигура</string>
@@ -794,13 +800,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="usernameCharsInvalid">Корисничко име може само да садржи слова, бројеве, доње црте и цртице.</string>
 	<string name="usernameUnacceptable">Ово корисничко име није прихватљиво.</string>
 	<string name="directlySupportLishogi">Directly support Lishogi</string>
-	<string name="playChessInStyle">Play shogi in style</string>
-	<string name="chessBasics">Shogi basics</string>
+	<string name="playShogiInStyle">Play shogi in style</string>
+	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">Тренери</string>
-	<string name="invalidKif">Invalid KIF</string>
 	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">Неважећи ФЕН</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">Минимална дужина је %s</string>
 	<string name="error.maxLength">Максимална дужина је %s</string>
 	<string name="error.min">Мора бити већи или једнак %s</string>
@@ -826,28 +831,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">Сакријте најбољи потез</string>
 	<string name="getAHint">Добиј те помоћ</string>
 	<string name="evaluatingYourMove">Процењивање вашег потеза ...</string>
-	<string name="whiteWinsGame">Бели је победио</string>
-	<string name="blackWinsGame">Црни је победио</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Научите из грешака</string>
 	<string name="learnFromThisMistake">Научите из ове грешке</string>
 	<string name="skipThisMove">Прескочите овај потез</string>
 	<string name="next">Следеће</string>
 	<string name="xWasPlayed">%s је одиграно</string>
-	<string name="findBetterMoveForWhite">Нађите бољи потез за белог</string>
-	<string name="findBetterMoveForBlack">Нађите бољи потез за црног</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Наставите са учењем</string>
 	<string name="youCanDoBetter">Можете то боље</string>
-	<string name="tryAnotherMoveForWhite">Покушајте други потез за белог</string>
-	<string name="tryAnotherMoveForBlack">Покушајте други потез за црног</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Решење</string>
 	<string name="waitingForAnalysis">Чекање на анализу</string>
-	<string name="noMistakesFoundForWhite">Нема грешке нађене за белог</string>
-	<string name="noMistakesFoundForBlack">Нема грешке нађене за црног</string>
-	<string name="doneReviewingWhiteMistakes">Завршено прегледање белих грешака</string>
-	<string name="doneReviewingBlackMistakes">Завршено прегледање црних грешака</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Урадите поново</string>
-	<string name="reviewWhiteMistakes">Пронађите грешке белог</string>
-	<string name="reviewBlackMistakes">Пронађите грешке црног</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Предност</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s секунд</item>
@@ -877,7 +876,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="weHadToTimeYouOutForAWhile">Морали смо Вас привремено избацити.</string>
 	<string name="timeoutExpires">Тајм аут истиче %s.</string>
 	<string name="why">Зашто?</string>
-	<string name="pleasantChessExperience">We aim to provide a pleasant shogi experience for everyone.</string>
+	<string name="pleasantShogiExperience">We aim to provide a pleasant shogi experience for everyone.</string>
 	<string name="goodPractice">Баш због тога, ми се морамо потрудити да се сви играчи држе добре праксе.</string>
 	<string name="potentialProblem">Када је потенцијални проблем детектован, ми прикажемо ову поруку.</string>
 	<string name="howToAvoidThis">Како ово избећи?</string>
@@ -893,6 +892,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="agreementNice">Слажем се да ћу увек бити пун поштовања према другим играчима.</string>
 	<string name="agreementAccount">Слажем се да нећу правити више налога.</string>
 	<string name="agreementPolicy">Слажем се да ћу поштовати све Личес полисе.</string>
+	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Претражи или започни нови разговор</string>
 	<string name="edit">Промени</string>
 	<string name="rapid">Брзопотез</string>
@@ -917,18 +917,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="youCannotPostYetPlaySomeGames">Још увек не можете писати поруке на овај форум. Играјте још коју партију!</string>
 	<string name="subscribe">Претплати се</string>
 	<string name="unsubscribe">Одјавите претплату</string>
-	<string name="blackDeclinesImpasse">Sente declines impasse</string>
-	<string name="blackOffersImpasse">Sente offers impasse</string>
-	<string name="notationType">Notation</string>
-	<string name="whiteDeclinesImpasse">Gote declines impasse</string>
-	<string name="whiteOffersImpasse">Gote offers impasse</string>
 	<string name="notationSystem">Notation</string>
 	<string name="officialBlog">Lishogi Official Blog</string>
 	<string name="blogPostsFromYear">Blog posts from %1$s</string>
 	<string name="previousBlogPosts">Previous blog posts</string>
 	<string name="continueReadingThis"> Continue reading this post</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyOfPlayers">Study of players</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

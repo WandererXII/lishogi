@@ -17,6 +17,7 @@ import lila.hub.actorApi.round.{
   FishnetPlay,
   FishnetStart,
   IsOnGame,
+  PostGameStudy,
   RematchNo,
   RematchYes,
   Resign
@@ -215,6 +216,21 @@ final private[round] class RoundDuct(
         )
       }
 
+    case PostGameStudy(studyId) =>
+      updateGame { game =>
+        game.setPostGameStudy(studyId)
+      } inject {
+        socketSend(
+          RP.Out.tellRoom(
+            roomId,
+            makeMessage(
+              "postGameStudy",
+              studyId
+            )
+          )
+        )
+      }
+
     // round stuff
 
     case p: HumanPlay =>
@@ -285,7 +301,7 @@ final private[round] class RoundDuct(
             case true =>
               finisher.rageQuit(
                 pov.game,
-                Some(pov.color) ifFalse pov.game.situation.opponentHasInsufficientMaterial
+                Some(pov.color)
               )
             case _ => fuccess(List(Event.Reload))
           }

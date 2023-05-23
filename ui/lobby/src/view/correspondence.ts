@@ -1,8 +1,8 @@
-import { h, VNode } from 'snabbdom';
-import { bind, MaybeVNodes } from 'common/snabbdom';
-import { tds } from './util';
+import { MaybeVNodes, bind } from 'common/snabbdom';
+import { VNode, h } from 'snabbdom';
 import LobbyController from '../ctrl';
 import { Seek } from '../interfaces';
+import { tds } from './util';
 
 function renderSeek(ctrl: LobbyController, seek: Seek): VNode {
   const klass = seek.action === 'joinSeek' ? 'join' : 'cancel',
@@ -61,14 +61,10 @@ function createSeek(ctrl: LobbyController): VNode | undefined {
 }
 
 export default function (ctrl: LobbyController): MaybeVNodes {
+  const headers: I18nKey[] = ['player', 'rating', 'time', 'mode'];
   return [
     h('table.hooks__list', [
-      h('thead', [
-        h(
-          'tr',
-          ['', 'player', 'rating', 'time', 'mode'].map(header => h('th', ctrl.trans(header)))
-        ),
-      ]),
+      h('thead', [h('tr', [h('th', '')].concat(headers.map(header => h('th', ctrl.trans(header)))))]),
       h(
         'tbody',
         {

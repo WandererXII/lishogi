@@ -1,6 +1,6 @@
-import { h, VNode } from 'snabbdom';
 import spinner from 'common/spinner';
-import { Ctrl, Challenge, ChallengeData, ChallengeDirection, ChallengeUser, TimeControl } from './interfaces';
+import { VNode, h } from 'snabbdom';
+import { Challenge, ChallengeData, ChallengeDirection, ChallengeUser, Ctrl, TimeControl } from './interfaces';
 
 export function loaded(ctrl: Ctrl): VNode {
   return ctrl.redirecting()
@@ -38,6 +38,7 @@ function allChallenges(ctrl: Ctrl, d: ChallengeData, nb: number): VNode {
 
 function challenge(ctrl: Ctrl, dir: ChallengeDirection) {
   return (c: Challenge) => {
+    const trans = ctrl.trans();
     return h(
       'div.challenge.' + dir + '.c-' + c.id,
       {
@@ -50,7 +51,7 @@ function challenge(ctrl: Ctrl, dir: ChallengeDirection) {
           h('span.head', renderUser(dir === 'in' ? c.challenger : c.destUser)),
           h(
             'span.desc',
-            [ctrl.trans()(c.rated ? 'rated' : 'casual'), timeControl(c.timeControl), c.variant.name].join(' • ')
+            [trans(c.rated ? 'rated' : 'casual'), timeControl(c.timeControl, trans), trans(c.variant.key)].join(' • ')
           ),
         ]),
         h('i', {
@@ -118,12 +119,12 @@ function outButtons(ctrl: Ctrl, c: Challenge) {
   ];
 }
 
-function timeControl(c: TimeControl): string {
+function timeControl(c: TimeControl, trans: Trans): string {
   switch (c.type) {
     case 'unlimited':
-      return 'Unlimited';
+      return trans.noarg('unlimited');
     case 'correspondence':
-      return c.daysPerTurn + ' days';
+      return trans.plural('nbDays', c.daysPerTurn || 0);
     case 'clock':
       return c.show || '-';
   }

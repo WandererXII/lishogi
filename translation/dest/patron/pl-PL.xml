@@ -6,13 +6,14 @@
 	<string name="becomePatron">Zostań patronem Lishogi</string>
 	<string name="xBecamePatron">%s został patronem Lishogi</string>
 	<string name="newPatrons">Nowi patroni</string>
-	<string name="freeChess">Darmowe shogi dla wszystkich i na zawsze!</string>
+	<string name="freeShogi">Darmowe shogi dla wszystkich i na zawsze!</string>
 	<string name="noAdsNoSubs">Bez reklam, bez abonamentu, za to z otwartym kodem i pełne pasji.</string>
 	<string name="thankYou">Dziękuję za darowiznę!</string>
 	<string name="youHaveLifetime">Masz konto Dożywotnego Patrona. To całkiem niesamowite!</string>
 	<string name="patronUntil">Masz konto patrona do %s.</string>
 	<string name="ifNotRenewed">Jeśli nie zostanie odnowione, stanie się ponownie zwykłym kontem.</string>
 	<string name="weRelyOnSupport">Żeby było to możliwe, liczymy na wsparcie ze strony osób takich jak Ty. Jeśli lubisz korzystać z Lishogi, rozważ wsparcie nas poprzez darowizny i stań się naszym patronem!</string>
+	<string name="donationSupport">Jeśli chcesz wesprzeć lishogi i rozwój open source, rozważ darowiznę! Nie dostaniesz niczego w zamian, ponieważ lishogi traktuje wszystkich użytkowników tak samo, ale Twoja darowizna będzie bardzo doceniana!</string>
 	<string name="lifetime">Dożywotnie</string>
 	<string name="payLifetimeOnce">Wpłać %s raz. Bądź patronem Lishogi na zawsze!</string>
 	<string name="lifetimePatron">Dożywotni patron Lishogi</string>
@@ -28,8 +29,6 @@
 	<string name="weAreSmallTeam">Jesteśmy małym zespołem, więc Twoje wsparcie ma ogromne znaczenie!</string>
 	<string name="celebratedPatrons">Znamienici patroni, dzięki którym działa Lishogi</string>
 	<string name="whereMoneyGoes">Na co zostaną wydane przekazane pieniądze?</string>
-	<string name="serversAndDeveloper">First of all, powerful servers.
-Then we pay a full-time developer: %s, the founder of Lishogi.</string>
 	<string name="costBreakdown">Zobacz szczegółowy podział kosztów</string>
 	<string name="changeMonthlySupport">Czy mogę zmienić/anulować moje wsparcie miesięczne?</string>
 	<string name="changeOrContact">Tak - możesz to zrobić w każdej chwili na tej stronie.
@@ -72,4 +71,5 @@ Patroni zyskują jedynie unikalną ikonę profilu (skrzydełka).</string>
 	<string name="nowLifetime">Jesteś teraz dożywotnim patronem Lishogi!</string>
 	<string name="nowOneMonth">Jesteś teraz patronem Lishogi na jeden miesiąc!</string>
 	<string name="downgradeNextMonth">W tym miesiącu NIE zostaniesz ponownie obciążony, a Twoje konto Lishogi pozostanie darmowe.</string>
+	<string name="donationPolicy">Donation policy</string>
 </resources>

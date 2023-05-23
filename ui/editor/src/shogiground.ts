@@ -1,7 +1,9 @@
-import { h, VNode } from 'snabbdom';
+import { notationFiles, notationRanks } from 'common/notation';
 import { Config as SgConfig } from 'shogiground/config';
+import { forsythToRole, roleToForsyth } from 'shogiops/sfen';
+import { handRoles } from 'shogiops/variant/util';
+import { VNode, h } from 'snabbdom';
 import EditorCtrl from './ctrl';
-import { handRoles } from 'shogiops/variantUtil';
 
 export function renderBoard(ctrl: EditorCtrl): VNode {
   return h('div.sg-wrap', {
@@ -14,7 +16,8 @@ export function renderBoard(ctrl: EditorCtrl): VNode {
 }
 
 export function renderHand(ctrl: EditorCtrl, pos: 'top' | 'bottom'): VNode {
-  return h(`div.sg-hand-wrap.hand-${pos}`, {
+  // inlined because we don't want to apply board-layout css
+  return h(`div.sg-hand-wrap.hand-${pos}.inlined`, {
     hook: {
       insert: vnode => {
         ctrl.shogiground.attach({
@@ -34,7 +37,11 @@ export function makeConfig(ctrl: EditorCtrl): SgConfig {
     sfen: { board: splitSfen[0], hands: splitSfen[2] },
     activeColor: 'both',
     orientation: ctrl.options.orientation || 'sente',
-    coordinates: { enabled: !ctrl.data.embed, notation: ctrl.data.pref.notation },
+    coordinates: {
+      enabled: !ctrl.data.embed,
+      files: notationFiles(),
+      ranks: notationRanks(),
+    },
     hands: {
       roles: handRoles(ctrl.data.variant),
     },
@@ -62,6 +69,10 @@ export function makeConfig(ctrl: EditorCtrl): SgConfig {
     },
     selectable: {
       enabled: ctrl.data.pref.moveEvent !== 1,
+    },
+    forsyth: {
+      fromForsyth: forsythToRole(ctrl.rules),
+      toForsyth: roleToForsyth(ctrl.rules),
     },
     highlight: {
       lastDests: false,

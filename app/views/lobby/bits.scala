@@ -3,9 +3,10 @@ package views.html.lobby
 import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
-import lila.common.BlogLangs
 
 import controllers.routes
+
+import shogi.variant._
 
 object bits {
 
@@ -84,6 +85,55 @@ object bits {
       )
     )
 
+  def shogiDescription(implicit ctx: Context): Frag =
+    div(cls := "lobby__description lobby__box")(
+      a(cls := "lobby__box__top", href := routes.Learn.index)(
+        h2(cls := "title text", dataIcon := "C")(trans.shogi()),
+        span(cls := "more")(trans.learnMenu(), " »")
+      ),
+      div(id := "shogi_description", cls := "lobby__box__content")(
+        p(
+          trans.shogiDescription(),
+          br,
+          trans.learnShogiHereX(strong(a(href := routes.Learn.index)(trans.shogiBasics())))
+        )
+      )
+    )
+
+  def variants(implicit ctx: Context): Frag =
+    div(cls := "lobby__variants lobby__box")(
+      a(cls := "lobby__box__top", href := routes.Page.variantHome)(
+        h2(cls := "title text", dataIcon := "]")(trans.variants()),
+        span(cls := "more")(trans.more(), " »")
+      ),
+      div(id := "variants_list", cls := "lobby__box__content")(
+        Variant.all.filterNot(_.standard).map { v =>
+          a(cls := "variants_item", href := routes.Page.variant(v.key, none))(variantNameTag(v))
+        }
+      )
+    )
+
+  private def variantNameTag(variant: Variant)(implicit ctx: Context): Frag =
+    variant match {
+      case Kyotoshogi =>
+        h3(dataIcon := "")(
+          s"${trans.kyotoshogi.txt()}${if (ctx.lang.language == "en") " (京都将棋)" else ""}"
+        )
+      case Annanshogi =>
+        h3(dataIcon := "")(
+          s"${trans.annanshogi.txt()}${if (ctx.lang.language == "en") " (安南将棋)" else ""}"
+        )
+      case Chushogi =>
+        h3(dataIcon := "(")(
+          s"${trans.chushogi.txt()}${if (ctx.lang.language == "en") " (中将棋)" else ""}"
+        )
+      case Minishogi =>
+        h3(dataIcon := ",")(
+          s"${trans.minishogi.txt()}${if (ctx.lang.language == "en") " (5五将棋)" else ""}"
+        )
+      case _ => trans.shogi.txt()
+    }
+
   def lastPosts(posts: List[lila.blog.MiniPost])(implicit ctx: Context): Option[Frag] = {
     posts.nonEmpty option
       div(cls := "lobby__blog lobby__box")(
@@ -92,8 +142,8 @@ object bits {
           span(cls := "more")(trans.more(), " »")
         ),
         div(cls := "lobby__box__content")(
-          posts filter { post => post.langCode == BlogLangs.parse(ctx.lang.code) } map { post =>
-            a(cls     := "post", href := routes.Blog.show(post.id, post.slug))(
+          posts map { post =>
+            a(cls     := "post", href := routes.Blog.show(post.id))(
               img(src := post.image),
               span(cls := "text")(
                 strong(post.title),
@@ -113,7 +163,7 @@ object bits {
       p(trans.timeoutExpires(strong(secondsFromNow(ban.remainingSeconds)))),
       h2(trans.why()),
       p(
-        trans.pleasantChessExperience(),
+        trans.pleasantShogiExperience(),
         br,
         trans.goodPractice(),
         br,

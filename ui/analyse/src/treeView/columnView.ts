@@ -1,25 +1,25 @@
-import { h, VNode } from 'snabbdom';
 import { isEmpty } from 'common/common';
+import { notationsWithColor } from 'common/notation';
 import { MaybeVNodes } from 'common/snabbdom';
-import { path as treePath, ops as treeOps } from 'tree';
+import { VNode, h } from 'snabbdom';
+import { ops as treeOps, path as treePath } from 'tree';
+import AnalyseCtrl from '../ctrl';
+import { Conceal, ConcealOf } from '../interfaces';
 import * as moveView from '../moveView';
 import { authorText as commentAuthorText } from '../study/studyComments';
-import AnalyseCtrl from '../ctrl';
-import { ConcealOf, Conceal } from '../interfaces';
 import { enrichText, innerHTML } from '../util';
 import {
+  Ctx as BaseCtx,
+  Opts as BaseOpts,
+  findCurrentPath,
   mainHook,
   nodeClasses,
   nonEmpty,
-  Ctx as BaseCtx,
-  Opts as BaseOpts,
-  usiToNotation,
-  findCurrentPath,
   renderInlineCommentsOf,
-  truncateComment,
   retroLine,
+  truncateComment,
+  usiToNotation,
 } from './util';
-import { notationsWithColor } from 'common/notation';
 
 interface Ctx extends BaseCtx {
   concealOf: ConcealOf;
@@ -58,7 +58,7 @@ function renderChildrenOf(ctx: Ctx, node: Tree.Node, opts: Opts): MaybeVNodes | 
       conceal,
     };
     return ([moveView.renderIndex(main.ply, ctx.ctrl.plyOffset(), false)] as MaybeVNodes)
-      .concat(main.forceVariation ? [] : [renderMoveOf(ctx, main, passOpts)])
+      .concat(main.forceVariation ? [h('move', '')] : [renderMoveOf(ctx, main, passOpts)])
       .concat([
         h(
           'interrupt',
@@ -121,7 +121,7 @@ function renderMoveOf(ctx: Ctx, node: Tree.Node, opts: Opts): VNode {
 
 function renderMainlineMoveOf(ctx: Ctx, node: Tree.Node, opts: Opts): VNode {
   const path = opts.parentPath + node.id,
-    classes = nodeClasses(ctx, node, path);
+    classes = nodeClasses(ctx, node, path, true);
   if (opts.conceal) classes[opts.conceal as string] = true;
   return h(
     'move',
@@ -135,9 +135,7 @@ function renderMainlineMoveOf(ctx: Ctx, node: Tree.Node, opts: Opts): VNode {
 
 function renderVariationMoveOf(ctx: Ctx, node: Tree.Node, opts: Opts): VNode {
   const path = opts.parentPath + node.id,
-    colorIcon = notationsWithColor.includes(ctx.ctrl.data.pref.notation)
-      ? '.color-icon.' + (node.ply % 2 ? 'sente' : 'gote')
-      : '',
+    colorIcon = notationsWithColor() ? '.color-icon.' + (node.ply % 2 ? 'sente' : 'gote') : '',
     content: MaybeVNodes = [
       moveView.renderIndex(node.ply, ctx.ctrl.plyOffset(), true),
       h('move-notation' + colorIcon, node.notation),
@@ -236,7 +234,6 @@ export default function (ctrl: AnalyseCtrl, concealOf?: ConcealOf): VNode {
     concealOf: concealOf || emptyConcealOf,
     showComputer: ctrl.showComputer() && !ctrl.retro,
     showGlyphs: !!ctrl.study || ctrl.showComputer(),
-    notation: ctrl.data.pref.notation,
     variant: ctrl.data.game.variant.key,
     showEval: ctrl.showComputer(),
     currentPath: findCurrentPath(ctrl),

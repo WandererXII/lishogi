@@ -13,8 +13,7 @@ import lila.app._
 import lila.game.Pov
 import lila.round.Forecast.{ forecastJsonWriter, forecastStepJsonFormat }
 import lila.round.JsonView.WithFlags
-import lila.tree.Node.partitionTreeJsonWriter
-import lila.study.JsonView.kifTagsWrites
+import lila.study.JsonView.tagsWrites
 import views._
 
 final class UserAnalysis(
@@ -127,7 +126,7 @@ final class UserAnalysis(
           apiVersion,
           tv = none,
           analysis,
-          withFlags = WithFlags(division = true, opening = true, clocks = true, movetimes = true)
+          withFlags = WithFlags(division = true, clocks = true, movetimes = true)
         ) map { data =>
           Ok(data.add("crosstable", crosstable))
         }
@@ -158,9 +157,9 @@ final class UserAnalysis(
                     )
                   Ok(
                     baseData ++ Json.obj(
-                      "treeParts" -> partitionTreeJsonWriter.writes {
-                        lila.study.TreeBuilder(root, pov.game.variant)
-                      },
+                      "treeParts" -> lila.study.JsonView.partitionTreeJsonWriter.writes(
+                        root
+                      ),
                       "tags" -> tags
                     )
                   ).fuccess

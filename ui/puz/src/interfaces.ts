@@ -13,7 +13,6 @@ export interface PuzPrefs {
   highlightLastDests: boolean;
   highlightCheck: boolean;
   squareOverlay: boolean;
-  notation: number;
 }
 
 export type UserMove = (orig: Key, dest: Key, prom: boolean) => void;
@@ -24,6 +23,7 @@ export interface Puzzle {
   sfen: string;
   line: string;
   rating: number;
+  ambPromotions?: number[];
 }
 
 export interface Run {

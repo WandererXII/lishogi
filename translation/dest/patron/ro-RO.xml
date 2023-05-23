@@ -6,13 +6,14 @@
 	<string name="becomePatron">Become a Lishogi Patron</string>
 	<string name="xBecamePatron">%s became a Lishogi Patron</string>
 	<string name="newPatrons">New Patrons</string>
-	<string name="freeChess">Free shogi for everyone, forever!</string>
+	<string name="freeShogi">Free shogi for everyone, forever!</string>
 	<string name="noAdsNoSubs">No ads, no subscriptions; but open-source and passion.</string>
 	<string name="thankYou">Thank you for your donation!</string>
 	<string name="youHaveLifetime">You have a Lifetime Patron account. That\'s pretty awesome!</string>
 	<string name="patronUntil">You have a Patron account until %s.</string>
 	<string name="ifNotRenewed">If not renewed, you will then be downgraded to free.</string>
 	<string name="weRelyOnSupport">We rely on support from people like you to make it possible. If you enjoy using Lishogi, please consider supporting us by donating and becoming a Patron!</string>
+	<string name="donationSupport">If you want to support Lishogi and open source development, consider donating! You will not get anything in return, because Lishogi treats all users equally, but your donation will be very appreciated!</string>
 	<string name="lifetime">Lifetime</string>
 	<string name="payLifetimeOnce">Pay %s once. Be a Lishogi Patron forever!</string>
 	<string name="lifetimePatron">Lifetime Lishogi Patron</string>
@@ -28,8 +29,6 @@
 	<string name="weAreSmallTeam">We are a small team, so your support makes a huge difference!</string>
 	<string name="celebratedPatrons">The celebrated Patrons who make Lishogi possible</string>
 	<string name="whereMoneyGoes">Where does the money go?</string>
-	<string name="serversAndDeveloper">First of all, powerful servers.
-Then we pay a full-time developer: %s, the founder of Lishogi.</string>
 	<string name="costBreakdown">See the detailed cost breakdown</string>
 	<string name="changeMonthlySupport">Can I change/cancel my monthly support?</string>
 	<string name="changeOrContact">Yes, at any time, from this page.
@@ -71,4 +70,5 @@ However, Patrons get bragging rights with a cool new profile icon.</string>
 	<string name="nowLifetime">You are now a lifetime Lishogi Patron!</string>
 	<string name="nowOneMonth">You are now a Lishogi Patron for one month!</string>
 	<string name="downgradeNextMonth">In one month, you will NOT be charged again, and your Lishogi account will revert to a regular account.</string>
+	<string name="donationPolicy">Donation policy</string>
 </resources>

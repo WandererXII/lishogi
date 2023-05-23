@@ -4,6 +4,7 @@ import shogi.format.kif.KifParser
 import shogi.format.csa.CsaParser
 import shogi.format.ParsedNotation
 
+import java.nio.charset.StandardCharsets.UTF_8
 import java.security.MessageDigest
 import lila.db.ByteArray
 
@@ -13,6 +14,7 @@ private[game] case class Metadata(
     tournamentId: Option[String],
     swissId: Option[String],
     simulId: Option[String],
+    postGameStudy: Option[String],
     analysed: Boolean
 ) {
 
@@ -21,7 +23,7 @@ private[game] case class Metadata(
 
 private[game] object Metadata {
 
-  val empty = Metadata(None, None, None, None, None, false)
+  val empty = Metadata(None, None, None, None, None, None, false)
 }
 
 case class NotationImport(
@@ -54,7 +56,7 @@ object NotationImport {
           .filter(_.nonEmpty)
           .to(List)
           .mkString("\n")
-          .getBytes("UTF-8")
+          .getBytes(UTF_8)
       } take 12
     }
 

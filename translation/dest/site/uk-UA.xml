@@ -1,71 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="playWithAFriend">Грати з другом</string>
+	<string name="shogi">Shogi</string>
+	<string name="playWithAFriend">Грай з другом</string>
 	<string name="playWithTheMachine">Грати з комп’ютером</string>
-	<string name="toInviteSomeoneToPlayGiveThisUrl">Щоб запросити когось до гри, дайте це посилання</string>
-	<string name="gameOver">Гру завершено</string>
-	<string name="waitingForOpponent">Очікування на суперника</string>
-	<string name="waiting">Очікування</string>
-	<string name="yourTurn">Ваш хід</string>
+	<string name="toInviteSomeoneToPlayGiveThisUrl">Дай ланку, аби запросити когось до гри</string>
+	<string name="gameOver">Кінець гри</string>
+	<string name="waitingForOpponent">Очік на противника</string>
+	<string name="waiting">Очік</string>
+	<string name="yourTurn">Твій хід</string>
 	<string name="aiNameLevelAiLevel">%1$s рівень %2$s</string>
 	<string name="level">Рівень</string>
-	<string name="strength">Strength</string>
+	<string name="strength">Сила</string>
 	<string name="toggleTheChat">Стан бесіди</string>
 	<string name="toggleSound">Стан звуку</string>
-	<string name="chat">Чат</string>
-	<string name="resign">Здатися</string>
-	<string name="checkmate">Мат</string>
-	<string name="stalemate">Пат</string>
-	<string name="impasse">Impasse</string>
-	<string name="white">Білі</string>
-	<string name="black">Чорні</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
-	<string name="randomColor">Випадковий колір</string>
-	<string name="createAGame">Створи гру</string>
-	<string name="whiteIsVictorious">Білі перемогли</string>
-	<string name="blackIsVictorious">Перемога чорних</string>
-	<string name="youPlayTheWhitePieces">Граєш білими постатями</string>
-	<string name="youPlayTheBlackPieces">Граєш чорними постатями</string>
+	<string name="chat">Бесіда</string>
+	<string name="resign">Здайся</string>
+	<string name="checkmate">Згуба</string>
+	<string name="stalemate">Безвихідь</string>
+	<string name="impasse">Безвихідь</string>
+	<string name="perpetualCheck">Perpetual check</string>
+	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
+	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
+	<string name="white" comment="Alternative to gote">Наступник</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
+	<string name="black" comment="Alternative to sente">Попередник</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Недоважник</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Переважник</string>
+	<string name="randomColor" comment="Side - sente/gote">Випадковий колір</string>
+	<string name="createAGame">Створити гру</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Твій хід!</string>
-	<string name="cheatDetected">Cheat Detected</string>
+	<string name="cheatDetected">Викрито обман</string>
 	<string name="variantEnding">Инак завершено</string>
-	<string name="newOpponent">Новий суперник</string>
-	<string name="yourOpponentWantsToPlayANewGameWithYou">Ваш суперник знову хоче з вами зіграти</string>
-	<string name="joinTheGame">Приєднатися до гри</string>
-	<string name="whitePlays">Хід білих</string>
-	<string name="blackPlays">Хід чорних</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
+	<string name="newOpponent">Новий противник</string>
+	<string name="yourOpponentWantsToPlayANewGameWithYou">Противник хоче зіграти знову</string>
+	<string name="joinTheGame">Долучись до гри</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
-		<item quantity="one">Суперник покинув гру. Можеш заявити перемогу за %s секунду.</item>
-		<item quantity="few">Суперник покинув гру. Можеш заявити перемогу за %s секунд.</item>
-		<item quantity="many">Суперник покинув гру. Можеш заявити перемогу за %s секунди.</item>
-		<item quantity="other">Суперник покинув гру. Можеш заявити перемогу за %s секунд.</item>
+		<item quantity="one">Противник покинув. Можеш заявити перемогу за %s секунду.</item>
+		<item quantity="few">Противник покинув. Можеш заявити перемогу за %s секунди.</item>
+		<item quantity="many">Противник покинув. Можеш заявити перемогу %s секунд.</item>
+		<item quantity="other">Противник покинув. Можеш заявити перемогу за %s секунд.</item>
 	</plurals>
-	<string name="opponentLeftChoices">Ваш суперник залишив гру. Ви можете оголосити перемогу чи нічию, або зачекати.</string>
-	<string name="makeYourOpponentResign">Примусь суперника здатися</string>
+	<string name="opponentLeftChoices">Противник покинув. Можеш заявити перемогу чи нічию, або зачекати.</string>
+	<string name="makeYourOpponentResign">Примусь противника здатися</string>
 	<string name="forceResignation">Заяви перемогу</string>
-	<string name="forceDraw">Вимагай нічиєї</string>
-	<string name="talkInChat">Будь ласка, будьте ввічливими!</string>
-	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Перша людина, яка перейде за цим посиланням, гратиме з вами.</string>
-	<string name="whiteResigned">Білі здалися</string>
-	<string name="blackResigned">Чорні здалися</string>
-	<string name="whiteLeftTheGame">Білі залишили гру</string>
-	<string name="blackLeftTheGame">Чорні залишили гру</string>
-	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Поширте це посилання, щоб глядачі могли спостерігати за грою</string>
-	<string name="theComputerAnalysisHasFailed">Не вдалося виконати комп’ютерний аналіз</string>
+	<string name="forceDraw">Оголоси нічию</string>
+	<string name="talkInChat">Будь ввічливим!</string>
+	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Перша особа, яка перейде за ланкою, гратиме з тобою.</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
+	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Пошир ланку иншим, щоб могли бачити гру</string>
+	<string name="theComputerAnalysisHasFailed">Розбір обчислювача провалився</string>
 	<string name="viewTheComputerAnalysis">Поглянь розбір обчислювача</string>
 	<string name="requestAComputerAnalysis">Попроси розбору обчислювача</string>
 	<string name="computerAnalysis">Розбір обчислювача</string>
 	<string name="computerAnalysisAvailable">Комп\'ютерний аналіз доступний</string>
-	<string name="analysis">Аналіз за дошкою</string>
+	<string name="analysis">Розбір</string>
 	<string name="depthX">Глибина %s</string>
 	<string name="usingServerAnalysis">Розбір від серверу</string>
-	<string name="loadingEngine">Готування рушія...</string>
-	<string name="cloudAnalysis">Хмарний аналіз</string>
-	<string name="goDeeper">Ще глибше</string>
-	<string name="showThreat">Показати загрозу</string>
+	<string name="loadingEngine">Загруз рушія...</string>
+	<string name="cloudAnalysis">Хмарний розбір</string>
+	<string name="goDeeper" comment="Engine depth">Ще глибше</string>
+	<string name="showThreat">Покажи загрозу</string>
 	<string name="inLocalBrowser">в огляднику</string>
 	<string name="toggleLocalEvaluation">Стан місцевої оцінки</string>
 	<string name="promoteVariation">Висунь відміну</string>
@@ -73,35 +73,40 @@
 	<string name="deleteFromHere">Видали звідси</string>
 	<string name="forceVariation">Просунь відміну</string>
 	<string name="move">Хід</string>
+	<plurals name="nbMoves">
+		<item quantity="one">%s move</item>
+		<item quantity="few">%s moves</item>
+		<item quantity="many">%s moves</item>
+		<item quantity="other">%s moves</item>
+	</plurals>
 	<string name="variantLoss">Відміна програшу</string>
 	<string name="variantWin">Відміна виграшу</string>
 	<string name="insufficientMaterial">Недостатньо матеріалу</string>
 	<string name="pawnMove">Хід пішака</string>
 	<string name="capture">Взяття</string>
-	<string name="close">Закрити</string>
+	<string name="close">Закрий</string>
 	<string name="winning">Виграш</string>
 	<string name="losing">Програш</string>
 	<string name="drawn">Нічия</string>
 	<string name="unknown">Невідомо</string>
 	<string name="database">База даних</string>
-	<string name="whiteDrawBlack">Білі / Нічия / Чорні</string>
 	<string name="averageRatingX">Середній щабель: %s</string>
 	<string name="recentGames">Останні ігри</string>
 	<string name="topGames">Найкращі ігри</string>
 	<string name="noGameFound">Не знайдено гри</string>
-	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Може варто включити більше ігор з вкладки переваг?</string>
-	<string name="openingExplorer">Перегляд початків</string>
+	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Може включити ще ігор з вкладки лаштів?</string>
+	<string name="openingExplorer">Провідник початків</string>
 	<string name="xOpeningExplorer">Провідник початку %s</string>
 	<string name="allSet">Готово!</string>
-	<string name="importKif">Import KIF</string>
-	<string name="importCsa">Import CSA</string>
-	<string name="delete">Видалити</string>
-	<string name="deleteThisImportedGame">Усунути цю принесену гру?</string>
-	<string name="replayMode">Режим повтору</string>
+	<string name="importKif">Ввези KIF</string>
+	<string name="importCsa">Ввези CSA</string>
+	<string name="delete">Видали</string>
+	<string name="deleteThisImportedGame">Усунути цю ввезену гру?</string>
+	<string name="replayMode">Лад повтору</string>
 	<string name="realtimeReplay">Як наживо</string>
 	<string name="byCPL">За CPL</string>
 	<string name="openStudy">Відкрий дослід</string>
-	<string name="enable">Увімкнути</string>
+	<string name="enable">Включи</string>
 	<string name="bestMoveArrow">Стрілка найкращого ходу</string>
 	<string name="evaluationGauge">Мірило оцінки</string>
 	<string name="multipleLines">Число способів</string>
@@ -118,7 +123,7 @@
 	<string name="moveTimes">Час ходів</string>
 	<string name="flipBoard">Переверни дошку</string>
 	<string name="claimADraw">Заяви нічию</string>
-	<string name="offerDraw">Запропонувати нічию</string>
+	<string name="offerDraw">Попроси нічию</string>
 	<string name="draw">Нічия</string>
 	<plurals name="nbPlayers">
 		<item quantity="one">%s гравець</item>
@@ -139,11 +144,11 @@
 		<item quantity="many">%s закладок</item>
 		<item quantity="other">%s закладок</item>
 	</plurals>
-	<string name="viewInFullSize">Дивитися в повний розмір</string>
-	<string name="logOut">Вийти</string>
-	<string name="signIn">Увійти</string>
-	<string name="youNeedAnAccountToDoThat">Для цього вам потрібен обліковий запис</string>
-	<string name="signUp">Зареєструватися</string>
+	<string name="viewInFullSize">Дивись в повний розмір</string>
+	<string name="logOut">Вийди</string>
+	<string name="signIn">Ввійди</string>
+	<string name="youNeedAnAccountToDoThat">Для цього потребуєш особівку</string>
+	<string name="signUp">Запишись</string>
 	<string name="computersAreNotAllowedToPlay">Заборонено грати, користуючись підказками шахових програм та безпосередньо програмами. Будь ласка, не послуговуйтеся під час гри допомогою програм (\"рушіїв\"), баз даних або інших гравців. Також зверніть увагу, що створення декількох облікових записів не заохочується і використання надмірної кількості облікових записів призведе до блокування.</string>
 	<string name="games">Ігри</string>
 	<string name="forum">Толока</string>
@@ -187,7 +192,7 @@
 	<string name="changeEmail">Змінь скриню</string>
 	<string name="email">Скриня</string>
 	<string name="passwordReset">Скинь ключа</string>
-	<string name="forgotPassword">Забув ключа?</string>
+	<string name="forgotPassword">Забули ключа?</string>
 	<string name="rank">Місце</string>
 	<string name="rankX">Місце: %s</string>
 	<plurals name="rankIsUpdatedEveryNbMinutes">
@@ -215,10 +220,8 @@
 	<string name="drawOfferDeclined">Нічию відхилено</string>
 	<string name="drawOfferAccepted">Нічию прийнято</string>
 	<string name="drawOfferCanceled">Нічию скасовано</string>
-	<string name="whiteOffersDraw">Білі подають нічию</string>
-	<string name="blackOffersDraw">Чорні подають нічию</string>
-	<string name="whiteDeclinesDraw">Білі відхилили нічию</string>
-	<string name="blackDeclinesDraw">Чорні відхилили нічию</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Суперник подає нічию</string>
 	<string name="accept">Прийми</string>
 	<string name="decline">Відхиль</string>
@@ -228,18 +231,21 @@
 	<string name="finishesX">завершується %s</string>
 	<string name="abortGame">Перерви гру</string>
 	<string name="gameAborted">Гру перервано</string>
-	<string name="standard">Уставно</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Уставно</string>
+	<string name="minishogi">Minishogi</string>
+	<string name="chushogi">Chushogi</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">Безмежно</string>
 	<string name="mode">Лад</string>
 	<string name="casual">Товариська</string>
-	<string name="rated">Щабельна</string>
+	<string name="rated">Рейтингова</string>
 	<string name="casualTournament">Товариська</string>
-	<string name="ratedTournament">Щабельна</string>
-	<string name="thisGameIsRated">Гра щабельна</string>
+	<string name="ratedTournament">Рейтингова</string>
+	<string name="thisGameIsRated">Гра на рейтинг</string>
 	<string name="rematch">Помста</string>
 	<string name="rematchOfferSent">Помсту подано</string>
-	<string name="rematchOfferSentWhite">Білі подають помсту</string>
-	<string name="rematchOfferSentBlack">Чорні подають помсту</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Помсту прийнято</string>
 	<string name="rematchOfferCanceled">Помсту скасовано</string>
 	<string name="rematchOfferDeclined">Помсту відхилено</string>
@@ -248,7 +254,7 @@
 	<string name="confirmMove">Підтвердь хід</string>
 	<string name="play">Грай</string>
 	<string name="inbox">Вхідні</string>
-	<string name="streamerManager">Streamer manager</string>
+	<string name="streamerManager">Струмовий ручник</string>
 	<string name="chatRoom">Бесіда</string>
 	<string name="loginToChat">Ввійди бесідити</string>
 	<string name="youHaveBeenTimedOut">Ви були відключені.</string>
@@ -259,13 +265,13 @@
 	<string name="recipient">Одержувач</string>
 	<string name="send">Відправити</string>
 	<string name="incrementInSeconds">Додати секунд на хід</string>
-	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
-	<string name="numberOfPeriods">Number of periods</string>
-	<string name="freeOnlineChess">Free Online Shogi</string>
+	<string name="byoyomiInSeconds">Бйойомі в секундах</string>
+	<string name="numberOfPeriods">Кількість ігор</string>
+	<string name="freeOnlineShogi">Free Online Shogi</string>
 	<string name="spectators">Глядачі:</string>
 	<plurals name="nbRated">
-		<item quantity="one">%s щабельна</item>
-		<item quantity="few">%s щабельні</item>
+		<item quantity="one">%s на рейтинг</item>
+		<item quantity="few">%s на рейтинг</item>
 		<item quantity="many">%s щабельні</item>
 		<item quantity="other">%s щабельні</item>
 	</plurals>
@@ -294,7 +300,7 @@
 		<item quantity="other">%s в перебігу</item>
 	</plurals>
 	<string name="exportGames">Виніс ігор</string>
-	<string name="export">Export</string>
+	<string name="export">Вивези</string>
 	<string name="ratingRange">Щаблевий проміжок</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="one">Додай %s секунду</item>
@@ -363,7 +369,9 @@
 	<string name="mustBeInTeam">Треба бути в раті %s</string>
 	<string name="youAreNotInTeam">Ти не в раті %s</string>
 	<string name="backToGame">Назад до гри</string>
-	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
+	<string name="siteDescription">Дармові мережеві шьоґі. Грай в шьоґі в чистому проміжнику. Без запису, реклам і втичок. Грай в шьоґі з обчислювачом, друзями або випадковими противниками.</string>
+	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s вступив до раті %2$s</string>
 	<string name="xCreatedTeamY">%1$s створив рать %2$s</string>
 	<string name="xStartedStreaming">%s почав трансляцію</string>
@@ -374,28 +382,27 @@
 	<string name="apply">Застосувати</string>
 	<string name="save">Збережи</string>
 	<string name="leaderboard">Найкращі гравці</string>
-	<string name="selectHandicap">Select handicap</string>
-	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
-	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
+	<string name="selectHandicap">Вибери перевагу</string>
+	<string name="pasteTheSfenStringHere">Встав SFEN сюди</string>
+	<string name="pasteTheKifCsaStringHere">Встав KIF чи CSA сюди</string>
 	<string name="fromPosition">З розташови</string>
-	<string name="default">Default</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">Відсутньо</string>
 	<string name="continueFromHere">Продовж звідси</string>
-	<string name="toStudy">Дослід</string>
-	<string name="importGame">Принеси гру</string>
-	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay,
-computer analysis, game chat and shareable URL.</string>
+	<string name="toStudy">Дослідження</string>
+	<string name="importGame">Імпортувати гру</string>
+	<string name="importGameKifCsaExplanation">Встав KIF чи CSA, аби отримати огляд гри,
+розбір обчислювача, ігрову бесіду і ширильну ланку.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s принесена гра</item>
 		<item quantity="few">%s пренесені ігри</item>
 		<item quantity="many">%s пренесених ігор</item>
 		<item quantity="other">%s пренесених ігор</item>
 	</plurals>
-	<string name="thisIsAChessCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Натисніть на дошці, щоб зробити хід і довести, що ви людина.</string>
-	<string name="captcha.fail">Please solve the shogi captcha.</string>
+	<string name="captcha.fail">Виріш шьоґову капчу.</string>
 	<string name="notACheckmate">Не мат</string>
-	<string name="whiteCheckmatesInOneMove">Білі починають і матують в один хід</string>
-	<string name="blackCheckmatesInOneMove">Чорні починають і матують в один хід</string>
+	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Повтори</string>
 	<string name="reconnecting">Перепідключення</string>
 	<plurals name="nbFriendsOnline">
@@ -429,7 +436,7 @@ computer analysis, game chat and shareable URL.</string>
 	</plurals>
 	<string name="more">Більше</string>
 	<string name="memberSince">Записаний з</string>
-	<string name="lastSeenActive">Був %s</string>
+	<string name="lastSeenActive">Були %s</string>
 	<string name="challengeToPlay">Виклик на гру</string>
 	<string name="player">Гравець</string>
 	<string name="list">Список</string>
@@ -451,12 +458,13 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="advancedSettings">Додаткові лашти</string>
 	<string name="safeTournamentName">Назви́ змаг незлободенно.</string>
 	<string name="inappropriateNameWarning">Будь-яка невідповідність спричине закрити твою обліківку.</string>
-	<string name="emptyTournamentName">Leave empty to name the tournament after a notable shogi player.</string>
+	<string name="emptyTournamentName">Залиш назву змага пустим на честь відомого гравця по шьоґі.</string>
 	<string name="recommendNotTouching">Радимо не торкатися цього.</string>
 	<string name="fewerPlayers">Якщо встановиш умови вступу, то змаг матиме менше гравців.</string>
 	<string name="showAdvancedSettings">Покаж додаткові лашти</string>
 	<string name="makePrivateTournament">Зроби особистий змаг з ключним доступом</string>
 	<string name="join">Долучись</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Вилучись</string>
 	<string name="points">Очки</string>
 	<string name="wins">Перемоги</string>
@@ -472,8 +480,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">Скуток</string>
 	<string name="tournamentComplete">Змаг завершений</string>
 	<string name="movesPlayed">Ходів зіграно</string>
-	<string name="whiteWins">Білі виграли</string>
-	<string name="blackWins">Чорні виграли</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Нічиї</string>
 	<string name="nextXTournament">Наступний змаг в %s:</string>
 	<string name="averageOpponent">Середній щабель суперника</string>
@@ -481,11 +488,11 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="boardEditor">Редактор дошки</string>
 	<string name="setTheBoard">Устав дошку</string>
 	<string name="popularOpenings">Знанні початки</string>
-	<string name="handicaps">Handicaps</string>
-	<string name="handicap">Handicap</string>
+	<string name="handicaps">Переваги</string>
+	<string name="handicap">Перевага</string>
 	<string name="startPosition">Початкова позиція</string>
 	<string name="clearBoard">Вичисть дошку</string>
-	<string name="fillGotesHand">Fill Gote\'s hand</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Збережи розташову</string>
 	<string name="loadPosition">Вантаж розташову</string>
 	<string name="isPrivate">Особистий</string>
@@ -502,15 +509,13 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="country">Країна</string>
 	<string name="socialMediaLinks">Ланки суспільних мереж</string>
 	<string name="inlineNotation">Рядковий запис</string>
-	<string name="watchLishogiTV">Watch Lishogi TV</string>
-	<string name="previouslyOnLishogiTV">Previously on Lishogi TV</string>
+	<string name="watchLishogiTV">Оглядай ТБ Lishogi</string>
+	<string name="previouslyOnLishogiTV">Раніше на ТБ Lishogi</string>
 	<string name="onlinePlayers">Гравці онлайн</string>
 	<string name="activeToday">Дієвість сьогодні</string>
 	<string name="activePlayers">Дієві гравці</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Увага! Щабельна гра, але без обмежень часу!</string>
 	<string name="yourPuzzleRatingX">Твій задачний щабель: %s</string>
-	<string name="findTheBestMoveForWhite">Знайдіть найкращий хід за білих.</string>
-	<string name="findTheBestMoveForBlack">Знайдіть найкращий хід за чорних.</string>
 	<string name="toTrackYourProgress">Стежити за своїм поступом:</string>
 	<string name="puzzleId">Задача %s</string>
 	<string name="puzzleOfTheDay">Задача дня</string>
@@ -590,7 +595,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="newPasswordAgain">Повтори новий ключ</string>
 	<string name="clockInitialTime">Час початку годинника</string>
 	<string name="clockIncrement">Приріст часу</string>
-	<string name="clockByoyomi">Clock byoyomi</string>
+	<string name="clockByoyomi">Годинник бйойомі</string>
 	<string name="privacy">Особистність</string>
 	<string name="letOtherPlayersFollowYou">Дозволити іншим спостерігати за вами</string>
 	<string name="letOtherPlayersChallengeYou">Дозволити іншим кидати вам виклик</string>
@@ -600,9 +605,10 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="fast">Швидко</string>
 	<string name="normal">Звичайно</string>
 	<string name="slow">Повільно</string>
+	<string name="compact">Compact</string>
 	<string name="insideTheBoard">Всередині</string>
 	<string name="outsideTheBoard">Ззовні</string>
-	<string name="edgeOfTheBoard">Edge of the board</string>
+	<string name="edgeOfTheBoard">Край дошки</string>
 	<string name="onSlowGames">В повільних іграх</string>
 	<string name="always">Завжди</string>
 	<string name="never">Ніколи</string>
@@ -622,7 +628,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="starting">Початок:</string>
 	<string name="allInformationIsPublicAndOptional">Уся інформація публічна та необов\'язкова.</string>
 	<string name="yourCityRegionOrDepartment">Твоє місто, місцина чи область.</string>
-	<string name="biographyDescription">Talk about yourself, your interests, what you like in shogi, your favourite openings, players, ...</string>
+	<string name="biographyDescription">Розкажи про себе, інтереси, чому шьоґі, улюблені початки, гравці ітд.</string>
 	<plurals name="maximumNbCharacters">
 		<item quantity="one">Щонайбільше: %s знак.</item>
 		<item quantity="few">Максимум: %s символів.</item>
@@ -642,20 +648,20 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="clock">Годинник</string>
 	<string name="unauthorizedError">Доступ не надано.</string>
 	<string name="noInternetConnection">Немає звʼязку з міжмережжю. Можеш грати без мережи з переліку.</string>
-	<string name="connectedToLishogi">You are now connected to lishogi.org</string>
+	<string name="connectedToLishogi">Зʼєднані з lishogi.org</string>
 	<string name="signedOut">Вийдено</string>
 	<string name="loginSuccessful">Зайдено</string>
 	<string name="playOnTheBoardOffline">Над дошкою</string>
 	<string name="playOfflineComputer">Обчислювач</string>
 	<string name="opponent">Суперник</string>
-	<string name="learnMenu">Вчи</string>
+	<string name="learnMenu">Навчатися</string>
 	<string name="studyMenu">Дослід</string>
 	<string name="practice">Вправи</string>
 	<string name="community">Спільнота</string>
-	<string name="tools">Знадоби</string>
+	<string name="tools">Інструменти</string>
 	<string name="increment">Приріст</string>
-	<string name="byoyomi">Byoyomi</string>
-	<string name="periods">Periods</string>
+	<string name="byoyomi">Бйойомі</string>
+	<string name="periods">Кіл</string>
 	<string name="playOnline">Грай намережево</string>
 	<string name="playOffline">Грай безмережево</string>
 	<string name="allowAnalytics">Дозволь безіменні обліки</string>
@@ -685,7 +691,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="webmasters">Розробники</string>
 	<string name="about">Про сайт</string>
 	<string name="aboutX">Про %s</string>
-	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
 	<string name="really">справді</string>
 	<string name="contribute">Внеси</string>
 	<string name="termsOfService">Умови користування</string>
@@ -709,12 +715,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="simulClockHint">Лашти годинника Фішера. Чим більше гравців, тим більше часу тобі треба.</string>
 	<string name="simulAddExtraTime">Ви можете додати собі час, щоб упоратися з сеансом.</string>
 	<string name="simulHostExtraTime">Додатковий час для власника</string>
-	<string name="numberOfByoyomiPeriods">Number of byoyomi periods</string>
-	<string name="hostColorForEachGame">Host color for each game</string>
-	<string name="onlyMembersOfTeam">Only members of team</string>
-	<string name="simulDescription">Simul description</string>
-	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
-	<string name="lishogiTournaments">Lishogi tournaments</string>
+	<string name="numberOfByoyomiPeriods">Число кіл бйойомі</string>
+	<string name="hostColorForEachGame">Колір відника для кожної гри</string>
+	<string name="onlyMembersOfTeam">Тільки члени дружини</string>
+	<string name="simulDescription">Опис одночасної гри</string>
+	<string name="anythingTellParticipants">Щось хочеш розказати учасникам?</string>
+	<string name="lishogiTournaments">Lishogi змаги</string>
 	<string name="tournamentFAQ">Часті запитання про змаги</string>
 	<string name="tournamentOfficial">Затверджені</string>
 	<string name="timeBeforeTournamentStarts">Час до початку змагу</string>
@@ -725,8 +731,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="keyShowOrHideComments">Показати/приховати коментарі</string>
 	<string name="keyEnterOrExitVariation">зайти/вийти з варіанту</string>
 	<string name="newTournament">Новий турнір</string>
-	<string name="tournamentHomeTitle">Shogi tournaments featuring various time controls and variants</string>
-	<string name="tournamentHomeDescription">Play fast-paced shogi tournaments! Join an official scheduled tournament, or create your own. Bullet, Blitz, Classical and more options available for endless shogi fun.</string>
+	<string name="tournamentHomeTitle">Змаги з різними способами і всякими часовими управами</string>
+	<string name="tournamentHomeDescription">Грай в швидкісні змаги! Долучись до намічених змагів чи створи свій. Пульний, блискавичний, зразковий та більше инших способів доступні для безкінечних розваг під шьоґі.</string>
 	<string name="tournamentNotFound">Турнір не знайдено</string>
 	<string name="tournamentDoesNotExist">Цього турніру не існує.</string>
 	<string name="tournamentMayHaveBeenCanceled">Він міг бути скасований, якщо всі гравці залишили його до початку.</string>
@@ -750,8 +756,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Якщо не знайшли листа, перевірте місця, де б він міг бути (наприклад, спам).</string>
 	<string name="weHaveSentYouAnEmailTo">Ми надіслали повідомлення на %s. Для перевстановлення паролю перейдіть за посиланням у повідомленні.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Ваша рєєстрація означає згоду з обмеженням нашими %s.</string>
-	<string name="networkLagBetweenYouAndLishogi">Network lag between you and Lishogi</string>
-	<string name="timeToProcessAMoveOnLishogiServer">Time to process a move on Lishogi\'s server</string>
+	<string name="networkLagBetweenYouAndLishogi">Затримка звʼязку мережі між тобою і Lishogi</string>
+	<string name="timeToProcessAMoveOnLishogiServer">Час обробки ходу</string>
 	<string name="downloadAnnotated">Завантажити з коментарями</string>
 	<string name="downloadRaw">Завантажити без коментарів</string>
 	<string name="downloadImported">Завантажити імпортоване</string>
@@ -760,29 +766,30 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="youCanAlsoScrollOverTheBoardToMoveInTheGame">Також ви можете використовувати прокрутку над шахівницею для перегляду ходів у грі.</string>
 	<string name="analysisShapesHowTo">Натисніть shift+ЛКМ або ПКМ, щоби намалювати кола та стрілки на шахівниці.</string>
 	<string name="letOtherPlayersMessageYou">Дозволити іншим гравцям надсилати вам повідомлення</string>
-	<string name="shareYourInsightsData">Share your shogi insights data</string>
+	<string name="shareYourInsightsData">Пошир свій облік по шьогі</string>
 	<string name="withNobody">Ні з ким</string>
 	<string name="withFriends">З друзями</string>
 	<string name="withEverybody">З будь-ким</string>
 	<string name="youHaveAlreadyRegisteredTheEmail">Ви вже маєте зареєстровану поштову адресу: %s</string>
 	<string name="kidMode">Режим для дітей</string>
 	<string name="kidModeExplanation">Це заради безпеки. У дитячому режимі усе спілкування на сайті вимкнено. Увімкніть цю функцію для ваших дітей та учнів, щоб захистити їх від інших користувачів Інтернету.</string>
-	<string name="inKidModeTheLishogiLogoGetsIconX">In kid mode, the Lishogi logo gets a %s icon, so you know your kids are safe.</string>
+	<string name="inKidModeTheLishogiLogoGetsIconX">Дитячий лад додає образ %s до позначки Lishogi, щоби знали, що твої діти в безпеці.</string>
 	<string name="enableKidMode">Увімкнути дитячий режим</string>
 	<string name="disableKidMode">Вимкнути дитячий режим</string>
 	<string name="security">Безпека</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Це список пристроїв, з котрих заходили в Ваш аккаунт. Завершіть будь-які підозрілі сеанси.</string>
 	<string name="alternativelyYouCanX">Крім того, Ви можете %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">завершити усі сеанси</string>
-	<string name="playChessEverywhere">Play shogi everywhere</string>
-	<string name="asFreeAsLishogi">As free as Lishogi</string>
-	<string name="builtForTheLoveOfChessNotMoney">Built for the love of shogi, not money</string>
+	<string name="playShogiEverywhere">Play shogi everywhere</string>
+	<string name="asFreeAsLishogi">Дармо як Lishogi</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">Усі можливості безкоштовні для всіх</string>
 	<string name="zeroAdvertisement">Без реклами</string>
 	<string name="fullFeatured">Повнофункціональний</string>
 	<string name="phoneAndTablet">Для смартфонів та планшетів</string>
 	<string name="bulletBlitzClassical">Куля, бліц, класичний контроль</string>
-	<string name="correspondenceChess">Correspondence shogi</string>
+	<string name="correspondenceShogi">Correspondence shogi</string>
 	<string name="onlineAndOfflinePlay">Гра онлайн та оффлайн</string>
 	<string name="viewTheSolution">Дивитись рішення</string>
 	<string name="followAndChallengeFriends">Стежте та викликайте друзів</string>
@@ -806,17 +813,17 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="light">Світла</string>
 	<string name="dark">Темна</string>
 	<string name="transparent">Прозора</string>
-	<string name="customTheme">Custom theme</string>
+	<string name="customTheme">Вільний вигляд</string>
 	<string name="backgroundImageUrl">URL зображення в тлі:</string>
-	<string name="backgroundColor">Background color:</string>
-	<string name="gridColor">Grid color:</string>
-	<string name="gridWidth">Grid width:</string>
-	<string name="board">Board</string>
-	<string name="grid">Grid</string>
-	<string name="gridSlim">Slim</string>
-	<string name="gridThick">Thick</string>
-	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="backgroundColor">Колір тла:</string>
+	<string name="gridColor">Колір сітки:</string>
+	<string name="gridWidth">Ширина сітки:</string>
+	<string name="board">Дошка</string>
+	<string name="grid">Сітка</string>
+	<string name="gridSlim">Тонкий</string>
+	<string name="gridThick">Товстий</string>
+	<string name="gridVeryThick">Затовстий</string>
+	<string name="hands" comment="Title in custom board theme editor">Руки</string>
 	<string name="boardTheme">Оформлення дошки</string>
 	<string name="boardSize">Розмір дошки</string>
 	<string name="pieceSet">Набір фігур</string>
@@ -826,14 +833,13 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="usernameSuffixInvalid">Ім\'я користувача має закінчуватися буквою або цифрою.</string>
 	<string name="usernameCharsInvalid">Ім\'я користувача має містити тільки літери, цифри, символи підкреслення і тире.</string>
 	<string name="usernameUnacceptable">Неприйнятне ім\'я користувача.</string>
-	<string name="directlySupportLishogi">Directly support Lishogi</string>
-	<string name="playChessInStyle">Play shogi in style</string>
-	<string name="chessBasics">Shogi basics</string>
-	<string name="shogiResources">Shogi resources</string>
+	<string name="directlySupportLishogi">Прямо підтримай Lishogi</string>
+	<string name="playShogiInStyle">Play shogi in style</string>
+	<string name="shogiBasics">Shogi basics</string>
+	<string name="shogiResources">Джерела шьоґі</string>
 	<string name="coaches">Тренери</string>
-	<string name="invalidKif">Invalid KIF</string>
-	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">Неприпустимий FEN</string>
+	<string name="invalidNotation">Неволодний запис</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">Мінімальна довжина-%s</string>
 	<string name="error.maxLength">Максимальна довжина-%s</string>
 	<string name="error.min">Має бути більше або дорівнювати %s</string>
@@ -860,28 +866,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">Приховати найкращий хід</string>
 	<string name="getAHint">Отримати підказку</string>
 	<string name="evaluatingYourMove">Оцінка вашого ходу...</string>
-	<string name="whiteWinsGame">Білі виграли</string>
-	<string name="blackWinsGame">Чорні виграли</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Робота над помилками</string>
 	<string name="learnFromThisMistake">Розібрати цю помилку</string>
 	<string name="skipThisMove">Пропустити цей хід</string>
 	<string name="next">Далі</string>
 	<string name="xWasPlayed">Було зіграно %s</string>
-	<string name="findBetterMoveForWhite">Знайдіть за білих більш сильний хід</string>
-	<string name="findBetterMoveForBlack">Знайдіть за чорних більш сильний хід</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Продовжити навчання</string>
 	<string name="youCanDoBetter">Є й більш сильний хід</string>
-	<string name="tryAnotherMoveForWhite">Спробуйте інший хід за білих</string>
-	<string name="tryAnotherMoveForBlack">Спробуйте інший хід за чорних</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Відповідь</string>
 	<string name="waitingForAnalysis">Очікування аналізу</string>
-	<string name="noMistakesFoundForWhite">Помилок білих не знайдено</string>
-	<string name="noMistakesFoundForBlack">Помилок чорних не знайдено</string>
-	<string name="doneReviewingWhiteMistakes">Помилки білих розібрані</string>
-	<string name="doneReviewingBlackMistakes">Помилки чорних розібрані</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Ще раз</string>
-	<string name="reviewWhiteMistakes">Розібрати помилки білих</string>
-	<string name="reviewBlackMistakes">Розібрати помилки чорних</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Перевага</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s секунда</item>
@@ -913,7 +913,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="weHadToTimeYouOutForAWhile">Нам довелося тебе деавторизувати на певний час.</string>
 	<string name="timeoutExpires">Тайм-аут закінчується через %s.</string>
 	<string name="why">Чому?</string>
-	<string name="pleasantChessExperience">We aim to provide a pleasant shogi experience for everyone.</string>
+	<string name="pleasantShogiExperience">We aim to provide a pleasant shogi experience for everyone.</string>
 	<string name="goodPractice">Щоб домігтися цього ефекту, ми повинні впевнитися, що всі гравці дотримуються хорошої практики.</string>
 	<string name="potentialProblem">Це повідомлення відображається якщо ми знайшли потенційну проблему.</string>
 	<string name="howToAvoidThis">Як цього уникнути?</string>
@@ -925,10 +925,11 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="thankYouForReading">Дякуємо, що прочитали!</string>
 	<string name="lifetimeScore">Загальний результат</string>
 	<string name="currentMatchScore">Поточний рахунок матчу</string>
-	<string name="agreementAssistance">I agree that I will at no time receive assistance during my games (from a shogi computer, book, database or another person).</string>
+	<string name="agreementAssistance">Пого́джу, що під час моїх ігор не буде допоміжної подачки (з обчислювача по шьоґі, книги, бази даних чи иншої особи).</string>
 	<string name="agreementNice">Я погоджуюся, що я завжди буду ставитись чемно до інших гравців.</string>
 	<string name="agreementAccount">Я погоджуюся, що я не буду створювати більше одного облікового запису.</string>
 	<string name="agreementPolicy">Я погоджуюся, що я буду слідувати усім правилам Lishogi.</string>
+	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Шукати або розпочати бесіду</string>
 	<string name="edit">Змінити</string>
 	<string name="rapid">Швидкі</string>
@@ -939,7 +940,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="rapidDesc">Нетривалі ігри: від 8 до 25 хвилин</string>
 	<string name="classicalDesc">Класичні гри: 25 хвилин і більше</string>
 	<string name="correspondenceDesc">Заочні шахи: один чи декілька днів на хід</string>
-	<string name="puzzleDesc">Shogi tactics trainer</string>
+	<string name="puzzleDesc">Тактичний вправник по шьоґі</string>
 	<string name="important">Важливо</string>
 	<string name="yourQuestionMayHaveBeenAnswered">Ваше запитання може мати відповідь %1$s</string>
 	<string name="inTheFAQ">в ЧаПи.</string>
@@ -953,18 +954,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="youCannotPostYetPlaySomeGames">Ви не можете писати нові повідомлення у форумах. Зіграйте кілька ігор!</string>
 	<string name="subscribe">Підписатись</string>
 	<string name="unsubscribe">Відписатись</string>
-	<string name="blackDeclinesImpasse">Sente declines impasse</string>
-	<string name="blackOffersImpasse">Sente offers impasse</string>
-	<string name="notationType">Notation</string>
-	<string name="whiteDeclinesImpasse">Gote declines impasse</string>
-	<string name="whiteOffersImpasse">Gote offers impasse</string>
-	<string name="notationSystem">Notation</string>
-	<string name="officialBlog">Lishogi Official Blog</string>
-	<string name="blogPostsFromYear">Blog posts from %1$s</string>
-	<string name="previousBlogPosts">Previous blog posts</string>
-	<string name="continueReadingThis"> Continue reading this post</string>
-	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="notationSystem">Позначка</string>
+	<string name="officialBlog">Службовий денник Lishogi</string>
+	<string name="blogPostsFromYear">Допис до денника від %1$s</string>
+	<string name="previousBlogPosts">Раніші дописи до денника</string>
+	<string name="continueReadingThis"> Продовж читати</string>
+	<string name="discussBlogForum">Обговори допис до денника на толоці</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Неволодні постаті</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Вхід короля</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Вся ціна</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyOfPlayers">Study of players</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

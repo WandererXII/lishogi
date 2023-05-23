@@ -5,12 +5,11 @@
 	<string name="whyIsLishogiCalledLishogi">Tại sao Lishogi lại... có tên là Lishogi?</string>
 	<string name="forkedFromLichess">Lishogi là một dự án mã nguồn mở dựa trên Lichess, nhưng vì nó dùng để chơi Shogi, nên tên của nó là Lishogi!</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Bởi vì nó lấy cảm hứng từ Lichess, mà Lichess có tên như vậy vì nó là sự kết hợp của live/light/libre và chess. Lishogi được đọc là %1$s</string>
-	<string name="leechess">lee-shogi</string>
+	<string name="leeshogi">lee-shogi</string>
 	<string name="whyLiveLightLibre">Live ( luôn trực tiếp ) vì các ván đấu luôn được chơi và theo dõi 24/4. Light và Libre ( nhẹ và miễn phí ) vì Lishogi có mã nguồn mở và không có các vấn đề độc quyền làm ảnh hướng đến các trang web khác.</string>
 	<string name="whyIsLilaCalledLila">Tương tự vậy, mã nguồn của Lishogi,%1$s, li là viết tắt của cờ vua trong sca, la vì phần lớn Lishogi được viết bằng %2$s, một ngôn ngữ lập trình trực quan.</string>
 	<string name="howCanIContributeToLishogi">Làm thế nào để tôi có thể đóng góp cho Lishogi?</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi được hỗ trợ bởi sự đóng góp từ những người bảo trợ và nỗ lực của một nhóm tình nguyện viên.</string>
-	<string name="findMoreAndSeeHowHelp">Bạn có thể xem thêm thông tin về %1$s. Nếu bạn muốn giúp Lishogi bằng việc tình nguyện dành thời gian và kỹ năng của bạn, có rất nhiều %2$s.</string>
 	<string name="beingAPatron">Trở thành một Patron</string>
 	<string name="otherWaysToContribute">Có rất nhiều cách để bạn đóng góp cho Lishogi.</string>
 	<string name="breakdownOfOurCosts">xem bảng chi tiết về chi phí của chúng tôi</string>
@@ -31,36 +30,36 @@
 	<string name="howBulletBlitzEtcDecided">Cờ siêu chớp, cờ chớp và các định giờ khác được quyết định thế nào?</string>
 	<string name="basedOnGameDuration">Việc xác định loại cờ của Lishogi dựa trên thời lượng ván đấu ước tính =%1$s
 Ví dụ: thời lượng ước tính của một ván cờ 5+3 là 5 × 60 + 40 × 3 = 420 giây.</string>
-	<string name="durationFormula">60 x ( thời gian đồng hồ chính theo phút ) + 60 x ( thời gian bổ sung ) + 25 x ( thời gian byoyomi )</string>
+	<string name="formulaOfDuration">60 × (clock initial time in minutes) + 60 × (clock increment) + 25 × (clock byoyomi) × (clock periods)</string>
 	<string name="inferiorThanXsEqualYtimeControl">&lt; %1$s giây = %2$s</string>
 	<string name="superiorThanXsEqualYtimeControl">≥ %1$s giây = %2$s</string>
 	<string name="whatVariantsCanIplay">Tôi có thể chơi các loại biến thể nào trên Lishogi?</string>
-	<string name="lishogiSupportChessAnd">Lishogi hỗ trợ Shogi tiêu chuẩn và %1$s.</string>
-	<string name="whatIsACPL">What is the average centipawn loss (ACPL)?</string>
-	<string name="acplExplanation">The centipawn is the unit of measure used in chess as representation of the advantage. A centipawn is equal to 1/100th of a pawn. Therefore 100 centipawns = 1 pawn. These values play no formal role in the game but are useful to players, and essential in computer chess, for evaluating positions.
+	<string name="lishogiSupportShogiAnd">Lishogi hỗ trợ shogi tiêu chuẩn và %1$s.</string>
+	<string name="whatIsACPL">Phần trăm tốt mất trung bình (ACPL) là gì?</string>
+	<string name="acplExplanation">Phần trăm tốt là đơn vị đo lường được sử dụng trong cờ vua để đại diện cho lợi thế. Một phần trăm tốt bằng 1/100 tốt. Do đó 100 phần trăm tốt = 1 tốt. Những giá trị này không đóng vai trò chính thức trong ván đấu nhưng hữu ích cho người chơi, và rất cần thiết trong cờ vua trên máy tính, để đánh giá các vị trí.
 
-The top computer move will lose zero centipawns, but lesser moves will result in a deterioration of the position, measured in centipawns.
+Đẩy tốt lên cao sẽ có thể không làm mất phần trăm tốt, nhưng để tốt thấp sẽ làm giảm vị trí, được đo bằng phần trăm tốt.
 
-This value can be used as an indicator of the quality of play. The fewer centipawns one loses per move, the stronger the play.
+Giá trị này có thể được sử dụng như một chỉ báo về chất lượng chơi. Càng ít phần trăm tốt mất mỗi nước đi, càng có ưu thế.
 
-The computer analysis on Lishogi is powered by Stockfish.</string>
+Phân tích máy tính trên Lishogi do Stockfish cung cấp.</string>
 	<string name="insufficientMaterial">Thua về thời gian, hòa và không đủ quân chiếu hết</string>
 	<string name="goodIntroduction">lời mở đầu tốt</string>
 	<string name="officialRulesPDF">luật chính thức (PDF)</string>
 	<string name="lishogiTraining">Luyện tập Lishogi</string>
-	<string name="fourfoldRepetition">Fourfold repetition</string>
+	<string name="fourfoldRepetition">Lặp cờ</string>
 	<string name="handBookPDF">cẩm nang (PDF)</string>
-	<string name="notRepeatedMoves">We did not repeat moves. Why was the game still drawn by repetition?</string>
-	<string name="repeatedPositionsThatMatters">Fourfold repetition is about repeated %1$s, not moves. Repetition does not have to occur consecutively.</string>
+	<string name="notRepeatedMoves">Chúng tôi không lặp lại các nước đi. Tại sao ván đấu vẫn bị xử hòa bởi luật lặp cờ?</string>
+	<string name="repeatedPositionsThatMatters">Lặp lại ba lần là về %1$s bị lặp lại, không phải các nước đi. Sự lặp lại không nhất thiết phải xảy ra liên tiếp.</string>
 	<string name="positions">thế trận</string>
 	<string name="configure">cấu hình</string>
 	<string name="accounts">Tài khoản</string>
 	<string name="titlesAvailableOnLishogi">Có những danh hiệu nào trên Lishogi?</string>
-	<string name="showYourTitle">If you have an OTB title, you can apply to have this displayed on your account by completing the %1$s, including a clear image of an identifying document/card and a selfie of you holding the document/card.
+	<string name="showYourTitle">Nếu bạn có danh hiệu OTB, bạn có thể đăng ký để hiển thị tiêu đề này trên tài khoản của mình bằng cách hoàn thành %1$s, bao gồm hình ảnh rõ ràng của tài liệu/thẻ nhận dạng và ảnh tự chụp của bạn đang cầm tài liệu/thẻ.
 
-Verifying as a titled player on Lishogi gives access to play in the Titled Arena events.
+Việc xác minh là người chơi có danh hiệu trên Lishogi sẽ cho phép bạn chơi trong các sự kiện Đấu trường kỳ thủ có danh hiệu.
 
-Finally there is an honorary %2$s title.</string>
+Cuối cùng là danh hiệu danh dự %2$s.</string>
 	<string name="verificationForm">biểu mẫu xác minh</string>
 	<string name="canIbecomeLM">Tôi có thể nhận danh hiệu Lishogi Master (LM) không?</string>
 	<string name="noUpperCaseDot">Không.</string>
@@ -95,7 +94,7 @@ Một điểm cần lưu ý nữa là, khi thời gian trôi qua, khoảng tin c
 	<string name="ratingLeaderboards">thứ hạng trên bảng xếp hạng</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">đã chơi ít nhất 30 ván xếp hạng trong một xếp hạng nhất định,</string>
 	<string name="havePlayedARatedGameAtLeastOneWeekAgo">đã chơi một ván xếp hạng trong tuần trước cho xếp hạng này,</string>
-	<string name="ratingDeviationLowerThanXinChessYinVariants">có độ lệch xếp hạng thấp hơn %1$s, trong cờ Shogi tiêu chuẩn, và thấp hơn %2$s trong các biến thể,</string>
+	<string name="ratingDeviationLowerThanXinShogiYinVariants">có độ lệch xếp hạng thấp hơn %1$s, trong Shogi tiêu chuẩn, và thấp hơn %2$s trong các biến thể,</string>
 	<string name="beInTopTen">nằm trong top 10 trong bảng xếp hạng này.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Yêu cầu thứ hai là những người chơi không còn sử dụng tài khoản sẽ không được đưa vào bảng xếp hạng.</string>
 	<string name="whyAreRatingHigher">Tại sao xếp hạng lại khác khi so sánh với các ví dụ khác, như 81Dojo và Shogi Club 24?</string>

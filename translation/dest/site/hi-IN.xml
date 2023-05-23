@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">मित्र के साथ खेलें</string>
 	<string name="playWithTheMachine">कंप्यूटर के साथ खेलें</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">इस खेल में किसी को आमंत्रित करने के लिए उन्हें ये URL दें</string>
@@ -17,26 +18,26 @@
 	<string name="checkmate">शह और मात</string>
 	<string name="stalemate">स्टेलमेट (Stalemate)</string>
 	<string name="impasse">इमपास्से (Impasse)</string>
-	<string name="white">गोते (Gote/White)</string>
-	<string name="black">सेनटे (Sente/Black)</string>
-	<string name="shitate">शिताते (Shitate)</string>
-	<string name="uwate">ऊवाते (Uwate)</string>
-	<string name="randomColor">कोई भी रंग</string>
+	<string name="perpetualCheck">Perpetual check</string>
+	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
+	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
+	<string name="white" comment="Alternative to gote">सफ़ेद</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
+	<string name="black" comment="Alternative to sente">काला</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">शिताते (Shitate)</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">ऊवाते (Uwate)</string>
+	<string name="randomColor" comment="Side - sente/gote">कोई भी रंग</string>
 	<string name="createAGame">नया खेल बनाएं</string>
-	<string name="whiteIsVictorious">सफेद (Gote) विजय हुआ</string>
-	<string name="blackIsVictorious">काले (Sente) की जय</string>
-	<string name="youPlayTheWhitePieces">आप सफेद (Gote) के रूप में खेलते हैं</string>
-	<string name="youPlayTheBlackPieces">आप काले (सेंटे) के रूप में खेलते हैं</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s की विजय हुई</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">यह आपकी बारी है!</string>
 	<string name="cheatDetected">धोखा का पता चला</string>
 	<string name="variantEnding">प्रकार समाप्त</string>
 	<string name="newOpponent">नया प्रतिद्वंदी ढूंढें</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">आपका प्रतिद्वंदी आपके साथ एक और खेल खेलना चाहता है</string>
 	<string name="joinTheGame">खेल में शामिल हों</string>
-	<string name="whitePlays">सफेद (Gote) की चाल</string>
-	<string name="blackPlays">काले (Sente) की चाल</string>
-	<string name="shitatePlays">शिताते (Shitate) की चाल</string>
-	<string name="uwatePlays">ऊवानते (Uwante) की चाल</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">आपके प्रतिद्वंद्वी ने खेल छोड़ दिया। आप %s सेकंड में जीत का दावा कर सकते हैं।</item>
 		<item quantity="other">आपके प्रतिद्वंद्वी ने खेल छोड़ दिया। आप %s सेकंड में जीत का दावा कर सकते हैं।</item>
@@ -47,10 +48,9 @@
 	<string name="forceDraw">बराबरी पर खेल समाप्त करें</string>
 	<string name="talkInChat">कृपया चैट में अच्छे बनें !</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">इस URL पर आने वाला पहला व्यक्ति आपके साथ खेलेगा।</string>
-	<string name="whiteResigned">सफेद (Gote) ने हार मान ली</string>
-	<string name="blackResigned">काले (Sente) ने हार मान ली</string>
-	<string name="whiteLeftTheGame">सफेद (Gote) खेल छोड़ कर चला गया</string>
-	<string name="blackLeftTheGame">काले (Sente) खेल छोड़ कर चला गया</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">दर्शकों को यह खेल दिखाने के लिए उन्हें यह URL दें</string>
 	<string name="theComputerAnalysisHasFailed">कम्प्यूटर विश्लेषण असफल</string>
 	<string name="viewTheComputerAnalysis">कंप्यूटर विश्लेषण देखें</string>
@@ -62,7 +62,7 @@
 	<string name="usingServerAnalysis">सर्वर विश्लेषण का उपयोग किया जा रहा है</string>
 	<string name="loadingEngine">इंजन लोड हो रहा है ...</string>
 	<string name="cloudAnalysis">क्लाउड विश्लेषण</string>
-	<string name="goDeeper">भीतर जाओ</string>
+	<string name="goDeeper" comment="Engine depth">भीतर जाओ</string>
 	<string name="showThreat">खतरे को दिखाएं</string>
 	<string name="inLocalBrowser">स्थानीय ब्राउज़र में</string>
 	<string name="toggleLocalEvaluation">स्थानीय मूल्यांकन को टॉगल करें</string>
@@ -71,6 +71,10 @@
 	<string name="deleteFromHere">यहां से हटाओ</string>
 	<string name="forceVariation">बल भिन्नता (Forced variation)</string>
 	<string name="move">चाल</string>
+	<plurals name="nbMoves">
+		<item quantity="one">%s move</item>
+		<item quantity="other">%s moves</item>
+	</plurals>
 	<string name="variantLoss">प्रकार में हानि</string>
 	<string name="variantWin">प्रकार में जीत</string>
 	<string name="insufficientMaterial">अपर्याप्त सामग्री (Insufficient material)</string>
@@ -82,7 +86,6 @@
 	<string name="drawn">ड्रॉ</string>
 	<string name="unknown">अंजान</string>
 	<string name="database">डेटाबेस</string>
-	<string name="whiteDrawBlack">गोते / ड्रॉ / सेंटे</string>
 	<string name="averageRatingX">औसत रेटिंग: %s</string>
 	<string name="recentGames">हाल के खेल</string>
 	<string name="topGames">शीर्ष खेल</string>
@@ -197,10 +200,8 @@
 	<string name="drawOfferDeclined">बराबरी पे खेल समाप्त करने का प्रस्ताव अस्वीकारित किया गया</string>
 	<string name="drawOfferAccepted">बराबरी पे खेल समाप्त करने का प्रस्ताव स्वीकारित किया गया</string>
 	<string name="drawOfferCanceled">बराबरी पे खेल समाप्त करने का प्रस्ताव रद्द किया गया</string>
-	<string name="whiteOffersDraw">Gote खिलाड़ी का बराबरी पे खेल समाप्त करने का प्रस्ताव</string>
-	<string name="blackOffersDraw">Sente खिलाड़ी का बराबरी पे खेल समाप्त करने का प्रस्ताव</string>
-	<string name="whiteDeclinesDraw">Gote खिलाड़ी द्वारा बराबरी पे खेल समाप्त करने का प्रस्ताव ख़ारिज</string>
-	<string name="blackDeclinesDraw">Sente खिलाड़ी द्वारा बराबरी पे खेल समाप्त करने का प्रस्ताव ख़ारिज</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">आपके प्रतिद्वंदी ने बराबरी पे खेल समाप्त करने का प्रस्ताव भेजा है</string>
 	<string name="accept">स्वीकार</string>
 	<string name="decline">अस्वीकार</string>
@@ -210,7 +211,11 @@
 	<string name="finishesX">%s में खत्म</string>
 	<string name="abortGame">खेल रद्द करें</string>
 	<string name="gameAborted">खेल रद्द किया गया</string>
-	<string name="standard">स्टैण्डर्ड</string>
+	<string name="standard" comment="Variant - meaning standard shogi">स्टैण्डर्ड</string>
+	<string name="minishogi">Minishogi</string>
+	<string name="chushogi">Chushogi</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">असीमित (Unlimited)</string>
 	<string name="mode">मोड</string>
 	<string name="casual">आकस्मिक (Casual)</string>
@@ -220,8 +225,7 @@
 	<string name="thisGameIsRated">यह खेल मूल्यांकित है</string>
 	<string name="rematch">फिर से खेलें</string>
 	<string name="rematchOfferSent">फिर से खेलने का प्रस्ताव भेजा गया है</string>
-	<string name="rematchOfferSentWhite">Gote ने वापिस खेलने का प्रस्ताव भेजा</string>
-	<string name="rematchOfferSentBlack">Sente ने वापिस खेलने का प्रस्ताव भेजा</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">फिर से खेलने का प्रस्ताव स्वीकार कर लिया गया है</string>
 	<string name="rematchOfferCanceled">फिर से खेलने का प्रस्ताव रद्द कर दिया गया है</string>
 	<string name="rematchOfferDeclined">फिर से खेलने का प्रस्ताव अस्वीकार कर दिया गया है</string>
@@ -243,7 +247,7 @@
 	<string name="incrementInSeconds">हर चाल पर सेकंड्स की वृद्धि</string>
 	<string name="byoyomiInSeconds">Byoyomi सेकंड में</string>
 	<string name="numberOfPeriods">अवधि की संख्या</string>
-	<string name="freeOnlineChess">मुफ्त ऑनलाइन shogi</string>
+	<string name="freeOnlineShogi">Free Online Shogi</string>
 	<string name="spectators">दर्शक (Spectator)</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s रेटेड</item>
@@ -322,6 +326,8 @@
 	<string name="youAreNotInTeam">आप %s टीम मे नही हो</string>
 	<string name="backToGame">खेल पर लौटें।</string>
 	<string name="siteDescription">खेलें shogi मुफ्त और ऑनलाइन साफ़ सुथरे अंदाज में। न कोई पंजीकरण, न कोई प्रचार और न ही किसी अन्य बहरी चीज की आव्यशकता। shogi कम्प्युटर, दोस्तों या किसी भी प्रतिद्वंदी के साथ खेलें।</string>
+	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s %2$s समूह से जुड़ा</string>
 	<string name="xCreatedTeamY">%1$s ने %2$s समूह बनाया</string>
 	<string name="xStartedStreaming">%s ने स्ट्रीमिंग शुरू किया</string>
@@ -336,7 +342,7 @@
 	<string name="pasteTheSfenStringHere">SFEN को यहा रखें</string>
 	<string name="pasteTheKifCsaStringHere">KIF या CSA को यहा रखें</string>
 	<string name="fromPosition">स्थिति से (From position)</string>
-	<string name="default">डिफॉल्ट (Default)</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">डिफॉल्ट (Default)</string>
 	<string name="continueFromHere">यहा से जारी करें</string>
 	<string name="toStudy">अध्ययन</string>
 	<string name="importGame">खेल इम्पोर्ट करे</string>
@@ -346,12 +352,11 @@
 		<item quantity="one">%s खेल इम्पोर्ट किये गए</item>
 		<item quantity="other">%s खेल इम्पोर्ट किये गए</item>
 	</plurals>
-	<string name="thisIsAChessCaptcha">यह इंसानों और कम्प्यूटरों को अलग करने के लिए shogi की पहेली है।</string>
+	<string name="thisIsAShogiCaptcha">यह इंसानों और कम्प्यूटरों को अलग करने के लिए shogi की पहेली है।</string>
 	<string name="clickOnTheBoardToMakeYourMove">अपनी चाल चलने के लिए बोर्ड पर क्लिक करें और साबित करे की आप इंसान हैं।</string>
 	<string name="captcha.fail">कृपया shogi कैप्चा (shogi captcha) हल करें।</string>
 	<string name="notACheckmate">शह और मात नहीं</string>
-	<string name="whiteCheckmatesInOneMove">Gote १ चाल में शहमात देगा</string>
-	<string name="blackCheckmatesInOneMove">Sente १ चाल में शहमात देगा</string>
+	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">फिर कोशिश करें</string>
 	<string name="reconnecting">रीकनेक्ट होने</string>
 	<plurals name="nbFriendsOnline">
@@ -405,6 +410,7 @@
 	<string name="showAdvancedSettings">एडवांस्ड सेटिंग्स दिखाएं</string>
 	<string name="makePrivateTournament">प्रतियोगिता को निजी बनाएं, और पासवर्ड के साथ पहुंच को प्रतिबंधित करें</string>
 	<string name="join">शामिल हों</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">छोड़ के जाएं</string>
 	<string name="points">अंक</string>
 	<string name="wins">जीत</string>
@@ -420,8 +426,7 @@
 	<string name="performance">प्रदर्शन</string>
 	<string name="tournamentComplete">टूर्नामेंट पूर्ण</string>
 	<string name="movesPlayed">चालें चलायीं</string>
-	<string name="whiteWins">Gote विजयी हुआ</string>
-	<string name="blackWins">Sente विजयी हुआ</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">ड्रा</string>
 	<string name="nextXTournament">अगले %s टूर्नामेंट:</string>
 	<string name="averageOpponent">औसत प्रतिद्वंद्वी</string>
@@ -433,7 +438,7 @@
 	<string name="handicap">हैंडीकैप (ओवरटाइम सहित)</string>
 	<string name="startPosition">शुरू करने की स्थिति:</string>
 	<string name="clearBoard">बोर्ड सॉफ करें</string>
-	<string name="fillGotesHand">गोटे (Gote) का हाथ भरें</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">स्थिति को सुरक्षित रखें</string>
 	<string name="loadPosition">इस स्थिति से चालू करें</string>
 	<string name="isPrivate">निजी (Private)</string>
@@ -457,8 +462,6 @@
 	<string name="activePlayers">सक्रिय खिलाडी</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">सावधान, खेल मूल्यांकित है लेकिन कोई समय नियंत्रण नहीं है !</string>
 	<string name="yourPuzzleRatingX">आपकी पहेली की रेटिंग: %s</string>
-	<string name="findTheBestMoveForWhite">गोट (सफेद रंग) के लिए सबसे अच्छी चाल का पता लगाएं।</string>
-	<string name="findTheBestMoveForBlack">सेंटे (काले रंग) के लिए सबसे अच्छी चाल का पता लगाएं।</string>
 	<string name="toTrackYourProgress">अपनी प्रगति को ट्रैक करें:</string>
 	<string name="puzzleId">पहेलि %s</string>
 	<string name="puzzleOfTheDay">दिन की पहेली</string>
@@ -544,6 +547,7 @@
 	<string name="fast">तेज</string>
 	<string name="normal">सामान्य</string>
 	<string name="slow">धीरे</string>
+	<string name="compact">Compact</string>
 	<string name="insideTheBoard">बोर्ड के अंदर</string>
 	<string name="outsideTheBoard">बोर्ड के बाहर</string>
 	<string name="edgeOfTheBoard">बोर्ड का किनारा</string>
@@ -623,7 +627,7 @@
 	<string name="webmasters">वेबमास्टर्स (Webmasters)</string>
 	<string name="about">जानकारी</string>
 	<string name="aboutX">%s के बारे में</string>
-	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s एक मुफ्त (%2$s), स्वतंत्र (libre), विज्ञापनों से मुक्त (no-ads), खुला स्रोत (open source) shogi सर्वर है।</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s एक मुफ्त (%2$s), स्वतंत्र (libre), विज्ञापनों से मुक्त (no-ads), खुला स्रोत (open source) shogi सर्वर है।</string>
 	<string name="really">सचमुच</string>
 	<string name="contribute">योगदान</string>
 	<string name="termsOfService">सेवा की शर्तें (Terms of Service)</string>
@@ -709,16 +713,17 @@
 	<string name="security">सुरक्षा</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">यह उन डिवाइसों की सूची है जो आपके खाते में लॉग इन हैं। उन सत्रों को रद्द करें जिन्हें आप नहीं पहचानते हैं।</string>
 	<string name="alternativelyYouCanX">वैकल्पिक रूप से आप %s कर सकते हैं।</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">सभी सत्र रद्द</string>
-	<string name="playChessEverywhere">हर जगह shogi खेलें</string>
+	<string name="playShogiEverywhere">हर जगह shogi खेलें</string>
 	<string name="asFreeAsLishogi">Lishogi जैसा मुक्त</string>
-	<string name="builtForTheLoveOfChessNotMoney">Shogi के प्यार के लिए निर्मित, धन के लिए नहीं</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Shogi के प्यार के लिए निर्मित, धन के लिए नहीं</string>
 	<string name="everybodyGetsAllFeaturesForFree">हर कोई मुफ्त में सभी सुविधाओं प्राप्त करता है</string>
 	<string name="zeroAdvertisement">शून्य विज्ञापन</string>
 	<string name="fullFeatured">पूरा प्रदर्शित</string>
 	<string name="phoneAndTablet">फोन और टैबलेट</string>
 	<string name="bulletBlitzClassical">बुलेट, ब्लिट्ज, क्लासिकल (Bullet, blitz, classical)</string>
-	<string name="correspondenceChess">पत्राचार (Correspondence) shogi</string>
+	<string name="correspondenceShogi">पत्राचार (Correspondence) shogi</string>
 	<string name="onlineAndOfflinePlay">ऑनलाइन और ऑफ़लाइन खेल</string>
 	<string name="viewTheSolution">समाधान देखें</string>
 	<string name="followAndChallengeFriends">अपने दोस्तों का अनुसरण करें और उनको चुनौती दें</string>
@@ -750,7 +755,7 @@
 	<string name="gridSlim">पतला</string>
 	<string name="gridThick">मोटा</string>
 	<string name="gridVeryThick">बहुत मोटा</string>
-	<string name="hands">हाथ</string>
+	<string name="hands" comment="Title in custom board theme editor">हाथ</string>
 	<string name="boardTheme">बोर्ड विषय</string>
 	<string name="boardSize">बोर्ड का आकार</string>
 	<string name="pieceSet">टुकड़ा सेट</string>
@@ -761,13 +766,12 @@
 	<string name="usernameCharsInvalid">जो नाम आप उपयोग करते, उनमें सिर्फ पत्र, संख्या, अंडरस्कोर और हाइफ़न होना चाहिए।</string>
 	<string name="usernameUnacceptable">यह उपयोगकर्ता नाम स्वीकार्य नहीं है।</string>
 	<string name="directlySupportLishogi">Lishogi का समर्थन करें</string>
-	<string name="playChessInStyle">शैली में shogi खेलें</string>
-	<string name="chessBasics">Shogi बेसिक्स (Shogi basics)</string>
+	<string name="playShogiInStyle">Play shogi in style</string>
+	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi संसाधन</string>
 	<string name="coaches">कोच</string>
-	<string name="invalidKif">अमान्य KIF</string>
 	<string name="invalidNotation">अमान्य संकेतन</string>
-	<string name="invalidFen">अमान्य SFEN</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">न्यूनतम लंबाई %s है</string>
 	<string name="error.maxLength">अधिकतम लंबाई %s है</string>
 	<string name="error.min">%s से बड़ा या बराबर होना चाहिए</string>
@@ -792,28 +796,22 @@
 	<string name="hideBestMove">सबसे अच्छी चाल छिपाएं</string>
 	<string name="getAHint">सुझाव प्राप्त करें</string>
 	<string name="evaluatingYourMove">कंप्यूटर आपके कदम का मूल्यांकन कर रहे हैं …</string>
-	<string name="whiteWinsGame">Gote विजयी हुआ</string>
-	<string name="blackWinsGame">Sente विजयी हुआ</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">अपनी गलतियों से सीखें</string>
 	<string name="learnFromThisMistake">इस गलती से सीखें</string>
 	<string name="skipThisMove">इस चाल को छोड़ें</string>
 	<string name="next">अगला</string>
 	<string name="xWasPlayed">%s खेला गया</string>
-	<string name="findBetterMoveForWhite">Gote के लिए एक बेहतर चाल खोजें</string>
-	<string name="findBetterMoveForBlack">Sente के लिए एक बेहतर चाल खोजें</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">सीखना जारी रखें</string>
 	<string name="youCanDoBetter">आप बेहतर कर सकते हैं</string>
-	<string name="tryAnotherMoveForWhite">Gote के लिए एक और चाल आज़माएं</string>
-	<string name="tryAnotherMoveForBlack">Sente के लिए एक और चाल आज़माएं</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">समाधान</string>
 	<string name="waitingForAnalysis">विश्लेषण के लिए प्रतीक्षा</string>
-	<string name="noMistakesFoundForWhite">Gote की कोई गलती नहीं मिली</string>
-	<string name="noMistakesFoundForBlack">Sente की कोई गलती नहीं मिली</string>
-	<string name="doneReviewingWhiteMistakes">Gote पहलू की गलती को पूरी तरह समझ लिया</string>
-	<string name="doneReviewingBlackMistakes">Sente पहलू की गलती को पूरी तरह समझ लिया</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">इसे फिर से करें</string>
-	<string name="reviewWhiteMistakes">Gote पहलू के गलती को देखें</string>
-	<string name="reviewBlackMistakes">Sente पहलू के गलती को देखें</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">लाभ</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s सेकंड</item>
@@ -841,7 +839,7 @@
 	<string name="weHadToTimeYouOutForAWhile">हमें आपको कुछ समय के लिए प्रतिबंधित करना पड़ा।</string>
 	<string name="timeoutExpires">आपका प्रतिबंध %s समाप्त हो जाएगा।</string>
 	<string name="why">क्यों ?</string>
-	<string name="pleasantChessExperience">हम सभी के लिए एक सुखद shogi अनुभव प्रदान करना चाहते हैं।</string>
+	<string name="pleasantShogiExperience">हम सभी के लिए एक सुखद shogi अनुभव प्रदान करना चाहते हैं।</string>
 	<string name="goodPractice">इसलिए, हमें यह सुनिश्चित करना होगा कि सभी खिलाड़ी अच्छे अभ्यास का पालन करें।</string>
 	<string name="potentialProblem">जब एक संभावित समस्या का पता चलता है, हम इस संदेश को प्रदर्शित करते हैं।</string>
 	<string name="howToAvoidThis">इससे कैसे बचा जाए ?</string>
@@ -857,6 +855,7 @@
 	<string name="agreementNice">मैं इस बात से सहमत हूं कि मैं हमेशा अन्य खिलाड़ियों के प्रति सम्मानजनक रहूंगा।</string>
 	<string name="agreementAccount">मैं सहमत हूं कि मैं अनेक अकाउंट नहीं बनाऊंगा।</string>
 	<string name="agreementPolicy">मैं इस बात से सहमत हूं कि मैं सभी Lishogi नीतियों का पालन करूंगा।</string>
+	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">खोजे या नया वार्तालाप आरम्भ करें</string>
 	<string name="edit">संपादित</string>
 	<string name="rapid">रैपिड</string>
@@ -881,18 +880,22 @@
 	<string name="youCannotPostYetPlaySomeGames">आप अभी तक फ़ोरम में पोस्ट नहीं कर सकते। कुछ खेल खेलें !</string>
 	<string name="subscribe">सब्सक्राइब</string>
 	<string name="unsubscribe">सदस्यता रद्द (Unsubscribe)</string>
-	<string name="blackDeclinesImpasse">सेंटे (Sente) खिलाड़ी द्वारा इमपास्से (Impasse) पे खेल समाप्त करने का प्रस्ताव ख़ारिज</string>
-	<string name="blackOffersImpasse">सेंटे (Sente) खिलाड़ी का इमपाससे (impasse) पे खेल समाप्त करने का प्रस्ताव</string>
-	<string name="notationType">अंकन पद्धति (Notation)</string>
-	<string name="whiteDeclinesImpasse">गोते (Gote) खिलाड़ी द्वारा इमपास्से (Impasse) पे खेल समाप्त करने का प्रस्ताव ख़ारिज</string>
-	<string name="whiteOffersImpasse">गोते (Gote) खिलाड़ी का इमपाससे (impasse) पे खेल समाप्त करने का प्रस्ताव</string>
 	<string name="notationSystem">अंकन पद्धति (Notation)</string>
 	<string name="officialBlog">Lishogi आधिकारिक ब्लॉग</string>
 	<string name="blogPostsFromYear">%1$s से ब्लॉग पोस्ट</string>
 	<string name="previousBlogPosts">पिछले ब्लॉग पोस्ट</string>
 	<string name="continueReadingThis"> इस पोस्ट को पढ़ना जारी रखें</string>
 	<string name="discussBlogForum">फ़ोरम में इस ब्लॉग पोस्ट पर चर्चा करें</string>
-	<string name="invadingPieces">हमलावर (invading) टुकड़े</string>
-	<string name="enteringKing">राजा में प्रवेश (Entering king)</string>
-	<string name="totalImpasseValue">कुल मूल्य</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">हमलावर (invading) टुकड़े</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">राजा में प्रवेश (Entering king)</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">कुल मूल्य</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyOfPlayers">Study of players</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

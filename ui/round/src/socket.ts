@@ -1,11 +1,11 @@
-import * as game from 'game';
-import throttle from 'common/throttle';
 import notify from 'common/notification';
+import throttle from 'common/throttle';
+import * as game from 'game';
 import { isPlayerTurn } from 'game';
-import * as xhr from './xhr';
-import * as sound from './sound';
 import RoundController from './ctrl';
 import { Untyped } from './interfaces';
+import * as sound from './sound';
+import * as xhr from './xhr';
 
 const li = window.lishogi;
 
@@ -149,6 +149,11 @@ export function make(send: SocketSend, ctrl: RoundController): RoundSocket {
             ' simul</a>'
         )
       );
+    },
+    postGameStudy(studyId: string) {
+      ctrl.data.game.postGameStudy = studyId;
+      ctrl.postGameStudyOffer = true;
+      ctrl.redraw();
     },
   };
 

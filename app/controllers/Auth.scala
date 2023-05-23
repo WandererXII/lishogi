@@ -38,7 +38,7 @@ final class Auth(
     api.saveAuthentication(u.id, ctx.mobileApiVersion) flatMap { sessionId =>
       negotiate(
         html = fuccess {
-          val redirectTo = get("referrer").filter(env.api.referrerRedirect.valid) orElse
+          val redirectTo = get("referrer").flatMap(env.api.referrerRedirect.valid) orElse
             ctxReq.session.get(api.AccessUri) getOrElse
             routes.Lobby.home.url
           result.fold(Redirect(redirectTo))(_(redirectTo))
@@ -64,7 +64,7 @@ final class Auth(
 
   def login =
     Open { implicit ctx =>
-      val referrer = get("referrer").filter(env.api.referrerRedirect.valid)
+      val referrer = get("referrer").flatMap(env.api.referrerRedirect.valid)
       referrer ifTrue ctx.isAuth match {
         case Some(url) => Redirect(url).fuccess // redirect immediately if already logged in
         case None      => Ok(html.auth.login(api.loginForm, referrer)).fuccess
@@ -443,17 +443,17 @@ final class Auth(
       }
     }
 
-  def makeLoginToken =
-    Auth { _ => me =>
-      JsonOk {
-        env.security.loginToken generate me map { token =>
-          Json.obj(
-            "userId" -> me.id,
-            "url"    -> s"${env.net.baseUrl}${routes.Auth.loginWithToken(token).url}"
-          )
-        }
-      }
+  private def loginTokenFor(me: UserModel) = JsonOk {
+    env.security.loginToken generate me map { token =>
+      Json.obj(
+        "userId" -> me.id,
+        "url"    -> s"${env.net.baseUrl}${routes.Auth.loginWithToken(token).url}"
+      )
     }
+  }
+
+  def makeLoginToken =
+    AuthOrScoped(_.Web.Login)(_ => loginTokenFor, _ => loginTokenFor)
 
   def loginWithToken(token: String) =
     Open { implicit ctx =>

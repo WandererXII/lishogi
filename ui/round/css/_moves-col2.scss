@@ -4,30 +4,23 @@
   .moves {
     display: flex;
     flex-flow: row wrap;
-    align-items: center;
-    position: relative; /* required by autoScroll */
-    overflow-y: auto;
-    align-content: flex-start;
-    will-change: scroll-position;
-    user-select: none;
-    line-height: 1.7;
-    font-size: 1.1em;
-    &::-webkit-scrollbar {
-      width: 0px;
-    }
   }
   index {
     /* Edge 18: flex: 0 0 calc(100% / 6); causes wrap */
     flex: 0 0 17%;
     display: flex;
     justify-content: center;
-    align-items: flex-end;
+    border-right: $border;
     background: $c-bg-zebra;
+    line-height: 2.07em;
+    color: $c-font-dimmer;
   }
   #{$move-tag} {
     /* Edge 18: flex: 0 0 calc(100% * 5 / 12); causes wrap */
     flex: 0 0 83%;
-    padding-left: 0.7em;
+    font-size: 1.185em;
+    line-height: 1.75em;
+    padding: 0 0.3em 0 0.5em;
     cursor: pointer;
     &:hover {
       background: $c-primary;
@@ -56,7 +49,29 @@
   .status {
     border-top: $border;
     font-style: italic;
-    padding: 0.75em 0;
+    padding: 1.3rem 0;
     margin: 0;
+  }
+
+  .areplay {
+    display: block;
+    flex: 2 1 6.1rem;
+    .board-layout-1 & {
+      flex: 2 1 0;
+    }
+    overflow-y: auto;
+    overflow-x: hidden; // else a scrollbar appears sometimes
+    border-top: $border;
+    position: relative; /* required so line::before scrolls along the moves! */
+    will-change: scroll-position;
+    .moves {
+      white-space: normal;
+    }
+    body:not(.board-layout-1) & {
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+    }
   }
 }

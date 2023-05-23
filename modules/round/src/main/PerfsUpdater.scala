@@ -28,6 +28,12 @@ final class PerfsUpdater(
             val ratingsB = mkRatings(gote.perfs)
             val result   = resultOf(game)
             game.variant match {
+              case shogi.variant.Kyotoshogi =>
+                updateRatings(ratingsW.kyotoshogi, ratingsB.kyotoshogi, result)
+              case shogi.variant.Annanshogi =>
+                updateRatings(ratingsW.annanshogi, ratingsB.annanshogi, result)
+              case shogi.variant.Chushogi =>
+                updateRatings(ratingsW.chushogi, ratingsB.chushogi, result)
               case shogi.variant.Minishogi =>
                 updateRatings(ratingsW.minishogi, ratingsB.minishogi, result)
               case shogi.variant.Standard =>
@@ -67,6 +73,9 @@ final class PerfsUpdater(
 
   private case class Ratings(
       minishogi: Rating,
+      chushogi: Rating,
+      annanshogi: Rating,
+      kyotoshogi: Rating,
       ultraBullet: Rating,
       bullet: Rating,
       blitz: Rating,
@@ -78,6 +87,9 @@ final class PerfsUpdater(
   private def mkRatings(perfs: Perfs) =
     Ratings(
       minishogi = perfs.minishogi.toRating,
+      chushogi = perfs.chushogi.toRating,
+      annanshogi = perfs.annanshogi.toRating,
+      kyotoshogi = perfs.kyotoshogi.toRating,
       ultraBullet = perfs.ultraBullet.toRating,
       bullet = perfs.bullet.toRating,
       blitz = perfs.blitz.toRating,
@@ -122,6 +134,9 @@ final class PerfsUpdater(
           } else perf
         val perfs1 = perfs.copy(
           minishogi = addRatingIf(game.variant.minishogi, perfs.minishogi, ratings.minishogi),
+          chushogi = addRatingIf(game.variant.chushogi, perfs.chushogi, ratings.chushogi),
+          annanshogi = addRatingIf(game.variant.annanshogi, perfs.annanshogi, ratings.annanshogi),
+          kyotoshogi = addRatingIf(game.variant.kyotoshogi, perfs.kyotoshogi, ratings.kyotoshogi),
           ultraBullet =
             addRatingIf(isStd && speed == Speed.UltraBullet, perfs.ultraBullet, ratings.ultraBullet),
           bullet = addRatingIf(isStd && speed == Speed.Bullet, perfs.bullet, ratings.bullet),
@@ -134,6 +149,9 @@ final class PerfsUpdater(
         val r = RatingRegulator(ratingFactors()) _
         val perfs2 = perfs1.copy(
           minishogi = r(PT.Minishogi, perfs.minishogi, perfs1.minishogi),
+          chushogi = r(PT.Chushogi, perfs.chushogi, perfs1.chushogi),
+          annanshogi = r(PT.Annanshogi, perfs.annanshogi, perfs1.annanshogi),
+          kyotoshogi = r(PT.Kyotoshogi, perfs.kyotoshogi, perfs1.kyotoshogi),
           bullet = r(PT.Bullet, perfs.bullet, perfs1.bullet),
           blitz = r(PT.Blitz, perfs.blitz, perfs1.blitz),
           rapid = r(PT.Rapid, perfs.rapid, perfs1.rapid),

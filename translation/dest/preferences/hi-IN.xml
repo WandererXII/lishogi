@@ -2,6 +2,8 @@
 <resources>
 	<string name="preferences">प्राथमिकताएं</string>
 	<string name="gameDisplay">खेल का प्रदर्शन</string>
+	<string name="boardLayout">Board layout</string>
+	<string name="clearHands">Hide ghosts of pieces in hand</string>
 	<string name="pieceAnimation">मोहरों का एनीमेशन</string>
 	<string name="materialDifference">सामग्री का अंतर</string>
 	<string name="boardHighlightsLastDests">बोर्ड का हाइलाइट - आख़िरी चाल और सह</string>
@@ -10,6 +12,7 @@
 	<string name="dropDestinations">मोहरों का गंतव्य (मान्य चालें और पहले से चुनी आई चालें)</string>
 	<string name="boardCoordinates">बोर्ड का निर्देशांक</string>
 	<string name="moveListWhilePlaying">खेलते समय चालों की सूची</string>
+	<string name="colorName">Name used for individual players</string>
 	<string name="displayTouchSquareOverlay">स्पर्श उपकरणों पर चौकोर हाइलाइट ओवरले</string>
 	<string name="zenMode">ज़ेन मोड</string>
 	<string name="displayBoardResizeHandle">बोर्ड आकार परिवर्तन करने वाली मूठ दिखाएं</string>
@@ -40,5 +43,6 @@
 	<string name="westernNotation">पश्चिमी संकेतन (Western notation)</string>
 	<string name="japaneseNotation">जापानी संकेतन (Japanese notatation)</string>
 	<string name="kitaoKawasakiNotation">किताओ-कावासाकी (Kitao-Kawasaki)</string>
+	<string name="kifNotation">Kif notation</string>
 	<string name="yourPreferencesHaveBeenSaved">आपकी प्राथमिकताएं सेव कर ली गई हैं</string>
 </resources>

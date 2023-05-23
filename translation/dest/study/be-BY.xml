@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="private">Прыватнае</string>
+  <string name="myStudies">Мае навучанні</string>
+  <string name="studiesIContributeTo">Навучанні, якія я рэдагую</string>
+  <string name="myPublicStudies">Мае публічныя навучанні</string>
+  <string name="myPrivateStudies">Мае прыватные навучанні</string>
+  <string name="myFavoriteStudies">Мае ўлюбленые навучанні</string>
+  <string name="whatAreStudies">Што такое навучанні?</string>
+  <string name="allStudies">Усе навучанні</string>
+  <string name="studiesCreatedByX">Навучанні, створаныя %s</string>
+  <string name="noneYet">Пакуль нічога няма.</string>
+  <string name="hot">Гарачыя</string>
+  <string name="dateAddedNewest">Дата дадання (навейшыя)</string>
+  <string name="dateAddedOldest">Дата дадання (старэйшыя)</string>
+  <string name="recentlyUpdated">Нядаўна абноўленыя</string>
+  <string name="mostPopular">Найбольш папулярныя</string>
+  <string name="addNewChapter">Дадаць новы раздзел</string>
+  <plurals name="nbChapters">
+    <item quantity="one">%s раздзел</item>
+    <item quantity="few">%s раздзелы</item>
+    <item quantity="many">%s раздзелаў</item>
+    <item quantity="other">%s раздзелаў</item>
+  </plurals>
+  <plurals name="nbGames">
+    <item quantity="one">%s партыя</item>
+    <item quantity="few">%s партыі</item>
+    <item quantity="many">%s партый</item>
+    <item quantity="other">%s партый</item>
+  </plurals>
+  <string name="addMembers">Дадаць удзельнікаў</string>
+  <plurals name="nbMembers">
+    <item quantity="one">%s удзельнік</item>
+    <item quantity="few">%s удзельніка</item>
+    <item quantity="many">%s удзельнікаў</item>
+    <item quantity="other">%s удзельнікаў</item>
+  </plurals>
+  <string name="inviteToTheStudy">Закліцца да навучання</string>
+  <string name="pleaseOnlyInvitePeopleYouKnow">Калі ласка, заклікайце толькі людзей, якіх вы ведаеце, та тых хто актыўна хоча далучыцца да навучання.</string>
+  <string name="searchByUsername">Шукаць па імені карыстальніка</string>
+  <string name="spectator">Глядач</string>
+  <string name="contributor">Рэдактар</string>
+  <string name="kick">Выдаліць</string>
+  <string name="leaveTheStudy">Пакінуць навучанне</string>
+  <string name="youAreNowAContributor">Вы цяпер рэдактар</string>
+  <string name="youAreNowASpectator">Вы цяпер глядач</string>
+  <string name="tags">Тэгі</string>
+  <string name="like">Упадабаць</string>
+  <string name="newTag">Новы тэг</string>
+  <string name="commentThisPosition">Каментаваць пазіцыю</string>
+  <string name="commentThisMove">Каментаваць гэты ход</string>
+  <string name="annotateWithGlyphs">Дадаць знакавую анатацыю</string>
+  <string name="theChapterIsTooShortToBeAnalysed">Раздел занадта кароткі для аналізу.</string>
+  <string name="onlyContributorsCanRequestAnalysis">Толькі рэдактары навучання могуць запрасіць камп\'ютарны аналіз.</string>
+  <string name="getAFullComputerAnalysis">Атрымайце поўны серверны кампутарны аналіз галоўнай лініі.</string>
+  <string name="makeSureTheChapterIsComplete">Пераканайцеся, што раздзел гатоў. Вы можаце запрасіць аналіз толькі адзін раз.</string>
+  <string name="allSyncMembersRemainOnTheSamePosition">Усе сінхранізаваныя ўдзельнікі застаюцца на аднолькавай пазіцыі</string>
+  <string name="shareChanges">Падзяліцца зменамі з гледачамі та захаваць іх на серверы</string>
+  <string name="playing">Гуляецца</string>
+  <string name="first">На першую</string>
+  <string name="previous">Папярэдняя</string>
+  <string name="next">Наступная</string>
+  <string name="last">На апошнюю</string>
+  <string name="shareAndExport">Падзяліцца &amp; экспартаваць</string>
+  <string name="cloneStudy">Кланаваць</string>
+  <string name="downloadAllGames">Спампаваць усе гульні</string>
+  <string name="downloadGame">Спампаваць гульню</string>
+  <string name="studyKif">Студыя KIF</string>
+  <string name="chapterKif">Раздзел KIF</string>
+  <string name="chapterCsa">Раздзел CSA</string>
+  <string name="studyUrl">URL навучання</string>
+  <string name="broadcastUrl">Спасылка на трансляцыю</string>
+  <string name="currentChapterUrl">URL бягучага раздзелу</string>
+  <string name="currentGameUrl">Спасылка на бягучую гульню</string>
+  <string name="youCanPasteThisInTheForumToEmbed">Вы можаце ўставіць гэта на форум, каб убудаваць</string>
+  <string name="startAtInitialPosition">Пачынаць у пачатковай пазіцыі</string>
+  <string name="startAtX">Пачынаць з %s</string>
+  <string name="embedInYourWebsite">Убудаваць у свой сайт або блог</string>
+  <string name="readMoreAboutEmbedding">Пачытаць больш пра ўбудаванне</string>
+  <string name="onlyPublicStudiesCanBeEmbedded">Толькі публічныя навучанні могуць быць убудаваны!</string>
+  <string name="open">Адкрыць</string>
+  <string name="xBroughtToYouByY">%2$s зрабіў для вас %1$s</string>
+  <string name="studyNotFound">Навучанне не знойдзена</string>
+  <string name="editChapter">Рэдагаваць раздзел</string>
+  <string name="newChapter">Новы раздзел</string>
+  <string name="orientation">Арыентацыя дошкі</string>
+  <string name="analysisMode">Рэжым аналізу</string>
+  <string name="pinnedChapterComment">Замацаваны каментар раздзелу</string>
+  <string name="saveChapter">Захаваць раздзел</string>
+  <string name="clearAnnotations">Ачысціць анатацыі</string>
+  <string name="deleteChapter">Выдаліць раздзел</string>
+  <string name="deleteThisChapter">Выдаліць гэты раздел? Гэта нельга будзе адмяніць!</string>
+  <string name="clearAllCommentsInThisChapter">Выдаліць усе каментары, знакавыя анатацыі і намаляваныя фігуры ў гэтым раздзеле?</string>
+  <string name="rightUnderTheBoard">Адразу пад дошкай</string>
+  <string name="noPinnedComment">Ніякіх</string>
+  <string name="normalAnalysis">Звычайны аналіз</string>
+  <string name="hideNextMoves">Схаваць наступныя хады</string>
+  <string name="interactiveLesson">Інтэрактыўны занятак</string>
+  <string name="chapterX">Раздзел %s</string>
+  <string name="empty">Пуста</string>
+  <string name="startFromInitialPosition">Пачынаць з пачатковай пазіцыі</string>
+  <string name="editor">Рэдактар</string>
+  <string name="startFromCustomPosition">Пачынаць з абранай пазіцыі</string>
+  <string name="loadAGameByUrl">Загрузіць гульні па URLs</string>
+  <string name="loadAPositionFromSfen">Загрузіць пазіцыю з SFEN</string>
+  <string name="automatic">Аўтаматычна</string>
+  <string name="urlOfTheGame">URL гульняў, адзін на радок</string>
+  <string name="loadAGameFromX">Загружайце гульні з %1$s</string>
+  <string name="createChapter">Стварыць раздзел</string>
+  <string name="configureLiveBroadcast">Наладзіць прамую трансляцыю</string>
+  <string name="createStudy">Стварыць навучанне</string>
+  <string name="editStudy">Рэдактаваць навучанне</string>
+  <string name="visibility">Бачнасць</string>
+  <string name="public">Публічны</string>
+  <string name="unlisted">Нябачны</string>
+  <string name="inviteOnly">Толькі па запрашэннях</string>
+  <string name="allowCloning">Дазволіць кланаванне</string>
+  <string name="nobody">Ніхто</string>
+  <string name="onlyMe">Толькі я</string>
+  <string name="contributors">Рэдактары</string>
+  <string name="members">Удзельнікі</string>
+  <string name="everyone">Кожны</string>
+  <string name="enableSync">Уключыць сінхранізацыю</string>
+  <string name="yesKeepEveryoneOnTheSamePosition">Так: трымаць усіх на аднолькавай пазіцыі</string>
+  <string name="noLetPeopleBrowseFreely">Не: хай людзі вольна праглядаюць пазіцыі</string>
+  <string name="pinnedStudyComment">Замацаваць каментар да занятку</string>
+  <string name="start">Пачаць</string>
+  <string name="save">Захаваць</string>
+  <string name="clearChat">Ачысціць чат</string>
+  <string name="deleteTheStudyChatHistory">Выдаліць гісторыю чата навучання цалкам? Гэта нельга будзе адмяніць!</string>
+  <string name="deleteStudy">Выдаліць навучанне</string>
+  <string name="deleteTheEntireStudy">Выдаліць навучанне цалкам? Гэта нельга будзе адмяніць!</string>
+  <string name="whereDoYouWantToStudyThat">Дзе вы жадаеце навучацца?</string>
+  <string name="startTag" comment="Tags for kif and csa">Пачаць</string>
+  <string name="endTag" comment="Tags for kif and csa">Скончыць</string>
+  <string name="siteTag" comment="Tags for kif and csa">Site</string>
+  <string name="eventTag" comment="Tags for kif and csa">Падзея</string>
+  <string name="timeControlTag" comment="Tags for kif and csa">Абмежаванне часу</string>
+  <string name="xEloTag" comment="Tags for kif and csa">%s Elo</string>
+  <string name="xTitleTag" comment="Tags for kif and csa">%s title</string>
+  <string name="xTeamTag" comment="Tags for kif and csa">%s team</string>
+  <string name="openingTag" comment="Tags for kif and csa">%s Ела</string>
+  <string name="resultTag" comment="Tags for kif and csa">Вынік</string>
+  <string name="problemNameTag" comment="Tags for kif and csa">Problem name</string>
+  <string name="problemIdTag" comment="Tags for kif and csa">Problem Id</string>
+  <string name="dateOfPublicationTag" comment="Tags for kif and csa">Date of publication</string>
+  <string name="composerTag" comment="Tags for kif and csa">Composer</string>
+  <string name="publicationTag" comment="Tags for kif and csa">Publication</string>
+  <string name="collectionTag" comment="Tags for kif and csa">Калекцыя</string>
+  <string name="lengthTag" comment="Tags for kif and csa">Length</string>
+  <string name="prizeTag" comment="Tags for kif and csa">Prize</string>
+</resources>

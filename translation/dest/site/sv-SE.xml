@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Spela med en vän</string>
 	<string name="playWithTheMachine">Spela mot datorn</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">För att bjuda in någon att spela, ge dem den här länken</string>
@@ -17,26 +18,26 @@
 	<string name="checkmate">Schackmatt</string>
 	<string name="stalemate">Patt</string>
 	<string name="impasse">Impasse</string>
-	<string name="white">Vit</string>
-	<string name="black">Svart</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
-	<string name="randomColor">Slumpvis färg</string>
+	<string name="perpetualCheck">Perpetual check</string>
+	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
+	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
+	<string name="white" comment="Alternative to gote">Vit</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
+	<string name="black" comment="Alternative to sente">Svart</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
+	<string name="randomColor" comment="Side - sente/gote">Slumpvis färg</string>
 	<string name="createAGame">Skapa ett parti</string>
-	<string name="whiteIsVictorious">Vit har vunnit</string>
-	<string name="blackIsVictorious">Svart har vunnit</string>
-	<string name="youPlayTheWhitePieces">Du spelar med de vita pjäserna</string>
-	<string name="youPlayTheBlackPieces">Du spelar med de svarta pjäserna</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">Det är din tur!</string>
 	<string name="cheatDetected">Cheat Detected</string>
 	<string name="variantEnding">Variantbaserat slut</string>
 	<string name="newOpponent">Ny motståndare</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Din motståndare vill spela ett nytt parti med dig</string>
 	<string name="joinTheGame">Starta partiet</string>
-	<string name="whitePlays">Vits drag</string>
-	<string name="blackPlays">Svarts drag</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Din motståndare lämnade partiet. Du kan begära seger om %s sekund.</item>
 		<item quantity="other">Din motståndare lämnade partiet. Du kan begära seger om %s sekunder.</item>
@@ -47,10 +48,9 @@
 	<string name="forceDraw">Begär remi</string>
 	<string name="talkInChat">Vänligen uppträd trevligt i chatten!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Den första som använder den här länken kommer att spela med dig.</string>
-	<string name="whiteResigned">Vit har gett upp</string>
-	<string name="blackResigned">Svart har gett upp</string>
-	<string name="whiteLeftTheGame">Vitspelaren har lämnat partiet</string>
-	<string name="blackLeftTheGame">Svartspelaren har lämnat partiet</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Dela länken till åskådare som vill se partiet</string>
 	<string name="theComputerAnalysisHasFailed">Datoranalysen misslyckades</string>
 	<string name="viewTheComputerAnalysis">Visa datoranalys</string>
@@ -62,7 +62,7 @@
 	<string name="usingServerAnalysis">Använder serveranalys</string>
 	<string name="loadingEngine">Laddar schackprogram...</string>
 	<string name="cloudAnalysis">Molnanalys</string>
-	<string name="goDeeper">Sök djupare</string>
+	<string name="goDeeper" comment="Engine depth">Sök djupare</string>
 	<string name="showThreat">Visa hot</string>
 	<string name="inLocalBrowser">i lokal webbläsare</string>
 	<string name="toggleLocalEvaluation">Lokal analys av/på</string>
@@ -71,6 +71,10 @@
 	<string name="deleteFromHere">Radera härifrån</string>
 	<string name="forceVariation">Visa som variant</string>
 	<string name="move">Drag</string>
+	<plurals name="nbMoves">
+		<item quantity="one">%s move</item>
+		<item quantity="other">%s moves</item>
+	</plurals>
 	<string name="variantLoss">Variantförlust</string>
 	<string name="variantWin">Variantvinst</string>
 	<string name="insufficientMaterial">Otillräckligt material</string>
@@ -82,7 +86,6 @@
 	<string name="drawn">Remi</string>
 	<string name="unknown">Okänd</string>
 	<string name="database">Databas</string>
-	<string name="whiteDrawBlack">Vit / Remi / Svart</string>
 	<string name="averageRatingX">Medelrating: %s</string>
 	<string name="recentGames">Senaste partier</string>
 	<string name="topGames">Toppartier</string>
@@ -197,10 +200,8 @@
 	<string name="drawOfferDeclined">Remierbjudande avbrutet</string>
 	<string name="drawOfferAccepted">Remierbjudande accepterat</string>
 	<string name="drawOfferCanceled">Remierbjudande avbrutet</string>
-	<string name="whiteOffersDraw">Vit erbjuder remi</string>
-	<string name="blackOffersDraw">Svart erbjuder remi</string>
-	<string name="whiteDeclinesDraw">Vit avböjer remi</string>
-	<string name="blackDeclinesDraw">Svart avböjer remi</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Din motståndare erbjuder remi</string>
 	<string name="accept">Acceptera</string>
 	<string name="decline">Avböj</string>
@@ -210,7 +211,11 @@
 	<string name="finishesX">slutar %s</string>
 	<string name="abortGame">Avbryt partiet</string>
 	<string name="gameAborted">Partiet avbröts</string>
-	<string name="standard">Standard</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
+	<string name="minishogi">Minishogi</string>
+	<string name="chushogi">Chushogi</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">Obegränsad</string>
 	<string name="mode">Typ</string>
 	<string name="casual">Ej rankat</string>
@@ -220,8 +225,7 @@
 	<string name="thisGameIsRated">Detta parti är rankat</string>
 	<string name="rematch">Returmatch</string>
 	<string name="rematchOfferSent">Erbjudande om returmatch skickat</string>
-	<string name="rematchOfferSentWhite">Vit erbjuder returmatch</string>
-	<string name="rematchOfferSentBlack">Svart erbjuder returmatch</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Erbjudande om returmatch accepterat</string>
 	<string name="rematchOfferCanceled">Erbjudande om returmatch avbrutet</string>
 	<string name="rematchOfferDeclined">Erbjudande om returmatch avböjt</string>
@@ -243,7 +247,7 @@
 	<string name="incrementInSeconds">Tilläggssekunder</string>
 	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
 	<string name="numberOfPeriods">Number of periods</string>
-	<string name="freeOnlineChess">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Free Online Shogi</string>
 	<string name="spectators">Åskådare:</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s rankat</item>
@@ -322,6 +326,8 @@
 	<string name="youAreNotInTeam">Du är inte medlem i %s</string>
 	<string name="backToGame">Tillbaka till partiet</string>
 	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
+	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s gick med i lag %2$s</string>
 	<string name="xCreatedTeamY">%1$s skapade lag %2$s</string>
 	<string name="xStartedStreaming">%s började sända video</string>
@@ -336,7 +342,7 @@
 	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
 	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
 	<string name="fromPosition">Från position</string>
-	<string name="default">Default</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
 	<string name="continueFromHere">Fortsätt härifrån</string>
 	<string name="toStudy">Studera</string>
 	<string name="importGame">Importera parti</string>
@@ -346,12 +352,11 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="one">%s Importerat parti</item>
 		<item quantity="other">%s Importerade partier</item>
 	</plurals>
-	<string name="thisIsAChessCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Klicka på brädet och gör ditt drag för att bevisa att du är en människa.</string>
 	<string name="captcha.fail">Please solve the shogi captcha.</string>
 	<string name="notACheckmate">Inte schackmatt</string>
-	<string name="whiteCheckmatesInOneMove">Vit gör schackmatt på ett drag</string>
-	<string name="blackCheckmatesInOneMove">Svart gör schackmatt på ett drag</string>
+	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Försök igen</string>
 	<string name="reconnecting">Återansluter</string>
 	<plurals name="nbFriendsOnline">
@@ -405,6 +410,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="showAdvancedSettings">Visa avancerade inställningar</string>
 	<string name="makePrivateTournament">Gör turneringen privat, och begränsa åtkomst med ett lösenord</string>
 	<string name="join">Delta</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Lämna</string>
 	<string name="points">Poäng</string>
 	<string name="wins">Vinster</string>
@@ -420,8 +426,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">Prestation</string>
 	<string name="tournamentComplete">Turneringen avslutad</string>
 	<string name="movesPlayed">Drag spelade</string>
-	<string name="whiteWins">Vinster Vit</string>
-	<string name="blackWins">Vinster Svart</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Remier</string>
 	<string name="nextXTournament">Nästa %s turnering:</string>
 	<string name="averageOpponent">Genomsnittlig motståndare</string>
@@ -433,7 +438,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="handicap">Handicap</string>
 	<string name="startPosition">Startposition</string>
 	<string name="clearBoard">Rensa brädet</string>
-	<string name="fillGotesHand">Fill Gote\'s hand</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Spara ställning</string>
 	<string name="loadPosition">Ladda ställning</string>
 	<string name="isPrivate">Privat</string>
@@ -457,8 +462,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="activePlayers">Mest aktiva spelare</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">OBS! Partiet är rankat men har ingen tidsgräns.</string>
 	<string name="yourPuzzleRatingX">Din problemlösarrating: %s</string>
-	<string name="findTheBestMoveForWhite">Hitta bästa draget för vit.</string>
-	<string name="findTheBestMoveForBlack">Hitta bästa draget för svart.</string>
 	<string name="toTrackYourProgress">För att följa din utveckling:</string>
 	<string name="puzzleId">Schackproblem %s</string>
 	<string name="puzzleOfTheDay">Dagens schackproblem</string>
@@ -544,6 +547,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="fast">Snabb</string>
 	<string name="normal">Medel</string>
 	<string name="slow">Långsam</string>
+	<string name="compact">Compact</string>
 	<string name="insideTheBoard">På brädet</string>
 	<string name="outsideTheBoard">Utanför brädet</string>
 	<string name="edgeOfTheBoard">Edge of the board</string>
@@ -623,7 +627,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="webmasters">Webbmasters</string>
 	<string name="about">Om Lishogi</string>
 	<string name="aboutX">Om %s</string>
-	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
 	<string name="really">på riktigt</string>
 	<string name="contribute">Hjälp till</string>
 	<string name="termsOfService">Användarvillkor</string>
@@ -709,16 +713,17 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="security">Säkerhet</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">Detta är en lista över enheter som har loggat in på ditt konto. Återkalla alla sessioner som du inte känner igen.</string>
 	<string name="alternativelyYouCanX">Alternativt kan du %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">återkalla alla sessioner</string>
-	<string name="playChessEverywhere">Play shogi everywhere</string>
+	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">As free as Lishogi</string>
-	<string name="builtForTheLoveOfChessNotMoney">Built for the love of shogi, not money</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">Alla får alla funktioner gratis</string>
 	<string name="zeroAdvertisement">Ingen reklam</string>
 	<string name="fullFeatured">Alla funktioner</string>
 	<string name="phoneAndTablet">Mobil och platta</string>
 	<string name="bulletBlitzClassical">Bullet, blixt och klassiskt</string>
-	<string name="correspondenceChess">Correspondence shogi</string>
+	<string name="correspondenceShogi">Correspondence shogi</string>
 	<string name="onlineAndOfflinePlay">Spela uppkopplad eller nedkopplad</string>
 	<string name="viewTheSolution">Visa lösningen</string>
 	<string name="followAndChallengeFriends">Följ och utmana vänner</string>
@@ -750,7 +755,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">Brädets tema</string>
 	<string name="boardSize">Brädets storlek</string>
 	<string name="pieceSet">Pjäsuppsättning</string>
@@ -761,13 +766,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="usernameCharsInvalid">Användarnamnet får bara innehålla bokstäver, siffror, understrykningstecken och bindestreck.</string>
 	<string name="usernameUnacceptable">Detta användarnamn är inte acceptabelt.</string>
 	<string name="directlySupportLishogi">Directly support Lishogi</string>
-	<string name="playChessInStyle">Play shogi in style</string>
-	<string name="chessBasics">Shogi basics</string>
+	<string name="playShogiInStyle">Play shogi in style</string>
+	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">Schacktränare</string>
-	<string name="invalidKif">Invalid KIF</string>
 	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">Ogiltig FEN</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">Minimilängd är %s</string>
 	<string name="error.maxLength">Maximumlängd är %s</string>
 	<string name="error.min">Lägst tillåtna är %s</string>
@@ -792,28 +796,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">Dölj det bästa draget</string>
 	<string name="getAHint">Ledtråd?</string>
 	<string name="evaluatingYourMove">Utvärderar ditt drag...</string>
-	<string name="whiteWinsGame">Vit vinner</string>
-	<string name="blackWinsGame">Svart vinner</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Lär av dina misstag</string>
 	<string name="learnFromThisMistake">Lär av detta misstaget</string>
 	<string name="skipThisMove">Hoppa över detta drag</string>
 	<string name="next">Nästa</string>
 	<string name="xWasPlayed">%s spelades</string>
-	<string name="findBetterMoveForWhite">Hitta ett bättre drag för vit</string>
-	<string name="findBetterMoveForBlack">Hitta ett bättre drag för svart</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Återuppta inlärning</string>
 	<string name="youCanDoBetter">Du kan bättre</string>
-	<string name="tryAnotherMoveForWhite">Prova ett annat drag som vit</string>
-	<string name="tryAnotherMoveForBlack">Prova ett annat drag som svart</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Lösning</string>
 	<string name="waitingForAnalysis">Väntar på analys</string>
-	<string name="noMistakesFoundForWhite">Hittar inga misstag för vit</string>
-	<string name="noMistakesFoundForBlack">Hittar inga misstag för svart</string>
-	<string name="doneReviewingWhiteMistakes">Färdig med utvärderingen av vits misstag</string>
-	<string name="doneReviewingBlackMistakes">Färdig med utvärderingen av svarts misstag</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Gör det igen</string>
-	<string name="reviewWhiteMistakes">Granska vits misstag</string>
-	<string name="reviewBlackMistakes">Granska svarts misstag</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Fördel</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s sekunder</item>
@@ -841,7 +839,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="weHadToTimeYouOutForAWhile">Vi är tvugna att stänga av dig en stund.</string>
 	<string name="timeoutExpires">Avstängningen upphör om %s.</string>
 	<string name="why">Varför?</string>
-	<string name="pleasantChessExperience">We aim to provide a pleasant shogi experience for everyone.</string>
+	<string name="pleasantShogiExperience">We aim to provide a pleasant shogi experience for everyone.</string>
 	<string name="goodPractice">Därför måste vi försäkra oss om att alla spelare följer god sed.</string>
 	<string name="potentialProblem">När ett möjligt problem upptäcks visar vi detta meddelande.</string>
 	<string name="howToAvoidThis">Hur undviker jag det här?</string>
@@ -857,6 +855,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="agreementNice">Jag lovar att jag alltid kommer att vara respektfull mot andra spelare.</string>
 	<string name="agreementAccount">Jag instämmer med att jag inte kommer att skapa flera konton.</string>
 	<string name="agreementPolicy">Jag instämmer med att jag kommer att följa alla Lishogi-regler.</string>
+	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Sök eller starta ny konversation</string>
 	<string name="edit">Redigera</string>
 	<string name="rapid">Rapid</string>
@@ -881,18 +880,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="youCannotPostYetPlaySomeGames">Du kan inte posta i forumen ännu. Spela några partier!</string>
 	<string name="subscribe">Prenumerera</string>
 	<string name="unsubscribe">Avprenumerera</string>
-	<string name="blackDeclinesImpasse">Sente declines impasse</string>
-	<string name="blackOffersImpasse">Sente offers impasse</string>
-	<string name="notationType">Notation</string>
-	<string name="whiteDeclinesImpasse">Gote declines impasse</string>
-	<string name="whiteOffersImpasse">Gote offers impasse</string>
 	<string name="notationSystem">Notation</string>
 	<string name="officialBlog">Lishogi Official Blog</string>
 	<string name="blogPostsFromYear">Blog posts from %1$s</string>
 	<string name="previousBlogPosts">Previous blog posts</string>
 	<string name="continueReadingThis"> Continue reading this post</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyOfPlayers">Study of players</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

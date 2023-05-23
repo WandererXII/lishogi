@@ -46,12 +46,11 @@ object captcha {
           ),
           div(cls := "captcha-explanation")(
             label(cls := "form-label")(
-              if (captcha.sente) trans.blackCheckmatesInOneMove()
-              else trans.whiteCheckmatesInOneMove()
+              transWithColorName(trans.xCheckmatesInOneMove, shogi.Color.fromSente(captcha.sente), false)
             ),
             br,
             br,
-            trans.thisIsAChessCaptcha(),
+            trans.thisIsAShogiCaptcha(),
             br,
             trans.clickOnTheBoardToMakeYourMove(),
             br,

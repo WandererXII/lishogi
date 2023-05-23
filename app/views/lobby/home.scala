@@ -18,7 +18,7 @@ object home {
     views.html.base.layout(
       title = "",
       fullTitle = Some {
-        s"lishogi.${if (isProd && !isStage) "org" else "dev"} • ${trans.freeOnlineChess.txt()}"
+        s"lishogi.${if (isProd && !isStage) "org" else "dev"} • ${trans.freeOnlineShogi.txt()}"
       },
       moreJs = frag(
         jsModule("lobby", defer = true),
@@ -129,7 +129,7 @@ object home {
           else
             div(cls := "about-side")(
               ctx.blind option h2("About"),
-              trans.xIsAFreeYLibreOpenSourceChessServer(
+              trans.xIsAFreeYLibreOpenSourceShogiServer(
                 "Lishogi",
                 a(cls := "blue", href := routes.Plan.features)(trans.really.txt())
               ),
@@ -157,6 +157,8 @@ object home {
           )
         ),
         bits.lastPosts(lastPost),
+        bits.shogiDescription,
+        bits.variants,
         div(cls := "lobby__support")(
           a(href := routes.Plan.index)( // patron
             iconTag(patronIconChar),
@@ -184,6 +186,12 @@ object home {
   }
 
   private val i18nKeys = List(
+    trans.black,
+    trans.white,
+    trans.sente,
+    trans.gote,
+    trans.shitate,
+    trans.uwate,
     trans.realTime,
     trans.correspondence,
     trans.nbGamesInPlay,
@@ -194,6 +202,11 @@ object home {
     trans.casual,
     trans.rated,
     trans.variant,
+    trans.standard,
+    trans.minishogi,
+    trans.chushogi,
+    trans.annanshogi,
+    trans.kyotoshogi,
     trans.mode,
     trans.list,
     trans.graph,
@@ -205,7 +218,8 @@ object home {
     trans.yourTurn,
     trans.rating,
     trans.createAGame,
-    trans.quickPairing,
+    trans.startPosition,
+    // trans.quickPairing,
     trans.lobby,
     trans.custom,
     trans.anonymous

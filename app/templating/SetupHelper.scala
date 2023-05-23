@@ -122,12 +122,19 @@ trait SetupHelper { self: I18nHelper =>
       (Mode.Rated.id.toString, trans.ratedTournament.txt(), none)
     )
 
+  def variantName(v: shogi.variant.Variant)(implicit lang: Lang): String =
+    v match {
+      case shogi.variant.Minishogi  => trans.minishogi.txt()
+      case shogi.variant.Chushogi   => trans.chushogi.txt()
+      case shogi.variant.Annanshogi => trans.annanshogi.txt()
+      case shogi.variant.Kyotoshogi => trans.kyotoshogi.txt()
+      case _                        => trans.standard.txt()
+    }
+
   private val encodeId = (v: Variant) => v.id.toString
 
-  private def variantTupleId = variantTuple(encodeId) _
-
-  private def variantTuple(encode: Variant => String)(variant: Variant) =
-    (encode(variant), variant.name, variant.title.some)
+  private def variantTuple(encode: Variant => String)(variant: Variant)(implicit lang: Lang) =
+    (encode(variant), variantName(variant), variant.title.some)
 
   def standardChoice(implicit lang: Lang): SelectChoice =
     standardChoice(encodeId)
@@ -138,19 +145,26 @@ trait SetupHelper { self: I18nHelper =>
   def translatedVariantChoices(implicit lang: Lang): List[SelectChoice] =
     standardChoice ::
       List(
-        shogi.variant.Minishogi
-      ).map(variantTupleId)
+        shogi.variant.Minishogi,
+        shogi.variant.Chushogi,
+        shogi.variant.Annanshogi,
+        shogi.variant.Kyotoshogi
+      ).map(variantTuple(encodeId))
 
   def translatedVariantChoices(
       encode: Variant => String
   )(implicit lang: Lang): List[SelectChoice] =
     standardChoice(encode) :: List(
-      shogi.variant.Minishogi
+      shogi.variant.Minishogi,
+      shogi.variant.Chushogi,
+      shogi.variant.Annanshogi,
+      shogi.variant.Kyotoshogi
     ).map(variantTuple(encode))
 
   def translatedAiChoices(implicit lang: Lang) =
     standardChoice :: List(
-      shogi.variant.Minishogi
+      shogi.variant.Minishogi,
+      shogi.variant.Kyotoshogi
     ).map(variantTuple(encodeId))
 
   def translatedSpeedChoices(implicit lang: Lang) =
@@ -163,11 +177,10 @@ trait SetupHelper { self: I18nHelper =>
       )
     }
 
-  def translatedSideChoices(implicit lang: Lang) =
+  def translatedBoardLayoutChoices(implicit lang: Lang) =
     List(
-      ("sente", trans.black.txt(), none),
-      ("random", trans.randomColor.txt(), none),
-      ("gote", trans.white.txt(), none)
+      (Pref.BoardLayout.SIDE, trans.side.txt()),
+      (Pref.BoardLayout.COMPACT, trans.compact.txt())
     )
 
   def translatedAnimationChoices(implicit lang: Lang) =
@@ -191,6 +204,14 @@ trait SetupHelper { self: I18nHelper =>
       (Pref.Replay.NEVER, trans.never.txt()),
       (Pref.Replay.SLOW, trans.onSlowGames.txt()),
       (Pref.Replay.ALWAYS, trans.always.txt())
+    )
+
+  def translatedColorNameChoices(implicit lang: Lang) =
+    List(
+      (Pref.ColorName.LANG, s"${trans.language.txt()} - (${trans.sente.txt()}/${trans.gote.txt()})"),
+      (Pref.ColorName.SENTEJP, "先手/後手"),
+      (Pref.ColorName.SENTE, "Sente/Gote"),
+      (Pref.ColorName.BLACK, s"${trans.black.txt()}/${trans.white.txt()}")
     )
 
   def translatedClockTenthsChoices(implicit lang: Lang) =

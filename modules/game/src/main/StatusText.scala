@@ -17,16 +17,14 @@ object StatusText {
       case TryRule                  => s"${winner(win)} wins by try rule."
       case Impasse27                => s"${winner(win)} wins by impasse."
       case PerpetualCheck           => s"${loser(win)} lost due to perpetual check."
+      case RoyalsLost               => s"${winner(win)} wins by capturing all royal pieces."
+      case BareKing                 => s"${winner(win)} wins due to bare king rule."
       case Timeout if win.isDefined => s"${loser(win)} left the game."
       case Timeout | Draw           => "The game is a draw."
       case Outoftime                => s"${winner(win)} wins on time."
       case NoStart                  => s"${loser(win)} wins by forfeit."
       case Cheat                    => "Cheat detected."
-      case VariantEnd =>
-        variant match {
-          case _ => "Perpetual check."
-        }
-      case _ => ""
+      case _                        => ""
     }
 
   def apply(game: lila.game.Game): String = apply(game.status, game.winnerColor, game.variant)

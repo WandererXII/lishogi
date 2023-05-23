@@ -24,7 +24,10 @@ trait UserHelper { self: I18nHelper with StringHelper with NumberHelper =>
     PerfType.Rapid,
     PerfType.Classical,
     PerfType.Correspondence,
-    PerfType.Minishogi
+    PerfType.Minishogi,
+    PerfType.Chushogi,
+    PerfType.Annanshogi,
+    PerfType.Kyotoshogi
   )
 
   def showPerfRating(rating: Int, name: String, nb: Int, provisional: Boolean, icon: Char)(implicit
@@ -194,14 +197,16 @@ trait UserHelper { self: I18nHelper with StringHelper with NumberHelper =>
       userRating(user, withPerfRating, withBestRating)
     )
 
-  def userIdSpanMini(userId: String, withOnline: Boolean = false)(implicit lang: Lang): Frag = {
+  def userIdSpanMini(userId: String, withOnline: Boolean = false, modIcon: Boolean = false)(implicit
+      lang: Lang
+  ): Frag = {
     val user = lightUser(userId)
     val name = user.fold(userId)(_.name)
     span(
       cls      := userClass(userId, none, withOnline),
       dataHref := userUrl(name)
     )(
-      withOnline ?? lineIcon(user),
+      withOnline ?? { if (modIcon) moderatorIcon else lineIcon(user) },
       user.??(u => titleTag(u.title map Title.apply)),
       name
     )

@@ -1,6 +1,6 @@
-import { Controller, Puzzle, PuzzleGame, PuzzleDifficulty, PuzzlePlayer } from '../interfaces';
-import { dataIcon, MaybeVNode, onInsert } from 'common/snabbdom';
-import { h, VNode } from 'snabbdom';
+import { MaybeVNode, dataIcon, onInsert } from 'common/snabbdom';
+import { VNode, h } from 'snabbdom';
+import { Controller, Puzzle, PuzzleDifficulty, PuzzleGame, PuzzlePlayer } from '../interfaces';
 
 export function puzzleBox(ctrl: Controller): VNode {
   var data = ctrl.getData();
@@ -168,7 +168,7 @@ export function replay(ctrl: Controller): MaybeVNode {
           href: `/training/dashboard/${replay.days}`,
         },
       },
-      ['« ', `Replaying ${ctrl.trans.noarg(ctrl.getData().theme.key)} puzzles`]
+      ['« ', `Replaying ${ctrl.trans.noarg(ctrl.getData().theme.key as I18nKey)} puzzles`]
     ),
     h('div.puzzle__side__replay__bar', {
       attrs: {

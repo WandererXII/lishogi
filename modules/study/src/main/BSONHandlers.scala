@@ -1,10 +1,10 @@
 package lila.study
 
 import shogi.format.{ Glyph, Glyphs, Tag, Tags }
-import shogi.format.usi.{ Usi, UsiCharPair }
-import shogi.format.forsyth.Sfen
-import shogi.variant.Variant
-import shogi.{ Centis, Piece, Pos, Role }
+import shogi.format.usi.{ UciToUsi, Usi, UsiCharPair }
+import shogi.format.forsyth.{ Sfen, SfenUtils }
+import shogi.variant.{ Standard, Variant }
+import shogi.{ Centis, Piece, Pos }
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 import scala.util.Success
@@ -32,11 +32,11 @@ object BSONHandlers {
 
   implicit private val PosBSONHandler = tryHandler[Pos](
     { case BSONString(v) => Pos.fromKey(v) toTry s"No such pos: $v" },
-    x => BSONString(x.usiKey)
+    x => BSONString(x.key)
   )
   implicit private val PieceBSONHandler = tryHandler[Piece](
-    { case BSONString(v) => Piece.fromForsyth(v) toTry s"No such piece: $v" },
-    x => BSONString(x.forsyth)
+    { case BSONString(v) => SfenUtils.toPiece(v, Standard) toTry s"No such piece: $v" },
+    x => BSONString(SfenUtils.toForsyth(x, Standard).getOrElse("p"))
   )
 
   implicit private val PosOrPieceBSONHandler = tryHandler[Shape.PosOrPiece](
@@ -44,9 +44,9 @@ object BSONHandlers {
       Pos
         .fromKey(v)
         .map(Left(_).withRight[Piece])
-        .orElse(Piece.fromForsyth(v).map(Right(_).withLeft[Pos])) toTry s"No such pos or piece: $v"
+        .orElse(SfenUtils.toPiece(v, Standard).map(Right(_).withLeft[Pos])) toTry s"No such pos or piece: $v"
     },
-    x => BSONString(x.fold(_.usiKey, _.forsyth))
+    x => BSONString(x.fold(_.key, p => SfenUtils.toForsyth(p, Standard).getOrElse("p")))
   )
 
   implicit val ShapeBSONHandler = new BSON[Shape] {
@@ -62,19 +62,15 @@ object BSONHandlers {
     }
     def writes(w: Writer, t: Shape) =
       t match {
-        case Shape.Circle(brush, pop, None)        => $doc("b" -> brush, "p" -> pop)
-        case Shape.Circle(brush, pop, Some(piece)) => $doc("b" -> brush, "o" -> pop, "k" -> piece.forsyth)
-        case Shape.Arrow(brush, origPop, destPop)  => $doc("b" -> brush, "o" -> origPop, "d" -> destPop)
+        case Shape.Circle(brush, pop, None) => $doc("b" -> brush, "p" -> pop)
+        case Shape.Circle(brush, pop, Some(piece)) =>
+          $doc("b" -> brush, "o" -> pop, "k" -> SfenUtils.toForsyth(piece, Standard).getOrElse("P"))
+        case Shape.Arrow(brush, origPop, destPop) => $doc("b" -> brush, "o" -> origPop, "d" -> destPop)
       }
   }
 
-  implicit val RoleHandler = tryHandler[Role](
-    { case BSONString(v) => Role.allByForsyth get v toTry s"No such role: $v" },
-    x => BSONString(x.forsyth)
-  )
-
   implicit val UsiHandler = tryHandler[Usi](
-    { case BSONString(v) => Usi(v) toTry s"Bad USI: $v" },
+    { case BSONString(v) => Usi(v).orElse(UciToUsi(v)) toTry s"Bad USI: $v" },
     x => BSONString(x.usi)
   )
 
@@ -150,6 +146,11 @@ object BSONHandlers {
     )
   }
 
+  implicit val VariantBSONHandler = quickHandler[Variant](
+    { case BSONInteger(v) => Variant.orDefault(v) },
+    x => BSONInteger(x.id)
+  )
+
   def readNode(doc: Bdoc, id: UsiCharPair): Option[Node] = {
     import Node.{ BsonFields => F }
     for {
@@ -202,48 +203,102 @@ object BSONHandlers {
     )
   }
 
+  def readGameMainlineExtension(doc: Bdoc): Node.GameMainlineExtension = {
+    import Node.{ BsonFields => F }
+    Node.GameMainlineExtension(
+      shapes = doc.getAsOpt[Shapes](F.shapes) getOrElse Shapes.empty,
+      comments = doc.getAsOpt[Comments](F.comments) getOrElse Comments.empty,
+      glyphs = doc.getAsOpt[Glyphs](F.glyphs) getOrElse Glyphs.empty,
+      score = doc.getAsOpt[Score](F.score)
+    )
+  }
+
+  def writeGameMainlineExtension(rn: RootOrNode): Bdoc = {
+    import Node.BsonFields._
+    $doc(
+      shapes   -> rn.shapes.value.nonEmpty.option(rn.shapes),
+      comments -> rn.comments.value.nonEmpty.option(rn.comments),
+      glyphs   -> rn.glyphs.nonEmpty,
+      score    -> rn.score,
+      order -> {
+        (rn.children.nodes.sizeIs > 1) option rn.children.nodes.map(_.id)
+      }
+    )
+  }
+
   import Node.Root
   implicit private[study] lazy val NodeRootBSONHandler: BSON[Root] = new BSON[Root] {
-    import Node.BsonFields._
+    import Node.{ BsonFields => F }
     def reads(fullReader: Reader) = {
-      val rootNode = fullReader.doc.getAsOpt[Bdoc](Path.rootDbKey) err "Missing root"
-      val r        = new Reader(rootNode)
-      val rootSfen = r.get[Sfen](sfen)
-      Root(
-        sfen = rootSfen,
-        ply = r int ply,
-        check = r boolD check,
-        shapes = r.getO[Shapes](shapes) | Shapes.empty,
-        comments = r.getO[Comments](comments) | Comments.empty,
-        gamebook = r.getO[Gamebook](gamebook),
-        glyphs = r.getO[Glyphs](glyphs) | Glyphs.empty,
-        score = r.getO[Score](score),
-        clock = r.getO[Centis](clock),
-        children = StudyFlatTree.reader.rootChildren(fullReader.doc)
-      )
+      val rootNode = fullReader.doc.getAsOpt[Bdoc](Path.rootDbKey)
+      rootNode.fold {
+        val gameMainlineEl =
+          fullReader.doc.getAsOpt[Bdoc](Path.gameMainlineDbKey) err "Missing root"
+        val r       = new Reader(gameMainlineEl)
+        val variant = r.get[Variant](F.variant)
+        val gm = Node.GameMainline(
+          id = r strD F.gameId,
+          part = r intD F.part,
+          variant = variant,
+          usiMoves = shogi.format.usi.Binary.decodeMoves(
+            (r bytesD F.usiMoves).value.toList,
+            variant,
+            Node.MAX_PLIES
+          ),
+          initialSfen = r.getO[Sfen](F.initialSfen),
+          clocks = r.getO[Vector[Centis]](F.clocks)
+        )
+        StudyFlatTree.reader.mergeGameRoot(GameRootCache(gm), fullReader.doc)
+      } { rn =>
+        val r = new Reader(rn)
+        Root(
+          sfen = r.get[Sfen](F.sfen),
+          ply = r int F.ply,
+          check = r boolD F.check,
+          shapes = r.getO[Shapes](F.shapes) | Shapes.empty,
+          comments = r.getO[Comments](F.comments) | Comments.empty,
+          gamebook = r.getO[Gamebook](F.gamebook),
+          glyphs = r.getO[Glyphs](F.glyphs) | Glyphs.empty,
+          score = r.getO[Score](F.score),
+          clock = r.getO[Centis](F.clock),
+          gameMainline = none,
+          children = StudyFlatTree.reader.rootChildren(fullReader.doc)
+        )
+      }
     }
     def writes(w: Writer, r: Root) = $doc(
-      StudyFlatTree.writer.rootChildren(r) appended {
-        Path.rootDbKey -> $doc(
-          ply      -> r.ply,
-          sfen     -> r.sfen,
-          check    -> r.check.some.filter(identity),
-          shapes   -> r.shapes.value.nonEmpty.option(r.shapes),
-          comments -> r.comments.value.nonEmpty.option(r.comments),
-          gamebook -> r.gamebook,
-          glyphs   -> r.glyphs.nonEmpty,
-          score    -> r.score,
-          clock    -> r.clock
-        )
+      r.gameMainline.fold {
+        StudyFlatTree.writer.rootChildren(r) appended {
+          Path.rootDbKey -> $doc(
+            F.ply      -> r.ply,
+            F.sfen     -> r.sfen,
+            F.check    -> r.check.some.filter(identity),
+            F.shapes   -> r.shapes.value.nonEmpty.option(r.shapes),
+            F.comments -> r.comments.value.nonEmpty.option(r.comments),
+            F.gamebook -> r.gamebook,
+            F.glyphs   -> r.glyphs.nonEmpty,
+            F.score    -> r.score,
+            F.clock    -> r.clock
+          )
+        }
+      } { gm =>
+        StudyFlatTree.writer.gameRoot(r) appended {
+          Path.gameMainlineDbKey -> $doc(
+            F.gameId  -> gm.id,
+            F.part    -> gm.part.some.filter(_ > 0),
+            F.variant -> gm.variant,
+            F.usiMoves -> lila.db.ByteArray {
+              shogi.format.usi.Binary.encodeMoves(gm.usiMoves, gm.variant)
+            },
+            F.initialSfen -> gm.initialSfen,
+            F.clocks      -> gm.clocks
+          )
+        }
       }
     )
   }
 
   implicit val PathBSONHandler = BSONStringHandler.as[Path](Path.apply, _.toString)
-  implicit val VariantBSONHandler = tryHandler[Variant](
-    { case BSONInteger(v) => Variant(v) toTry s"No such variant: $v" },
-    x => BSONInteger(x.id)
-  )
 
   implicit val TagBSONHandler = tryHandler[Tag](
     { case BSONString(v) =>
@@ -255,9 +310,14 @@ object BSONHandlers {
     t => BSONString(s"${t.name}:${t.value}")
   )
   implicit val tagsHandler = implicitly[BSONHandler[List[Tag]]].as[Tags](Tags.apply, _.value)
-  implicit private val ChapterSetupBSONHandler = Macros.handler[Chapter.Setup]
-  implicit val ChapterRelayBSONHandler         = Macros.handler[Chapter.Relay]
-  implicit val ChapterServerEvalBSONHandler    = Macros.handler[Chapter.ServerEval]
+  implicit val StatusBSONHandler = quickHandler[shogi.Status](
+    { case BSONInteger(v) => shogi.Status(v).getOrElse(shogi.Status.UnknownFinish) },
+    x => BSONInteger(x.id)
+  )
+  implicit private val ChapterEndStatusBSONHandler = Macros.handler[Chapter.EndStatus]
+  implicit private val ChapterSetupBSONHandler     = Macros.handler[Chapter.Setup]
+  implicit val ChapterRelayBSONHandler             = Macros.handler[Chapter.Relay]
+  implicit val ChapterServerEvalBSONHandler        = Macros.handler[Chapter.ServerEval]
   import Chapter.Ply
   implicit val PlyBSONHandler             = intAnyValHandler[Ply](_.value, Ply.apply)
   implicit val ChapterBSONHandler         = Macros.handler[Chapter]
@@ -289,6 +349,14 @@ object BSONHandlers {
     { case BSONString(v) => Visibility.byKey get v toTry s"Invalid visibility $v" },
     v => BSONString(v.key)
   )
+
+  implicit val GamePlayerBSONHandler = quickHandler[Study.GamePlayer](
+    { case BSONString(str) => Study.GamePlayer(str.take(4), str.drop(4).some.filter(_.nonEmpty)) },
+    x => BSONString(s"${x.playerId}${~x.userId}")
+  )
+  import Study.PostGameStudy
+  implicit private val PostGameStudyBSONHandler = Macros.handler[PostGameStudy]
+
   import Study.From
   implicit private[study] val FromHandler = tryHandler[From](
     { case BSONString(v) =>

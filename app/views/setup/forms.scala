@@ -85,7 +85,7 @@ object forms {
   )(implicit ctx: Context) =
     layout(
       "friend",
-      (if (user.isDefined) trans.challengeToPlay else trans.playWithAFriend)(),
+      (if (user.isDefined) trans.challengeToPlay else trans.playWithAFriend) (),
       routes.Setup.friend(user map (_.id)),
       error.map(e => raw(e.replace("{{user}}", userIdLink(user.map(_.id)).toString)))
     )(
@@ -101,6 +101,13 @@ object forms {
         ),
         blindSideChoice(form)
       )
+    )
+
+  private def translatedSideChoices(implicit ctx: Context) =
+    List(
+      ("sente", standardColorName(shogi.Color.Sente), none),
+      ("random", trans.randomColor.txt(), none),
+      ("gote", standardColorName(shogi.Color.Gote), none)
     )
 
   private def blindSideChoice(form: Form[_])(implicit ctx: Context) =

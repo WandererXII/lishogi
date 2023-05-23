@@ -40,6 +40,15 @@ object layout {
         tpe  := "text/css",
         rel  := "stylesheet"
       )
+
+    def chuPieceSprite(implicit ctx: Context): Frag = chuPieceSprite(ctx.currentChuPieceSet)
+    def chuPieceSprite(ps: lila.pref.PieceSet): Frag =
+      link(
+        id   := "chu-piece-sprite",
+        href := assetUrl(s"piece-css/$ps.css"),
+        tpe  := "text/css",
+        rel  := "stylesheet"
+      )
   }
   import bits._
 
@@ -181,9 +190,12 @@ object layout {
   private val dataI18n          = attr("data-i18n")
   private val dataNonce         = attr("data-nonce")
   private val dataAnnounce      = attr("data-announce")
+  private val dataColorName     = attr("data-color-name")
+  private val dataNotation      = attr("data-notation")
   val dataSoundSet              = attr("data-sound-set")
   val dataTheme                 = attr("data-theme")
   val dataPieceSet              = attr("data-piece-set")
+  val dataChuPieceSet           = attr("data-chu-piece-set")
   val dataAssetUrl              = attr("data-asset-url")
   val dataAssetVersion          = attr("data-asset-version")
   val dataDev                   = attr("data-dev")
@@ -244,14 +256,16 @@ object layout {
         ),
         st.body(
           cls := List(
-            s"${ctx.currentBg} ${ctx.currentTheme.cssClass} coords-${ctx.pref.coordsClass} notation-${ctx.pref.notation}" -> true,
+            s"${ctx.currentBg} ${ctx.currentTheme.cssClass} coords-${ctx.pref.coordsClass}" -> true,
             s"grid-width-${ctx.pref.customThemeOrDefault.gridWidth}" -> ctx.pref.isUsingCustomTheme,
+            s"board-layout-${ctx.pref.boardLayout}"                  -> (ctx.pref.boardLayout != 0),
+            "clear-hands"                                            -> ctx.pref.clearHands,
             "no-touch"                                               -> !ctx.pref.squareOverlay,
             "zen"                                                    -> ctx.pref.isZen,
             "blind-mode"                                             -> ctx.blind,
             "kid"                                                    -> ctx.kid,
             "mobile"                                                 -> ctx.isMobileBrowser,
-            "playing fixed-scroll"                                   -> playing
+            "playing"                                                -> playing
           ),
           dataDev           := (!isProd).option("true"),
           dataVapid         := vapidPublicKey,
@@ -263,7 +277,10 @@ object layout {
           dataNonce         := ctx.nonce.ifTrue(sameAssetDomain).map(_.value),
           dataTheme         := ctx.currentBg,
           dataPieceSet      := ctx.currentPieceSet.name,
+          dataChuPieceSet   := ctx.currentChuPieceSet.name,
           dataAnnounce      := AnnounceStore.get.map(a => safeJsonValue(a.json)),
+          dataNotation      := ctx.pref.notation.toString,
+          dataColorName     := ctx.pref.colorName.toString,
           style             := cssVariables(zoomable)
         )(
           blindModeForm,

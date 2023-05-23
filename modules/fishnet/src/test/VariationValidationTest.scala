@@ -23,6 +23,7 @@ final class VariationValidationTest extends Specification {
       val usiAnalysis = Analysis(
         "ke5ssdgj",
         None,
+        Set.empty,
         List(
           Info(1, Eval(Some(Cp(12)), None, None), List("7g7f", "3c3d", "8h2b+")),
           Info(2, Eval(Some(Cp(36)), None, None), List()),

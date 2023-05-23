@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Play with a friend</string>
 	<string name="playWithTheMachine">Play with the computer</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">To invite someone to play, give this URL</string>
@@ -17,26 +18,26 @@
 	<string name="checkmate">Checkmate</string>
 	<string name="stalemate">Stalemate</string>
 	<string name="impasse">Impasse</string>
-	<string name="white">Gote</string>
-	<string name="black">Sente</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
-	<string name="randomColor">Random side</string>
+	<string name="perpetualCheck">Perpetual check</string>
+	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
+	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
+	<string name="white" comment="Alternative to gote">White</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
+	<string name="black" comment="Alternative to sente">Black</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
+	<string name="randomColor" comment="Side - sente/gote">Random side</string>
 	<string name="createAGame">Create a game</string>
-	<string name="whiteIsVictorious">Gote is victorious</string>
-	<string name="blackIsVictorious">Sente is victorious</string>
-	<string name="youPlayTheWhitePieces">You play as gote</string>
-	<string name="youPlayTheBlackPieces">You play as sente</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">It's your turn!</string>
 	<string name="cheatDetected">Cheat Detected</string>
 	<string name="variantEnding">Variant ending</string>
 	<string name="newOpponent">New opponent</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Your opponent wants to play a new game with you</string>
 	<string name="joinTheGame">Join the game</string>
-	<string name="whitePlays">Gote to play</string>
-	<string name="blackPlays">Sente to play</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Your opponent left the game. You can claim victory in %s second.</item>
 		<item quantity="other">Your opponent left the game. You can claim victory in %s seconds.</item>
@@ -47,10 +48,9 @@
 	<string name="forceDraw">Call draw</string>
 	<string name="talkInChat">Please be nice in the chat!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">The first person to come to this URL will play with you.</string>
-	<string name="whiteResigned">Gote resigned</string>
-	<string name="blackResigned">Sente resigned</string>
-	<string name="whiteLeftTheGame">Gote left the game</string>
-	<string name="blackLeftTheGame">Sente left the game</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn't move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Share this URL to let spectators see the game</string>
 	<string name="theComputerAnalysisHasFailed">The computer analysis has failed</string>
 	<string name="viewTheComputerAnalysis">View the computer analysis</string>
@@ -62,7 +62,7 @@
 	<string name="usingServerAnalysis">Using server analysis</string>
 	<string name="loadingEngine">Loading engine ...</string>
 	<string name="cloudAnalysis">Cloud analysis</string>
-	<string name="goDeeper">Go deeper</string>
+	<string name="goDeeper" comment="Engine depth">Go deeper</string>
 	<string name="showThreat">Show threat</string>
 	<string name="inLocalBrowser">in local browser</string>
 	<string name="toggleLocalEvaluation">Toggle local evaluation</string>
@@ -71,6 +71,10 @@
 	<string name="deleteFromHere">Delete from here</string>
 	<string name="forceVariation">Force variation</string>
 	<string name="move">Move</string>
+	<plurals name="nbMoves">
+		<item quantity="one">%s move</item>
+		<item quantity="other">%s moves</item>
+	</plurals>
 	<string name="variantLoss">Variant loss</string>
 	<string name="variantWin">Variant win</string>
 	<string name="insufficientMaterial">Insufficient material</string>
@@ -82,7 +86,6 @@
 	<string name="drawn">Drawn</string>
 	<string name="unknown">Unknown</string>
 	<string name="database">Database</string>
-	<string name="whiteDrawBlack">Gote / Draw / Sente</string>
 	<string name="averageRatingX">Average rating: %s</string>
 	<string name="recentGames">Recent games</string>
 	<string name="topGames">Top games</string>
@@ -136,7 +139,7 @@
 	<string name="signIn">Sign in</string>
 	<string name="youNeedAnAccountToDoThat">You need an account to do that</string>
 	<string name="signUp">Register</string>
-	<string name="computersAreNotAllowedToPlay">Computers and computer-assisted players are not allowed to play. Please do not get assistance from chess engines, databases, or from other players while playing. Also note that making multiple accounts is strongly discouraged and excessive multi-accounting will lead to being banned.</string>
+	<string name="computersAreNotAllowedToPlay">Computers and computer-assisted players are not allowed to play. Please do not get assistance from engines, databases, or from other players while playing. Also note that making multiple accounts is strongly discouraged and excessive multi-accounting will lead to being banned.</string>
 	<string name="games">Games</string>
 	<string name="forum">Forum</string>
 	<string name="xPostedInForumY">%1$s posted in topic %2$s</string>
@@ -197,10 +200,8 @@
 	<string name="drawOfferDeclined">Draw offer declined</string>
 	<string name="drawOfferAccepted">Draw offer accepted</string>
 	<string name="drawOfferCanceled">Draw offer cancelled</string>
-	<string name="whiteOffersDraw">Gote offers draw</string>
-	<string name="blackOffersDraw">Sente offers draw</string>
-	<string name="whiteDeclinesDraw">Gote declines draw</string>
-	<string name="blackDeclinesDraw">Sente declines draw</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">Your opponent offers a draw</string>
 	<string name="accept">Accept</string>
 	<string name="decline">Decline</string>
@@ -210,7 +211,11 @@
 	<string name="finishesX">finishes %s</string>
 	<string name="abortGame">Abort game</string>
 	<string name="gameAborted">Game aborted</string>
-	<string name="standard">Standard</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
+	<string name="minishogi">Minishogi</string>
+	<string name="chushogi">Chushogi</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">Unlimited</string>
 	<string name="mode">Mode</string>
 	<string name="casual">Casual</string>
@@ -220,8 +225,7 @@
 	<string name="thisGameIsRated">This game is rated</string>
 	<string name="rematch">Rematch</string>
 	<string name="rematchOfferSent">Rematch offer sent</string>
-	<string name="rematchOfferSentWhite">Gote offers rematch</string>
-	<string name="rematchOfferSentBlack">Sente offers rematch</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">Rematch offer accepted</string>
 	<string name="rematchOfferCanceled">Rematch offer cancelled</string>
 	<string name="rematchOfferDeclined">Rematch offer declined</string>
@@ -243,7 +247,7 @@
 	<string name="incrementInSeconds">Increment in seconds</string>
 	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
 	<string name="numberOfPeriods">Number of periods</string>
-	<string name="freeOnlineChess">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Free Online Shogi</string>
 	<string name="spectators">Spectators:</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s rated</item>
@@ -322,6 +326,8 @@
 	<string name="youAreNotInTeam">You are not in the team %s</string>
 	<string name="backToGame">Back to game</string>
 	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
+	<string name="shogiDescription">Shogi, also known as "将棋" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as "Japanese chess" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s joined team %2$s</string>
 	<string name="xCreatedTeamY">%1$s created team %2$s</string>
 	<string name="xStartedStreaming">%s started streaming</string>
@@ -336,7 +342,7 @@
 	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
 	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
 	<string name="fromPosition">From position</string>
-	<string name="default">Default</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
 	<string name="continueFromHere">Continue from here</string>
 	<string name="toStudy">Study</string>
 	<string name="importGame">Import game</string>
@@ -346,12 +352,11 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="one">%s imported game</item>
 		<item quantity="other">%s imported games</item>
 	</plurals>
-	<string name="thisIsAChessCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Click on the board to make your move, and prove you are human.</string>
 	<string name="captcha.fail">Please solve the shogi captcha.</string>
 	<string name="notACheckmate">Not a checkmate</string>
-	<string name="whiteCheckmatesInOneMove">Gote to checkmate in one move</string>
-	<string name="blackCheckmatesInOneMove">Sente to checkmate in one move</string>
+	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">Retry</string>
 	<string name="reconnecting">Reconnecting</string>
 	<plurals name="nbFriendsOnline">
@@ -405,6 +410,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="showAdvancedSettings">Show advanced settings</string>
 	<string name="makePrivateTournament">Make the tournament private, and restrict access with a password</string>
 	<string name="join">Join</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">Withdraw</string>
 	<string name="points">Points</string>
 	<string name="wins">Wins</string>
@@ -420,8 +426,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">Performance</string>
 	<string name="tournamentComplete">Tournament complete</string>
 	<string name="movesPlayed">Moves played</string>
-	<string name="whiteWins">Gote wins</string>
-	<string name="blackWins">Sente wins</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">Draws</string>
 	<string name="nextXTournament">Next %s tournament:</string>
 	<string name="averageOpponent">Average opponent</string>
@@ -433,7 +438,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="handicap">Handicap</string>
 	<string name="startPosition">Starting position</string>
 	<string name="clearBoard">Clear board</string>
-	<string name="fillGotesHand">Fill Gote's hand</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">Save position</string>
 	<string name="loadPosition">Load position</string>
 	<string name="isPrivate">Private</string>
@@ -457,8 +462,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="activePlayers">Active players</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Beware, the game is rated but has no clock!</string>
 	<string name="yourPuzzleRatingX">Your puzzle rating: %s</string>
-	<string name="findTheBestMoveForWhite">Find the best move for gote.</string>
-	<string name="findTheBestMoveForBlack">Find the best move for sente.</string>
 	<string name="toTrackYourProgress">To track your progress:</string>
 	<string name="puzzleId">Puzzle %s</string>
 	<string name="puzzleOfTheDay">Puzzle of the day</string>
@@ -544,6 +547,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="fast">Fast</string>
 	<string name="normal">Normal</string>
 	<string name="slow">Slow</string>
+	<string name="compact">Compact</string>
 	<string name="insideTheBoard">Inside the board</string>
 	<string name="outsideTheBoard">Outside the board</string>
 	<string name="edgeOfTheBoard">Edge of the board</string>
@@ -623,7 +627,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="webmasters">Webmasters</string>
 	<string name="about">About</string>
 	<string name="aboutX">About %s</string>
-	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
 	<string name="really">really</string>
 	<string name="contribute">Contribute</string>
 	<string name="termsOfService">Terms of Service</string>
@@ -709,16 +713,17 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="security">Security</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">This is a list of devices that have logged into your account. Revoke any sessions that you do not recognise.</string>
 	<string name="alternativelyYouCanX">Alternatively you can %s.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">revoke all sessions</string>
-	<string name="playChessEverywhere">Play shogi everywhere</string>
+	<string name="playShogiEverywhere">Play shogi everywhere</string>
 	<string name="asFreeAsLishogi">As free as Lishogi</string>
-	<string name="builtForTheLoveOfChessNotMoney">Built for the love of shogi, not money</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">Everybody gets all features for free</string>
 	<string name="zeroAdvertisement">Zero advertisement</string>
 	<string name="fullFeatured">Full featured</string>
 	<string name="phoneAndTablet">Phone and tablet</string>
 	<string name="bulletBlitzClassical">Bullet, blitz, classical</string>
-	<string name="correspondenceChess">Correspondence shogi</string>
+	<string name="correspondenceShogi">Correspondence shogi</string>
 	<string name="onlineAndOfflinePlay">Online and offline play</string>
 	<string name="viewTheSolution">View the solution</string>
 	<string name="followAndChallengeFriends">Follow and challenge friends</string>
@@ -750,7 +755,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">Board theme</string>
 	<string name="boardSize">Board size</string>
 	<string name="pieceSet">Piece set</string>
@@ -761,13 +766,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="usernameCharsInvalid">The username must only contain letters, numbers, underscores, and hyphens.</string>
 	<string name="usernameUnacceptable">This username is not acceptable.</string>
 	<string name="directlySupportLishogi">Directly support Lishogi</string>
-	<string name="playChessInStyle">Play shogi in style</string>
-	<string name="chessBasics">Shogi basics</string>
+	<string name="playShogiInStyle">Play shogi in style</string>
+	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">Coaches</string>
-	<string name="invalidKif">Invalid KIF</string>
 	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">Invalid SFEN</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">Minimum length is %s</string>
 	<string name="error.maxLength">Maximum length is %s</string>
 	<string name="error.min">Must be greater or equal to %s</string>
@@ -792,28 +796,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">Hide best move</string>
 	<string name="getAHint">Get a hint</string>
 	<string name="evaluatingYourMove">Evaluating your move ...</string>
-	<string name="whiteWinsGame">Gote wins</string>
-	<string name="blackWinsGame">Sente wins</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">Learn from your mistakes</string>
 	<string name="learnFromThisMistake">Learn from this mistake</string>
 	<string name="skipThisMove">Skip this move</string>
 	<string name="next">Next</string>
 	<string name="xWasPlayed">%s was played</string>
-	<string name="findBetterMoveForWhite">Find a better move for gote</string>
-	<string name="findBetterMoveForBlack">Find a better move for sente</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">Resume learning</string>
 	<string name="youCanDoBetter">You can do better</string>
-	<string name="tryAnotherMoveForWhite">Try another move for gote</string>
-	<string name="tryAnotherMoveForBlack">Try another move for sente</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">Solution</string>
 	<string name="waitingForAnalysis">Waiting for analysis</string>
-	<string name="noMistakesFoundForWhite">No mistakes found for gote</string>
-	<string name="noMistakesFoundForBlack">No mistakes found for sente</string>
-	<string name="doneReviewingWhiteMistakes">Done reviewing gote mistakes</string>
-	<string name="doneReviewingBlackMistakes">Done reviewing sente mistakes</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">Do it again</string>
-	<string name="reviewWhiteMistakes">Review gote mistakes</string>
-	<string name="reviewBlackMistakes">Review sente mistakes</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">Advantage</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s second</item>
@@ -841,7 +839,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="weHadToTimeYouOutForAWhile">We had to time you out for a while.</string>
 	<string name="timeoutExpires">The timeout expires %s.</string>
 	<string name="why">Why?</string>
-	<string name="pleasantChessExperience">We aim to provide a pleasant shogi experience for everyone.</string>
+	<string name="pleasantShogiExperience">We aim to provide a pleasant shogi experience for everyone.</string>
 	<string name="goodPractice">To that effect, we must ensure that all players follow good practice.</string>
 	<string name="potentialProblem">When a potential problem is detected, we display this message.</string>
 	<string name="howToAvoidThis">How to avoid this?</string>
@@ -857,6 +855,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="agreementNice">I agree that I will always be respectful to other players.</string>
 	<string name="agreementAccount">I agree that I will not create multiple accounts.</string>
 	<string name="agreementPolicy">I agree that I will follow all Lishogi policies.</string>
+	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Search or start new conversation</string>
 	<string name="edit">Edit</string>
 	<string name="rapid">Rapid</string>
@@ -881,18 +880,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="youCannotPostYetPlaySomeGames">You can't post in the forums yet. Play some games!</string>
 	<string name="subscribe">Subscribe</string>
 	<string name="unsubscribe">Unsubscribe</string>
-	<string name="blackDeclinesImpasse">Sente declines impasse</string>
-	<string name="blackOffersImpasse">Sente offers impasse</string>
-	<string name="notationType">Notation</string>
-	<string name="whiteDeclinesImpasse">Gote declines impasse</string>
-	<string name="whiteOffersImpasse">Gote offers impasse</string>
 	<string name="notationSystem">Notation</string>
 	<string name="officialBlog">Lishogi Official Blog</string>
 	<string name="blogPostsFromYear">Blog posts from %1$s</string>
 	<string name="previousBlogPosts">Previous blog posts</string>
 	<string name="continueReadingThis"> Continue reading this post</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyOfPlayers">Study of players</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
 </resources>

@@ -3,9 +3,8 @@ package lila.game
 import shogi.Color.{ Gote, Sente }
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
-import shogi.opening.{ FullOpening, FullOpeningDB }
 import shogi.variant.Variant
-import shogi.{ Centis, Clock, Color, Game => ShogiGame, Mode, Speed, StartingPosition, Status }
+import shogi.{ Centis, Clock, Color, Game => ShogiGame, Handicap, Mode, Speed, Status }
 import lila.common.Sequence
 import lila.db.ByteArray
 import lila.rating.PerfType
@@ -84,9 +83,10 @@ case class Game(
 
   def fullIdOf(color: Color): String = s"$id${player(color).id}"
 
-  def tournamentId = metadata.tournamentId
-  def simulId      = metadata.simulId
-  def swissId      = metadata.swissId
+  def tournamentId  = metadata.tournamentId
+  def simulId       = metadata.simulId
+  def swissId       = metadata.swissId
+  def postGameStudy = metadata.postGameStudy
 
   def isTournament = tournamentId.isDefined
   def isSimul      = simulId.isDefined
@@ -97,8 +97,8 @@ case class Game(
 
   def hasChat = !isTournament && !isSimul && nonAi
 
-  // Only for defined handicaps in shogi/StartingPosition
-  lazy val isHandicap: Boolean = initialSfen.fold(false)(StartingPosition isHandicap _)
+  // Only for defined handicaps in shogi/Handicap.scala
+  lazy val isHandicap: Boolean = initialSfen.fold(false)(sfen => Handicap.isHandicap(sfen, variant))
 
   // we can't rely on the clock,
   // because if moretime was given,
@@ -318,7 +318,13 @@ case class Game(
       gotePlayer = f(gotePlayer)
     )
 
-  def playerCanOfferDraw = false
+  def playerCanOfferDraw(color: Color) =
+    variant.chushogi &&
+      started && playable &&
+      plies >= 2 &&
+      !player(color).isOfferingDraw &&
+      !opponent(color).isAi &&
+      !playerHasOfferedDraw(color)
 
   def playerHasOfferedDraw(color: Color) =
     player(color).lastDrawOffer ?? (_ >= plies - 20)
@@ -425,6 +431,8 @@ case class Game(
 
   def winnerUserId: Option[String] = winner flatMap (_.userId)
 
+  def loserColor: Option[Color] = loser map (_.color)
+
   def loserUserId: Option[String] = loser flatMap (_.userId)
 
   def wonBy(c: Color): Option[Boolean] = winner map (_.color == c)
@@ -500,12 +508,13 @@ case class Game(
       Centis.ofMillis(movedAt.getMillis - nowMillis + timeForFirstMove.millis).nonNeg
     }
 
-  def playerWhoDidNotMove: Option[Player] =
+  def playerWhoDidNotMove: Option[Player] = {
     playedPlies match {
       case 0 => player(startColor).some
       case 1 => player(!startColor).some
       case _ => none
     }
+  } filterNot { player => winnerColor contains player.color }
 
   def onePlayerHasMoved    = playedPlies > 0
   def bothPlayersHaveMoved = playedPlies > 1
@@ -581,10 +590,6 @@ case class Game(
       shogi = shogi.copy(plies = 0, startedAtPly = 0)
     )
 
-  lazy val opening: Option[FullOpening.AtPly] =
-    if (fromPosition || !Variant.openingSensibleVariants(variant)) none
-    else FullOpeningDB search usiMoves
-
   def synthetic = id == Game.syntheticId
 
   private def playerMaps[A](f: Player => Option[A]): List[A] = players flatMap f
@@ -597,6 +602,8 @@ case class Game(
   def loserPov                                      = loser map playerPov
 
   def setAnalysed = copy(metadata = metadata.copy(analysed = true))
+
+  def setPostGameStudy(studyId: String) = copy(metadata = metadata.copy(postGameStudy = studyId.some))
 
   def secondsSinceCreation = (nowSeconds - createdAt.getSeconds).toInt
 
@@ -620,11 +627,16 @@ object Game {
 
   val maxPlayingRealtime = 100 // plus 200 correspondence games
 
-  val maxPlies = 600 // unlimited can cause StackOverflowError
+  def maxPlies(variant: Variant) =
+    if (variant.chushogi) 1000
+    else 700 // unlimited can cause StackOverflowError
+
+  val maxBotPlies = 600
 
   val analysableVariants: Set[Variant] = Set(
     shogi.variant.Standard,
-    shogi.variant.Minishogi
+    shogi.variant.Minishogi,
+    shogi.variant.Kyotoshogi
   )
 
   val unanalysableVariants: Set[Variant] = Variant.all.toSet -- analysableVariants
@@ -634,7 +646,7 @@ object Game {
   )
 
   def allowRated(initialSfen: Option[Sfen], clock: Option[Clock.Config], variant: Variant) =
-    initialSfen.filterNot(_.initialOf(variant)).isEmpty && clock.fold(variant.standard) { c =>
+    initialSfen.filterNot(_.initialOf(variant)).isEmpty && clock.fold(true) { c =>
       c.periodsTotal <= 1 && (!c.hasByoyomi || !c.hasIncrement)
     }
 
@@ -704,6 +716,7 @@ object Game {
           tournamentId = none,
           swissId = none,
           simulId = none,
+          postGameStudy = none,
           analysed = false
         ),
         createdAt = createdAt,
@@ -719,46 +732,50 @@ object Game {
       tournamentId = none,
       swissId = none,
       simulId = none,
+      postGameStudy = none,
       analysed = false
     )
 
   object BSONFields {
 
-    val id                = "_id"
-    val sentePlayer       = "p0"
-    val gotePlayer        = "p1"
-    val playerIds         = "is"
-    val playerUids        = "us"
-    val playingUids       = "pl"
-    val usiMoves          = "um"
-    val status            = "s"
-    val plies             = "t"
-    val clock             = "c"
-    val positionHashes    = "ph"
-    val daysPerTurn       = "cd"
-    val moveTimes         = "mt"
-    val senteClockHistory = "cw"
-    val goteClockHistory  = "cb"
-    val periodsSente      = "pw"
-    val periodsGote       = "pb"
-    val rated             = "ra"
-    val analysed          = "an"
-    val variant           = "v"
-    val hands             = "hs"
-    val bookmarks         = "bm"
-    val createdAt         = "ca"
-    val movedAt           = "ua"   // ua = updatedAt (bc)
-    val source            = "so"
-    val notationImport    = "pgni" // todo - rename
-    val tournamentId      = "tid"
-    val swissId           = "iid"
-    val simulId           = "sid"
-    val tvAt              = "tv"
-    val winnerColor       = "w"
-    val winnerId          = "wid"
-    val initialSfen       = "if"
-    val checkAt           = "ck"
-    val perfType          = "pt"   // only set on student games for aggregation
+    val id                 = "_id"
+    val sentePlayer        = "p0"
+    val gotePlayer         = "p1"
+    val playerIds          = "is"
+    val playerUids         = "us"
+    val playingUids        = "pl"
+    val usiMoves           = "um"
+    val status             = "s"
+    val plies              = "t"
+    val clock              = "c"
+    val positionHashes     = "ph"
+    val daysPerTurn        = "cd"
+    val moveTimes          = "mt"
+    val senteClockHistory  = "cw"
+    val goteClockHistory   = "cb"
+    val periodsSente       = "pw"
+    val periodsGote        = "pb"
+    val rated              = "ra"
+    val analysed           = "an"
+    val postGameStudy      = "pgs"
+    val variant            = "v"
+    val lastLionCapture    = "llc"
+    val consecutiveAttacks = "cna"
+    val hands              = "hs"
+    val bookmarks          = "bm"
+    val createdAt          = "ca"
+    val movedAt            = "ua"   // ua = updatedAt (bc)
+    val source             = "so"
+    val notationImport     = "pgni" // todo - rename
+    val tournamentId       = "tid"
+    val swissId            = "iid"
+    val simulId            = "sid"
+    val tvAt               = "tv"
+    val winnerColor        = "w"
+    val winnerId           = "wid"
+    val initialSfen        = "if"
+    val checkAt            = "ck"
+    val perfType           = "pt"   // only set on student games for aggregation
   }
 }
 
