@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="learnShogi">Learn shogi</string>
+	<string name="learnShogi">Išmokite žaisti šogį</string>
 	<string name="byPlaying">žaisdami!</string>
 	<string name="menu">Meniu</string>
 	<string name="progressX">Progresas: %s</string>
