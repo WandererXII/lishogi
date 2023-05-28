@@ -13,7 +13,7 @@
   <string name="specialMoves">Ypatingi ėjimai</string>
   <string name="didYouLikeThisPuzzle">Ar jums patiko ši užduotis?</string>
   <string name="voteToLoadNextOne">Nubalsuokite norėdami pakrauti kitą!</string>
-  <string name="yourPuzzleRatingX">Your puzzle rating: %s</string>
+  <string name="yourPuzzleRatingX">Jūsų užduočių sprendimo reitingas: %s</string>
   <string name="findTheBestMoveForX" comment="%s - sente(black)/gote(white)">Find the best move for %s.</string>
   <string name="toGetPersonalizedPuzzles">Norėdami gauti suasmenintas užduotis:</string>
   <string name="puzzleId">Užduotis %s</string>
