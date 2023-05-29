@@ -18,7 +18,7 @@
 	<string name="checkmate">Jaque mate</string>
 	<string name="stalemate">Ahogado</string>
 	<string name="impasse">Punto muerto</string>
-	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
+	<string name="repetition" comment="Status of a game ending due to repeated positions">Tablas por repetición de jugadas</string>
 	<string name="perpetualCheck">Jaque perpetuo</string>
 	<string name="royalsLost" comment="Used in chushogi">Se han perdido todas las piezas reales</string>
 	<string name="bareKing" comment="Used in chushogi">Rey despojado</string>
@@ -33,7 +33,7 @@
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s vence</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">Juegas como %s</string>
 	<string name="itsYourTurn">¡Es tu turno!</string>
-	<string name="cheatDetected">Cheat detectado</string>
+	<string name="cheatDetected">Trampas detectadas</string>
 	<string name="variantEnding">Fin de la variante</string>
 	<string name="newOpponent">Nuevo oponente</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Tu oponente quiere la revancha</string>
