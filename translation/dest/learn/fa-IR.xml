@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="learnShogi">Learn shogi</string>
+	<string name="learnShogi">فراگیری شوگی</string>
 	<string name="byPlaying">با بازی کردن!</string>
 	<string name="menu">منو</string>
 	<string name="progressX">پیشرفت: %s</string>
 	<string name="resetMyProgress">تنظیم مجدد پیشرفت من</string>
 	<string name="youWillLoseAllYourProgress">شما همه پیشرفت خود را از دست خواهید داد!</string>
 	<string name="play">بازی کن!</string>
-	<string name="shogiPieces">Shogi pieces</string>
-	<string name="theIntroduction">Introduction</string>
-	<string name="introBasics">Let\'s learn some basics.</string>
-	<string name="introIntro">Your journey begins here.</string>
+	<string name="shogiPieces">مهره های شوگی</string>
+	<string name="theIntroduction">مقدمه ای بر شوگی</string>
+	<string name="introBasics">یادگیری برخی اصول پایه</string>
+	<string name="introIntro">سفر شما از اینجا آغاز میشود.</string>
 	<string name="clickHereAfterYouveChosen">Click here after you\'ve chosen the piece design you like.</string>
 	<string name="choosePieceDesign">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.
 To do that click on the cog wheel or your username(top right corner) and then click on \'piece set\'.</string>
