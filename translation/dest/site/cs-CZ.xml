@@ -18,7 +18,7 @@
 	<string name="checkmate">Šach mat</string>
 	<string name="stalemate">Pat</string>
 	<string name="impasse">Slepá cesta</string>
-	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
+	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetice</string>
 	<string name="perpetualCheck">Věčný šach</string>
 	<string name="royalsLost" comment="Used in chushogi">Všechny královské kameny ztracené</string>
 	<string name="bareKing" comment="Used in chushogi">Obnažený král</string>
@@ -232,11 +232,11 @@
 	<string name="finishesX">končí za %s</string>
 	<string name="abortGame">Zrušit hru</string>
 	<string name="gameAborted">Hra byla zrušena</string>
-	<string name="standard" comment="Variant - meaning standard shogi">Standardní</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
 	<string name="minishogi">Minišógi</string>
 	<string name="chushogi">Čú šógi</string>
-	<string name="annanshogi">Annan shogi</string>
-	<string name="kyotoshogi">Kyoto shogi</string>
+	<string name="annanshogi">Annan šógi</string>
+	<string name="kyotoshogi">Kjóto šógi</string>
 	<string name="unlimited">Bez hodin</string>
 	<string name="mode">Režim hry</string>
 	<string name="casual">Jen tak</string>
@@ -268,7 +268,7 @@
 	<string name="incrementInSeconds">Bonus za tah (v sekundách)</string>
 	<string name="byoyomiInSeconds">Byoyomi v sekundách</string>
 	<string name="numberOfPeriods">Počet tahů</string>
-	<string name="freeOnlineShogi">Shogi online zdarma</string>
+	<string name="freeOnlineShogi">Šógi online zdarma</string>
 	<string name="spectators">Diváci:</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s hodnocená</item>
@@ -370,9 +370,9 @@
 	<string name="mustBeInTeam">Musíte být členem týmu %s</string>
 	<string name="youAreNotInTeam">Nejste členem týmu %s</string>
 	<string name="backToGame">Zpět do hry</string>
-	<string name="siteDescription">Shogi online zdarma. Hrajte přímo ve vašem prohlížeči, bez registrace, bez reklam, bez dalšího stahování. Hrajte proti počítači, kamarádům nebo náhodně vybraným soupeřům.</string>
-	<string name="shogiDescription">Šogi, také známý jako \"将棋\" v japonštině, je strategická hra pro dva hráče, která se hrála v Japonsku už po staletí. Často se také nezývá jako ,,japonské šachy\" kvůli podobnostem se západní hrou šachů, ale má jedinečné vlastnosti, díky nimž je výjímečnou hrou.</string>
-	<string name="learnShogiHereX">Pokud nejste obeznámeni s pravidly shogi, podívejte se na - %s.</string>
+	<string name="siteDescription">Šógi online zdarma. Hrajte přímo ve vašem prohlížeči, bez registrace, bez reklam, bez dalšího stahování. Hrajte proti počítači, kamarádům nebo náhodně vybraným soupeřům.</string>
+	<string name="shogiDescription">Šogi (shogi), také známý jako \"将棋\" v japonštině, je strategická hra pro dva hráče, která se hrála v Japonsku už po staletí. Často se také nezývá jako ,,japonské šachy\" kvůli podobnostem se západní hrou šachů, ale má jedinečné vlastnosti, díky nimž je výjímečnou hrou.</string>
+	<string name="learnShogiHereX">Pokud nejste obeznámeni s pravidly šógi, podívejte se na - %s.</string>
 	<string name="xJoinedTeamY">%1$s se přidal k týmu %2$s</string>
 	<string name="xCreatedTeamY">%1$s založil tým %2$s</string>
 	<string name="xStartedStreaming">%s začal streamovat</string>
@@ -398,9 +398,9 @@
 		<item quantity="many">%s importovaných</item>
 		<item quantity="other">%s importovaných</item>
 	</plurals>
-	<string name="thisIsAShogiCaptcha">Toto je shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">Toto je šógi CAPTCHA.</string>
 	<string name="clickOnTheBoardToMakeYourMove">Kliknutím na šachovnici zadejte váš tah a dokažte, že jste človek.</string>
-	<string name="captcha.fail">Prosím vyřešte shogi captcha.</string>
+	<string name="captcha.fail">Prosím vyřešte šógi captcha.</string>
 	<string name="notACheckmate">Toto není mat.</string>
 	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s dá jedním tahem mat</string>
 	<string name="retry">Zkusit znovu</string>
@@ -628,7 +628,7 @@
 	<string name="starting">Začíná:</string>
 	<string name="allInformationIsPublicAndOptional">Všechny informace jsou veřejné a nepovinné.</string>
 	<string name="yourCityRegionOrDepartment">Vaše město, nebo region.</string>
-	<string name="biographyDescription">Napiš o sobě, co máš na shogi rád, oblíbená zahájení, partie, hráče…</string>
+	<string name="biographyDescription">Napiš o sobě, co máš na šógi rád, oblíbená zahájení, partie, hráče…</string>
 	<plurals name="maximumNbCharacters">
 		<item quantity="one">Maximum: %s znak.</item>
 		<item quantity="few">Maximum: %s znaky.</item>
@@ -691,7 +691,7 @@
 	<string name="webmasters">Správci webu</string>
 	<string name="about">O aplikaci</string>
 	<string name="aboutX">O %s</string>
-	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s je bezplatný (%2$s), svobodný, bez reklam shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s je bezplatný (%2$s), svobodný, bez reklam šógi server.</string>
 	<string name="really">opravdu</string>
 	<string name="contribute">Přispějte</string>
 	<string name="termsOfService">Podmínky používání</string>
@@ -913,7 +913,7 @@
 	<string name="weHadToTimeYouOutForAWhile">Museli jsme tě odpojit na chvíli.</string>
 	<string name="timeoutExpires">Odpojení skončí za %s.</string>
 	<string name="why">Proč?</string>
-	<string name="pleasantShogiExperience">Naším cílem je poskytnout všem příjemný zážitek ze shogi.</string>
+	<string name="pleasantShogiExperience">Naším cílem je poskytnout všem příjemný zážitek ze šógi.</string>
 	<string name="goodPractice">Proto se musíme ujistit, že se všichni chovají správně.</string>
 	<string name="potentialProblem">Tato zpráva se ukáže když zjistíme problém.</string>
 	<string name="howToAvoidThis">Jak se tomuto vyhnout?</string>
@@ -928,7 +928,7 @@
 	<string name="agreementAssistance">Přísahám, že nikdy nevyužiji jiné pomoci při mých hrách (počítače, knihy, databáze nebo jiné osoby).</string>
 	<string name="agreementNice">Přísahám, že budu vždy respektovat ostatní hráče.</string>
 	<string name="agreementAccount">Přísahám, že nikdy nebudu vytvářet více účtů.</string>
-	<string name="agreementPolicy">Souhlasím, že se budu řídit všemi pravidly Lishogiu.</string>
+	<string name="agreementPolicy">Souhlasím, že se budu řídit všemi pravidly Lishogi.</string>
 	<string name="agreeWithX">Souhlasím s: %s</string>
 	<string name="searchOrStartNewDiscussion">Začněte nebo vyhledejte konverzaci</string>
 	<string name="edit">Upravit</string>
