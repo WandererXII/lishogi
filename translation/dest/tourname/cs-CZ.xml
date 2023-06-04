@@ -27,9 +27,9 @@
   <string name="monthlyClassicalArena">Měsíčně klasická aréna</string>
   <string name="monthlyClassical">Měsíčně klasické</string>
   <string name="monthlyXArena">Měsíčně aréna %s</string>
-  <string name="monthlyX">Měsíčně %s</string>
-  <string name="yearlyRapidArena">Ročně Rapid aréna</string>
-  <string name="yearlyRapid">Ročně Rapid</string>
+  <string name="monthlyX">Měsíční %s</string>
+  <string name="yearlyRapidArena">Roční Rapid aréna</string>
+  <string name="yearlyRapid">Roční Rapid</string>
   <string name="yearlyClassicalArena">Ročně klasická aréna</string>
   <string name="yearlyClassical">Ročně klasická</string>
   <string name="yearlyXArena">Ročně aréna %s</string>
