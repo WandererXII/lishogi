@@ -129,7 +129,7 @@
 	<plurals name="nbPlayers">
 		<item quantity="one">%s hráč online</item>
 		<item quantity="few">%s hráči online</item>
-		<item quantity="many">%s hráčů online</item>
+		<item quantity="many">%s hráče online</item>
 		<item quantity="other">%s hráčů online</item>
 	</plurals>
 	<string name="currentGames">Právě probíhající partie</string>
@@ -661,7 +661,7 @@
 	<string name="tools">Nástroje</string>
 	<string name="increment">Navýšení</string>
 	<string name="byoyomi">Byoyomi</string>
-	<string name="periods">Interval</string>
+	<string name="periods">Intervaly</string>
 	<string name="playOnline">Hrát online</string>
 	<string name="playOffline">Hrát offline</string>
 	<string name="allowAnalytics">Povolit anonymní statistiky</string>
