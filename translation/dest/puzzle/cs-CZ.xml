@@ -52,9 +52,9 @@
   <string name="example">Příklad</string>
   <string name="addAnotherTheme">Přidat novou šablonu</string>
   <string name="jumpToNextPuzzleImmediately">Okamžitě přejít na další hádanku</string>
-  <string name="puzzleDashboard">Žebříček hádanek</string>
+  <string name="puzzleDashboard">Puzzle shrnutí</string>
   <string name="improvementAreas">Oblasti zlepšování</string>
-  <string name="strengths">Síla</string>
+  <string name="strengths">Silné stránky</string>
   <string name="history">Historie hádanek</string>
   <string name="solved">vyřešeno</string>
   <string name="failed">nezdařilo se</string>
