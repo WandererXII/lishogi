@@ -128,6 +128,10 @@
   <string name="deleteStudy">Ștergeți studiul</string>
   <string name="deleteTheEntireStudy">Ștergeți întregul studiu? Nu există cale de întoarcere!</string>
   <string name="whereDoYouWantToStudyThat">Unde vreți s-o studiați?</string>
+  <string name="studyTopics">Study topics</string>
+  <string name="topicsDescription">Topics to organize your studies with</string>
+  <string name="myTopics">My topics</string>
+  <string name="popularTopics">Popular topics</string>
   <string name="startTag" comment="Tags for kif and csa">Start</string>
   <string name="endTag" comment="Tags for kif and csa">End</string>
   <string name="siteTag" comment="Tags for kif and csa">Site</string>
