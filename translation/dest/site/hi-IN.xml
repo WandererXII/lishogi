@@ -179,6 +179,7 @@
 	<string name="changeEmail">ईमेल बदलें</string>
 	<string name="email">ईमेल</string>
 	<string name="passwordReset">पासवर्ड रीसेट</string>
+	<string name="loginByEmail">Log in by email</string>
 	<string name="forgotPassword">पासवर्ड भूल गए ?</string>
 	<string name="rank">रैंक</string>
 	<string name="rankX">रैंक: %s</string>
@@ -236,6 +237,7 @@
 	<string name="play">खेले</string>
 	<string name="inbox">इनबॉक्स (Inbox)</string>
 	<string name="streamerManager">स्ट्रीमर मैनेजर (Streamer manager)</string>
+	<string name="coachManager">Coach manager</string>
 	<string name="chatRoom">बातचीत</string>
 	<string name="loginToChat">चैट के लिए लॉग इन</string>
 	<string name="youHaveBeenTimedOut">आप का समय समाप्त हो गया है</string>
@@ -288,6 +290,7 @@
 	<string name="yourOpponentProposesATakeback">आपका प्रतिद्वंद्वी ने चाल को वापस लेने का प्रस्ताव भेजा है</string>
 	<string name="bookmarkThisGame">इस खेल की स्मृति (बुकमार्क) बनाएं</string>
 	<string name="tournament">प्रतियोगिता</string>
+	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">प्रतियोगिताएँ</string>
 	<string name="tournamentPoints">प्रतियोगिता के अंक</string>
 	<plurals name="nbTournamentPoints">
@@ -327,7 +330,7 @@
 	<string name="youAreNotInTeam">आप %s टीम मे नही हो</string>
 	<string name="backToGame">खेल पर लौटें।</string>
 	<string name="siteDescription">खेलें shogi मुफ्त और ऑनलाइन साफ़ सुथरे अंदाज में। न कोई पंजीकरण, न कोई प्रचार और न ही किसी अन्य बहरी चीज की आव्यशकता। shogi कम्प्युटर, दोस्तों या किसी भी प्रतिद्वंदी के साथ खेलें।</string>
-	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
 	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s %2$s समूह से जुड़ा</string>
 	<string name="xCreatedTeamY">%1$s ने %2$s समूह बनाया</string>
@@ -445,6 +448,7 @@
 	<string name="isPrivate">निजी (Private)</string>
 	<string name="reportXToModerators">संचालकों को %s रिपोर्ट करें</string>
 	<string name="profileCompletion">प्रोफाइल पूरा: %s</string>
+	<string name="thisIsProfilePage">This is your profile page.</string>
 	<string name="xRating">%s रेटिंग</string>
 	<string name="ifNoneLeaveEmpty">यदि कोई नहीं, छोड़ दो</string>
 	<string name="gameCompletionRate">खेल पूरा दर: %s</string>
@@ -459,23 +463,14 @@
 	<string name="watchLishogiTV">Lishogi TV देखें</string>
 	<string name="previouslyOnLishogiTV">इससे पहले Lishogi TV पर</string>
 	<string name="onlinePlayers">ऑनलाइन खिलाड़ियों</string>
+	<string name="onlineBots">Online bots</string>
 	<string name="activeToday">आज सक्रिय</string>
 	<string name="activePlayers">सक्रिय खिलाडी</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">सावधान, खेल मूल्यांकित है लेकिन कोई समय नियंत्रण नहीं है !</string>
-	<string name="yourPuzzleRatingX">आपकी पहेली की रेटिंग: %s</string>
 	<string name="toTrackYourProgress">अपनी प्रगति को ट्रैक करें:</string>
-	<string name="puzzleId">पहेलि %s</string>
-	<string name="puzzleOfTheDay">दिन की पहेली</string>
-	<string name="clickToSolve">हल करने के लिए क्लिक करें</string>
 	<string name="goodMove">अच्छी चाल</string>
-	<string name="butYouCanDoBetter">पर आप बहतर कर सकते है।</string>
 	<string name="bestMove">सबसे अच्छी चाल !</string>
-	<string name="keepGoing">लगे रहें …</string>
-	<string name="puzzleFailed">पहेली असफल</string>
-	<string name="butYouCanKeepTrying">परंतु आप फिर कोशिश कर सकतें है।</string>
 	<string name="success">सफलता</string>
-	<string name="wasThisPuzzleAnyGood">क्या यह पहेली बढ़िया थी ?</string>
-	<string name="pleaseVotePuzzle">वोट करके Lishogi की सहायता करियें, ऊपर या नीचे वाले तीर का इस्तेमाल करें:</string>
 	<string name="thankYou">धन्यवाद</string>
 	<string name="ratingX">रेटिंग: %s</string>
 	<string name="hidden">छिपा हुआ</string>
@@ -484,10 +479,6 @@
 		<item quantity="other">%s समय खेले</item>
 	</plurals>
 	<string name="fromGameLink">%s खेल से</string>
-	<string name="continueTraining">प्रशिक्षण जारी रखें</string>
-	<string name="retryThisPuzzle">यह पहेली पुनः खेलें</string>
-	<string name="thisPuzzleIsCorrect">यह पहेली सही एवं दिलचस्प थी</string>
-	<string name="thisPuzzleIsWrong">यह पहेली गलत एवं बेकार थी</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="one">%s खेल खेले जा रहे है</item>
 		<item quantity="other">%s खेल खेले जा रहे है</item>
@@ -529,6 +520,8 @@
 	<string name="questionsAndAnswers">सवाल &amp; जवाब</string>
 	<string name="notes">नोट्स (Notes)</string>
 	<string name="typePrivateNotesHere">निजी नोट्स यहाँ लिखें</string>
+	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
+	<string name="noNoteYet">No note yet</string>
 	<string name="invalidUsernameOrPassword">अमान्य उपयोगकर्ता नाम या पासवर्ड</string>
 	<string name="incorrectPassword">गलत पासवर्ड</string>
 	<string name="invalidAuthenticationCode">अवैध प्रमाणीकरण (authentication) कोड</string>
@@ -582,6 +575,7 @@
 	</plurals>
 	<string name="listBlockedPlayers">उन खिलाड़ियों की सूची दिखाएँ जिन्हें आप ने अवरोधित किया है</string>
 	<string name="human">आदमी</string>
+	<string name="bots">Bots</string>
 	<string name="computer">कंप्यूटर (Computer)</string>
 	<string name="side">पक्ष (side)</string>
 	<string name="clock">घड़ी</string>
@@ -655,9 +649,12 @@
 	<string name="numberOfByoyomiPeriods">ब्योयोमी (byoyomi) अवधि की संख्या</string>
 	<string name="hostColorForEachGame">प्रत्येक खेल के लिए मेजबान (host) रंग</string>
 	<string name="onlyMembersOfTeam">केवल टीम के सदस्य</string>
+	<string name="noRestriction">No Restriction</string>
+	<string name="estimatedStart">Estimated start time</string>
 	<string name="simulDescription">सिमुल (Simul) वर्णन</string>
 	<string name="anythingTellParticipants">आप प्रतिभागियों (participants) को कुछ बताना चाहते हैं ?</string>
 	<string name="lishogiTournaments">Lishogi की प्रतियोगिताएं</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">अखाडा प्रतियोगिता के बारे में कई बार पूछे गए सवाल</string>
 	<string name="tournamentOfficial">आधिकारिक</string>
 	<string name="timeBeforeTournamentStarts">प्रतियोगिता के आरंभ होने में समय</string>
@@ -899,4 +896,14 @@
 	<string name="studyWith">Study with:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
 	<string name="standardStudy">Standard study</string>
+	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="whatNow">What now?</string>
+	<string name="hereAreSuggestions">Here are a few suggestions:</string>
+	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
+	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="challengeDeclined">Challenge declined</string>
+	<string name="challengeAccepted">Challenge accepted</string>
+	<string name="challengeCanceled">Challenge canceled</string>
 </resources>
