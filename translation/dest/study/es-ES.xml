@@ -125,6 +125,10 @@
   <string name="deleteStudy">Borrar estudio</string>
   <string name="deleteTheEntireStudy">¿Realmente quieres borrar todo el estudio? ¡Esta acción no se puede deshacer!</string>
   <string name="whereDoYouWantToStudyThat">¿Dónde quieres estudiar eso?</string>
+  <string name="studyTopics">Study topics</string>
+  <string name="topicsDescription">Topics to organize your studies with</string>
+  <string name="myTopics">My topics</string>
+  <string name="popularTopics">Popular topics</string>
   <string name="startTag" comment="Tags for kif and csa">Comenzar</string>
   <string name="endTag" comment="Tags for kif and csa">Finalizar</string>
   <string name="siteTag" comment="Tags for kif and csa">Lugar</string>
