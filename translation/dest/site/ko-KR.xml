@@ -172,6 +172,7 @@
 	<string name="changeEmail">메일 주소 변경</string>
 	<string name="email">메일</string>
 	<string name="passwordReset">비밀번호 초기화</string>
+	<string name="loginByEmail">Log in by email</string>
 	<string name="forgotPassword">비밀번호를 잊어버리셨나요?</string>
 	<string name="rank">순위</string>
 	<string name="rankX">랭킹: %s</string>
@@ -226,6 +227,7 @@
 	<string name="play">플레이</string>
 	<string name="inbox">받은편지함</string>
 	<string name="streamerManager">Streamer manager</string>
+	<string name="coachManager">Coach manager</string>
 	<string name="chatRoom">채팅</string>
 	<string name="loginToChat">채팅에 로그인하기</string>
 	<string name="youHaveBeenTimedOut">채팅에서 로그아웃 되었습니다.</string>
@@ -272,6 +274,7 @@
 	<string name="yourOpponentProposesATakeback">상대가 무르기를 요청합니다</string>
 	<string name="bookmarkThisGame">이 게임을 즐겨찾기에 추가하기</string>
 	<string name="tournament">토너먼트</string>
+	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">토너먼트</string>
 	<string name="tournamentPoints">토너먼트 점수</string>
 	<plurals name="nbTournamentPoints">
@@ -305,7 +308,7 @@
 	<string name="youAreNotInTeam">팀 %s 에 소속되지 않았습니다.</string>
 	<string name="backToGame">게임으로 돌아가기</string>
 	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
-	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
 	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s(이)가 팀 %2$s에 가입했습니다.</string>
 	<string name="xCreatedTeamY">%1$s(이)가 팀 %2$s(을)를 만들었습니다.</string>
@@ -418,6 +421,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="isPrivate">비공개</string>
 	<string name="reportXToModerators">%s 신고</string>
 	<string name="profileCompletion">프로필 완성도: %s</string>
+	<string name="thisIsProfilePage">This is your profile page.</string>
 	<string name="xRating">레이팅: %s</string>
 	<string name="ifNoneLeaveEmpty">없으면 무시하세요</string>
 	<string name="gameCompletionRate">끝까지 플레이한 게임: %s</string>
@@ -432,23 +436,14 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="watchLishogiTV">Watch Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Previously on Lishogi TV</string>
 	<string name="onlinePlayers">접속한 플레이어</string>
+	<string name="onlineBots">Online bots</string>
 	<string name="activeToday">오늘의 활동적인 플레이어</string>
 	<string name="activePlayers">활동적인 플레이어</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">조심하세요, 레이팅 게임이며 시간 제한이 없습니다!</string>
-	<string name="yourPuzzleRatingX">퍼즐 레이팅: %s</string>
 	<string name="toTrackYourProgress">기록을 저장하려면:</string>
-	<string name="puzzleId">퍼즐 %s</string>
-	<string name="puzzleOfTheDay">오늘의 퍼즐</string>
-	<string name="clickToSolve">퍼즐 풀기</string>
 	<string name="goodMove">괜찮은 수입니다.</string>
-	<string name="butYouCanDoBetter">하지만 더 좋은 수가 있어요.</string>
 	<string name="bestMove">좋은 수입니다!</string>
-	<string name="keepGoing">계속하세요...</string>
-	<string name="puzzleFailed">퍼즐 풀기 실패</string>
-	<string name="butYouCanKeepTrying">하지만 계속 플레이할 수 있습니다.</string>
 	<string name="success">성공!</string>
-	<string name="wasThisPuzzleAnyGood">이 퍼즐이 괜찮았나요?</string>
-	<string name="pleaseVotePuzzle">위 또는 아래 화살표를 눌러 Lishogi를 향상시켜 주세요</string>
 	<string name="thankYou">감사합니다!</string>
 	<string name="ratingX">레이팅: %s</string>
 	<string name="hidden">숨겨짐</string>
@@ -456,10 +451,6 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="other">%s회 플레이</item>
 	</plurals>
 	<string name="fromGameLink">게임 %s에서</string>
-	<string name="continueTraining">연습 계속하기</string>
-	<string name="retryThisPuzzle">다시 풀기</string>
-	<string name="thisPuzzleIsCorrect">이 퍼즐은 정확하고 재밌습니다</string>
-	<string name="thisPuzzleIsWrong">이 퍼즐은 오류가 있거나 지루합니다</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="other">%s개의 게임 플레이 중</item>
 	</plurals>
@@ -500,6 +491,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="questionsAndAnswers">질문 &amp; 답변</string>
 	<string name="notes">노트</string>
 	<string name="typePrivateNotesHere">여기에 비밀 노트를 쓰세요</string>
+	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
+	<string name="noNoteYet">No note yet</string>
 	<string name="invalidUsernameOrPassword">사용자 이름이나 비밀번호가 잘못되었습니다.</string>
 	<string name="incorrectPassword">잘못된 비밀번호입니다.</string>
 	<string name="invalidAuthenticationCode">무효한 인증코드</string>
@@ -551,6 +544,7 @@ computer analysis, game chat and shareable URL.</string>
 	</plurals>
 	<string name="listBlockedPlayers">이 플레이어를 차단</string>
 	<string name="human">인간</string>
+	<string name="bots">Bots</string>
 	<string name="computer">인공지능</string>
 	<string name="side">진영</string>
 	<string name="clock">시간 제한</string>
@@ -623,9 +617,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="numberOfByoyomiPeriods">Number of byoyomi periods</string>
 	<string name="hostColorForEachGame">Host color for each game</string>
 	<string name="onlyMembersOfTeam">Only members of team</string>
+	<string name="noRestriction">No Restriction</string>
+	<string name="estimatedStart">Estimated start time</string>
 	<string name="simulDescription">Simul description</string>
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Lishogi tournaments</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">아레나 토너먼트 FAQ</string>
 	<string name="tournamentOfficial">공식</string>
 	<string name="timeBeforeTournamentStarts">토너먼트 시작까지 시간</string>
@@ -862,4 +859,14 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="studyWith">Study with:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
 	<string name="standardStudy">Standard study</string>
+	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="whatNow">What now?</string>
+	<string name="hereAreSuggestions">Here are a few suggestions:</string>
+	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
+	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="challengeDeclined">Challenge declined</string>
+	<string name="challengeAccepted">Challenge accepted</string>
+	<string name="challengeCanceled">Challenge canceled</string>
 </resources>
