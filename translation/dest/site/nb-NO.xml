@@ -179,6 +179,7 @@
 	<string name="changeEmail">Endre e-postadresse</string>
 	<string name="email">E-post</string>
 	<string name="passwordReset">Tilbakestill passord</string>
+	<string name="loginByEmail">Log in by email</string>
 	<string name="forgotPassword">Glemt passord?</string>
 	<string name="rank">Rangering</string>
 	<string name="rankX">Plassering: %s</string>
@@ -236,6 +237,7 @@
 	<string name="play">Spill</string>
 	<string name="inbox">Innboks</string>
 	<string name="streamerManager">Innstillinger for strømmere</string>
+	<string name="coachManager">Coach manager</string>
 	<string name="chatRoom">Chatterom</string>
 	<string name="loginToChat">Logg inn for samtale</string>
 	<string name="youHaveBeenTimedOut">Du har fått timeout.</string>
@@ -288,6 +290,7 @@
 	<string name="yourOpponentProposesATakeback">Din motstander foreslår å angre</string>
 	<string name="bookmarkThisGame">Bokmerk dette partiet</string>
 	<string name="tournament">Turnering</string>
+	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">Turneringer</string>
 	<string name="tournamentPoints">Turneringspoeng</string>
 	<plurals name="nbTournamentPoints">
@@ -327,7 +330,7 @@
 	<string name="youAreNotInTeam">Du er ikke med i teamet %s</string>
 	<string name="backToGame">Tilbake til partiet</string>
 	<string name="siteDescription">Gratis nettsjakk. Spill sjakk nå, i et enkelt og rent format. Ingen registrering, ingen reklame, ingen programtillegg er nødvendig. Spill sjakk mot datamaskinen, venner, eller tilfeldige motstandere.</string>
-	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
 	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s ble med på laget %2$s</string>
 	<string name="xCreatedTeamY">%1$s opprettet laget %2$s</string>
@@ -445,6 +448,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="isPrivate">Privat</string>
 	<string name="reportXToModerators">Rapporter %s til moderatorene</string>
 	<string name="profileCompletion">Profil fullført: %s</string>
+	<string name="thisIsProfilePage">This is your profile page.</string>
 	<string name="xRating">%s rating</string>
 	<string name="ifNoneLeaveEmpty">Hvis ingen, la stå tom</string>
 	<string name="gameCompletionRate">Game completion rate: %s</string>
@@ -459,23 +463,14 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="watchLishogiTV">Watch Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Tidligere på Lishogi TV</string>
 	<string name="onlinePlayers">Påloggede spillere</string>
+	<string name="onlineBots">Online bots</string>
 	<string name="activeToday">Active today</string>
 	<string name="activePlayers">Aktive spillere</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Legg merke til at partiet er ratet, men ikke tidsbegrenset!</string>
-	<string name="yourPuzzleRatingX">Your puzzle rating: %s</string>
 	<string name="toTrackYourProgress">To track your progress:</string>
-	<string name="puzzleId">Puzzle %s</string>
-	<string name="puzzleOfTheDay">Puzzle of the day</string>
-	<string name="clickToSolve">Click to solve</string>
 	<string name="goodMove">Good move</string>
-	<string name="butYouCanDoBetter">But you can do better.</string>
 	<string name="bestMove">Best move!</string>
-	<string name="keepGoing">Keep going…</string>
-	<string name="puzzleFailed">Puzzle failed</string>
-	<string name="butYouCanKeepTrying">But you can keep trying.</string>
 	<string name="success">Vellykket</string>
-	<string name="wasThisPuzzleAnyGood">Was this puzzle any good?</string>
-	<string name="pleaseVotePuzzle">Help Lishogi improve by voting, using the up or down arrow:</string>
 	<string name="thankYou">Takk!</string>
 	<string name="ratingX">Rating: %s</string>
 	<string name="hidden">hidden</string>
@@ -484,10 +479,6 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="other">Played %s times</item>
 	</plurals>
 	<string name="fromGameLink">From game %s</string>
-	<string name="continueTraining">Continue training</string>
-	<string name="retryThisPuzzle">Retry this puzzle</string>
-	<string name="thisPuzzleIsCorrect">This puzzle is correct and interesting</string>
-	<string name="thisPuzzleIsWrong">This puzzle is wrong or boring</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="one">%s parti spilles</item>
 		<item quantity="other">%s partier spilles</item>
@@ -529,6 +520,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="questionsAndAnswers">Questions &amp; Answers</string>
 	<string name="notes">Notater</string>
 	<string name="typePrivateNotesHere">Skriv private notater her</string>
+	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
+	<string name="noNoteYet">No note yet</string>
 	<string name="invalidUsernameOrPassword">Ugyldig brukernavn eller passord</string>
 	<string name="incorrectPassword">Feil passord</string>
 	<string name="invalidAuthenticationCode">Ugyldig autentiseringskode</string>
@@ -582,6 +575,7 @@ computer analysis, game chat and shareable URL.</string>
 	</plurals>
 	<string name="listBlockedPlayers">Vis spillere du har blokkert</string>
 	<string name="human">Menneske</string>
+	<string name="bots">Bots</string>
 	<string name="computer">Datamaskin</string>
 	<string name="side">Farge</string>
 	<string name="clock">Klokke</string>
@@ -655,9 +649,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="numberOfByoyomiPeriods">Number of byoyomi periods</string>
 	<string name="hostColorForEachGame">Host color for each game</string>
 	<string name="onlyMembersOfTeam">Kun lagmedlemmer</string>
+	<string name="noRestriction">No Restriction</string>
+	<string name="estimatedStart">Estimated start time</string>
 	<string name="simulDescription">Beskrivelse av simultanen</string>
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Lishogiturneringer</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">Arenaturneringsspørsmål</string>
 	<string name="tournamentOfficial">Official</string>
 	<string name="timeBeforeTournamentStarts">Tid før turnering starter</string>
@@ -899,4 +896,14 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="studyWith">Study with:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
 	<string name="standardStudy">Standard study</string>
+	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="whatNow">What now?</string>
+	<string name="hereAreSuggestions">Here are a few suggestions:</string>
+	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
+	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="challengeDeclined">Challenge declined</string>
+	<string name="challengeAccepted">Challenge accepted</string>
+	<string name="challengeCanceled">Challenge canceled</string>
 </resources>
