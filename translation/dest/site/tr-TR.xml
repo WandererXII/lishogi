@@ -179,6 +179,7 @@
 	<string name="changeEmail">E-posta adresini değiştir</string>
 	<string name="email">E-posta</string>
 	<string name="passwordReset">Şifreyi yenile</string>
+	<string name="loginByEmail">Log in by email</string>
 	<string name="forgotPassword">Şifremi unuttum</string>
 	<string name="rank">Sıralama</string>
 	<string name="rankX">Sıralama: %s</string>
@@ -236,6 +237,7 @@
 	<string name="play">Oyna</string>
 	<string name="inbox">Gelen kutusu</string>
 	<string name="streamerManager">Yayın yöneticisi</string>
+	<string name="coachManager">Coach manager</string>
 	<string name="chatRoom">Sohbet odası</string>
 	<string name="loginToChat">Sohbete katılmak için oturum aç</string>
 	<string name="youHaveBeenTimedOut">Sohbetten men edildiniz.</string>
@@ -288,6 +290,7 @@
 	<string name="yourOpponentProposesATakeback">Rakibiniz hamleyi geri alma teklifi gönderdi</string>
 	<string name="bookmarkThisGame">Bu oyunu işaretle</string>
 	<string name="tournament">Turnuva</string>
+	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">Turnuvalar</string>
 	<string name="tournamentPoints">Turnuvada alınan puanlar</string>
 	<plurals name="nbTournamentPoints">
@@ -327,7 +330,7 @@
 	<string name="youAreNotInTeam">%s takımının üyesi değilsiniz.</string>
 	<string name="backToGame">Oyuna dön</string>
 	<string name="siteDescription">Bedava online shogi sunucusu. Şimdi sade bir arayüzde Shogi oyna. Kayıt olmaya gerek yok, reklam yok, eklenti yok. Bilgisayara karşı, arkadaşlarına veya rastgele bir rakiple shogi oyna.</string>
-	<string name="shogiDescription">Japonca\'da \"将棋\" olarak da bilinen Shogi, Japonya\'da yüzyıllardır oynanan iki oyunculu bir strateji oyunudur. Batı satrancına benzerliklerinden dolayı genellikle \"Japon satrancı\" olarak anılır, ancak onu kendi başına ayrı bir oyun yapan benzersiz özelliklere sahiptir.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Japonca\'da \"将棋\" olarak da bilinen Shogi, Japonya\'da yüzyıllardır oynanan iki oyunculu bir strateji oyunudur. Batı satrancına benzerliklerinden dolayı genellikle \"Japon satrancı\" olarak anılır, ancak onu kendi başına ayrı bir oyun yapan benzersiz özelliklere sahiptir.</string>
 	<string name="learnShogiHereX">Eğer shoginin kurallarına hakim değilseniz şuna bakın: %s</string>
 	<string name="xJoinedTeamY">%1$s, %2$s takımına katıldı</string>
 	<string name="xCreatedTeamY">%1$s, %2$s takımını kurdu</string>
@@ -444,6 +447,7 @@
 	<string name="isPrivate">Özel</string>
 	<string name="reportXToModerators">%s \'i Moderatörlere bildir</string>
 	<string name="profileCompletion">Profil tamamlanma oranı: %s</string>
+	<string name="thisIsProfilePage">This is your profile page.</string>
 	<string name="xRating">Derecelendirme: %s</string>
 	<string name="ifNoneLeaveEmpty">Eğer yoksa, boş bırakın</string>
 	<string name="gameCompletionRate">Oyun tamamlanma oranı: %s</string>
@@ -458,23 +462,14 @@
 	<string name="watchLishogiTV">Lishogi TV izle</string>
 	<string name="previouslyOnLishogiTV">Lishogi TV\'de bunlar da vardı</string>
 	<string name="onlinePlayers">Çevrimiçi oyuncular</string>
+	<string name="onlineBots">Online bots</string>
 	<string name="activeToday">Bugün aktif</string>
 	<string name="activePlayers">Aktif oyuncular</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Dikkat, oyun puanlı ama suresizdir.</string>
-	<string name="yourPuzzleRatingX">Bulmaca puanın: %s</string>
 	<string name="toTrackYourProgress">Gelişimini takip et:</string>
-	<string name="puzzleId">%s. bulmaca</string>
-	<string name="puzzleOfTheDay">Günün bulmacası</string>
-	<string name="clickToSolve">Çözmek için tıkla</string>
 	<string name="goodMove">İyi hamle</string>
-	<string name="butYouCanDoBetter">ama daha iyisini yapabilirsin.</string>
 	<string name="bestMove">En iyi hamle!</string>
-	<string name="keepGoing">Devam et...</string>
-	<string name="puzzleFailed">Bulmaca çözülemedi</string>
-	<string name="butYouCanKeepTrying">ama denemeye devam edebilirsin.</string>
 	<string name="success">Başarı</string>
-	<string name="wasThisPuzzleAnyGood">Bu bulmacayı nasıl buldun?</string>
-	<string name="pleaseVotePuzzle">Okları kullanarak oylayın, lishogi\'in gelişmesine yardımcı olun.</string>
 	<string name="thankYou">Teşekkürler!</string>
 	<string name="ratingX">Puan: %s</string>
 	<string name="hidden">gizli</string>
@@ -483,10 +478,6 @@
 		<item quantity="other">Bu bulmaca %s defa oynandı</item>
 	</plurals>
 	<string name="fromGameLink">%s numaralı oyundan</string>
-	<string name="continueTraining">Pratik yapmaya devam et</string>
-	<string name="retryThisPuzzle">Bu bulmacayı yeniden dene</string>
-	<string name="thisPuzzleIsCorrect">Bu bulmaca doğru ve ilginç.</string>
-	<string name="thisPuzzleIsWrong">Bu bulmaca yanlış veya sıkıcı</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="one">Şu anda %s oyun oynanıyor</item>
 		<item quantity="other">Şu anda %s oyun oynanıyor</item>
@@ -528,6 +519,8 @@
 	<string name="questionsAndAnswers">Sorular ve Cevaplar</string>
 	<string name="notes">Notlar</string>
 	<string name="typePrivateNotesHere">Özel notlarınızı buraya yazın</string>
+	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
+	<string name="noNoteYet">No note yet</string>
 	<string name="invalidUsernameOrPassword">Kullanıcı adı ya da şifre geçersiz.</string>
 	<string name="incorrectPassword">Yanlış şifre</string>
 	<string name="invalidAuthenticationCode">Geçersiz kimlik doğrulama kodu</string>
@@ -581,6 +574,7 @@
 	</plurals>
 	<string name="listBlockedPlayers">Engellenen oyuncular</string>
 	<string name="human">İnsan</string>
+	<string name="bots">Bots</string>
 	<string name="computer">Bilgisayar</string>
 	<string name="side">Taraf</string>
 	<string name="clock">Saat</string>
@@ -654,9 +648,12 @@
 	<string name="numberOfByoyomiPeriods">Geri sayım periyot sayısı</string>
 	<string name="hostColorForEachGame">Ev sahibinin rengi</string>
 	<string name="onlyMembersOfTeam">Sadece takım üyeleri</string>
+	<string name="noRestriction">No Restriction</string>
+	<string name="estimatedStart">Estimated start time</string>
 	<string name="simulDescription">Ayrıntılı açıklama</string>
 	<string name="anythingTellParticipants">Katılımcılara söylemek istediğiniz herhangi bir şey var mı?</string>
 	<string name="lishogiTournaments">Lishogi turnuvaları</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">Arena turnuvaları SSS</string>
 	<string name="tournamentOfficial">Resmî</string>
 	<string name="timeBeforeTournamentStarts">Turnuvanın başlama süresi</string>
@@ -898,4 +895,14 @@
 	<string name="studyWith">Study with:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
 	<string name="standardStudy">Standard study</string>
+	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="whatNow">What now?</string>
+	<string name="hereAreSuggestions">Here are a few suggestions:</string>
+	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
+	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="challengeDeclined">Challenge declined</string>
+	<string name="challengeAccepted">Challenge accepted</string>
+	<string name="challengeCanceled">Challenge canceled</string>
 </resources>
