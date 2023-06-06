@@ -172,6 +172,7 @@
 	<string name="changeEmail">更改电子邮件地址</string>
 	<string name="email">电子邮箱</string>
 	<string name="passwordReset">密码重置</string>
+	<string name="loginByEmail">Log in by email</string>
 	<string name="forgotPassword">忘记密码？</string>
 	<string name="rank">排名</string>
 	<string name="rankX">排名：%s</string>
@@ -226,6 +227,7 @@
 	<string name="play">下棋</string>
 	<string name="inbox">收件箱</string>
 	<string name="streamerManager">Streamer 管理</string>
+	<string name="coachManager">Coach manager</string>
 	<string name="chatRoom">聊天室</string>
 	<string name="loginToChat">聊天请登录</string>
 	<string name="youHaveBeenTimedOut">您暂时被禁言。</string>
@@ -272,6 +274,7 @@
 	<string name="yourOpponentProposesATakeback">对手请求悔棋</string>
 	<string name="bookmarkThisGame">收藏此棋局</string>
 	<string name="tournament">锦标赛</string>
+	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">锦标赛</string>
 	<string name="tournamentPoints">锦标赛积分</string>
 	<plurals name="nbTournamentPoints">
@@ -305,7 +308,7 @@
 	<string name="youAreNotInTeam">您不属于 %s 队</string>
 	<string name="backToGame">返回棋局</string>
 	<string name="siteDescription">免费在线将棋平台。简洁界面上下棋。免注册，无广告，无需插件。与电脑，朋友或随机对一局。</string>
-	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
 	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s加入%2$s队</string>
 	<string name="xCreatedTeamY">%1$s组建%2$s队</string>
@@ -417,6 +420,7 @@
 	<string name="isPrivate">私人锦标赛</string>
 	<string name="reportXToModerators">举报%s</string>
 	<string name="profileCompletion">资料完成度：%s</string>
+	<string name="thisIsProfilePage">This is your profile page.</string>
 	<string name="xRating">%s等级分</string>
 	<string name="ifNoneLeaveEmpty">如果没有，请留空</string>
 	<string name="gameCompletionRate">棋局完成率：%s</string>
@@ -431,23 +435,14 @@
 	<string name="watchLishogiTV">观看 Lishogi 直播</string>
 	<string name="previouslyOnLishogiTV">过去的 Lishogi 直播</string>
 	<string name="onlinePlayers">在线棋手</string>
+	<string name="onlineBots">Online bots</string>
 	<string name="activeToday">本日活跃棋手</string>
 	<string name="activePlayers">活跃棋手</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">注意，此棋局是积分赛，但是不计时！</string>
-	<string name="yourPuzzleRatingX">你的解题积分：%s</string>
 	<string name="toTrackYourProgress">注册以跟踪你的进度：</string>
-	<string name="puzzleId">%s号题</string>
-	<string name="puzzleOfTheDay">每日一题</string>
-	<string name="clickToSolve">点击解题</string>
 	<string name="goodMove">好棋</string>
-	<string name="butYouCanDoBetter">你还可以做得更好。</string>
 	<string name="bestMove">最佳着！</string>
-	<string name="keepGoing">请继续……</string>
-	<string name="puzzleFailed">解题失败</string>
-	<string name="butYouCanKeepTrying">但你可以继续尝试。</string>
 	<string name="success">解题成功</string>
-	<string name="wasThisPuzzleAnyGood">这道题目好不好？</string>
-	<string name="pleaseVotePuzzle">按上箭头键或下箭头键投票来帮助Lishogi提高训练题质量：</string>
 	<string name="thankYou">谢谢！</string>
 	<string name="ratingX">积分：%s</string>
 	<string name="hidden">隐藏</string>
@@ -455,10 +450,6 @@
 		<item quantity="other">已被尝试%s次</item>
 	</plurals>
 	<string name="fromGameLink">来自对局%s</string>
-	<string name="continueTraining">继续训练</string>
-	<string name="retryThisPuzzle">重试本题</string>
-	<string name="thisPuzzleIsCorrect">本题正确并有趣</string>
-	<string name="thisPuzzleIsWrong">本题错误或无聊</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="other">%s场对局进行中</item>
 	</plurals>
@@ -499,6 +490,8 @@
 	<string name="questionsAndAnswers">问答</string>
 	<string name="notes">备注</string>
 	<string name="typePrivateNotesHere">输入关于该用户的个人备注</string>
+	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
+	<string name="noNoteYet">No note yet</string>
 	<string name="invalidUsernameOrPassword">用户名或密码错误</string>
 	<string name="incorrectPassword">密码错误</string>
 	<string name="invalidAuthenticationCode">无效的验证码</string>
@@ -550,6 +543,7 @@
 	</plurals>
 	<string name="listBlockedPlayers">显示黑名单</string>
 	<string name="human">人类</string>
+	<string name="bots">Bots</string>
 	<string name="computer">电脑</string>
 	<string name="side">方</string>
 	<string name="clock">时钟</string>
@@ -622,9 +616,12 @@
 	<string name="numberOfByoyomiPeriods">读秒次数</string>
 	<string name="hostColorForEachGame">主持所执方</string>
 	<string name="onlyMembersOfTeam">仅限团队队员</string>
+	<string name="noRestriction">No Restriction</string>
+	<string name="estimatedStart">Estimated start time</string>
 	<string name="simulDescription">车轮战描述</string>
 	<string name="anythingTellParticipants">您有什么想告诉参赛者吗?</string>
 	<string name="lishogiTournaments">Lishogi 锦标赛</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">锦标赛常见问题</string>
 	<string name="tournamentOfficial">官方比赛</string>
 	<string name="timeBeforeTournamentStarts">锦标赛开始前的时间</string>
@@ -861,4 +858,14 @@
 	<string name="studyWith">Study with:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
 	<string name="standardStudy">Standard study</string>
+	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="whatNow">What now?</string>
+	<string name="hereAreSuggestions">Here are a few suggestions:</string>
+	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
+	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="challengeDeclined">Challenge declined</string>
+	<string name="challengeAccepted">Challenge accepted</string>
+	<string name="challengeCanceled">Challenge canceled</string>
 </resources>
