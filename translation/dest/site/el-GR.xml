@@ -179,6 +179,7 @@
 	<string name="changeEmail">Αλλαγή ηλ. ταχυδρομείου</string>
 	<string name="email">Ηλ. ταχυδρομείο</string>
 	<string name="passwordReset">Επαναφορά κωδικού</string>
+	<string name="loginByEmail">Log in by email</string>
 	<string name="forgotPassword">Ξεχάσατε τον κωδικό;</string>
 	<string name="rank">Κατάταξη</string>
 	<string name="rankX">Κατάταξη: %s</string>
@@ -236,6 +237,7 @@
 	<string name="play">Παίξτε</string>
 	<string name="inbox">Εισερχόμενα</string>
 	<string name="streamerManager">Streamer manager</string>
+	<string name="coachManager">Coach manager</string>
 	<string name="chatRoom">Ζωντανή συζήτηση</string>
 	<string name="loginToChat">Συνδεθείτε για να μιλήσετε</string>
 	<string name="youHaveBeenTimedOut">Έχετε αποσυνδεθεί.</string>
@@ -288,6 +290,7 @@
 	<string name="yourOpponentProposesATakeback">Ο αντίπαλος σας πρότεινε ακύρωση της τελευταίας κίνησης</string>
 	<string name="bookmarkThisGame">Προσθέστε σελιδοδείκτη για αυτό το παιχνίδι</string>
 	<string name="tournament">Πρωτάθλημα</string>
+	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">Πρωταθλήματα</string>
 	<string name="tournamentPoints">Πόντοι από πρωταθλήματα</string>
 	<plurals name="nbTournamentPoints">
@@ -327,7 +330,7 @@
 	<string name="youAreNotInTeam">Δεν είστε στην ομάδα %s</string>
 	<string name="backToGame">Επιστρέψτε στο παιχνίδι</string>
 	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
-	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
 	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">Ο %1$s έθεσε συμμετοχή στην ομάδα %2$s</string>
 	<string name="xCreatedTeamY">Ο %1$s δημιούργησε την ομάδα %2$s</string>
@@ -445,6 +448,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="isPrivate">Ιδιωτικό</string>
 	<string name="reportXToModerators">Αναφέρετε τον %s στο προσωπικό</string>
 	<string name="profileCompletion">Ολοκλήρωση προφίλ: %s</string>
+	<string name="thisIsProfilePage">This is your profile page.</string>
 	<string name="xRating">Βαθμολογία %s</string>
 	<string name="ifNoneLeaveEmpty">Αν δεν υπάρχει, αφήστε κενό</string>
 	<string name="gameCompletionRate">Ποσοστό ολοκλήρωσης παιχνιδιών: %s</string>
@@ -459,23 +463,14 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="watchLishogiTV">Watch Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Previously on Lishogi TV</string>
 	<string name="onlinePlayers">Συνδεδεμένοι παίκτες</string>
+	<string name="onlineBots">Online bots</string>
 	<string name="activeToday">Ενεργοί σήμερα</string>
 	<string name="activePlayers">Ενεργοί παίκτες</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Προσοχή, το παιχνίδι βαθμολογείται αλλά του λείπει ρολόι!</string>
-	<string name="yourPuzzleRatingX">Η βαθμολογία γρίφων σας : %s</string>
 	<string name="toTrackYourProgress">Για να παρακολουθήσετε τη πρόοδό σας:</string>
-	<string name="puzzleId">Γρίφος %s</string>
-	<string name="puzzleOfTheDay">Γρίφος της ημέρας</string>
-	<string name="clickToSolve">Κάνετε κλικ για να τον λύσετε</string>
 	<string name="goodMove">Καλή κίνηση</string>
-	<string name="butYouCanDoBetter">Αλλά υπάρχει ακόμα καλύτερη.</string>
 	<string name="bestMove">Καλύτερη κίνηση!</string>
-	<string name="keepGoing">Συνεχίστε…</string>
-	<string name="puzzleFailed">Αποτύχατε τον γρίφο</string>
-	<string name="butYouCanKeepTrying">Αλλά μπορείτε να συνεχίσετε τη προσπάθεια.</string>
 	<string name="success">Επιτυχία</string>
-	<string name="wasThisPuzzleAnyGood">Πώς σας φάνηκε ο γρίφος;</string>
-	<string name="pleaseVotePuzzle">Βελτιώστε το lishogi με την ψήφο σας, πατώντας το πάνω ή κάτω βελάκι:</string>
 	<string name="thankYou">Ευχαριστούμε!</string>
 	<string name="ratingX">Βαθμολογία: %s</string>
 	<string name="hidden">κρυμμένο</string>
@@ -484,10 +479,6 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="other">Παίχτηκε %s φορές</item>
 	</plurals>
 	<string name="fromGameLink">Από το παιχνίδι %s</string>
-	<string name="continueTraining">Συνέχεια εξάσκησης</string>
-	<string name="retryThisPuzzle">Επανάληψη γρίφου</string>
-	<string name="thisPuzzleIsCorrect">Ο γρίφος είναι σωστός και ενδιαφέρων</string>
-	<string name="thisPuzzleIsWrong">Ο γρίφος είναι λανθασμένος ή βαρετός</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="one">%s παιχνίδι παίζεται τώρα</item>
 		<item quantity="other">%s παιχνίδια παίζονται τώρα</item>
@@ -529,6 +520,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="questionsAndAnswers">Ερωτήσεις &amp; Απαντήσεις</string>
 	<string name="notes">Σημειώσεις</string>
 	<string name="typePrivateNotesHere">Γράψτε εδώ τις προσωπικές σας σημειώσεις</string>
+	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
+	<string name="noNoteYet">No note yet</string>
 	<string name="invalidUsernameOrPassword">Άκυρο όνομα χρήστη ή κωδικός</string>
 	<string name="incorrectPassword">Εσφαλμένος κωδικός</string>
 	<string name="invalidAuthenticationCode">Μη έγκυρος κωδικός επαλήθευσης</string>
@@ -582,6 +575,7 @@ computer analysis, game chat and shareable URL.</string>
 	</plurals>
 	<string name="listBlockedPlayers">Κατάλογος παικτών που έχετε αποκλείσει</string>
 	<string name="human">Άνθρωπος</string>
+	<string name="bots">Bots</string>
 	<string name="computer">Υπολογιστής</string>
 	<string name="side">Πλευρά</string>
 	<string name="clock">Χρόνος</string>
@@ -655,9 +649,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="numberOfByoyomiPeriods">Number of byoyomi periods</string>
 	<string name="hostColorForEachGame">Host color for each game</string>
 	<string name="onlyMembersOfTeam">Only members of team</string>
+	<string name="noRestriction">No Restriction</string>
+	<string name="estimatedStart">Estimated start time</string>
 	<string name="simulDescription">Simul description</string>
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Lishogi tournaments</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">Τεκμηρίωση πρωταθλημάτων τύπου αρένας</string>
 	<string name="tournamentOfficial">Επίσημο</string>
 	<string name="timeBeforeTournamentStarts">Χρόνος προτού ξεκινήσει το πρωτάθλημα</string>
@@ -899,4 +896,14 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="studyWith">Study with:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
 	<string name="standardStudy">Standard study</string>
+	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="whatNow">What now?</string>
+	<string name="hereAreSuggestions">Here are a few suggestions:</string>
+	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
+	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="challengeDeclined">Challenge declined</string>
+	<string name="challengeAccepted">Challenge accepted</string>
+	<string name="challengeCanceled">Challenge canceled</string>
 </resources>
