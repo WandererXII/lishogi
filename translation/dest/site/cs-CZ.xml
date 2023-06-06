@@ -193,6 +193,7 @@
 	<string name="changeEmail">Změnit email</string>
 	<string name="email">E-mail</string>
 	<string name="passwordReset">Změna hesla</string>
+	<string name="loginByEmail">Přihlásit se pomocí e-mailu</string>
 	<string name="forgotPassword">Zapomněl jste heslo?</string>
 	<string name="rank">Pořadí</string>
 	<string name="rankX">Pořadí: %s</string>
@@ -256,6 +257,7 @@
 	<string name="play">Hrát</string>
 	<string name="inbox">Doručené</string>
 	<string name="streamerManager">Správa streamu</string>
+	<string name="coachManager">Nastavení trenéra</string>
 	<string name="chatRoom">Chat</string>
 	<string name="loginToChat">Přihlaš se k chatování</string>
 	<string name="youHaveBeenTimedOut">Byli jste odhlášeni.</string>
@@ -320,6 +322,7 @@
 	<string name="yourOpponentProposesATakeback">Soupeř navrhuje vrácení tahu</string>
 	<string name="bookmarkThisGame">Přidat tuto partii do záložek</string>
 	<string name="tournament">Turnaj</string>
+	<string name="tournamentLeaderboard">Turnajový žebříček</string>
 	<string name="tournaments">Turnaje</string>
 	<string name="tournamentPoints">Turnajové body</string>
 	<plurals name="nbTournamentPoints">
@@ -371,7 +374,7 @@
 	<string name="youAreNotInTeam">Nejste členem týmu %s</string>
 	<string name="backToGame">Zpět do hry</string>
 	<string name="siteDescription">Šógi online zdarma. Hrajte přímo ve vašem prohlížeči, bez registrace, bez reklam, bez dalšího stahování. Hrajte proti počítači, kamarádům nebo náhodně vybraným soupeřům.</string>
-	<string name="shogiDescription">Šogi (shogi), také známý jako \"将棋\" v japonštině, je strategická hra pro dva hráče, která se hrála v Japonsku už po staletí. Často se také nezývá jako ,,japonské šachy\" kvůli podobnostem se západní hrou šachů, ale má jedinečné vlastnosti, díky nimž je výjímečnou hrou.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Šogi (shogi), také známý jako \"将棋\" v japonštině, je strategická hra pro dva hráče, která se hrála v Japonsku už po staletí. Často se také nezývá jako ,,japonské šachy\" kvůli podobnostem se západní hrou šachů, ale má jedinečné vlastnosti, díky nimž je výjímečnou hrou.</string>
 	<string name="learnShogiHereX">Pokud nejste obeznámeni s pravidly šógi, podívejte se na - %s.</string>
 	<string name="xJoinedTeamY">%1$s se přidal k týmu %2$s</string>
 	<string name="xCreatedTeamY">%1$s založil tým %2$s</string>
@@ -498,6 +501,7 @@
 	<string name="isPrivate">Soukromý</string>
 	<string name="reportXToModerators">Nahlásit %s moderátorům</string>
 	<string name="profileCompletion">Kompletace profilu: %s</string>
+	<string name="thisIsProfilePage">Toto je Vaše profilová stránka.</string>
 	<string name="xRating">%s hodnocení</string>
 	<string name="ifNoneLeaveEmpty">Pokud nemáte, nechte pole volné</string>
 	<string name="gameCompletionRate">Dokončených her: %s</string>
@@ -512,23 +516,14 @@
 	<string name="watchLishogiTV">Sledujte Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Předchozí na Lishogi TV</string>
 	<string name="onlinePlayers">Hráči online</string>
+	<string name="onlineBots">Online boti</string>
 	<string name="activeToday">Aktivní dnes</string>
 	<string name="activePlayers">Aktivní hráči</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Pozor, hra je o body i když je bez hodin!</string>
-	<string name="yourPuzzleRatingX">Váš rating (v úlohách): %s</string>
 	<string name="toTrackYourProgress">Pro sledování Vašeho pokroku:</string>
-	<string name="puzzleId">Úloha %s</string>
-	<string name="puzzleOfTheDay">Úloha dne</string>
-	<string name="clickToSolve">Přejít k řešení</string>
 	<string name="goodMove">Dobrý tah</string>
-	<string name="butYouCanDoBetter">Ale není nejlepší.</string>
 	<string name="bestMove">Nejlepší tah!</string>
-	<string name="keepGoing">Pokračujte ....</string>
-	<string name="puzzleFailed">Úloha nevyřešena</string>
-	<string name="butYouCanKeepTrying">Ale můžete to zkoušet znovu.</string>
 	<string name="success">Úspěch</string>
-	<string name="wasThisPuzzleAnyGood">Líbila se Vám tato úloha?</string>
-	<string name="pleaseVotePuzzle">Pomozte zlepšit Lishogi díky hlasování, pomocí šipek nahoru a dolů:</string>
 	<string name="thankYou">Děkujeme!</string>
 	<string name="ratingX">Hodnocení %s:</string>
 	<string name="hidden">skryté</string>
@@ -539,10 +534,6 @@
 		<item quantity="other">Hráno %skrát</item>
 	</plurals>
 	<string name="fromGameLink">Z partie %s</string>
-	<string name="continueTraining">Pokračovat v tréninku</string>
-	<string name="retryThisPuzzle">Znovu zkusit tuto úlohu</string>
-	<string name="thisPuzzleIsCorrect">Tato úloha je správná a zajímavá</string>
-	<string name="thisPuzzleIsWrong">Tato úloha je špatná nebo nudná</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="one">%s rozehraná hra</item>
 		<item quantity="few">%s rozehrané hry</item>
@@ -586,6 +577,8 @@
 	<string name="questionsAndAnswers">Otázky a Odpovědi</string>
 	<string name="notes">Poznámky</string>
 	<string name="typePrivateNotesHere">Zde napište soukromé poznámky</string>
+	<string name="writeAPrivateNoteAboutThisUser">Napište soukromou poznámku o tomto uživateli</string>
+	<string name="noNoteYet">Zatím žádné poznámky</string>
 	<string name="invalidUsernameOrPassword">Špatné jméno nebo heslo</string>
 	<string name="incorrectPassword">Nesprávné heslo</string>
 	<string name="invalidAuthenticationCode">Neplatný ověřovací kód</string>
@@ -643,6 +636,7 @@
 	</plurals>
 	<string name="listBlockedPlayers">Seznam hráčů, které jste zablokoval(a).</string>
 	<string name="human">Člověk</string>
+	<string name="bots">Boti</string>
 	<string name="computer">Počítač</string>
 	<string name="side">Strana</string>
 	<string name="clock">Čas</string>
@@ -718,9 +712,12 @@
 	<string name="numberOfByoyomiPeriods">Počet intervalů byoyomi</string>
 	<string name="hostColorForEachGame">Barva hosta pro každou hru</string>
 	<string name="onlyMembersOfTeam">Pouze členové týmu</string>
+	<string name="noRestriction">Bez omezení</string>
+	<string name="estimatedStart">Předpokládaný začátek</string>
 	<string name="simulDescription">Popis simultánky</string>
 	<string name="anythingTellParticipants">Je tu něco co by jste chtěli sdělit účastníkům?</string>
 	<string name="lishogiTournaments">Turnaje Lishogi</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">Arena turnaj - často kladené otázky</string>
 	<string name="tournamentOfficial">oficiální</string>
 	<string name="timeBeforeTournamentStarts">Čas do začátku turnaje</string>
@@ -972,4 +969,14 @@
 	<string name="studyWith">Studovat s:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Nepovinné</string>
 	<string name="standardStudy">Standardní studie</string>
+	<string name="welcomeToX">Vítejte v %s!</string>
+	<string name="whatNow">Co teď?</string>
+	<string name="hereAreSuggestions">Zde je několik návrhů:</string>
+	<string name="hangOn" comment="Meaning: wait!">Počkejte!</string>
+	<string name="gameInProgressWithX">Již probíhá hra s %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">nebo</string>
+	<string name="gameInProgressDescription">Nemůžete začít novou hru, dokud nebude tato dokončena.</string>
+	<string name="challengeDeclined">Výzva odmítnuta</string>
+	<string name="challengeAccepted">Výzva přijata</string>
+	<string name="challengeCanceled">Výzva zrušena</string>
 </resources>
