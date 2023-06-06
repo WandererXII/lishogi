@@ -179,6 +179,7 @@
 	<string name="changeEmail">Changer votre courriel</string>
 	<string name="email">Courriel</string>
 	<string name="passwordReset">Réinitialisation du mot de passe</string>
+	<string name="loginByEmail">Log in by email</string>
 	<string name="forgotPassword">Mot de passe oublié ?</string>
 	<string name="rank">Rang</string>
 	<string name="rankX">Classement : %s</string>
@@ -236,6 +237,7 @@
 	<string name="play">Jouer</string>
 	<string name="inbox">Boîte de réception</string>
 	<string name="streamerManager">Gestionnaire de streamer</string>
+	<string name="coachManager">Coach manager</string>
 	<string name="chatRoom">Salon de discussion</string>
 	<string name="loginToChat">Connectez-vous pour discuter</string>
 	<string name="youHaveBeenTimedOut">Vous avez été suspendu temporairement.</string>
@@ -288,6 +290,7 @@
 	<string name="yourOpponentProposesATakeback">Votre adversaire propose l\'annulation du coup</string>
 	<string name="bookmarkThisGame">Ajouter cette partie aux favorites</string>
 	<string name="tournament">Tournoi</string>
+	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">Tournois</string>
 	<string name="tournamentPoints">Score de tournoi</string>
 	<plurals name="nbTournamentPoints">
@@ -327,7 +330,7 @@
 	<string name="youAreNotInTeam">Vous ne faites pas partie de l\'équipe %s</string>
 	<string name="backToGame">Retour à la partie</string>
 	<string name="siteDescription">Jeu de shogi gratuit en ligne. Jouez au shogi immédiatement avec une interface simple. Pas d\'inscription obligatoire, pas de publicité, pas de plugin. Jouez au shogi avec des adversaires en ligne, avec des amis ou contre l\'ordinateur.</string>
-	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
 	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s a rejoint l\'équipe %2$s</string>
 	<string name="xCreatedTeamY">%1$s a créé l\'équipe %2$s</string>
@@ -444,6 +447,7 @@
 	<string name="isPrivate">Privé</string>
 	<string name="reportXToModerators">Signaler %s aux modérateurs</string>
 	<string name="profileCompletion">Profil rempli à %s</string>
+	<string name="thisIsProfilePage">This is your profile page.</string>
 	<string name="xRating">Classement %s</string>
 	<string name="ifNoneLeaveEmpty">Sinon, laissez vide</string>
 	<string name="gameCompletionRate">Termine %s de ses parties</string>
@@ -458,23 +462,14 @@
 	<string name="watchLishogiTV">Regarder Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Précédemment sur Lishogi TV</string>
 	<string name="onlinePlayers">Joueurs en ligne</string>
+	<string name="onlineBots">Online bots</string>
 	<string name="activeToday">Actifs aujourd\'hui</string>
 	<string name="activePlayers">Joueurs actifs</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Attention, la partie est classée, mais sans limite de temps !</string>
-	<string name="yourPuzzleRatingX">Votre classement de tactique : %s</string>
 	<string name="toTrackYourProgress">Pour suivre votre progression :</string>
-	<string name="puzzleId">Problème %s</string>
-	<string name="puzzleOfTheDay">Problème du jour</string>
-	<string name="clickToSolve">Cliquez pour résoudre</string>
 	<string name="goodMove">Bon coup</string>
-	<string name="butYouCanDoBetter">Mais vous pouvez faire mieux.</string>
 	<string name="bestMove">Meilleur coup !</string>
-	<string name="keepGoing">Continuez…</string>
-	<string name="puzzleFailed">Problème raté</string>
-	<string name="butYouCanKeepTrying">Mais vous pouvez réessayer.</string>
 	<string name="success">Réussi</string>
-	<string name="wasThisPuzzleAnyGood">Ce problème était-il intéressant  ?</string>
-	<string name="pleaseVotePuzzle">Aidez Lishogi à s\'améliorer en votant grâce aux flèches :</string>
 	<string name="thankYou">Merci !</string>
 	<string name="ratingX">Classement : %s</string>
 	<string name="hidden">masqué</string>
@@ -483,10 +478,6 @@
 		<item quantity="other">Joué %s fois</item>
 	</plurals>
 	<string name="fromGameLink">Extrait de la partie %s</string>
-	<string name="continueTraining">Continuer l\'entraînement</string>
-	<string name="retryThisPuzzle">Réessayer ce problème</string>
-	<string name="thisPuzzleIsCorrect">Ce problème est correct et intéressant</string>
-	<string name="thisPuzzleIsWrong">Ce problème est erroné ou ennuyeux</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="one">%s partie en cours</item>
 		<item quantity="other">%s parties en cours</item>
@@ -528,6 +519,8 @@
 	<string name="questionsAndAnswers">Questions &amp; Réponses</string>
 	<string name="notes">Notes</string>
 	<string name="typePrivateNotesHere">Écrivez vos notes privées ici</string>
+	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
+	<string name="noNoteYet">No note yet</string>
 	<string name="invalidUsernameOrPassword">Nom d\'utilisateur ou mot de passe invalide</string>
 	<string name="incorrectPassword">Mot de passe incorrect</string>
 	<string name="invalidAuthenticationCode">Code d\'authentification non valide</string>
@@ -581,6 +574,7 @@
 	</plurals>
 	<string name="listBlockedPlayers">Lister les joueurs que vous avez bloqués</string>
 	<string name="human">Humain</string>
+	<string name="bots">Bots</string>
 	<string name="computer">Ordinateur</string>
 	<string name="side">Côté</string>
 	<string name="clock">Pendule</string>
@@ -654,9 +648,12 @@
 	<string name="numberOfByoyomiPeriods">Nombre de périodes byoyomi</string>
 	<string name="hostColorForEachGame">Côté d\'hôte pour chaque partie</string>
 	<string name="onlyMembersOfTeam">Seulement les membres de l\'équipe</string>
+	<string name="noRestriction">No Restriction</string>
+	<string name="estimatedStart">Estimated start time</string>
 	<string name="simulDescription">Description de la simultanée</string>
 	<string name="anythingTellParticipants">Vous voulez dire quelque chose aux participants ?</string>
 	<string name="lishogiTournaments">Tournois Lishogi</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">FAQ des tournois</string>
 	<string name="tournamentOfficial">Officiel</string>
 	<string name="timeBeforeTournamentStarts">Temps restant avant le début du tournoi</string>
@@ -898,4 +895,14 @@
 	<string name="studyWith">Study with:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
 	<string name="standardStudy">Standard study</string>
+	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="whatNow">What now?</string>
+	<string name="hereAreSuggestions">Here are a few suggestions:</string>
+	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
+	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="challengeDeclined">Challenge declined</string>
+	<string name="challengeAccepted">Challenge accepted</string>
+	<string name="challengeCanceled">Challenge canceled</string>
 </resources>
