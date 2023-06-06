@@ -193,6 +193,7 @@
 	<string name="changeEmail">שנה כתובת דואר אלקטרוני</string>
 	<string name="email">הדואר האלקטרוני</string>
 	<string name="passwordReset">איפוס סיסמה</string>
+	<string name="loginByEmail">Log in by email</string>
 	<string name="forgotPassword">שכחת סיסמה?</string>
 	<string name="rank">דרוג</string>
 	<string name="rankX">דירוג: %s</string>
@@ -256,6 +257,7 @@
 	<string name="play">שחק</string>
 	<string name="inbox">תיבת דואר</string>
 	<string name="streamerManager">Streamer manager</string>
+	<string name="coachManager">Coach manager</string>
 	<string name="chatRoom">חדר צא\'ט</string>
 	<string name="loginToChat">התחבר כדי לדבר בצ\'אט</string>
 	<string name="youHaveBeenTimedOut">עבר הזמן הקצוב והתנתקת.</string>
@@ -320,6 +322,7 @@
 	<string name="yourOpponentProposesATakeback">יריבך מציע החזרת המהלך האחרון</string>
 	<string name="bookmarkThisGame">הוסף משחק זה למועדפים</string>
 	<string name="tournament">טורניר</string>
+	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">טורנירים</string>
 	<string name="tournamentPoints">נקודות טורניר</string>
 	<plurals name="nbTournamentPoints">
@@ -371,7 +374,7 @@
 	<string name="youAreNotInTeam">אתה לא נמצא בקבוצה%s</string>
 	<string name="backToGame">חזור למשחק</string>
 	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
-	<string name="shogiDescription">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
 	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s הצטרף לקבוצה %2$s</string>
 	<string name="xCreatedTeamY">%1$s יצר קבוצה %2$s</string>
@@ -499,6 +502,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="isPrivate">פרטי</string>
 	<string name="reportXToModerators">%s דווח למנהלים על</string>
 	<string name="profileCompletion">השלמת הפרופיל: %s</string>
+	<string name="thisIsProfilePage">This is your profile page.</string>
 	<string name="xRating">דירוג %s</string>
 	<string name="ifNoneLeaveEmpty">אם אין, השאר ריק</string>
 	<string name="gameCompletionRate">אחוזי השלמת משחקים: %s</string>
@@ -513,23 +517,14 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="watchLishogiTV">צפה בLishogi TV</string>
 	<string name="previouslyOnLishogiTV">Previously on Lishogi TV</string>
 	<string name="onlinePlayers">שחקנים מחוברים</string>
+	<string name="onlineBots">Online bots</string>
 	<string name="activeToday">הכי פעילים היום</string>
 	<string name="activePlayers">הכי פעילים</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">היזהר, המשחק מדורג אך אין שעון.</string>
-	<string name="yourPuzzleRatingX">דירוג הפאזלים שלך: %s</string>
 	<string name="toTrackYourProgress">למעקב אחרי התקדמותך:</string>
-	<string name="puzzleId">פאזל %s</string>
-	<string name="puzzleOfTheDay">הפאזל היומי</string>
-	<string name="clickToSolve">לחץ כדי לפתור</string>
 	<string name="goodMove">מהלך טוב</string>
-	<string name="butYouCanDoBetter">אבל יש מהלך יותר טוב.</string>
 	<string name="bestMove">המהלך הטוב ביותר!</string>
-	<string name="keepGoing">המשך...</string>
-	<string name="puzzleFailed">נכשלת בפאזל</string>
-	<string name="butYouCanKeepTrying">אבל אתה יכול להמשיך לנסות.</string>
 	<string name="success">הצלחה</string>
-	<string name="wasThisPuzzleAnyGood">האם אהבת את הפאזל?</string>
-	<string name="pleaseVotePuzzle">עזור לנו להשתפר ע\"י הצבעה. השתמש בחצים למעלה ולמטה.</string>
 	<string name="thankYou">תודה רבה!</string>
 	<string name="ratingX">דירוג: %s</string>
 	<string name="hidden">מוסתר</string>
@@ -540,10 +535,6 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="other">שוחק %s פעמים</item>
 	</plurals>
 	<string name="fromGameLink">מהמשחק %s</string>
-	<string name="continueTraining">המשך להתאמן</string>
-	<string name="retryThisPuzzle">נסה שוב את הפאזל.</string>
-	<string name="thisPuzzleIsCorrect">הפאזל נכון ומעניין.</string>
-	<string name="thisPuzzleIsWrong">הפאזל לא נכון או משעמם</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="one">%s משחק בתהליך</item>
 		<item quantity="two">%s משחקים בתהליך</item>
@@ -587,6 +578,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="questionsAndAnswers">שאלות ותשובות</string>
 	<string name="notes">הערות</string>
 	<string name="typePrivateNotesHere">הכנס הערות פרטיות כאן</string>
+	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
+	<string name="noNoteYet">No note yet</string>
 	<string name="invalidUsernameOrPassword">שגיאה בשם משתמש או בסיסמא</string>
 	<string name="incorrectPassword">סיסמה שגויה</string>
 	<string name="invalidAuthenticationCode">קוד אימות לא תקין</string>
@@ -647,6 +640,7 @@ computer analysis, game chat and shareable URL.</string>
 	</plurals>
 	<string name="listBlockedPlayers">רשימת שחקנים שחסמת</string>
 	<string name="human">בן אנוש</string>
+	<string name="bots">Bots</string>
 	<string name="computer">מחשב</string>
 	<string name="side">צד</string>
 	<string name="clock">שעון</string>
@@ -722,9 +716,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="numberOfByoyomiPeriods">Number of byoyomi periods</string>
 	<string name="hostColorForEachGame">Host color for each game</string>
 	<string name="onlyMembersOfTeam">Only members of team</string>
+	<string name="noRestriction">No Restriction</string>
+	<string name="estimatedStart">Estimated start time</string>
 	<string name="simulDescription">Simul description</string>
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">תחרויות לישוגי</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">שאלות נפוצות לגבי זירת הטורנירים</string>
 	<string name="tournamentOfficial">רשמי</string>
 	<string name="timeBeforeTournamentStarts">זמן לפני שהטורניר מתחיל</string>
@@ -976,4 +973,14 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="studyWith">Study with:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
 	<string name="standardStudy">Standard study</string>
+	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="whatNow">What now?</string>
+	<string name="hereAreSuggestions">Here are a few suggestions:</string>
+	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
+	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="challengeDeclined">Challenge declined</string>
+	<string name="challengeAccepted">Challenge accepted</string>
+	<string name="challengeCanceled">Challenge canceled</string>
 </resources>
