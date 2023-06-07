@@ -330,8 +330,8 @@
 	<string name="youAreNotInTeam">Du bist nicht in Team %s</string>
 	<string name="backToGame">Zurück zum Spiel</string>
 	<string name="siteDescription">Kostenloses Online-Shogi. Spiele in einer einladenden Umgebung Shogi! Keine Werbung, keine Registrierung oder Plugins erforderlich. Spiele gegen den Computer, Freunde oder zufällige Gegner!</string>
-	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
-	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, auf Japanisch auch als \"将棋\" bekannt, ist ein strategisches Brettspiel für zwei Spieler, das seit Jahrhunderten in Japan gespielt wird. Es wird oft auch als \"japanisches Schach\" bezeichnet.</string>
+	<string name="learnShogiHereX">Wenn Sie mit den Shogi-Regeln nicht vertraut sind, lesen Sie - %s.</string>
 	<string name="xJoinedTeamY">%1$s trat der Gruppe %2$s bei</string>
 	<string name="xCreatedTeamY">%1$s hat das Team %2$s gegründet</string>
 	<string name="xStartedStreaming">%s startete Stream</string>
