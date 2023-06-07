@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="shogi">Shogi</string>
+	<string name="shogi">शोगी</string>
 	<string name="playWithAFriend">मित्र के साथ खेलें</string>
 	<string name="playWithTheMachine">कंप्यूटर के साथ खेलें</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">इस खेल में किसी को आमंत्रित करने के लिए उन्हें ये URL दें</string>
@@ -31,7 +31,7 @@
 	<string name="randomColor" comment="Side - sente/gote">कोई भी रंग</string>
 	<string name="createAGame">नया खेल बनाएं</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s की विजय हुई</string>
-	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">आप %s के रूप में खेलते हैं</string>
 	<string name="itsYourTurn">यह आपकी बारी है!</string>
 	<string name="cheatDetected">धोखा का पता चला</string>
 	<string name="variantEnding">प्रकार समाप्त</string>
@@ -50,7 +50,7 @@
 	<string name="talkInChat">कृपया चैट में अच्छे बनें !</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">इस URL पर आने वाला पहला व्यक्ति आपके साथ खेलेगा।</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s खेल छोड़ कर चला गया</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">दर्शकों को यह खेल दिखाने के लिए उन्हें यह URL दें</string>
 	<string name="theComputerAnalysisHasFailed">कम्प्यूटर विश्लेषण असफल</string>
@@ -250,7 +250,7 @@
 	<string name="incrementInSeconds">हर चाल पर सेकंड्स की वृद्धि</string>
 	<string name="byoyomiInSeconds">Byoyomi सेकंड में</string>
 	<string name="numberOfPeriods">अवधि की संख्या</string>
-	<string name="freeOnlineShogi">Free Online Shogi</string>
+	<string name="freeOnlineShogi">मुफ्त ऑनलाइन शोगी</string>
 	<string name="spectators">दर्शक (Spectator)</string>
 	<plurals name="nbRated">
 		<item quantity="one">%s रेटेड</item>
@@ -330,8 +330,8 @@
 	<string name="youAreNotInTeam">आप %s टीम मे नही हो</string>
 	<string name="backToGame">खेल पर लौटें।</string>
 	<string name="siteDescription">खेलें shogi मुफ्त और ऑनलाइन साफ़ सुथरे अंदाज में। न कोई पंजीकरण, न कोई प्रचार और न ही किसी अन्य बहरी चीज की आव्यशकता। shogi कम्प्युटर, दोस्तों या किसी भी प्रतिद्वंदी के साथ खेलें।</string>
-	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
-	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">शोगी (shogi), जिसे जापानी में \"将棋\" के रूप में भी जाना जाता है, एक दो-खिलाड़ी रणनीति बोर्ड गेम है जो सदियों से जापान में खेला जाता रहा है। इसे अक्सर \"जापानी शतरंज\" कहा जाता है।</string>
+	<string name="learnShogiHereX">यदि आप शोगी के नियमों से परिचित नहीं हैं, तो देखें - %s</string>
 	<string name="xJoinedTeamY">%1$s %2$s समूह से जुड़ा</string>
 	<string name="xCreatedTeamY">%1$s ने %2$s समूह बनाया</string>
 	<string name="xStartedStreaming">%s ने स्ट्रीमिंग शुरू किया</string>
@@ -765,7 +765,7 @@
 	<string name="usernameUnacceptable">यह उपयोगकर्ता नाम स्वीकार्य नहीं है।</string>
 	<string name="directlySupportLishogi">Lishogi का समर्थन करें</string>
 	<string name="playShogiInStyle">Play shogi in style</string>
-	<string name="shogiBasics">Shogi basics</string>
+	<string name="shogiBasics">शोगी मूल बातें</string>
 	<string name="shogiResources">Shogi संसाधन</string>
 	<string name="coaches">कोच</string>
 	<string name="invalidNotation">अमान्य संकेतन</string>
