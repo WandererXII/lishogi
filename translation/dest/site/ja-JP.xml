@@ -227,7 +227,7 @@
 	<string name="play">対局</string>
 	<string name="inbox">受信箱</string>
 	<string name="streamerManager">配信者用マネージャー</string>
-	<string name="coachManager">Coach manager</string>
+	<string name="coachManager">コーチ用設定</string>
 	<string name="chatRoom">チャットルーム</string>
 	<string name="loginToChat">（ログインが必要）</string>
 	<string name="youHaveBeenTimedOut">（チャットは一時禁止中）</string>
@@ -544,7 +544,7 @@
 	</plurals>
 	<string name="listBlockedPlayers">ブロックしたプレイヤーリスト</string>
 	<string name="human">人間</string>
-	<string name="bots">Bots</string>
+	<string name="bots">ボット</string>
 	<string name="computer">コンピューター</string>
 	<string name="side">先手後手</string>
 	<string name="clock">対局時計</string>
@@ -617,8 +617,8 @@
 	<string name="numberOfByoyomiPeriods">考慮時間</string>
 	<string name="hostColorForEachGame">ホストの手番</string>
 	<string name="onlyMembersOfTeam">チームメンバーのみ</string>
-	<string name="noRestriction">No Restriction</string>
-	<string name="estimatedStart">Estimated start time</string>
+	<string name="noRestriction">制限なし</string>
+	<string name="estimatedStart">開始予定時刻</string>
 	<string name="simulDescription">多面指しの詳細</string>
 	<string name="anythingTellParticipants">参加者に伝えたいことはありますか?</string>
 	<string name="lishogiTournaments">Lishogiトーナメント</string>
@@ -859,7 +859,7 @@
 	<string name="studyWith">一緒に研究する：</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">オプション</string>
 	<string name="standardStudy">通常の研究</string>
-	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="welcomeToX">%s へようこそ！</string>
 	<string name="whatNow">What now?</string>
 	<string name="hereAreSuggestions">Here are a few suggestions:</string>
 	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
