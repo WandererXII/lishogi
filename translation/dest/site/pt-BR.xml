@@ -330,7 +330,7 @@
 	<string name="youAreNotInTeam">Você não está na equipe %s</string>
 	<string name="backToGame">Retorne à partida</string>
 	<string name="siteDescription">Shogi online gratuito. Jogue shogi agora numa interface simples. Sem registro, sem anúncios, sem plugins. Jogue shogi contra o computador, amigos ou adversários aleatórios.</string>
-	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, também conhecido como \"将棋\" em japonês, é um jogo de tabuleiro de estratégia para dois jogadores que tem sido jogado no Japão há séculos.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, também conhecido como \"将棋\" em japonês, é um jogo de tabuleiro de estratégia para dois jogadores que tem sido jogado no Japão há séculos. Ele é frequentemente chamado \"xadrez japonês\".</string>
 	<string name="learnShogiHereX">Se você não estiver familiarizado com as regras do shogi, dê uma olhada — %s.</string>
 	<string name="xJoinedTeamY">%1$s juntou-se à equipe %2$s</string>
 	<string name="xCreatedTeamY">%1$s criou a equipe %2$s</string>
