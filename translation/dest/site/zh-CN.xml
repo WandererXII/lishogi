@@ -240,7 +240,7 @@
 	<string name="incrementInSeconds">步时</string>
 	<string name="byoyomiInSeconds">读秒秒数</string>
 	<string name="numberOfPeriods">读秒次数</string>
-	<string name="freeOnlineShogi">Free Online Shogi</string>
+	<string name="freeOnlineShogi">免费在线象棋</string>
 	<string name="spectators">观众：</string>
 	<plurals name="nbRated">
 		<item quantity="other">%s排位赛</item>
@@ -308,8 +308,8 @@
 	<string name="youAreNotInTeam">您不属于 %s 队</string>
 	<string name="backToGame">返回棋局</string>
 	<string name="siteDescription">免费在线将棋平台。简洁界面上下棋。免注册，无广告，无需插件。与电脑，朋友或随机对一局。</string>
-	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
-	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">将军棋是一种双人战略棋盘游戏，在日本已经有几个世纪的历史。它通常被称为 \"日本象棋\"。</string>
+	<string name="learnShogiHereX">如果你不熟悉象棋的规则，请查看 - %s。</string>
 	<string name="xJoinedTeamY">%1$s加入%2$s队</string>
 	<string name="xCreatedTeamY">%1$s组建%2$s队</string>
 	<string name="xStartedStreaming">%s 开始直播</string>
@@ -589,7 +589,7 @@
 	<string name="webmasters">网站管理员</string>
 	<string name="about">关于</string>
 	<string name="aboutX">关于 %s</string>
-	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s 是一个免费 (%2$s)，自由，无广告的开源将棋服务器。</string>
 	<string name="really">不信？</string>
 	<string name="contribute">协助我们</string>
 	<string name="termsOfService">服务条款</string>
