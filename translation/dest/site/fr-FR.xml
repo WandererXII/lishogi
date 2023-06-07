@@ -331,7 +331,7 @@
 	<string name="backToGame">Retour à la partie</string>
 	<string name="siteDescription">Jeu de shogi gratuit en ligne. Jouez au shogi immédiatement avec une interface simple. Pas d\'inscription obligatoire, pas de publicité, pas de plugin. Jouez au shogi avec des adversaires en ligne, avec des amis ou contre l\'ordinateur.</string>
 	<string name="shogiDescription" comment="Feel free to tweak it">Le shogi, également connu sous le nom de \"将棋\" en japonais, est un jeu de plateau stratégique à deux joueurs, pratiqué au Japon depuis des siècles. Il est souvent appelé \"échecs japonais\".</string>
-	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
+	<string name="learnShogiHereX">Si vous ne connaissez pas les règles du shogi, consultez - %s.</string>
 	<string name="xJoinedTeamY">%1$s a rejoint l\'équipe %2$s</string>
 	<string name="xCreatedTeamY">%1$s a créé l\'équipe %2$s</string>
 	<string name="xStartedStreaming">%s a commencé une diffusion</string>
