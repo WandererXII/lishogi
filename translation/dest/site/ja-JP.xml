@@ -172,7 +172,7 @@
 	<string name="changeEmail">メールアドレスの変更</string>
 	<string name="email">メールアドレス</string>
 	<string name="passwordReset">パスワードをリセットする</string>
-	<string name="loginByEmail">Log in by email</string>
+	<string name="loginByEmail">メールでログインする</string>
 	<string name="forgotPassword">パスワードを忘れた方はこちら</string>
 	<string name="rank">ランク</string>
 	<string name="rankX">ランク: %s</string>
@@ -241,7 +241,7 @@
 	<string name="byoyomiInSeconds">秒読み</string>
 	<string name="numberOfPeriods">考慮時間</string>
 	<string name="freeOnlineShogi">無料オンライン将棋</string>
-	<string name="spectators">観覧者:</string>
+	<string name="spectators">観戦者:</string>
 	<plurals name="nbRated">
 		<item quantity="other">%s 局レート戦</item>
 	</plurals>
@@ -274,7 +274,7 @@
 	<string name="yourOpponentProposesATakeback">対局相手が待ったをしていいか聞いています</string>
 	<string name="bookmarkThisGame">この対局をブックマークする</string>
 	<string name="tournament">トーナメント</string>
-	<string name="tournamentLeaderboard">Tournament leaderboard</string>
+	<string name="tournamentLeaderboard">トーナメント優勝者</string>
 	<string name="tournaments">トーナメント</string>
 	<string name="tournamentPoints">トーナメントポイント</string>
 	<plurals name="nbTournamentPoints">
@@ -491,8 +491,8 @@
 	<string name="questionsAndAnswers">Q&amp;A</string>
 	<string name="notes">メモ</string>
 	<string name="typePrivateNotesHere">自分用のメモ欄</string>
-	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
-	<string name="noNoteYet">No note yet</string>
+	<string name="writeAPrivateNoteAboutThisUser">このユーザーについて自分用のメモを書く</string>
+	<string name="noNoteYet">メモはまだありません</string>
 	<string name="invalidUsernameOrPassword">無効なユーザー名 または パスワード</string>
 	<string name="incorrectPassword">パスワードが違います</string>
 	<string name="invalidAuthenticationCode">無効な認証コード</string>
