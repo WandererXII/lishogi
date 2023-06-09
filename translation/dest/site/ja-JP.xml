@@ -29,7 +29,7 @@
 	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">下手</string>
 	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">上手</string>
 	<string name="randomColor" comment="Side - sente/gote">ランダム</string>
-	<string name="createAGame">対局を作成する</string>
+	<string name="createAGame">対局する</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%sの勝ちです</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">あなたは%sです</string>
 	<string name="itsYourTurn">あなたの手番です！</string>
@@ -456,7 +456,7 @@
 	</plurals>
 	<string name="automaticallyProceedToNextGameAfterMoving">指した後 自動的に次の対局に進む</string>
 	<string name="autoSwitch">自動切り替え</string>
-	<string name="puzzles">タクティクス問題</string>
+	<string name="puzzles">次の一手</string>
 	<string name="latestUpdates">最新情報</string>
 	<string name="tournamentWinners">トーナメント優勝者</string>
 	<string name="name">名称</string>
@@ -622,7 +622,7 @@
 	<string name="simulDescription">多面指しの詳細</string>
 	<string name="anythingTellParticipants">参加者に伝えたいことはありますか?</string>
 	<string name="lishogiTournaments">Lishogiトーナメント</string>
-	<string name="tournamentShields">Tournament shields</string>
+	<string name="tournamentShields">トーナメント表彰楯</string>
 	<string name="tournamentFAQ">アリーナ・トーナメントFAQ</string>
 	<string name="tournamentOfficial">公式</string>
 	<string name="timeBeforeTournamentStarts">開始までの時間</string>
@@ -827,7 +827,7 @@
 	<string name="rapidDesc">ラピッド：8 分から 25 分</string>
 	<string name="classicalDesc">クラシカル：25 分以上</string>
 	<string name="correspondenceDesc">通信戦：1 手につき 1 日から数日</string>
-	<string name="puzzleDesc">タクティクス問題</string>
+	<string name="puzzleDesc">次の一手</string>
 	<string name="important">重要</string>
 	<string name="yourQuestionMayHaveBeenAnswered">ご質問の答えはすでに %1$s にあるかもしれません</string>
 	<string name="inTheFAQ">FAQ 内</string>
@@ -865,7 +865,7 @@
 	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
 	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
 	<string name="or" comment="links alternatives: Do X or do Y">or</string>
-	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="gameInProgressDescription">この対局が終わるまで、別の対局は開始できません。</string>
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
