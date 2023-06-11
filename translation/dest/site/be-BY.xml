@@ -2,7 +2,7 @@
 <resources>
 	<string name="shogi">Сёгі</string>
 	<string name="playWithAFriend">Гуляць з сябрам</string>
-	<string name="playWithTheMachine">Гуляць з камп\'ютарам</string>
+	<string name="playWithTheMachine">Гуляць з кампутарам</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Каб запрасіць каго-небудзь гуляць, падзяліцеся гэтым URL</string>
 	<string name="gameOver">Канец Гульні</string>
 	<string name="waitingForOpponent">Чаканне ворага</string>
@@ -56,10 +56,10 @@
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s не пахадзіў</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Падзяліцеся гэтай спасылкай, каб дазволіць назіральнікам глядзець гульню</string>
 	<string name="theComputerAnalysisHasFailed">Камп\'ютарны аналіз не ўдаўся</string>
-	<string name="viewTheComputerAnalysis">Прагледзець камп\'ютарны аналіз</string>
-	<string name="requestAComputerAnalysis">Запытаць камп\'ютарны аналіз</string>
-	<string name="computerAnalysis">Камп’ютарны аналіз</string>
-	<string name="computerAnalysisAvailable">Камп’ютарны аналіз даступны</string>
+	<string name="viewTheComputerAnalysis">Прагледзець кампутарны аналіз</string>
+	<string name="requestAComputerAnalysis">Запытаць кампутарны аналіз</string>
+	<string name="computerAnalysis">Кампутарны аналіз</string>
+	<string name="computerAnalysisAvailable">Кампутарны аналіз даступны</string>
 	<string name="analysis">Аналізаваць дошку</string>
 	<string name="depthX">Глыбіня %s</string>
 	<string name="usingServerAnalysis">Выкарыстоўваецца серверны аналіз</string>
