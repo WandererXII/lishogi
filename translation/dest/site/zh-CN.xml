@@ -14,6 +14,7 @@
 	<string name="toggleTheChat">聊天开关</string>
 	<string name="toggleSound">声音开关</string>
 	<string name="chat">聊天</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
 	<string name="resign">认输</string>
 	<string name="checkmate">将死</string>
 	<string name="stalemate">逼和</string>
@@ -868,4 +869,6 @@
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
+	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
 </resources>
