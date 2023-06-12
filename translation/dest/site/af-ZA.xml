@@ -14,6 +14,7 @@
 	<string name="toggleTheChat">Wissel klets</string>
 	<string name="toggleSound">Wissel klank</string>
 	<string name="chat">Klets</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
 	<string name="resign">Gee oor</string>
 	<string name="checkmate">Skaakmat</string>
 	<string name="stalemate">Dooiepunt</string>
@@ -907,4 +908,6 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
+	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
 </resources>
