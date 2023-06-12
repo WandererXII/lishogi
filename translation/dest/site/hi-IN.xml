@@ -14,6 +14,7 @@
 	<string name="toggleTheChat">चैट को टोग्ल करें</string>
 	<string name="toggleSound">आयतन को टोग्ल करें</string>
 	<string name="chat">चैट</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
 	<string name="resign">हार मान लें</string>
 	<string name="checkmate">शह और मात</string>
 	<string name="stalemate">गतिरोध</string>
@@ -906,4 +907,6 @@
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
+	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
 </resources>
