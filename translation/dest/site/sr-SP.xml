@@ -14,6 +14,7 @@
 	<string name="toggleTheChat">Укључи/искључи ћаскање</string>
 	<string name="toggleSound">Укључи/искључи звук</string>
 	<string name="chat">Ћаскање</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
 	<string name="resign">Предај</string>
 	<string name="checkmate">Шах-мат</string>
 	<string name="stalemate">Пат</string>
@@ -943,4 +944,6 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
+	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
 </resources>
