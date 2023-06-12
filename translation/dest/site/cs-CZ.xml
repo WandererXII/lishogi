@@ -28,7 +28,7 @@
 	<string name="black" comment="Alternative to sente">Černý</string>
 	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Šitate</string>
 	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
-	<string name="randomColor" comment="Side - sente/gote">Náhodná barva</string>
+	<string name="randomColor" comment="Side - sente/gote">Náhodná strana</string>
 	<string name="createAGame">Vytvořit hru</string>
 	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">Vyhrál %s</string>
 	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">Hrajete jako %s</string>
