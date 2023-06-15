@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Ce sunt studiile?</string>
   <string name="allStudies">Toate studiile</string>
   <string name="studiesCreatedByX">Studii create de %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Niciunul încă.</string>
   <string name="hot">Populare</string>
   <string name="dateAddedNewest">Data adăugată (cele mai noi)</string>
