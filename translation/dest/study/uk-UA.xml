@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Що таке дослідження?</string>
   <string name="allStudies">Усі дослідження</string>
   <string name="studiesCreatedByX">Дослідження, створені %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Ще немає.</string>
   <string name="hot">Активні</string>
   <string name="dateAddedNewest">Дата додана (новіші)</string>
