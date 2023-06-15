@@ -9,6 +9,7 @@
   <string name="whatAreStudies">درس ها چه هستند?</string>
   <string name="allStudies">همه درس های من</string>
   <string name="studiesCreatedByX">مطالعاتِ ایجاد شده توسط %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">هنوز چیزی نیست.</string>
   <string name="hot">داغ</string>
   <string name="dateAddedNewest">بروز(جدید ترین)</string>
