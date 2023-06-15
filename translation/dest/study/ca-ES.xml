@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Què són els estudis?</string>
   <string name="allStudies">Tots els estudis</string>
   <string name="studiesCreatedByX">Estudis creats per %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Res encara.</string>
   <string name="hot">Candent</string>
   <string name="dateAddedNewest">Data d’inclusió (més nous)</string>
