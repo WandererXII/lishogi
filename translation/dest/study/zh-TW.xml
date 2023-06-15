@@ -9,6 +9,7 @@
   <string name="whatAreStudies">研究是什麼？</string>
   <string name="allStudies">所有研究</string>
   <string name="studiesCreatedByX">由%s創建的研究</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">目前還沒有。</string>
   <string name="hot">熱門的</string>
   <string name="dateAddedNewest">新增日期(由新到舊)</string>
