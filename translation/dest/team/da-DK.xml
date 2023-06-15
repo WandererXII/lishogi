@@ -44,4 +44,5 @@ Spillere som ikke bryder sig om at modtage dine beskeder forlader måske holdet.
   <string name="leadersChat">Holdleder-chat</string>
   <string name="upcomingTourns">Upcoming tournaments</string>
   <string name="completedTourns">Completed tournaments</string>
+  <string name="teamPage">Team page</string>
 </resources>
