@@ -44,4 +44,5 @@ Los jugadores a los que no les guste recibir tus mensajes pueden abandonar el eq
   <string name="leadersChat">Chat de líderes</string>
   <string name="upcomingTourns">Upcoming tournaments</string>
   <string name="completedTourns">Completed tournaments</string>
+  <string name="teamPage">Team page</string>
 </resources>
