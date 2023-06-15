@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Nghiên cứu là gì?</string>
   <string name="allStudies">Tất cả các nghiên cứu</string>
   <string name="studiesCreatedByX">Nghiên cứu được tạo bởi %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Chưa có gì cả.</string>
   <string name="hot">Nổi bật</string>
   <string name="dateAddedNewest">Ngày thêm (mới nhất)</string>
