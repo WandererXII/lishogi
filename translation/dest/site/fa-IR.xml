@@ -23,6 +23,9 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="xWon" comment="Example: Player won">%s won</string>
+	<string name="xLost" comment="Example: Player lost">%s lost</string>
+	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">سفید</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
@@ -60,10 +63,12 @@
 	<string name="computerAnalysis">تحليل رایانه‌ای</string>
 	<string name="computerAnalysisAvailable">تحلیل رایانه‌ای موجود است</string>
 	<string name="analysis">تابلوی تجزیه و تحلیل</string>
+	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">عمق بررسی تا %s حرکت</string>
 	<string name="usingServerAnalysis">استفاده از سرور برای تحلیل</string>
 	<string name="loadingEngine">موتور پردازش بارگذاری می‌گردد...</string>
 	<string name="cloudAnalysis">تحلیل ابری</string>
+	<string name="localAnalysis">Local analysis</string>
 	<string name="goDeeper" comment="Engine depth">عمق و تعداد بیشتری از حرکتها را بررسی نمایید</string>
 	<string name="showThreat">تهدید را نمایش بدهید</string>
 	<string name="inLocalBrowser">در مرورگر محلی</string>
@@ -144,6 +149,7 @@
 	<string name="computersAreNotAllowedToPlay">كامپيوتر و بازيكناني كه از كامپيوتر كمك مي گيرند،مجاز به بازی نیستند.لطفا از انجین شطرنج يا دیتابیس شطرنج و يا بازيكنان ديگر كمک نگيريد. همچنین توجه کنید که داشتن چند حساب کاربری به شدت نهی شده است. استفاده فزاینده از چند حساب منجر به مسدود شدن حساب شما خواهد شد.</string>
 	<string name="games">بازی ها</string>
 	<string name="forum">انجمن</string>
+	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
 	<string name="xPostedInForumY">%1$s در انجمن،موضوع %2$s را پست کرد.</string>
 	<string name="latestForumPosts">آخرین پست های انجمن</string>
 	<string name="players">بازیکنان</string>
@@ -343,6 +349,9 @@
 	<string name="apply">تایید</string>
 	<string name="save">ذخیره</string>
 	<string name="leaderboard">بهترین بازیکنان</string>
+	<string name="leaderboards">Leaderboards</string>
+	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
 	<string name="selectHandicap">Select handicap</string>
 	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
 	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
@@ -351,6 +360,7 @@
 	<string name="continueFromHere">از اینجا ادامه دهید</string>
 	<string name="toStudy">مطالعه</string>
 	<string name="importGame">بارگذاری بازی</string>
+	<string name="importedGame">Imported game</string>
 	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay,
 computer analysis, game chat and shareable URL.</string>
 	<plurals name="nbImportedGames">
@@ -437,6 +447,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="averageOpponent">میانگین امتیاز حریف ها</string>
 	<string name="membersOnly">Members only</string>
 	<string name="boardEditor">صفحه ویرایشگر</string>
+	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
 	<string name="setTheBoard">پوزیشن را انتخاب کنید</string>
 	<string name="popularOpenings">گشایش های معروف</string>
 	<string name="handicaps">Handicaps</string>
@@ -462,6 +473,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="socialMediaLinks">لینک های رسانه های اجتماعی</string>
 	<string name="inlineNotation">نمایش اطلاعات درون خطها</string>
 	<string name="watchLishogiTV">Watch Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">بازی قبلی در لیچس</string>
 	<string name="onlinePlayers">بازکنان آنلاین</string>
 	<string name="onlineBots">Online bots</string>
@@ -495,6 +507,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="yes">بله</string>
 	<string name="help">راهنما:</string>
 	<string name="createANewTopic">ایجاد یک موضوع جدید</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
 	<string name="topics">مباحث</string>
 	<string name="posts">پست ها</string>
 	<string name="lastPost">آخرین ارسال</string>
@@ -715,6 +728,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="sessions">جلسات</string>
 	<string name="revokeAllSessions">باطل کردن تمامی موارد</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
+	<string name="features">Features</string>
 	<string name="asFreeAsLishogi">رایگان به مانند لیچس</string>
 	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">همگی از مزایا بصورت رایگان استفاده می کنند</string>
@@ -907,6 +921,11 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="challengeDescription">Join the challenge or watch the game</string>
+	<string name="challengeFromX" comment="From username">Challenge from %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
+	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
 </resources>
