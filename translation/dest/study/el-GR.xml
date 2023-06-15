@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Τι είναι οι σπουδές;</string>
   <string name="allStudies">Όλες οι σπουδές</string>
   <string name="studiesCreatedByX">Σπουδές που δημιουργήθηκαν απο %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Τίποτα ακόμη εδώ.</string>
   <string name="hot">Δημοφιλείς</string>
   <string name="dateAddedNewest">Ημερομηνία προσθήκης (νεώτερες)</string>
