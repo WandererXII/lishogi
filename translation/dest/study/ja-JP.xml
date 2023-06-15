@@ -132,9 +132,9 @@
   <string name="siteTag" comment="Tags for kif and csa">場所</string>
   <string name="eventTag" comment="Tags for kif and csa">イベント</string>
   <string name="timeControlTag" comment="Tags for kif and csa">持ち時間</string>
-  <string name="xEloTag" comment="Tags for kif and csa">%sのElo</string>
-  <string name="xTitleTag" comment="Tags for kif and csa">%s title</string>
-  <string name="xTeamTag" comment="Tags for kif and csa">%sのチーム</string>
+  <string name="xEloTag" comment="Tags for kif and csa; Sente/Gote">%sのElo</string>
+  <string name="xTitleTag" comment="Tags for kif and csa; Sente/Gote">%s title</string>
+  <string name="xTeamTag" comment="Tags for kif and csa; Sente/Gote">%sのチーム</string>
   <string name="openingTag" comment="Tags for kif and csa">戦型</string>
   <string name="resultTag" comment="Tags for kif and csa">結果</string>
   <string name="problemNameTag" comment="Tags for kif and csa">作品名</string>
