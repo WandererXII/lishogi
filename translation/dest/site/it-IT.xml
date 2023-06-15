@@ -23,8 +23,11 @@
 	<string name="perpetualCheck">Scacco perpetuo</string>
 	<string name="royalsLost" comment="Used in chushogi">Tutti i pezzi reali sono persi</string>
 	<string name="bareKing" comment="Used in chushogi">Re scoperto</string>
-	<string name="xWon" comment="Example: Player won">%s won</string>
-	<string name="xLost" comment="Example: Player lost">%s lost</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
+	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
+	<string name="xWon" comment="Example: Player won!">%s won!</string>
+	<string name="xLost" comment="Example: Player lost!">%s lost!</string>
+	<string name="gameWasDraw">Game was a draw!</string>
 	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Bianco</string>
@@ -360,7 +363,7 @@
 	<string name="continueFromHere">Continua da qui</string>
 	<string name="toStudy">Studia</string>
 	<string name="importGame">Importa partita</string>
-	<string name="importedGame">Imported game</string>
+	<string name="importedGame">Game was imported.</string>
 	<string name="importGameKifCsaExplanation">Incolla una partita KIF o CSA per ottenere un replay navigabile, analisi computerizzata, chat di gioco e collegamenti URL condivisibili.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s partita importata</item>
