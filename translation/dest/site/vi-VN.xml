@@ -23,6 +23,9 @@
 	<string name="perpetualCheck">Chiếu vĩnh viễn</string>
 	<string name="royalsLost" comment="Used in chushogi">Mất tất cả các quân hoàng gia</string>
 	<string name="bareKing" comment="Used in chushogi">Vua đơn</string>
+	<string name="xWon" comment="Example: Player won">%s won</string>
+	<string name="xLost" comment="Example: Player lost">%s lost</string>
+	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Hậu thủ</string>
 	<string name="white" comment="Alternative to gote">Trắng</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Tiên thủ</string>
@@ -59,10 +62,12 @@
 	<string name="computerAnalysis">Máy tính phân tích</string>
 	<string name="computerAnalysisAvailable">Máy tính phân tích có sẵn</string>
 	<string name="analysis">Phân tích</string>
+	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">Năng lực %s</string>
 	<string name="usingServerAnalysis">Bạn đang sử dụng máy chủ để phân tích</string>
 	<string name="loadingEngine">Đang tải động cơ máy tính ...</string>
 	<string name="cloudAnalysis">Phân tích đám mây</string>
+	<string name="localAnalysis">Local analysis</string>
 	<string name="goDeeper" comment="Engine depth">Máy tính phân tích sâu hơn</string>
 	<string name="showThreat">Hiện những bước đi sai lầm</string>
 	<string name="inLocalBrowser">ở trình duyệt địa phương</string>
@@ -139,6 +144,7 @@
 	<string name="computersAreNotAllowedToPlay">Máy tính và chơi với sự trợ giúp của máy tính không được chấp nhận. Đừng nhờ sự trợ giúp của máy chơi cờ, các dữ liệu, hoặc từ những người chơi khác khi chơi.</string>
 	<string name="games">Các ván đấu</string>
 	<string name="forum">Diễn đàn</string>
+	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
 	<string name="xPostedInForumY">%1$s được đăng trong diễn đàn %2$s</string>
 	<string name="latestForumPosts">Bài đăng mới nhất</string>
 	<string name="players">Kỳ thủ</string>
@@ -321,6 +327,9 @@
 	<string name="apply">Áp dụng</string>
 	<string name="save">Lưu</string>
 	<string name="leaderboard">Bảng dẫn đầu</string>
+	<string name="leaderboards">Leaderboards</string>
+	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
 	<string name="selectHandicap">Lựa chọn chấp quân</string>
 	<string name="pasteTheSfenStringHere">Dán chuỗi SFEN ở đây</string>
 	<string name="pasteTheKifCsaStringHere">Dán văn bản KIF hoặc CSA vào đây</string>
@@ -329,6 +338,7 @@
 	<string name="continueFromHere">Tiếp tục từ đây</string>
 	<string name="toStudy">Học chơi</string>
 	<string name="importGame">Nhập ván cờ</string>
+	<string name="importedGame">Imported game</string>
 	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay,
 computer analysis, game chat and shareable URL.</string>
 	<plurals name="nbImportedGames">
@@ -410,6 +420,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="averageOpponent">Rate đối thủ (trung bình)</string>
 	<string name="membersOnly">Chỉ có thành viên</string>
 	<string name="boardEditor">Chỉnh sửa bàn cờ</string>
+	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
 	<string name="setTheBoard">Thiết lập bàn</string>
 	<string name="popularOpenings">Khai cuộc phổ biến</string>
 	<string name="handicaps">Chấp quân</string>
@@ -435,6 +446,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="socialMediaLinks">Kênh mạng xã hội</string>
 	<string name="inlineNotation">Ký hiệu bên trong bàn cờ</string>
 	<string name="watchLishogiTV">Xem Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Trước đó tại Lishogi TV</string>
 	<string name="onlinePlayers">Các kỳ thủ có mặt</string>
 	<string name="onlineBots">Online bots</string>
@@ -466,6 +478,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="yes">Chọn</string>
 	<string name="help">Hổ trợ</string>
 	<string name="createANewTopic">Tạo một chủ đề mới</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
 	<string name="topics">Các chủ đề</string>
 	<string name="posts">Gửi bài</string>
 	<string name="lastPost">Bài gửi gần đây nhất</string>
@@ -682,6 +695,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">xóa toàn bộ phiên đăng nhập</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
+	<string name="features">Features</string>
 	<string name="asFreeAsLishogi">Miễn phí như Lishogi</string>
 	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">Mọi người có tất cả các ứng dụng miễn phí</string>
@@ -870,6 +884,11 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="challengeDescription">Join the challenge or watch the game</string>
+	<string name="challengeFromX" comment="From username">Challenge from %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
+	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
 </resources>
