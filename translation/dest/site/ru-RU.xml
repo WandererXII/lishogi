@@ -23,6 +23,9 @@
 	<string name="perpetualCheck">Вечный шах</string>
 	<string name="royalsLost" comment="Used in chushogi">Главные фигуры утеряны</string>
 	<string name="bareKing" comment="Used in chushogi">Голый король</string>
+	<string name="xWon" comment="Example: Player won">%s won</string>
+	<string name="xLost" comment="Example: Player lost">%s lost</string>
+	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Готэ</string>
 	<string name="white" comment="Alternative to gote">Белые</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Сэнтэ</string>
@@ -62,10 +65,12 @@
 	<string name="computerAnalysis">Компьютерный анализ</string>
 	<string name="computerAnalysisAvailable">Доступен компьютерный анализ</string>
 	<string name="analysis">Анализировать партию</string>
+	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">Глубина %s</string>
 	<string name="usingServerAnalysis">Используется серверный анализ</string>
 	<string name="loadingEngine">Загрузка движка...</string>
 	<string name="cloudAnalysis">Облачный анализ</string>
+	<string name="localAnalysis">Local analysis</string>
 	<string name="goDeeper" comment="Engine depth">Анализировать глубже</string>
 	<string name="showThreat">Показать ответную угрозу</string>
 	<string name="inLocalBrowser">в браузере</string>
@@ -154,6 +159,7 @@
 	<string name="computersAreNotAllowedToPlay">Создание учётных записей для ботов запрещено. Пожалуйста, во время игры не используйте шахматные движки, базы данных или подсказки других игроков. Также учтите, что создание нескольких аккаунтов не приветствуется и чрезмерное их количество приведёт к блокировке.</string>
 	<string name="games">Игры</string>
 	<string name="forum">Форум</string>
+	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
 	<string name="xPostedInForumY">%1$s написал сообщение в теме %2$s</string>
 	<string name="latestForumPosts">Последние сообщения на форуме</string>
 	<string name="players">Игроки</string>
@@ -387,6 +393,9 @@
 	<string name="apply">Сохранить</string>
 	<string name="save">Сохранить</string>
 	<string name="leaderboard">Лучшие игроки</string>
+	<string name="leaderboards">Leaderboards</string>
+	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
 	<string name="selectHandicap">Выберите фору</string>
 	<string name="pasteTheSfenStringHere">Вставьте текст SFEN сюда</string>
 	<string name="pasteTheKifCsaStringHere">Вставьте текст KIF или CSA здесь</string>
@@ -395,6 +404,7 @@
 	<string name="continueFromHere">Продолжить с этой позиции</string>
 	<string name="toStudy">Студия</string>
 	<string name="importGame">Импортировать игру</string>
+	<string name="importedGame">Imported game</string>
 	<string name="importGameKifCsaExplanation">Вставьте KIF или CSA игры, что бы получить просматриваемый повтор, анализ компьютера, игровой чат и рабочий URL адрес.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s импортированная</item>
@@ -490,6 +500,7 @@
 	<string name="averageOpponent">Средний рейтинг соперников</string>
 	<string name="membersOnly">Только для зарегистрированных</string>
 	<string name="boardEditor">Редактор доски</string>
+	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
 	<string name="setTheBoard">Установить позицию</string>
 	<string name="popularOpenings">Популярные дебюты</string>
 	<string name="handicaps">Фора</string>
@@ -515,6 +526,7 @@
 	<string name="socialMediaLinks">Ссылки на соцсети</string>
 	<string name="inlineNotation">Строчная нотация</string>
 	<string name="watchLishogiTV">Смотреть Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Ранее на Lishogi TV</string>
 	<string name="onlinePlayers">Игроки в сети</string>
 	<string name="onlineBots">Online bots</string>
@@ -552,6 +564,7 @@
 	<string name="yes">Да</string>
 	<string name="help">Помощь:</string>
 	<string name="createANewTopic">Создать новую тему</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
 	<string name="topics">Темы</string>
 	<string name="posts">Сообщения</string>
 	<string name="lastPost">Последнее сообщение</string>
@@ -780,6 +793,7 @@
 	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">закрыть все сессии</string>
 	<string name="playShogiEverywhere">Играйте в сёги везде</string>
+	<string name="features">Features</string>
 	<string name="asFreeAsLishogi">Бесплатен, как Lishogi</string>
 	<string name="builtForTheLoveOfShogiNotMoney">С любовью к сёги, а не деньгам</string>
 	<string name="everybodyGetsAllFeaturesForFree">Все возможности для всех бесплатно</string>
@@ -980,6 +994,11 @@
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="challengeDescription">Join the challenge or watch the game</string>
+	<string name="challengeFromX" comment="From username">Challenge from %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
+	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
 </resources>
