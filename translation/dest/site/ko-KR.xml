@@ -23,6 +23,9 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="xWon" comment="Example: Player won">%s won</string>
+	<string name="xLost" comment="Example: Player lost">%s lost</string>
+	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">백색</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
@@ -59,10 +62,12 @@
 	<string name="computerAnalysis">컴퓨터 분석</string>
 	<string name="computerAnalysisAvailable">컴퓨터 분석이 가능합니다.</string>
 	<string name="analysis">분석</string>
+	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">%s수 앞 계산 완료</string>
 	<string name="usingServerAnalysis">서버 분석 사용하기</string>
 	<string name="loadingEngine">엔진 로드 중 ...</string>
 	<string name="cloudAnalysis">클라우드 분석</string>
+	<string name="localAnalysis">Local analysis</string>
 	<string name="goDeeper" comment="Engine depth">더 깊게 분석하기</string>
 	<string name="showThreat">위험요소 표시하기</string>
 	<string name="inLocalBrowser">브라우저에서</string>
@@ -139,6 +144,7 @@
 	<string name="computersAreNotAllowedToPlay">컴퓨터나 컴퓨터의 도움을 받는 플레이어는 대국이 금지되어 있습니다. 대국할 때 체스 엔진이나 관련 자료, 또는 주변 플레이어로부터 도움을 받지 마십시오. 또한, 다중 계정 사용은 권장하지 않으며 지나치게 많은 다중 계정을 사용할 시 계정이 차단될 수 있습니다.</string>
 	<string name="games">게임</string>
 	<string name="forum">포럼</string>
+	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
 	<string name="xPostedInForumY">%1$s(이)가 %2$s 쓰레드에 글을 씀</string>
 	<string name="latestForumPosts">최근 포럼 글</string>
 	<string name="players">플레이어</string>
@@ -321,6 +327,9 @@
 	<string name="apply">적용</string>
 	<string name="save">저장하기</string>
 	<string name="leaderboard">리더보드</string>
+	<string name="leaderboards">Leaderboards</string>
+	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
 	<string name="selectHandicap">Select handicap</string>
 	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
 	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
@@ -329,6 +338,7 @@
 	<string name="continueFromHere">여기서부터 시작</string>
 	<string name="toStudy">연구</string>
 	<string name="importGame">게임 불러오기</string>
+	<string name="importedGame">Imported game</string>
 	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay,
 computer analysis, game chat and shareable URL.</string>
 	<plurals name="nbImportedGames">
@@ -410,6 +420,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="averageOpponent">상대의 평균 승점</string>
 	<string name="membersOnly">회원 전용</string>
 	<string name="boardEditor">보드 편집기</string>
+	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
 	<string name="setTheBoard">보드 세팅하기</string>
 	<string name="popularOpenings">인기 있는 오프닝</string>
 	<string name="handicaps">Handicaps</string>
@@ -435,6 +446,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="socialMediaLinks">소셜 미디어 링크</string>
 	<string name="inlineNotation">기보를 가로쓰기</string>
 	<string name="watchLishogiTV">Watch Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Previously on Lishogi TV</string>
 	<string name="onlinePlayers">접속한 플레이어</string>
 	<string name="onlineBots">Online bots</string>
@@ -466,6 +478,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="yes">예</string>
 	<string name="help">힌트:</string>
 	<string name="createANewTopic">새 토픽</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
 	<string name="topics">토픽</string>
 	<string name="posts">글</string>
 	<string name="lastPost">최근 글</string>
@@ -682,6 +695,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">모든 세션 비활성화</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
+	<string name="features">Features</string>
 	<string name="asFreeAsLishogi">As free as Lishogi</string>
 	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">모두가 모든 기능을 무료로 이용할 수 있습니다</string>
@@ -870,6 +884,11 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="challengeDescription">Join the challenge or watch the game</string>
+	<string name="challengeFromX" comment="From username">Challenge from %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
+	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
 </resources>
