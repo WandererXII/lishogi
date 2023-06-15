@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Apa itu studi?</string>
   <string name="allStudies">Semua studi</string>
   <string name="studiesCreatedByX">Studi dibuat oleh %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Tidak ada.</string>
   <string name="hot">Terhangat</string>
   <string name="dateAddedNewest">Tanggal ditambahkan (terbaru)</string>
