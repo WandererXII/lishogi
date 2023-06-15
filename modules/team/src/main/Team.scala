@@ -33,6 +33,8 @@ case class Team(
 
 object Team {
 
+  case class Mini(id: Team.ID, name: String)
+
   val maxJoin = 100
 
   type ID = String
@@ -57,6 +59,7 @@ object Team {
 
     def toArray: Array[String] = value split IdsStr.separator
     def toList                 = value.nonEmpty ?? toArray.toList
+    def toSet                  = value.nonEmpty ?? toArray.toSet
   }
 
   object IdsStr {
@@ -92,6 +95,6 @@ object Team {
   def nameToId(name: String) =
     (lila.common.String slugify name) pipe { slug =>
       // if most chars are not latin, go for random slug
-      if (slug.size > (name.size / 2)) slug else lila.common.ThreadLocalRandom nextString 8
+      if (slug.sizeIs > (name.size / 2)) slug else lila.common.ThreadLocalRandom nextString 8
     }
 }

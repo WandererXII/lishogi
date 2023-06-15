@@ -23,6 +23,7 @@ final class Analyse(
           game,
           lila.fishnet.Work.Sender(
             userId = me.id.some,
+            postGameStudy = none,
             ip = HTTPRequest.lastRemoteAddress(ctx.req).some,
             mod = isGranted(_.Hunter) || isGranted(_.Relay),
             system = false
@@ -60,26 +61,23 @@ final class Analyse(
                 withFlags = WithFlags(
                   movetimes = true,
                   clocks = true,
-                  division = true,
-                  opening = true
+                  division = true
                 )
               ) map { data =>
-                EnableSharedArrayBuffer(
-                  Ok(
-                    html.analyse.replay(
-                      pov,
-                      data,
-                      kif.render,
-                      analysis,
-                      analysisInProgress,
-                      simul,
-                      crosstable,
-                      userTv,
-                      chat,
-                      bookmarked = bookmarked
-                    )
+                Ok(
+                  html.analyse.replay(
+                    pov,
+                    data,
+                    kif.render,
+                    analysis,
+                    analysisInProgress,
+                    simul,
+                    crosstable,
+                    userTv,
+                    chat,
+                    bookmarked = bookmarked
                   )
-                )
+                ).enableSharedArrayBuffer
               }
           }
       }
@@ -92,12 +90,12 @@ final class Analyse(
           env.api.roundApi.embed(
             pov,
             lila.api.Mobile.Api.currentVersion,
-            withFlags = WithFlags(opening = true)
+            withFlags = WithFlags()
           ) map { data =>
-            Ok(html.analyse.embed(pov, data))
+            Ok(html.analyse.embed(pov, data)).enableSharedArrayBuffer
           }
         case _ => fuccess(NotFound(html.analyse.embed.notFound))
-      } dmap EnableSharedArrayBuffer
+      }
     }
 
   private def RedirectAtSfen(pov: Pov)(or: => Fu[Result])(implicit ctx: Context) =

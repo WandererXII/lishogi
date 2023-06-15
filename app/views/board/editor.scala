@@ -12,15 +12,14 @@ import controllers.routes
 object editor {
 
   def apply(
-      sit: shogi.Situation,
-      positionsJson: String
+      sit: shogi.Situation
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.boardEditor.txt(),
       moreJs = frag(
         jsModule("editor"),
         embedJsUnsafe(
-          s"""var data=${safeJsonValue(jsData(sit))};data.positions=$positionsJson;
+          s"""var data=${safeJsonValue(jsData(sit))};
 LishogiEditor(document.getElementById('board-editor'), data);"""
         )
       ),
@@ -29,11 +28,12 @@ LishogiEditor(document.getElementById('board-editor'), data);"""
       zoomable = true,
       openGraph = lila.app.ui
         .OpenGraph(
-          title = "Shogi board editor",
+          title = trans.boardEditor.txt(),
           url = s"$netBaseUrl${routes.Editor.index.url}",
-          description = "Load opening positions or create your own shogi position on a shogi board editor"
+          description = trans.editorDescription.txt()
         )
-        .some
+        .some,
+      canonicalPath = lila.common.CanonicalPath(routes.Editor.index).some
     )(
       main(id := "board-editor")(
         div(cls   := s"board-editor variant-${sit.variant.key}")(
@@ -58,31 +58,39 @@ LishogiEditor(document.getElementById('board-editor'), data);"""
           "moveEvent"          -> ctx.pref.moveEvent,
           "resizeHandle"       -> ctx.pref.resizeHandle,
           "highlightLastDests" -> ctx.pref.highlightLastDests,
-          "squareOverlay"      -> ctx.pref.squareOverlay,
-          "notation"           -> ctx.pref.notation
+          "squareOverlay"      -> ctx.pref.squareOverlay
         ),
       "i18n" -> i18nJsObject(i18nKeyes)
     )
 
   private val i18nKeyes = List(
+    trans.black,
+    trans.white,
+    trans.sente,
+    trans.gote,
+    trans.shitate,
+    trans.uwate,
     trans.setTheBoard,
     trans.boardEditor,
     trans.startPosition,
     trans.clearBoard,
-    trans.fillGotesHand,
+    trans.invalidSfen,
+    trans.fillXHand,
     trans.flipBoard,
     trans.loadPosition,
     trans.popularOpenings,
     trans.handicaps,
-    trans.whitePlays,
-    trans.blackPlays,
-    trans.uwatePlays,
-    trans.shitatePlays,
+    trans.xPlays,
     trans.variant,
     trans.continueFromHere,
     trans.playWithTheMachine,
     trans.playWithAFriend,
     trans.analysis,
-    trans.toStudy
+    trans.toStudy,
+    trans.standard,
+    trans.minishogi,
+    trans.chushogi,
+    trans.annanshogi,
+    trans.kyotoshogi
   ).map(_.key)
 }

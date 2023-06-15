@@ -4,9 +4,9 @@ import org.joda.time.DateTime
 import play.api.libs.json._
 
 import shogi.format.forsyth.Sfen
-import shogi.format.usi.Usi
+import shogi.format.usi.{ UciToUsi, Usi }
 import shogi.variant.Variant
-import shogi.StartingPosition
+import shogi.Handicap
 
 import lila.common.{ IpAddress, Maths }
 import lila.common.Json._
@@ -32,6 +32,65 @@ object JsonApi {
         ip,
         DateTime.now
       )
+  }
+
+  object Kyoto {
+    private val kyotoBoardMap: Map[Char, String] = Map(
+      'g' -> "+n",
+      'G' -> "+N",
+      't' -> "+l",
+      'T' -> "+L",
+      'b' -> "+s",
+      'B' -> "+S",
+      'r' -> "+p",
+      'R' -> "+P"
+    )
+    private val kyotoHandsMap: Map[Char, Char] = Map(
+      'g' -> 'n',
+      'G' -> 'N',
+      't' -> 'l',
+      'T' -> 'L'
+    )
+    private val dropRoles: Map[String, Char] = kyotoBoardMap.map { case (k, v) => (v, k) } toMap
+
+    def fairySfen(sfen: Sfen): Sfen =
+      Sfen(
+        List(
+          sfen.boardString.fold("") { _.flatMap(c => kyotoBoardMap.getOrElse(c, c.toString)) },
+          sfen.color.map(_.letter.toString) | "b",
+          sfen.handsString.fold("-") { _.map(c => kyotoHandsMap.getOrElse(c, c)) }
+        ).mkString(" ")
+      )
+
+    def lishogiToFairy(usiWithRole: Usi.WithRole): String = {
+      val usi        = usiWithRole.usi
+      val usiStr     = usi.usi
+      val roleLetter = usiWithRole.role.name.head.toUpper
+      usi match {
+        case move: Usi.Move =>
+          if (move.promotion && kyotoBoardMap.contains(roleLetter))
+            usiStr.replace("+", "-")
+          else usiStr
+        case _: Usi.Drop =>
+          kyotoBoardMap.get(roleLetter).fold(usiStr) { c =>
+            s"$c${usiStr.drop(1)}"
+          }
+      }
+    }
+
+    def fairyToLishogi(str: String): String =
+      if (str.startsWith("+")) dropRoles.get(str.take(2)).fold(str) { roleChar =>
+        s"$roleChar${str.drop(2)}"
+      }
+      else if (str.endsWith("-")) str.replace('-', '+')
+      else str
+
+    def readFairy(move: String): Option[Usi] =
+      Usi(fairyToLishogi(move))
+
+    def readFairyList(moves: String): Option[List[Usi]] =
+      Usi.readList(moves.split(' ').map(fairyToLishogi).mkString(" "))
+
   }
 
   object Request {
@@ -78,7 +137,10 @@ object JsonApi {
         with Result {}
 
     case class MoveResult(bestmove: String) {
-      def usi: Option[Usi] = Usi(bestmove)
+      def usi(variant: Variant): Option[Usi] = {
+        if (variant.kyotoshogi) Kyoto.readFairy(bestmove)
+        else Usi(bestmove).orElse(UciToUsi(bestmove))
+      }
     }
 
     case class PostAnalysis(
@@ -90,7 +152,8 @@ object JsonApi {
         with Result {
 
       def completeOrPartial =
-        if (analysis.headOption.??(_.isDefined)) CompleteAnalysis(shoginet, yaneuraou, fairy, analysis.flatten)
+        if (analysis.headOption.??(_.isDefined))
+          CompleteAnalysis(shoginet, yaneuraou, fairy, analysis.flatten)
         else PartialAnalysis(shoginet, yaneuraou, fairy, analysis)
     }
 
@@ -161,12 +224,31 @@ object JsonApi {
   )
 
   def fromGame(g: W.Game) =
+    if (g.variant.kyotoshogi) kyotoFromGame(g)
+    else
+      Game(
+        game_id = if (g.studyId.isDefined) "" else g.id,
+        position = g.initialSfen | g.variant.initialSfen,
+        variant = g.variant,
+        moves = g.moves
+      )
+
+  private def kyotoFromGame(g: W.Game) = {
+    val sfen = g.initialSfen | g.variant.initialSfen
     Game(
       game_id = if (g.studyId.isDefined) "" else g.id,
-      position = g.initialSfen | g.variant.initialSfen,
+      position = Kyoto.fairySfen(sfen),
       variant = g.variant,
-      moves = g.moves
+      moves = (shogi.Replay
+        .usiWithRoleWhilePossible(
+          g.usiList,
+          g.initialSfen,
+          g.variant
+        )
+        .map(Kyoto.lishogiToFairy))
+        .mkString(" ")
     )
+  }
 
   sealed trait Work {
     val id: String
@@ -212,7 +294,7 @@ object JsonApi {
     implicit val PostMoveReads      = Json.reads[Request.PostMove]
     implicit val ScoreReads         = Json.reads[Request.Evaluation.Score]
     implicit val usiListReads = Reads.of[String] map { str =>
-      ~Usi.readList(str)
+      ~(Usi.readList(str).orElse(UciToUsi.readList(str)).orElse(Kyoto.readFairyList(str)))
     }
 
     implicit val EvaluationReads: Reads[Request.Evaluation] = (
@@ -242,16 +324,20 @@ object JsonApi {
       JsString(id.value)
     }
     private def fairyOrYane(sfen: Sfen, variant: Variant) =
-      if (variant.standard && Some(sfen).filterNot(_.initialOf(variant)).fold(true)(StartingPosition isHandicap _)) None
+      if (
+        variant.standard && Some(sfen)
+          .filterNot(_.initialOf(variant))
+          .fold(true)(sfen => Handicap.isHandicap(sfen, variant))
+      ) None
       else Some("fairy")
-    
+
     implicit val WorkWrites = OWrites[Work] { work =>
       (work match {
         case a: Analysis =>
           Json.obj(
             "work" -> Json.obj(
-              "type" -> "analysis",
-              "id"   -> a.id,
+              "type"   -> "analysis",
+              "id"     -> a.id,
               "flavor" -> fairyOrYane(a.game.position, a.game.variant)
             ),
             "nodes"         -> a.nodes,

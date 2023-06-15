@@ -96,8 +96,8 @@ object mod {
         isGranted(_.SetKidMode) option {
           postForm(
             action := routes.Mod.kid(u.username),
-            title := "Activate kid mode if not already the case",
-            cls := "xhr"
+            title  := "Activate kid mode if not already the case",
+            cls    := "xhr"
           )(
             submitButton(cls := "btn-rack__btn confirm")("Kid")
           )
@@ -190,7 +190,7 @@ object mod {
   def prefs(u: User)(pref: lila.pref.Pref)(implicit ctx: Context) =
     frag(
       canViewRoles(u) option mzSection("roles")(
-        (if (isGranted(_.ChangePermission)) a(href := routes.Mod.permissions(u.username)) else span)(
+        (if (isGranted(_.ChangePermission)) a(href := routes.Mod.permissions(u.username)) else span) (
           strong(cls := "text inline", dataIcon := " ")("Permissions: "),
           if (u.roles.isEmpty) "Add some" else Permission(u.roles).map(_.name).mkString(", ")
         )
@@ -269,7 +269,7 @@ object mod {
             ),
             br,
             a.msgs.map(_.text).map(shorten(_, 140)).map(p(_)),
-            a.msgs.size > 1 option frag("and", pluralize("more message", a.msgs.size - 1))
+            a.msgs.sizeIs > 1 option frag("and", pluralize("more message", a.msgs.size - 1))
           )
         )
       }
@@ -557,7 +557,7 @@ object mod {
           }
         )
       ),
-      (max < 1000 && max <= othersWithEmail.size) option button(cls := "button more-others")(
+      (max < 1000 && othersWithEmail.others.sizeIs >= max) option button(cls := "button more-others")(
         "Load more users"
       )
     )

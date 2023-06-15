@@ -6,13 +6,14 @@
 	<string name="becomePatron">Devenir un mécène de Lishogi</string>
 	<string name="xBecamePatron">%s est devenu un mécène de Lishogi</string>
 	<string name="newPatrons">Nouveaux mécènes</string>
-	<string name="freeChess">Le shogi gratuit pour tous, pour toujours !</string>
+	<string name="freeShogi">Le shogi gratuit pour tous, pour toujours !</string>
 	<string name="noAdsNoSubs">Pas de publicité, pas d\'abonnement, mais du code source ouvert et de la passion.</string>
 	<string name="thankYou">Merci pour votre don !</string>
 	<string name="youHaveLifetime">Vous avez un compte mécène à vie ! C\'est génial !</string>
 	<string name="patronUntil">Vous avez un compte mécène jusqu\'au %s.</string>
 	<string name="ifNotRenewed">Si non renouvelé, votre compte ne sera plus un mécène.</string>
 	<string name="weRelyOnSupport">Nous comptons sur le soutien de personnes comme vous pour rendre cela possible. Si vous aimez utiliser Lishogi, pensez à nous soutenir en faisant un don et en devenant un mécène !</string>
+	<string name="donationSupport">If you want to support Lishogi and open source development, consider donating! You will not get anything in return, because Lishogi treats all users equally, but your donation will be very appreciated!</string>
 	<string name="lifetime">À vie</string>
 	<string name="payLifetimeOnce">Payez %s une fois. Devenez un mécène de Lishogi pour toujours !</string>
 	<string name="lifetimePatron">Mécène de Lishogi à vie</string>
@@ -28,8 +29,6 @@
 	<string name="weAreSmallTeam">Nous sommes une petite équipe, ainsi votre soutien fait une énorme différence !</string>
 	<string name="celebratedPatrons">Les mécènes illustres qui rendent Lishogi possible</string>
 	<string name="whereMoneyGoes">Où va l\'argent ?</string>
-	<string name="serversAndDeveloper">First of all, powerful servers.
-Then we pay a full-time developer: %s, the founder of Lishogi.</string>
 	<string name="costBreakdown">Voyez la liste détaillée des frais</string>
 	<string name="changeMonthlySupport">Puis-je changer/annuler mon soutien mensuel ?</string>
 	<string name="changeOrContact">Oui, à n\'importe quel moment, depuis cette page.
@@ -70,4 +69,5 @@ Cependant, les mécènes sont distingués au moyen d\'une nouvelle icône de pro
 	<string name="nowLifetime">Vous êtes maintenant un mécène de Lishogi à vie !</string>
 	<string name="nowOneMonth">Vous êtes maintenant un mécène de Lishogi pour un mois !</string>
 	<string name="downgradeNextMonth">Dans un mois, vous NE serez PAS à nouveau débité, et votre compte Lishogi redeviendra un compte ordinaire.</string>
+	<string name="donationPolicy">Donation policy</string>
 </resources>

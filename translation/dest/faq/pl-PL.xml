@@ -5,14 +5,11 @@
 	<string name="whyIsLishogiCalledLishogi">Dlaczego Lishogi nosi nazwę Lishogi?</string>
 	<string name="forkedFromLichess">Lishogi jest projektem open source wywodzącym się z Lichess, ale ponieważ służy do grania w shogi, nazywa się Lishogi.</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Ponieważ wywodzi się z Lichess. A Lichess nazwa się Lichess, ponieważ jest to połąćzenie live/light/libre oraz chess. Lishogi wymawia się %1$s.</string>
-	<string name="leechess">li-szogi</string>
-	<string name="whyLiveLightLibre">Live (na żywo), ponieważ partie rozgrywane są i oglądane w czasie rzeczywistym (24 godziny przez 7 dni w tygodniu); Light (lekkie), ponieważ Lishogi nie jest obciążone zbędnymi wodotryskami, reklamami itp.; Libre (darmowe), ponieważ Lishogi oparty jest o oprogramowanie typu open-source.</string>
+	<string name="leeshogi">li-szogi</string>
+	<string name="whyLiveLightLibre">Live (na żywo), ponieważ partie rozgrywane są i oglądane w czasie rzeczywistym (24 godziny przez 7 dni w tygodniu); Light (lekkie), ponieważ Lishogi nie jest obciążone zbędnymi wodotryskami, reklamami itp.; Libre (wolne), ponieważ Lishogi oparte jest o oprogramowanie open-source.</string>
 	<string name="whyIsLilaCalledLila">Podobnie, kod źródłowy Lishogi, %1$s, oznacza li[shogi in sca]la, a to dlatego, że większość kodu Lishogi napisanego jest w intuicyjnym języku programowania %2$s.</string>
 	<string name="howCanIContributeToLishogi">Jak mogę pomóc współtworzyć Lishogi?</string>
 	<string name="lishogiPoweredByDonationsAndVolunteers">Lishogi wspierany jest darowiznami swoich patronów i wysiłkami grupy wolontariuszy.</string>
-	<string name="findMoreAndSeeHowHelp">Więcej informacji w tym temacie znajdziesz tutaj:
-%1$s
-%2$s</string>
 	<string name="beingAPatron">Zostań patronem</string>
 	<string name="otherWaysToContribute">Oto wiele sposobów, na które możesz wspomóc Lishogi.</string>
 	<string name="breakdownOfOurCosts">Podział naszych kosztów</string>
@@ -33,11 +30,11 @@
 	<string name="howBulletBlitzEtcDecided">W jaki sposób system decyduje czy partia jest typu Bullet, Blitz itd.?</string>
 	<string name="basedOnGameDuration">Kontrole czasu na Lishogi oparte są na szacowanym czasie trwania gry = %1$s
 Na przykład, szacowany czas trwania gry 5+3 wynosi 5 * 60 + 40 * 3 = 420 sekund.</string>
-	<string name="durationFormula">(czas podstawowy) + 40 * (czas dodatkowy)</string>
+	<string name="formulaOfDuration">60 × (clock initial time in minutes) + 60 × (clock increment) + 25 × (clock byoyomi) × (clock periods)</string>
 	<string name="inferiorThanXsEqualYtimeControl">≤ %1$ss = %2$s</string>
 	<string name="superiorThanXsEqualYtimeControl">≥ %1$ss = %2$s</string>
 	<string name="whatVariantsCanIplay">W jakie warianty shogi mogę zagrać na Lishogi?</string>
-	<string name="lishogiSupportChessAnd">Lishogi umożliwia grę w standardowe shogi oraz %1$s.</string>
+	<string name="lishogiSupportShogiAnd">Lishogi umożliwia grę w standardowe shogi oraz %1$s.</string>
 	<string name="whatIsACPL">Czym jest średnia strata setnej części piona (ACPL - average centipawn loss)?</string>
 	<string name="acplExplanation">Średnia strata setnej części piona (ACPL - average centipawn loss) jest jednostką miary stosowaną w szachach do przedstawienia straty wynikającej z wykonania danego posunięcia. Wartość ta nie odgrywa żadnej formalnej roli podczas rozgrywania partii, ale jest użyteczna dla graczy podczas jej analizy. Silniki szachowe wykorzystują ją natomiast do oceny pozycji podczas samej rozgrywki.
 
@@ -98,7 +95,7 @@ Warto zwrócić uwagę też na to, że w miarę upływu czasu Twój przedział u
 	<string name="ratingLeaderboards">listę najlepszych graczy</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">rozegrać co najmniej 30 rankingowych partii w danym rankingu,</string>
 	<string name="havePlayedARatedGameAtLeastOneWeekAgo">rozegrać rankingową partię w ciągu ostatniego tygodnia dla tego rankingu,</string>
-	<string name="ratingDeviationLowerThanXinChessYinVariants">mieć w standardowym shogi odchylenie rankingu niższe niż %1$s, i niższe niż %2$s w wariantach,</string>
+	<string name="ratingDeviationLowerThanXinShogiYinVariants">mieć w standardowym shogi odchylenie rankingu niższe niż %1$s, i niższe niż %2$s w wariantach,</string>
 	<string name="beInTopTen">być w pierwszej 10 w tym rankingu.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Gracze, którzy zaprzestali korzystać ze swoich kont, zostają usunięci z tabel z najlepszymi graczami.</string>
 	<string name="whyAreRatingHigher">Dlaczego rankingi na Lishogi są wyższe w porównaniu z rankingami na innych portalach szachowych i rankingami w organizacjach, takimi jak FIDE, USCF i ICC?</string>

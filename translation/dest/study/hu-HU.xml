@@ -9,6 +9,7 @@
   <string name="whatAreStudies">What are studies?</string>
   <string name="allStudies">All studies</string>
   <string name="studiesCreatedByX">Studies created by %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">None yet.</string>
   <string name="hot">Hot</string>
   <string name="dateAddedNewest">Date added (newest)</string>
@@ -97,10 +98,9 @@
   <string name="startFromCustomPosition">Start from custom position</string>
   <string name="loadAGameByUrl">Load games by URLs</string>
   <string name="loadAPositionFromSfen">Load a position from SFEN</string>
-  <string name="loadAGameFromKif">Load games from KIF</string>
   <string name="automatic">Automatic</string>
   <string name="urlOfTheGame">URL of the games, one per line</string>
-  <string name="loadAGameFromXOrY">Load games from %1$s</string>
+  <string name="loadAGameFromX">Load games from %1$s</string>
   <string name="createChapter">Create chapter</string>
   <string name="configureLiveBroadcast">Configure live broadcast</string>
   <string name="createStudy">Create study</string>
@@ -126,4 +126,26 @@
   <string name="deleteStudy">Delete study</string>
   <string name="deleteTheEntireStudy">Delete the entire study? There is no going back!</string>
   <string name="whereDoYouWantToStudyThat">Where do you want to study that?</string>
+  <string name="studyTopics">Study topics</string>
+  <string name="topicsDescription">Topics to organize your studies with</string>
+  <string name="myTopics">My topics</string>
+  <string name="popularTopics">Popular topics</string>
+  <string name="startTag" comment="Tags for kif and csa">Start</string>
+  <string name="endTag" comment="Tags for kif and csa">End</string>
+  <string name="siteTag" comment="Tags for kif and csa">Site</string>
+  <string name="eventTag" comment="Tags for kif and csa">Event</string>
+  <string name="timeControlTag" comment="Tags for kif and csa">Time control</string>
+  <string name="xEloTag" comment="Tags for kif and csa; Sente/Gote">%s Elo</string>
+  <string name="xTitleTag" comment="Tags for kif and csa; Sente/Gote">%s title</string>
+  <string name="xTeamTag" comment="Tags for kif and csa; Sente/Gote">%s team</string>
+  <string name="openingTag" comment="Tags for kif and csa">Opening</string>
+  <string name="resultTag" comment="Tags for kif and csa">Result</string>
+  <string name="problemNameTag" comment="Tags for kif and csa">Problem name</string>
+  <string name="problemIdTag" comment="Tags for kif and csa">Problem Id</string>
+  <string name="dateOfPublicationTag" comment="Tags for kif and csa">Date of publication</string>
+  <string name="composerTag" comment="Tags for kif and csa">Composer</string>
+  <string name="publicationTag" comment="Tags for kif and csa">Publication</string>
+  <string name="collectionTag" comment="Tags for kif and csa">Collection</string>
+  <string name="lengthTag" comment="Tags for kif and csa">Length</string>
+  <string name="prizeTag" comment="Tags for kif and csa">Prize</string>
 </resources>

@@ -9,6 +9,7 @@ import lila.app.ui.ScalatagsTemplate._
 import lila.common.ContentSecurityPolicy
 import lila.common.String.html.safeJsonValue
 import lila.common.base.StringUtils.escapeHtmlRaw
+import lila.common.CanonicalPath
 
 import controllers.routes
 
@@ -36,6 +37,15 @@ object layout {
     def pieceSprite(ps: lila.pref.PieceSet): Frag =
       link(
         id   := "piece-sprite",
+        href := assetUrl(s"piece-css/$ps.css"),
+        tpe  := "text/css",
+        rel  := "stylesheet"
+      )
+
+    def chuPieceSprite(implicit ctx: Context): Frag = chuPieceSprite(ctx.currentChuPieceSet)
+    def chuPieceSprite(ps: lila.pref.PieceSet): Frag =
+      link(
+        id   := "chu-piece-sprite",
         href := assetUrl(s"piece-css/$ps.css"),
         tpe  := "text/css",
         rel  := "stylesheet"
@@ -121,7 +131,9 @@ object layout {
   </a>
   <div id="dasher_app" class="dropdown" data-playing="$playing"></div>
 </div>
-<a href="${routes.Auth.login}?referrer=${ctx.req.path}" class="signin button button-empty">${trans.signIn
+<a href="${langHref(
+        s"${routes.Auth.login.url}?referrer=${ctx.req.path}"
+      )}" class="signin button button-empty">${trans.signIn
         .txt()}</a>""")
 
   private val clinputLink = a(cls := "link")(span(dataIcon := "y"))
@@ -150,6 +162,32 @@ object layout {
     style :=
       "display:inline;width:34px;height:34px;vertical-align:top;margin-right:5px;vertical-align:text-top"
   )
+
+  private def canonical(canonicalPath: CanonicalPath)(implicit ctx: Context) = raw {
+    val langQuery = ctx.req
+      .getQueryString("lang")
+      .flatMap(lila.i18n.I18nLangPicker.byQuery)
+      .filterNot(_.language == "en")
+      .fold("") { l =>
+        s"?lang=${lila.i18n.fixJavaLanguageCode(l)}"
+      }
+    s"""<link rel="canonical" href="$netBaseUrl${canonicalPath.value}$langQuery" />"""
+  }
+
+  private def hrefLang(langCode: String, pathWithQuery: String) =
+    s"""<link rel="alternate" hreflang="$langCode" href="$netBaseUrl$pathWithQuery"/>"""
+
+  private def hrefLangs(altLangs: lila.i18n.LangList.AlternativeLangs)(implicit ctx: Context) = raw {
+    val path      = ctx.req.path
+    val baseLangs = hrefLang("x-default", path) + hrefLang("en", path)
+    altLangs match {
+      case lila.i18n.LangList.EnglishJapanese => baseLangs + hrefLang("ja", s"$path?lang=ja")
+      case lila.i18n.LangList.All =>
+        baseLangs + (lila.i18n.LangList.alternativeLangCodes.map { langCode =>
+          hrefLang(langCode, s"$path?lang=$langCode")
+        }).mkString
+    }
+  }
 
   private def cssBackgroundImageValue(url: String): String =
     if (url.isEmpty) "none" else s"url(${escapeHtmlRaw(url).replace("&amp;", "&")})"
@@ -181,9 +219,12 @@ object layout {
   private val dataI18n          = attr("data-i18n")
   private val dataNonce         = attr("data-nonce")
   private val dataAnnounce      = attr("data-announce")
+  private val dataColorName     = attr("data-color-name")
+  private val dataNotation      = attr("data-notation")
   val dataSoundSet              = attr("data-sound-set")
   val dataTheme                 = attr("data-theme")
   val dataPieceSet              = attr("data-piece-set")
+  val dataChuPieceSet           = attr("data-chu-piece-set")
   val dataAssetUrl              = attr("data-asset-url")
   val dataAssetVersion          = attr("data-asset-version")
   val dataDev                   = attr("data-dev")
@@ -200,7 +241,9 @@ object layout {
       zoomable: Boolean = false,
       deferJs: Boolean = false,
       csp: Option[ContentSecurityPolicy] = None,
-      wrapClass: String = ""
+      wrapClass: String = "",
+      canonicalPath: Option[CanonicalPath] = None,
+      withHrefLangs: Option[lila.i18n.LangList.AlternativeLangs] = Some(lila.i18n.LangList.All)
   )(body: Frag)(implicit ctx: Context): Frag =
     frag(
       doctype,
@@ -213,8 +256,8 @@ object layout {
           metaThemeColor,
           st.headTitle {
             if (ctx.blind) "lishogi"
-            else if (isProd) fullTitle | s"$title • lishogi.org"
-            else s"[dev] ${fullTitle | s"$title • lishogi.dev"}"
+            else if (isProd) fullTitle | s"$title | lishogi.org"
+            else s"[dev] ${fullTitle | s"$title | lishogi.dev"}"
           },
           cssTag("site"),
           ctx.pageData.inquiry.isDefined option cssTagNoTheme("mod.inquiry"),
@@ -230,7 +273,7 @@ object layout {
           favicons,
           !robots option raw("""<meta content="noindex, nofollow" name="robots">"""),
           noTranslate,
-          openGraph.map(_.frags),
+          openGraph.map(_.frags(ctx.lang)),
           link(
             href     := routes.Blog.atom,
             `type`   := "application/atom+xml",
@@ -240,18 +283,24 @@ object layout {
           fontPreload,
           boardPreload,
           manifests,
-          jsLicense
+          jsLicense,
+          canonicalPath.filter(_ => robots).map(canonical),
+          withHrefLangs.filter(_ => ctx.req.queryString.removed("lang").isEmpty && robots).map(hrefLangs)
         ),
         st.body(
           cls := List(
-            s"${ctx.currentBg} ${ctx.currentTheme.cssClass} coords-${ctx.pref.coordsClass} notation-${ctx.pref.notation}" -> true,
+            s"${ctx.currentBg} ${ctx.currentTheme.cssClass} coords-${ctx.pref.coordsClass}" -> true,
             s"grid-width-${ctx.pref.customThemeOrDefault.gridWidth}" -> ctx.pref.isUsingCustomTheme,
+            "thick-grid"                                             -> ctx.pref.isUsingThickGrid,
+            s"board-layout-1"                                        -> (ctx.pref.boardLayout != 2),
+            "compact-layout"                                         -> (ctx.pref.boardLayout == 1),
+            "clear-hands"                                            -> ctx.pref.clearHands,
             "no-touch"                                               -> !ctx.pref.squareOverlay,
             "zen"                                                    -> ctx.pref.isZen,
             "blind-mode"                                             -> ctx.blind,
             "kid"                                                    -> ctx.kid,
             "mobile"                                                 -> ctx.isMobileBrowser,
-            "playing fixed-scroll"                                   -> playing
+            "playing"                                                -> playing
           ),
           dataDev           := (!isProd).option("true"),
           dataVapid         := vapidPublicKey,
@@ -263,7 +312,10 @@ object layout {
           dataNonce         := ctx.nonce.ifTrue(sameAssetDomain).map(_.value),
           dataTheme         := ctx.currentBg,
           dataPieceSet      := ctx.currentPieceSet.name,
+          dataChuPieceSet   := ctx.currentChuPieceSet.name,
           dataAnnounce      := AnnounceStore.get.map(a => safeJsonValue(a.json)),
+          dataNotation      := ctx.pref.notation.toString,
+          dataColorName     := ctx.pref.colorName.toString,
           style             := cssVariables(zoomable)
         )(
           blindModeForm,
@@ -341,7 +393,7 @@ object layout {
           h1(cls := "site-title")(
             if (ctx.kid) span(title := trans.kidMode.txt(), cls := "kiddo")(":)")
             else ctx.isBot option botImage,
-            a(href := "/")(
+            a(href := langHref("/"))(
               "lishogi",
               span(if (isProd) ".org" else ".dev"),
               span(style := "position: relative; top: -12px; margin-left: 5px; font-size: 14px;")("beta")
@@ -351,7 +403,7 @@ object layout {
           topnav()
         ),
         div(cls := "site-buttons")(
-          if (ctx.req.path == "/") switchLanguage else "",
+          (ctx.isAnon && ctx.req.path == "/") option switchLanguage,
           clinput,
           reports,
           teamRequests,

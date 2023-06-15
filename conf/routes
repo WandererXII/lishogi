@@ -20,11 +20,14 @@ GET   /games/export/:username          controllers.Game.exportByUser(username: S
 GET   /tv                              controllers.Tv.index
 GET   /tv/frame                        controllers.Tv.frame
 GET   /tv/feed                         controllers.Tv.feed
-GET   /tv/channels                     controllers.Tv.channels
+GET   /tv/channels                     controllers.Main.movedPermanently(to: String = "/api/tv/channels")
 GET   /tv/:chanKey                     controllers.Tv.onChannel(chanKey: String)
 GET   /tv/$gameId<\w{8}>/$color<sente|gote>/sides controllers.Tv.sides(gameId: String, color: String)
 GET   /games                           controllers.Tv.games
 GET   /games/:chanKey                  controllers.Tv.gamesChannel(chanKey: String)
+GET   /api/tv/channels                 controllers.Tv.channels
+GET   /api/tv/feed                     controllers.Tv.feed
+GET   /api/tv/:chanKey                 controllers.Tv.apiGamesChannel(chanKey: String)
 
 # Relation
 POST  /rel/follow/:userId              controllers.Relation.follow(userId: String)
@@ -70,7 +73,9 @@ GET   /blog                            controllers.Blog.index(page: Int ?= 1)
 GET   /blog/all                        controllers.Blog.all
 GET   /blog/:year                      controllers.Blog.year(year: Int)
 GET   /blog/discuss/:id                controllers.Blog.discuss(id: String)
-GET   /blog/:id/:slug                  controllers.Blog.show(id: String, slug: String, ref: Option[String] ?= None)
+GET   /blog/post/latest                controllers.Blog.latest(ref: Option[String] ?= None)
+GET   /blog/post/:id                   controllers.Blog.show(id: String, ref: Option[String] ?= None)
+GET   /blog/:id/:slug                  controllers.Blog.showBc(id: String, slug: String, ref: Option[String] ?= None)
 GET   /blog.atom                       controllers.Blog.atom
 GET   /blog.txt                        controllers.Blog.sitemapTxt
 
@@ -120,16 +125,20 @@ POST  /analysis/notation               controllers.UserAnalysis.notation
 GET   /study                           controllers.Study.allDefault(page: Int ?= 1)
 GET   /study/all/:order                controllers.Study.all(order: String, page: Int ?= 1)
 GET   /study/mine/:order               controllers.Study.mine(order: String, page: Int ?= 1)
+GET   /study/member/post-game-study/:order  controllers.Study.minePostGameStudies(order: String, page: Int ?= 1)
 GET   /study/member/:order             controllers.Study.mineMember(order: String, page: Int ?= 1)
 GET   /study/public/:order             controllers.Study.minePublic(order: String, page: Int ?= 1)
 GET   /study/private/:order            controllers.Study.minePrivate(order: String, page: Int ?= 1)
 GET   /study/likes/:order              controllers.Study.mineLikes(order: String, page: Int ?= 1)
+GET   /study/post-game-study/:gameId/:order  controllers.Study.postGameStudiesOf(gameId: String, order: String, page: Int ?= 1)
 GET   /study/by/:username              controllers.Study.byOwnerDefault(username: String, page: Int ?= 1)
 GET   /study/by/:username/:order       controllers.Study.byOwner(username: String, order: String, page: Int ?= 1)
 GET   /study/search                    controllers.Study.search(q: String ?= "", page: Int ?= 1)
 GET   /study/$id<\w{8}>                controllers.Study.show(id: String)
 POST  /study                           controllers.Study.create
 POST  /study/as                        controllers.Study.createAs
+POST  /study/post-game-study           controllers.Study.postGameStudy
+POST  /study/post-game-study/:gameId   controllers.Study.postGameStudyWithOpponent(gameId: String)
 GET   /study/$id<\w{8}>.kif            controllers.Study.notation(id: String, csa: Boolean ?= false)
 GET   /study/$id<\w{8}>.csa            controllers.Study.notation(id: String, csa: Boolean ?= true)
 GET   /study/$id<\w{8}>/$chapterId<\w{8}>.kif controllers.Study.chapterNotation(id: String, chapterId: String, csa: Boolean ?= false)
@@ -168,7 +177,6 @@ POST  /learn/score                     controllers.Learn.score
 POST  /learn/reset                     controllers.Learn.reset
 
 # Patron
-GET   /patreon                         controllers.Page.patron
 GET   /patron                          controllers.Plan.index
 GET   /patron/thanks                   controllers.Plan.thanks
 GET   /patron/list                     controllers.Plan.list
@@ -177,6 +185,7 @@ POST  /patron/cancel                   controllers.Plan.cancel
 POST  /patron/webhook                  controllers.Plan.webhook
 POST  /patron/ipn                      controllers.Plan.payPalIpn
 GET   /features                        controllers.Plan.features
+GET   /patreon                         controllers.Main.movedPermanently(to: String = "/patron")
 GET   /donate                          controllers.Main.movedPermanently(to: String = "/patron")
 
 # Practice
@@ -249,6 +258,7 @@ GET   /tournament/$id<\w{8}>/team/:team       controllers.Tournament.teamInfo(id
 POST  /tournament/$id<\w{8}>/terminate        controllers.Tournament.terminate(id: String)
 GET   /tournament/$id<\w{8}>/edit             controllers.Tournament.edit(id: String)
 POST  /tournament/$id<\w{8}>/edit             controllers.Tournament.update(id: String)
+GET   /tournament/$id<\w{8}>/teams            controllers.Tournament.battleTeams(id: String)
 GET   /tournament/help                        controllers.Tournament.help(system: Option[String] ?= None)
 GET   /tournament/leaderboard                 controllers.Tournament.leaderboard
 GET   /tournament/shields                     controllers.Tournament.shields
@@ -362,7 +372,8 @@ POST  /challenge/$id<\w{8}>/to-friend  controllers.Challenge.toFriend(id: String
 POST  /challenge/rematch-of/$id<\w{8}> controllers.Challenge.rematchOf(id: String)
 
 # Notify
-GET /notify                            controllers.Notify.recent(page: Int ?= 1)
+GET  /notify                           controllers.Notify.recent(page: Int ?= 1)
+POST /notify/clear                     controllers.Notify.clear
 
 # Video
 GET   /video                           controllers.Video.index
@@ -604,7 +615,9 @@ GET   /api/user/:name/games            controllers.Api.userGames(name: String)
 # Bot API
 GET   /api/bot/game/stream/:id         controllers.PlayApi.botGameStream(id: String)
 POST  /api/bot/game/:id/move/:usi      controllers.PlayApi.botMove(id: String, usi: String, offeringDraw: Option[Boolean] ?= None)
+GET   /api/bot/online                  controllers.PlayApi.botOnlineApi
 POST  /api/bot/*cmd                    controllers.PlayApi.botCommand(cmd: String)
+GET   /api/bot/*cmd                    controllers.PlayApi.botCommandGet(cmd: String)
 GET   /player/bots                     controllers.PlayApi.botOnline
 
 # Board API
@@ -642,17 +655,15 @@ GET   /account/info                    controllers.Account.info
 GET   /account/now-playing             controllers.Account.nowPlaying
 
 # OAuth
+GET   /oauth                           controllers.OAuth.authorize
+POST  /oauth                           controllers.OAuth.authorizeApply
+POST  /oauth/revoke-client             controllers.OAuth.revokeClient
+POST  /api/token                       controllers.OAuth.tokenApply
+DELETE /api/token                      controllers.OAuth.tokenRevoke
 GET   /account/oauth/token             controllers.OAuthToken.index
 GET   /account/oauth/token/create      controllers.OAuthToken.create
 POST  /account/oauth/token/create      controllers.OAuthToken.createApply
 POST  /account/oauth/token/:id/delete  controllers.OAuthToken.delete(id: String)
-GET   /account/oauth/app               controllers.OAuthApp.index
-GET   /account/oauth/app/create        controllers.OAuthApp.create
-POST  /account/oauth/app/create        controllers.OAuthApp.createApply
-GET   /account/oauth/app/:id/edit      controllers.OAuthApp.edit(id: String)
-POST  /account/oauth/app/:id/edit      controllers.OAuthApp.update(id: String)
-POST  /account/oauth/app/:id/delete    controllers.OAuthApp.delete(id: String)
-POST  /account/oauth/app/:id/revoke    controllers.OAuthApp.revoke(id: String)
 
 # Events
 GET   /event/$id<\w{8}>                controllers.Event.show(id: String)
@@ -688,12 +699,12 @@ GET   /contact                         controllers.Main.contact
 GET   /about                           controllers.Page.about
 GET   /faq                             controllers.Main.faq
 GET   /source                          controllers.Page.source
-GET   /qa                              controllers.Main.movedPermanently(to: String = "/faq")
 GET   /contribute                      controllers.Page.help
 GET   /help                            controllers.Main.movedPermanently(to: String = "/contact")
 GET   /qa/:id/:slug                    controllers.Main.legacyQaQuestion(id: Int, slug: String)
 GET   /how-to-cheat                    controllers.Page.howToCheat
 GET   /ads                             controllers.Page.ads
+GET   /donations                       controllers.Page.donations
 GET   /resources                       controllers.Page.resources
 GET   /page/:bookmark                  controllers.Page.loneBookmark(bookmark: String)
 GET   /explanation/impasse             controllers.Page.impasse
@@ -718,6 +729,3 @@ GET   /assets/*file                    controllers.ExternalAssets.at(path="publi
 
 GET   /manifest.json                   controllers.Main.manifest
 GET   /robots.txt                      controllers.Main.robots
-
-OPTIONS /                              controllers.Options.root
-OPTIONS /*url                          controllers.Options.all(url: String)

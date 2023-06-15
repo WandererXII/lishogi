@@ -8,6 +8,7 @@ case class Pref(
     theme: String,
     customTheme: Option[CustomTheme],
     pieceSet: String,
+    chuPieceSet: String,
     soundSet: String,
     blindfold: Int,
     takeback: Int,
@@ -16,15 +17,18 @@ case class Pref(
     clockCountdown: Int,
     clockSound: Boolean,
     premove: Boolean,
+    boardLayout: Int,
     animation: Int,
-    follow: Boolean,
     coords: Int,
+    clearHands: Boolean,
+    follow: Boolean,
     highlightLastDests: Boolean,
     highlightCheck: Boolean,
     squareOverlay: Boolean,
     destination: Boolean,
     dropDestination: Boolean,
     replay: Int,
+    colorName: Int,
     challenge: Int,
     message: Int,
     studyInvite: Int,
@@ -32,6 +36,7 @@ case class Pref(
     submitMove: Int,
     confirmResign: Int,
     insightShare: Int,
+    thickGrid: Int,
     keyboardMove: Int,
     zen: Int,
     moveEvent: Int,
@@ -48,8 +53,8 @@ case class Pref(
 
   def themeColor = if (transp || dark) "#2e2a24" else "#dbd7d1"
 
-  def coordColorName = Color.choices.toMap.get(coordColor).fold("random")(_.toLowerCase)
-  def coordsClass    = Coords classOf coords
+  def coordColorName = Color name coordColor
+  def coordsClass    = Coords cssClassOf coords
 
   def hasSeenVerifyTitle = tags contains Tag.verifyTitle
 
@@ -67,11 +72,16 @@ case class Pref(
         PieceSet.allByName get value map { p =>
           copy(pieceSet = p.name)
         }
+      case "chuPieceSet" =>
+        ChuPieceSet.allByName get value map { p =>
+          copy(chuPieceSet = p.name)
+        }
       case "soundSet" =>
         SoundSet.allByKey get value map { s =>
           copy(soundSet = s.key)
         }
-      case "zen" => copy(zen = if (value == "1") 1 else 0).some
+      case "thickGrid" => copy(thickGrid = if (value == "1") 1 else 0).some
+      case "zen"       => copy(zen = if (value == "1") 1 else 0).some
       case "notation" =>
         value.toIntOption flatMap { index =>
           Notations.allByIndex get index map { n =>
@@ -96,17 +106,19 @@ case class Pref(
 
   def customThemeOrDefault = customTheme | CustomTheme.default
 
+  def isUsingThickGrid = thickGrid == ThickGrid.YES
+
   def isZen = zen == Zen.YES
 }
 
 object Pref {
 
-  val defaultBgImg = "//lishogi1.org/assets/images/background/landscape.jpg"
+  val defaultBgImg = "//lishogi1.org/assets/images/background/nature.jpg"
 
   trait BooleanPref {
     val NO      = 0
     val YES     = 1
-    val choices = Seq(NO -> "No", YES -> "Yes")
+    val choices = Seq(NO, YES)
   }
 
   object BooleanPref {
@@ -122,10 +134,17 @@ object Pref {
     val RANDOM = 2
     val GOTE   = 3
 
+    def name(v: Int) =
+      v match {
+        case SENTE => "sente"
+        case GOTE  => "gote"
+        case _     => "random"
+      }
+
     val choices = Seq(
-      SENTE  -> "Sente",
-      RANDOM -> "Random",
-      GOTE   -> "Gote"
+      SENTE,
+      RANDOM,
+      GOTE
     )
   }
 
@@ -135,9 +154,9 @@ object Pref {
     val ALWAYS  = 3
 
     val choices = Seq(
-      NEVER   -> "Never",
-      ALWAYS  -> "Always",
-      PREMOVE -> "When premoving"
+      NEVER,
+      ALWAYS,
+      PREMOVE
     )
   }
 
@@ -148,10 +167,10 @@ object Pref {
     val ALWAYS                   = 2
 
     val choices = Seq(
-      NEVER                    -> "Never",
-      CORRESPONDENCE_ONLY      -> "Correspondence games only",
-      CORRESPONDENCE_UNLIMITED -> "Correspondence and unlimited",
-      ALWAYS                   -> "Always"
+      NEVER,
+      CORRESPONDENCE_ONLY,
+      CORRESPONDENCE_UNLIMITED,
+      ALWAYS
     )
   }
 
@@ -163,11 +182,13 @@ object Pref {
     val EVERYBODY = 2
 
     val choices = Seq(
-      NOBODY    -> "With nobody",
-      FRIENDS   -> "With friends",
-      EVERYBODY -> "With everybody"
+      NOBODY,
+      FRIENDS,
+      EVERYBODY
     )
   }
+
+  object ThickGrid extends BooleanPref
 
   object KeyboardMove extends BooleanPref
 
@@ -177,16 +198,16 @@ object Pref {
     val BOTH  = 2
 
     val choices = Seq(
-      CLICK -> "Click two squares",
-      DRAG  -> "Drag a piece",
-      BOTH  -> "Both clicks and drag"
+      CLICK,
+      DRAG,
+      BOTH
     )
   }
 
   object Blindfold extends BooleanPref {
     override val choices = Seq(
-      NO  -> "What? No!",
-      YES -> "Yes, hide the pieces"
+      NO,
+      YES
     )
   }
 
@@ -196,9 +217,9 @@ object Pref {
     val ALWAYS = 3
 
     val choices = Seq(
-      NEVER  -> "Never",
-      ALWAYS -> "Always",
-      CASUAL -> "In casual games only"
+      NEVER,
+      ALWAYS,
+      CASUAL
     )
   }
 
@@ -208,9 +229,21 @@ object Pref {
     val ALWAYS = 3
 
     val choices = Seq(
-      NEVER  -> "Never",
-      ALWAYS -> "Always",
-      CASUAL -> "In casual games only"
+      NEVER,
+      ALWAYS,
+      CASUAL
+    )
+  }
+
+  object BoardLayout {
+    val DEFAULT = 0
+    val COMPACT = 1
+    val SIDE    = 2
+
+    val choices = Seq(
+      DEFAULT,
+      COMPACT,
+      SIDE
     )
   }
 
@@ -221,10 +254,10 @@ object Pref {
     val SLOW   = 3
 
     val choices = Seq(
-      NONE   -> "None",
-      FAST   -> "Fast",
-      NORMAL -> "Normal",
-      SLOW   -> "Slow"
+      NONE,
+      FAST,
+      NORMAL,
+      SLOW
     )
   }
 
@@ -235,13 +268,13 @@ object Pref {
     val EDGE    = 3
 
     val choices = Seq(
-      NONE    -> "No",
-      INSIDE  -> "Inside the board",
-      OUTSIDE -> "Outside the board",
-      EDGE    -> "Edge of the board"
+      NONE,
+      INSIDE,
+      OUTSIDE,
+      EDGE
     )
 
-    def classOf(v: Int) =
+    def cssClassOf(v: Int) =
       v match {
         case INSIDE  => "in"
         case OUTSIDE => "out"
@@ -256,9 +289,23 @@ object Pref {
     val ALWAYS = 2
 
     val choices = Seq(
-      NEVER  -> "Never",
-      SLOW   -> "On slow games",
-      ALWAYS -> "Always"
+      NEVER,
+      SLOW,
+      ALWAYS
+    )
+  }
+
+  object ColorName {
+    val LANG    = 0
+    val SENTEJP = 1
+    val SENTE   = 2
+    val BLACK   = 3
+
+    val choices = Seq(
+      LANG,
+      SENTEJP,
+      SENTE,
+      BLACK
     )
   }
 
@@ -268,9 +315,9 @@ object Pref {
     val ALWAYS  = 2
 
     val choices = Seq(
-      NEVER   -> "Never",
-      LOWTIME -> "When time remaining < 10 seconds",
-      ALWAYS  -> "Always"
+      NEVER,
+      LOWTIME,
+      ALWAYS
     )
   }
 
@@ -281,10 +328,10 @@ object Pref {
     val TEN   = 10
 
     val choices = Seq(
-      NEVER -> "Never",
-      THREE -> "Last three seconds",
-      FIVE  -> "Last five seconds",
-      TEN   -> "Last ten seconds"
+      NEVER,
+      THREE,
+      FIVE,
+      TEN
     )
   }
 
@@ -297,10 +344,10 @@ object Pref {
     val ratingThreshold = 300
 
     val choices = Seq(
-      NEVER  -> "Never",
-      RATING -> s"If rating is ± $ratingThreshold",
-      FRIEND -> "Only friends",
-      ALWAYS -> "Always"
+      NEVER,
+      RATING,
+      FRIEND,
+      ALWAYS
     )
   }
 
@@ -310,9 +357,9 @@ object Pref {
     val ALWAYS = 3
 
     val choices = Seq(
-      NEVER  -> "Never",
-      FRIEND -> "Only friends",
-      ALWAYS -> "Always"
+      NEVER,
+      FRIEND,
+      ALWAYS
     )
   }
 
@@ -322,9 +369,9 @@ object Pref {
     val ALWAYS = 3
 
     val choices = Seq(
-      NEVER  -> "Never",
-      FRIEND -> "Only friends",
-      ALWAYS -> "Always"
+      NEVER,
+      FRIEND,
+      ALWAYS
     )
   }
 
@@ -334,39 +381,43 @@ object Pref {
     val ALWAYS  = 2
 
     val choices = Seq(
-      NEVER   -> "Never",
-      INITIAL -> "On initial position",
-      ALWAYS  -> "Always"
+      NEVER,
+      INITIAL,
+      ALWAYS
     )
   }
 
-  object Zen extends BooleanPref {}
+  object Zen extends BooleanPref
 
   def create(id: String) = default.copy(_id = id)
 
   lazy val default = Pref(
     _id = "",
-    dark = false,
+    dark = true,
     transp = false,
     bgImg = none,
     theme = Theme.default.name,
     customTheme = none,
     pieceSet = PieceSet.default.name,
+    chuPieceSet = ChuPieceSet.default.name,
     soundSet = SoundSet.default.name,
     blindfold = Blindfold.NO,
     takeback = Takeback.ALWAYS,
     moretime = Moretime.ALWAYS,
     clockSound = true,
     premove = true,
+    boardLayout = BoardLayout.DEFAULT,
     animation = 2,
+    coords = Coords.OUTSIDE,
+    clearHands = false,
     follow = true,
     highlightLastDests = true,
     highlightCheck = true,
     squareOverlay = true,
     destination = true,
     dropDestination = true,
-    coords = Coords.OUTSIDE,
     replay = Replay.ALWAYS,
+    colorName = ColorName.LANG,
     clockTenths = ClockTenths.LOWTIME,
     clockCountdown = ClockCountdown.THREE,
     challenge = Challenge.ALWAYS,
@@ -376,6 +427,7 @@ object Pref {
     submitMove = SubmitMove.CORRESPONDENCE_ONLY,
     confirmResign = ConfirmResign.YES,
     insightShare = InsightShare.FRIENDS,
+    thickGrid = ThickGrid.NO,
     keyboardMove = KeyboardMove.NO,
     zen = Zen.NO,
     moveEvent = MoveEvent.BOTH,

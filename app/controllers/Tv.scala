@@ -10,14 +10,15 @@ import views._
 
 final class Tv(
     env: Env,
-    apiC: => Api
+    apiC: => Api,
+    gameC: => Game
 ) extends LilaController(env) {
 
   def index = onChannel(lila.tv.Tv.Channel.Best.key)
 
   def onChannel(chanKey: String) = {
     Open { implicit ctx =>
-      (lila.tv.Tv.Channel.byKey get chanKey).fold(notFound)(lishogiTv)
+      (lila.tv.Tv.Channel.byKey get chanKey) ?? lishogiTv
     }
   }
 
@@ -36,7 +37,7 @@ final class Tv(
       implicit val championWrites = Json.writes[lila.tv.Tv.Champion]
       env.tv.tv.getChampions map {
         _.channels map { case (chan, champ) => chan.name -> champ }
-      } map { Json.toJson(_) } map Api.Data.apply
+      } map { Json.toJson(_) } dmap Api.Data.apply
     }
   }
 
@@ -50,12 +51,10 @@ final class Tv(
           env.api.roundApi.watcher(pov, tour, lila.api.Mobile.Api.currentVersion, tv = onTv.some) zip
             env.game.crosstableApi.withMatchup(game) zip
             env.tv.tv.getChampions map { case ((data, cross), champions) =>
-              NoCache {
-                Ok(html.tv.index(channel, champions, pov, data, cross, history))
-              }
+              Ok(html.tv.index(channel, champions, pov, data, cross, history)).noCache
             }
         },
-        api = apiVersion => env.api.roundApi.watcher(pov, none, apiVersion, tv = onTv.some) map { Ok(_) }
+        api = apiVersion => env.api.roundApi.watcher(pov, none, apiVersion, tv = onTv.some) dmap { Ok(_) }
       )
     }
   }
@@ -64,13 +63,25 @@ final class Tv(
 
   def gamesChannel(chanKey: String) =
     Open { implicit ctx =>
-      (lila.tv.Tv.Channel.byKey get chanKey) ?? { channel =>
-        env.tv.tv.getChampions zip env.tv.tv.getGames(channel, 15) map {
-          case (champs, games) => {
-            NoCache {
-              Ok(html.tv.games(channel, games map lila.game.Pov.first, champs))
-            }
-          }
+      lila.tv.Tv.Channel.byKey.get(chanKey) ?? { channel =>
+        env.tv.tv.getChampions zip env.tv.tv.getGames(channel, 15) map { case (champs, games) =>
+          Ok(html.tv.games(channel, games map Pov.first, champs)).noCache
+        }
+      }
+    }
+
+  def apiGamesChannel(chanKey: String) =
+    Action.async { req =>
+      lila.tv.Tv.Channel.byKey.get(chanKey) ?? { channel =>
+        env.tv.tv.getGameIds(channel, getInt("nb", req).fold(10)(_ atMost 20)) map { gameIds =>
+          val config =
+            lila.api.GameApiV2.ByIdsConfig(
+              ids = gameIds,
+              format = lila.api.GameApiV2.Format byRequest req,
+              flags = gameC.requestNotationFlags(req, extended = false).copy(delayMoves = false),
+              perSecond = lila.common.config.MaxPerSecond(20)
+            )
+          noProxyBuffer(Ok.chunked(env.api.gameApiV2.exportByIds(config))).as(gameC.gameContentType(config))
         }
       }
     }

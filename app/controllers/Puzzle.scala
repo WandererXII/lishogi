@@ -36,18 +36,17 @@ final class Puzzle(
   private def renderShow(
       puzzle: Puz,
       theme: PuzzleTheme,
-      replay: Option[PuzzleReplay] = None
+      replay: Option[PuzzleReplay] = None,
+      robots: Boolean = true
   )(implicit
       ctx: Context
   ) =
     renderJson(puzzle, theme, replay) zip
       ctx.me.??(u => env.puzzle.session.getDifficulty(u) dmap some) map { case (json, difficulty) =>
-        EnableSharedArrayBuffer(
-          Ok(
-            views.html.puzzle
-              .show(puzzle, json, env.puzzle.jsonView.pref(ctx.pref), difficulty)
-          )
-        )
+        Ok(
+          views.html.puzzle
+            .show(puzzle, json, env.puzzle.jsonView.pref(ctx.pref), difficulty, robots = robots)
+        ).enableSharedArrayBuffer
       }
 
   def daily =
@@ -57,7 +56,7 @@ final class Puzzle(
           negotiate(
             html = renderShow(daily.puzzle, PuzzleTheme.mix),
             api = v => renderJson(daily.puzzle, PuzzleTheme.mix, apiVersion = v.some) dmap { Ok(_) }
-          ) map NoCache
+          ) dmap (_.noCache)
         }
       }
     }
@@ -240,14 +239,14 @@ final class Puzzle(
           nextPuzzleForMe(theme.key) flatMap {
             renderShow(_, theme)
           }
-        case None if themeOrId.size == Puz.idSize =>
+        case None if themeOrId.sizeIs == Puz.idSize =>
           OptionFuResult(env.puzzle.api.puzzle find Puz.Id(themeOrId)) { puz =>
             ctx.me.?? { me =>
               !env.puzzle.api.round.exists(me, puz.id) map {
                 _ ?? env.puzzle.api.casual.set(me, puz.id)
               }
             } >>
-              renderShow(puz, PuzzleTheme.mix)
+              renderShow(puz, PuzzleTheme.mix, robots = false)
           }
         case None =>
           themeOrId.toLongOption
@@ -264,7 +263,7 @@ final class Puzzle(
     NoBot {
       val theme = PuzzleTheme.findOrAny(themeKey)
       OptionFuResult(env.puzzle.api.puzzle find Puz.Id(id)) { puzzle =>
-        if (puzzle.themes contains theme.key) renderShow(puzzle, theme)
+        if (puzzle.themes contains theme.key) renderShow(puzzle, theme, robots = false)
         else Redirect(routes.Puzzle.show(puzzle.id.value)).fuccess
       }
     }
@@ -323,7 +322,7 @@ final class Puzzle(
   def replay(days: Int, themeKey: String) =
     Auth { implicit ctx => me =>
       val theme         = PuzzleTheme.findOrAny(themeKey)
-      val checkedDayOpt = PuzzleDashboard.getclosestDay(days)
+      val checkedDayOpt = PuzzleDashboard.getClosestDay(days)
       env.puzzle.replay(me, checkedDayOpt, theme.key) flatMap {
         case None                   => Redirect(routes.Puzzle.dashboard(days, "home")).fuccess
         case Some((puzzle, replay)) => renderShow(puzzle, theme, replay.some)

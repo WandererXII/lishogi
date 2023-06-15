@@ -29,7 +29,7 @@ object show {
       title = t.name,
       openGraph = lila.app.ui
         .OpenGraph(
-          title = s"${t.name} team",
+          title = trans.teamNamedX.txt(t.name),
           url = s"$netBaseUrl${routes.Team.show(t.id).url}",
           description = shorten(t.description, 152)
         )
@@ -54,7 +54,8 @@ object show {
                 )
               )
             )}""")
-        )
+        ),
+      canonicalPath = lila.common.CanonicalPath(routes.Team.show(t.id)).some
     ) {
       val enabledOrLeader = t.enabled || info.ledByMe || isGranted(_.Admin)
       main(
@@ -202,7 +203,7 @@ object show {
                         strong(post.topicName),
                         em(
                           post.userId map usernameOrId,
-                          " • ",
+                          " - ",
                           momentFromNow(post.createdAt)
                         )
                       ),
@@ -219,14 +220,9 @@ object show {
 
   // handle special teams here
   private def joinButton(t: Team)(implicit ctx: Context) =
-    t.id match {
-      case "english-chess-players" => joinAt("https://ecf.octoknight.com/")
-      case "ecf"                   => joinAt(routes.Team.show("english-chess-players").url)
-      case _ =>
-        postForm(cls := "inline", action := routes.Team.join(t.id))(
-          submitButton(cls := "button button-green")(joinTeam())
-        )
-    }
+    postForm(cls := "inline", action := routes.Team.join(t.id))(
+      submitButton(cls := "button button-green")(joinTeam())
+    )
 
   private def joinAt(url: String)(implicit ctx: Context) =
     a(cls := "button button-green", href := url)(joinTeam())

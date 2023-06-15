@@ -1,5 +1,6 @@
-import { Ctrl, NotifyOpts, NotifyData, Redraw } from './interfaces';
 import notify from 'common/notification';
+import * as xhr from 'common/xhr';
+import { Ctrl, NotifyData, NotifyOpts, Redraw } from './interfaces';
 import { asText } from './view';
 
 const li = window.lishogi;
@@ -40,7 +41,7 @@ export default function ctrl(opts: NotifyOpts, redraw: Redraw): Ctrl {
     opts.pulse();
     if (!li.quietMode) li.sound.newPM();
     const text = asText(notif);
-    const pushSubsribed = parseInt(li.storage.get('push-subscribed') || '0', 10) + 86400000 >= Date.now(); // 24h
+    const pushSubsribed = parseInt(li.storage.get('push-subscribed2') || '0', 10) + 86400000 >= Date.now(); // 24h
     if (!pushSubsribed && text) notify(text);
   }
 
@@ -83,6 +84,29 @@ export default function ctrl(opts: NotifyOpts, redraw: Redraw): Ctrl {
       });
   }
 
+  const emptyNotifyData = {
+    pager: {
+      currentPage: 1,
+      maxPerPage: 1,
+      currentPageResults: [],
+      nbResults: 0,
+      nbPages: 1,
+    },
+    unread: 0,
+    i18n: {},
+  };
+
+  function clear() {
+    xhr
+      .text('/notify/clear', {
+        method: 'post',
+      })
+      .then(
+        _ => update(emptyNotifyData, false),
+        _ => window.lishogi.announce({ msg: 'Failed to clear notifications' })
+      );
+  }
+
   return {
     data: () => data,
     initiating: () => initiating,
@@ -93,5 +117,6 @@ export default function ctrl(opts: NotifyOpts, redraw: Redraw): Ctrl {
     loadPage,
     setVisible,
     setMsgRead,
+    clear,
   };
 }

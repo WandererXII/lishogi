@@ -60,6 +60,11 @@ object HTTPRequest {
 
   def sid(req: RequestHeader): Option[String] = req.session get LilaCookie.sessionId
 
+  val userSessionIdKey = "sessionId"
+
+  def userSessionId(req: RequestHeader): Option[String] =
+    req.session.get(userSessionIdKey) orElse req.headers.get(userSessionIdKey)
+
   val isCrawler = UaMatcher {
     ("""(?i)googlebot|googlebot-mobile|googlebot-image|mediapartners-google|bingbot|slurp|java|wget|curl|commons-httpclient|python-urllib|libwww|httpunit|nutch|phpcrawl|msnbot|adidxbot|blekkobot|teoma|ia_archiver|gingercrawler|webmon|httrack|webcrawler|fast-webcrawler|fastenterprisecrawler|convera|biglotron|grub\.org|usinenouvellecrawler|antibot|netresearchserver|speedy|fluffy|jyxobot|bibnum\.bnf|findlink|exabot|gigabot|msrbot|seekbot|ngbot|panscient|yacybot|aisearchbot|ioi|ips-agent|tagoobot|mj12bot|dotbot|woriobot|yanga|buzzbot|mlbot|purebot|lingueebot|yandex\.com/bots|""" +
       """voyager|cyberpatrol|voilabot|baiduspider|citeseerxbot|spbot|twengabot|postrank|turnitinbot|scribdbot|page2rss|sitebot|linkdex|ezooms|dotbot|mail\.ru|discobot|zombie\.js|heritrix|findthatfile|europarchive\.org|nerdbynature\.bot|sistrixcrawler|ahrefsbot|aboundex|domaincrawler|wbsearchbot|summify|ccbot|edisterbot|seznambot|ec2linkfinder|gslfbot|aihitbot|intelium_bot|yeti|retrevopageanalyzer|lb-spider|sogou|lssbot|careerbot|wotbox|wocbot|ichiro|duckduckbot|lssrocketcrawler|drupact|webcompanycrawler|acoonbot|openindexspider|gnamgnamspider|web-archive-net\.com\.bot|backlinkcrawler|""" +
@@ -85,7 +90,7 @@ object HTTPRequest {
 
   def hasFileExtension(req: RequestHeader) = fileExtensionRegex.find(req.path)
 
-  def weirdUA(req: RequestHeader) = userAgent(req).fold(true)(_.size < 30)
+  def weirdUA(req: RequestHeader) = userAgent(req).fold(true)(_.sizeIs < 30)
 
   def print(req: RequestHeader) = s"${printReq(req)} ${printClient(req)}"
 
@@ -94,7 +99,13 @@ object HTTPRequest {
   def printClient(req: RequestHeader) =
     s"${lastRemoteAddress(req)} origin:${~origin(req)} referer:${~referer(req)} ua:${~userAgent(req)}"
 
-  def isOAuth(req: RequestHeader) = req.headers.toMap.contains(HeaderNames.AUTHORIZATION)
+  def bearer(req: RequestHeader): Option[Bearer] =
+    req.headers.get(HeaderNames.AUTHORIZATION).flatMap { authorization =>
+      val prefix = "Bearer "
+      authorization.startsWith(prefix) option Bearer(authorization.stripPrefix(prefix))
+    }
+
+  def isOAuth(req: RequestHeader) = bearer(req).isDefined
 
   def acceptsNdJson(req: RequestHeader) = req.headers get HeaderNames.ACCEPT contains "application/x-ndjson"
   def acceptsJson(req: RequestHeader)   = req.headers get HeaderNames.ACCEPT contains "application/json"

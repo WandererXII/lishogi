@@ -69,7 +69,7 @@ function side(ctrl: LearnCtrl) {
 }
 
 function whatNext(ctrl: LearnCtrl) {
-  const makeStage = (href: string, img: string, title: string, subtitle: string, done?: boolean) => {
+  const makeStage = (href: string, img: string, title: I18nKey, subtitle: I18nKey, done?: boolean) => {
     const transTitle = ctrl.trans.noarg(title);
     return h(
       'a.stage' + titleVerbosityClass(transTitle) + (done ? '.done' : ''),
@@ -88,14 +88,14 @@ function whatNext(ctrl: LearnCtrl) {
   const userId = ctrl.progress.progress._id;
   return h('div.categ.what_next', [
     h('h2', ctrl.trans.noarg('whatNext')),
-    h('p', ctrl.trans.noarg('youKnowHowToPlayChess')),
+    h('p', ctrl.trans.noarg('youKnowHowToPlayShogi')),
     h('div.categ_stages', [
       userId
         ? makeStage('/@/' + userId, 'beams-aura', 'register', 'getAFreeLishogiAccount', true)
         : makeStage('/signup', 'beams-aura', 'register', 'getAFreeLishogiAccount'),
       makeStage('/resources', 'king', 'shogiResources', 'curatedShogiResources'),
       makeStage('/training', 'bullseye', 'puzzles', 'exerciseYourTacticalSkills'),
-      makeStage('/video', 'tied-scroll', 'videos', 'watchInstructiveChessVideos'),
+      makeStage('/video', 'tied-scroll', 'videos', 'watchInstructiveShogiVideos'),
       makeStage('/#hook', 'sword-clash', 'playPeople', 'opponentsFromAroundTheWorld'),
       makeStage('/#ai', 'vintage-robot', 'playMachine', 'testYourSkillsWithTheComputer'),
     ]),
@@ -108,7 +108,7 @@ function titleVerbosityClass(title: string) {
 
 export default function (ctrl: LearnCtrl) {
   let prevComplete = true;
-  return h('div.learn.learn--map', [
+  return h('div.main.learn.learn--map', [
     h('div.learn__side', side(ctrl)),
     h('div.learn__main.learn-stages', [
       ...categories.map(categ => {

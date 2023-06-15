@@ -3,6 +3,7 @@ package lila.app
 import akka.actor.CoordinatedShutdown
 import com.softwaremill.macwire._
 import play.api._
+import play.api.http.HttpRequestHandler
 import play.api.libs.crypto.CookieSignerProvider
 import scala.annotation.nowarn
 import play.api.mvc._
@@ -60,6 +61,17 @@ final class LilaComponents(ctx: ApplicationLoader.Context)
       lobbyC = lobby
     )
 
+  override lazy val httpRequestHandler: HttpRequestHandler =
+    new lila.app.http.LilaHttpRequestHandler(
+      webCommands,
+      devContext,
+      router,
+      httpErrorHandler,
+      httpConfiguration,
+      httpFilters,
+      controllerComponents
+    )
+
   implicit def system = actorSystem
   implicit def ws     = wsClient
 
@@ -104,9 +116,8 @@ final class LilaComponents(ctx: ApplicationLoader.Context)
   lazy val msg: Msg                       = wire[Msg]
   lazy val mod: Mod                       = wire[Mod]
   lazy val notifyC: Notify                = wire[Notify]
-  lazy val oAuthApp: OAuthApp             = wire[OAuthApp]
+  lazy val oAuth: OAuth                   = wire[OAuth]
   lazy val oAuthToken: OAuthToken         = wire[OAuthToken]
-  lazy val options: Options               = wire[Options]
   lazy val page: Page                     = wire[Page]
   lazy val plan: Plan                     = wire[Plan]
   lazy val practice: Practice             = wire[Practice]

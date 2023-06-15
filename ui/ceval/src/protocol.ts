@@ -1,8 +1,11 @@
 import { defined } from 'common/common';
+import { DropMove, isDrop, makeUsi, parseUsi } from 'shogiops';
+import { parseSfen } from 'shogiops/sfen';
 import { Work } from './types';
+import { promote } from 'shogiops/variant/util';
 
 const minDepth = 6;
-const maxStockfishPlies = 245;
+const maxSearchPlies = 245;
 
 export class Protocol {
   public engineName: string | undefined;
@@ -19,10 +22,8 @@ export class Protocol {
   connected(send: (cmd: string) => void): void {
     this.send = send;
 
-    // Get engine name, version and options.
     this.options = new Map([
       ['Threads', '1'],
-      ['USI_Hash', '16'],
       ['MultiPV', '1'],
     ]);
     this.send('usi');
@@ -45,11 +46,10 @@ export class Protocol {
   received(command: string): void {
     const parts = command.trim().split(/\s+/g);
     if (parts[0] === 'usiok') {
-      if (this.work?.variant === 'standard') {
+      if (this.engineName?.startsWith('YaneuraOu')) {
+        this.setOption('USI_Hash', '16'); // default is 1024, so set something more reasonable
         this.setOption('EnteringKingRule', 'CSARule27H');
-      } else {
-        this.setOption('USI_AnalyseMode', 'true');
-      }
+      } else this.setOption('USI_AnalyseMode', 'true');
 
       this.send?.('usinewgame');
       this.send?.('isready');
@@ -91,7 +91,7 @@ export class Protocol {
             if (parts[i + 1] === 'lowerbound' || parts[i + 1] === 'upperbound') evalType = parts[++i];
             break;
           case 'pv':
-            moves = parts.slice(++i);
+            moves = this.work.variant === 'kyotoshogi' ? this.fromFairyKyotoFormat(parts.slice(++i)) : parts.slice(++i);
             i = parts.length;
             break;
         }
@@ -103,7 +103,14 @@ export class Protocol {
       // Track max pv index to determine when pv prints are done.
       if (this.expectedPvs < multiPv) this.expectedPvs = multiPv;
 
-      if (depth < minDepth || !defined(nodes) || !defined(elapsedMs) || !defined(isMate) || !defined(povEv)) return;
+      if (
+        (depth < minDepth && !isMate) ||
+        !defined(nodes) ||
+        !defined(elapsedMs) ||
+        !defined(isMate) ||
+        !defined(povEv)
+      )
+        return;
 
       const pivot = this.work.threatMode ? 0 : 1;
       const ev = this.work.ply % 2 === pivot ? -povEv : povEv;
@@ -173,13 +180,89 @@ export class Protocol {
       this.setOption('USI_Hash', this.work.hashSize || 16);
       this.setOption('MultiPV', this.work.multiPv);
 
-      this.send(['position sfen', this.work.initialSfen, 'moves', ...this.work.moves].join(' '));
+      const command =
+        this.work.variant === 'kyotoshogi'
+          ? this.toFairyKyotoFormat(this.work.initialSfen, this.work.moves)
+          : ['position sfen', this.work.initialSfen, 'moves', ...this.work.moves].join(' ');
+      console.info(command);
+      this.send(command);
       this.send(
         this.work.maxDepth >= 99
-          ? `go depth ${maxStockfishPlies}` // 'go infinite' would not finish even if entire tree search completed
+          ? `go depth ${maxSearchPlies}` // 'go infinite' would not finish even if entire tree search completed
           : 'go movetime 90000'
       );
     }
+  }
+
+  toFairyKyotoFormat(sfen: Sfen, moves: string[]): string {
+    // fairy expects something like this: p+nks+l/5/5/L+S1N+P/+LSK+NP
+    // while we have this: pgkst/5/5/LB1NR/TSKGP
+    const mappingBoard: Record<string, string> = {
+      g: '+n',
+      G: '+N',
+      t: '+l',
+      T: '+L',
+      b: '+s',
+      B: '+S',
+      r: '+p',
+      R: '+P',
+    };
+    // fairy wants PNLS
+    // we have PGTS
+    const mappingHand: Record<string, string> = {
+      g: 'n',
+      G: 'N',
+      t: 'l',
+      T: 'L',
+    };
+    function transformString(sfen: string, mapping: Record<string, string>) {
+      return sfen
+        .split('')
+        .map(c => mapping[c] || c)
+        .join('');
+    }
+
+    let uMoves: string[] = [];
+    const pos = parseSfen('kyotoshogi', sfen, false).unwrap();
+    moves.forEach(usi => {
+      const move = parseUsi(usi)!;
+      // G*3b -> +N*3b
+      if (isDrop(move)) {
+        const roleChar = usi[0],
+          uUsi = (mappingBoard[roleChar] || roleChar) + usi.slice(1);
+        uMoves.push(uUsi);
+      }
+      // 5e4d+ -> 5e4d-, if necessary
+      else if (move.promotion) {
+        const roleChar = pos.board.getRole(move.from)![0],
+          fairyUsi = mappingBoard[roleChar]?.includes('+') ? usi.slice(0, -1) + '-' : usi;
+
+        uMoves.push(fairyUsi);
+      } else uMoves.push(usi);
+      pos.play(move);
+    });
+
+    const splitSfen = sfen.split(' ');
+    return (
+      `position sfen ${transformString(splitSfen[0], mappingBoard)} ${splitSfen[1] || 'b'} ${transformString(
+        splitSfen[2] || '-',
+        mappingHand
+      )} moves ` + uMoves.join(' ')
+    );
+  }
+
+  fromFairyKyotoFormat(moves: string[]): Usi[] {
+    return moves.map(usi => {
+      // +N*3b -> G*3b
+      if (usi[0] === '+') {
+        const dropUnpromoted = parseUsi(usi.slice(1)) as DropMove,
+          promotedRole = promote('kyotoshogi')(dropUnpromoted.role)!;
+        return makeUsi({ role: promotedRole, to: dropUnpromoted.to });
+      }
+      // 5e4d- -> 5e4d+
+      else if (usi.includes('-')) return usi.slice(0, -1) + '+';
+      else return usi;
+    });
   }
 
   compute(nextWork: Work | undefined): void {

@@ -1,24 +1,26 @@
 import { DrawShape, SquareHighlight } from 'shogiground/draw';
-import { Piece } from 'shogiground/types';
 import { opposite } from 'shogiground/util';
-import { attacks, makeSquare, parseSquare, SquareSet } from 'shogiops';
-import { UsiWithColor, Level, VmEvaluation, Shape } from './interfaces';
+import { attacks } from 'shogiops/attacks';
+import { SquareSet } from 'shogiops/squareSet';
+import { Piece } from 'shogiops/types';
+import { makeSquareName, parseSquareName } from 'shogiops/util';
+import { Level, Shape, UsiWithColor, VmEvaluation } from './interfaces';
 import { findCaptures, inCheck } from './shogi';
 import { currentPosition } from './util';
 
-export function arrow(orig: Key | Piece, dest: Key | Piece, brush?: string): DrawShape {
+export function arrow(orig: Key | Piece, dest: Key | Piece, brush?: 'green' | 'red'): DrawShape {
   return {
     orig,
     dest,
-    brush: brush || 'paleGreen',
+    brush: brush || 'green',
   };
 }
 
-export function circle(key: Key | Piece, brush?: string): DrawShape {
+export function circle(key: Key | Piece, brush?: 'green' | 'red'): DrawShape {
   return {
     orig: key,
     dest: key,
-    brush: brush || 'paleGreen',
+    brush: brush || 'green',
   };
 }
 
@@ -45,6 +47,13 @@ export function onPly<T extends Shape>(ply: number, shapes: T[]): VmEvaluation<T
 
 export function initial<T extends Shape>(shapes: T[]): VmEvaluation<T[]> {
   return onPly<T>(0, shapes);
+}
+
+export function onUsi<T extends Shape>(usi: Usi, shapes: T[]): VmEvaluation<T[]> {
+  return (_level: Level, usiCList: UsiWithColor[]): T[] => {
+    if (usiCList.length && usi === usiCList[usiCList.length - 1].usi) return shapes;
+    else return [];
+  };
 }
 
 export function onDest<T extends Shape>(dest: Key, shapes: T[]): VmEvaluation<T[]> {
@@ -75,20 +84,20 @@ export function checkShapes(level: Level, usiCList: UsiWithColor[]): DrawShape[]
   const pos = currentPosition(level, usiCList);
   const sideInCheck = inCheck(pos);
   if (sideInCheck) {
-    const kingSq = pos.board.kingOf(sideInCheck)!;
+    const kingSq = pos.board.pieces(sideInCheck, 'king').singleSquare();
     pos.turn = opposite(sideInCheck);
     const kingAttacks = findCaptures(pos);
     return kingAttacks
       .filter(m => m.to === kingSq)
-      .map(m => arrow(makeSquare(m.from) as Key, makeSquare(m.to) as Key, 'red'));
+      .map(m => arrow(makeSquareName(m.from), makeSquareName(m.to), 'red'));
   } else return [];
 }
 
 export function pieceMovesHighlihts(piece: Piece, key: Key): SquareHighlight[] {
   const keys: Key[] = [],
-    squares = attacks(piece, parseSquare(key), SquareSet.empty());
+    squares = attacks(piece, parseSquareName(key), SquareSet.empty());
   for (const s of squares) {
-    keys.push(makeSquare(s) as Key);
+    keys.push(makeSquareName(s));
   }
   return keys.map(k => {
     return { key: k, className: 'help' };

@@ -1,11 +1,11 @@
-import { h, VNode } from 'snabbdom';
-import { prop, Prop } from 'common/common';
+import { Prop, prop } from 'common/common';
 import { bind, dataIcon } from 'common/snabbdom';
-import { iconTag, scrollTo } from '../util';
-import { ctrl as chapterNewForm, StudyChapterNewFormCtrl } from './chapterNewForm';
-import { ctrl as chapterEditForm } from './chapterEditForm';
+import { VNode, h } from 'snabbdom';
 import AnalyseCtrl from '../ctrl';
-import { StudyCtrl, StudyChapterMeta, LocalPaths, StudyChapter, TagArray } from './interfaces';
+import { iconTag, scrollTo } from '../util';
+import { ctrl as chapterEditForm } from './chapterEditForm';
+import { StudyChapterNewFormCtrl, ctrl as chapterNewForm } from './chapterNewForm';
+import { LocalPaths, StudyChapter, StudyChapterMeta, StudyCtrl, TagArray } from './interfaces';
 
 export interface StudyChaptersCtrl {
   newForm: StudyChapterNewFormCtrl;
@@ -65,19 +65,6 @@ export function isFinished(c: StudyChapter) {
 export function findTag(tags: TagArray[], name: string): string | undefined {
   const t = tags.find(t => t[0].toLowerCase() === name);
   return t && t[1];
-}
-
-export function resultOf(tags: TagArray[], isSente: boolean): string | undefined {
-  switch (findTag(tags, 'result')) {
-    case '1-0':
-      return isSente ? 'W' : 'L';
-    case '0-1':
-      return isSente ? 'L' : 'W';
-    case '1/2-1/2':
-      return '-';
-    default:
-      return;
-  }
 }
 
 export function view(ctrl: StudyCtrl): VNode {

@@ -14,8 +14,11 @@ $c-slider: $c-setup;
   form > div {
     padding: 0.5em 1em;
   }
+  form {
+    margin-bottom: 1em;
+  }
   group.radio {
-    margin: 0 auto 1em auto;
+    margin: auto;
     width: 70%;
     .disabled {
       opacity: 0.4;
@@ -31,24 +34,30 @@ $c-slider: $c-setup;
       flex-basis: 50%;
     }
   }
-  .optional_config {
-    border-bottom: $border;
-  }
   .mode_choice {
-    margin-top: 1em;
+    margin: 0.5em 0;
   }
   .optional_config,
   .ratings {
     background: $c-bg-zebra;
     border-top: $border;
+    border-bottom: $border;
+  }
+  .sfen_position {
+    border-bottom: none;
   }
   .advanced_toggle {
-    display: inline-block !important;
+    display: none;
+    &.show-inline-block {
+      display: inline-block !important;
+    }
     border: solid $c-setup;
-    border-width: 0 7px 7px 0;
+    border-width: 0 8px 8px 0;
+    border-radius: 3px;
     padding: 5px;
     transform: rotate(45deg);
     margin-top: 1rem;
+    cursor: pointer;
     &.active {
       margin-top: 1.5rem;
       transform: rotate(-135deg);
@@ -73,11 +82,16 @@ $c-slider: $c-setup;
     }
   }
   .sfen_position {
-    label {
-      flex: 0 0 20%;
-    }
-    .handicap.label_select select {
-      flex-grow: 1;
+    .handicap.label_select {
+      @extend %flex-center-nowrap;
+      margin-top: 1rem;
+      label {
+        text-align: left;
+        flex: unset;
+      }
+      select {
+        flex-grow: 1;
+      }
     }
     .sfen_form {
       margin-top: 0.5em;
@@ -115,9 +129,11 @@ $c-slider: $c-setup;
     }
   }
   .ratings {
-    padding: 1em;
+    @extend %box-radius-bottom;
+    padding: 0.5em;
     width: 100%;
     text-align: center;
+    border-bottom: none;
   }
   .ratings div {
     display: none;
@@ -126,14 +142,21 @@ $c-slider: $c-setup;
     display: flex;
     align-items: flex-end;
     justify-content: center;
-    margin: 1em auto;
+    padding: 0;
     text-align: center;
     position: relative;
+    margin-top: 0.5em;
     &__button {
       margin: 0 0.5em;
       width: 64px;
       height: 64px;
       padding: 7px;
+      @if $theme == 'transp' {
+        background: $c-bg-input;
+        &:hover {
+          background: darken($c-bg-input, 3) !important;
+        }
+      }
       i {
         display: block;
         padding: 0;
@@ -163,11 +186,9 @@ $c-slider: $c-setup;
         cursor: not-allowed;
       }
     }
-    .spinner {
-      width: 85px;
-      height: 85px;
-      margin: 10px auto 20px auto;
-    }
+  }
+  .spinner {
+    height: 85px;
   }
   .submit-error-message {
     position: absolute;

@@ -1,6 +1,6 @@
-import { Shogi } from 'shogiops/shogi';
 import { parseSfen } from 'shogiops/sfen';
 import { parseUsi } from 'shogiops/util';
+import { Shogi } from 'shogiops/variant/shogi';
 import { Puzzle } from './interfaces';
 import { getNow } from './util';
 
@@ -9,11 +9,13 @@ export default class CurrentPuzzle {
   startAt: number;
   moveIndex: number = 0;
   pov: Color;
+  ambPromotions: number[];
 
   constructor(readonly index: number, readonly puzzle: Puzzle) {
     this.line = puzzle.line.split(' ');
     this.pov = parseSfen('standard', puzzle.sfen).unwrap().turn;
     this.startAt = getNow();
+    this.ambPromotions = puzzle.ambPromotions ?? [];
   }
 
   position = (): Shogi => {
@@ -27,4 +29,6 @@ export default class CurrentPuzzle {
   lastMove = () => this.line[this.moveIndex - 1];
 
   isOver = () => this.moveIndex >= this.line.length - 1;
+
+  isAmbPromotion = () => this.ambPromotions.includes(this.moveIndex);
 }

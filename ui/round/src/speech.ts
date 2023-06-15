@@ -1,7 +1,7 @@
-import RoundController from './ctrl';
-import { Step } from './interfaces';
 import viewStatus from 'game/view/status';
-import { toBlackWhite } from 'shogiops/util';
+import { transWithColorName } from 'common/colorName';
+import RoundController from './ctrl';
+import { isHandicap } from 'shogiops/handicaps';
 
 export function setup(ctrl: RoundController) {
   window.lishogi.pubsub.on('speech.enabled', onSpeechChange(ctrl));
@@ -17,22 +17,23 @@ function onSpeechChange(ctrl: RoundController) {
 }
 
 export function status(ctrl: RoundController) {
-  const s = viewStatus(ctrl);
-  if (s === 'playingRightNow') window.LishogiSpeech!.step(ctrl.stepAt(ctrl.ply), false);
+  const handicap = isHandicap({ rules: ctrl.data.game.variant.key, sfen: ctrl.data.game.initialSfen }),
+    s = viewStatus(ctrl.trans, ctrl.data.game.status, ctrl.data.game.winner, handicap);
+  if (s === 'playingRightNow') notation(ctrl.stepAt(ctrl.ply)?.notation);
   else {
     withSpeech(_ => window.lishogi.sound.say({ en: s, jp: s }, false));
     const w = ctrl.data.game.winner,
-      text = w && ctrl.noarg(toBlackWhite(w) + 'IsVictorious');
+      text = w && transWithColorName(ctrl.trans, 'xIsVictorious', w, handicap);
     if (text) withSpeech(_ => window.lishogi.sound.say({ en: text, jp: text }, false));
   }
 }
 
 export function userJump(ctrl: RoundController, ply: Ply) {
-  withSpeech(s => s.step(ctrl.stepAt(ply), true));
+  withSpeech(s => s.notation(ctrl.stepAt(ply)?.notation, true));
 }
 
-export function step(step: Step) {
-  withSpeech(s => s.step(step, false));
+export function notation(notation: string | undefined) {
+  withSpeech(s => s.notation(notation, false));
 }
 
 function withSpeech(f: (speech: LishogiSpeech) => void) {

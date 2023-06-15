@@ -2,6 +2,8 @@
 <resources>
 	<string name="preferences">Voorkeure</string>
 	<string name="gameDisplay">Spel vertoon</string>
+	<string name="boardLayout">Board layout</string>
+	<string name="clearHands">Hide ghosts of pieces in hand</string>
 	<string name="pieceAnimation">Stuk animasie</string>
 	<string name="materialDifference">Materiaal verskil</string>
 	<string name="boardHighlightsLastDests">Board highlights - last move/drop</string>
@@ -10,6 +12,7 @@
 	<string name="dropDestinations">Drop destinations (valid drops and predrops)</string>
 	<string name="boardCoordinates">Bord koördinate (A-H, 1-8)</string>
 	<string name="moveListWhilePlaying">Skuiflys tydens spel</string>
+	<string name="colorName">Name used for individual players</string>
 	<string name="displayTouchSquareOverlay">Square highlight overlay on touch devices</string>
 	<string name="zenMode">Zen Modus</string>
 	<string name="displayBoardResizeHandle">Vertoon opsie om bord se groote te verander</string>
@@ -40,5 +43,6 @@
 	<string name="westernNotation">Western notation</string>
 	<string name="japaneseNotation">Japanese notatation</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
+	<string name="kifNotation">Kif notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Jou voorkeure is gestoor.</string>
 </resources>

@@ -44,7 +44,7 @@ final class EvalCacheApi(
     coll.delete.one($id(id)).void >>- cache.invalidate(id)
   }
 
-  private val cache = cacheApi[Id, Option[EvalCacheEntry]](65536, "evalCache") {
+  private val cache = cacheApi[Id, Option[EvalCacheEntry]](8192, "evalCache") {
     _.expireAfterAccess(5 minutes)
       .buildAsyncFuture(fetchAndSetAccess)
   }
@@ -75,7 +75,7 @@ final class EvalCacheApi(
               evals = List(input.eval),
               usedAt = DateTime.now
             )
-            coll.insert.one(entry).recover(lila.db.ignoreDuplicateKey).void >>-
+            coll.insert.one(entry).void.recover(lila.db.ignoreDuplicateKey) >>-
               cache.put(input.id, fuccess(entry.some)) >>-
               upgrade.onEval(input, sri)
           case Some(oldEntry) =>

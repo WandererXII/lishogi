@@ -1,6 +1,6 @@
-import { Outcome } from 'shogiops/types';
 import { Prop } from 'common/common';
 import { StoredBooleanProp, StoredProp } from 'common/storage';
+import { Outcome } from 'shogiops/types';
 
 export type CevalTechnology = 'hce' | 'nnue' | 'none'; // at least show cloud analysis for none
 
@@ -86,6 +86,7 @@ export interface CevalCtrl {
   maxHashSize: number;
   infinite: StoredBooleanProp;
   supportsNnue: boolean;
+  shouldUseYaneuraou: boolean;
   enableNnue: StoredBooleanProp;
   hovering: Prop<Hovering | null>;
   pvBoard: Prop<PvBoard | null>;
@@ -114,7 +115,6 @@ export interface ParentCtrl {
   getNode(): Tree.Node;
   showComputer(): boolean;
   trans: Trans;
-  data: any;
 }
 
 export interface NodeEvals {

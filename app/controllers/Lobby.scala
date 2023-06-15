@@ -26,7 +26,7 @@ final class Lobby(
       negotiate(
         html = env.pageCache { () =>
           keyPages.homeHtml.dmap { html =>
-            NoCache(Ok(html))
+            Ok(html).noCache
           }
         } dmap env.lilaCookie.ensure(ctx.req),
         api = _ =>
@@ -55,7 +55,7 @@ final class Lobby(
 
   def timeline =
     Auth { implicit ctx => me =>
-      env.timeline.entryApi.userEntries(me.id, ctx.lang.code) map { entries =>
+      env.timeline.entryApi.userEntries(me.id) map { entries =>
         Ok(html.timeline.entries(entries)).withHeaders(CACHE_CONTROL -> s"max-age=20")
       }
     }

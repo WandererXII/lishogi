@@ -22,6 +22,26 @@ object StudyForm {
 
   }
 
+  object postGameStudy {
+
+    lazy val form = Form(
+      mapping(
+        "gameId"      -> nonEmptyText,
+        "orientation" -> optional(nonEmptyText),
+        "invited"     -> optional(nonEmptyText)
+      )(Data.apply)(Data.unapply)
+    )
+
+    case class Data(
+        gameId: String,
+        orientationStr: Option[String],
+        invitedUsername: Option[String]
+    ) {
+      def orientation = orientationStr.flatMap(shogi.Color.fromName) | shogi.Sente
+    }
+
+  }
+
   object importGame {
 
     lazy val form = Form(

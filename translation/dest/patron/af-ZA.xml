@@ -6,13 +6,14 @@
 	<string name="becomePatron">Word \'n Lishogi Beskermheer</string>
 	<string name="xBecamePatron">%s het \'n Lishogi beskermheer geword</string>
 	<string name="newPatrons">Nuwe Beskermhere</string>
-	<string name="freeChess">Free shogi for everyone, forever!</string>
+	<string name="freeShogi">Free shogi for everyone, forever!</string>
 	<string name="noAdsNoSubs">Geen advertensies, geen intekening; maar oop-bron met passie.</string>
 	<string name="thankYou">Dankie vir jou donasie!</string>
 	<string name="youHaveLifetime">Jy het \'n lewenslange Beskermheer rekening. Dis wonderlik!</string>
 	<string name="patronUntil">Jy het \'n Beskermheer rekening tot %s.</string>
 	<string name="ifNotRenewed">As jy dit nie hernu nie, sal jy weer een van die leke wees.</string>
 	<string name="weRelyOnSupport">Ons steun op die ondersteuning van mense soos julle om dit moontlik te maak. Indien jy dit geniet om Lishogi te gebruik, oorweeg dit om ons te ondersteun deur \'n skenking te maak en \'n Beskermheer te word!</string>
+	<string name="donationSupport">If you want to support Lishogi and open source development, consider donating! You will not get anything in return, because Lishogi treats all users equally, but your donation will be very appreciated!</string>
 	<string name="lifetime">Lewenslange</string>
 	<string name="payLifetimeOnce">Betaal %s een keer. Word \'n Lishogi Beskermheer vir ewig!</string>
 	<string name="lifetimePatron">Lewenslange Lishogi Beskermheer</string>
@@ -28,8 +29,6 @@
 	<string name="weAreSmallTeam">Ons is \'n klein span, so jou ondersteuning maak \'n groot verskil!</string>
 	<string name="celebratedPatrons">Die gevierde Beskermhere wat Lishogi moontlik maak</string>
 	<string name="whereMoneyGoes">Waarheen gaan my geld?</string>
-	<string name="serversAndDeveloper">First of all, powerful servers.
-Then we pay a full-time developer: %s, the founder of Lishogi.</string>
 	<string name="costBreakdown">Sien die uiteengesette koste analise</string>
 	<string name="changeMonthlySupport">Kan ek my maandelikse ondersteuning kanseleer of verander?</string>
 	<string name="changeOrContact">Natuurlik, enige tyd, van hierdie blad af.
@@ -70,4 +69,5 @@ Maar Beskermhere kan spog met \'n oulike nuwe profiel ikoon.</string>
 	<string name="nowLifetime">Jy is nou \'n lewenslange Lishogi Beskermheer!</string>
 	<string name="nowOneMonth">Jy is nou \'n Lishogi Beskermheer vir een maand!</string>
 	<string name="downgradeNextMonth">In een maand sal jy nie weer moet betaal nie, en jou Lishogi rekening sal na gratis afgegradeer word.</string>
+	<string name="donationPolicy">Donation policy</string>
 </resources>

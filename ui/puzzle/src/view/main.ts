@@ -1,14 +1,16 @@
+import { view as cevalView } from 'ceval';
+import { bindMobileMousedown } from 'common/mobile';
+import { bindNonPassive, onInsert } from 'common/snabbdom';
+import stepwiseScroll from 'common/wheel';
+import { VNode, h } from 'snabbdom';
 import * as control from '../control';
+import { Controller } from '../interfaces';
+import feedbackView from './feedback';
+import * as shogiground from './shogiground';
 import * as side from './side';
 import theme from './theme';
-import * as shogiground from './shogiground';
-import feedbackView from './feedback';
-import stepwiseScroll from 'common/wheel';
-import { Controller } from '../interfaces';
-import { h, VNode } from 'snabbdom';
-import { onInsert, bindMobileMousedown, bindNonPassive } from 'common/snabbdom';
 import { render as treeView } from './tree';
-import { view as cevalView } from 'ceval';
+import { render as renderKeyboardMove } from 'keyboardMove';
 
 function renderAnalyse(ctrl: Controller): VNode {
   return h('div.puzzle__moves.areplay', [treeView(ctrl)]);
@@ -132,6 +134,7 @@ export default function (ctrl: Controller): VNode {
       shogiground.renderHand(ctrl, 'bottom'),
       controls(ctrl),
       session(ctrl),
+      ctrl.keyboardMove ? renderKeyboardMove(ctrl.keyboardMove) : null,
     ]
   );
 }

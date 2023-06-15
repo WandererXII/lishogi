@@ -16,10 +16,10 @@ object variant {
   )(implicit ctx: Context) =
     layout(
       active = perfType.some,
-      title = s"${variant.name} • ${variant.title}",
+      title = s"${variantName(variant)} - ${variant.title}",
       klass = "box-pad page variant"
     )(
-      h1(cls := "text", dataIcon := perfType.iconChar)(variant.name),
+      h1(cls := "text", dataIcon := perfType.iconChar)(variantName(variant)),
       h2(cls := "headline")(variant.title),
       div(cls := "body")(raw(~doc.getHtml("variant.content", resolver)))
     )
@@ -29,17 +29,21 @@ object variant {
       resolver: io.prismic.DocumentLinkResolver
   )(implicit ctx: Context) =
     layout(
-      title = "Lishogi variants",
+      title = s"Lishogi ${trans.variants.txt()}",
       klass = "variants"
     )(
-      h1("Lishogi variants"),
+      h1(s"Lishogi ${trans.variants.txt()}"),
       div(cls := "body box__pad")(raw(~doc.getHtml("doc.content", resolver))),
       div(cls := "variants")(
         lila.rating.PerfType.variants map { pt =>
           val variant = lila.rating.PerfType variantOf pt
-          a(cls := "variant text box__pad", href := routes.Page.variant(pt.key), dataIcon := pt.iconChar)(
+          a(
+            cls      := "variant text box__pad",
+            href     := routes.Page.variant(pt.key),
+            dataIcon := pt.iconChar
+          )(
             span(
-              h2(variant.name),
+              h2(variantName(variant)),
               h3(cls := "headline")(variant.title)
             )
           )
@@ -56,7 +60,8 @@ object variant {
     views.html.base.layout(
       title = title,
       moreCss = cssTag("variant"),
-      openGraph = openGraph
+      openGraph = openGraph,
+      withHrefLangs = none
     )(
       main(cls := "page-menu")(
         st.aside(cls := "page-menu__menu subnav")(

@@ -1,9 +1,9 @@
-import AnalyseCtrl from './ctrl';
 import { defined } from 'common/common';
-import { baseUrl } from './util';
-import { AnalyseData } from './interfaces';
+import { isHandicap } from 'shogiops/handicaps';
 import { initialSfen } from 'shogiops/sfen';
-import { handicaps } from 'game/handicaps';
+import AnalyseCtrl from './ctrl';
+import { AnalyseData } from './interfaces';
+import { baseUrl } from './util';
 
 export default function (element: HTMLElement, ctrl: AnalyseCtrl) {
   const li = window.lishogi;
@@ -81,7 +81,7 @@ export default function (element: HTMLElement, ctrl: AnalyseCtrl) {
     const engineName =
       ctrl.data.game.initialSfen &&
       ctrl.data.game.initialSfen !== initialSfen('standard') &&
-      !handicaps.includes(ctrl.data.game.initialSfen)
+      !isHandicap({ sfen: ctrl.data.game.initialSfen, rules: ctrl.data.game.variant.key })
         ? 'Fairy Stockfish'
         : 'YaneuraOu V7';
     return `<div id="acpl-chart-loader"><span>${engineName}<br>server analysis</span>${li.spinnerHtml}</div>`;
@@ -104,14 +104,13 @@ export default function (element: HTMLElement, ctrl: AnalyseCtrl) {
       .removeClass('active')
       .filter('.' + panel)
       .addClass('active');
-    if ((panel == 'move-times' || ctrl.opts.hunter) && !li.movetimeChart)
+    if (panel == 'move-times' && !li.movetimeChart)
       try {
         li.loadScript('javascripts/chart/movetime.js').then(function () {
-          li.movetimeChart(data, ctrl.trans, data.pref.notation);
+          li.movetimeChart(data, ctrl.trans);
         });
       } catch (e) {}
-    if ((panel == 'computer-analysis' || ctrl.opts.hunter) && $('#acpl-chart').length)
-      setTimeout(startAdvantageChart, 200);
+    if (panel == 'computer-analysis' && $('#acpl-chart').length) setTimeout(startAdvantageChart, 200);
   };
   $menu.on('mousedown', 'span', function (this: HTMLElement) {
     const panel = $(this).data('panel');

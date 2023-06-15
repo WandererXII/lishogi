@@ -15,14 +15,6 @@ private object bits {
   def sfenInput(form: Form[_], strict: Boolean, validSfen: Option[lila.setup.ValidSfen])(implicit
       ctx: Context
   ) = {
-    val handicapChoices: List[SelectChoice] =
-      List(
-        ("", trans.selectHandicap.txt(), None),
-        (shogi.StartingPosition.initial.sfen.value, "平手 - Even", Some("default"))
-      ) ++
-        shogi.StartingPosition.handicaps.positions.map { v =>
-          (v.sfen.value, v.fullName, None)
-        }
     val positionChoices: List[SelectChoice] =
       List(
         ("default", trans.default.txt(), None),
@@ -32,44 +24,61 @@ private object bits {
     val url = form("sfen").value
       .fold(routes.Editor.index)(sfen => routes.Editor.parseArg(s"${variant.key}/$sfen"))
       .url
-    div(cls := "sfen_position optional_config")(
-      renderRadios(form("position"), positionChoices),
-      div(cls := "sfen_position_wrap")(
-        div(cls := "handicap label_select")(
-          renderLabel(form("handicap"), trans.handicap.txt()),
-          renderSelect(form("handicap"), handicapChoices, (a, _) => a == "default"),
-          a(
-            cls      := "button button-empty",
-            dataIcon := "",
-            title    := trans.handicap.txt(),
-            target   := "_blank",
-            href     := "https://en.wikipedia.org/wiki/Handicap_(shogi)"
-          )
-        ),
-        div(
-          cls             := "sfen_form",
-          dataValidateUrl := s"""${routes.Setup.validateSfen}${strict.??("?strict=1")}"""
-        )(
-          renderLabel(form("sfen"), "SFEN"),
-          form3.input(form("sfen"))(st.placeholder := trans.pasteTheSfenStringHere.txt()),
-          a(cls := "button button-empty", dataIcon := "m", title := trans.boardEditor.txt(), href := url)
-        ),
-        a(cls := "board_editor", href := url)(
-          span(cls := "preview")(
-            validSfen.map { vf =>
-              div(
-                cls           := "mini-board sg-wrap parse-sfen",
-                dataColor     := vf.color.name,
-                dataSfen      := vf.sfen.value,
-                dataVariant   := vf.situation.variant.key,
-                dataResizable := "1"
-              )(sgWrapContent)
-            }
+    if (ctx.blind)
+      div(
+        cls             := "sfen_form",
+        dataValidateUrl := s"""${routes.Setup.validateSfen}${strict.??("?strict=1")}"""
+      )(
+        renderLabel(form("sfen"), "SFEN"),
+        renderSfenInput(form("sfen"))(st.placeholder := trans.default.txt())
+      )
+    else
+      div(cls := "sfen_position optional_config")(
+        renderRadios(form("position"), positionChoices),
+        div(cls := "sfen_position_wrap")(
+          div(cls := "handicap label_select")(
+            renderLabel(form("handicap"), trans.handicap.txt()),
+            renderSelect(form("handicap"), Nil, (a, _) => a == "default"),
+            a(
+              cls      := "button button-empty",
+              dataIcon := "",
+              title    := trans.handicap.txt(),
+              target   := "_blank",
+              href     := "https://en.wikipedia.org/wiki/Handicap_(shogi)"
+            )
+          ),
+          div(
+            cls             := "sfen_form",
+            dataValidateUrl := s"""${routes.Setup.validateSfen}${strict.??("?strict=1")}"""
+          )(
+            renderLabel(form("sfen"), "SFEN"),
+            renderSfenInput(form("sfen"))(st.placeholder := trans.pasteTheSfenStringHere.txt()),
+            a(cls := "button button-empty", dataIcon := "m", title := trans.boardEditor.txt(), href := url)
+          ),
+          a(cls := "board_editor", href := url)(
+            span(cls := "preview")(
+              validSfen.map { vf =>
+                div(
+                  cls           := "mini-board sg-wrap parse-sfen",
+                  dataColor     := vf.color.name,
+                  dataSfen      := vf.sfen.value,
+                  dataVariant   := vf.situation.variant.key,
+                  dataResizable := "1"
+                )(sgWrapContent)
+              }
+            )
           )
         )
       )
-    )
   }
+
+  def renderSfenInput(field: Field) =
+    input(
+      `type`  := "text",
+      cls     := "form-control",
+      id      := s"$prefix${field.id}",
+      st.name := field.name
+    )
 
   def renderVariant(form: Form[_], variants: List[SelectChoice])(implicit ctx: Context) =
     div(cls := "variant label_select")(
@@ -139,7 +148,10 @@ private object bits {
             renderLabel(form("byoyomi"), trans.byoyomiInSeconds()),
             renderSelect(form("byoyomi"), clockByoyomiChoices)
           ),
-          renderRadios(form("periods"), periodsChoices),
+          div(cls := "periods")(
+            renderLabel(form("periods"), trans.periods()),
+            renderSelect(form("periods"), periodsChoices)
+          ),
           div(cls := "increment_choice")(
             renderLabel(form("increment"), trans.incrementInSeconds()),
             renderSelect(form("increment"), clockIncrementChoices)
@@ -161,7 +173,7 @@ private object bits {
             span(form("byoyomi").value),
             renderInput(form("byoyomi"))
           ),
-          a(cls := "advanced_toggle"),
+          div(cls := "advanced_toggle"),
           div(cls := "advanced_setup")(
             div(cls := "periods buttons")(
               trans.periods(),

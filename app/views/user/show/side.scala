@@ -45,8 +45,8 @@ object side {
             ratingProgress(perf.progress),
             " ",
             span(
-              if (perfType.key == "puzzle") trans.nbPuzzles(perf.nb, perf.nb.localize)
-              else trans.nbGames(perf.nb, perf.nb.localize)
+              if (perfType.key == "puzzle") trans.nbPuzzles.plural(perf.nb, perf.nb.localize)
+              else trans.nbGames.plural(perf.nb, perf.nb.localize)
             )
           ),
           rankMap get perfType map { rank =>
@@ -69,6 +69,9 @@ object side {
         showPerf(u.perfs.correspondence, PerfType.Correspondence),
         br,
         showNonEmptyPerf(u.perfs.minishogi, PerfType.Minishogi),
+        showNonEmptyPerf(u.perfs.chushogi, PerfType.Chushogi),
+        showNonEmptyPerf(u.perfs.annanshogi, PerfType.Annanshogi),
+        showNonEmptyPerf(u.perfs.kyotoshogi, PerfType.Kyotoshogi),
         br,
         u.noBot option showPerf(u.perfs.puzzle, PerfType.Puzzle),
         u.noBot option showStorm(u.perfs.storm, u)

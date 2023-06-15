@@ -113,7 +113,7 @@ final private class RelaySync(
         gameTags + Tag(_.Result, end.resultText)
       }
     val chapterNewTags = tags.value.foldLeft(chapter.tags) { case (chapterTags, tag) =>
-      KifTags(chapterTags + tag)
+      StudyTags(chapterTags + tag)
     }
     (chapterNewTags != chapter.tags) ?? {
       if (vs(chapterNewTags) != vs(chapter.tags))
@@ -148,9 +148,9 @@ final private class RelaySync(
         studyId = study.id,
         name = Chapter.Name(name),
         setup = Chapter.Setup(
-          none,
-          game.variant,
-          shogi.Color.Sente
+          gameId = none,
+          variant = game.variant,
+          orientation = shogi.Color.Sente
         ),
         root = game.root,
         tags = game.tags,

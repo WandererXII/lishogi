@@ -127,7 +127,7 @@ final class Team(
     Auth { implicit ctx => me =>
       WithOwnedTeam(id) { team =>
         env.team.memberRepo userIdsByTeam team.id map { userIds =>
-          html.team.admin.kick(team, userIds - me.id)
+          html.team.admin.kick(team, userIds.filter(me.id !=))
         }
       }
     }
@@ -274,9 +274,7 @@ final class Team(
             .fold(
               newJsonFormError,
               msg =>
-                env.oAuth.server.fetchAppAuthor(req) flatMap {
-                  api.joinApi(id, me, _, msg)
-                } flatMap {
+                api.join(id, me, msg) flatMap {
                   case Some(Joined(_)) => jsonOkResult.fuccess
                   case Some(Motivate(_)) =>
                     Forbidden(
@@ -518,7 +516,7 @@ You received this because you are subscribed to messages of the team $url."""
   private def WithOwnedTeam(teamId: String)(f: TeamModel => Fu[Result])(implicit ctx: Context): Fu[Result] =
     OptionFuResult(api team teamId) { team =>
       if (ctx.userId.exists(team.leaders.contains) || isGranted(_.ManageTeam)) f(team)
-      else renderTeam(team) map { Forbidden(_) }
+      else Redirect(routes.Team.show(team.id)).fuccess
     }
 
   private[controllers] def teamsIBelongTo(me: lila.user.User): Fu[List[LightTeam]] =

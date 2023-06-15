@@ -1,8 +1,10 @@
-import { h, VNode } from 'snabbdom';
-import GamebookPlayCtrl, { State } from './gamebookPlayCtrl';
 import { bind, dataIcon } from 'common/snabbdom';
-import { iconTag, richHTML } from '../../util';
+import { transWithColorName } from 'common/colorName';
 import { toBlackWhite } from 'shogiops/util';
+import { VNode, h } from 'snabbdom';
+import { iconTag, richHTML } from '../../util';
+import GamebookPlayCtrl, { State } from './gamebookPlayCtrl';
+import { isHandicap } from 'shogiops/handicaps';
 
 const defaultComments = {
   play: 'What would you play in this position?',
@@ -89,7 +91,15 @@ function renderFeedback(ctrl: GamebookPlayCtrl, state: State) {
             }),
             h('div.instruction', [
               h('strong', ctrl.trans.noarg('yourTurn')),
-              h('em', ctrl.trans.noarg(color === 'sente' ? 'findTheBestMoveForBlack' : 'findTheBestMoveForWhite')),
+              h(
+                'em',
+                transWithColorName(
+                  ctrl.trans,
+                  'findTheBestMoveForX',
+                  color,
+                  isHandicap({ rules: ctrl.root.data.game.variant.key, sfen: ctrl.root.data.game.initialSfen })
+                )
+              ),
             ]),
           ]
         : ['Good move!']

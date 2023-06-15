@@ -37,6 +37,17 @@ abstract private[controllers] class LilaController(val env: Env)
     def flashSuccess: Result              = flashSuccess("")
     def flashFailure(msg: String): Result = result.flashing("failure" -> msg)
     def flashFailure: Result              = flashFailure("")
+    def enableSharedArrayBuffer(implicit req: RequestHeader): Result = result.withHeaders(
+      "Cross-Origin-Opener-Policy" -> "same-origin",
+      "Cross-Origin-Embedder-Policy" -> {
+        if (HTTPRequest isChrome96OrMore req) "credentialless" else "require-corp"
+      }
+    )
+    def noCache = result.withHeaders(
+      CACHE_CONTROL -> "no-cache, no-store, must-revalidate",
+      EXPIRES       -> "0"
+    )
+
   }
 
   implicit protected def LilaFragToResult(frag: Frag): Result = Ok(frag)
@@ -65,19 +76,6 @@ abstract private[controllers] class LilaController(val env: Env)
   implicit def ctxReq(implicit ctx: Context)          = ctx.req
   implicit def reqConfig(implicit req: RequestHeader) = ui.EmbedConfig(req)
   def reqLang(implicit req: RequestHeader)            = I18nLangPicker(req)
-
-  protected def EnableSharedArrayBuffer(res: Result)(implicit req: RequestHeader): Result =
-    res.withHeaders(
-      "Cross-Origin-Opener-Policy" -> "same-origin",
-      "Cross-Origin-Embedder-Policy" -> (if (HTTPRequest isChrome96OrMore req) "credentialless"
-                                         else "require-corp")
-    )
-
-  protected def NoCache(res: Result): Result =
-    res.withHeaders(
-      CACHE_CONTROL -> "no-cache, no-store, must-revalidate",
-      EXPIRES       -> "0"
-    )
 
   protected def Open(f: Context => Fu[Result]): Action[Unit] =
     Open(parse.empty)(f)
@@ -424,12 +422,11 @@ abstract private[controllers] class LilaController(val env: Env)
       api = _ => notFoundJson("Resource not found")
     )
 
-  def notFoundJson(msg: String = "Not found"): Fu[Result] =
-    fuccess {
-      NotFound(jsonError(msg))
-    }
-
   def jsonError[A: Writes](err: A): JsObject = Json.obj("error" -> err)
+
+  def notFoundJsonSync(msg: String = "Not found"): Result = NotFound(jsonError(msg)) as JSON
+
+  def notFoundJson(msg: String = "Not found"): Fu[Result] = fuccess(notFoundJsonSync(msg))
 
   def notForBotAccounts =
     BadRequest(
@@ -501,9 +498,10 @@ abstract private[controllers] class LilaController(val env: Env)
     }
 
   private def getAndSaveLang(req: RequestHeader, user: Option[UserModel]): Lang = {
-    val lang = I18nLangPicker(req, user.flatMap(_.lang))
-    user.filter(_.lang.fold(true)(_ != lang.code)) foreach { env.user.repo.setLang(_, lang) }
-    lang
+    val langToSave = I18nLangPicker(req, user.flatMap(_.lang))
+    user.filter(_.lang.fold(true)(_ != langToSave.code)) foreach { env.user.repo.setLang(_, langToSave) }
+    val queryLang = req.getQueryString("lang").flatMap(I18nLangPicker.byQuery)
+    queryLang.getOrElse(langToSave)
   }
 
   private def pageDataBuilder(ctx: UserContext, hasFingerPrint: Boolean): Fu[PageData] = {
@@ -586,7 +584,7 @@ abstract private[controllers] class LilaController(val env: Env)
       max: Int = 40,
       errorPage: => Fu[Result] = BadRequest("resource too old").fuccess
   )(result: => Fu[Result]): Fu[Result] =
-    if (page < max) result else errorPage
+    if (page < max && page > 0) result else errorPage
 
   protected def NotForKids(f: => Fu[Result])(implicit ctx: Context) =
     if (ctx.kid) notFound else f
@@ -594,11 +592,11 @@ abstract private[controllers] class LilaController(val env: Env)
   protected def NotForBots(res: => Fu[Result])(implicit ctx: Context) =
     if (HTTPRequest isCrawler ctx.req) notFound else res
 
-  protected def OnlyHumans(result: => Fu[Result])(implicit ctx: lila.api.Context) =
+  protected def OnlyHumans(result: => Fu[Result])(implicit ctx: Context) =
     if (HTTPRequest isCrawler ctx.req) fuccess(NotFound)
     else result
 
-  protected def OnlyHumansAndFacebookOrTwitter(result: => Fu[Result])(implicit ctx: lila.api.Context) =
+  protected def OnlyHumansAndFacebookOrTwitter(result: => Fu[Result])(implicit ctx: Context) =
     if (HTTPRequest isFacebookOrTwitterBot ctx.req) result
     else if (HTTPRequest isCrawler ctx.req) fuccess(NotFound)
     else result
@@ -651,13 +649,7 @@ abstract private[controllers] class LilaController(val env: Env)
   protected def pageHit(req: RequestHeader): Unit =
     if (HTTPRequest isHuman req) lila.mon.http.path(req.path).increment().unit
 
-  protected def makeCustomResult(status: Int, reasonPhrase: String) =
-    Result(
-      header = new ResponseHeader(status, reasonPhrase = reasonPhrase.some).pp,
-      body = play.api.http.HttpEntity.NoEntity
-    )
-
-  protected def pageHit(implicit ctx: lila.api.Context): Unit = pageHit(ctx.req)
+  protected def pageHit(implicit ctx: Context): Unit = pageHit(ctx.req)
 
   protected val noProxyBufferHeader = "X-Accel-Buffering" -> "no"
   protected val noProxyBuffer       = (res: Result) => res.withHeaders(noProxyBufferHeader)

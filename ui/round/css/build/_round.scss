@@ -2,6 +2,7 @@
 @import '../../../common/css/vendor/shogiground/coords';
 @import '../../../common/css/layout/uniboard';
 @import '../../../common/css/component/board-resize';
+@import '../../../common/css/component/modal';
 @import '../../../common/css/component/color-icon';
 @import '../../../common/css/component/crosstable';
 @import '../../../common/css/component/fbt';
@@ -13,4 +14,5 @@
 @import '../../../common/css/vendor/shogiground/blindfold';
 @import '../../../chat/css/chat';
 @import '../../../chat/css/preset';
+@import '../../../keyboardMove/css/keyboardMove';
 @import '../round';

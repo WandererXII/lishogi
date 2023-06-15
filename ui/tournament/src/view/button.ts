@@ -1,8 +1,8 @@
-import { h, VNode } from 'snabbdom';
-import spinner from 'common/spinner';
 import { bind, dataIcon } from 'common/snabbdom';
-import { isIn } from '../tournament';
+import spinner from 'common/spinner';
+import { VNode, h } from 'snabbdom';
 import TournamentController from '../ctrl';
+import { isIn } from '../tournament';
 
 function orJoinSpinner(ctrl: TournamentController, f: () => VNode): VNode {
   return ctrl.joinSpinner ? spinner() : f();
@@ -87,7 +87,7 @@ export function joinWithdraw(ctrl: TournamentController): VNode | undefined {
           'data-icon': 'G',
         },
       },
-      ctrl.trans('signIn')
+      ctrl.trans.noarg('signIn')
     );
   if (!ctrl.data.isFinished) return isIn(ctrl) ? withdraw(ctrl) : join(ctrl);
 }

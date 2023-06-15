@@ -1,13 +1,16 @@
 import * as miniBoard from 'common/mini-board';
-import StormCtrl from '../ctrl';
-import { getNow } from 'puz/util';
-import { h, VNode } from 'snabbdom';
 import { numberSpread } from 'common/number';
 import { onInsert } from 'common/snabbdom';
+import { getNow } from 'puz/util';
+import { toColor } from 'shogiops/util';
+import { VNode, h } from 'snabbdom';
+import StormCtrl from '../ctrl';
 
 const renderEnd = (ctrl: StormCtrl): VNode[] => [...renderSummary(ctrl), renderHistory(ctrl)];
 
-const newHighI18n = {
+const newHighI18n: {
+  [key: string]: I18nKey;
+} = {
   day: 'newDailyHighscore',
   week: 'newWeeklyHighscore',
   month: 'newMonthlyHighscore',
@@ -116,8 +119,7 @@ const renderHistory = (ctrl: StormCtrl): VNode => {
                   target: '_blank',
                 },
                 hook: onInsert(e => {
-                  // tsume starts always from sente side
-                  miniBoard.initWith(e, round.puzzle.sfen, 'sente');
+                  miniBoard.initWith(e, round.puzzle.sfen, toColor(round.puzzle.sfen.split(' ')[1]));
                 }),
               }),
               h('span.storm--end__history__round__meta', [

@@ -1,6 +1,6 @@
-import AnalyseCtrl from '../../ctrl';
-import { path as treePath, ops as treeOps } from 'tree';
+import { ops as treeOps, path as treePath } from 'tree';
 import { makeShapesFromUsi } from '../../autoShape';
+import AnalyseCtrl from '../../ctrl';
 
 type Feedback = 'play' | 'good' | 'bad' | 'end';
 
@@ -103,7 +103,9 @@ export default class GamebookPlayCtrl {
   };
 
   solution = () => {
-    this.root.shogiground.setShapes(makeShapesFromUsi(this.root.turnColor(), this.root.node.children[0].usi!, 'green'));
+    this.root.shogiground.setShapes(
+      makeShapesFromUsi(this.root.turnColor(), this.root.node.children[0].usi!, 'engine')
+    );
   };
 
   canJumpTo = (path: Tree.Path) => treePath.contains(this.root.path, path);

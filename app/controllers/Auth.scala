@@ -38,7 +38,7 @@ final class Auth(
     api.saveAuthentication(u.id, ctx.mobileApiVersion) flatMap { sessionId =>
       negotiate(
         html = fuccess {
-          val redirectTo = get("referrer").filter(env.api.referrerRedirect.valid) orElse
+          val redirectTo = get("referrer").flatMap(env.api.referrerRedirect.valid) orElse
             ctxReq.session.get(api.AccessUri) getOrElse
             routes.Lobby.home.url
           result.fold(Redirect(redirectTo))(_(redirectTo))
@@ -50,7 +50,7 @@ final class Auth(
   private def authenticateCookie(sessionId: String)(result: Result)(implicit req: RequestHeader) =
     result.withCookies(
       env.lilaCookie.withSession {
-        _ + (api.sessionIdKey -> sessionId) - api.AccessUri - lila.security.EmailConfirm.cookie.name
+        _ + (lila.common.HTTPRequest.userSessionIdKey -> sessionId) - api.AccessUri - lila.security.EmailConfirm.cookie.name
       }
     )
 
@@ -64,7 +64,7 @@ final class Auth(
 
   def login =
     Open { implicit ctx =>
-      val referrer = get("referrer").filter(env.api.referrerRedirect.valid)
+      val referrer = get("referrer").flatMap(env.api.referrerRedirect.valid)
       referrer ifTrue ctx.isAuth match {
         case Some(url) => Redirect(url).fuccess // redirect immediately if already logged in
         case None      => Ok(html.auth.login(api.loginForm, referrer)).fuccess
@@ -78,7 +78,7 @@ final class Auth(
       def redirectTo(url: String) = if (HTTPRequest isXhr ctx.req) Ok(s"ok:$url") else Redirect(url)
       Firewall {
         implicit val req = ctx.body
-        val referrer     = get("referrer").filterNot(env.api.referrerRedirect.sillyLoginReferrers.contains)
+        val referrer     = get("referrer").filterNot(env.api.referrerRedirect.sillyLoginReferrers)
         api.usernameOrEmailForm
           .bindFromRequest()
           .fold(
@@ -129,7 +129,7 @@ final class Auth(
 
   def logout =
     Open { implicit ctx =>
-      val currentSessionId = ~env.security.api.reqSessionId(ctx.req)
+      val currentSessionId = ~lila.common.HTTPRequest.userSessionId(ctx.req)
       env.security.store.delete(currentSessionId) >>
         env.push.webSubscriptionApi.unsubscribeBySession(currentSessionId) >>
         negotiate(
@@ -144,7 +144,7 @@ final class Auth(
       negotiate(
         html = notFound,
         api = _ => {
-          ctxReq.session get api.sessionIdKey foreach env.security.store.delete
+          ctxReq.session get lila.common.HTTPRequest.userSessionIdKey foreach env.security.store.delete
           Ok(Json.obj("ok" -> true)).withCookies(env.lilaCookie.newSession).fuccess
         }
       )
@@ -292,7 +292,7 @@ final class Auth(
         _ ?? { hash =>
           !me.lame ?? (for {
             otherIds <- api.recentUserIdsByFingerHash(hash).map(_.filter(me.id.!=))
-            _ <- (otherIds.size >= 2) ?? env.user.repo.countEngines(otherIds).flatMap {
+            _ <- (otherIds.sizeIs >= 2) ?? env.user.repo.countEngines(otherIds).flatMap {
               case nb if nb >= 2 && nb >= otherIds.size / 2 => env.report.api.autoCheatPrintReport(me.id)
               case _                                        => funit
             }
@@ -443,17 +443,17 @@ final class Auth(
       }
     }
 
-  def makeLoginToken =
-    Auth { _ => me =>
-      JsonOk {
-        env.security.loginToken generate me map { token =>
-          Json.obj(
-            "userId" -> me.id,
-            "url"    -> s"${env.net.baseUrl}${routes.Auth.loginWithToken(token).url}"
-          )
-        }
-      }
+  private def loginTokenFor(me: UserModel) = JsonOk {
+    env.security.loginToken generate me map { token =>
+      Json.obj(
+        "userId" -> me.id,
+        "url"    -> s"${env.net.baseUrl}${routes.Auth.loginWithToken(token).url}"
+      )
     }
+  }
+
+  def makeLoginToken =
+    AuthOrScoped(_.Web.Login)(_ => loginTokenFor, _ => loginTokenFor)
 
   def loginWithToken(token: String) =
     Open { implicit ctx =>

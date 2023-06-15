@@ -19,7 +19,7 @@ object importGame {
       moreJs = jsTag("importer.js"),
       openGraph = lila.app.ui
         .OpenGraph(
-          title = "Paste KIF or CSA shogi game",
+          title = trans.importGame.txt(),
           url = s"$netBaseUrl${routes.Importer.importGame.url}",
           description = trans.importGameKifCsaExplanation.txt()
         )
@@ -35,7 +35,7 @@ object importGame {
             ),
             div(cls := "right")(
               form3.group(form("notationFile"), raw("Or upload a KIF/CSA file"), klass = "upload") { f =>
-                form3.file.notation(f.name)
+                form3.file.notation(f)
               },
               form3.checkbox(
                 form("analyse"),

@@ -64,8 +64,7 @@ object bits {
 
   def variantLink(
       variant: shogi.variant.Variant,
-      perfType: Option[lila.rating.PerfType] = None,
-      initialSfen: Option[shogi.format.forsyth.Sfen] = None
+      perfType: Option[lila.rating.PerfType] = None
   )(implicit lang: Lang): Frag = {
     def link(
         href: String,
@@ -83,7 +82,7 @@ object bits {
       link(
         href = routes.Page.variant(variant.key).url,
         title = variant.title,
-        name = variant.name.toUpperCase
+        name = variantName(variant)
       )
     else
       perfType match {
@@ -94,7 +93,7 @@ object bits {
             name = Correspondence.trans
           )
         case Some(pt) => span(title := pt.desc)(pt.trans)
-        case _        => variant.name.toUpperCase
+        case _        => variantName(variant)
       }
   }
 

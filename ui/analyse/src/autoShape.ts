@@ -1,14 +1,16 @@
-import { isDrop, Role } from 'shogiops/types';
 import { winningChances } from 'ceval';
-import * as sg from 'shogiground/types';
-import { opposite } from 'shogiground/util';
 import { DrawShape } from 'shogiground/draw';
+import { opposite } from 'shogiground/util';
+import { Role, isDrop } from 'shogiops/types';
+import { makeSquareName, parseUsi } from 'shogiops/util';
 import AnalyseCtrl from './ctrl';
-import { promote } from 'shogiops/variantUtil';
-import { defined } from 'common/common';
-import { makeSquare, parseUsi } from 'shogiops/util';
 
-function pieceDrop(key: sg.Key, role: Role, color: Color): DrawShape {
+function pieceDrop(
+  key: Key,
+  role: Role,
+  color: Color,
+  brush: 'engine' | 'engineAlt' | 'engineThreat' | 'engineThreatAlt'
+): DrawShape {
   return {
     orig: key,
     dest: key,
@@ -17,48 +19,46 @@ function pieceDrop(key: sg.Key, role: Role, color: Color): DrawShape {
       role,
       scale: 0.8,
     },
-    brush: 'green',
+    brush: brush,
   };
 }
 
-export function makeShapesFromUsi(color: Color, usi: Usi, brush: string, pieces?: sg.Pieces): DrawShape[] {
+export function makeShapesFromUsi(
+  color: Color,
+  usi: Usi,
+  brush: 'engine' | 'engineAlt' | 'engineThreat' | 'engineThreatAlt'
+): DrawShape[] {
   const move = parseUsi(usi)!;
-  const to = makeSquare(move.to) as Key;
-  if (isDrop(move)) return [{ orig: to, dest: to, brush }, pieceDrop(to, move.role, color)];
+  const to = makeSquareName(move.to);
+  if (isDrop(move)) return [{ orig: to, dest: to, brush }, pieceDrop(to, move.role, color, brush)];
 
-  const shapes: DrawShape[] = [
+  return [
     {
-      orig: makeSquare(move.from) as Key,
+      orig: makeSquareName(move.from),
       dest: to,
+      description: move.promotion ? '+' : undefined,
       brush,
     },
   ];
-  const pieceToPromote = move.promotion ? pieces?.get(makeSquare(move.from) as Key) : undefined;
-  if (defined(pieceToPromote)) {
-    // todo variant
-    shapes.push(pieceDrop(to, promote('standard')(pieceToPromote.role) || pieceToPromote.role, color));
-  }
-  return shapes;
 }
 
 export function compute(ctrl: AnalyseCtrl): DrawShape[] {
   const color = ctrl.node.sfen.includes(' w') ? 'gote' : 'sente';
   const rcolor = opposite(color);
-  const pieces = ctrl.shogiground.state.pieces;
 
   if (ctrl.practice) {
-    if (ctrl.practice.hovering()) return makeShapesFromUsi(color, ctrl.practice.hovering().usi, 'paleGreen', pieces);
+    if (ctrl.practice.hovering()) return makeShapesFromUsi(color, ctrl.practice.hovering().usi, 'engine');
     const hint = ctrl.practice.hinting();
 
     if (hint) {
-      if (hint.mode === 'move') return makeShapesFromUsi(color, hint.usi, 'paleGreen', pieces);
+      if (hint.mode === 'move') return makeShapesFromUsi(color, hint.usi, 'engine');
       else {
         const move = parseUsi(hint.usi)!;
         return [
           {
-            orig: isDrop(move) ? { color, role: move.role } : (makeSquare(move.from) as Key),
-            dest: isDrop(move) ? { color, role: move.role } : (makeSquare(move.from) as Key),
-            brush: 'paleGreen',
+            orig: isDrop(move) ? { color, role: move.role } : makeSquareName(move.from),
+            dest: isDrop(move) ? { color, role: move.role } : makeSquareName(move.from),
+            brush: 'engine',
           },
         ];
       }
@@ -71,22 +71,21 @@ export function compute(ctrl: AnalyseCtrl): DrawShape[] {
 
   let shapes: DrawShape[] = [];
   if (ctrl.retro && ctrl.retro.showBadNode()) {
-    return makeShapesFromUsi(color, ctrl.retro.showBadNode().usi, 'paleRed', pieces);
+    return makeShapesFromUsi(color, ctrl.retro.showBadNode().usi, 'engineThreat');
   }
-  if (hovering && hovering.sfen === nSfen)
-    shapes = shapes.concat(makeShapesFromUsi(color, hovering.usi, 'paleGreen', pieces));
+  if (hovering && hovering.sfen === nSfen) shapes = shapes.concat(makeShapesFromUsi(color, hovering.usi, 'engine'));
   if (ctrl.showAutoShapes() && ctrl.showComputer()) {
-    if (nEval.best) shapes = shapes.concat(makeShapesFromUsi(rcolor, nEval.best, 'paleGreen', pieces));
+    if (nEval.best) shapes = shapes.concat(makeShapesFromUsi(rcolor, nEval.best, 'engine'));
     if (!hovering && parseInt(instance.multiPv())) {
-      const nextBest = instance.enabled() && nCeval ? nCeval.pvs[0].moves[0] : ctrl.nextNodeBest();
-      if (nextBest) shapes = shapes.concat(makeShapesFromUsi(color, nextBest, 'paleGreen', pieces));
+      const curNodeBest = instance.enabled() && nCeval,
+        nextBest = curNodeBest ? nCeval.pvs[0].moves[0] : ctrl.nextNodeBest();
+      if (nextBest) shapes = shapes.concat(makeShapesFromUsi(color, nextBest, curNodeBest ? 'engine' : 'engineThreat'));
       if (instance.enabled() && nCeval && nCeval.pvs[1] && !(ctrl.threatMode() && nThreat && nThreat.pvs.length > 2)) {
-        nCeval.pvs.forEach(function (pv, i) {
+        nCeval.pvs.forEach((pv, i) => {
           if (pv.moves[0] === nextBest) return;
-          const shift = winningChances.povDiff(color, nCeval.pvs[0], pv),
-            brush = i === 0 ? 'paleGreen' : 'palerGreen';
+          const shift = winningChances.povDiff(color, nCeval.pvs[0], pv);
           if (shift >= 0 && shift < 0.2) {
-            shapes = shapes.concat(makeShapesFromUsi(color, pv.moves[0], brush, pieces));
+            shapes = shapes.concat(makeShapesFromUsi(color, pv.moves[0], i > 0 ? 'engineAlt' : 'engine'));
           }
         });
       }
@@ -95,12 +94,12 @@ export function compute(ctrl: AnalyseCtrl): DrawShape[] {
   if (instance.enabled() && ctrl.threatMode() && nThreat) {
     const [pv0, ...pv1s] = nThreat.pvs;
 
-    shapes = shapes.concat(makeShapesFromUsi(rcolor, pv0.moves[0], pv1s.length > 0 ? 'paleRed' : 'red', pieces));
+    shapes = shapes.concat(makeShapesFromUsi(rcolor, pv0.moves[0], 'engineThreat'));
 
-    pv1s.forEach(function (pv) {
+    pv1s.forEach(pv => {
       const shift = winningChances.povDiff(rcolor, pv, pv0);
       if (shift >= 0 && shift < 0.2) {
-        shapes = shapes.concat(makeShapesFromUsi(rcolor, pv.moves[0], 'paleRed', pieces));
+        shapes = shapes.concat(makeShapesFromUsi(rcolor, pv.moves[0], 'engineThreatAlt'));
       }
     });
   }
@@ -112,8 +111,8 @@ export function compute(ctrl: AnalyseCtrl): DrawShape[] {
         move = parseUsi(usi);
       if (svg && move) {
         shapes = shapes.concat({
-          orig: makeSquare(move.to) as Key,
-          dest: makeSquare(move.to) as Key,
+          orig: makeSquareName(move.to),
+          dest: makeSquareName(move.to),
           customSvg: svg,
           brush: '',
         });

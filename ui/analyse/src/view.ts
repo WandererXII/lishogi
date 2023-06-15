@@ -1,54 +1,62 @@
-import { h, VNode } from 'snabbdom';
-import { parseSfen } from 'shogiops/sfen';
-import * as shogiground from './ground';
+import { view as cevalView } from 'ceval';
+import { transWithColorName } from 'common/colorName';
 import { defined } from 'common/common';
-import { bind, onInsert, dataIcon, bindNonPassive, bindMobileMousedown } from 'common/snabbdom';
-import { getPlayer, playable } from 'game';
+import { bindMobileMousedown } from 'common/mobile';
+import { bind, bindNonPassive, dataIcon, MaybeVNode, onInsert } from 'common/snabbdom';
+import spinner from 'common/spinner';
+import stepwiseScroll from 'common/wheel';
+import { playable } from 'game';
 import * as router from 'game/router';
 import statusView from 'game/view/status';
+import { isHandicap } from 'shogiops/handicaps';
+import { parseSfen } from 'shogiops/sfen';
+import { VNode, h } from 'snabbdom';
 import { path as treePath } from 'tree';
-import { render as renderTreeView } from './treeView/treeView';
-import * as control from './control';
+import { render as acplView } from './acpl';
 import { view as actionMenu } from './actionMenu';
 import renderClocks from './clocks';
-import * as notationExport from './notationExport';
-import forecastView from './forecast/forecastView';
-import { view as cevalView } from 'ceval';
-import { view as keyboardView } from './keyboard';
+import * as control from './control';
+import AnalyseCtrl from './ctrl';
 import explorerView from './explorer/explorerView';
-import retroView from './retrospect/retroView';
+import forecastView from './forecast/forecastView';
+import { view as forkView } from './fork';
+import * as gridHacks from './gridHacks';
+import * as shogiground from './ground';
+import { ConcealOf } from './interfaces';
+import { view as keyboardView } from './keyboard';
+import * as notationExport from './notationExport';
 import practiceView from './practice/practiceView';
+import retroView from './retrospect/retroView';
+import serverSideUnderboard from './serverSideUnderboard';
 import * as gbEdit from './study/gamebook/gamebookEdit';
 import * as gbPlay from './study/gamebook/gamebookPlayView';
 import { StudyCtrl } from './study/interfaces';
-import * as studyView from './study/studyView';
-import * as studyPracticeView from './study/practice/studyPracticeView';
-import { view as forkView } from './fork';
-import { render as acplView } from './acpl';
-import AnalyseCtrl from './ctrl';
-import { ConcealOf } from './interfaces';
-import relayManager from './study/relay/relayManagerView';
-import relayIntro from './study/relay/relayIntroView';
 import renderPlayerBars from './study/playerBars';
-import serverSideUnderboard from './serverSideUnderboard';
-import * as gridHacks from './gridHacks';
-import spinner from 'common/spinner';
-import stepwiseScroll from 'common/wheel';
+import * as studyPracticeView from './study/practice/studyPracticeView';
+import relayIntro from './study/relay/relayIntroView';
+import relayManager from './study/relay/relayManagerView';
+import * as studyView from './study/studyView';
+import { render as renderTreeView } from './treeView/treeView';
+import { studyAdvancedButton } from './viewModal';
 
 const li = window.lishogi;
 
-function renderResult(ctrl: AnalyseCtrl): VNode[] {
-  const tags: VNode[] = [];
+function renderResult(ctrl: AnalyseCtrl): MaybeVNode {
+  const handicap = isHandicap({ rules: ctrl.data.game.variant.key, sfen: ctrl.data.game.initialSfen });
+  const render = (status: String, winner?: Color) =>
+    h('div.status', [status, winner ? ', ' + transWithColorName(ctrl.trans, 'xIsVictorious', winner, handicap) : null]);
   if (ctrl.data.game.status.id >= 30) {
-    const winner = getPlayer(ctrl.data, ctrl.data.game.winner!);
-    tags.push(
-      h('div.status', [
-        statusView(ctrl),
-        winner ? ', ' + ctrl.trans(winner.color == 'sente' ? 'blackIsVictorious' : 'whiteIsVictorious') : null,
-      ])
+    const status = statusView(ctrl.trans, ctrl.data.game.status, ctrl.data.game.winner, handicap);
+    return render(status, ctrl.data.game.winner);
+  } else if (ctrl.study && ctrl.study.data.chapter.setup.endStatus) {
+    const status = statusView(
+      ctrl.trans,
+      ctrl.study.data.chapter.setup.endStatus.status,
+      ctrl.study.data.chapter.setup.endStatus.winner,
+      handicap
     );
-  }
-  return tags;
+    return render(status, ctrl.study.data.chapter.setup.endStatus.winner);
+  } else return null;
 }
 
 function makeConcealOf(ctrl: AnalyseCtrl): ConcealOf | undefined {
@@ -71,13 +79,11 @@ function makeConcealOf(ctrl: AnalyseCtrl): ConcealOf | undefined {
 }
 
 function renderAnalyse(ctrl: AnalyseCtrl, concealOf?: ConcealOf) {
-  return h(
-    'div.analyse__moves.areplay',
-    [
-      ctrl.embed && ctrl.study ? h('div.chapter-name', ctrl.study.currentChapter().name) : null,
-      renderTreeView(ctrl, concealOf),
-    ].concat(renderResult(ctrl))
-  );
+  return h('div.analyse__moves.areplay', [
+    ctrl.embed && ctrl.study ? h('div.chapter-name', ctrl.study.currentChapter().name) : null,
+    renderTreeView(ctrl, concealOf),
+    renderResult(ctrl),
+  ]);
 }
 
 function inputs(ctrl: AnalyseCtrl): VNode | undefined {
@@ -249,7 +255,7 @@ function controls(ctrl: AnalyseCtrl) {
       ctrl.embed
         ? null
         : h(
-            'div.features',
+            'div.features' + (!ctrl.synthetic ? '.from-game' : ''),
             ctrl.studyPractice
               ? [
                   h('a.fbt', {
@@ -274,15 +280,16 @@ function controls(ctrl: AnalyseCtrl) {
                   //    active: ctrl.explorer.enabled(),
                   //  },
                   //}),
+                  !ctrl.synthetic ? studyAdvancedButton(ctrl, menuIsOpen) : null,
                   ctrl.ceval.possible && ctrl.ceval.allowed() && !ctrl.isGamebook()
                     ? h('button.fbt', {
                         attrs: {
                           title: noarg('practiceWithComputer'),
                           'data-act': 'practice',
                           'data-icon': '',
+                          hidden: menuIsOpen || !!ctrl.retro,
                         },
                         class: {
-                          hidden: menuIsOpen || !!ctrl.retro,
                           active: !!ctrl.practice,
                         },
                       })
@@ -334,7 +341,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
     needsInnerCoords = !!gaugeOn || !!playerBars,
     intro = relayIntro(ctrl);
   return h(
-    'main.analyse.variant-' + ctrl.data.game.variant.key,
+    'main.sb-insert.analyse.variant-' + ctrl.data.game.variant.key, // sb-insert - to force snabbdom to call insert
     {
       hook: {
         insert: vn => {
@@ -359,6 +366,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
         'comp-off': !ctrl.showComputer(),
         'gauge-on': gaugeOn,
         'has-players': !!playerBars,
+        'post-game': !!ctrl.study?.data.postGameStudy,
         'has-clocks': !!clocks,
         'has-intro': !!intro,
       },
@@ -394,7 +402,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
           ]
         ),
       gaugeOn && !intro ? cevalView.renderGauge(ctrl) : null,
-      intro ? null : shogiground.renderHand(ctrl, 'top'),
+      intro || ctrl.data.game.variant.key === 'chushogi' ? null : shogiground.renderHand(ctrl, 'top'),
       gamebookPlayView ||
         (intro
           ? null
@@ -409,7 +417,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
                     retroView(ctrl) || practiceView(ctrl) || explorerView(ctrl),
                   ]),
             ])),
-      intro ? null : shogiground.renderHand(ctrl, 'bottom'),
+      intro || ctrl.data.game.variant.key === 'chushogi' ? null : shogiground.renderHand(ctrl, 'bottom'),
       gamebookPlayView || intro ? null : controls(ctrl),
       ctrl.embed || intro
         ? null

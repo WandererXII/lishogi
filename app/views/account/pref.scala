@@ -50,12 +50,20 @@ object pref {
         postForm(cls := "autosubmit", action := routes.Pref.formApply)(
           categFieldset(PrefCateg.GameDisplay, categ)(
             setting(
+              boardLayout(),
+              radios(form("display.boardLayout"), translatedBoardLayoutChoices)
+            ),
+            setting(
               pieceAnimation(),
               radios(form("display.animation"), translatedAnimationChoices)
             ),
             setting(
               boardCoordinates(),
               radios(form("display.coords"), translatedBoardCoordinateChoices)
+            ),
+            setting(
+              clearHands(),
+              radios(form("display.clearHands"), booleanChoices)
             ),
             setting(
               boardHighlightsLastDests(),
@@ -80,6 +88,10 @@ object pref {
             setting(
               moveListWhilePlaying(),
               radios(form("display.replay"), translatedMoveListWhilePlayingChoices)
+            ),
+            setting(
+              colorName(),
+              radios(form("display.colorName"), translatedColorNameChoices)
             ),
             setting(
               zenMode(),
@@ -135,8 +147,7 @@ object pref {
             ),
             setting(
               inputMovesWithTheKeyboard(),
-              radios(form("behavior.keyboardMove"), booleanChoices),
-              false
+              radios(form("behavior.keyboardMove"), booleanChoices)
             ),
             setting(
               scrollOnTheBoardToReplayMoves(),

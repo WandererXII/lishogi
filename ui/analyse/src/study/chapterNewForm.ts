@@ -1,19 +1,19 @@
-import { h, VNode } from 'snabbdom';
-import { defined, prop, Prop } from 'common/common';
-import { storedProp, StoredProp } from 'common/storage';
+import { standardColorName } from 'common/colorName';
+import { Prop, defined, prop } from 'common/common';
 import { bind, bindSubmit, onInsert } from 'common/snabbdom';
 import spinner from 'common/spinner';
+import { StoredProp, storedProp } from 'common/storage';
 import * as xhr from 'common/xhr';
-import { option } from '../util';
-import { variants as xhrVariants, importNotation } from './studyXhr';
-import * as modal from '../modal';
-import { chapter as chapterTour } from './studyTour';
-import { StudyChapterMeta } from './interfaces';
-import { Redraw } from '../interfaces';
+import { VNode, h } from 'snabbdom';
 import AnalyseCtrl from '../ctrl';
-import { toBlackWhite } from 'shogiops/util';
+import { Redraw } from '../interfaces';
+import * as modal from '../modal';
+import { option } from '../util';
+import { StudyChapterMeta } from './interfaces';
+import { chapter as chapterTour } from './studyTour';
+import { importNotation, variants as xhrVariants } from './studyXhr';
 
-export const modeChoices = [
+export const modeChoices: [string, I18nKey][] = [
   ['normal', 'normalAnalysis'],
   ['practice', 'practiceWithComputer'],
   ['conceal', 'hideNextMoves'],
@@ -32,6 +32,7 @@ export interface StudyChapterNewFormCtrl {
     tab: StoredProp<string>;
     editor: any;
     editorSfen: Prop<Sfen | null>;
+    editorVariant: Prop<VariantKey | null>;
   };
   open(): void;
   openInitial(): void;
@@ -56,6 +57,7 @@ export function ctrl(
     tab: storedProp('study.form.tab', 'init'),
     editor: null,
     editorSfen: prop(null),
+    editorVariant: prop(null),
   };
 
   function loadVariants() {
@@ -155,9 +157,10 @@ export function view(ctrl: StudyChapterNewFormCtrl): VNode {
           hook: bindSubmit(e => {
             const o: any = {
               sfen: fieldValue(e, 'sfen') || (ctrl.vm.tab() === 'edit' ? ctrl.vm.editorSfen() : null),
+              variant: (ctrl.vm.tab() === 'edit' && ctrl.vm.editorVariant()) || fieldValue(e, 'variant'),
               isDefaultName: isDefaultName,
             };
-            'name game variant notation orientation mode'.split(' ').forEach(field => {
+            'name game notation orientation mode'.split(' ').forEach(field => {
               o[field] = fieldValue(e, field);
             });
             ctrl.submit(o);
@@ -194,7 +197,7 @@ export function view(ctrl: StudyChapterNewFormCtrl): VNode {
             makeTab('edit', noarg('editor'), noarg('startFromCustomPosition')),
             makeTab('game', 'URL', noarg('loadAGameByUrl')),
             makeTab('sfen', 'SFEN', noarg('loadAPositionFromSfen')),
-            makeTab('notation', 'KIF/CSA', noarg('loadAGameFromKifCsa')),
+            makeTab('notation', 'KIF/CSA', 'KIF/CSA'),
           ]),
           activeTab === 'edit'
             ? h(
@@ -215,7 +218,10 @@ export function view(ctrl: StudyChapterNewFormCtrl): VNode {
                         data.embed = true;
                         data.options = {
                           orientation: currentChapter.setup.orientation,
-                          onChange: ctrl.vm.editorSfen,
+                          onChange: (sfen, variant) => {
+                            ctrl.vm.editorSfen(sfen);
+                            ctrl.vm.editorVariant(variant);
+                          },
                         };
                         ctrl.vm.editor = window['LishogiEditor'](vnode.elm as HTMLElement, data);
                         ctrl.vm.editorSfen(ctrl.vm.editor.getSfen());
@@ -236,7 +242,7 @@ export function view(ctrl: StudyChapterNewFormCtrl): VNode {
                   {
                     attrs: { for: 'chapter-game' },
                   },
-                  trans('loadAGameFromXOrY', 'lishogi.org')
+                  trans('loadAGameFromX', 'lishogi.org')
                 ),
                 h('textarea#chapter-game.form-control', {
                   attrs: { placeholder: noarg('urlOfTheGame') },
@@ -297,7 +303,7 @@ export function view(ctrl: StudyChapterNewFormCtrl): VNode {
                 {
                   attrs: { for: 'chapter-variant' },
                 },
-                noarg('Variant')
+                noarg('variant')
               ),
               h(
                 'select#chapter-variant.form-control',
@@ -306,7 +312,9 @@ export function view(ctrl: StudyChapterNewFormCtrl): VNode {
                 },
                 notVariantTab
                   ? [h('option', noarg('automatic'))]
-                  : ctrl.vm.variants.map(v => option(v.key, currentChapter.setup.variant.key, v.name))
+                  : ctrl.vm.variants.map(v =>
+                      option(v.key, currentChapter.setup.variant.key, ctrl.root.trans.noarg(v.key))
+                    )
               ),
             ]),
             h('div.form-group.form-half', [
@@ -324,8 +332,8 @@ export function view(ctrl: StudyChapterNewFormCtrl): VNode {
                     ctrl.vm.editor && ctrl.vm.editor.setOrientation((e.target as HTMLInputElement).value);
                   }),
                 },
-                ['sente', 'gote'].map(function (color) {
-                  return option(color, currentChapter.setup.orientation, noarg(toBlackWhite(color)));
+                ['sente', 'gote'].map(function (color: Color) {
+                  return option(color, currentChapter.setup.orientation, standardColorName(noarg, color));
                 })
               ),
             ]),

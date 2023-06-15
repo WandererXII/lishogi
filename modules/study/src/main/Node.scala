@@ -3,8 +3,9 @@ package lila.study
 import shogi.format.{ Glyph, Glyphs }
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.{ Usi, UsiCharPair }
-
+import shogi.variant.Variant
 import shogi.Centis
+
 import lila.tree.Eval.Score
 import lila.tree.Node.{ Comment, Comments, Gamebook, Shapes }
 
@@ -23,6 +24,9 @@ sealed trait RootOrNode {
   def mainline: Vector[Node]
   def color = shogi.Color.fromPly(ply)
   def usiOption: Option[Usi]
+  def idOption: Option[UsiCharPair]
+  def forceVariation: Boolean
+  def dropFirstChild: RootOrNode
 }
 
 case class Node(
@@ -55,6 +59,8 @@ case class Node(
   def withClock(centis: Option[Centis])  = copy(clock = centis)
   def withForceVariation(force: Boolean) = copy(forceVariation = force)
 
+  def dropFirstChild = copy(children = Children(children.variations))
+
   def isCommented = comments.value.nonEmpty
 
   def setComment(comment: Comment)         = copy(comments = comments set comment)
@@ -68,11 +74,6 @@ case class Node(
   def toggleGlyph(glyph: Glyph) = copy(glyphs = glyphs toggle glyph)
 
   def mainline: Vector[Node] = this +: children.first.??(_.mainline)
-
-  def updateMainlineLast(f: Node => Node): Node =
-    children.first.fold(f(this)) { main =>
-      copy(children = children.update(main updateMainlineLast f))
-    }
 
   def clearAnnotations =
     copy(
@@ -97,6 +98,7 @@ case class Node(
     )
 
   def usiOption = usi.some
+  def idOption  = id.some
 
   override def toString = s"$ply.${usi}"
 }
@@ -111,9 +113,10 @@ object Node {
     def variations = nodes drop 1
 
     def nodeAt(path: Path): Option[Node] =
-      path.split flatMap {
-        case (head, tail) if tail.isEmpty => get(head)
-        case (head, tail)                 => get(head) flatMap (_.children nodeAt tail)
+      path.split flatMap { case (head, rest) =>
+        rest.ids.foldLeft(get(head)) { case (cur, id) =>
+          cur.flatMap(_.children.get(id))
+        }
       }
 
     // select all nodes on that path
@@ -233,6 +236,45 @@ object Node {
   }
   val emptyChildren = Children(Vector.empty)
 
+  case class GameMainline(
+      id: lila.game.Game.ID,
+      part: Int, // if game was partitioned into multiple parts
+      variant: Variant,
+      usiMoves: Vector[Usi],
+      initialSfen: Option[Sfen],
+      clocks: Option[Vector[Centis]]
+  )
+
+  case class GameMainlineExtension(
+      shapes: Shapes = Shapes(Nil),
+      comments: Comments = Comments(Nil),
+      glyphs: Glyphs = Glyphs.empty,
+      score: Option[Score] = None
+  ) {
+
+    def merge(n: Node): Node =
+      n.copy(
+        shapes = n.shapes ++ shapes,
+        comments = n.comments ++ comments,
+        glyphs = n.glyphs merge glyphs,
+        score = score
+      )
+
+    def merge(r: Node.Root): Node.Root =
+      r.copy(
+        shapes = r.shapes ++ shapes,
+        comments = r.comments ++ comments,
+        glyphs = r.glyphs merge glyphs,
+        score = score
+      )
+
+  }
+
+  case class GameRootHelper(
+      gameMainlineExtensions: Option[Map[Int, GameMainlineExtension]],
+      variations: Option[Map[Int, Children]]
+  )
+
   case class Root(
       ply: Int,
       sfen: Sfen,
@@ -242,7 +284,8 @@ object Node {
       gamebook: Option[Gamebook] = None,
       glyphs: Glyphs = Glyphs.empty,
       score: Option[Score] = None,
-      clock: Option[Centis],
+      clock: Option[Centis] = None,
+      gameMainline: Option[GameMainline],
       children: Children
   ) extends RootOrNode {
 
@@ -252,6 +295,7 @@ object Node {
       }
 
     def withoutChildren = copy(children = Node.emptyChildren)
+    def dropFirstChild  = copy(children = Children(children.variations))
 
     def addChild(child: Node) = copy(children = children addNode child)
 
@@ -291,11 +335,6 @@ object Node {
     private def updateChildrenAt(path: Path, f: Node => Node): Option[Root] =
       withChildren(_.updateAt(path, f))
 
-    def updateMainlineLast(f: Node => Node): Root =
-      children.first.fold(this) { main =>
-        copy(children = children.update(main updateMainlineLast f))
-      }
-
     lazy val mainline: Vector[Node] = children.first.??(_.mainline)
 
     def lastMainlinePly = Chapter.Ply(mainline.lastOption.??(_.ply))
@@ -313,13 +352,20 @@ object Node {
           }
       }
 
-    def mainlinePath = Path(mainline.map(_.id))
+    lazy val mainlinePath = Path(mainline.map(_.id))
 
     def lastMainlineNode: RootOrNode = children.lastMainlineNode getOrElse this
 
-    def hasMultipleCommentAuthors: Boolean = (comments.authors ::: children.commentAuthors).toSet.size > 1
+    def isGameRoot = gameMainline.isDefined
 
-    def usiOption = none
+    def gameMainlinePath: Option[Path] =
+      gameMainline.map(gm => mainlinePath.take(gm.usiMoves.size))
+
+    def hasMultipleCommentAuthors: Boolean = (comments.authors ::: children.commentAuthors).toSet.sizeIs > 1
+
+    def usiOption      = none
+    def idOption       = none
+    def forceVariation = false
 
     override def toString = "ROOT"
   }
@@ -331,31 +377,11 @@ object Node {
         ply = 0,
         sfen = variant.initialSfen,
         check = false,
-        clock = none,
+        gameMainline = none,
         children = emptyChildren
       )
 
-    def fromRoot(b: lila.tree.Root): Root =
-      Root(
-        ply = b.ply,
-        sfen = b.sfen,
-        check = b.check,
-        clock = b.clock,
-        children = Children(b.children.view.map(fromBranch).toVector)
-      )
   }
-
-  def fromBranch(b: lila.tree.Branch): Node =
-    Node(
-      id = b.id,
-      ply = b.ply,
-      usi = b.usi,
-      sfen = b.sfen,
-      check = b.check,
-      clock = b.clock,
-      children = Children(b.children.view.map(fromBranch).toVector),
-      forceVariation = false
-    )
 
   object BsonFields {
     val ply            = "p"
@@ -370,5 +396,12 @@ object Node {
     val clock          = "l"
     val forceVariation = "fv"
     val order          = "o"
+
+    val gameId      = "id"
+    val part        = "pt"
+    val variant     = "v"
+    val usiMoves    = "um"
+    val initialSfen = "is"
+    val clocks      = "cl"
   }
 }

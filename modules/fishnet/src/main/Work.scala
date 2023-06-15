@@ -25,7 +25,7 @@ sealed trait Work {
   def isAcquired                   = acquired.isDefined
   def nonAcquired                  = !isAcquired
   def canAcquire(client: Client)   = lastTryByKey.fold(true)(client.key !=)
-  def isStandard                   = game.variant.standard && game.initialSfen.fold(true)(_.initialOf(game.variant))
+  def isStandard = game.variant.standard && game.initialSfen.fold(true)(_.initialOf(game.variant))
 
   def acquiredBefore(date: DateTime) = acquiredAt.??(_ isBefore date)
 }
@@ -58,6 +58,7 @@ object Work {
 
   case class Sender(
       userId: Option[String],
+      postGameStudy: Option[lila.analyse.Analysis.PostGameStudy],
       ip: Option[IpAddress],
       mod: Boolean,
       system: Boolean
@@ -112,6 +113,7 @@ object Work {
       tries: Int,
       lastTryByKey: Option[Client.Key],
       acquired: Option[Acquired],
+      postGameStudies: Set[lila.analyse.Analysis.PostGameStudy], // set of studies to inform
       skipPositions: List[Int],
       createdAt: DateTime
   ) extends Work {

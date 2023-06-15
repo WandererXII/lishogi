@@ -2,6 +2,7 @@ package lila.app
 package ui
 
 import lila.app.ui.ScalatagsTemplate._
+import play.api.i18n.Lang
 
 case class OpenGraph(
     title: String,
@@ -10,11 +11,10 @@ case class OpenGraph(
     `type`: String = "website",
     image: Option[String] = None,
     twitterImage: Option[String] = None,
-    siteName: String = "lishogi.org",
     more: List[(String, String)] = Nil
 ) {
 
-  def frags: List[Frag] = og.frags ::: twitter.frags
+  def frags(implicit lang: Lang): List[Frag] = og.frags ::: twitter.frags
 
   object og {
 
@@ -28,13 +28,14 @@ case class OpenGraph(
 
     private val tupledTag = (tag _).tupled
 
-    def frags: List[Frag] =
+    def frags(implicit lang: Lang): List[Frag] =
       List(
         "title"       -> title,
         "description" -> description,
         "url"         -> url,
         "type"        -> `type`,
-        "site_name"   -> siteName
+        "locale"      -> lang.language,
+        "site_name"   -> "lishogi.org"
       ).map(tupledTag) :::
         image.map { tag("image", _) }.toList :::
         more.map(tupledTag)

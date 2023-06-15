@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="broadcasts">پخش می شود</string>
+  <string name="liveBroadcasts">پخش زنده مسابقات</string>
+  <string name="newBroadcast">پخش مستقیم جدید</string>
+  <string name="ongoing">در حال اجرا</string>
+  <string name="upcoming">در آینده</string>
+  <string name="completed">کامل شده</string>
+  <string name="eventName">Event name</string>
+  <string name="eventDescription">Short event description</string>
+  <string name="fullDescription">شرح کامل رویداد</string>
+  <string name="fullDescriptionHelp">توصیفی طولانی و اختیاری از مسابقه. %1$s در دسترس است. اندازه متن باید کمتر از %2$s حرف باشد.</string>
+  <string name="sourceUrl">Source URL</string>
+  <string name="sourceUrlHelp">لینکی که Lishogi برای دریافت به روزرسانی های PGN بررسی می کند. باید از طریق اینترنت در دسترس عموم باشد.</string>
+  <string name="roundNumber">عدد گرد شده</string>
+  <string name="startDate">تاریخ را در منطقه‌ی زمانی خود شروع کنید</string>
+  <string name="startDateHelp">اختیاری ، اگر می دانید چه زمانی رویداد شروع می شود</string>
+  <string name="credits">به منبع اعتبار دهید</string>
+  <string name="cloneBroadcast">Clone the broadcast</string>
+  <string name="resetBroadcast">Reset the broadcast</string>
+</resources>

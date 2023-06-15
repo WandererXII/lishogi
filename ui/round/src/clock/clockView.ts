@@ -1,17 +1,19 @@
-import { h, Hooks } from 'snabbdom';
-import * as button from '../view/button';
-import { bind, justIcon } from '../util';
 import * as game from 'game';
-import RoundController from '../ctrl';
-import { ClockElements, ClockController, Seconds, Millis } from './clockCtrl';
 import { Player } from 'game';
+import { Hooks, h } from 'snabbdom';
+import RoundController from '../ctrl';
 import { Position } from '../interfaces';
+import { bind, justIcon } from '../util';
+import * as button from '../view/button';
+import { ClockController, ClockElements, Millis, Seconds } from './clockCtrl';
 
 export function renderClock(ctrl: RoundController, player: Player, position: Position) {
   const clock = ctrl.clock!,
     millis = clock.millisOf(player.color),
     isPlayer = ctrl.data.player.color === player.color,
-    isRunning = player.color === clock.times.activeColor;
+    isRunning = player.color === clock.times.activeColor,
+    isOver = ctrl.data.game.status.id > 20;
+
   const update = (el: HTMLElement) => {
     const els = clock.elements[player.color],
       millis = clock.millisOf(player.color),
@@ -30,6 +32,7 @@ export function renderClock(ctrl: RoundController, player: Player, position: Pos
       class: {
         outoftime: millis <= 0,
         running: isRunning,
+        over: isOver,
         emerg:
           (millis < clock.emergMs && clock.byoyomi === 0) ||
           (clock.isUsingByo(player.color) && millis < clock.byoEmergeS * 1000),
@@ -77,7 +80,7 @@ function renderByoyomiTime(byoyomi: Seconds, periods: number, berserk: boolean =
   return h(
     `div.byoyomi.per${periods}`,
     { berserk: berserk },
-    !berserk && byoyomi && periods ? `|${byoyomi}s${perStr}` : ''
+    !berserk && byoyomi && periods ? [h('span', '|'), `${byoyomi}s${perStr}`] : ''
   );
 }
 

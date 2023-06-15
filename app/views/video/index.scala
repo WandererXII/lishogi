@@ -14,16 +14,16 @@ object index {
   ) = {
 
     val tagString =
-      s"${if (control.filter.tags.nonEmpty) control.filter.tags.mkString(" + ") + " • " else ""}"
+      s"${if (control.filter.tags.nonEmpty) control.filter.tags.mkString(" + ") + " - " else ""}"
 
     layout(
-      title = s"${tagString}Free Shogi Videos",
+      title = s"${tagString}${trans.videoLibrary()}",
       openGraph = lila.app.ui
         .OpenGraph(
           title = s"${tagString}free, carefully curated shogi videos",
           description =
             s"${videos.nbResults} curated shogi videos${if (tagString.nonEmpty) " matching the tags " + tagString
-              else " • "}free for all",
+              else " - "}free for all",
           url = s"$netBaseUrl${routes.Video.index}?${control.queryString}"
         )
         .some,
@@ -47,7 +47,7 @@ object index {
       ),
       div(cls := "list box__pad infinitescroll")(
         videos.currentPageResults.map { bits.card(_, control) },
-        videos.currentPageResults.size < 4 option div(cls := s"not_much nb_${videos.nbResults}")(
+        videos.currentPageResults.sizeIs < 4 option div(cls := s"not_much nb_${videos.nbResults}")(
           if (videos.currentPageResults.isEmpty) "No videos for these tags:"
           else "That's all we got for these tags:",
           control.filter.tags.map { tag =>

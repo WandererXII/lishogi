@@ -13,7 +13,7 @@ object tournaments {
 
   def page(t: lila.team.Team, tours: TeamInfo.PastAndNext)(implicit ctx: Context) = {
     views.html.base.layout(
-      title = s"${t.name} • ${trans.tournaments.txt()}",
+      title = s"${t.name} - ${trans.tournaments.txt()}",
       moreCss = cssTag("team"),
       wrapClass = "full-screen-force"
     ) {
@@ -21,18 +21,18 @@ object tournaments {
         div(cls := "box")(
           h1(
             views.html.team.bits.link(t),
-            " • ",
+            " - ",
             trans.tournaments()
           ),
           div(cls := "team-tournaments team-tournaments--both")(
             div(cls := "team-tournaments__next")(
-              h2("Upcoming tournaments"),
+              h2(trans.team.upcomingTourns()),
               table(cls := "slist slist-pad slist-invert")(
                 renderList(tours.next)
               )
             ),
             div(cls := "team-tournaments__past")(
-              h2("Completed tournaments"),
+              h2(trans.team.completedTourns()),
               table(cls := "slist slist-pad")(
                 renderList(tours.past)
               )
@@ -60,12 +60,12 @@ object tournaments {
                   span(cls := "name")(t.name()),
                   span(cls := "setup")(
                     t.clock.show,
-                    " • ",
-                    if (!t.variant.standard) t.variant.name else t.perfType.map(_.trans),
-                    t.position.isDefined option frag(" • ", trans.thematic()),
-                    " • ",
+                    " - ",
+                    if (!t.variant.standard) variantName(t.variant) else t.perfType.map(_.trans),
+                    t.position.isDefined option frag(" - ", trans.thematic()),
+                    " - ",
                     t.mode.fold(trans.casualTournament, trans.ratedTournament)(),
-                    " • ",
+                    " - ",
                     t.durationString
                   )
                 ),
@@ -74,10 +74,10 @@ object tournaments {
                   span(cls := "name")(s.name),
                   span(cls := "setup")(
                     s.clock.show,
-                    " • ",
-                    if (!s.variant.standard) s.variant.name else s.perfType.map(_.trans),
-                    " • ",
-                    (if (s.settings.rated) trans.ratedTournament else trans.casualTournament)()
+                    " - ",
+                    if (!s.variant.standard) variantName(s.variant) else s.perfType.map(_.trans),
+                    " - ",
+                    (if (s.settings.rated) trans.ratedTournament else trans.casualTournament) ()
                   )
                 )
             )

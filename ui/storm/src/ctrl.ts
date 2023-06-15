@@ -1,19 +1,19 @@
-import * as xhr from './xhr';
-import config from './config';
-import sign from 'puz/sign';
-import { Api as SgApi } from 'shogiground/api';
-import { getNow, puzzlePov, sound } from 'puz/util';
 import { prop } from 'common/common';
-import { StormOpts, StormData, StormVm, StormRecap, StormPrefs } from './interfaces';
-import { Run } from 'puz/interfaces';
+import { Clock } from 'puz/clock';
 import { Combo } from 'puz/combo';
 import CurrentPuzzle from 'puz/current';
-import { Clock } from 'puz/clock';
-import { isDrop, Move, Role, Piece } from 'shogiops/types';
-import { backrank, secondBackrank } from 'shogiops/variantUtil';
-import { makeUsi, parseSquare, parseUsi } from 'shogiops/util';
-import { Shogiground } from 'shogiground';
+import { Run } from 'puz/interfaces';
 import { makeSgOpts } from 'puz/run';
+import sign from 'puz/sign';
+import { getNow, puzzlePov, sound } from 'puz/util';
+import { Shogiground } from 'shogiground';
+import { Api as SgApi } from 'shogiground/api';
+import { Move, Piece, Role, isDrop, isNormal } from 'shogiops/types';
+import { makeUsi, parseSquareName, parseUsi } from 'shogiops/util';
+import { pieceForcePromote } from 'shogiops/variant/util';
+import config from './config';
+import { StormData, StormOpts, StormPrefs, StormRecap, StormVm } from './interfaces';
+import * as xhr from './xhr';
 
 export default class StormCtrl {
   private data: StormData;
@@ -83,15 +83,15 @@ export default class StormCtrl {
   userDrop = (piece: Piece, dest: Key): void => {
     const move = {
       role: piece.role,
-      to: parseSquare(dest)!,
+      to: parseSquareName(dest)!,
     };
     this.finishMoveOrDrop(move);
   };
 
   playUserMove = (orig: Key, dest: Key, promotion?: boolean): void => {
     const move = {
-      from: parseSquare(orig)!,
-      to: parseSquare(dest)!,
+      from: parseSquareName(orig)!,
+      to: parseSquareName(dest)!,
       promotion: !!promotion,
     };
     this.finishMoveOrDrop(move);
@@ -111,7 +111,8 @@ export default class StormCtrl {
     if (
       pos.isCheckmate() ||
       usi == puzzle.expectedMove() ||
-      (!isDrop(move) && this.isForcedPromotion(usi, puzzle.expectedMove(), pos.turn, pos.board.getRole(move.from)))
+      (!isDrop(move) &&
+        this.isSameMove(usi, puzzle.expectedMove(), puzzle.isAmbPromotion(), pos.turn, pos.board.getRole(move.from)))
     ) {
       puzzle.moveIndex++;
       this.run.combo.inc();
@@ -151,14 +152,21 @@ export default class StormCtrl {
   }
 
   // When not promotion isn't an option usi in solution might not contain '+'
-  private isForcedPromotion(u1: string, u2: string, turn: Color, role?: Role): boolean {
-    const m1 = parseUsi(u1);
-    const m2 = parseUsi(u2);
-    if (!role || !m1 || !m2 || isDrop(m1) || isDrop(m2) || m1.from != m2.from || m1.to != m2.to) return false;
-    return (
-      (role === 'knight' && secondBackrank('standard')(turn).has(m1.to)) ||
-      ((role === 'pawn' || role === 'lance' || role === 'knight') && backrank('standard')(turn).has(m1.to))
-    );
+  private isSameMove(u1: string, u2: string, ignoreProm: boolean, turn: Color, role?: Role): boolean {
+    const usi1 = parseUsi(u1)!,
+      usi2 = parseUsi(u2)!;
+    if (isDrop(usi1) && isDrop(usi2)) {
+      return usi1.role === usi2.role && usi1.to === usi2.to;
+    } else if (isNormal(usi1) && isNormal(usi2)) {
+      return (
+        usi1.from === usi2.from &&
+        usi1.to === usi2.to &&
+        (ignoreProm ||
+          !!usi1.promotion === !!usi2.promotion ||
+          (!!role && pieceForcePromote('standard')({ role: role, color: turn }, usi1.to)))
+      );
+    }
+    return false;
   }
 
   private redrawQuick = () => setTimeout(this.redraw, 100);

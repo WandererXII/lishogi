@@ -14,7 +14,8 @@ object show {
       puzzle: lila.puzzle.Puzzle,
       data: JsObject,
       pref: JsObject,
-      difficulty: Option[lila.puzzle.PuzzleDifficulty] = None
+      difficulty: Option[lila.puzzle.PuzzleDifficulty] = None,
+      robots: Boolean = true
   )(implicit
       ctx: Context
   ) =
@@ -40,27 +41,26 @@ object show {
       openGraph = lila.app.ui
         .OpenGraph(
           image = cdnUrl(routes.Export.puzzleThumbnail(puzzle.id.value).url).some,
-          title = s"Shogi tactic #${puzzle.id}",
+          title = s"${trans.puzzleDesc.txt()} #${puzzle.id}",
           url = s"$netBaseUrl${routes.Puzzle.show(puzzle.id.value).url}",
-          description = s"Lishogi tactic trainer: " + puzzle.color
-            .fold(
-              trans.puzzle.findTheBestMoveForBlack,
-              trans.puzzle.findTheBestMoveForWhite
-            )
-            .txt() + s" Played by ${puzzle.plays} players."
+          description = s"${trans.puzzleDesc.txt()}: " +
+            transWithColorName(trans.puzzle.findTheBestMoveForX, puzzle.color, false)
+            + trans.puzzle.playedXTimes.pluralSameTxt(puzzle.plays)
         )
         .some,
+      robots = robots,
       zoomable = true,
-      playing = true
+      playing = true,
+      withHrefLangs = robots option lila.i18n.LangList.All
     ) {
       main(cls := "puzzle")(
         st.aside(cls := "puzzle__side")(
           div(cls    := "puzzle__side__metas")
         ),
         div(cls := "puzzle__board main-board")(shogigroundBoard(shogi.variant.Standard, puzzle.color.some)),
-        div(cls := "sg-hand-wrap hand-top"),
+        sgHandTop,
         div(cls := "puzzle__tools"),
-        div(cls := "sg-hand-wrap hand-bottom"),
+        sgHandBottom,
         div(cls := "puzzle__controls")
       )
     }

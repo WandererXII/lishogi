@@ -14,8 +14,7 @@
   <string name="didYouLikeThisPuzzle">क्या आपको यह पहेली पसंद आई?</string>
   <string name="voteToLoadNextOne">अगले पहेली को लोड करने के लिए वोट दें !</string>
   <string name="yourPuzzleRatingX">आपकी पहेली की रेटिंग: %s</string>
-  <string name="findTheBestMoveForWhite">गोट (सफेद रंग) के लिए सबसे अच्छी चाल का पता लगाएं।</string>
-  <string name="findTheBestMoveForBlack">सेंटे (काले रंग) के लिए सबसे अच्छी चाल का पता लगाएं।</string>
+  <string name="findTheBestMoveForX" comment="%s - sente(black)/gote(white)">Find the best move for %s.</string>
   <string name="toGetPersonalizedPuzzles">वैयक्तिकृत पहेलियाँ प्राप्त करने के लिए:</string>
   <string name="puzzleId">पहेलि %s</string>
   <string name="puzzleOfTheDay">दिन की पहेली</string>
@@ -50,9 +49,17 @@
   <string name="addAnotherTheme">एक और विषय जोड़ें</string>
   <string name="jumpToNextPuzzleImmediately">तुरंत अगली पहेली पर जाएं</string>
   <string name="puzzleDashboard">पहेली डैशबोर्ड</string>
+  <string name="puzzleDashboardSubtitle">Train, analyse, improve</string>
   <string name="improvementAreas">सुधार क्षेत्रों</string>
+  <string name="improvementAreasSubtitle">Train these to optimize your progress!</string>
   <string name="strengths">ताकत</string>
+  <string name="strengthsSubtitle">You perform the best in these themes</string>
   <string name="history">पहेली के इतिहास</string>
   <string name="solved">हल किया</string>
   <string name="failed">विफल</string>
+  <string name="fromMyGames">From my games</string>
+  <string name="lookupOfPlayer">Lookup puzzles from a player\'s games</string>
+  <string name="fromXGames">Puzzles from %s\' games</string>
+  <string name="searchPuzzles">Search puzzles</string>
+  <string name="fromXGamesFound">%1$s puzzles found in %2$s games</string>
 </resources>

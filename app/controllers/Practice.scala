@@ -9,7 +9,6 @@ import lila.practice.JsonView._
 import lila.practice.{ PracticeSection, PracticeStudy, UserStudy }
 import lila.study.Study.WithChapter
 import lila.study.{ Chapter, Study => StudyModel }
-import lila.tree.Node.partitionTreeJsonWriter
 import views._
 
 final class Practice(
@@ -23,7 +22,7 @@ final class Practice(
     Open { implicit ctx =>
       pageHit
       api.get(ctx.me) flatMap { up =>
-        NoCache(Ok(html.practice.index(up))).fuccess
+        Ok(html.practice.index(up)).noCache.fuccess
       }
     }
 
@@ -67,20 +66,16 @@ final class Practice(
 
   private def showUserPractice(us: lila.practice.UserStudy)(implicit ctx: Context) =
     analysisJson(us) map { case (analysisJson, studyJson) =>
-      NoCache(
-        EnableSharedArrayBuffer(
-          Ok(
-            html.practice.show(
-              us,
-              lila.practice.JsonView.JsData(
-                study = studyJson,
-                analysis = analysisJson,
-                practice = lila.practice.JsonView(us)
-              )
-            )
+      Ok(
+        html.practice.show(
+          us,
+          lila.practice.JsonView.JsData(
+            study = studyJson,
+            analysis = analysisJson,
+            practice = lila.practice.JsonView(us)
           )
         )
-      )
+      ).noCache.enableSharedArrayBuffer
     }
 
   def chapter(studyId: String, chapterId: String) =
@@ -92,9 +87,9 @@ final class Practice(
               "study"    -> studyJson,
               "analysis" -> analysisJson
             )
-          ) as JSON
+          ).noCache
         }
-      } map NoCache
+      }
     }
 
   private def analysisJson(us: UserStudy)(implicit ctx: Context): Fu[(JsObject, JsObject)] =
@@ -112,9 +107,9 @@ final class Practice(
               me = ctx.me
             )
           val analysis = baseData ++ Json.obj(
-            "treeParts" -> partitionTreeJsonWriter.writes {
-              lila.study.TreeBuilder(chapter.root, chapter.setup.variant)
-            },
+            "treeParts" -> lila.study.JsonView.partitionTreeJsonWriter.writes(
+              chapter.root
+            ),
             "practiceGoal" -> lila.practice.PracticeGoal(chapter)
           )
           (analysis, studyJson)

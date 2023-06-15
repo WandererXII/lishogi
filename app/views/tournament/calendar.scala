@@ -11,22 +11,19 @@ object calendar {
 
   def apply(json: play.api.libs.json.JsObject)(implicit ctx: Context) =
     views.html.base.layout(
-      title = "Tournament calendar",
+      title = trans.tournamentCalendar.txt(),
       moreJs = frag(
         jsModule("tournamentCalendar"),
         embedJsUnsafe(
           s"""LishogiTournamentCalendar.app(document.getElementById('tournament-calendar'), ${safeJsonValue(
-              Json.obj(
-                "data" -> json,
-                "i18n" -> bits.jsI18n
-              )
+              Json.obj("data" -> json)
             )})"""
         )
       ),
       moreCss = cssTag("tournament.calendar")
     ) {
       main(cls := "box")(
-        h1("Tournament calendar"),
+        h1(trans.tournamentCalendar()),
         div(id := "tournament-calendar")
       )
     }

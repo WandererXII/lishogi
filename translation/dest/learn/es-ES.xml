@@ -90,9 +90,6 @@
 	<string name="capture">Captura</string>
 	<string name="takeTheEnemyPieces">Captura las piezas enemigas</string>
 	<string name="captureIntro">¡Identifica las piezas indefensas del oponente y captúralas!</string>
-	<string name="takeTheBlackPieces">¡Captura las piezas negras!</string>
-	<string name="takeTheBlackPiecesAndDontLoseYours">¡Captura las piezas negras!
-Y no pierdas las tuyas.</string>
 	<string name="takeTheEnemyPiecesAndDontLoseYours">¡Captura las piezas negras!
 Y no pierdas las tuyas.</string>
 	<string name="captureComplete">¡Felicidades!¡Ya sabes cómo capturar con las piezas de shogi!</string>
@@ -164,13 +161,6 @@ Y no pierdas las tuyas.</string>
 	<string name="perpetualCheckIsALoss">Pero, hacer jaque perpetuamente al rey del oponente es una pérdida para el lado que hace jaque. ¡Desafortunadamente para tu oponente, no lo sabe! Haz el único movimiento legal.</string>
 	<string name="boardFlippedFindBestMove">El tablero se acaba de voltear. ¿Cuál es el mejor movimiento aquí?</string>
 	<string name="repetitionComplete">La razón por la que el jaque perpetuo conlleva la derrota es para evitar que alguien fuerce el empate.</string>
-	<string name="stalemate">Ahogado</string>
-	<string name="theGameIsADraw">La partida es tablas</string>
-	<string name="stalemateIntro">Cuando un jugador no está en jaque y no tiene ningún movimiento legal, está ahogado. La partida es tablas. Nadie gana ni pierde.</string>
-	<string name="stalemateGoal">Las negras están ahogadas sí:
-- No pueden hacer ningún movimiento legal, y
-- No están en jaque.</string>
-	<string name="stalemateComplete">¡Felicidades! ¡Mejor ahogado que recibir un jaque mate!</string>
 	<string name="advanced">Avanzado</string>
 	<string name="pieceValue">Valor de las piezas</string>
 	<string name="evaluatePieceStrength">Sopesa la fuerza de tus piezas</string>
@@ -198,17 +188,17 @@ Toma la pieza más valiosa.</string>
 	<string name="checkInTwoGoal">¡Amenaza al rey enemigo en dos movimientos!</string>
 	<string name="checkInTwoComplete">¡Felicidades! ¡Has dado jaque a tu oponente, obligándole a defender su rey!</string>
 	<string name="whatNext">Y ahora ¿qué?</string>
-	<string name="youKnowHowToPlayChess">Sabes jugar al shogi ¡enhorabuena! ¿Quieres aprender a jugar mejor?</string>
+	<string name="youKnowHowToPlayShogi">Sabes jugar al shogi ¡enhorabuena! ¿Quieres aprender a jugar mejor?</string>
 	<string name="register">Registrarse</string>
 	<string name="getAFreeLishogiAccount">Crea una cuenta gratuita en Lishogi</string>
 	<string name="practice">Practicar</string>
-	<string name="learnCommonChessPositions">Aprende las posiciones más comunes</string>
+	<string name="learnCommonShogiPositions">Aprende las posiciones más comunes</string>
 	<string name="puzzles">Ejercicios de táctica</string>
 	<string name="exerciseYourTacticalSkills">Practica tus habilidades tácticas</string>
 	<string name="shogiResources">Recursos sobre shogi</string>
 	<string name="curatedShogiResources">Mira nuestra lista supervisada de recursos de shogi</string>
 	<string name="videos">Vídeos</string>
-	<string name="watchInstructiveChessVideos">Ve vídeos educativos de shogi</string>
+	<string name="watchInstructiveShogiVideos">Ve vídeos educativos de shogi</string>
 	<string name="playPeople">Jugar contra otros</string>
 	<string name="opponentsFromAroundTheWorld">Oponentes de todo el mundo</string>
 	<string name="playMachine">Jugar contra la máquina</string>

@@ -1,9 +1,9 @@
 import throttle from 'common/throttle';
-import { Piece } from 'shogiground/types';
+import { forsythToPiece, parseSfen } from 'shogiops/sfen';
+import { Piece } from 'shogiops/types';
+import { opposite, parseSquareName, parseUsi } from 'shogiops/util';
+import { Position } from 'shogiops/variant/position';
 import { Level, Scenario, UsiWithColor } from './interfaces';
-import { Position } from 'shogiops/shogi';
-import { parseSfen } from 'shogiops/sfen';
-import { opposite, parseSquare, parseUsi, stringToRole } from 'shogiops/util';
 
 export function createScenario(usis: Usi[], color: Color = 'sente', switchColor: boolean = false): Scenario {
   return usis.map((usi, i) => {
@@ -20,7 +20,7 @@ export function currentPosition(level: Level, usiCList: UsiWithColor[] = [], ign
 
   if (!ignoreObstacles && obstacles)
     for (const obstacle of obstacles) {
-      shogi.board.set(parseSquare(obstacle), { role: 'pawn', color: opposite(level.color) });
+      shogi.board.set(parseSquareName(obstacle), { role: 'pawn', color: opposite(level.color) });
     }
 
   for (const uc of usiCList) {
@@ -31,7 +31,7 @@ export function currentPosition(level: Level, usiCList: UsiWithColor[] = [], ign
 }
 
 export function toPiece(sfenPiece: string): Piece {
-  return { role: stringToRole(sfenPiece)!, color: sfenPiece === sfenPiece.toUpperCase() ? 'sente' : 'gote' };
+  return forsythToPiece('standard')(sfenPiece)!;
 }
 
 export function average(nums: number[]): number {

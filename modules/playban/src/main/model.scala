@@ -27,7 +27,7 @@ case class UserRecord(
       case o if o != Outcome.Good         => 1
     } sum
 
-  def badOutcomeRatio: Float = if (bans.size < 3) 0.4f else 0.3f
+  def badOutcomeRatio: Float = if (bans.sizeIs < 3) 0.4f else 0.3f
 
   def minBadOutcomes: Int =
     bans.size match {
@@ -49,7 +49,7 @@ case class UserRecord(
         // too many bad overall
         badOutcomeScore >= (badOutcomeRatio * nbOutcomes atLeast minBadOutcomes.toFloat) || {
           // bad result streak
-          outcomes.size >= badOutcomesStreakSize &&
+          outcomes.sizeIs >= badOutcomesStreakSize &&
           outcomes.takeRight(badOutcomesStreakSize).forall(Outcome.Good !=)
         }
       }
@@ -96,8 +96,7 @@ object TempBan {
   /** Create a playban. First offense: 10 min. Multiplier of repeat offense after X days:
     *   - 0 days: 3x
     *   - 0 - 3 days: linear scale from 3x to 1x
-    *   - >3 days quick drop off
-    * Account less than 3 days old --> 2x the usual time
+    *   - >3 days quick drop off Account less than 3 days old --> 2x the usual time
     */
   def make(bans: Vector[TempBan], accountCreationDate: DateTime): TempBan =
     make {

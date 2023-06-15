@@ -42,9 +42,10 @@ object list {
                     span(cls := "name")(e.tour.name()),
                     span(cls := "setup")(
                       e.tour.clock.show,
-                      " • ",
-                      if (!e.tour.variant.standard) e.tour.variant.name else e.tour.perfType.map(_.trans),
-                      " • ",
+                      " - ",
+                      if (!e.tour.variant.standard) variantName(e.tour.variant)
+                      else e.tour.perfType.map(_.trans),
+                      " - ",
                       momentFromNow(e.tour.startsAt)
                     )
                   )

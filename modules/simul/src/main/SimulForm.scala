@@ -2,7 +2,6 @@ package lila.simul
 
 import cats.implicits._
 import shogi.format.forsyth.Sfen
-import shogi.StartingPosition
 
 import org.joda.time.DateTime
 import play.api.data._
@@ -114,7 +113,10 @@ object SimulForm {
           number.verifying(
             Set(
               shogi.variant.Standard.id,
-              shogi.variant.Minishogi.id
+              shogi.variant.Minishogi.id,
+              shogi.variant.Chushogi.id,
+              shogi.variant.Annanshogi.id,
+              shogi.variant.Kyotoshogi.id
             ) contains _
           )
         }.verifying("At least one variant", _.nonEmpty),
@@ -127,12 +129,6 @@ object SimulForm {
         .verifying("Custom position allowed only with one variant", _.canHaveCustomPosition)
         .verifying("Custom position is not valid", _.isCustomPositionValid)
     )
-
-  val positions = StartingPosition.allWithInitial.map(_.sfen)
-  val positionChoices = StartingPosition.allWithInitial.map { p =>
-    p.sfen -> p.fullName
-  }
-  val positionDefault = StartingPosition.initial.sfen
 
   def setText = Form(single("text" -> text))
 
@@ -157,7 +153,7 @@ object SimulForm {
       )
 
     def canHaveCustomPosition =
-      actualVariants.size == 1 || !position.isDefined
+      actualVariants.sizeIs == 1 || !position.isDefined
 
     def isCustomPositionValid =
       position.fold(true) { sfen =>

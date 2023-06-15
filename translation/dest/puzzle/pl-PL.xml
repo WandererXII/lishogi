@@ -14,8 +14,7 @@
   <string name="didYouLikeThisPuzzle">Czy podobało Ci się to zadanie?</string>
   <string name="voteToLoadNextOne">Zagłosuj, by wczytać następne!</string>
   <string name="yourPuzzleRatingX">Twój ranking treningowy: %s</string>
-  <string name="findTheBestMoveForWhite">Znajdź najlepszy ruch.</string>
-  <string name="findTheBestMoveForBlack">Znajdź najlepszy ruch.</string>
+  <string name="findTheBestMoveForX" comment="%s - sente(black)/gote(white)">Znajdź najlepszy ruch dla %s.</string>
   <string name="toGetPersonalizedPuzzles">Aby uzyskać spersonalizowane zadania:</string>
   <string name="puzzleId">Zadanie %s</string>
   <string name="puzzleOfTheDay">Zadanie dnia</string>
@@ -54,9 +53,17 @@
   <string name="addAnotherTheme">Dodaj inny motyw</string>
   <string name="jumpToNextPuzzleImmediately">Natychmiast przejdź do następnego zadania</string>
   <string name="puzzleDashboard">Tablica z zadaniami</string>
+  <string name="puzzleDashboardSubtitle">Train, analyse, improve</string>
   <string name="improvementAreas">Obszary rozwoju</string>
+  <string name="improvementAreasSubtitle">Train these to optimize your progress!</string>
   <string name="strengths">Mocne strony</string>
+  <string name="strengthsSubtitle">You perform the best in these themes</string>
   <string name="history">Historia zadań</string>
   <string name="solved">rozwiązane</string>
   <string name="failed">nie udało się</string>
+  <string name="fromMyGames">From my games</string>
+  <string name="lookupOfPlayer">Lookup puzzles from a player\'s games</string>
+  <string name="fromXGames">Puzzles from %s\' games</string>
+  <string name="searchPuzzles">Search puzzles</string>
+  <string name="fromXGamesFound">%1$s puzzles found in %2$s games</string>
 </resources>

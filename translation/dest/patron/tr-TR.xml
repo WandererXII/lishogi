@@ -6,13 +6,14 @@
 	<string name="becomePatron">Lishogi Destekçisi olun</string>
 	<string name="xBecamePatron">%s Lishogi Destekçisi oldu</string>
 	<string name="newPatrons">Yeni Destekçiler</string>
-	<string name="freeChess">Herkes için ücretsiz shogi, sonsuza kadar!</string>
+	<string name="freeShogi">Herkes için ücretsiz shogi, sonsuza kadar!</string>
 	<string name="noAdsNoSubs">Ne reklam var ne abonelik; kodumuz açık kaynaklı, tutkumuz epik.</string>
 	<string name="thankYou">Yardımınız için teşekkür ederiz!</string>
 	<string name="youHaveLifetime">Artık Ömür Boyu Destekçi hesabınız var. Bu müthiş bir şey!</string>
 	<string name="patronUntil">Destekçi hesabınızın süresi %s tarihinde sona erecek.</string>
 	<string name="ifNotRenewed">Yeniden bağış yapmadığınız takdirde hesabınız ücretsiz hesaba çevrilecektir.</string>
 	<string name="weRelyOnSupport">Lishogi sizler gibi insanların desteği sayesinde ayakta duruyor. Bu çorbada sizin de tuzunuz olsun istiyorsanız lütfen bizden desteğinizi esirgemeyin.</string>
+	<string name="donationSupport">Lishogi\'yi ve açık kaynak geliştirmeyi desteklemek istiyorsanız bağış yapmayı düşünebilirsiniz! Karşılığında bir şey almayacaksınız çünkü Lishogi tüm kullanıcılarına eşit davranır, ancak bağışınız çok makbule geçer!</string>
 	<string name="lifetime">Ömür Boyu</string>
 	<string name="payLifetimeOnce">Tek seferde %s ödeyin ve sonsuza dek Lishogi destekçisi olun!</string>
 	<string name="lifetimePatron">Bir Ömür Lishogi Destekçisi</string>
@@ -28,8 +29,6 @@
 	<string name="weAreSmallTeam">Biz küçük bir ekibiz, dolayısıyla desteğiniz büyük bir fark yaratacak!</string>
 	<string name="celebratedPatrons">Lishogi\'i mümkün kılan değerli destekçilerimiz</string>
 	<string name="whereMoneyGoes">Bağışlar nereye gidiyor?</string>
-	<string name="serversAndDeveloper">First of all, powerful servers.
-Then we pay a full-time developer: %s, the founder of Lishogi.</string>
 	<string name="costBreakdown">Ayrıntılı maliyet dökümüne göz atın</string>
 	<string name="changeMonthlySupport">Aylık desteğimi değiştirebilir veya iptal edebilir miyim?</string>
 	<string name="changeOrContact">Evet, bu sayfadan istediğiniz işlemi yapabilirsiniz.
@@ -71,4 +70,5 @@ Ancak Destekçilerimiz, müthiş profil simgeleriyle sonuna kadar övünme hakk�
 	<string name="nowLifetime">Bu desteğiniz bize bir ömür yeter!</string>
 	<string name="nowOneMonth">Bir aylığına Lishogi Destekçisi oldunuz!</string>
 	<string name="downgradeNextMonth">Bir ay içinde sizden tekrar ücret talep edilmeyecek ve Lishogi hesabınız ücretsiz hâline dönecek.</string>
+	<string name="donationPolicy">Bağış politikası</string>
 </resources>

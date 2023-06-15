@@ -47,9 +47,8 @@ final class ApiJsonView(lightUserApi: LightUserApi)(implicit ec: scala.concurren
         "fullName"  -> tour.name(),
         "nbPlayers" -> tour.nbPlayers,
         "variant" -> Json.obj(
-          "key"   -> tour.variant.key,
-          "short" -> tour.variant.shortName,
-          "name"  -> tour.variant.name
+          "key"  -> tour.variant.key,
+          "name" -> tour.variant.name
         ),
         "startsAt"   -> tour.startsAt,
         "finishesAt" -> tour.finishesAt,
@@ -64,7 +63,7 @@ final class ApiJsonView(lightUserApi: LightUserApi)(implicit ec: scala.concurren
       .add("onlyTitled", tour.conditions.titled.isDefined)
       .add("teamMember", tour.conditions.teamMember.map(_.teamId))
       .add("private", tour.isPrivate)
-      .add("position", tour.position.map(positionJson))
+      .add("position", tour.position.map(sfen => positionJson(sfen, tour.variant)))
       .add("schedule", tour.schedule map scheduleJson)
       .add(
         "teamBattle",

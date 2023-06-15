@@ -3,13 +3,12 @@ package lila.pref
 import play.api.data._
 import play.api.data.Forms._
 
+import java.nio.charset.StandardCharsets.UTF_8
+
 object DataForm {
 
-  private def containedIn(choices: Seq[(Int, String)]): Int => Boolean =
-    choice => choices.exists(_._1 == choice)
-
-  private def checkedNumber(choices: Seq[(Int, String)]) =
-    number.verifying(containedIn(choices))
+  private def checkedNumber(choices: Seq[(Int)]) =
+    number.verifying(choices contains _)
 
   private lazy val booleanNumber =
     number.verifying(Pref.BooleanPref.verify)
@@ -17,20 +16,23 @@ object DataForm {
   val pref = Form(
     mapping(
       "display" -> mapping(
-        "animation"          -> number.verifying(Set(0, 1, 2, 3) contains _),
+        "boardLayout"        -> checkedNumber(Pref.BoardLayout.choices),
+        "animation"          -> checkedNumber(Pref.Animation.choices),
         "coords"             -> checkedNumber(Pref.Coords.choices),
+        "clearHands"         -> booleanNumber,
         "highlightLastDests" -> booleanNumber,
         "highlightCheck"     -> booleanNumber,
         "squareOverlay"      -> booleanNumber,
         "destination"        -> booleanNumber,
         "dropDestination"    -> booleanNumber,
         "replay"             -> checkedNumber(Pref.Replay.choices),
+        "colorName"          -> checkedNumber(Pref.ColorName.choices),
         "zen"                -> optional(booleanNumber),
         "resizeHandle"       -> optional(checkedNumber(Pref.ResizeHandle.choices)),
         "blindfold"          -> checkedNumber(Pref.Blindfold.choices)
       )(DisplayData.apply)(DisplayData.unapply),
       "behavior" -> mapping(
-        "moveEvent"     -> optional(number.verifying(Set(0, 1, 2) contains _)),
+        "moveEvent"     -> optional(checkedNumber(Pref.MoveEvent.choices)),
         "premove"       -> booleanNumber,
         "takeback"      -> checkedNumber(Pref.Takeback.choices),
         "submitMove"    -> checkedNumber(Pref.SubmitMove.choices),
@@ -47,19 +49,22 @@ object DataForm {
       "challenge"    -> checkedNumber(Pref.Challenge.choices),
       "message"      -> checkedNumber(Pref.Message.choices),
       "studyInvite"  -> optional(checkedNumber(Pref.StudyInvite.choices)),
-      "insightShare" -> number.verifying(Set(0, 1, 2) contains _)
+      "insightShare" -> checkedNumber(Pref.InsightShare.choices)
     )(PrefData.apply)(PrefData.unapply)
   )
 
   case class DisplayData(
+      boardLayout: Int,
       animation: Int,
       coords: Int,
+      clearHands: Int,
       highlightLastDests: Int,
       highlightCheck: Int,
       squareOverlay: Int,
       destination: Int,
       dropDestination: Int,
       replay: Int,
+      colorName: Int,
       zen: Option[Int],
       resizeHandle: Option[Int],
       blindfold: Int
@@ -105,14 +110,17 @@ object DataForm {
         squareOverlay = display.squareOverlay == 1,
         destination = display.destination == 1,
         dropDestination = display.dropDestination == 1,
-        coords = display.coords,
         replay = display.replay,
+        colorName = display.colorName,
         blindfold = display.blindfold,
         challenge = challenge,
         message = message,
         studyInvite = studyInvite | Pref.default.studyInvite,
         premove = behavior.premove == 1,
+        boardLayout = display.boardLayout,
         animation = display.animation,
+        coords = display.coords,
+        clearHands = display.clearHands == 1,
         submitMove = behavior.submitMove,
         insightShare = insightShare,
         confirmResign = behavior.confirmResign,
@@ -127,14 +135,17 @@ object DataForm {
     def apply(pref: Pref): PrefData =
       PrefData(
         display = DisplayData(
-          coords = pref.coords,
           highlightLastDests = if (pref.highlightLastDests) 1 else 0,
           highlightCheck = if (pref.highlightCheck) 1 else 0,
           squareOverlay = if (pref.squareOverlay) 1 else 0,
           destination = if (pref.destination) 1 else 0,
           dropDestination = if (pref.dropDestination) 1 else 0,
+          boardLayout = pref.boardLayout,
           animation = pref.animation,
+          coords = pref.coords,
+          clearHands = if (pref.clearHands) 1 else 0,
           replay = pref.replay,
+          colorName = pref.colorName,
           blindfold = pref.blindfold,
           zen = pref.zen.some,
           resizeHandle = pref.resizeHandle.some
@@ -175,6 +186,12 @@ object DataForm {
     )
   )
 
+  val chuPieceSet = Form(
+    single(
+      "set" -> text.verifying(ChuPieceSet contains _)
+    )
+  )
+
   val soundSet = Form(
     single(
       "set" -> text.verifying(SoundSet contains _)
@@ -190,10 +207,16 @@ object DataForm {
   val bgImg = Form(
     single(
       "bgImg" -> text.verifying { url =>
-        url.getBytes("UTF-8").length < 400 && (url.isEmpty || url.startsWith("https://") || url.startsWith(
+        url.getBytes(UTF_8).sizeIs < 400 && (url.isEmpty || url.startsWith("https://") || url.startsWith(
           "//"
         ))
       }
+    )
+  )
+
+  val thickGrid = Form(
+    single(
+      "thickGrid" -> text.verifying(Set("0", "1") contains _)
     )
   )
 
@@ -205,7 +228,7 @@ object DataForm {
 
   val notation = Form(
     single(
-      "notation" -> text.verifying(Set("0", "1", "2", "3") contains _)
+      "notation" -> text.verifying(Notations.allToString contains _)
     )
   )
 
@@ -213,7 +236,7 @@ object DataForm {
     mapping(
       "boardColor" -> text(maxLength = 30),
       "boardImg" -> text.verifying { url =>
-        url.getBytes("UTF-8").length < 400 && (url.isEmpty || url.startsWith("https://") || url.startsWith(
+        url.getBytes(UTF_8).sizeIs < 400 && (url.isEmpty || url.startsWith("https://") || url.startsWith(
           "//"
         ))
       },
@@ -221,7 +244,7 @@ object DataForm {
       "gridWidth"  -> number.verifying(Set(0, 1, 2, 3) contains _),
       "handsColor" -> text(maxLength = 30),
       "handsImg" -> text.verifying { url =>
-        url.getBytes("UTF-8").length < 400 && (url.isEmpty || url.startsWith("https://") || url.startsWith(
+        url.getBytes(UTF_8).sizeIs < 400 && (url.isEmpty || url.startsWith("https://") || url.startsWith(
           "//"
         ))
       }

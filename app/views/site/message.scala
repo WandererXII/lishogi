@@ -16,7 +16,11 @@ object message {
       icon: Option[String] = None,
       moreCss: Option[Frag] = None
   )(message: Modifier*)(implicit ctx: Context) =
-    views.html.base.layout(title = title, moreCss = ~moreCss) {
+    views.html.base.layout(
+      title = title,
+      moreCss = ~moreCss,
+      withHrefLangs = none
+    ) {
       main(cls := "box box-pad")(
         h1(dataIcon := icon ifTrue back.isEmpty, cls := List("text" -> (icon.isDefined && back.isEmpty)))(
           back map { url =>
@@ -79,7 +83,7 @@ object message {
       back = routes.User.show(u.id).url.some
     )(
       frag(
-        "Before using chess insights,",
+        "Before using shogi insights,",
         userLink(u),
         " has to play at least one rated game."
       )

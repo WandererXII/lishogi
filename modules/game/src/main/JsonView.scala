@@ -32,8 +32,9 @@ final class JsonView(rematches: Rematches) {
       .add("tournamentId" -> game.tournamentId)
       .add("winner" -> game.winnerColor)
       .add("lastMove" -> game.lastMoveKeys)
-      .add("check" -> game.situation.checkSquares.headOption.map(_.usiKey))
+      .add("check" -> game.situation.check)
       .add("rematch" -> rematches.of(game.id))
+      .add("postGameStudy" -> game.postGameStudy)
 }
 
 object JsonView {
@@ -78,9 +79,8 @@ object JsonView {
 
   implicit val variantWriter: OWrites[shogi.variant.Variant] = OWrites { v =>
     Json.obj(
-      "key"   -> v.key,
-      "name"  -> v.name,
-      "short" -> v.shortName
+      "key"  -> v.key,
+      "name" -> v.name
     )
   }
 
@@ -107,14 +107,6 @@ object JsonView {
       "increment"   -> c.increment,
       "sente"       -> c.senteTime,
       "gote"        -> c.goteTime
-    )
-  }
-
-  implicit val openingWriter: OWrites[shogi.opening.FullOpening.AtPly] = OWrites { o =>
-    Json.obj(
-      "japanese" -> o.opening.japanese,
-      "english"  -> o.opening.english,
-      "ply"      -> o.ply
     )
   }
 

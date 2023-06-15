@@ -81,7 +81,7 @@ final class MoveDB(implicit system: ActorSystem) {
           case None =>
             Monitor.notFound(workId, client).unit
           case Some(move) if move isAcquiredBy client =>
-            data.move.usi match {
+            data.move.usi(move.game.variant) match {
               case Some(usi) =>
                 coll -= move.id
                 Monitor.move(move, client).unit
@@ -114,7 +114,7 @@ final class MoveDB(implicit system: ActorSystem) {
       } else coll += (move.id -> move)
 
     def clearIfFull() =
-      if (coll.size > maxSize) {
+      if (coll.sizeIs > maxSize) {
         logger.warn(s"MoveDB collection is full! maxSize=$maxSize. Dropping all now!")
         coll.clear()
       }

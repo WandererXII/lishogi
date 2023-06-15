@@ -2,6 +2,8 @@
 <resources>
 	<string name="preferences">Преференсе</string>
 	<string name="gameDisplay">Приказ игре</string>
+	<string name="boardLayout">Board layout</string>
+	<string name="clearHands">Hide ghosts of pieces in hand</string>
 	<string name="pieceAnimation">Aнимација фигура</string>
 	<string name="materialDifference">Разлика у материјалу</string>
 	<string name="boardHighlightsLastDests">Board highlights - last move/drop</string>
@@ -10,6 +12,7 @@
 	<string name="dropDestinations">Drop destinations (valid drops and predrops)</string>
 	<string name="boardCoordinates">Прикажи координате табле (A-H, 1-8)</string>
 	<string name="moveListWhilePlaying">Листа потеза током партије</string>
+	<string name="colorName">Name used for individual players</string>
 	<string name="displayTouchSquareOverlay">Square highlight overlay on touch devices</string>
 	<string name="zenMode">зен стање</string>
 	<string name="displayBoardResizeHandle">Show board resize handle</string>
@@ -40,5 +43,6 @@
 	<string name="westernNotation">Western notation</string>
 	<string name="japaneseNotation">Japanese notatation</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
+	<string name="kifNotation">Kif notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Ваше преференце су сачуване.</string>
 </resources>

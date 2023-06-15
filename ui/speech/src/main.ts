@@ -2,6 +2,8 @@ import { renderMove as jRenderMove } from './japanese';
 
 function toRole(char: string): string | undefined {
   switch (char) {
+    case 'と':
+      return 'promoted pawn';
     case '馬':
       return 'horse';
     case '龍':
@@ -100,6 +102,7 @@ function pronounce(str: string): string | undefined {
 // P-76, G79-78
 // P-7f, G7i-7h
 // 歩-76, 金(79)-78
+// ７六歩, ７八金直
 function renderMove(move: string) {
   // avoiding the collision
   if (move[0] === '+' || move[0] === '成') move = '!' + move.substring(1);
@@ -111,10 +114,12 @@ function renderMove(move: string) {
     .join(' ');
 }
 
-export function step(s: { notation?: string }, cut: boolean) {
-  const texts = {
-    en: s.notation ? renderMove(s.notation) : 'Game start',
-    jp: s.notation ? jRenderMove(s.notation) : '開始',
-  };
-  window.lishogi.sound.say(texts, cut);
+export function notation(notation: string | undefined, cut: boolean) {
+  window.lishogi.sound.say(
+    {
+      en: notation ? renderMove(notation) : 'Game start',
+      jp: notation ? jRenderMove(notation) : '開始',
+    },
+    cut
+  );
 }

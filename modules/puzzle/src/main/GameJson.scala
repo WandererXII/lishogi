@@ -29,7 +29,7 @@ final private class GameJson(
     }
   private def writeKey(id: Game.ID, ply: Int) = s"$id$ply"
 
-  private val cache = cacheApi[String, JsObject](4096, "puzzle.gameJson") {
+  private val cache = cacheApi[String, JsObject](512, "puzzle.gameJson") {
     _.expireAfterAccess(5 minutes)
       .maximumSize(1024)
       .buildAsyncFuture(key =>
@@ -60,11 +60,11 @@ final private class GameJson(
   private def generate(game: Game, plies: Int): JsObject =
     Json
       .obj(
-        "id"       -> game.id,
-        "perf"     -> perfJson(game),
-        "rated"    -> game.rated,
-        "players"  -> playersJson(game),
-        "moves" -> game.shogi.usiMoves.take(plies + 1).map(_.usi).mkString(" ")
+        "id"      -> game.id,
+        "perf"    -> perfJson(game),
+        "rated"   -> game.rated,
+        "players" -> playersJson(game),
+        "moves"   -> game.shogi.usiMoves.take(plies + 1).map(_.usi).mkString(" ")
       )
       .add("clock", game.clock.map(_.config.show))
 

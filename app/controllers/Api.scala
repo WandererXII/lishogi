@@ -126,7 +126,6 @@ final class Api(
       analysis = getBool("with_analysis", req),
       moves = getBool("with_moves", req),
       sfens = getBool("with_sfens", req),
-      opening = getBool("with_opening", req),
       moveTimes = getBool("with_movetimes", req),
       token = get("token", req)
     )
@@ -245,7 +244,7 @@ final class Api(
           val nb = getInt("nb", req) | Int.MaxValue
           jsonStream {
             env.tournament.api
-              .resultStream(tour, MaxPerSecond(50), nb)
+              .resultStream(tour, MaxPerSecond(40), nb)
               .map(playerResultWrites.writes)
           }.fuccess
         }
@@ -256,7 +255,7 @@ final class Api(
     Action.async {
       env.tournament.tournamentRepo byId id flatMap {
         _ ?? { tour =>
-          env.tournament.jsonView.getTeamStanding(tour) map { arr =>
+          env.tournament.jsonView.apiTeamStanding(tour) map { arr =>
             JsonOk(
               Json.obj(
                 "id"    -> tour.id,
@@ -384,7 +383,7 @@ final class Api(
   def toHttp(result: ApiResult): Result =
     result match {
       case Limited        => tooManyRequests
-      case NoData         => NotFound
+      case NoData         => notFoundJsonSync()
       case Custom(result) => result
       case Data(json)     => Ok(json) as JSON
     }

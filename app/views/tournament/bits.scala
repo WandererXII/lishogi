@@ -49,9 +49,19 @@ object bits {
       "If it has prizes, Lishogi is NOT responsible for paying them."
     )
 
-  def jsI18n(implicit ctx: Context) = i18nJsObject(i18nKeys)
+  def scheduleJsI18n(implicit ctx: Context) = i18nJsObject(schedulei18nKeys)
+
+  def jsI18n(tour: Tournament)(implicit ctx: Context) = i18nJsObject(
+    i18nKeys ++ (tour.isTeamBattle ?? teamBattleI18nKeys)
+  )
 
   private val i18nKeys = List(
+    trans.black,
+    trans.white,
+    trans.sente,
+    trans.gote,
+    trans.shitate,
+    trans.uwate,
     trans.standing,
     trans.starting,
     trans.tournamentIsStarting,
@@ -59,6 +69,7 @@ object bits {
     trans.standByX,
     trans.tournamentPairingsAreNowClosed,
     trans.join,
+    trans.pause,
     trans.withdraw,
     trans.joinTheGame,
     trans.signIn,
@@ -70,13 +81,28 @@ object bits {
     trans.performance,
     trans.tournamentComplete,
     trans.movesPlayed,
-    trans.whiteWins,
-    trans.blackWins,
+    trans.xWins,
     trans.draws,
     trans.nextXTournament,
     trans.averageOpponent,
-    trans.ratedTournament,
-    trans.casualTournament,
-    trans.password
+    trans.password,
+    trans.standard,
+    trans.minishogi,
+    trans.chushogi,
+    trans.annanshogi,
+    trans.kyotoshogi
   ).map(_.key)
+
+  private val teamBattleI18nKeys = List(
+    trans.arena.viewAllXTeams,
+    trans.arena.averagePerformance,
+    trans.arena.averageScore,
+    trans.team.teamPage
+  ).map(_.key)
+
+  private val schedulei18nKeys = List(
+    trans.ratedTournament,
+    trans.casualTournament
+  ).map(_.key)
+
 }

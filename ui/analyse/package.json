@@ -30,13 +30,14 @@
     "common": "2.0.0",
     "game": "2.0.0",
     "nvui": "2.0.0",
-    "shogiground": "^0.5.6",
-    "shogiops": "^0.9.0",
+    "shogiground": "^0.7.1",
+    "shogiops": "^0.14.3",
     "snabbdom": "^3.5.1",
     "tree": "2.0.0"
   },
   "scripts": {
     "dev": "rollup --config",
+    "nvui": "rollup --config --config-plugin nvui",
     "prod": "rollup --config --config-prod && rollup --config --config-prod --config-plugin nvui"
   }
 }

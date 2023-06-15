@@ -6,21 +6,20 @@ import scala.util.Try
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
 import shogi.variant.Variant
-import shogi._
+import shogi.{ Centis, Clock, ClockPlayer, Color, Gote, Piece, PieceMap, Sente, Situation, Timestamp }
 import org.lishogi.compression.clock.{ Encoder => ClockEncoder }
 
 import lila.db.ByteArray
 
 object BinaryFormat {
-
   object usi {
     def write(moves: UsiMoves, variant: Variant): ByteArray =
       ByteArray {
-        format.usi.Binary.encodeMoves(moves, variant)
+        shogi.format.usi.Binary.encodeMoves(moves, variant)
       }
 
     def read(ba: ByteArray, variant: Variant): UsiMoves =
-      format.usi.Binary.decodeMoves(ba.value.toList, variant)
+      shogi.format.usi.Binary.decodeMoves(ba.value.toList, variant, Game.maxPlies(variant))
 
   }
 
@@ -109,25 +108,26 @@ object BinaryFormat {
         goteBerserk: Boolean
     ): Color => Clock =
       color => {
-        val ia = ba.value map toInt
+        val ia   = ba.value map toInt
+        val size = ia.sizeIs
 
         // ba.size might be greater than 12 with 5 bytes timers
         // ba.size might be 8 if there was no timer.
         // #TODO remove 5 byte timer case! But fix the DB first!
         val timer = {
-          if (ia.size >= 12) readTimer(readInt(ia(8), ia(9), ia(10), ia(11)))
+          if (size >= 12) readTimer(readInt(ia(8), ia(9), ia(10), ia(11)))
           else None
         }
 
         val byo = {
-          if (ia.size == 14) ia(12)
-          else if (ia.size == 10) ia(8)
+          if (size == 14) ia(12)
+          else if (size == 10) ia(8)
           else 0
         }
 
         val per = {
-          if (ia.size == 14) ia(13)
-          else if (ia.size == 10) ia(9)
+          if (size == 14) ia(13)
+          else if (size == 10) ia(9)
           else 1
         }
 
@@ -231,10 +231,18 @@ object BinaryFormat {
       var color = init.color
       usis.foreach { case usi =>
         usi match {
-          case Usi.Move(orig, dest, prom) => {
+          case Usi.Move(orig, dest, prom, None) => {
             mm.remove(orig) map { piece =>
               val mp = piece.updateRole(variant.promote).filter(_ => prom).getOrElse(piece)
               mm update (dest, mp)
+              color = !color
+            }
+          }
+          case Usi.Move(orig, dest, prom, Some(ms)) => {
+            mm.remove(orig) map { piece =>
+              val mp = piece.updateRole(variant.promote).filter(_ => prom).getOrElse(piece)
+              mm update (dest, mp)
+              mm remove ms
               color = !color
             }
           }

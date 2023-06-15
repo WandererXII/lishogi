@@ -3,10 +3,12 @@ package controllers
 import org.joda.time.DateTime
 import org.joda.time.format.DateTimeFormat
 import play.api.mvc._
+import java.nio.charset.StandardCharsets.UTF_8
 
 import lila.api.GameApiV2
 import lila.app._
 import lila.common.config.MaxPerSecond
+import lila.common.String.getBytesShiftJis
 import lila.common.HTTPRequest
 import lila.game.{ Game => GameModel }
 
@@ -47,7 +49,9 @@ final class Game(
         )
         env.api.gameApiV2.exportOne(game, config) flatMap { content =>
           env.api.gameApiV2.filename(game, config) map { filename =>
-            Ok(content)
+            val contentEncoded =
+              if (config.flags.shiftJis) getBytesShiftJis(content) else content.getBytes(UTF_8)
+            Ok(contentEncoded)
               .withHeaders(
                 CONTENT_DISPOSITION -> s"attachment; filename=$filename"
               )
@@ -124,11 +128,7 @@ final class Game(
         .GlobalConcurrencyLimitPerIP(HTTPRequest lastRemoteAddress req)(
           env.api.gameApiV2.exportByIds(config)
         ) { source =>
-          Ok.chunked(source)
-            .withHeaders(
-              noProxyBufferHeader
-            )
-            .as(gameContentType(config))
+          noProxyBuffer(Ok.chunked(source)).as(gameContentType(config))
         }
         .fuccess
     }
@@ -150,8 +150,8 @@ final class Game(
       tags = getBoolOpt("tags", req) | true,
       clocks = getBoolOpt("clocks", req) | extended,
       evals = getBoolOpt("evals", req) | extended,
-      opening = getBoolOpt("opening", req) | extended,
       literate = getBoolOpt("literate", req) | false,
+      shiftJis = getBoolOpt("shiftJis", req) | false,
       notationInJson = getBoolOpt("notationInJson", req) | false
     )
 

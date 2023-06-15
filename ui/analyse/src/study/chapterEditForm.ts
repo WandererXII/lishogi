@@ -1,13 +1,13 @@
-import { h, VNode } from 'snabbdom';
-import { defined, prop, Prop } from 'common/common';
-import { Redraw } from '../interfaces';
+import { standardColorName } from 'common/colorName';
+import { Prop, defined, prop } from 'common/common';
 import { bind, bindSubmit, onInsert } from 'common/snabbdom';
 import spinner from 'common/spinner';
-import { option, emptyRedButton } from '../util';
+import { VNode, h } from 'snabbdom';
+import { Redraw } from '../interfaces';
 import * as modal from '../modal';
+import { emptyRedButton, option } from '../util';
 import * as chapterForm from './chapterNewForm';
 import { StudyChapterConfig, StudyChapterMeta } from './interfaces';
-import { toBlackWhite } from 'shogiops/util';
 
 interface StudyChapterEditFormCtrl {
   current: Prop<StudyChapterMeta | StudyChapterConfig | null>;
@@ -176,8 +176,8 @@ function viewLoaded(ctrl: StudyChapterEditFormCtrl, data: StudyChapterConfig): V
         ),
         h(
           'select#chapter-orientation.form-control',
-          ['sente', 'gote'].map(function (color) {
-            return option(color, data.orientation, ctrl.trans.noarg(toBlackWhite(color)));
+          ['sente', 'gote'].map(function (color: Color) {
+            return option(color, data.orientation, standardColorName(ctrl.trans.noarg, color));
           })
         ),
       ]),

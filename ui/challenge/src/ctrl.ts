@@ -1,16 +1,16 @@
-import * as xhr from './xhr';
 import notify from 'common/notification';
-import { Ctrl, ChallengeOpts, ChallengeData, ChallengeUser } from './interfaces';
+import { ChallengeData, ChallengeOpts, ChallengeUser, Ctrl } from './interfaces';
+import * as xhr from './xhr';
 
 const li = window.lishogi;
 
 export default function (opts: ChallengeOpts, data: ChallengeData, redraw: () => void): Ctrl {
-  let trans = (key: string) => key;
+  let trans: Trans;
   let redirecting = false;
 
   function update(d: ChallengeData) {
     data = d;
-    if (d.i18n) trans = li.trans(d.i18n).noarg;
+    trans = li.trans(d.i18n || {});
     opts.setCount(countActiveIn());
     notifyNew();
   }
@@ -26,7 +26,7 @@ export default function (opts: ChallengeOpts, data: ChallengeData, redraw: () =>
           opts.show();
           li.sound.newChallenge();
         }
-        const pushSubsribed = parseInt(li.storage.get('push-subscribed') || '0', 10) + 86400000 >= Date.now(); // 24h
+        const pushSubsribed = parseInt(li.storage.get('push-subscribed2') || '0', 10) + 86400000 >= Date.now(); // 24h
         !pushSubsribed && c.challenger && notify(showUser(c.challenger) + ' challenges you!');
         opts.pulse();
       }

@@ -57,11 +57,11 @@ object show {
                 div(
                   span(cls := "clock")(sim.clock.config.show),
                   div(cls := "setup")(
-                    sim.variants.map(_.name).mkString(", "),
-                    " • ",
+                    sim.variants.map(v => variantName(v)).mkString(", "),
+                    " - ",
                     trans.casual(),
                     (isGranted(_.ManageSimul) || ctx.userId.has(sim.hostId)) && sim.isCreated option frag(
-                      " • ",
+                      " - ",
                       a(href := routes.Simul.edit(sim.id), title := "Edit simul")(iconTag("%"))
                     )
                   )
@@ -71,26 +71,33 @@ object show {
               ": ",
               pluralize("minute", sim.clock.hostExtraMinutes),
               br,
-              trans.hostColorX(sim.color match {
-                case Some("gote")  => trans.white.txt() + "/" + trans.uwate.txt()
-                case Some("sente") => trans.black.txt() + "/" + trans.shitate.txt()
-                case _             => trans.randomColor()
+              trans.hostColorX(sim.hostColor match {
+                case Some(color) => {
+                  val sColorName = standardColorName(color)
+                  val hColorName = handicapColorName(color)
+                  if (hColorName != sColorName) s"$sColorName/${handicapColorName(color)}"
+                  else sColorName
+                }
+                case _ => trans.randomColor()
               }),
-              sim.position.flatMap(lila.tournament.Thematic.bySfen) map { pos =>
+              (for {
+                sfen     <- sim.position
+                variant  <- sim.variants.headOption
+                handicap <- lila.tournament.Thematic.bySfen(sfen, variant)
+              } yield (handicap)) map { h =>
                 frag(
                   br,
-                  a(target := "_blank", rel := "noopener", href := pos.url)(
-                    strong(pos.japanese),
-                    " ",
-                    pos.english
-                  ),
-                  " • ",
-                  views.html.base.bits.sfenAnalysisLink(pos.sfen)
+                  strong(h.japanese),
+                  " ",
+                  h.english,
+                  " - ",
+                  views.html.base.bits.sfenAnalysisLink(h.sfen)
                 )
               } orElse sim.position.map { sfen =>
                 frag(
                   br,
-                  "Custom position • ",
+                  trans.fromPosition(),
+                  " - ",
                   views.html.base.bits.sfenAnalysisLink(sfen)
                 )
               }

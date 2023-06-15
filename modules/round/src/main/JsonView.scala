@@ -10,7 +10,7 @@ import lila.game.{ Game, Player => GamePlayer, Pov }
 import lila.pref.Pref
 import lila.user.{ User, UserRepo }
 
-import shogi.Clock
+import shogi.{ Clock, Color }
 
 import actorApi.SocketStatus
 
@@ -23,7 +23,7 @@ final class JsonView(
     moretimer: Moretimer,
     divider: lila.game.Divider,
     evalCache: lila.evalCache.EvalCacheApi,
-    isOfferingRematch: Pov => Boolean,
+    isOfferingRematch: (Game.ID, Color) => Boolean,
     moretime: MoretimeDuration
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -40,7 +40,7 @@ final class JsonView(
       .add("rating" -> p.rating)
       .add("ratingDiff" -> p.ratingDiff)
       .add("provisional" -> p.provisional)
-      .add("offeringRematch" -> isOfferingRematch(Pov(g, p)))
+      .add("offeringRematch" -> isOfferingRematch(g.id, p.color))
       .add("offeringDraw" -> p.isOfferingDraw)
       .add("proposingTakeback" -> p.isProposingTakeback)
       .add("berserk" -> p.berserk)
@@ -87,8 +87,7 @@ final class JsonView(
                 "replay"            -> pref.replay,
                 "clockTenths"       -> pref.clockTenths,
                 "clockCountdown"    -> pref.clockCountdown,
-                "moveEvent"         -> pref.moveEvent,
-                "notation"          -> pref.notation
+                "moveEvent"         -> pref.moveEvent
               )
               .add("clockSound" -> pref.clockSound)
               .add("confirmResign" -> (!nvui && pref.confirmResign == Pref.ConfirmResign.YES))
@@ -153,7 +152,6 @@ final class JsonView(
             "game" -> gameJsonView(game)
               .add("moveCentis" -> (withFlags.movetimes ?? game.moveTimes.map(_.map(_.centis))))
               .add("division" -> withFlags.division.option(divider(game)))
-              .add("opening" -> game.opening)
               .add("importedBy" -> game.notationImport.flatMap(_.user)),
             "clock"          -> game.clock.map(clockJson),
             "correspondence" -> game.correspondenceClock,
@@ -179,8 +177,7 @@ final class JsonView(
                 "replay"            -> pref.replay,
                 "clockTenths"       -> pref.clockTenths,
                 "clockCountdown"    -> pref.clockCountdown,
-                "moveEvent"         -> pref.moveEvent,
-                "notation"          -> pref.notation
+                "moveEvent"         -> pref.moveEvent
               )
               .add("highlightLastDests" -> pref.highlightLastDests)
               .add("highlightCheck" -> pref.highlightCheck)
@@ -214,7 +211,6 @@ final class JsonView(
           .obj(
             "id"            -> gameId,
             "variant"       -> game.variant,
-            "opening"       -> game.opening,
             "initialSfen"   -> (game.initialSfen | game.variant.initialSfen),
             "sfen"          -> game.shogi.toSfen,
             "plies"         -> game.plies,
@@ -242,8 +238,7 @@ final class JsonView(
             "animationDuration" -> animationMillis(pov, pref),
             "coords"            -> pref.coords,
             "moveEvent"         -> pref.moveEvent,
-            "resizeHandle"      -> pref.resizeHandle,
-            "notation"          -> pref.notation
+            "resizeHandle"      -> pref.resizeHandle
           )
           .add("highlightLastDests" -> pref.highlightLastDests)
           .add("highlightCheck" -> pref.highlightCheck)
@@ -275,7 +270,6 @@ final class JsonView(
 object JsonView {
 
   case class WithFlags(
-      opening: Boolean = false,
       movetimes: Boolean = false,
       division: Boolean = false,
       clocks: Boolean = false,

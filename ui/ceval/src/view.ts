@@ -1,16 +1,17 @@
-import * as winningChances from './winningChances';
-import stepwiseScroll from 'common/wheel';
 import { defined, notNull } from 'common/common';
-import { makeNotationLineWithPosition, Notation, notationsWithColor } from 'common/notation';
-import { Eval, CevalCtrl, ParentCtrl, NodeEvals } from './types';
-import { h, VNode } from 'snabbdom';
+import { makeNotationLineWithPosition, notationsWithColor } from 'common/notation';
+import stepwiseScroll from 'common/wheel';
 import { Config } from 'shogiground/config';
-import { Position } from 'shogiops/shogi';
-import { opposite, parseUsi } from 'shogiops/util';
-import { parseSfen, makeSfen } from 'shogiops/sfen';
-import { cubicRegressionEval, renderEval } from './util';
 import { usiToSquareNames } from 'shogiops/compat';
-import { handRoles } from 'shogiops/variantUtil';
+import { forsythToRole, makeSfen, parseSfen, roleToForsyth } from 'shogiops/sfen';
+import { Move } from 'shogiops/types';
+import { makeUsi, opposite, parseUsi } from 'shogiops/util';
+import { Position } from 'shogiops/variant/position';
+import { handRoles } from 'shogiops/variant/util';
+import { VNode, h } from 'snabbdom';
+import { CevalCtrl, Eval, NodeEvals, ParentCtrl } from './types';
+import { cubicRegressionEval, renderEval, unsupportedVariants } from './util';
+import * as winningChances from './winningChances';
 
 let gaugeLast = 0;
 const gaugeTicks: VNode[] = [...Array(8).keys()].map(i =>
@@ -33,7 +34,14 @@ function localEvalInfo(ctrl: ParentCtrl, evs: NodeEvals): Array<VNode | string> 
 
   const depth = evs.client.depth || 0;
   const t: Array<VNode | string> = evs.client.cloud
-    ? [trans('depthX', depth), h('span.cloud', { attrs: { title: trans.noarg('cloudAnalysis') } }, 'Cloud')]
+    ? [
+        trans('depthX', depth),
+        h(
+          'span.cloud',
+          { attrs: { title: trans.noarg('cloudAnalysis') } },
+          `Cloud - ${ceval.shouldUseYaneuraou ? 'NNUE' : 'HCE'}`
+        ),
+      ]
     : [trans('depthX', depth + '/' + Math.max(depth, evs.client.maxDepth))];
   if (ceval.canGoDeeper())
     t.push(
@@ -100,7 +108,7 @@ function engineName(ctrl: CevalCtrl): VNode[] {
           'HCE'
         )
       : h(
-          'span.technology.bad',
+          'span.technology.bad.' + ctrl.variant.key,
           { attrs: { title: 'Unfortunately local analysis is not available for this device or browser' } },
           'No engine supported'
         ),
@@ -220,7 +228,12 @@ export function renderCeval(ctrl: ParentCtrl): VNode | undefined {
         pearl ? h('pearl', [pearl]) : null,
         h('help', [
           ...engineName(instance),
-          h('span', [h('br'), instance.analysable ? trans.noarg('inLocalBrowser') : 'Engine cannot analyse this game']),
+          h('span', [
+            h('br'),
+            instance.analysable
+              ? trans.noarg('inLocalBrowser')
+              : `Engine cannot analyse this ${unsupportedVariants.includes(instance.variant.key) ? 'variant' : 'game'}`,
+          ]),
         ]),
       ];
 
@@ -230,6 +243,9 @@ export function renderCeval(ctrl: ParentCtrl): VNode | undefined {
       : h(
           'div.switch',
           {
+            class: {
+              disabled: !instance.analysable,
+            },
             attrs: { title: trans.noarg('toggleLocalEvaluation') + ' (l)' },
           },
           [
@@ -315,10 +331,9 @@ export function renderPvs(ctrl: ParentCtrl): VNode | undefined {
     if (node.usi) position.value.lastMove = parseUsi(node.usi);
     if (threat) {
       position.value.turn = opposite(position.value.turn);
-      if (position.value.turn == 'sente') position.value.fullmoves += 1;
+      if (position.value.turn == 'sente') position.value.moveNumber += 1;
     }
   }
-  const notation = ctrl.data.pref.notation ?? 0;
   return h(
     'div.pv_box',
     {
@@ -373,7 +388,7 @@ export function renderPvs(ctrl: ParentCtrl): VNode | undefined {
     },
     [
       ...[...Array(multiPv).keys()].map(i =>
-        renderPv(threat, multiPv, notation, pvs[i], position.isOk ? position.value : undefined)
+        renderPv(threat, multiPv, pvs[i], position.isOk ? position.value : undefined)
       ),
       renderPvBoard(ctrl),
     ]
@@ -382,7 +397,7 @@ export function renderPvs(ctrl: ParentCtrl): VNode | undefined {
 
 const MAX_NUM_MOVES = 16;
 
-function renderPv(threat: boolean, multiPv: number, notation: Notation, pv?: Tree.PvData, pos?: Position): VNode {
+function renderPv(threat: boolean, multiPv: number, pv?: Tree.PvData, pos?: Position): VNode {
   const data: any = {};
   const children: VNode[] = [renderPvWrapToggle()];
   if (pv) {
@@ -393,7 +408,7 @@ function renderPv(threat: boolean, multiPv: number, notation: Notation, pv?: Tre
       children.push(h('strong', defined(pv.mate) ? '#' + pv.mate : renderEval(pv.cp!)));
     }
     if (pos) {
-      children.push(...renderPvMoves(pos.clone(), pv.moves.slice(0, MAX_NUM_MOVES), notation));
+      children.push(...renderPvMoves(pos.clone(), pv.moves.slice(0, MAX_NUM_MOVES)));
     }
   }
   return h('div.pv.pv--nowrap', data, children);
@@ -416,21 +431,20 @@ function renderPvWrapToggle(): VNode {
   });
 }
 
-function renderPvMoves(pos: Position, pv: Usi[], notation: Notation): VNode[] {
+function renderPvMoves(pos: Position, pv: Usi[]): VNode[] {
   let key = makeSfen(pos);
   const vnodes: VNode[] = [],
-    moves = pv.map(u => parseUsi(u)!),
-    notationMoves = makeNotationLineWithPosition(notation, pos, moves, pos.lastMove),
-    addColorIcon = notationsWithColor.includes(notation);
-  for (let i = 0; i < pv.length; i++) {
+    moves = pv.map(u => parseUsi(u)).filter((m): m is Move => defined(m)),
+    notationMoves = makeNotationLineWithPosition(pos, moves, pos.lastMove),
+    addColorIcon = notationsWithColor();
+
+  for (let i = 0; i < moves.length; i++) {
     const colorIcon = addColorIcon ? '.color-icon.' + pos.turn : '',
-      moveNumber = `${pos.fullmoves}. `;
+      moveNumber = `${pos.moveNumber}. `;
     pos.play(moves[i]);
-    const usi = pv[i],
+    const usi = makeUsi(moves[i]),
       sfen = makeSfen(pos);
     key += '|' + usi;
-    // move number separately for notations with color icon
-    if (addColorIcon) vnodes.push(h('index', moveNumber));
     vnodes.push(
       h(
         'span.pv-move' + colorIcon,
@@ -465,7 +479,11 @@ function renderPvBoard(ctrl: ParentCtrl): VNode | undefined {
       roles: handRoles(instance.variant.key),
       inlined: true,
     },
-    lastDests: usiToSquareNames(usi) as Key[],
+    forsyth: {
+      fromForsyth: forsythToRole(instance.variant.key),
+      toForsyth: roleToForsyth(instance.variant.key),
+    },
+    lastDests: usiToSquareNames(usi),
     orientation,
     coordinates: { enabled: false },
     viewOnly: true,

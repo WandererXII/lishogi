@@ -17,6 +17,7 @@ import lila.hub.actorApi.round.{
   FishnetPlay,
   FishnetStart,
   IsOnGame,
+  PostGameStudy,
   RematchNo,
   RematchYes,
   Resign
@@ -215,6 +216,21 @@ final private[round] class RoundDuct(
         )
       }
 
+    case PostGameStudy(studyId) =>
+      updateGame { game =>
+        game.setPostGameStudy(studyId)
+      } inject {
+        socketSend(
+          RP.Out.tellRoom(
+            roomId,
+            makeMessage(
+              "postGameStudy",
+              studyId
+            )
+          )
+        )
+      }
+
     // round stuff
 
     case p: HumanPlay =>
@@ -271,11 +287,12 @@ final private[round] class RoundDuct(
         pov.game.resignable ?? finisher.other(pov.game, _.Resign, Some(!pov.color))
       }
 
-    case GoBerserk(color) =>
+    case GoBerserk(color, promise) =>
       handle(color) { pov =>
-        pov.game.goBerserk(color) ?? { progress =>
+        val berserked = pov.game.goBerserk(color)
+        berserked ?? { progress =>
           proxy.save(progress) >> gameRepo.goBerserk(pov) inject progress.events
-        }
+        } >>- promise.success(berserked.isDefined)
       }
 
     case ResignForce(playerId) =>
@@ -285,7 +302,7 @@ final private[round] class RoundDuct(
             case true =>
               finisher.rageQuit(
                 pov.game,
-                Some(pov.color) ifFalse pov.game.situation.opponentHasInsufficientMaterial
+                Some(pov.color)
               )
             case _ => fuccess(List(Event.Reload))
           }

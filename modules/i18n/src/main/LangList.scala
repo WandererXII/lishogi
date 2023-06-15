@@ -10,7 +10,7 @@ object LangList {
     Lang("ar", "SA") -> "العربية",
     // Lang("as", "IN")  -> "অসমীয়া",
     // Lang("az", "AZ")  -> "Azərbaycanca",
-    // Lang("be", "BY")  -> "Беларуская",
+    Lang("be", "BY") -> "Беларуская",
     // Lang("bg", "BG")  -> "български език",
     // Lang("bn", "BD")  -> "বাংলা",
     // Lang("br", "FR")  -> "brezhoneg",
@@ -27,7 +27,7 @@ object LangList {
     Lang("es", "ES") -> "español",
     // Lang("et", "EE")  -> "eesti keel",
     // Lang("eu", "ES")  -> "Euskara",
-    // Lang("fa", "IR")  -> "فارسی",
+    Lang("fa", "IR") -> "فارسی",
     Lang("fi", "FI") -> "suomen kieli",
     // Lang("fo", "FO")  -> "føroyskt",
     Lang("fr", "FR") -> "français",
@@ -43,7 +43,7 @@ object LangList {
     Lang("hu", "HU") -> "Magyar",
     // Lang("hy", "AM")  -> "Հայերեն",
     // Lang("ia", "IA")  -> "Interlingua",
-    // Lang("id", "ID")  -> "Bahasa Indonesia",
+    Lang("id", "ID") -> "Bahasa Indonesia",
     // Lang("io", "EN")  -> "Ido",
     // Lang("is", "IS")  -> "Íslenska",
     Lang("it", "IT") -> "Italiano",
@@ -58,14 +58,14 @@ object LangList {
     Lang("ko", "KR") -> "한국어",
     // Lang("ky", "KG")  -> "кыргызча",
     // Lang("la", "LA")  -> "lingua Latina",
-    // Lang("lt", "LT")  -> "lietuvių kalba",
+    Lang("lt", "LT") -> "lietuvių kalba",
     // Lang("lv", "LV")  -> "latviešu valoda",
     // Lang("mg", "MG")  -> "fiteny malagasy",
     // Lang("mk", "MK")  -> "македонски јази",
     // Lang("ml", "IN")  -> "മലയാളം",
     // Lang("mn", "MN")  -> "монгол",
     // Lang("mr", "IN")  -> "मराठी",
-    // Lang("nb", "NO")  -> "Norsk bokmål",
+    Lang("nb", "NO") -> "Norsk bokmål",
     // Lang("ne", "NP")  -> "नेपाली",
     Lang("nl", "NL") -> "Nederlands",
     // Lang("nn", "NO")  -> "Norsk nynorsk",
@@ -85,9 +85,9 @@ object LangList {
     // Lang("sw", "KE")  -> "Kiswahili",
     // Lang("ta", "IN")  -> "தமிழ்",
     // Lang("tg", "TJ")  -> "тоҷикӣ",
-    // Lang("th", "TH")  -> "ไทย",
+    Lang("th", "TH") -> "ไทย",
     // Lang("tk", "TM")  -> "Türkmençe",
-    // Lang("tl", "PH")  -> "Tagalog",
+    Lang("tl", "PH") -> "Tagalog",
     // Lang("tp", "TP")  -> "toki pona",
     Lang("tr", "TR") -> "Türkçe",
     Lang("uk", "UA") -> "українська",
@@ -101,10 +101,51 @@ object LangList {
   )
 
   lazy val popular: List[Lang] = {
-    // 26/04/2020 based on db.user4.aggregate({$sortByCount:'$lang'}).toArray()
+    // 01/06/2023 based on db.user4.aggregate({$sortByCount:'$lang'}).toArray()
+    // GB should be third, but let's have en together
     val langs =
-      "en-US en-GB ja-JP ru-RU es-ES tr-TR fr-FR de-DE pt-BR it-IT pl-PL ar-SA nl-NL"
-        .split(' ')
+      List(
+        "en-US",
+        "en-GB",
+        "ja-JP",
+        "ru-RU",
+        "es-ES",
+        "pt-BR",
+        "fr-FR",
+        "de-DE",
+        "zh-CN",
+        "vi-VN",
+        "pl-PL",
+        "it-IT",
+        "tr-TR",
+        "zh-TW",
+        "nl-NL",
+        "ko-KR",
+        "cs-CZ",
+        "pt-PT",
+        "sv-SE",
+        "hu-HU",
+        "uk-UA",
+        "fi-FI",
+        "da-DK",
+        "th-TH",
+        "ar-SA",
+        "no-NO",
+        "ro-RO",
+        "ca-ES",
+        "el-GR",
+        "he-IL",
+        "sr-SP",
+        "id-ID",
+        "nb-NO",
+        "be-BY",
+        "af-ZA",
+        "hi-IN",
+        "tk-TM",
+        "tl-PH",
+        "fa-IR",
+        "lt-LT"
+      )
         .flatMap(Lang.get)
         .zipWithIndex
         .toMap
@@ -112,16 +153,41 @@ object LangList {
   }
 
   lazy val popularNoRegion: List[Lang] = popular.collect {
-    case l if noRegion(l) == l => l
+    case l if defaultRegions.get(l.language).fold(true)(_ == l) => l
   }
 
-  private def noRegion(lang: Lang): Lang =
-    lang.language match {
-      case "en" => Lang("en", "GB")
-      case "pt" => Lang("pt", "PT")
-      case "zh" => Lang("zh", "CN")
-      case _    => lang
-    }
+  val defaultRegions = Map[String, Lang](
+    "en" -> Lang("en", "US"),
+    "pt" -> Lang("pt", "BR"),
+    "zh" -> Lang("zh", "CN")
+  )
+
+  // based on https://crowdin.com/project/lishogi
+  // at least 80%, no en, order doesn't matter
+  private val fullyTranslated =
+    List(
+      "be-BY",
+      "zh-CN",
+      "cs-CZ",
+      "fr-FR",
+      "de-DE",
+      // "hi-IN",
+      "it-IT",
+      "ja-JP",
+      "pl-PL",
+      "pt-BR",
+      "ru-RU",
+      "es-ES",
+      "tr-TR",
+      "vi-VN"
+    )
+
+  sealed trait AlternativeLangs
+  case object EnglishJapanese extends AlternativeLangs
+  case object All             extends AlternativeLangs
+
+  lazy val alternativeLangCodes: List[String] =
+    popularNoRegion.withFilter(l => fullyTranslated.contains(l.code)).map(fixJavaLanguageCode).take(15)
 
   def name(lang: Lang): String   = all.getOrElse(lang, lang.code)
   def name(code: String): String = Lang.get(code).fold(code)(name)

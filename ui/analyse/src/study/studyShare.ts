@@ -1,9 +1,9 @@
-import { h, VNode } from 'snabbdom';
-import { prop, Prop } from 'common/common';
+import { Prop, prop } from 'common/common';
 import { bind } from 'common/snabbdom';
-import { baseUrl } from '../util';
+import { VNode, h } from 'snabbdom';
 import { renderIndexAndMove } from '../moveView';
-import { StudyData, StudyChapterMeta } from './interfaces';
+import { baseUrl } from '../util';
+import { StudyChapterMeta, StudyData } from './interfaces';
 
 interface StudyShareCtrl {
   studyId: string;
@@ -13,8 +13,8 @@ interface StudyShareCtrl {
   withPly: Prop<boolean>;
   relay: boolean;
   cloneable: boolean;
-  notation: number;
   offset: number;
+  gameId?: string;
   redraw: () => void;
   trans: Trans;
 }
@@ -22,7 +22,6 @@ interface StudyShareCtrl {
 function fromPly(ctrl: StudyShareCtrl): VNode {
   const renderedMove = renderIndexAndMove(
     {
-      notation: ctrl.notation,
       variant: ctrl.chapter().variant,
       withDots: true,
       showEval: false,
@@ -56,7 +55,6 @@ export function ctrl(
   currentNode: () => Tree.Node,
   relay: boolean,
   redraw: () => void,
-  notation: number,
   offset: number,
   trans: Trans
 ): StudyShareCtrl {
@@ -71,18 +69,18 @@ export function ctrl(
     withPly,
     relay,
     cloneable: data.features.cloneable,
-    notation: notation,
     redraw,
     trans,
     offset,
+    gameId: data.chapter.gameLength ? data.chapter.setup.gameId : undefined,
   };
 }
 
 export function view(ctrl: StudyShareCtrl): VNode {
   const studyId = ctrl.studyId,
     chapter = ctrl.chapter();
-  let fullUrl = `${baseUrl()}/study/${studyId}/${chapter.id}`;
-  let embedUrl = `${baseUrl()}/study/embed/${studyId}/${chapter.id}`;
+  let fullUrl = `${baseUrl()}/study/${studyId}/${chapter.id}`,
+    embedUrl = `${baseUrl()}/study/embed/${studyId}/${chapter.id}`;
   const isPrivate = ctrl.isPrivate();
   if (ctrl.withPly()) {
     const p = ctrl.currentNode().ply;
@@ -119,6 +117,17 @@ export function view(ctrl: StudyShareCtrl): VNode {
             )
           : null,
       ]),
+      ctrl.gameId
+        ? h('div.form-group', [
+            h('label.form-label', ctrl.trans.noarg('currentGameUrl')),
+            h('input.form-control.autoselect', {
+              attrs: {
+                readonly: true,
+                value: `${baseUrl()}/${ctrl.gameId}`,
+              },
+            }),
+          ])
+        : null,
       h(
         'div.form-group',
         [

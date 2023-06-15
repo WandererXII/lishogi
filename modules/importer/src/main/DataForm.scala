@@ -52,7 +52,8 @@ case class ImportData(notation: String, analyse: Option[String]) {
       case "" | "投了" | "TORYO"                                                      => Status.Resign
       case "詰み" | "TSUMI"                                                           => Status.Mate
       case "中断" | "CHUDAN"                                                          => Status.Aborted
-      case "持将棋" | "千日手" | "JISHOGI" | "SENNICHITE" | "HIKIWAKE"                    => Status.Draw
+      case "持将棋" | "千日手" | "JISHOGI" | "SENNICHITE"                                 => Status.Repetition
+      case "引き分け" | "引分け" | "HIKIWAKE"                                              => Status.Draw
       case "入玉勝ち" | "KACHI"                                                         => Status.Impasse27
       case "切れ負け" | "TIME-UP" | "TIME_UP"                                           => Status.Outoftime
       case "反則勝ち" | "反則負け" | "ILLEGAL_MOVE" | "+ILLEGAL_ACTION" | "-ILLEGAL_ACTION" => Status.Cheat
@@ -80,8 +81,7 @@ case class ImportData(notation: String, analyse: Option[String]) {
         parsed,
         parsedMoves => parsedMoves.copy(value = parsedMoves.value take maxPlies)
       ) pipe evenIncomplete pipe { case replay @ Replay(init, state) =>
-        val variant = parsed.tags.variant | shogi.variant.Standard
-        val game    = state.copy(situation = state.situation withVariant variant, clock = None)
+        val game = state.copy(clock = None)
 
         val status = createStatus(~parsed.tags(_.Termination).map(_.toUpperCase))
 

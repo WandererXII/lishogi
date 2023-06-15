@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="puzzles">Teka-teki</string>
+  <string name="puzzleThemes">Tema teka-teki</string>
+  <string name="recommended">Direkomendasikan</string>
+  <string name="phases">Tahapan</string>
+  <string name="motifs">Tema</string>
+  <string name="advanced">Lanjut</string>
+  <string name="lengths">Panjang</string>
+  <string name="mates">Mat</string>
+  <string name="goals">Tujuan</string>
+  <string name="origin">Asal</string>
+  <string name="specialMoves">Langkah spesial</string>
+  <string name="didYouLikeThisPuzzle">Apakah anda menyukai teka-teki ini?</string>
+  <string name="voteToLoadNextOne">Isi untuk memanggil yang satunya lagi!</string>
+  <string name="yourPuzzleRatingX">Your puzzle rating: %s</string>
+  <string name="findTheBestMoveForX" comment="%s - sente(black)/gote(white)">Find the best move for %s.</string>
+  <string name="toGetPersonalizedPuzzles">Untuk mendapatkan teka-teki yang diatur:</string>
+  <string name="puzzleId">Teka-teki %s</string>
+  <string name="puzzleOfTheDay">Teka-teki hari ini</string>
+  <string name="clickToSolve">Klik untuk jawabannya</string>
+  <string name="goodMove">Langkah bagus</string>
+  <string name="bestMove">Langkah Baik!</string>
+  <string name="keepGoing">Lanjutkan…</string>
+  <string name="puzzleSuccess">Berhasil!</string>
+  <string name="puzzleComplete">Teka-teki terselesaikan!</string>
+  <string name="notTheMove">Itu bukan langkahnya!</string>
+  <string name="trySomethingElse">Coba lagi lainnya.</string>
+  <string name="ratingX">Rating: %s</string>
+  <string name="hidden">tersembunyi</string>
+  <plurals name="playedXTimes">
+    <item quantity="other">Dimainkan %s kali</item>
+  </plurals>
+  <plurals name="xMovesLeft">
+    <item quantity="other">%s moves left</item>
+  </plurals>
+  <string name="fromGameLink">Dari game %s</string>
+  <string name="puzzleSource">Source: %s</string>
+  <string name="continueTraining">Lanjutkan latihan</string>
+  <string name="difficultyLevel">Level Sulit</string>
+  <string name="normal">Normal</string>
+  <string name="easier">Lebih mudah</string>
+  <string name="easiest">Paling mudah</string>
+  <string name="harder">Lebih sulit</string>
+  <string name="hardest">Paling sulit</string>
+  <string name="example">Contoh</string>
+  <string name="addAnotherTheme">Tambah tema lainnya</string>
+  <string name="jumpToNextPuzzleImmediately">Lompat ke teka-teki berikutnya segera</string>
+  <string name="puzzleDashboard">Beranda Teka-teki</string>
+  <string name="puzzleDashboardSubtitle">Train, analyse, improve</string>
+  <string name="improvementAreas">Area Penyempurnaan</string>
+  <string name="improvementAreasSubtitle">Train these to optimize your progress!</string>
+  <string name="strengths">Kekuatan</string>
+  <string name="strengthsSubtitle">You perform the best in these themes</string>
+  <string name="history">Riwayat teka-teki</string>
+  <string name="solved">diselesaikan</string>
+  <string name="failed">gagal</string>
+  <string name="fromMyGames">From my games</string>
+  <string name="lookupOfPlayer">Lookup puzzles from a player\'s games</string>
+  <string name="fromXGames">Puzzles from %s\' games</string>
+  <string name="searchPuzzles">Search puzzles</string>
+  <string name="fromXGamesFound">%1$s puzzles found in %2$s games</string>
+</resources>

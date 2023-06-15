@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="xStreamsShogi">%s стрыміць сёгі</string>
+  <string name="lishogiStreamers">Стрымеры на Lishogi</string>
+  <string name="lishogiStreamer">Стрымер на Lishogi</string>
+  <string name="live">У ЭФІРЫ!</string>
+  <string name="offline">АФЛАЙН</string>
+  <string name="currentlyStreaming">Зараз стрыміць: %s</string>
+  <string name="lastStream">Апошні стрым %s</string>
+  <string name="becomeStreamer">Стаць страмерам на Lishogi</string>
+  <string name="doYouHaveStream">У вас ёсць каналы на Twitch або YouTube?</string>
+  <string name="hereWeGo">Пачынаем!</string>
+  <string name="allStreamers">Усе стрымеры</string>
+  <string name="editPage">Змяніць стрымерскую старонку</string>
+  <string name="yourPage">Ваша старонка стрымеру</string>
+  <string name="downloadKit">Спапаваць прылады для стрыму</string>
+  <string name="xIsStreaming">%s у эфіры</string>
+  <string name="rules">Правілы стрымаў</string>
+  <string name="rule1">Уключыце ключавое слова \"lishogi.org\" да загалоўку вашай трансляцыі і выкарыстоўвайце катэгорыю \"Шахматы\" пры трансляцыі на Lishogi.</string>
+  <string name="rule2">Выдаліце ключавое слова калі стрыміце не-Lishogi дзейнасць.</string>
+  <string name="rule3">Lishogi аўтаматычна выявіць ваш стрым і ўключыць наступныя перавагі:</string>
+  <string name="perks">Перавагі стрыму з ключавым словам</string>
+  <string name="perk1">Атрыманне вогненны значок стымеру на вашым профіле Lishogi.</string>
+  <string name="perk2">Патрапіць ў верх спісу стрымаў.</string>
+  <string name="perk3">Паведамляе падпісчыкаў.</string>
+  <string name="perk4">Адлюстраванне стрыму у вашых гульнях, турнірах і навучаннях.</string>
+  <string name="youHaveBeenSelectedFrontpage">Вы былі абраныя для публікацыі на першай старонцы!</string>
+  <string name="noteThatOnlyLimited">Звярніце ўвагу, што мы можам паказваць толькі абмежаваную колькасць трансляцый на галоўнай старонцы, </string>
+  <string name="soYoursMayNotAlwaysAppear">так што ваша можа з\'яўляцца не заўсёды.</string>
+  <string name="approved">Ваш стрым зацверджана.</string>
+  <string name="pendingReview">Ваш стрым разглядаецца мадэратарамі.</string>
+  <string name="pleaseFillIn">Калі ласка, запоўніце інфармацыю наконт стрыму і загрузіце выяву.</string>
+  <string name="whenReady">Калі будзіце гатовы быць адлюстраваным як стрымер Lishogi, %s</string>
+  <string name="requestReview">запрасіць прагляд мадэратара</string>
+  <string name="anotherLanguage">Калі ваша трансляцыя вядзецца на мове, выдатным ад англійскага, пакажыце правільны моўны тэг (%s), зняволены ў квадратныя дужкі, у пачатку загалоўка вашай трансляцыі.
+У якасці прыкладаў вы можаце ўключыць\" [BY] \"для беларускага,\" [TR] \"для турэцкага,\" [FR] \" для французскага і г. д.
+Пакажыце гэта ў загалоўку трансляцыі на старонцы Twitch або YouTube, а не ў наладах трансляцыі Lishogi.
+Калі ваш стрым на англійскай мове, няма неабходнасці ўключаць моўнай тэг.
+
+Тэрмін дзеяння старонак стрымераў у канчатковым выніку мінае, калі яны не выкарыстоўваюцца на працягу доўгага часу, акрамя таго, вы павінны трансляваць адзін раз на працягу тыдня пасля вашага адабрэння, інакш старонка дэактывуецца. Трафей для трансляцыі таксама не з\'явіцца ў вашым уліковым запісе, пакуль вы не скончыце трансляцыю. Калі тэрмін дзеяння вашай старонкі стрымера скончыўся, вы павінны падаць заяўку яшчэ раз і дачакацца адабрэння. </string>
+  <string name="twitchUsername">Ваша імя карыстальніка/спасылка на Twich</string>
+  <string name="optionalOrEmpty">Апцыянальна. Калі няма, пакіньце пустым</string>
+  <string name="youtubeChannel">ID вашага YouTube канала ці спасылка</string>
+  <string name="streamerName">Ваша стрымерскае імя на Lishogi</string>
+  <plurals name="keepItShort">
+    <item quantity="one">Сцісла: максімальна %s сімвал</item>
+    <item quantity="few">Сцісла: максімальна %s сімвала</item>
+    <item quantity="many">Сцісла: максімальна %s сімвалаў</item>
+    <item quantity="other">Сцісла: максімальна %s сімвалаў</item>
+  </plurals>
+  <string name="visibility">Паказваць на старонке са стрымерамі</string>
+  <string name="whenApproved">Пасля зацвярджэння мадэратарамі</string>
+  <string name="headline">Загаловак</string>
+  <string name="tellUsAboutTheStream">Распавядзіце пра ваш стрым адным сказам</string>
+  <string name="longDescription">Поўнае апісанне</string>
+  <string name="xStreamerPicture">Выява стрымеру %s</string>
+  <string name="changePicture">Змяніць/выдаліць вашу выяву</string>
+  <string name="uploadPicture">Загрузіць выяву</string>
+  <string name="deletePicture">Выдаліць выяву</string>
+  <string name="maxSize">Максімальны памер: %s</string>
+  <string name="installBlocker">Усталюйце блакавальнік шкоднасных праграм!</string>
+  <string name="beSafe">Будзьце абаронены ад рэкламы і трэкераў
+навадняючых Twich і Youtube.
+Lishogi раіць uBlock Origin,
+бясплатны і з адкрытым зыходным кодам.</string>
+</resources>

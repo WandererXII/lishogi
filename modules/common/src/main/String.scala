@@ -22,6 +22,15 @@ object String {
     slug.toLowerCase
   }
 
+  def urlencode(str: String): String = java.net.URLEncoder.encode(str, "UTF-8")
+
+  def getBytesShiftJis(str: String) =
+    try {
+      str.getBytes("SHIFT-JIS")
+    } catch {
+      case _: java.io.UnsupportedEncodingException => Array.empty[Byte]
+    }
+
   def decodeUriPath(input: String): Option[String] = {
     try {
       play.utils.UriEncoding.decodePath(input, "UTF-8").some
@@ -30,14 +39,15 @@ object String {
     }
   }
 
+  private val onelineR = """\s+""".r
   def shorten(text: String, length: Int, sep: String = "…") = {
-    val t = text.replace('\n', ' ')
-    if (t.size > (length + sep.size)) (t take length) ++ sep
-    else t
+    val oneline = onelineR.replaceAllIn(text, " ")
+    if (oneline.lengthIs > length + sep.length) oneline.take(length) ++ sep
+    else oneline
   }
 
   def isShouting(text: String) =
-    text.length >= 5 && {
+    text.lengthIs >= 5 && {
       import java.lang.Character._
       // true if >1/2 of the latin letters are uppercase
       (text take 80).foldLeft(0) { (i, c) =>
@@ -52,12 +62,12 @@ object String {
 
   object base64 {
     import java.util.Base64
-    import java.nio.charset.StandardCharsets
+    import java.nio.charset.StandardCharsets.UTF_8
     def encode(txt: String) =
-      Base64.getEncoder.encodeToString(txt getBytes StandardCharsets.UTF_8)
+      Base64.getEncoder.encodeToString(txt getBytes UTF_8)
     def decode(txt: String): Option[String] =
       try {
-        Some(new String(Base64.getDecoder decode txt, StandardCharsets.UTF_8))
+        Some(new String(Base64.getDecoder decode txt, UTF_8))
       } catch {
         case _: java.lang.IllegalArgumentException => none
       }

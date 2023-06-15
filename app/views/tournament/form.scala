@@ -118,7 +118,7 @@ object form {
     frag(
       form3.split(
         fields.password,
-        (auto && tour.isEmpty && teams.size > 0) option {
+        (auto && tour.isEmpty && teams.nonEmpty) option {
           val baseField = form("conditions.teamMember.teamId")
           val field = ctx.req.queryString get "team" flatMap (_.headOption) match {
             case None       => baseField
@@ -293,13 +293,12 @@ final private class TourFields(form: Form[_], tour: Option[Tournament])(implicit
       half = half
     )(form3.textarea(_)(rows := 2))
   def password =
-    !isTeamBattle option
-      form3.group(
-        form("password"),
-        trans.password(),
-        help = trans.makePrivateTournament().some,
-        half = true
-      )(form3.input(_)(autocomplete := "off"))
+    form3.group(
+      form("password"),
+      trans.password(),
+      help = trans.makePrivateTournament().some,
+      half = true
+    )(form3.input(_)(autocomplete := "off"))
   def startDate =
     form3.group(
       form("startDate"),

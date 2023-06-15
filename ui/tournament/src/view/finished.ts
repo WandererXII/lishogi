@@ -1,9 +1,10 @@
-import { h, VNode } from 'snabbdom';
 import { MaybeVNodes } from 'common/snabbdom';
+import { transWithColorName } from 'common/colorName';
+import { VNode, h } from 'snabbdom';
 import TournamentController from '../ctrl';
 import { TournamentData } from '../interfaces';
 import * as pagination from '../pagination';
-import { controls, standing, podium } from './arena';
+import { controls, podium, standing } from './arena';
 import { teamStanding } from './battle';
 import header from './header';
 import playerInfo from './playerInfo';
@@ -19,15 +20,20 @@ function confetti(data: TournamentData): VNode | undefined {
     });
 }
 
-function stats(data: TournamentData, noarg: any): VNode {
-  const tableData = [
-    numberRow(noarg('averageElo'), data.stats.averageRating, 'raw'),
-    numberRow(noarg('gamesPlayed'), data.stats.games),
-    numberRow(noarg('movesPlayed'), data.stats.moves),
-    numberRow(noarg('blackWins'), [data.stats.senteWins, data.stats.games], 'percent'),
-    numberRow(noarg('whiteWins'), [data.stats.goteWins, data.stats.games], 'percent'),
-    numberRow(noarg('draws'), [data.stats.draws, data.stats.games], 'percent'),
-  ];
+function stats(data: TournamentData, trans: Trans): VNode {
+  const noarg = trans.noarg,
+    tableData = [
+      numberRow(noarg('averageElo'), data.stats.averageRating, 'raw'),
+      numberRow(noarg('gamesPlayed'), data.stats.games),
+      numberRow(noarg('movesPlayed'), data.stats.moves),
+      numberRow(
+        transWithColorName(trans, 'xWins', 'sente', false),
+        [data.stats.senteWins, data.stats.games],
+        'percent'
+      ),
+      numberRow(transWithColorName(trans, 'xWins', 'gote', false), [data.stats.goteWins, data.stats.games], 'percent'),
+      numberRow(noarg('draws'), [data.stats.draws, data.stats.games], 'percent'),
+    ];
 
   if (data.berserkable) {
     const berserkRate = [data.stats.berserks / 2, data.stats.games];
@@ -55,6 +61,6 @@ export function table(ctrl: TournamentController): VNode | undefined {
     : ctrl.teamInfo.requested
     ? teamInfo(ctrl)
     : stats
-    ? stats(ctrl.data, ctrl.trans.noarg)
+    ? stats(ctrl.data, ctrl.trans)
     : undefined;
 }

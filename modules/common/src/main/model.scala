@@ -1,6 +1,7 @@
 package lila.common
 
 import scala.concurrent.duration._
+import play.api.mvc.Call
 
 case class ApiVersion(value: Int) extends AnyVal with IntValue with Ordered[ApiVersion] {
   def compare(other: ApiVersion) = Integer.compare(value, other.value)
@@ -18,6 +19,14 @@ object AssetVersion {
 }
 
 case class IsMobile(value: Boolean) extends AnyVal with BooleanValue
+
+case class Bearer(secret: String) extends AnyVal {
+  override def toString = "Bearer(***)"
+}
+object Bearer {
+  def random()         = Bearer(s"lio_${lila.common.ThreadLocalRandom.nextString(32)}")
+  def randomPersonal() = Bearer(s"lip_${lila.common.ThreadLocalRandom.nextString(20)}")
+}
 
 case class IpAddress(value: String) extends AnyVal with StringValue
 
@@ -100,9 +109,9 @@ case class Domain private (value: String) extends AnyVal with StringValue {
   // tail.domain.com, tail.domain.co.uk, tail.domain.edu.au, etc.
   def withoutSubdomain: Option[Domain] =
     value.split('.').toList.reverse match {
-      case tld :: sld :: tail :: _ if sld.length <= 3 => Domain from s"$tail.$sld.$tld"
-      case tld :: sld :: _                            => Domain from s"$sld.$tld"
-      case _                                          => none
+      case tld :: sld :: tail :: _ if sld.lengthIs <= 3 => Domain from s"$tail.$sld.$tld"
+      case tld :: sld :: _                              => Domain from s"$sld.$tld"
+      case _                                            => none
     }
   def lower = Domain.Lower(value.toLowerCase)
 }
@@ -119,6 +128,9 @@ object Domain {
     def domain = Domain(value)
   }
 }
+
+case class CanonicalPath(value: String) extends AnyVal
+object CanonicalPath { def apply(call: Call): CanonicalPath = CanonicalPath(call.url) }
 
 case class Strings(value: List[String]) extends AnyVal
 

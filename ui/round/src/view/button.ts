@@ -1,16 +1,16 @@
-import { h, Hooks, VNode } from 'snabbdom';
+import { MaybeVNode, MaybeVNodes } from 'common/snabbdom';
 import spinner from 'common/spinner';
-import { MaybeVNodes } from 'common/snabbdom';
-import * as util from '../util';
 import * as game from 'game';
-import * as status from 'game/status';
-import { game as gameRoute } from 'game/router';
 import { PlayerUser } from 'game';
-import { RoundData } from '../interfaces';
+import { game as gameRoute } from 'game/router';
+import * as status from 'game/status';
+import { parseSfen } from 'shogiops/sfen';
+import { promotionZone } from 'shogiops/variant/util';
+import { Hooks, VNode, h } from 'snabbdom';
 import { ClockData } from '../clock/clockCtrl';
 import RoundController from '../ctrl';
-import { promotionZone } from 'shogiops/variantUtil';
-import { parseSfen } from 'shogiops/sfen';
+import { RoundData } from '../interfaces';
+import * as util from '../util';
 
 function analysisBoardOrientation(data: RoundData) {
   return data.player.color;
@@ -18,6 +18,204 @@ function analysisBoardOrientation(data: RoundData) {
 
 function poolUrl(clock: ClockData, blocking?: PlayerUser) {
   return '/#pool/' + clock.initial / 60 + '+' + clock.increment + (blocking ? '/' + blocking.id : '');
+}
+
+function standardStudyForm(ctrl: RoundController): VNode {
+  return h(
+    'form',
+    {
+      attrs: {
+        method: 'post',
+        action: '/study/as',
+      },
+    },
+    [
+      h('input', {
+        attrs: { type: 'hidden', name: 'gameId', value: ctrl.data.game.id },
+      }),
+      h('input', {
+        attrs: { type: 'hidden', name: 'orientation', value: ctrl.shogiground.state.orientation },
+      }),
+      h(
+        'button.button',
+        {
+          attrs: {
+            type: 'submit',
+          },
+        },
+        ctrl.trans.noarg('createStudy')
+      ),
+    ]
+  );
+}
+
+function postGameStudyForm(ctrl: RoundController): VNode {
+  return h(
+    'form',
+    {
+      hook: util.onInsert(el => {
+        $(el).on('submit', e => {
+          e.preventDefault();
+          const formData = $(e.target).serialize();
+          window.lishogi.debounce(
+            () => {
+              $.post('/study/post-game-study', formData)
+                .done(res => {
+                  if (res.redirect) {
+                    ctrl.setRedirecting();
+                    window.lishogi.hasToReload = true;
+                    window.location.href = res.redirect;
+                  }
+                })
+                .fail(res => {
+                  alert(`${res.statusText} - ${res.error}`);
+                });
+            },
+            1000,
+            true
+          )();
+        });
+      }),
+    },
+    [
+      h('input', {
+        attrs: { type: 'hidden', name: 'gameId', value: ctrl.data.game.id },
+      }),
+      h('div', [
+        h('label', ctrl.trans.noarg('studyWith')),
+        h('input.user-autocomplete', {
+          attrs: {
+            name: 'invited',
+            'data-tag': 'span',
+            placeholder: ctrl.trans.noarg('searchByUsername') + ` (${ctrl.trans.noarg('optional').toLowerCase()})`,
+          },
+        }),
+      ]),
+      h('input', {
+        attrs: { type: 'hidden', name: 'orientation', value: ctrl.shogiground.state.orientation },
+      }),
+      h(
+        'button.button',
+        {
+          attrs: {
+            type: 'submit',
+          },
+        },
+        ctrl.trans.noarg('createStudy')
+      ),
+    ]
+  );
+}
+
+function studyAdvancedButton(ctrl: RoundController): VNode | null {
+  const d = ctrl.data;
+  return game.replayable(d) && !!ctrl.data.player.user
+    ? h(
+        'a.fbt.new-study-button',
+        {
+          hook: util.bind('click', _ => {
+            $.modal($('.g_' + d.game.id), undefined, undefined, true);
+          }),
+        },
+        [
+          '+',
+          h('div.none.g_' + d.game.id, [
+            h('div.study-option', [
+              h('div.study-title', ctrl.trans.noarg('postGameStudy')),
+              h('div.desc', ctrl.trans.noarg('postGameStudyExplanation')),
+              postGameStudyForm(ctrl),
+              h(
+                'a.text',
+                { attrs: { 'data-icon': '', href: `/study/post-game-study/${d.game.id}/hot` } },
+                ctrl.trans.noarg('postGameStudiesOfGame')
+              ),
+            ]),
+            h('div.study-option', [h('div.study-title', ctrl.trans.noarg('standardStudy')), standardStudyForm(ctrl)]),
+          ]),
+        ]
+      )
+    : null;
+}
+
+let loadingStudy = false;
+let initiatedStudy = false;
+function studyButton(ctrl: RoundController): VNode | null {
+  const d = ctrl.data,
+    isAnon = !ctrl.data.player.user,
+    withAnonOrAnon = !ctrl.data.opponent.user || isAnon;
+  const title = withAnonOrAnon
+    ? ctrl.trans.noarg('postGameStudy')
+    : !!ctrl.data.player.spectator
+    ? ctrl.trans.noarg('studyOfPlayers')
+    : ctrl.trans.noarg('studyWithOpponent');
+  return game.replayable(d)
+    ? h('div.post-game-study', [
+        ctrl.postGameStudyOffer && !loadingStudy
+          ? h(
+              'button.post-game-study-decline',
+              {
+                attrs: {
+                  'data-icon': 'L',
+                  title: ctrl.trans.noarg('decline'),
+                },
+                hook: util.bind('click', () => {
+                  ctrl.postGameStudyOffer = false;
+                  ctrl.redraw();
+                }),
+              },
+              ctrl.nvui ? ctrl.trans.noarg('decline') : ''
+            )
+          : null,
+        d.game.postGameStudy && !loadingStudy
+          ? h(
+              'a.fbt',
+              {
+                class: {
+                  glowing: ctrl.postGameStudyOffer && !loadingStudy && !initiatedStudy,
+                },
+                attrs: { href: '/study/' + d.game.postGameStudy },
+                hook: util.bind('click', () => {
+                  ctrl.postGameStudyOffer = false;
+                }),
+              },
+              h('span', title)
+            )
+          : h(
+              'form',
+              {
+                attrs: {
+                  method: 'post',
+                  action: '/study/post-game-study/' + d.game.id,
+                },
+                hook: util.bind('submit', () => {
+                  setTimeout(() => {
+                    loadingStudy = false;
+                    ctrl.redraw();
+                  }, 2500);
+                  loadingStudy = true;
+                  initiatedStudy = true;
+                  ctrl.redraw();
+                }),
+              },
+              [
+                h(
+                  'button.fbt',
+                  {
+                    class: {
+                      inactive: loadingStudy,
+                    },
+                    attrs: {
+                      type: 'submit',
+                      disabled: !!ctrl.data.player.spectator || isAnon,
+                    },
+                  },
+                  loadingStudy ? spinner() : title
+                ),
+              ]
+            ),
+        loadingStudy ? null : studyAdvancedButton(ctrl),
+      ])
+    : null;
 }
 
 function analysisButton(ctrl: RoundController): VNode | null {
@@ -95,7 +293,7 @@ export function standard(
   ctrl: RoundController,
   condition: ((d: RoundData) => boolean) | undefined,
   icon: string,
-  hint: string,
+  hint: I18nKey,
   socketMsg: string,
   onclick?: () => void
 ): VNode {
@@ -118,7 +316,8 @@ export function standard(
   );
 }
 
-export function impasse(ctrl: RoundController): VNode {
+export function impasse(ctrl: RoundController): MaybeVNode {
+  if (ctrl.nvui) return undefined;
   return h(
     'button.fbt.impasse',
     {
@@ -164,7 +363,7 @@ export function opponentGone(ctrl: RoundController) {
 function actConfirm(
   ctrl: RoundController,
   f: (v: boolean) => void,
-  transKey: string,
+  transKey: I18nKey,
   icon: string,
   klass?: string
 ): VNode {
@@ -182,6 +381,24 @@ function actConfirm(
 
 export function resignConfirm(ctrl: RoundController): VNode {
   return actConfirm(ctrl, ctrl.resign, 'resign', 'b');
+}
+
+export function drawConfirm(ctrl: RoundController): VNode {
+  return actConfirm(ctrl, ctrl.offerDraw, 'offerDraw', '', 'draw-yes');
+}
+
+export function cancelDrawOffer(ctrl: RoundController) {
+  return ctrl.data.player.offeringDraw ? h('div.pending', [h('p', ctrl.noarg('drawOfferSent'))]) : null;
+}
+
+export function answerOpponentDrawOffer(ctrl: RoundController) {
+  return ctrl.data.opponent.offeringDraw
+    ? h('div.negotiation.draw', [
+        h('p', ctrl.noarg('yourOpponentOffersADraw')),
+        acceptButton(ctrl, 'draw-yes', () => ctrl.socket.sendLoading('draw-yes')),
+        declineButton(ctrl, () => ctrl.socket.sendLoading('draw-no')),
+      ])
+    : null;
 }
 
 // https://github.com/WandererXII/scalashogi/blob/main/src/main/scala/StartingPosition.scala
@@ -234,28 +451,32 @@ export function impasseHelp(ctrl: RoundController) {
   if (shogi.isErr) return null;
   const board = shogi.value.board;
 
-  const sentePromotion = promotionZone(rules)('sente').intersect(board.sente),
-    gotePromotion = promotionZone(rules)('gote').intersect(board.gote),
-    allMajorPieces = board.bishop.union(board.rook).union(board.horse).union(board.dragon);
+  const sentePromotion = promotionZone(rules)('sente').intersect(board.color('sente')),
+    gotePromotion = promotionZone(rules)('gote').intersect(board.color('gote')),
+    allMajorPieces = board
+      .role('bishop')
+      .union(board.role('rook'))
+      .union(board.role('horse'))
+      .union(board.role('dragon'));
 
-  const senteKing: boolean = !sentePromotion.intersect(board.king).isEmpty(),
-    goteKing: boolean = !gotePromotion.intersect(board.king).isEmpty();
+  const senteKing: boolean = !sentePromotion.intersect(board.role('king')).isEmpty(),
+    goteKing: boolean = !gotePromotion.intersect(board.role('king')).isEmpty();
 
-  const senteNumberOfPieces: number = sentePromotion.diff(board.king).size(),
-    goteNumberOfPieces: number = gotePromotion.diff(board.king).size();
+  const senteNumberOfPieces: number = sentePromotion.diff(board.role('king')).size(),
+    goteNumberOfPieces: number = gotePromotion.diff(board.role('king')).size();
 
   const senteImpasseValue =
     senteNumberOfPieces +
     allMajorPieces.intersect(sentePromotion).size() * 4 +
-    shogi.value.hands['sente'].count() +
-    (shogi.value.hands['sente'].bishop + shogi.value.hands['sente'].rook) * 4;
+    shogi.value.hands.color('sente').count() +
+    (shogi.value.hands.color('sente').get('bishop') + shogi.value.hands.color('sente').get('rook')) * 4;
 
   const goteImpasseValue =
     pointOffset +
     goteNumberOfPieces +
     allMajorPieces.intersect(gotePromotion).size() * 4 +
-    shogi.value.hands['gote'].count() +
-    (shogi.value.hands['gote'].bishop + shogi.value.hands['gote'].rook) * 4;
+    shogi.value.hands.color('gote').count() +
+    (shogi.value.hands.color('gote').get('bishop') + shogi.value.hands.color('gote').get('rook')) * 4;
 
   return h('div.suggestion', [
     h(
@@ -263,7 +484,7 @@ export function impasseHelp(ctrl: RoundController) {
       {
         hook: onSuggestionHook,
       },
-      [ctrl.noarg('impasse'), h('a.impasse-explanation', { attrs: { href: '/page/impasse', target: '_blank' } }, '?')]
+      [ctrl.noarg('impasse'), h('a.q-explanation', { attrs: { href: '/page/impasse', target: '_blank' } }, '?')]
     ),
     h('div.impasse', [
       h(
@@ -301,7 +522,7 @@ export function cancelTakebackProposition(ctrl: RoundController) {
     : null;
 }
 
-function acceptButton(ctrl: RoundController, klass: string, action: () => void, i18nKey: string = 'accept') {
+function acceptButton(ctrl: RoundController, klass: string, action: () => void, i18nKey: I18nKey = 'accept') {
   const text = ctrl.noarg(i18nKey);
   return ctrl.nvui
     ? h(
@@ -319,7 +540,7 @@ function acceptButton(ctrl: RoundController, klass: string, action: () => void, 
         hook: util.bind('click', action),
       });
 }
-function declineButton(ctrl: RoundController, action: () => void, i18nKey: string = 'decline') {
+function declineButton(ctrl: RoundController, action: () => void, i18nKey: I18nKey = 'decline') {
   const text = ctrl.noarg(i18nKey);
   return ctrl.nvui
     ? h(
@@ -348,12 +569,12 @@ export function answerOpponentTakebackProposition(ctrl: RoundController) {
     : null;
 }
 
-export function submitMove(ctrl: RoundController): VNode | undefined {
+export function submitUsi(ctrl: RoundController): VNode | undefined {
   return ctrl.usiToSubmit
     ? h('div.negotiation.move-confirm', [
+        declineButton(ctrl, () => ctrl.submitUsi(false), 'cancel'),
         h('p', ctrl.noarg('confirmMove')),
-        acceptButton(ctrl, 'confirm-yes', () => ctrl.submitMove(true)),
-        declineButton(ctrl, () => ctrl.submitMove(false), 'cancel'),
+        acceptButton(ctrl, 'confirm-yes', () => ctrl.submitUsi(true)),
       ])
     : undefined;
 }
@@ -474,6 +695,7 @@ export function followUp(ctrl: RoundController): VNode {
           ctrl.noarg('newOpponent')
         )
       : null,
+    studyButton(ctrl),
     analysisButton(ctrl),
   ]);
 }
@@ -511,6 +733,7 @@ export function watcherFollowUp(ctrl: RoundController): VNode | null {
             ctrl.noarg('viewTournament')
           )
         : null,
+      studyButton(ctrl),
       analysisButton(ctrl),
     ];
   return content.find(x => !!x) ? h('div.follow-up', content) : null;

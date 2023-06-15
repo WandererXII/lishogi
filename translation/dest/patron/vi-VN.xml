@@ -6,13 +6,14 @@
 	<string name="becomePatron">Trở thành Lishogi Patron</string>
 	<string name="xBecamePatron">%s trở thành Lishogi Patron</string>
 	<string name="newPatrons">Patrons mới</string>
-	<string name="freeChess">Shogi miễn phí cho tất cả mọi người, mãi mãi!</string>
+	<string name="freeShogi">Shogi miễn phí cho tất cả mọi người, mãi mãi!</string>
 	<string name="noAdsNoSubs">Không quảng cáo, không đóng tiền; nhưng có mã nguồn mở và sự đam mê.</string>
 	<string name="thankYou">Cảm ơn sự ủng hộ của bạn!</string>
 	<string name="youHaveLifetime">Bạn có một tài khoản Patron trọn đời. Khá là tuyệt vời đấy!</string>
 	<string name="patronUntil">Bạn có tài khoản Patron cho đến %s.</string>
 	<string name="ifNotRenewed">Nếu không được làm mới, bạn sẽ hạ cấp xuống miễn phí.</string>
 	<string name="weRelyOnSupport">Chúng tôi dựa vào sự đóng góp từ những người như bạn. Nếu bạn thích sử dụng Lishogi, hãy cân nhắc giúp đỡ chúng tôi thông qua việc quyên góp và trờ thành một Patron!</string>
+	<string name="donationSupport">Nếu bạn muốn ủng hộ Lishogi và phát triển mã nguồn mở, hãy quyên góp! Bạn sẽ không nhận được gì, vì Lishogi đối xử với mọi người dùng như nhau, nhưng sự đóng góp của bạn sẽ rất được tôn trọng!</string>
 	<string name="lifetime">Vĩnh viễn</string>
 	<string name="payLifetimeOnce">Đóng góp %s một lần. Trở thành Lishogi Patron vĩnh viễn!</string>
 	<string name="lifetimePatron">Lishogi Patron trọn đời</string>
@@ -28,8 +29,6 @@
 	<string name="weAreSmallTeam">Chúng tôi là một đội nhỏ, vì vậy sự giúp đỡ của bạn tạo nên khác biệt rất lớn!</string>
 	<string name="celebratedPatrons">Những Patron nổi tiếng khiến cho Lishogi hành hiện thực</string>
 	<string name="whereMoneyGoes">Tiền được dùng để làm gi?</string>
-	<string name="serversAndDeveloper">First of all, powerful servers.
-Then we pay a full-time developer: %s, the founder of Lishogi.</string>
 	<string name="costBreakdown">Xem phân tích chi phí chi tiết</string>
 	<string name="changeMonthlySupport">Tôi có thể thay đổi/hủy việc đóng góp hàng tháng được không?</string>
 	<string name="changeOrContact">Có, bất cứ lúc nào, ở trang này.
@@ -69,4 +68,5 @@ Tuy nhiên, Patron được quyền khoe khoang với một huy hiệu mới.</s
 	<string name="nowLifetime">Giờ bạn đã trở thành Lishogi Patron trọn đời!</string>
 	<string name="nowOneMonth">Giờ bạn đã trở thành Lishogi Patron trong một tháng!</string>
 	<string name="downgradeNextMonth">Sau một tháng, bạn sẽ không phải trả tiền lại nữa, và tài khoản Lishogi của bạn sẽ quay trở lại tài khoản thường.</string>
+	<string name="donationPolicy">Chính sách quyên góp</string>
 </resources>

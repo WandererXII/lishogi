@@ -11,6 +11,7 @@ case class Puzzle(
     id: Puzzle.Id,
     sfen: Sfen,
     line: NonEmptyList[Usi],
+    ambiguousPromotions: List[Int],
     glicko: Glicko,
     plays: Int,
     vote: Float, // denormalized ratio of voteUp/voteDown
@@ -55,7 +56,7 @@ object Puzzle {
 
   case class Id(value: String) extends AnyVal with StringValue
 
-  def toId(id: String) = id.size == idSize option Id(id)
+  def toId(id: String) = id.sizeIs == idSize option Id(id)
 
   /* The mobile app requires numerical IDs.
    * We convert string ids from and to Longs using base 62
@@ -78,7 +79,7 @@ object Puzzle {
           (s"${intToChar(frac.toInt)}$id", rest - frac * pow)
         }
         ._1
-      (str.size == idSize) option Id(str)
+      (str.sizeIs == idSize) option Id(str)
     }
 
     private def charToInt(c: Char) = {
@@ -103,20 +104,21 @@ object Puzzle {
   )
 
   object BSONFields {
-    val id          = "_id"
-    val gameId      = "gameId"
-    val sfen        = "fen"
-    val line        = "line"
-    val glicko      = "glicko"
-    val vote        = "vote"
-    val voteUp      = "vu"
-    val voteDown    = "vd"
-    val plays       = "plays"
-    val themes      = "themes"
-    val day         = "day"
-    val dirty       = "dirty" // themes need to be denormalized
-    val author      = "a"
-    val description = "dsc"
+    val id                  = "_id"
+    val gameId              = "gameId"
+    val sfen                = "sfen"
+    val line                = "line"
+    val ambiguousPromotions = "ambP"
+    val glicko              = "glicko"
+    val vote                = "vote"
+    val voteUp              = "vu"
+    val voteDown            = "vd"
+    val plays               = "plays"
+    val themes              = "themes"
+    val day                 = "day"
+    val dirty               = "dirty" // themes need to be denormalized
+    val author              = "a"
+    val description         = "dsc"
   }
 
   implicit val idIso = lila.common.Iso.string[Id](Id.apply, _.value)

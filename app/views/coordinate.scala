@@ -22,10 +22,9 @@ object coordinate {
       ),
       openGraph = lila.app.ui
         .OpenGraph(
-          title = "Shogi board coordinates trainer",
+          title = trans.coordinates.coordinateTraining.txt(),
           url = s"$netBaseUrl${routes.Coordinate.home.url}",
-          description =
-            "Knowing the shogi board coordinates is a very important shogi skill. A square name appears on the board and you must click on the correct square."
+          description = trans.coordinates.aSquareNameAppears.txt()
         )
         .some,
       zoomable = true
@@ -97,12 +96,17 @@ object coordinate {
   def scoreCharts(score: lila.coordinate.Score)(implicit ctx: Context) =
     frag(
       List(
-        (trans.coordinates.averageScoreAsWhiteX, score.gote),
-        (trans.coordinates.averageScoreAsBlackX, score.sente)
-      ).map { case (averageScoreX, s) =>
+        (shogi.Color.Sente, score.sente),
+        (shogi.Color.Gote, score.gote)
+      ).map { case (c, s) =>
         div(cls := "chart_container")(
           s.nonEmpty option frag(
-            p(averageScoreX(raw(s"""<strong>${"%.2f".format(s.sum.toDouble / s.size)}</strong>"""))),
+            p(
+              trans.coordinates.averageScoreAsXY(
+                standardColorName(c).toUpperCase,
+                raw(s"""<strong>${"%.2f".format(s.sum.toDouble / s.size)}</strong>""")
+              )
+            ),
             div(cls := "user_chart", attr("data-points") := safeJsonValue(Json toJson s))
           )
         )

@@ -32,11 +32,13 @@ final class Dasher(env: Env) extends LilaController(env) {
     trans.board,
     trans.boardTheme,
     trans.pieceSet,
+    trans.chushogi,
     trans.preferences.zenMode,
     trans.notationSystem,
     trans.preferences.westernNotation,
     trans.preferences.japaneseNotation,
-    trans.preferences.kitaoKawasakiNotation
+    trans.preferences.kitaoKawasakiNotation,
+    trans.preferences.kifNotation
   ).map(_.key)
 
   private val translationsAnon = List(
@@ -49,6 +51,7 @@ final class Dasher(env: Env) extends LilaController(env) {
     trans.inbox,
     trans.streamerManager,
     trans.preferences.preferences,
+    trans.coachManager,
     trans.logOut
   ).map(_.key) ::: translationsBase
 
@@ -87,13 +90,18 @@ final class Dasher(env: Env) extends LilaController(env) {
                   "image"   -> ctx.pref.bgImgOrDefault
                 ),
                 "theme" -> Json.obj(
-                  "current" -> ctx.currentTheme.name,
-                  "list"    -> lila.pref.Theme.all.map(_.name)
+                  "thickGrid" -> ctx.pref.isUsingThickGrid,
+                  "current"   -> ctx.currentTheme.name,
+                  "list"      -> lila.pref.Theme.all.map(_.name)
                 ),
                 "customTheme" -> ctx.pref.customThemeOrDefault,
                 "piece" -> Json.obj(
                   "current" -> ctx.currentPieceSet.name,
                   "list"    -> lila.pref.PieceSet.all.map(_.name)
+                ),
+                "chuPiece" -> Json.obj(
+                  "current" -> ctx.currentChuPieceSet.name,
+                  "list"    -> lila.pref.ChuPieceSet.all.map(_.name)
                 ),
                 "inbox"    -> ctx.hasInbox,
                 "coach"    -> isGranted(_.Coach),

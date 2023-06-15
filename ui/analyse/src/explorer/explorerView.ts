@@ -1,16 +1,16 @@
-import { h, VNode } from 'snabbdom';
 import { bind, dataIcon } from 'common/snabbdom';
+import { VNode, h } from 'snabbdom';
+import AnalyseCtrl from '../ctrl';
 import { view as renderConfig } from './explorerConfig';
 import { winnerOf } from './explorerUtil';
-import AnalyseCtrl from '../ctrl';
 import {
+  Opening,
+  OpeningData,
+  OpeningGame,
+  OpeningMoveStats,
+  TablebaseMoveStats,
   isOpening,
   isTablebase,
-  TablebaseMoveStats,
-  OpeningData,
-  OpeningMoveStats,
-  OpeningGame,
-  Opening,
 } from './interfaces';
 
 function resultBar(move: OpeningMoveStats): VNode {
@@ -73,7 +73,7 @@ function showMoveTable(ctrl: AnalyseCtrl, data: OpeningData): VNode | null {
   const trans = ctrl.trans.noarg;
   return h('table.moves', [
     h('thead', [
-      h('tr', [h('th.title', trans('move')), h('th.title', trans('games')), h('th.title', trans('whiteDrawBlack'))]),
+      h('tr', [h('th.title', trans('move')), h('th.title', trans('games')), h('th.title', 'Sente / Draw / Gote')]),
     ]),
     h(
       'tbody',
@@ -378,7 +378,7 @@ function show(ctrl: AnalyseCtrl) {
 
 function showTitle(ctrl: AnalyseCtrl, variant: Variant) {
   if (variant.key === 'standard') return ctrl.trans.noarg('openingExplorer');
-  return ctrl.trans('xOpeningExplorer', variant.name);
+  return ctrl.trans('xOpeningExplorer', ctrl.trans(variant.key));
 }
 
 function showConfig(ctrl: AnalyseCtrl): VNode {

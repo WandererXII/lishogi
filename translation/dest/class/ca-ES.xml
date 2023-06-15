@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="lishogiClasses">Classes</string>
-	<string name="teachClassesOfChessStudents">Ensenya classes de shogi amb el conjunt d\'eines per classes de Lishogi.</string>
+	<string name="teachClassesOfShogiStudents">Teach classes of shogi students with the Lishogi Classes tool suite.</string>
 	<string name="features">Característiques</string>
 	<string name="quicklyGenerateSafeUsernames">Generar ràpidament noms d\'usuari i contrasenyes segures pels estudiants</string>
 	<string name="trackStudentProgress">Seguir el progrés de l\'estudiant en partides i problemes</string>
@@ -39,7 +39,7 @@ Nom d\'usuari: %2$s
 Contrasenya: %3$s</string>
 	<string name="inviteALishogiAccount">Convida un compte de Lishogi</string>
 	<string name="inviteDesc1">Si l\'estudiant ja té un compte de Lishogi, pots convidar-lo a la classe.</string>
-	<string name="inviteDesc2">Rebran un missatge a Lichess amb un enllaç per a unir-se a la classe.</string>
+	<string name="inviteDesc2">Rebran un missatge a Lishogi amb un enllaç per a unir-se a la classe.</string>
 	<string name="inviteDesc3">Important: convida només a estudiants que coneguis, i que vulguin unir-se a la classe.</string>
 	<string name="inviteDesc4">Mai enviïs invitacions a jugadors que no les hagin demanat.</string>
 	<string name="createANewLishogiAccount">Crea un nou compte a Lishogi</string>

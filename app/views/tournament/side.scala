@@ -11,7 +11,7 @@ import controllers.routes
 
 object side {
 
-  private val separator = " • "
+  private val separator = " - "
 
   def apply(
       tour: Tournament,
@@ -67,7 +67,7 @@ object side {
           )
         )(
           div(
-            (verdicts.list.size < 2) option p(trans.conditionOfEntry()),
+            (verdicts.list.sizeIs < 2) option p(trans.conditionOfEntry()),
             verdicts.list map { v =>
               p(
                 cls := List(
@@ -83,15 +83,15 @@ object side {
             }
           )
         ),
-        tour.noBerserk option div(cls := "text", dataIcon := "`")("No Berserk allowed"),
-        tour.noStreak option div(cls := "text", dataIcon := "Q")("No Arena streaks"),
+        tour.noBerserk option div(cls := "text", dataIcon := "`")(trans.arena.noBerserkAllowed()),
+        tour.noStreak option div(cls := "text", dataIcon := "Q")(trans.arena.noArenaStreaks()),
         !tour.isScheduled option frag(trans.by(userIdLink(tour.createdBy.some)), br),
         (!tour.isStarted || (tour.isScheduled && tour.position.isDefined)) option absClientDateTime(
           tour.startsAt
         ),
         tour.startingPosition.map { pos =>
           p(
-            a(targetBlank, href := pos.url)(strong(pos.japanese), " ", pos.english),
+            frag(strong(pos.japanese), s" (${pos.english})"),
             separator,
             views.html.base.bits.sfenAnalysisLink(pos.sfen)
           )

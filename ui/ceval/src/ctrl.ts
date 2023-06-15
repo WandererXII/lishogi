@@ -1,19 +1,19 @@
-import { CevalCtrl, CevalOpts, CevalTechnology, Work, Step, Hovering, PvBoard, Started } from './types';
-
 import { Result } from '@badrap/result';
-import { AbstractWorker, ThreadedWasmWorker } from './worker';
 import { prop } from 'common/common';
+import { isAndroid, isIOS, isIPad } from 'common/mobile';
 import { storedProp } from 'common/storage';
 import throttle from 'common/throttle';
-import { povChances } from './winningChances';
-import { Cache } from './cache';
 import { parseSfen } from 'shogiops/sfen';
-import { Position } from 'shogiops/shogi';
-import { defaultPosition } from 'shogiops/variant';
+import { Position } from 'shogiops/variant/position';
+import { defaultPosition } from 'shogiops/variant/variant';
+import { Cache } from './cache';
+import { CevalCtrl, CevalOpts, CevalTechnology, Hovering, PvBoard, Started, Step, Work } from './types';
+import { unsupportedVariants } from './util';
+import { povChances } from './winningChances';
+import { AbstractWorker, ThreadedWasmWorker } from './worker';
 
-function sharedWasmMemory(initial: number, maximum: number): WebAssembly.Memory {
-  return new WebAssembly.Memory({ shared: true, initial, maximum } as WebAssembly.MemoryDescriptor);
-}
+const sharedWasmMemory = (initial: number, maximum: number): WebAssembly.Memory =>
+  new WebAssembly.Memory({ shared: true, initial, maximum } as WebAssembly.MemoryDescriptor);
 
 function sendableSharedWasmMemory(initial: number, maximum: number): WebAssembly.Memory | undefined {
   // Atomics
@@ -28,9 +28,9 @@ function sendableSharedWasmMemory(initial: number, maximum: number): WebAssembly
 
   // Structured cloning
   try {
-    window.postMessage(mem, '*');
+    window.postMessage(mem.buffer, '*');
   } catch (e) {
-    return;
+    return undefined;
   }
 
   return mem;
@@ -51,7 +51,7 @@ function defaultDepth(technology: CevalTechnology, threads: number, multiPv: num
 function engineName(technology: CevalTechnology): string {
   switch (technology) {
     case 'none':
-      return 'None';
+      return '';
     case 'hce':
       return 'Fairy Stockfish';
     case 'nnue':
@@ -69,17 +69,17 @@ function enabledAfterDisable() {
 
 function isStandardMaterial(pos: Position) {
   const board = pos.board,
-    hands = pos.hands.sente.add(pos.hands.gote);
+    hands = pos.hands.color('sente').combine(pos.hands.color('gote'));
   return (
-    board.pawn.size() + board.tokin.size() + hands.pawn <= 18 &&
-    board.lance.size() + board.promotedlance.size() + hands.lance <= 4 &&
-    board.knight.size() + board.promotedknight.size() + hands.knight <= 4 &&
-    board.silver.size() + board.promotedsilver.size() + hands.silver <= 4 &&
-    board.gold.size() + hands.gold <= 4 &&
-    board.rook.size() + board.dragon.size() + hands.rook <= 2 &&
-    board.bishop.size() + board.horse.size() + hands.bishop <= 2 &&
-    board.king.size() == 2 &&
-    board.king.intersect(board.sente).size() === 1
+    board.role('pawn').size() + board.role('tokin').size() + hands.get('pawn') <= 18 &&
+    board.role('lance').size() + board.role('promotedlance').size() + hands.get('lance') <= 4 &&
+    board.role('knight').size() + board.role('promotedknight').size() + hands.get('knight') <= 4 &&
+    board.role('silver').size() + board.role('promotedsilver').size() + hands.get('silver') <= 4 &&
+    board.role('gold').size() + hands.get('gold') <= 4 &&
+    board.role('rook').size() + board.role('dragon').size() + hands.get('rook') <= 2 &&
+    board.role('bishop').size() + board.role('horse').size() + hands.get('bishop') <= 2 &&
+    board.role('king').size() == 2 &&
+    board.role('king').intersect(board.color('sente')).size() === 1
   );
 }
 
@@ -93,29 +93,34 @@ export default function (opts: CevalOpts): CevalCtrl {
   const pos = opts.initialSfen
     ? parseSfen(opts.variant.key, opts.initialSfen, false)
     : Result.ok(defaultPosition(opts.variant.key));
-  const analysable = pos.isOk;
+  const analysable = pos.isOk && !unsupportedVariants.includes(opts.variant.key);
 
   // select nnue > hce > none
-  const useYaneuraou = !analysable || (pos.value.rules === 'standard' && isStandardMaterial(pos.value));
-  let supportsNnue = false;
-  let technology: CevalTechnology = 'none';
-  let growableSharedMem = false;
+  const useYaneuraou = opts.variant.key === 'standard' && (!analysable || isStandardMaterial(pos.value)),
+    fairySupports = !useYaneuraou && analysable;
+  let supportsNnue = false,
+    technology: CevalTechnology = 'none',
+    growableSharedMem = false;
   const source = Uint8Array.from([0, 97, 115, 109, 1, 0, 0, 0]);
-  if (typeof WebAssembly === 'object' && typeof WebAssembly.validate === 'function' && WebAssembly.validate(source)) {
-    const sharedMem = sendableSharedWasmMemory(8, 16);
+  if (
+    (useYaneuraou || fairySupports) &&
+    typeof WebAssembly === 'object' &&
+    typeof WebAssembly.validate === 'function' &&
+    WebAssembly.validate(source)
+  ) {
+    const sharedMem = sendableSharedWasmMemory(1, 2);
     if (sharedMem) {
       technology = 'hce';
 
-      // i32x4.dot_i16x8_s, i32x4.trunc_sat_f64x2_u_zero
       const sourceWithSimd = Uint8Array.from([
-        0, 97, 115, 109, 1, 0, 0, 0, 1, 12, 2, 96, 2, 123, 123, 1, 123, 96, 1, 123, 1, 123, 3, 3, 2, 0, 1, 7, 9, 2, 1,
-        97, 0, 0, 1, 98, 0, 1, 10, 19, 2, 9, 0, 32, 0, 32, 1, 253, 186, 1, 11, 7, 0, 32, 0, 253, 253, 1, 11,
+        0, 97, 115, 109, 1, 0, 0, 0, 1, 5, 1, 96, 0, 1, 123, 3, 2, 1, 0, 7, 8, 1, 4, 116, 101, 115, 116, 0, 0, 10, 15,
+        1, 13, 0, 65, 0, 253, 17, 65, 0, 253, 17, 253, 186, 1, 11,
       ]);
       supportsNnue = WebAssembly.validate(sourceWithSimd);
       if (useYaneuraou && enableNnue()) technology = 'nnue';
 
       try {
-        sharedMem.grow(8);
+        sharedMem.grow(1);
         growableSharedMem = true;
       } catch (e) {
         // memory growth not supported
@@ -123,26 +128,44 @@ export default function (opts: CevalOpts): CevalCtrl {
     }
   }
 
-  const initialAllocationMaxThreads = useYaneuraou ? 2 : 1;
-  const maxThreads = Math.min(
-    Math.max((navigator.hardwareConcurrency || 1) - 1, 1),
-    growableSharedMem ? 32 : initialAllocationMaxThreads
-  );
+  const initialAllocationMaxThreads = useYaneuraou ? 2 : 1,
+    maxThreads = Math.min(
+      Math.max((navigator.hardwareConcurrency || 1) - 1, 1),
+      growableSharedMem ? 32 : initialAllocationMaxThreads
+    );
   const threads = () => {
     const stored = window.lishogi.storage.get(storageKey('ceval.threads'));
     return Math.min(maxThreads, stored ? parseInt(stored, 10) : Math.ceil((navigator.hardwareConcurrency || 1) / 4));
   };
+  const pow2floor = (n: number) => {
+    let pow2 = 1;
+    while (pow2 * 2 <= n) pow2 *= 2;
+    return pow2;
+  };
+  const maxWasmPages = (minPages: number): number => {
+    if (!growableSharedMem) return minPages;
+    let maxPages = 32768; // hopefully desktop browser, 2 GB max shared
+    if (isAndroid()) maxPages = 8192; // 512 MB max shared
+    else if (isIPad()) maxPages = 8192; // 512 MB max shared
+    else if (isIOS()) maxPages = 4096; // 256 MB max shared
+    return Math.max(minPages, maxPages);
+  };
+  const maxHashMB = (): number => {
+    let maxHash = 256; // this is conservative but safe, mostly desktop firefox / mac safari users here
+    if (navigator.deviceMemory) maxHash = pow2floor(navigator.deviceMemory * 128); // chrome/edge/opera
 
-  const estimatedMinMemory = technology == 'hce' || technology == 'nnue' ? 2.0 : 0.5;
-  const maxHashSize = Math.min(
-    ((navigator.deviceMemory || estimatedMinMemory) * 1024) / 8,
-    growableSharedMem ? 1024 : 16
-  );
+    if (isAndroid()) maxHash = 64; // budget androids are easy to crash @ 128
+    else if (isIPad()) maxHash = 64; // ipados safari pretends to be desktop but acts more like iphone
+    else if (isIOS()) maxHash = 32;
+
+    return maxHash;
+  };
+  const maxHashSize = maxHashMB();
+
   const hashSize = () => {
     const stored = window.lishogi.storage.get(storageKey('ceval.hash-size'));
     return Math.min(maxHashSize, stored ? parseInt(stored, 10) : 16);
   };
-
   const multiPv = storedProp(storageKey('ceval.multipv'), opts.multiPvDefault || 1);
   const infinite = storedProp('ceval.infinite', false);
   let curEval: Tree.LocalEval | null = null;
@@ -242,7 +265,8 @@ export default function (opts: CevalOpts): CevalCtrl {
             opts.redraw();
           }),
           version: 'c9c34f2',
-          cache: new Cache('ceval-wasm-cache'),
+          wasmMemory: sharedWasmMemory(2048, maxWasmPages(2048)),
+          cache: window.indexedDB && new Cache('ceval-wasm-cache'),
         });
       else if (technology == 'hce')
         worker = new ThreadedWasmWorker({
@@ -250,6 +274,7 @@ export default function (opts: CevalOpts): CevalCtrl {
           baseUrl: 'vendor/fairy/',
           module: 'Stockfish',
           version: '014622b',
+          wasmMemory: sharedWasmMemory(2048, maxWasmPages(2048)),
         });
     }
 
@@ -356,9 +381,8 @@ export default function (opts: CevalOpts): CevalCtrl {
     longEngineName: () => worker?.engineName(),
     destroy: () => worker?.destroy(),
     redraw: opts.redraw,
-    cachable:
-      technology == 'nnue' ||
-      ((opts.variant.key !== 'standard' || (pos.isOk && !isStandardMaterial(pos.value))) && technology == 'hce'),
+    shouldUseYaneuraou: useYaneuraou,
+    cachable: technology === 'nnue' || (!useYaneuraou && technology === 'hce'),
     analysable,
   };
 }

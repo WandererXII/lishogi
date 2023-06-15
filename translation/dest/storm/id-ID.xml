@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="moveToStart">Melangkah untuk memulai</string>
+  <string name="puzzlesSolved">teka-teki terpecahkan</string>
+  <string name="newDailyHighscore">Skor tertinggi harian terbaru!</string>
+  <string name="newWeeklyHighscore">Skor tertinggi mingguan terbaru!</string>
+  <string name="newMonthlyHighscore">Skor tertinggi bulanan terbaru!</string>
+  <string name="newAllTimeHighscore">Skor tertinggi terbaru!</string>
+  <string name="previousHighscoreWasX">Skor tertinggi sebelumnya %s</string>
+  <string name="playAgain">Mainkan lagi</string>
+  <plurals name="xRuns">
+    <item quantity="other">%s berjalan</item>
+  </plurals>
+  <plurals name="playedNbRunsOfPuzzleStorm">
+    <item quantity="other">Memainkan %1$s kali %2$s</item>
+  </plurals>
+  <string name="highscoreX">Skor tertinggi: %s</string>
+  <string name="score">Skor</string>
+  <string name="moves">Langkah</string>
+  <string name="accuracy">Akurasi</string>
+  <string name="combo">Kombo</string>
+  <string name="time">Waktu</string>
+  <string name="timePerMove">Waktu per langkah</string>
+  <string name="highestSolved">Terpecahkan tertinggi</string>
+  <string name="puzzlesPlayed">Teka-teki dimainkan</string>
+  <string name="newRun">Mulai baru (tombol: Space)</string>
+  <string name="endRun">Akhiri (tombol: Enter)</string>
+  <string name="highscores">Skor tertinggi</string>
+  <string name="viewBestRuns">Lihat hasil terbaik</string>
+  <string name="bestRunOfDay">Hasil terbaik hari ini</string>
+  <string name="runs">Berjalan</string>
+</resources>

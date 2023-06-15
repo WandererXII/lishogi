@@ -2,18 +2,20 @@ package lila.study
 
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
-import shogi.{ Piece, Pos }
+import shogi.{ Color, Piece, Pos }
 import play.api.libs.json._
 import scala.util.chaining._
 
 import lila.common.Json._
+import lila.game.Game
 import lila.socket.Socket.Sri
 import lila.tree.Node.Shape
 import lila.user.User
 
 final class JsonView(
     studyRepo: StudyRepo,
-    lightUserApi: lila.user.LightUserApi
+    lightUserApi: lila.user.LightUserApi,
+    isOfferingRematch: (Game.ID, Color) => Boolean
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import JsonView._
@@ -42,10 +44,11 @@ final class JsonView(
           "chapters" -> chapters.map(chapterMetadataWrites.writes),
           "chapter" -> Json
             .obj(
-              "id"      -> currentChapter.id,
-              "ownerId" -> currentChapter.ownerId,
-              "setup"   -> currentChapter.setup,
-              "tags"    -> currentChapter.tags,
+              "id"          -> currentChapter.id,
+              "ownerId"     -> currentChapter.ownerId,
+              "setup"       -> currentChapter.setup,
+              "tags"        -> currentChapter.tags,
+              "initialSfen" -> currentChapter.root.sfen,
               "features" -> Json.obj(
                 "computer" -> allowed(study.settings.computer),
                 "explorer" -> allowed(study.settings.explorer)
@@ -54,6 +57,7 @@ final class JsonView(
             .add("description", currentChapter.description)
             .add("serverEval", currentChapter.serverEval)
             .add("relay", currentChapter.relay)(relayWrites)
+            .add("gameLength", currentChapter.gameMainlineLength)
             .pipe(addChapterMode(currentChapter))
         )
         .add("description", study.description)
@@ -96,6 +100,31 @@ final class JsonView(
   implicit private[study] val membersWrites: Writes[StudyMembers] = Writes[StudyMembers] { m =>
     Json toJson m.members
   }
+  implicit private[study] val gamePlayersStudyWrites = Writes[Study.GamePlayer] { player =>
+    Json
+      .obj(
+        "playerId" -> player.playerId
+      )
+      .add(
+        "userId" -> player.userId
+      )
+  }
+
+  implicit private[study] val postGameStudyWrites = Writes[Study.PostGameStudy] { pgs =>
+    Json
+      .obj(
+        "gameId" -> pgs.gameId,
+        "players" -> Json.obj(
+          "sente" -> pgs.sentePlayer,
+          "gote"  -> pgs.gotePlayer
+        ),
+        "rematches" -> Json.obj(
+          "sente" -> isOfferingRematch(pgs.gameId, Color.Sente),
+          "gote"  -> isOfferingRematch(pgs.gameId, Color.Gote)
+        )
+      )
+      .add("withOpponent" -> pgs.withOpponent)
+  }
 
   implicit private val studyWrites = OWrites[Study] { s =>
     Json
@@ -113,6 +142,7 @@ final class JsonView(
         "likes"              -> s.likes
       )
       .add("isNew" -> s.isNew)
+      .add("postGameStudy" -> s.postGameStudy)
   }
 }
 
@@ -201,13 +231,20 @@ object JsonView {
   implicit val variantWrites = OWrites[shogi.variant.Variant] { v =>
     Json.obj("key" -> v.key, "name" -> v.name)
   }
-  implicit val kifTagWrites: Writes[shogi.format.Tag] = Writes[shogi.format.Tag] { t =>
-    Json.arr(t.name.kifName, t.value)
+  implicit val tagWrites: Writes[shogi.format.Tag] = Writes[shogi.format.Tag] { t =>
+    Json.arr(t.name.name, t.value)
   }
-  implicit val kifTagsWrites = Writes[shogi.format.Tags] { tags =>
-    JsArray(tags.value map kifTagWrites.writes)
+  implicit val tagsWrites = Writes[shogi.format.Tags] { tags =>
+    JsArray(tags.value map tagWrites.writes)
   }
-  implicit private val chapterSetupWrites = Json.writes[Chapter.Setup]
+  implicit val statusWrites: OWrites[shogi.Status] = OWrites { s =>
+    Json.obj(
+      "id"   -> s.id,
+      "name" -> s.name
+    )
+  }
+  implicit private val chapterEndStatusWrites = Json.writes[Chapter.EndStatus]
+  implicit private val chapterSetupWrites     = Json.writes[Chapter.Setup]
   implicit private[study] val chapterMetadataWrites = OWrites[Chapter.Metadata] { c =>
     Json.obj("id" -> c._id, "name" -> c.name, "variant" -> c.setup.variant.key)
   }
@@ -235,4 +272,52 @@ object JsonView {
   implicit val topicsWrites: Writes[StudyTopics] = Writes[StudyTopics] { topics =>
     JsArray(topics.value map topicWrites.writes)
   }
+
+  implicit val defaultNodeJsonWriter: Writes[RootOrNode] =
+    makeNodeJsonWriter(alwaysChildren = true)
+
+  val minimalNodeJsonWriter: Writes[RootOrNode] =
+    makeNodeJsonWriter(alwaysChildren = false)
+
+  def makeNodeJsonWriter(alwaysChildren: Boolean): Writes[RootOrNode] =
+    Writes { nr =>
+      try {
+        import lila.tree.Node.{ glyphsWriter, clockWrites, commentWriter }
+        import lila.tree.Eval.JsonHandlers.evalWrites
+        val comments = nr.comments.list.flatMap(_.removeMeta)
+        Json
+          .obj(
+            "ply"  -> nr.ply,
+            "sfen" -> nr.sfen
+          )
+          .add("id", nr.idOption.map(_.toString))
+          .add("usi", nr.usiOption.map(_.usi))
+          .add("check", nr.check)
+          .add("eval", nr.score.map(_.eval).filterNot(_.isEmpty))
+          .add("comments", if (comments.nonEmpty) Some(JsArray(comments map commentWriter.writes)) else None)
+          .add("gamebook", nr.gamebook)
+          .add("glyphs", nr.glyphs.nonEmpty)
+          .add("shapes", if (nr.shapes.list.nonEmpty) Some(nr.shapes.list) else None)
+          .add("clock", nr.clock)
+          .add(
+            "children",
+            if (alwaysChildren || nr.children.nodes.nonEmpty) Some {
+              JsArray(nr.children.nodes map makeNodeJsonWriter(true).writes)
+            }
+            else None
+          )
+          .add("forceVariation", nr.forceVariation)
+      } catch {
+        case e: StackOverflowError =>
+          e.printStackTrace
+          sys error s"### StackOverflowError ### in study.jsonView.makeNodeJsonWriter"
+      }
+    }
+
+  val partitionTreeJsonWriter: Writes[Node.Root] = Writes { root =>
+    JsArray {
+      (root +: root.mainline).map(nr => minimalNodeJsonWriter.writes(nr.dropFirstChild))
+    }
+  }
+
 }

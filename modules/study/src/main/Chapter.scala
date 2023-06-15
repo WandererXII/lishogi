@@ -2,11 +2,9 @@ package lila.study
 
 import shogi.format.{ Glyph, Tags }
 import shogi.variant.Variant
-import shogi.{ Centis, Color }
+import shogi.{ Centis, Color, Status }
 import org.joda.time.DateTime
 
-import shogi.opening.FullOpening
-import shogi.opening.FullOpeningDB
 import lila.tree.Node.{ Comment, Gamebook, Shapes }
 import lila.user.User
 
@@ -61,10 +59,6 @@ case class Chapter(
   def forceVariation(force: Boolean, path: Path): Option[Chapter] =
     updateRoot(_.forceVariationAt(force, path))
 
-  def opening: Option[FullOpening] =
-    if (!Variant.openingSensibleVariants(setup.variant)) none
-    else FullOpeningDB searchInSfens root.mainline.map(_.sfen)
-
   def isEmptyInitial = order == 1 && root.children.nodes.isEmpty
 
   def cloneFor(study: Study) =
@@ -80,6 +74,10 @@ case class Chapter(
   def isPractice = ~practice
   def isGamebook = ~gamebook
   def isConceal  = conceal.isDefined
+
+  def isGameChapter          = root.isGameRoot
+  def isFirstGameRootChapter = root.gameMainline.exists(_.part == 0)
+  def gameMainlineLength     = root.gameMainline.map(_.usiMoves.size)
 
   def withoutChildren = copy(root = root.withoutChildren)
 
@@ -111,10 +109,14 @@ object Chapter {
     def initialPosition = Position.Ref(id, Path.root)
   }
 
+  // for final status comment
+  case class EndStatus(status: Status, winner: Option[Color])
+
   case class Setup(
       gameId: Option[lila.game.Game.ID],
       variant: Variant,
-      orientation: Color,
+      orientation: Color, // post-game study - overriden for players to their color
+      endStatus: Option[EndStatus] = None,
       fromSfen: Boolean = false,
       fromNotation: Boolean = false
   ) {}
@@ -127,7 +129,7 @@ object Chapter {
     def secondsSinceLastMove: Int = (nowSeconds - lastMoveAt.getSeconds).toInt
   }
 
-  case class ServerEval(path: Path, done: Boolean)
+  case class ServerEval(done: Boolean)
 
   case class RelayAndTags(id: Id, relay: Relay, tags: Tags) {
 

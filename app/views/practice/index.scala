@@ -11,23 +11,26 @@ object index {
 
   def apply(data: lila.practice.UserPractice)(implicit ctx: Context) =
     views.html.base.layout(
-      title = "Practice shogi positions",
+      title = trans.practice.txt(),
       moreCss = cssTag("practice.index"),
       moreJs = embedJsUnsafe(s"""$$('.do-reset').on('click', function() {
 if (confirm('You will lose your practice progress!')) this.parentNode.submit();
 });"""),
       openGraph = lila.app.ui
         .OpenGraph(
-          title = "Practice your shogi",
+          title = trans.practice.txt(),
           description = "Learn how to master the most common shogi positions",
-          url = s"$netBaseUrl${routes.Practice.index}"
+          url = s"$netBaseUrl${routes.Practice.index.url}"
         )
-        .some
+        .some,
+      robots = false,
+      canonicalPath = lila.common.CanonicalPath(routes.Practice.index).some,
+      withHrefLangs = none
     ) {
       main(cls := "page-menu")(
         st.aside(cls := "page-menu__menu practice-side")(
           i(cls      := "fat"),
-          h1("Practice"),
+          h1(trans.practice()),
           h2("makes your shogi perfect"),
           div(cls := "progress")(
             div(cls := "text")("Progress: ", data.progressPercent, "%"),

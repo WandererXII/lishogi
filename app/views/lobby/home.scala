@@ -18,7 +18,7 @@ object home {
     views.html.base.layout(
       title = "",
       fullTitle = Some {
-        s"lishogi.${if (isProd && !isStage) "org" else "dev"} • ${trans.freeOnlineChess.txt()}"
+        s"lishogi.${if (isProd && !isStage) "org" else "dev"} - ${trans.freeOnlineShogi.txt()}"
       },
       moreJs = frag(
         jsModule("lobby", defer = true),
@@ -43,12 +43,13 @@ object home {
         .OpenGraph(
           image = staticUrl("logo/lishogi-tile-wide.png").some,
           twitterImage = staticUrl("logo/lishogi-tile.png").some,
-          title = "The best free, adless Shogi server",
+          title = trans.freeOnlineShogi.txt(),
           url = netBaseUrl,
           description = trans.siteDescription.txt()
         )
         .some,
-      deferJs = true
+      deferJs = true,
+      canonicalPath = lila.common.CanonicalPath("/").some
     ) {
       main(
         cls := List(
@@ -86,11 +87,23 @@ object home {
           ),
           div(cls := "lobby__counters")(
             ctx.blind option h2("Counters"),
-            a(id := "nb_connected_players", href := ctx.noBlind.option(routes.User.list.toString))(
-              trans.nbPlayers(strong(homepage.counters.members))
+            a(
+              id   := "nb_connected_players",
+              href := ctx.noBlind.option(langHref(routes.User.list))
+            )(
+              trans.nbPlayers.plural(
+                homepage.counters.members,
+                strong(dataCount := homepage.counters.members)(homepage.counters.members.localize)
+              )
             ),
-            a(id := "nb_games_in_play", href := ctx.noBlind.option(routes.Tv.games.toString))(
-              trans.nbGamesInPlay(strong(homepage.counters.rounds))
+            a(
+              id   := "nb_games_in_play",
+              href := ctx.noBlind.option(langHref(routes.Tv.games))
+            )(
+              trans.nbGamesInPlay.plural(
+                homepage.counters.rounds,
+                strong(dataCount := homepage.counters.rounds)(homepage.counters.rounds.localize)
+              )
             )
           )
         ),
@@ -129,17 +142,15 @@ object home {
           else
             div(cls := "about-side")(
               ctx.blind option h2("About"),
-              trans.xIsAFreeYLibreOpenSourceChessServer(
+              trans.xIsAFreeYLibreOpenSourceShogiServer(
                 "Lishogi",
                 a(cls := "blue", href := routes.Plan.features)(trans.really.txt())
-              ),
-              " ",
-              a(href := "/about")(trans.aboutX("Lishogi"), "...")
+              )
             )
         ),
         featured map { g =>
-          div(cls := "lobby__tv")(
-            gameSfen(Pov first g, tv = true),
+          a(cls := "lobby__tv", href := routes.Tv.index)(
+            gameSfen(Pov first g, withLink = false, tv = true),
             views.html.game.bits.vstext(Pov first g)(ctx.some)
           )
         },
@@ -157,8 +168,10 @@ object home {
           )
         ),
         bits.lastPosts(lastPost),
+        bits.shogiDescription,
+        bits.variants,
         div(cls := "lobby__support")(
-          a(href := routes.Plan.index)( // patron
+          a(href := langHref(routes.Plan.index))(
             iconTag(patronIconChar),
             span(cls := "lobby__support__text")(
               strong(trans.patron.donate()),
@@ -176,7 +189,6 @@ object home {
           a(href := routes.Page.tos)(trans.termsOfService()),
           a(href := routes.Page.privacy)(trans.privacy()),
           a(href := routes.Page.source)(trans.sourceCode()),
-          a(href := routes.Page.ads)("Ads"),
           views.html.base.bits.connectLinks
         )
       )
@@ -184,6 +196,12 @@ object home {
   }
 
   private val i18nKeys = List(
+    trans.black,
+    trans.white,
+    trans.sente,
+    trans.gote,
+    trans.shitate,
+    trans.uwate,
     trans.realTime,
     trans.correspondence,
     trans.nbGamesInPlay,
@@ -194,6 +212,11 @@ object home {
     trans.casual,
     trans.rated,
     trans.variant,
+    trans.standard,
+    trans.minishogi,
+    trans.chushogi,
+    trans.annanshogi,
+    trans.kyotoshogi,
     trans.mode,
     trans.list,
     trans.graph,
@@ -205,7 +228,8 @@ object home {
     trans.yourTurn,
     trans.rating,
     trans.createAGame,
-    trans.quickPairing,
+    trans.startPosition,
+    // trans.quickPairing,
     trans.lobby,
     trans.custom,
     trans.anonymous

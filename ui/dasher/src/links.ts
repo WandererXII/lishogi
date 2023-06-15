@@ -1,5 +1,4 @@
-import { h, VNode } from 'snabbdom';
-
+import { VNode, h } from 'snabbdom';
 import { DasherCtrl, Mode } from './dasher';
 import { view as pingView } from './ping';
 import { bind } from './util';
@@ -26,7 +25,7 @@ export default function (ctrl: DasherCtrl): VNode {
             noarg('preferences')
           ),
 
-          !d.coach ? null : h('a.text', linkCfg('/coach/edit', ':'), 'Coach manager'),
+          !d.coach ? null : h('a.text', linkCfg('/coach/edit', ':'), noarg('coachManager')),
 
           !d.streamer ? null : h('a.text', linkCfg('/streamer/edit', ''), noarg('streamerManager')),
 

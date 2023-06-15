@@ -59,7 +59,8 @@ final class SeekApi(
       .foldLeft(List.empty[Seek] -> Set.empty[String]) {
         case ((res, h), seek) if seek.user.id == user.id => (seek :: res, h)
         case ((res, h), seek) =>
-          val seekH = List(seek.variant, seek.daysPerTurn, seek.mode, seek.color, seek.user.id) mkString ","
+          val seekH =
+            List[Any](seek.variant, seek.daysPerTurn, seek.mode, seek.color, seek.user.id) mkString ","
           if (h contains seekH) (res, h)
           else (seek :: res, h + seekH)
       }
@@ -71,8 +72,8 @@ final class SeekApi(
 
   def insert(seek: Seek) =
     coll.insert.one(seek) >> findByUser(seek.user.id).flatMap {
-      case seeks if maxPerUser >= seeks.size => funit
-      case seeks                             => seeks.drop(maxPerUser.value).map(remove).sequenceFu
+      case seeks if seeks.sizeIs <= maxPerUser.value => funit
+      case seeks                                     => seeks.drop(maxPerUser.value).map(remove).sequenceFu
     }.void >>- cacheClear()
 
   def findByUser(userId: String): Fu[List[Seek]] =

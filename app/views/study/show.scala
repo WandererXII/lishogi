@@ -12,14 +12,14 @@ import controllers.routes
 object show {
 
   def apply(
-      s: lila.study.Study,
+      sc: lila.study.Study.WithChapter,
       data: lila.study.JsonView.JsData,
       chatOption: Option[lila.chat.UserChat.Mine],
       socketVersion: lila.socket.Socket.SocketVersion,
       streams: List[lila.streamer.Stream]
   )(implicit ctx: Context) =
     views.html.base.layout(
-      title = s.name.value,
+      title = sc.study.name.value,
       moreCss = cssTag("analyse.study"),
       moreJs = frag(
         analyseTag,
@@ -29,40 +29,42 @@ object show {
               "study"    -> data.study.add("admin" -> isGranted(_.StudyAdmin)),
               "data"     -> data.analysis,
               "i18n"     -> jsI18n(),
-              "tagTypes" -> lila.study.KifTags.typesToString,
+              "tagTypes" -> lila.study.StudyTags.typesToString,
               "userId"   -> ctx.userId,
               "chat" -> chatOption.map { c =>
                 views.html.chat.json(
                   c.chat,
                   name = trans.chatRoom.txt(),
                   timeout = c.timeout,
-                  writeable = ctx.userId exists s.canChat,
+                  writeable = ctx.userId exists sc.study.canChat,
                   public = true,
                   resourceId = lila.chat.Chat.ResourceId(s"study/${c.chat.id}"),
-                  palantir = ctx.userId exists s.isMember,
-                  localMod = ctx.userId exists s.canContribute
+                  palantir = ctx.userId exists sc.study.isMember,
+                  localMod = ctx.userId exists sc.study.canContribute
                 )
               },
               "explorer" -> Json.obj(
                 "endpoint"          -> explorerEndpoint,
                 "tablebaseEndpoint" -> tablebaseEndpoint
               ),
-              "socketUrl"     -> socketUrl(s.id.value),
+              "socketUrl"     -> socketUrl(sc.study.id.value),
               "socketVersion" -> socketVersion.value
             )
           )}""")
       ),
-      robots = s.isPublic,
+      robots = sc.study.isPublic,
       shogiground = false,
       zoomable = true,
       csp = defaultCsp.withWebAssembly.withPeer.some,
       openGraph = lila.app.ui
         .OpenGraph(
-          title = s.name.value,
-          url = s"$netBaseUrl${routes.Study.show(s.id.value).url}",
-          description = s"A shogi study by ${usernameOrId(s.ownerId)}"
+          title = sc.study.name.value,
+          url = s"$netBaseUrl${routes.Study.show(sc.study.id.value).url}",
+          description = trans.study.studyByX.txt(usernameOrId(sc.study.ownerId))
         )
-        .some
+        .some,
+      canonicalPath =
+        lila.common.CanonicalPath(routes.Study.chapter(sc.study.id.value, sc.chapter.id.value)).some
     )(
       frag(
         main(cls := "analyse"),

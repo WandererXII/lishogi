@@ -24,7 +24,10 @@ trait UserHelper { self: I18nHelper with StringHelper with NumberHelper =>
     PerfType.Rapid,
     PerfType.Classical,
     PerfType.Correspondence,
-    PerfType.Minishogi
+    PerfType.Minishogi,
+    PerfType.Chushogi,
+    PerfType.Annanshogi,
+    PerfType.Kyotoshogi
   )
 
   def showPerfRating(rating: Int, name: String, nb: Int, provisional: Boolean, icon: Char)(implicit
@@ -103,7 +106,7 @@ trait UserHelper { self: I18nHelper with StringHelper with NumberHelper =>
       withTitle: Boolean = true,
       truncate: Option[Int] = None,
       params: String = ""
-  )(implicit lang: Lang): Frag =
+  )(implicit lang: Lang): Tag =
     userIdNameLink(
       userId = user.id,
       username = user.name,
@@ -143,7 +146,7 @@ trait UserHelper { self: I18nHelper with StringHelper with NumberHelper =>
       title: Option[Title],
       params: String,
       modIcon: Boolean
-  )(implicit lang: Lang): Frag =
+  )(implicit lang: Lang): Tag =
     a(
       cls  := userClass(userId, cssClass, withOnline),
       href := userUrl(username, params = params)
@@ -163,7 +166,7 @@ trait UserHelper { self: I18nHelper with StringHelper with NumberHelper =>
       withPerfRating: Option[PerfType] = None,
       name: Option[Frag] = None,
       params: String = ""
-  )(implicit lang: Lang): Frag =
+  )(implicit lang: Lang): Tag =
     a(
       cls  := userClass(user.id, cssClass, withOnline, withPowerTip),
       href := userUrl(user.username, params)
@@ -194,14 +197,16 @@ trait UserHelper { self: I18nHelper with StringHelper with NumberHelper =>
       userRating(user, withPerfRating, withBestRating)
     )
 
-  def userIdSpanMini(userId: String, withOnline: Boolean = false)(implicit lang: Lang): Frag = {
+  def userIdSpanMini(userId: String, withOnline: Boolean = false, modIcon: Boolean = false)(implicit
+      lang: Lang
+  ): Frag = {
     val user = lightUser(userId)
     val name = user.fold(userId)(_.name)
     span(
       cls      := userClass(userId, none, withOnline),
       dataHref := userUrl(name)
     )(
-      withOnline ?? lineIcon(user),
+      withOnline ?? { if (modIcon) moderatorIcon else lineIcon(user) },
       user.??(u => titleTag(u.title map Title.apply)),
       name
     )

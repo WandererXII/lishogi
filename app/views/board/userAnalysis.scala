@@ -7,6 +7,7 @@ import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
 import lila.common.String.html.safeJsonValue
 import lila.rating.PerfType.iconByVariant
+import views.html.base.layout.{ bits => layout }
 
 import controllers.routes
 
@@ -18,7 +19,8 @@ object userAnalysis {
       moreCss = frag(
         cssTag("analyse.free"),
         withForecast option cssTag("analyse.forecast"),
-        ctx.blind option cssTag("round.nvui")
+        ctx.blind option cssTag("round.nvui"),
+        (pov.game.variant.chushogi) option layout.chuPieceSprite
       ),
       moreJs = frag(
         analyseTag,
@@ -38,31 +40,32 @@ object userAnalysis {
       shogiground = false,
       openGraph = lila.app.ui
         .OpenGraph(
-          title = "Shogi analysis board",
+          title = trans.analysis.txt(),
           url = s"$netBaseUrl${routes.UserAnalysis.index.url}",
-          description = "Analyse shogi positions and variations on an interactive shogi board"
+          description = trans.analysisDescription.txt()
         )
         .some,
-      zoomable = true
+      zoomable = true,
+      canonicalPath = lila.common.CanonicalPath(routes.UserAnalysis.index).some
     ) {
       main(cls := s"analyse variant-${pov.game.variant.key}")(
         pov.game.synthetic option st.aside(cls := "analyse__side")(
           views.html.base.bits.mselect(
             "analyse-variant",
-            span(cls := "text", dataIcon := iconByVariant(pov.game.variant))(pov.game.variant.name),
+            span(cls := "text", dataIcon := iconByVariant(pov.game.variant))(variantName(pov.game.variant)),
             shogi.variant.Variant.all.map { v =>
               a(
                 dataIcon := iconByVariant(v),
                 cls      := (pov.game.variant == v).option("current"),
                 href     := routes.UserAnalysis.parseArg(v.key)
-              )(v.name)
+              )(variantName(v))
             }
           )
         ),
         div(cls := "analyse__board main-board")(shogigroundBoard(pov.game.variant, pov.color.some)),
-        div(cls := "sg-hand-wrap hand-top"),
+        (!pov.game.variant.chushogi) option sgHandTop,
         div(cls := "analyse__tools"),
-        div(cls := "sg-hand-wrap hand-bottom"),
+        (!pov.game.variant.chushogi) option sgHandBottom,
         div(cls := "analyse__controls")
       )
     }

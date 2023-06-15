@@ -46,7 +46,6 @@ case class AllWinners(
 
   lazy val top: List[Winner] = List(
     List(bullet, superblitz, blitz, hyperrapid, rapid, classical).flatMap(_.top),
-    // List(elite.headOption, marathon.headOption).flatten,
     List(elite.headOption).flatten,
     WinnersApi.variants.flatMap { v =>
       variants get v.key flatMap (_.top)
@@ -97,9 +96,9 @@ final class WinnersApi(
   private def fetchAll: Fu[AllWinners] =
     for {
       yearlies  <- fetchLastFreq(Freq.Yearly, DateTime.now.minusYears(1))
-      monthlies <- fetchLastFreq(Freq.Monthly, DateTime.now.minusMonths(2))
-      weeklies  <- fetchLastFreq(Freq.Weekly, DateTime.now.minusWeeks(2))
-      dailies   <- fetchLastFreq(Freq.Daily, DateTime.now.minusDays(2))
+      monthlies <- fetchLastFreq(Freq.Monthly, DateTime.now.minusMonths(3))
+      weeklies  <- fetchLastFreq(Freq.Weekly, DateTime.now.minusWeeks(3))
+      dailies   <- fetchLastFreq(Freq.Daily, DateTime.now.minusDays(3))
       elites    <- fetchLastFreq(Freq.Weekend, DateTime.now.minusWeeks(3))
       // marathons <- fetchLastFreq(Freq.Marathon, DateTime.now.minusMonths(13))
     } yield {

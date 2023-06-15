@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">친구와 게임하기</string>
 	<string name="playWithTheMachine">체스 엔진과 게임하기</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">이 URL로 친구를 초대해 친구와 같이 체스를 두세요.</string>
@@ -13,30 +14,38 @@
 	<string name="toggleTheChat">채팅 끄기/켜기</string>
 	<string name="toggleSound">음소거/음소거 해제</string>
 	<string name="chat">채팅</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
 	<string name="resign">기권하기</string>
 	<string name="checkmate">체크메이트</string>
 	<string name="stalemate">스테일메이트</string>
 	<string name="impasse">Impasse</string>
-	<string name="white">백색</string>
-	<string name="black">흑색</string>
-	<string name="shitate">Shitate</string>
-	<string name="uwate">Uwate</string>
-	<string name="randomColor">무작위</string>
+	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
+	<string name="perpetualCheck">Perpetual check</string>
+	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
+	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
+	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
+	<string name="xWon" comment="Example: Player won!">%s won!</string>
+	<string name="xLost" comment="Example: Player lost!">%s lost!</string>
+	<string name="gameWasDraw">Game was a draw!</string>
+	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
+	<string name="white" comment="Alternative to gote">백색</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
+	<string name="black" comment="Alternative to sente">흑색</string>
+	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
+	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
+	<string name="randomColor" comment="Side - sente/gote">무작위</string>
 	<string name="createAGame">새 게임 만들기</string>
-	<string name="whiteIsVictorious">백색 승리</string>
-	<string name="blackIsVictorious">흑색 승리</string>
-	<string name="youPlayTheWhitePieces">당신은 백으로 둡니다</string>
-	<string name="youPlayTheBlackPieces">당신은 흑으로 둡니다</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
 	<string name="itsYourTurn">당신이 둘 차례입니다!</string>
 	<string name="cheatDetected">Cheat Detected</string>
 	<string name="variantEnding">변형 게임 엔딩</string>
 	<string name="newOpponent">새 상대</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">상대가 재대결을 원합니다</string>
 	<string name="joinTheGame">게임 참가</string>
-	<string name="whitePlays">백색 차례</string>
-	<string name="blackPlays">흑색 차례</string>
-	<string name="shitatePlays">Shitate to play</string>
-	<string name="uwatePlays">Uwate to play</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">당신의 상대가 게임을 나갔습니다. %s 초 후에 승리를 주장할 수 있습니다.</item>
 	</plurals>
@@ -46,10 +55,9 @@
 	<string name="forceDraw">무승부 처리</string>
 	<string name="talkInChat">건전한 채팅을 해주세요!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">이 URL로 가장 먼저 들어온 사람과 체스를 두게 됩니다.</string>
-	<string name="whiteResigned">백색 기권</string>
-	<string name="blackResigned">흑색 기권</string>
-	<string name="whiteLeftTheGame">백색이 게임을 나갔습니다</string>
-	<string name="blackLeftTheGame">흑색이 게임을 나갔습니다</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">이 URL을 공유해서 관전할 수 있게 하세요.</string>
 	<string name="theComputerAnalysisHasFailed">컴퓨터 분석에 실패하였습니다</string>
 	<string name="viewTheComputerAnalysis">컴퓨터 분석 보기</string>
@@ -57,11 +65,13 @@
 	<string name="computerAnalysis">컴퓨터 분석</string>
 	<string name="computerAnalysisAvailable">컴퓨터 분석이 가능합니다.</string>
 	<string name="analysis">분석</string>
+	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">%s수 앞 계산 완료</string>
 	<string name="usingServerAnalysis">서버 분석 사용하기</string>
 	<string name="loadingEngine">엔진 로드 중 ...</string>
 	<string name="cloudAnalysis">클라우드 분석</string>
-	<string name="goDeeper">더 깊게 분석하기</string>
+	<string name="localAnalysis">Local analysis</string>
+	<string name="goDeeper" comment="Engine depth">더 깊게 분석하기</string>
 	<string name="showThreat">위험요소 표시하기</string>
 	<string name="inLocalBrowser">브라우저에서</string>
 	<string name="toggleLocalEvaluation">개인 컴퓨터에서 분석하기</string>
@@ -70,6 +80,9 @@
 	<string name="deleteFromHere">여기서부터 삭제</string>
 	<string name="forceVariation">변화 강제하기</string>
 	<string name="move">수</string>
+	<plurals name="nbMoves">
+		<item quantity="other">%s moves</item>
+	</plurals>
 	<string name="variantLoss">변형 체스에서 패배</string>
 	<string name="variantWin">변형 체스에서 승리</string>
 	<string name="insufficientMaterial">말이 부족하여 무승부입니다.</string>
@@ -81,7 +94,6 @@
 	<string name="drawn">무승부</string>
 	<string name="unknown">알 수 없음</string>
 	<string name="database">데이터베이스</string>
-	<string name="whiteDrawBlack">백 : 무승부 : 흑</string>
 	<string name="averageRatingX">평균 레이팅: %s</string>
 	<string name="recentGames">최근 게임</string>
 	<string name="topGames">최고 레이팅 게임</string>
@@ -135,6 +147,7 @@
 	<string name="computersAreNotAllowedToPlay">컴퓨터나 컴퓨터의 도움을 받는 플레이어는 대국이 금지되어 있습니다. 대국할 때 체스 엔진이나 관련 자료, 또는 주변 플레이어로부터 도움을 받지 마십시오. 또한, 다중 계정 사용은 권장하지 않으며 지나치게 많은 다중 계정을 사용할 시 계정이 차단될 수 있습니다.</string>
 	<string name="games">게임</string>
 	<string name="forum">포럼</string>
+	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
 	<string name="xPostedInForumY">%1$s(이)가 %2$s 쓰레드에 글을 씀</string>
 	<string name="latestForumPosts">최근 포럼 글</string>
 	<string name="players">플레이어</string>
@@ -169,6 +182,7 @@
 	<string name="changeEmail">메일 주소 변경</string>
 	<string name="email">메일</string>
 	<string name="passwordReset">비밀번호 초기화</string>
+	<string name="loginByEmail">Log in by email</string>
 	<string name="forgotPassword">비밀번호를 잊어버리셨나요?</string>
 	<string name="rank">순위</string>
 	<string name="rankX">랭킹: %s</string>
@@ -188,10 +202,8 @@
 	<string name="drawOfferDeclined">무승부 요청이 거절 되었습니다</string>
 	<string name="drawOfferAccepted">무승부 요청이 승낙 됐습니다</string>
 	<string name="drawOfferCanceled">무승부 요청을 취소했습니다</string>
-	<string name="whiteOffersDraw">흰색이 무승부를 제안했습니다</string>
-	<string name="blackOffersDraw">검은색이 무승부를 제안했습니다</string>
-	<string name="whiteDeclinesDraw">흰색이 무승부 제안을 거절했습니다</string>
-	<string name="blackDeclinesDraw">검은색이 무승부 제안을 거절했습니다</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
 	<string name="yourOpponentOffersADraw">상대가 무승부를 요청했습니다</string>
 	<string name="accept">승낙</string>
 	<string name="decline">거절</string>
@@ -201,7 +213,11 @@
 	<string name="finishesX">%s 남음</string>
 	<string name="abortGame">게임 중단</string>
 	<string name="gameAborted">게임 중단됨</string>
-	<string name="standard">표준</string>
+	<string name="standard" comment="Variant - meaning standard shogi">표준</string>
+	<string name="minishogi">Minishogi</string>
+	<string name="chushogi">Chushogi</string>
+	<string name="annanshogi">Annan shogi</string>
+	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="unlimited">무제한</string>
 	<string name="mode">모드</string>
 	<string name="casual">캐주얼</string>
@@ -211,8 +227,7 @@
 	<string name="thisGameIsRated">이 게임은 레이팅 게임입니다</string>
 	<string name="rematch">재대결</string>
 	<string name="rematchOfferSent">재대결 요청을 보냈습니다</string>
-	<string name="rematchOfferSentWhite">흰색이 재대결을 신청했습니다</string>
-	<string name="rematchOfferSentBlack">검은색이 재대결을 신청했습니다</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
 	<string name="rematchOfferAccepted">재대결 요청이 승낙됐습니다</string>
 	<string name="rematchOfferCanceled">재대결 요청이 취소됐습니다</string>
 	<string name="rematchOfferDeclined">재대결 요청이 거절됐습니다</string>
@@ -222,6 +237,7 @@
 	<string name="play">플레이</string>
 	<string name="inbox">받은편지함</string>
 	<string name="streamerManager">Streamer manager</string>
+	<string name="coachManager">Coach manager</string>
 	<string name="chatRoom">채팅</string>
 	<string name="loginToChat">채팅에 로그인하기</string>
 	<string name="youHaveBeenTimedOut">채팅에서 로그아웃 되었습니다.</string>
@@ -234,7 +250,7 @@
 	<string name="incrementInSeconds">턴 당 추가 시간(초)</string>
 	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
 	<string name="numberOfPeriods">Number of periods</string>
-	<string name="freeOnlineChess">Free Online Shogi</string>
+	<string name="freeOnlineShogi">Free Online Shogi</string>
 	<string name="spectators">관전자:</string>
 	<plurals name="nbRated">
 		<item quantity="other">%s번의 레이팅 대국</item>
@@ -268,6 +284,7 @@
 	<string name="yourOpponentProposesATakeback">상대가 무르기를 요청합니다</string>
 	<string name="bookmarkThisGame">이 게임을 즐겨찾기에 추가하기</string>
 	<string name="tournament">토너먼트</string>
+	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">토너먼트</string>
 	<string name="tournamentPoints">토너먼트 점수</string>
 	<plurals name="nbTournamentPoints">
@@ -301,6 +318,8 @@
 	<string name="youAreNotInTeam">팀 %s 에 소속되지 않았습니다.</string>
 	<string name="backToGame">게임으로 돌아가기</string>
 	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
+	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
 	<string name="xJoinedTeamY">%1$s(이)가 팀 %2$s에 가입했습니다.</string>
 	<string name="xCreatedTeamY">%1$s(이)가 팀 %2$s(을)를 만들었습니다.</string>
 	<string name="xStartedStreaming">%s 님이 스트리밍을 시작했습니다</string>
@@ -311,25 +330,28 @@
 	<string name="apply">적용</string>
 	<string name="save">저장하기</string>
 	<string name="leaderboard">리더보드</string>
+	<string name="leaderboards">Leaderboards</string>
+	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
 	<string name="selectHandicap">Select handicap</string>
 	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
 	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
 	<string name="fromPosition">정해진 보드판에서 시작</string>
-	<string name="default">Default</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
 	<string name="continueFromHere">여기서부터 시작</string>
 	<string name="toStudy">연구</string>
 	<string name="importGame">게임 불러오기</string>
+	<string name="importedGame">Game was imported.</string>
 	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay,
 computer analysis, game chat and shareable URL.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="other">불러온 게임 %s개</item>
 	</plurals>
-	<string name="thisIsAChessCaptcha">This is a shogi CAPTCHA.</string>
+	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
 	<string name="clickOnTheBoardToMakeYourMove">보드를 클릭해서 체스 퍼즐을 풀고 당신이 사람임을 알려주세요.</string>
 	<string name="captcha.fail">Please solve the shogi captcha.</string>
 	<string name="notACheckmate">체크메이트가 아닙니다.</string>
-	<string name="whiteCheckmatesInOneMove">백이 한 수 만에 체크메이트하기</string>
-	<string name="blackCheckmatesInOneMove">흑이 한 수 만에 체크메이트하기</string>
+	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
 	<string name="retry">재시도</string>
 	<string name="reconnecting">연결 재시도 중</string>
 	<plurals name="nbFriendsOnline">
@@ -379,6 +401,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="showAdvancedSettings">고급 설정 보기</string>
 	<string name="makePrivateTournament">토너먼트를 비공개로 바꾸고, 비밀번호가 있어야만 들어갈 수 있습니다.</string>
 	<string name="join">참가하기</string>
+	<string name="pause">Pause</string>
 	<string name="withdraw">중단</string>
 	<string name="points">포인트</string>
 	<string name="wins">승리</string>
@@ -394,25 +417,26 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="performance">승점</string>
 	<string name="tournamentComplete">대회 종료</string>
 	<string name="movesPlayed">말 이동 횟수</string>
-	<string name="whiteWins">하얀 말로 우승</string>
-	<string name="blackWins">검은 말로 우승</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
 	<string name="draws">무승부</string>
 	<string name="nextXTournament">다음 %s 대회:</string>
 	<string name="averageOpponent">상대의 평균 승점</string>
 	<string name="membersOnly">회원 전용</string>
 	<string name="boardEditor">보드 편집기</string>
+	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
 	<string name="setTheBoard">보드 세팅하기</string>
 	<string name="popularOpenings">인기 있는 오프닝</string>
 	<string name="handicaps">Handicaps</string>
 	<string name="handicap">Handicap</string>
 	<string name="startPosition">원래대로</string>
 	<string name="clearBoard">보드 지우기</string>
-	<string name="fillGotesHand">Fill Gote\'s hand</string>
+	<string name="fillXHand">Fill hand of %s</string>
 	<string name="savePosition">포지션 저장</string>
 	<string name="loadPosition">포지션 불러오기</string>
 	<string name="isPrivate">비공개</string>
 	<string name="reportXToModerators">%s 신고</string>
 	<string name="profileCompletion">프로필 완성도: %s</string>
+	<string name="thisIsProfilePage">This is your profile page.</string>
 	<string name="xRating">레이팅: %s</string>
 	<string name="ifNoneLeaveEmpty">없으면 무시하세요</string>
 	<string name="gameCompletionRate">끝까지 플레이한 게임: %s</string>
@@ -425,27 +449,17 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="socialMediaLinks">소셜 미디어 링크</string>
 	<string name="inlineNotation">기보를 가로쓰기</string>
 	<string name="watchLishogiTV">Watch Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Previously on Lishogi TV</string>
 	<string name="onlinePlayers">접속한 플레이어</string>
+	<string name="onlineBots">Online bots</string>
 	<string name="activeToday">오늘의 활동적인 플레이어</string>
 	<string name="activePlayers">활동적인 플레이어</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">조심하세요, 레이팅 게임이며 시간 제한이 없습니다!</string>
-	<string name="yourPuzzleRatingX">퍼즐 레이팅: %s</string>
-	<string name="findTheBestMoveForWhite">흰색을 위한 최고의 수를 찾아보세요.</string>
-	<string name="findTheBestMoveForBlack">검은색을 위한 최고의 수를 찾아보세요.</string>
 	<string name="toTrackYourProgress">기록을 저장하려면:</string>
-	<string name="puzzleId">퍼즐 %s</string>
-	<string name="puzzleOfTheDay">오늘의 퍼즐</string>
-	<string name="clickToSolve">퍼즐 풀기</string>
 	<string name="goodMove">괜찮은 수입니다.</string>
-	<string name="butYouCanDoBetter">하지만 더 좋은 수가 있어요.</string>
 	<string name="bestMove">좋은 수입니다!</string>
-	<string name="keepGoing">계속하세요...</string>
-	<string name="puzzleFailed">퍼즐 풀기 실패</string>
-	<string name="butYouCanKeepTrying">하지만 계속 플레이할 수 있습니다.</string>
 	<string name="success">성공!</string>
-	<string name="wasThisPuzzleAnyGood">이 퍼즐이 괜찮았나요?</string>
-	<string name="pleaseVotePuzzle">위 또는 아래 화살표를 눌러 Lishogi를 향상시켜 주세요</string>
 	<string name="thankYou">감사합니다!</string>
 	<string name="ratingX">레이팅: %s</string>
 	<string name="hidden">숨겨짐</string>
@@ -453,10 +467,6 @@ computer analysis, game chat and shareable URL.</string>
 		<item quantity="other">%s회 플레이</item>
 	</plurals>
 	<string name="fromGameLink">게임 %s에서</string>
-	<string name="continueTraining">연습 계속하기</string>
-	<string name="retryThisPuzzle">다시 풀기</string>
-	<string name="thisPuzzleIsCorrect">이 퍼즐은 정확하고 재밌습니다</string>
-	<string name="thisPuzzleIsWrong">이 퍼즐은 오류가 있거나 지루합니다</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="other">%s개의 게임 플레이 중</item>
 	</plurals>
@@ -471,6 +481,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="yes">예</string>
 	<string name="help">힌트:</string>
 	<string name="createANewTopic">새 토픽</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
 	<string name="topics">토픽</string>
 	<string name="posts">글</string>
 	<string name="lastPost">최근 글</string>
@@ -497,6 +508,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="questionsAndAnswers">질문 &amp; 답변</string>
 	<string name="notes">노트</string>
 	<string name="typePrivateNotesHere">여기에 비밀 노트를 쓰세요</string>
+	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
+	<string name="noNoteYet">No note yet</string>
 	<string name="invalidUsernameOrPassword">사용자 이름이나 비밀번호가 잘못되었습니다.</string>
 	<string name="incorrectPassword">잘못된 비밀번호입니다.</string>
 	<string name="invalidAuthenticationCode">무효한 인증코드</string>
@@ -516,6 +529,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="fast">빠르게</string>
 	<string name="normal">보통</string>
 	<string name="slow">느리게</string>
+	<string name="compact">Compact</string>
 	<string name="insideTheBoard">보드 안쪽에</string>
 	<string name="outsideTheBoard">보드 바깥쪽에</string>
 	<string name="edgeOfTheBoard">Edge of the board</string>
@@ -547,6 +561,7 @@ computer analysis, game chat and shareable URL.</string>
 	</plurals>
 	<string name="listBlockedPlayers">이 플레이어를 차단</string>
 	<string name="human">인간</string>
+	<string name="bots">Bots</string>
 	<string name="computer">인공지능</string>
 	<string name="side">진영</string>
 	<string name="clock">시간 제한</string>
@@ -592,7 +607,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="webmasters">웹마스터</string>
 	<string name="about">Lishogi 개요</string>
 	<string name="aboutX">%s에 대해</string>
-	<string name="xIsAFreeYLibreOpenSourceChessServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
+	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s is a free (%2$s), libre, no-ads, open source shogi server.</string>
 	<string name="really">정말입니다!</string>
 	<string name="contribute">기여하기</string>
 	<string name="termsOfService">이용 약관</string>
@@ -619,9 +634,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="numberOfByoyomiPeriods">Number of byoyomi periods</string>
 	<string name="hostColorForEachGame">Host color for each game</string>
 	<string name="onlyMembersOfTeam">Only members of team</string>
+	<string name="noRestriction">No Restriction</string>
+	<string name="estimatedStart">Estimated start time</string>
 	<string name="simulDescription">Simul description</string>
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Lishogi tournaments</string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentFAQ">아레나 토너먼트 FAQ</string>
 	<string name="tournamentOfficial">공식</string>
 	<string name="timeBeforeTournamentStarts">토너먼트 시작까지 시간</string>
@@ -677,16 +695,18 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="security">보안</string>
 	<string name="thisIsAListOfDevicesThatHaveLoggedIntoYourAccount">사용자 계정에 로그인한 장치의 목록입니다. 이 중 낯선 장치가 보이면 세션을 취소하세요.</string>
 	<string name="alternativelyYouCanX">%s를 하셔도 됩니다.</string>
+	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">모든 세션 비활성화</string>
-	<string name="playChessEverywhere">Play shogi everywhere</string>
+	<string name="playShogiEverywhere">Play shogi everywhere</string>
+	<string name="features">Features</string>
 	<string name="asFreeAsLishogi">As free as Lishogi</string>
-	<string name="builtForTheLoveOfChessNotMoney">Built for the love of shogi, not money</string>
+	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">모두가 모든 기능을 무료로 이용할 수 있습니다</string>
 	<string name="zeroAdvertisement">광고가 없습니다</string>
 	<string name="fullFeatured">모든 기능을 지원합니다</string>
 	<string name="phoneAndTablet">스마트폰과 태블릿 지원</string>
 	<string name="bulletBlitzClassical">불릿, 블릿츠, 클래식 방식 지원</string>
-	<string name="correspondenceChess">Correspondence shogi</string>
+	<string name="correspondenceShogi">Correspondence shogi</string>
 	<string name="onlineAndOfflinePlay">온라인/오프라인 게임 모두 지원</string>
 	<string name="viewTheSolution">해답 보기</string>
 	<string name="followAndChallengeFriends">친구를 팔로우하고 도전하기</string>
@@ -717,7 +737,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
 	<string name="gridVeryThick">Very thick</string>
-	<string name="hands">Hands</string>
+	<string name="hands" comment="Title in custom board theme editor">Hands</string>
 	<string name="boardTheme">보드 테마</string>
 	<string name="boardSize">보드 크기</string>
 	<string name="pieceSet">기물 세트</string>
@@ -728,13 +748,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="usernameCharsInvalid">유저 이름에는 알파벳, 숫자, 언더스코어 ( _ ), 하이픈 ( - ) 만을 사용할 수 있습니다.</string>
 	<string name="usernameUnacceptable">사용자 이름을 사용할 수 없습니다.</string>
 	<string name="directlySupportLishogi">Directly support Lishogi</string>
-	<string name="playChessInStyle">Play shogi in style</string>
-	<string name="chessBasics">Shogi basics</string>
+	<string name="playShogiInStyle">Play shogi in style</string>
+	<string name="shogiBasics">Shogi basics</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">코치</string>
-	<string name="invalidKif">Invalid KIF</string>
 	<string name="invalidNotation">Invalid notation</string>
-	<string name="invalidFen">잘못된 FEN입니다.</string>
+	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">최소 길이는 %s입니다.</string>
 	<string name="error.maxLength">최대 길이는 %s입니다.</string>
 	<string name="error.min">크기가 최소 %s이여야합니다.</string>
@@ -758,28 +777,22 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hideBestMove">최상의 수 숨기기</string>
 	<string name="getAHint">힌트 보기</string>
 	<string name="evaluatingYourMove">이동하신 수를 평가 중입니다…</string>
-	<string name="whiteWinsGame">하얀색 승리</string>
-	<string name="blackWinsGame">검은색 승리</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
 	<string name="learnFromYourMistakes">실수에서 배우기</string>
 	<string name="learnFromThisMistake">이 실수에서 배우기</string>
 	<string name="skipThisMove">이 수 넘기기</string>
 	<string name="next">다음으로</string>
 	<string name="xWasPlayed">%s 이 두어짐</string>
-	<string name="findBetterMoveForWhite">흰색에게 좀 더 나은 수를 찾아보세요</string>
-	<string name="findBetterMoveForBlack">검은색에게 좀 더 나은 수를 찾아보세요</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
 	<string name="resumeLearning">학습 계속하기</string>
 	<string name="youCanDoBetter">더 잘할 수 있어요</string>
-	<string name="tryAnotherMoveForWhite">흰색에게 또 다른 수를 찾아보세요</string>
-	<string name="tryAnotherMoveForBlack">검은색에게 또 다른 수를 찾아보세요</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
 	<string name="solution">해답</string>
 	<string name="waitingForAnalysis">분석을 기다리는 중</string>
-	<string name="noMistakesFoundForWhite">백에게 악수는 없었습니다</string>
-	<string name="noMistakesFoundForBlack">흑에게 악수는 없었습니다</string>
-	<string name="doneReviewingWhiteMistakes">백의 악수 체크가 종료됨</string>
-	<string name="doneReviewingBlackMistakes">흑의 악수 체크가 종료됨</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
 	<string name="doItAgain">다시 하시길 바랍니다</string>
-	<string name="reviewWhiteMistakes">백의 악수를 체크</string>
-	<string name="reviewBlackMistakes">흑의 말의 실수 탐색하기</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
 	<string name="advantage">이득</string>
 	<plurals name="nbSeconds">
 		<item quantity="other">%s초</item>
@@ -805,7 +818,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="weHadToTimeYouOutForAWhile">짧은 시간동안 정지를 받으셨습니다.</string>
 	<string name="timeoutExpires">타임아웃은 %s 후에 후에 만료됩니다.</string>
 	<string name="why">왜 그런가요?</string>
-	<string name="pleasantChessExperience">We aim to provide a pleasant shogi experience for everyone.</string>
+	<string name="pleasantShogiExperience">We aim to provide a pleasant shogi experience for everyone.</string>
 	<string name="goodPractice">그러기 위해서는, 우리는 모든 플레이어가 좋은 관행을 따르도록 보장해야 합니다.</string>
 	<string name="potentialProblem">잠재적인 문제가 감지되었을 때는, 우리는 이 메시지를 표시합니다.</string>
 	<string name="howToAvoidThis">이것을 어떻게 피할 수 있나요?</string>
@@ -821,6 +834,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="agreementNice">나는 항상 다른 플레이어들을 존중하겠습니다.</string>
 	<string name="agreementAccount">나는 다중 계정을 만들지 않겠습니다.</string>
 	<string name="agreementPolicy">나는 모든 Lishogi 정책을 따르겠습니다.</string>
+	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">대화 찾기 또는 새 대화 시작하기</string>
 	<string name="edit">편집</string>
 	<string name="rapid">래피드</string>
@@ -845,18 +859,39 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="youCannotPostYetPlaySomeGames">이 포럼에 글을 올리시기에는 게임 수가 부족합니다.</string>
 	<string name="subscribe">구독</string>
 	<string name="unsubscribe">구독 취소</string>
-	<string name="blackDeclinesImpasse">Sente declines impasse</string>
-	<string name="blackOffersImpasse">Sente offers impasse</string>
-	<string name="notationType">Notation</string>
-	<string name="whiteDeclinesImpasse">Gote declines impasse</string>
-	<string name="whiteOffersImpasse">Gote offers impasse</string>
 	<string name="notationSystem">Notation</string>
 	<string name="officialBlog">Lishogi Official Blog</string>
 	<string name="blogPostsFromYear">Blog posts from %1$s</string>
 	<string name="previousBlogPosts">Previous blog posts</string>
 	<string name="continueReadingThis"> Continue reading this post</string>
 	<string name="discussBlogForum">Discuss this blog post in the forum</string>
-	<string name="invadingPieces">Invading pieces</string>
-	<string name="enteringKing">Entering king</string>
-	<string name="totalImpasseValue">Total value</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="postGameStudy">Post-game study</string>
+	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
+	<string name="studyWithOpponent">Study with opponent</string>
+	<string name="studyOfPlayers">Study of players</string>
+	<string name="studyWith">Study with:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
+	<string name="standardStudy">Standard study</string>
+	<string name="welcomeToX">Welcome to %s!</string>
+	<string name="whatNow">What now?</string>
+	<string name="hereAreSuggestions">Here are a few suggestions:</string>
+	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
+	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
+	<string name="challengeDeclined">Challenge declined</string>
+	<string name="challengeAccepted">Challenge accepted</string>
+	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="challengeDescription">Join the challenge or watch the game</string>
+	<string name="challengeFromX" comment="From username">Challenge from %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
+	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
+	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
+	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
 </resources>

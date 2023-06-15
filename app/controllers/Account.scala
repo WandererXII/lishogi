@@ -118,7 +118,8 @@ final class Account(
             fuccess(html.account.passwd(err))
           } { data =>
             env.user.authenticator.setPassword(me.id, UserModel.ClearPassword(data.newPasswd1))
-            env.security.store.closeUserExceptSessionId(me.id, ~env.security.api.reqSessionId(ctx.req)) >>
+            env.security.store
+              .closeUserExceptSessionId(me.id, ~lila.common.HTTPRequest.userSessionId(ctx.req)) >>
               env.push.webSubscriptionApi.unsubscribeByUser(me) inject
               Redirect(routes.Account.passwd).flashSuccess
           }
@@ -229,7 +230,7 @@ final class Account(
     AuthBody { implicit ctx => me =>
       auth.HasherRateLimit(me.username, ctx.req) { _ =>
         implicit val req     = ctx.body
-        val currentSessionId = ~env.security.api.reqSessionId(ctx.req)
+        val currentSessionId = ~lila.common.HTTPRequest.userSessionId(ctx.req)
         env.security.forms.setupTwoFactor(me) flatMap { form =>
           FormFuResult(form) { err =>
             fuccess(html.account.twoFactor.setup(me, err))
@@ -326,14 +327,25 @@ final class Account(
     }
 
   private def currentSessionId(implicit ctx: Context) =
-    ~env.security.api.reqSessionId(ctx.req)
+    ~lila.common.HTTPRequest.userSessionId(ctx.req)
 
   def security =
     Auth { implicit ctx => me =>
-      env.security.api.dedup(me.id, ctx.req) >>
-        env.security.api.locatedOpenSessions(me.id, 50) map { sessions =>
-          Ok(html.account.security(me, sessions, currentSessionId))
-        }
+      for {
+        _                    <- env.security.api.dedup(me.id, ctx.req)
+        sessions             <- env.security.api.locatedOpenSessions(me.id, 50)
+        clients              <- env.oAuth.tokenApi.listClients(me, 50)
+        personalAccessTokens <- env.oAuth.tokenApi.countPersonal(me)
+      } yield Ok(
+        html.account
+          .security(
+            me,
+            sessions,
+            currentSessionId,
+            clients,
+            personalAccessTokens
+          )
+      )
     }
 
   def signout(sessionId: String) =

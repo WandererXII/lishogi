@@ -9,7 +9,7 @@ import controllers.routes
 
 object side {
 
-  private val separator  = " • "
+  private val separator  = " - "
   private val dataUserTv = attr("data-user-tv")
   private val dataTime   = attr("data-time")
 
@@ -45,7 +45,7 @@ object side {
                     div(
                       a(href := routes.Importer.importGame, title := trans.importGame.txt())("IMPORT"),
                       separator,
-                      bits.variantLink(game.variant, game.perfType, game.initialSfen)
+                      bits.variantLink(game.variant, game.perfType)
                     )
                   else
                     frag(
@@ -53,7 +53,7 @@ object side {
                       separator,
                       (if (game.rated) trans.rated else trans.casual).txt(),
                       separator,
-                      bits.variantLink(game.variant, initialSfen = game.initialSfen)
+                      bits.variantLink(game.variant)
                     )
                 ),
                 game.notationImport.flatMap(_.date).map(frag(_)) getOrElse {
@@ -82,10 +82,10 @@ object side {
         game.finishedOrAborted option {
           st.section(cls := "status")(
             gameEndStatus(game),
-            game.winner.map { winner =>
+            game.winnerColor.map { color =>
               frag(
                 separator,
-                winner.color.fold(trans.blackIsVictorious, trans.whiteIsVictorious)()
+                transWithColorName(trans.xIsVictorious, color, game.isHandicap)
               )
             }
           )

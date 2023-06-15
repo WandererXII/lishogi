@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Co jsou studie?</string>
   <string name="allStudies">Všechny studie</string>
   <string name="studiesCreatedByX">Studie vytvořené hráčem %s</string>
+  <string name="studyByX" comment="By username">Studie šógi od %s</string>
   <string name="noneYet">Zatím nic.</string>
   <string name="hot">Oblíbené</string>
   <string name="dateAddedNewest">Datum přidání (nejnovější)</string>
@@ -44,7 +45,7 @@
   <string name="leaveTheStudy">Opustit studii</string>
   <string name="youAreNowAContributor">Nyní jste přispívající</string>
   <string name="youAreNowASpectator">Nyní jste divák</string>
-  <string name="tags">Tags</string>
+  <string name="tags">Tagy</string>
   <string name="like">To se mi líbí</string>
   <string name="newTag">Nový štítek</string>
   <string name="commentThisPosition">Komentář k tomuto příspěvku</string>
@@ -65,9 +66,9 @@
   <string name="cloneStudy">Klonovat</string>
   <string name="downloadAllGames">Stáhnout všechny hry</string>
   <string name="downloadGame">Stáhnout hru</string>
-  <string name="studyKif">Study KIF</string>
-  <string name="chapterKif">Chapter KIF</string>
-  <string name="chapterCsa">Chapter CSA</string>
+  <string name="studyKif">KIF studie</string>
+  <string name="chapterKif">KIF kapitoly</string>
+  <string name="chapterCsa">CSA kapitoly</string>
   <string name="studyUrl">URL studie</string>
   <string name="broadcastUrl">Adresa vysílání</string>
   <string name="currentChapterUrl">URL aktuální kapitoly</string>
@@ -102,11 +103,10 @@
   <string name="editor">Tvůrce</string>
   <string name="startFromCustomPosition">Začít od vlastní pozice</string>
   <string name="loadAGameByUrl">Načíst hru podle URL</string>
-  <string name="loadAPositionFromSfen">Load a position from SFEN</string>
-  <string name="loadAGameFromKif">Load games from KIF</string>
+  <string name="loadAPositionFromSfen">Načíst pozici z SFEN</string>
   <string name="automatic">Automatický</string>
   <string name="urlOfTheGame">URL hry</string>
-  <string name="loadAGameFromXOrY">Načíst hru z %1$s</string>
+  <string name="loadAGameFromX">Načíst hru z %1$s</string>
   <string name="createChapter">Vytvořit kapitolu</string>
   <string name="configureLiveBroadcast">Konfigurace živého vysílání</string>
   <string name="createStudy">Vytvořit studii</string>
@@ -132,4 +132,26 @@
   <string name="deleteStudy">Smazat studii</string>
   <string name="deleteTheEntireStudy">Opravdu chcete odstranit celou studii? Operaci nelze vrátit!</string>
   <string name="whereDoYouWantToStudyThat">Kde chcete tuto pozici studovat?</string>
+  <string name="studyTopics">Studijní témata</string>
+  <string name="topicsDescription">Topics to organize your studies with</string>
+  <string name="myTopics">Má témata</string>
+  <string name="popularTopics">Populární témata</string>
+  <string name="startTag" comment="Tags for kif and csa">Začátek</string>
+  <string name="endTag" comment="Tags for kif and csa">Konec</string>
+  <string name="siteTag" comment="Tags for kif and csa">Site</string>
+  <string name="eventTag" comment="Tags for kif and csa">Akce</string>
+  <string name="timeControlTag" comment="Tags for kif and csa">Time control</string>
+  <string name="xEloTag" comment="Tags for kif and csa; Sente/Gote">%s Elo</string>
+  <string name="xTitleTag" comment="Tags for kif and csa; Sente/Gote">%s title</string>
+  <string name="xTeamTag" comment="Tags for kif and csa; Sente/Gote">%s tým</string>
+  <string name="openingTag" comment="Tags for kif and csa">Opening</string>
+  <string name="resultTag" comment="Tags for kif and csa">Result</string>
+  <string name="problemNameTag" comment="Tags for kif and csa">Problem name</string>
+  <string name="problemIdTag" comment="Tags for kif and csa">Problem Id</string>
+  <string name="dateOfPublicationTag" comment="Tags for kif and csa">Date of publication</string>
+  <string name="composerTag" comment="Tags for kif and csa">Composer</string>
+  <string name="publicationTag" comment="Tags for kif and csa">Publication</string>
+  <string name="collectionTag" comment="Tags for kif and csa">Collection</string>
+  <string name="lengthTag" comment="Tags for kif and csa">Length</string>
+  <string name="prizeTag" comment="Tags for kif and csa">Prize</string>
 </resources>

@@ -1,9 +1,9 @@
-import { h, VNode } from 'snabbdom';
-import * as studyView from '../study/studyView';
 import { bind, onInsert } from 'common/snabbdom';
-import { nodeFullName } from '../util';
+import { VNode, h } from 'snabbdom';
 import AnalyseCtrl from '../ctrl';
 import patch from '../patch';
+import * as studyView from '../study/studyView';
+import { nodeFullName } from '../util';
 
 export interface Opts {
   path: Tree.Path;
@@ -68,6 +68,7 @@ function view(opts: Opts, coords: Coords): VNode {
   const ctrl = opts.root,
     node = ctrl.tree.nodeAtPath(opts.path),
     onMainline = ctrl.tree.pathIsMainline(opts.path) && !ctrl.tree.pathIsForcedVariation(opts.path),
+    cantChangeMainline = !!ctrl.study?.data.chapter.gameLength,
     trans = ctrl.trans.noarg;
   return h(
     'div#' + elementId + '.visible',
@@ -81,13 +82,17 @@ function view(opts: Opts, coords: Coords): VNode {
       },
     },
     [
-      h('p.title', nodeFullName(node, opts.root.data.pref.notation)),
+      h('p.title', nodeFullName(node)),
       onMainline ? null : action('S', trans('promoteVariation'), () => ctrl.promote(opts.path, false)),
-      onMainline ? null : action('E', trans('makeMainLine'), () => ctrl.promote(opts.path, true)),
-      action('q', trans('deleteFromHere'), () => ctrl.deleteNode(opts.path)),
+      onMainline || cantChangeMainline ? null : action('E', trans('makeMainLine'), () => ctrl.promote(opts.path, true)),
+      onMainline && cantChangeMainline ? null : action('q', trans('deleteFromHere'), () => ctrl.deleteNode(opts.path)),
     ]
       .concat(ctrl.study ? studyView.contextMenu(ctrl.study, opts.path, node) : [])
-      .concat([onMainline ? action('F', trans('forceVariation'), () => ctrl.forceVariation(opts.path, true)) : null])
+      .concat([
+        onMainline && !cantChangeMainline
+          ? action('F', trans('forceVariation'), () => ctrl.forceVariation(opts.path, true))
+          : null,
+      ])
   );
 }
 

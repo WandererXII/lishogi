@@ -51,9 +51,9 @@ final class Tournament(
           allTeamIds = (env.featuredTeamsSetting.get().value ++ teamIds).distinct
           teamVisible  <- repo.visibleForTeams(allTeamIds, 5 * 60)
           scheduleJson <- env.tournament.apiJsonView(visible add teamVisible)
-        } yield NoCache {
+        } yield {
           pageHit
-          Ok(html.tournament.home(scheduled, finished, winners, scheduleJson))
+          Ok(html.tournament.home(scheduled, finished, winners, scheduleJson)).noCache
         },
         api = _ =>
           for {
@@ -119,7 +119,7 @@ final class Tournament(
                 }
                 streamers   <- streamerCache get tour.id
                 shieldOwner <- env.tournament.shieldApi currentOwner tour
-              } yield Ok(html.tournament.show(tour, verdicts, json, chat, streamers, shieldOwner)))
+              } yield Ok(html.tournament.show(tour, verdicts, json, chat, streamers, shieldOwner)).noCache)
             }
             .monSuccess(_.tournament.apiShowPartial(false, HTTPRequest clientName ctx.req)),
           api = _ =>
@@ -138,10 +138,10 @@ final class Tournament(
                         socketVersion = socketVersion,
                         partial = getBool("partial")
                       )
-                  } dmap { Ok(_) }
+                  } dmap { Ok(_).noCache }
               }
               .monSuccess(_.tournament.apiShowPartial(getBool("partial"), HTTPRequest clientName ctx.req))
-        ) dmap NoCache
+        )
       }
     }
 
@@ -169,7 +169,7 @@ final class Tournament(
 
   def player(tourId: String, userId: String) =
     Action.async {
-      env.tournament.tournamentRepo byId tourId flatMap {
+      repo byId tourId flatMap {
         _ ?? { tour =>
           JsonOk {
             api.playerInfo(tour, userId) flatMap {
@@ -181,12 +181,19 @@ final class Tournament(
     }
 
   def teamInfo(tourId: String, teamId: TeamID) =
-    Open { _ =>
-      env.tournament.tournamentRepo byId tourId flatMap {
+    Open { implicit ctx =>
+      repo byId tourId flatMap {
         _ ?? { tour =>
-          jsonView.teamInfo(tour, teamId) map {
-            _ ?? { json =>
-              Ok(json) as JSON
+          env.team.teamRepo mini teamId flatMap {
+            _ ?? { team =>
+              if (HTTPRequest isXhr ctx.req)
+                jsonView.teamInfo(tour, teamId).pp("XHR") dmap { JsonOk(_) }
+              else
+                api.teamBattleTeamInfo(tour, teamId) map {
+                  _ ?? { info =>
+                    Ok(views.html.tournament.teamBattle.teamInfo(tour, team, info))
+                  }
+                }
             }
           }
         }
@@ -457,12 +464,25 @@ final class Tournament(
     Action.async { implicit req =>
       implicit val lang = reqLang
       apiC.jsonStream {
-        env.tournament.tournamentRepo
+        repo
           .byTeamCursor(id)
           .documentSource(getInt("max", req) | 100)
           .mapAsync(1)(env.tournament.apiJsonView.fullJson)
           .throttle(20, 1.second)
       }.fuccess
+    }
+
+  def battleTeams(id: String) =
+    Open { implicit ctx =>
+      repo byId id flatMap {
+        _ ?? { tour =>
+          tour.isTeamBattle ?? {
+            env.tournament.cached.battle.teamStanding.get(tour.id) map { standing =>
+              Ok(views.html.tournament.teamBattle.standing(tour, standing))
+            }
+          }
+        }
+      }
     }
 
   private def WithEditableTournament(id: String, me: UserModel)(
@@ -479,7 +499,7 @@ final class Tournament(
     _.refreshAfterWrite(60.seconds)
       .maximumSize(64)
       .buildAsyncFuture { tourId =>
-        env.tournament.tournamentRepo.isUnfinished(tourId) flatMap {
+        repo.isUnfinished(tourId) flatMap {
           _ ?? {
             env.streamer.liveStreamApi.all.flatMap {
               _.streams
