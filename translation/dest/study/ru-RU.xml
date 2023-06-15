@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Что такое «студии»?</string>
   <string name="allStudies">Все студии</string>
   <string name="studiesCreatedByX">Студии, созданные %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Пока ничего.</string>
   <string name="hot">Самые активные</string>
   <string name="dateAddedNewest">Недавно добавленные</string>
