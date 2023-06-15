@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Ano ang mga pag-aaral?</string>
   <string name="allStudies">Lahat ng mga pag-aaral</string>
   <string name="studiesCreatedByX">Mga pag-aaral na gawa ni %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Wala pa.</string>
   <string name="hot">Mainit</string>
   <string name="dateAddedNewest">Date added (newest)</string>
