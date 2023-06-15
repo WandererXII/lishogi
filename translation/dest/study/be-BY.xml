@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Што такое навучанні?</string>
   <string name="allStudies">Усе навучанні</string>
   <string name="studiesCreatedByX">Навучанні, створаныя %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Пакуль нічога няма.</string>
   <string name="hot">Гарачыя</string>
   <string name="dateAddedNewest">Дата дадання (навейшыя)</string>
