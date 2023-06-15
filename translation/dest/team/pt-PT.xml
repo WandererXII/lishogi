@@ -44,4 +44,5 @@ Os jogadores que não gostam de receber as tuas mensagens podem sair da equipa.<
   <string name="leadersChat">Chat dos líderes</string>
   <string name="upcomingTourns">Upcoming tournaments</string>
   <string name="completedTourns">Completed tournaments</string>
+  <string name="teamPage">Team page</string>
 </resources>
