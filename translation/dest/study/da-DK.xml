@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Hvad er studier?</string>
   <string name="allStudies">Alle studier</string>
   <string name="studiesCreatedByX">Studier oprettet af %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Ingen endnu.</string>
   <string name="hot">Populært</string>
   <string name="dateAddedNewest">Dato tilføjet (nyeste)</string>
