@@ -44,4 +44,5 @@ Ang mga manlalaro na ayaw tumanggap ng mga mensahe mo ay maaaring lumisan sa iyo
   <string name="leadersChat">Chat ng mga pinuno</string>
   <string name="upcomingTourns">Upcoming tournaments</string>
   <string name="completedTourns">Completed tournaments</string>
+  <string name="teamPage">Team page</string>
 </resources>
