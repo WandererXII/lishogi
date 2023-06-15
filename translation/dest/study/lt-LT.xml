@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Kas yra studijos?</string>
   <string name="allStudies">Visos studijos</string>
   <string name="studiesCreatedByX">Studijos, sukurtos %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Dar nėra.</string>
   <string name="hot">Populiaru dabar</string>
   <string name="dateAddedNewest">Sukūrimo data (naujausios)</string>
