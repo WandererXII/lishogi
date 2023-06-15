@@ -23,11 +23,11 @@
 	<string name="perpetualCheck">Věčný šach</string>
 	<string name="royalsLost" comment="Used in chushogi">Všechny královské kameny ztracené</string>
 	<string name="bareKing" comment="Used in chushogi">Obnažený král</string>
-	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
-	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s hrál s %2$s</string>
+	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s hraje s %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s vyhrál!</string>
 	<string name="xLost" comment="Example: Player lost!">%s prohrál!</string>
-	<string name="gameWasDraw">Game was a draw!</string>
+	<string name="gameWasDraw">Hra byla remíza!</string>
 	<string name="winnerIsNotYetDecided">Vítěz ještě nebyl rozhodnut.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Bílý</string>
@@ -407,7 +407,7 @@
 	<string name="continueFromHere">Pokračovat zde</string>
 	<string name="toStudy">Do studie</string>
 	<string name="importGame">Importuj hru</string>
-	<string name="importedGame">Importovaná hra</string>
+	<string name="importedGame">Hra byla importována.</string>
 	<string name="importGameKifCsaExplanation">Vložení partie ve formátu KIF nebo CSA vám umožní přehrání partii, získáte počítačovou analýzu, chat ke hře a URL ke sdílení hry.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s importovaná</item>
