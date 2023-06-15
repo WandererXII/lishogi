@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Wat is studies?</string>
   <string name="allStudies">Alle studies</string>
   <string name="studiesCreatedByX">Studies gemaak deur %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Nog geen.</string>
   <string name="hot">Gewild</string>
   <string name="dateAddedNewest">Datum bygevoeg (nuutste)</string>
