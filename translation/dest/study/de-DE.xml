@@ -9,6 +9,7 @@
   <string name="whatAreStudies">Was sind Studien?</string>
   <string name="allStudies">Alle Studien</string>
   <string name="studiesCreatedByX">Von %s erstellte Studien</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">Bisher keine.</string>
   <string name="hot">Angesagt</string>
   <string name="dateAddedNewest">Veröffentlichungsdatum (neueste)</string>
