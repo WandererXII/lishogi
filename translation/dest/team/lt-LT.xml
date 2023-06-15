@@ -50,4 +50,5 @@ Taip galite pakviesti žaidėjus prisijungti į turnyrą ar komandos kovą.
   <string name="leadersChat">Kapitonų pokalbis</string>
   <string name="upcomingTourns">Upcoming tournaments</string>
   <string name="completedTourns">Completed tournaments</string>
+  <string name="teamPage">Team page</string>
 </resources>
