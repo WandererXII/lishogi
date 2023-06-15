@@ -44,4 +44,5 @@ Spelare som inte gillar att ta emot dina meddelanden kan komma att lämna laget.
   <string name="leadersChat">Lagledarchatt</string>
   <string name="upcomingTourns">Upcoming tournaments</string>
   <string name="completedTourns">Completed tournaments</string>
+  <string name="teamPage">Team page</string>
 </resources>
