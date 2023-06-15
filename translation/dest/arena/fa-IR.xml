@@ -38,4 +38,12 @@
   <string name="shareUrl">این لینک را برای پیوستن دیگران به اشتراک بگذارید.%s</string>
   <string name="drawStreak">اعتصاب تساوی: هنگامیکه یک بازیکن در مسابقات به شکل متوالی مساوی میکند،
 تنها برای نخستین مساوی یک امتیاز درنظر گرفته میشود، با تساوی هایی بیش از٪s حرکت. سلسله تساوی تنها با برد شکسته می‌شود، نه با باخت یا نه یا مساوی.</string>
+  <string name="noBerserkAllowed">No Berserk allowed</string>
+  <string name="noArenaStreaks">No Arena streaks</string>
+  <string name="averagePerformance">Average performance</string>
+  <string name="averageScore">Average score</string>
+  <plurals name="viewAllXTeams" comment="viewAllXTeams [one] [other]&#10;&#10;%s is the number of teams that can be viewed">
+    <item quantity="one">View the team</item>
+    <item quantity="other">View all %s teams</item>
+  </plurals>
 </resources>
