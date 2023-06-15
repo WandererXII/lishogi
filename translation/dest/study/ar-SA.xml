@@ -9,6 +9,7 @@
   <string name="whatAreStudies">ما هي الدراسات؟</string>
   <string name="allStudies">كل الدراسات</string>
   <string name="studiesCreatedByX">الدراسات التي أنشئها %s</string>
+  <string name="studyByX" comment="By username">A shogi study by %s</string>
   <string name="noneYet">لا يوجد.</string>
   <string name="hot">ذات شعبية</string>
   <string name="dateAddedNewest">تاريخ الإضافة (الأحدث)</string>
