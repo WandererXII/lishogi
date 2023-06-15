@@ -44,4 +44,5 @@ Mesajlarınızı almak istemeyen oyuncular takımdan ayrılabilirler.</string>
   <string name="leadersChat">Liderler arası sohbet</string>
   <string name="upcomingTourns">Upcoming tournaments</string>
   <string name="completedTourns">Completed tournaments</string>
+  <string name="teamPage">Team page</string>
 </resources>
