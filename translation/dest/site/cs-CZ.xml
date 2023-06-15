@@ -14,7 +14,7 @@
 	<string name="toggleTheChat">Zapnout/vypnout chat</string>
 	<string name="toggleSound">Zapnout/vypnout zvuk</string>
 	<string name="chat">Konverzace</string>
-	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Strana</string>
 	<string name="resign">Vzdát se</string>
 	<string name="checkmate">Šach mat</string>
 	<string name="stalemate">Pat</string>
@@ -23,9 +23,12 @@
 	<string name="perpetualCheck">Věčný šach</string>
 	<string name="royalsLost" comment="Used in chushogi">Všechny královské kameny ztracené</string>
 	<string name="bareKing" comment="Used in chushogi">Obnažený král</string>
-	<string name="xWon" comment="Example: Player won">%s won</string>
-	<string name="xLost" comment="Example: Player lost">%s lost</string>
-	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
+	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
+	<string name="xWon" comment="Example: Player won!">%s vyhrál!</string>
+	<string name="xLost" comment="Example: Player lost!">%s prohrál!</string>
+	<string name="gameWasDraw">Game was a draw!</string>
+	<string name="winnerIsNotYetDecided">Vítěz ještě nebyl rozhodnut.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Bílý</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
@@ -65,12 +68,12 @@
 	<string name="computerAnalysis">Počítačová analýza</string>
 	<string name="computerAnalysisAvailable">Analýza počítače k dispozici</string>
 	<string name="analysis">Analýza</string>
-	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
+	<string name="analysisDescription">Analyzujte šógi pozice a variace na interaktivní šógi desce</string>
 	<string name="depthX">Hloubka %s</string>
 	<string name="usingServerAnalysis">Používání analýzy serveru</string>
 	<string name="loadingEngine">Načítání AI engine...</string>
 	<string name="cloudAnalysis">Cloudová analýza</string>
-	<string name="localAnalysis">Local analysis</string>
+	<string name="localAnalysis">Lokální analýza</string>
 	<string name="goDeeper" comment="Engine depth">Hlouběji</string>
 	<string name="showThreat">Zobrazit hrozbu</string>
 	<string name="inLocalBrowser">v lokálním prohlížeči</string>
@@ -159,7 +162,7 @@
 	<string name="computersAreNotAllowedToPlay">Počítačová asistence není během hraní povolena. Nepoužívejte během hraní šachové programy, databáze nebo nápovědu jiných hráčů.</string>
 	<string name="games">Partie</string>
 	<string name="forum">Fórum</string>
-	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
+	<string name="forumDescription">Šógi diskuze a zpětná vazba o vývoji Lishogi</string>
 	<string name="xPostedInForumY">%1$s napsal do fóra %2$s</string>
 	<string name="latestForumPosts">Poslední příspěvky</string>
 	<string name="players">Hráči</string>
@@ -393,9 +396,9 @@
 	<string name="apply">Použít</string>
 	<string name="save">Uložit</string>
 	<string name="leaderboard">Žebříček</string>
-	<string name="leaderboards">Leaderboards</string>
-	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
-	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
+	<string name="leaderboards">Žebříčky</string>
+	<string name="bestPlayersInVariousCategories">Nejlepší hráči v různých kategoriích</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">%1$s nejlepších hráčů v %2$s, seřazeno podle hodnocení</string>
 	<string name="selectHandicap">Vyberte znevýhodnění</string>
 	<string name="pasteTheSfenStringHere">Zde vložte SFEN</string>
 	<string name="pasteTheKifCsaStringHere">Zde vložte KIF nebo CSA</string>
@@ -404,7 +407,7 @@
 	<string name="continueFromHere">Pokračovat zde</string>
 	<string name="toStudy">Do studie</string>
 	<string name="importGame">Importuj hru</string>
-	<string name="importedGame">Imported game</string>
+	<string name="importedGame">Importovaná hra</string>
 	<string name="importGameKifCsaExplanation">Vložení partie ve formátu KIF nebo CSA vám umožní přehrání partii, získáte počítačovou analýzu, chat ke hře a URL ke sdílení hry.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s importovaná</item>
@@ -500,7 +503,7 @@
 	<string name="averageOpponent">Průměrná síla soupeře</string>
 	<string name="membersOnly">Hrát pouze s registrovanými</string>
 	<string name="boardEditor">Editor šachovnice</string>
-	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
+	<string name="editorDescription">Načti šógi pozice nebo vytvoř vlastní šógi pozici v šógi editoru</string>
 	<string name="setTheBoard">Upravit šachovnici</string>
 	<string name="popularOpenings">Populární zahájení</string>
 	<string name="handicaps">Znevýhodnění</string>
@@ -526,7 +529,7 @@
 	<string name="socialMediaLinks">Odkazy na sociální sítě</string>
 	<string name="inlineNotation">Notace v řádcích</string>
 	<string name="watchLishogiTV">Sledujte Lishogi TV</string>
-	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Usaďte se, relaxujte a sledujte nejlepší hráče na Lishogi soutěžit v Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Předchozí na Lishogi TV</string>
 	<string name="onlinePlayers">Hráči online</string>
 	<string name="onlineBots">Online boti</string>
@@ -564,7 +567,7 @@
 	<string name="yes">Ano</string>
 	<string name="help">Nápověda:</string>
 	<string name="createANewTopic">Vytvořit nové téma</string>
-	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Vaše týmová fóra</string>
 	<string name="topics">Témata</string>
 	<string name="posts">Příspěvky</string>
 	<string name="lastPost">Poslední Příspěvek</string>
@@ -793,7 +796,7 @@
 	<string name="sessions">Relace</string>
 	<string name="revokeAllSessions">odebrat všechny relace</string>
 	<string name="playShogiEverywhere">Hrajte šógi kdekoliv</string>
-	<string name="features">Features</string>
+	<string name="features">Dostupné funkce</string>
 	<string name="asFreeAsLishogi">Svobodný jako Lishogi</string>
 	<string name="builtForTheLoveOfShogiNotMoney">Vytvořeno z lásky k šógi, ne pro peníze</string>
 	<string name="everybodyGetsAllFeaturesForFree">Každý dostane všechny možnosti zdarma</string>
@@ -994,11 +997,11 @@
 	<string name="challengeDeclined">Výzva odmítnuta</string>
 	<string name="challengeAccepted">Výzva přijata</string>
 	<string name="challengeCanceled">Výzva zrušena</string>
-	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
-	<string name="challengeDescription">Join the challenge or watch the game</string>
-	<string name="challengeFromX" comment="From username">Challenge from %s</string>
-	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
-	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
-	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
-	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Otevřená výzva</string>
+	<string name="challengeDescription">Přijměte výzvu nebo sledujte hru</string>
+	<string name="challengeFromX" comment="From username">Výzva od %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s vyzval %2$s</string>
+	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Stiskněte %s pro aktivaci</string>
+	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Stiskněte %s pro potvrzení</string>
+	<string name="clickGame">Klikněte pro záznam, analýzu a diskusi o hře!</string>
 </resources>
