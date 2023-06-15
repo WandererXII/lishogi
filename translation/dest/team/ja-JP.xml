@@ -41,4 +41,5 @@
   <string name="leadersChat">リーダー・チャット</string>
   <string name="upcomingTourns">Upcoming tournaments</string>
   <string name="completedTourns">Completed tournaments</string>
+  <string name="teamPage">Team page</string>
 </resources>
