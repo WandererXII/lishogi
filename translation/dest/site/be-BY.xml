@@ -23,6 +23,9 @@
 	<string name="perpetualCheck">Бестэрміновы шах</string>
 	<string name="royalsLost" comment="Used in chushogi">Усе каралеўскія фігуры згублены</string>
 	<string name="bareKing" comment="Used in chushogi">Голы кароль</string>
+	<string name="xWon" comment="Example: Player won">%s won</string>
+	<string name="xLost" comment="Example: Player lost">%s lost</string>
+	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Белы</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Сэнтэ</string>
@@ -62,10 +65,12 @@
 	<string name="computerAnalysis">Кампутарны аналіз</string>
 	<string name="computerAnalysisAvailable">Кампутарны аналіз даступны</string>
 	<string name="analysis">Аналізаваць дошку</string>
+	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">Глыбіня %s</string>
 	<string name="usingServerAnalysis">Выкарыстоўваецца серверны аналіз</string>
 	<string name="loadingEngine">Загрузка рухавічка...</string>
 	<string name="cloudAnalysis">Воблачны аналіз</string>
+	<string name="localAnalysis">Local analysis</string>
 	<string name="goDeeper" comment="Engine depth">Перайсці глыбей</string>
 	<string name="showThreat">Паказваць пагрозы</string>
 	<string name="inLocalBrowser">у лакальным браўзеры</string>
@@ -154,6 +159,7 @@
 	<string name="computersAreNotAllowedToPlay">Кампутары і гульцы, якія карыстаюцца дапамогай кампутара, не дапускаюцца да гульні. Калі ласка, не карыстайцеся шахматнымі рухавікамі, базамі, або гульнямі іншых гульцоў. Таксама майце на ўвазе, што ствараць два і болей акаўнта не рэкамендавана і надта вялікая іх колькасць прывядзе да блакіроўкі</string>
 	<string name="games">Гульні</string>
 	<string name="forum">Форум</string>
+	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
 	<string name="xPostedInForumY">%1$s апублікавана на форуме %2$s</string>
 	<string name="latestForumPosts">Апошнія допісы на форуме</string>
 	<string name="players">Гульцы</string>
@@ -387,6 +393,9 @@
 	<string name="apply">Даслаць</string>
 	<string name="save">Захаваць</string>
 	<string name="leaderboard">Лепшыя гульцы</string>
+	<string name="leaderboards">Leaderboards</string>
+	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
 	<string name="selectHandicap">Выберыце фору</string>
 	<string name="pasteTheSfenStringHere">Устаўце сюды тэкст у фармаце SFEN</string>
 	<string name="pasteTheKifCsaStringHere">Устаўце сюды тэкст у фармаце KIF або CSA</string>
@@ -395,6 +404,7 @@
 	<string name="continueFromHere">Працягнуць адсюль</string>
 	<string name="toStudy">Навучанне</string>
 	<string name="importGame">Імпартаваць гульню</string>
+	<string name="importedGame">Imported game</string>
 	<string name="importGameKifCsaExplanation">Імпартуйце гульню ў фармаце KIF або CSA , каб атрымаць паўтор у браўзеры, камп\'ютарны аналіз, чат гульні і спасылку на гульню.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s imported game</item>
@@ -490,6 +500,7 @@
 	<string name="averageOpponent">Сярэдні рэйтынг супраціўніка</string>
 	<string name="membersOnly">Патрабуецца рэгістрацыя</string>
 	<string name="boardEditor">Рэдактар дошкі</string>
+	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
 	<string name="setTheBoard">Усталяваць пазіцыю</string>
 	<string name="popularOpenings">Папулярныя дэбюты</string>
 	<string name="handicaps">Форы</string>
@@ -515,6 +526,7 @@
 	<string name="socialMediaLinks">Спасылкі на сацсеткі</string>
 	<string name="inlineNotation">Строчная натацыя</string>
 	<string name="watchLishogiTV">Глядзець Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Раней на Lishogi TV</string>
 	<string name="onlinePlayers">Гульцы анлайн</string>
 	<string name="onlineBots">Online bots</string>
@@ -552,6 +564,7 @@
 	<string name="yes">Так</string>
 	<string name="help">Дапамога:</string>
 	<string name="createANewTopic">Стварыць новую тэму</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
 	<string name="topics">Тэмы</string>
 	<string name="posts">Паведамленні</string>
 	<string name="lastPost">Апошняе паведамленне</string>
@@ -780,6 +793,7 @@
 	<string name="sessions">Сесіі</string>
 	<string name="revokeAllSessions">скасаваць усе сесіі</string>
 	<string name="playShogiEverywhere">Гуляйце ў сёгі дзе-угодна</string>
+	<string name="features">Features</string>
 	<string name="asFreeAsLishogi">Бясплатна, як і Lishogi</string>
 	<string name="builtForTheLoveOfShogiNotMoney">Створана дзеля сёгі, а не дзеля грошай</string>
 	<string name="everybodyGetsAllFeaturesForFree">Кожны атрымлівае ўсе магчымасці бясплатна</string>
@@ -980,6 +994,11 @@
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="challengeDescription">Join the challenge or watch the game</string>
+	<string name="challengeFromX" comment="From username">Challenge from %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
+	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
 </resources>
