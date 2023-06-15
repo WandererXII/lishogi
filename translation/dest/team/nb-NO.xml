@@ -44,4 +44,5 @@ Spillere som ikke liker å motta meldinger fra deg, kan komme til å forlate lag
   <string name="leadersChat">Ledersamtale</string>
   <string name="upcomingTourns">Upcoming tournaments</string>
   <string name="completedTourns">Completed tournaments</string>
+  <string name="teamPage">Team page</string>
 </resources>
