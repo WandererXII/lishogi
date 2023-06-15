@@ -23,6 +23,9 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="xWon" comment="Example: Player won">%s won</string>
+	<string name="xLost" comment="Example: Player lost">%s lost</string>
+	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">後手</string>
 	<string name="white" comment="Alternative to gote">白方</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">先手</string>
@@ -59,10 +62,12 @@
 	<string name="computerAnalysis">電腦分析</string>
 	<string name="computerAnalysisAvailable">電腦分析可用</string>
 	<string name="analysis">分析棋局</string>
+	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">深度 %s</string>
 	<string name="usingServerAnalysis">使用伺服器分析</string>
 	<string name="loadingEngine">正在載入引擎 ...</string>
 	<string name="cloudAnalysis">雲端分析</string>
+	<string name="localAnalysis">Local analysis</string>
 	<string name="goDeeper" comment="Engine depth">深入分析</string>
 	<string name="showThreat">顯示敵方威脅</string>
 	<string name="inLocalBrowser">在本地瀏覽器</string>
@@ -139,6 +144,7 @@
 	<string name="computersAreNotAllowedToPlay">電腦與電腦輔助棋手不允許參加對弈。對弈時，請勿從國際象棋引擎、資料庫以及其他棋手那裡獲取幫助。另外，強烈建議不要創建多個帳號；過分地使用多個帳號將導致封號。</string>
 	<string name="games">棋局</string>
 	<string name="forum">論壇</string>
+	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
 	<string name="xPostedInForumY">%1$s發帖：%2$s</string>
 	<string name="latestForumPosts">最新論壇貼文</string>
 	<string name="players">棋手</string>
@@ -321,6 +327,9 @@
 	<string name="apply">套用</string>
 	<string name="save">儲存</string>
 	<string name="leaderboard">排行榜</string>
+	<string name="leaderboards">Leaderboards</string>
+	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
 	<string name="selectHandicap">選擇讓子</string>
 	<string name="pasteTheSfenStringHere">將 SFEN 棋譜在這裡貼上</string>
 	<string name="pasteTheKifCsaStringHere">將 KIF 或是 CSA 棋譜在這裡貼上</string>
@@ -329,6 +338,7 @@
 	<string name="continueFromHere">從此處繼續</string>
 	<string name="toStudy">研究</string>
 	<string name="importGame">導入棋局</string>
+	<string name="importedGame">Imported game</string>
 	<string name="importGameKifCsaExplanation">貼上對局的 KIF 或是 CSA 棋譜可以進行棋局瀏覽、電腦分析、棋局聊天室與分享的連結。</string>
 	<plurals name="nbImportedGames">
 		<item quantity="other">已導入%s盤棋局</item>
@@ -409,6 +419,7 @@
 	<string name="averageOpponent">平均對手評分</string>
 	<string name="membersOnly">只限註冊成員</string>
 	<string name="boardEditor">棋盤編輯器</string>
+	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
 	<string name="setTheBoard">設定版型</string>
 	<string name="popularOpenings">使用率最高的開局</string>
 	<string name="handicaps">讓子：</string>
@@ -434,6 +445,7 @@
 	<string name="socialMediaLinks">官方社群連結</string>
 	<string name="inlineNotation">棋譜集中顯示</string>
 	<string name="watchLishogiTV">觀看Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">過去的Lishogi TV對局</string>
 	<string name="onlinePlayers">在線棋手</string>
 	<string name="onlineBots">Online bots</string>
@@ -465,6 +477,7 @@
 	<string name="yes">是</string>
 	<string name="help">幫助：</string>
 	<string name="createANewTopic">新话题</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
 	<string name="topics">话题</string>
 	<string name="posts">貼文</string>
 	<string name="lastPost">最近貼文</string>
@@ -681,6 +694,7 @@
 	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">登出所有裝置</string>
 	<string name="playShogiEverywhere">Play shogi everywhere</string>
+	<string name="features">Features</string>
 	<string name="asFreeAsLishogi">完全免費。</string>
 	<string name="builtForTheLoveOfShogiNotMoney">Built for the love of shogi, not money</string>
 	<string name="everybodyGetsAllFeaturesForFree">每個人都能免費使用所有功能</string>
@@ -869,6 +883,11 @@
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="challengeDescription">Join the challenge or watch the game</string>
+	<string name="challengeFromX" comment="From username">Challenge from %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
+	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
 </resources>
