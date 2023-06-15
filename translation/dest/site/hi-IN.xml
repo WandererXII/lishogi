@@ -23,6 +23,9 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
+	<string name="xWon" comment="Example: Player won">%s won</string>
+	<string name="xLost" comment="Example: Player lost">%s lost</string>
+	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">सफ़ेद</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
@@ -60,10 +63,12 @@
 	<string name="computerAnalysis">कंप्यूटर विश्लेषण</string>
 	<string name="computerAnalysisAvailable">कंप्यूटर विश्लेषण उपलब्ध है</string>
 	<string name="analysis">विश्लेषण मंडल</string>
+	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">मध्यमार्ग %s</string>
 	<string name="usingServerAnalysis">सर्वर विश्लेषण का उपयोग किया जा रहा है</string>
 	<string name="loadingEngine">इंजन लोड हो रहा है ...</string>
 	<string name="cloudAnalysis">क्लाउड विश्लेषण</string>
+	<string name="localAnalysis">Local analysis</string>
 	<string name="goDeeper" comment="Engine depth">भीतर जाओ</string>
 	<string name="showThreat">खतरे को दिखाएं</string>
 	<string name="inLocalBrowser">स्थानीय ब्राउज़र में</string>
@@ -144,6 +149,7 @@
 	<string name="computersAreNotAllowedToPlay">कंप्यूटर और कंप्यूटर-सहाय खिलाडियों को खेलने की अनुमति नहीं है। कृपया shogi मशीनों, दस्तावेजों या किसी और खिलाडी की सहायता न लें। इस बात का भी ध्यान रखें कि एक से अधिक खाते खोलना बिलकुल भी प्रोत्साहित नहीं है और अतियाधिक खाते खोलने से आप पर प्रतिबन्ध लगा दिया जायेगा।</string>
 	<string name="games">खेल</string>
 	<string name="forum">फोरम</string>
+	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
 	<string name="xPostedInForumY">%1$s ने %2$s फोरम में पोस्ट किया</string>
 	<string name="latestForumPosts">संगोष्ठी पोस्ट देखें</string>
 	<string name="players">खिलाड़ी</string>
@@ -343,6 +349,9 @@
 	<string name="apply">सबमिट</string>
 	<string name="save">सहेजें</string>
 	<string name="leaderboard">लीडरबोर्ड</string>
+	<string name="leaderboards">Leaderboards</string>
+	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
 	<string name="selectHandicap">हैंडीकैप चुनें</string>
 	<string name="pasteTheSfenStringHere">SFEN को यहा रखें</string>
 	<string name="pasteTheKifCsaStringHere">KIF या CSA को यहा रखें</string>
@@ -351,6 +360,7 @@
 	<string name="continueFromHere">यहा से जारी करें</string>
 	<string name="toStudy">अध्ययन</string>
 	<string name="importGame">खेल इम्पोर्ट करे</string>
+	<string name="importedGame">Imported game</string>
 	<string name="importGameKifCsaExplanation">जब एक खेल KIF या CSA चिपकाने आप एक ब्राउसेबल पुनरावृत्ति,
 एक कंप्यूटर विश्लेषण, एक खेल चैट और एक साझा URL मिलता है।</string>
 	<plurals name="nbImportedGames">
@@ -437,6 +447,7 @@
 	<string name="averageOpponent">औसत प्रतिद्वंद्वी</string>
 	<string name="membersOnly">केवल सदस्य</string>
 	<string name="boardEditor">बोर्ड संपादक</string>
+	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
 	<string name="setTheBoard">बोर्ड सेट करें</string>
 	<string name="popularOpenings">लोकप्रिय शुरुआती चाल</string>
 	<string name="handicaps">हैंडीकैप (ओवरटाइम सहित)</string>
@@ -462,6 +473,7 @@
 	<string name="socialMediaLinks">सामाजिक माध्यम (Social media links)</string>
 	<string name="inlineNotation">इनलाइन नोटेशन (Incline notation)</string>
 	<string name="watchLishogiTV">Lishogi TV देखें</string>
+	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">इससे पहले Lishogi TV पर</string>
 	<string name="onlinePlayers">ऑनलाइन खिलाड़ियों</string>
 	<string name="onlineBots">Online bots</string>
@@ -495,6 +507,7 @@
 	<string name="yes">हाँ</string>
 	<string name="help">मदद:</string>
 	<string name="createANewTopic">नया विषय बनाएँ</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
 	<string name="topics">विषय</string>
 	<string name="posts">पोस्ट</string>
 	<string name="lastPost">आखिरी पोस्ट</string>
@@ -715,6 +728,7 @@
 	<string name="sessions">Sessions</string>
 	<string name="revokeAllSessions">सभी सत्र रद्द</string>
 	<string name="playShogiEverywhere">हर जगह shogi खेलें</string>
+	<string name="features">Features</string>
 	<string name="asFreeAsLishogi">Lishogi जैसा मुक्त</string>
 	<string name="builtForTheLoveOfShogiNotMoney">Shogi के प्यार के लिए निर्मित, धन के लिए नहीं</string>
 	<string name="everybodyGetsAllFeaturesForFree">हर कोई मुफ्त में सभी सुविधाओं प्राप्त करता है</string>
@@ -907,6 +921,11 @@
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="challengeDescription">Join the challenge or watch the game</string>
+	<string name="challengeFromX" comment="From username">Challenge from %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
+	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
 </resources>
