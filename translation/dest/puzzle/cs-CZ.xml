@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="puzzles">Puzzle</string>
-  <string name="puzzleThemes">Témata puzzlí</string>
+  <string name="puzzleThemes">Puzzle témata</string>
   <string name="recommended">Doporučené</string>
   <string name="phases">Fáze</string>
   <string name="motifs">Motivy</string>
