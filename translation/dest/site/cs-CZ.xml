@@ -214,10 +214,10 @@
 		<item quantity="other">Pořadí je aktualizováno každých %s minut</item>
 	</plurals>
 	<plurals name="nbPuzzles">
-		<item quantity="one">%s taktická úloha</item>
-		<item quantity="few">%s taktické úlohy</item>
-		<item quantity="many">%s taktických úloh</item>
-		<item quantity="other">%s taktických úloh</item>
+		<item quantity="one">%s puzzle</item>
+		<item quantity="few">%s puzzle</item>
+		<item quantity="many">%s puzzle</item>
+		<item quantity="other">%s puzzle</item>
 	</plurals>
 	<string name="gamesPlayed">Odehraných partií</string>
 	<plurals name="nbGamesWithYou">
