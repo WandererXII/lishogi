@@ -665,7 +665,7 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="simulAddExtraTime">Jy kan ekstra tyd by jou klok sit om jou te help om die simul te hanteer.</string>
 	<string name="simulHostExtraTime">Gasheer ekstra kloktyd</string>
 	<string name="numberOfByoyomiPeriods">Number of byoyomi periods</string>
-	<string name="hostColorForEachGame">Host color for each game</string>
+	<string name="hostColorForEachGame">Host colour for each game</string>
 	<string name="onlyMembersOfTeam">Only members of team</string>
 	<string name="noRestriction">No Restriction</string>
 	<string name="estimatedStart">Estimated start time</string>
@@ -764,8 +764,8 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="transparent">Deurdigtig</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Agtergrond prent URL:</string>
-	<string name="backgroundColor">Background color:</string>
-	<string name="gridColor">Grid color:</string>
+	<string name="backgroundColor">Background colour:</string>
+	<string name="gridColor">Grid colour:</string>
 	<string name="gridWidth">Grid width:</string>
 	<string name="board">Board</string>
 	<string name="grid">Grid</string>
@@ -932,4 +932,7 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
 	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
+	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
+	<string name="back" comment="As in: go back">Back</string>
+	<string name="preview">Preview</string>
 </resources>
