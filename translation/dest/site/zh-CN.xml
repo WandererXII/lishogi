@@ -728,8 +728,8 @@
 	<string name="transparent">透明</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">背景图片网址：</string>
-	<string name="backgroundColor">Background color:</string>
-	<string name="gridColor">Grid color:</string>
+	<string name="backgroundColor">Background colour:</string>
+	<string name="gridColor">Grid colour:</string>
 	<string name="gridWidth">Grid width:</string>
 	<string name="board">Board</string>
 	<string name="grid">Grid</string>
@@ -893,4 +893,7 @@
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
 	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
+	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
+	<string name="back" comment="As in: go back">Back</string>
+	<string name="preview">Preview</string>
 </resources>
