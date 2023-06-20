@@ -248,8 +248,8 @@
 	<string name="chushogi">Čú šógi</string>
 	<string name="annanshogi">Annan šógi</string>
 	<string name="kyotoshogi">Kjóto šógi</string>
-	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Standard rules of shogi</string>
-	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Same rules as standard shogi, but played on a smaller 5x5 board</string>
+	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Standardní pravidla šógi</string>
+	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Stejná pravidla jako standardní šógi, ale hrané na menší 5x5 desce</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">The most popular historical variant of shogi played on a 12x12 board</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Modern variant of shogi with alternating unique promotions on a 5x5 board</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variant similar to standard shogi, where pieces move like friendly pieces behind them</string>
