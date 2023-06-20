@@ -60,6 +60,6 @@
   <string name="fromMyGames">De mis partidas</string>
   <string name="lookupOfPlayer">Busca ejercicios en las partidas de un jugador</string>
   <string name="fromXGames">Ejercicios de las partidas de %s</string>
-  <string name="searchPuzzles">Search puzzles</string>
-  <string name="fromXGamesFound">%1$s puzzles found in %2$s games</string>
+  <string name="searchPuzzles">Buscar ejercicios</string>
+  <string name="fromXGamesFound">%1$s ejercicios encontrados en las partidas de %2$s</string>
 </resources>
