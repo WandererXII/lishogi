@@ -284,7 +284,7 @@
 	<string name="send">Odeslat</string>
 	<string name="incrementInSeconds">Bonus za tah (v sekundách)</string>
 	<string name="byoyomiInSeconds">Byoyomi v sekundách</string>
-	<string name="numberOfPeriods">Počet tahů</string>
+	<string name="numberOfPeriods">Počet intervalů</string>
 	<string name="freeOnlineShogi">Šógi online zdarma</string>
 	<string name="spectators">Diváci:</string>
 	<plurals name="nbRated">
