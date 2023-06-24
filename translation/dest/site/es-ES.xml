@@ -735,7 +735,7 @@
 	<string name="sessions">Sesiones</string>
 	<string name="revokeAllSessions">cerrar todas las sesiones</string>
 	<string name="playShogiEverywhere">Juega shogi donde sea</string>
-	<string name="features">Features</string>
+	<string name="features">Funciones</string>
 	<string name="asFreeAsLishogi">Tan gratis como Lishogi</string>
 	<string name="builtForTheLoveOfShogiNotMoney">Construido por amor al shogi, no al dinero</string>
 	<string name="everybodyGetsAllFeaturesForFree">Todos tienen acceso gratuito a todas las funciones</string>
@@ -918,16 +918,16 @@
 	<string name="studyWith">Estudiar con:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Opcional</string>
 	<string name="standardStudy">Estudio estándar</string>
-	<string name="welcomeToX">Welcome to %s!</string>
-	<string name="whatNow">What now?</string>
-	<string name="hereAreSuggestions">Here are a few suggestions:</string>
-	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
-	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
-	<string name="or" comment="links alternatives: Do X or do Y">or</string>
-	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
-	<string name="challengeDeclined">Challenge declined</string>
-	<string name="challengeAccepted">Challenge accepted</string>
-	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="welcomeToX">¡Bienvenido a %s!</string>
+	<string name="whatNow">¿Y ahora qué?</string>
+	<string name="hereAreSuggestions">Aquí tienes algunas sugerencias:</string>
+	<string name="hangOn" comment="Meaning: wait!">¡Espera!</string>
+	<string name="gameInProgressWithX">Tienes una partida en curso con %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">o</string>
+	<string name="gameInProgressDescription">No puedes comenzar una nueva partida hasta que esta haya terminado.</string>
+	<string name="challengeDeclined">Desafío rechazado</string>
+	<string name="challengeAccepted">Desafío aceptado</string>
+	<string name="challengeCanceled">Desafío cancelado</string>
 	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
 	<string name="challengeDescription">Join the challenge or watch the game</string>
 	<string name="challengeFromX" comment="From username">Challenge from %s</string>
