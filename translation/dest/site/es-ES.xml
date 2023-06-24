@@ -229,10 +229,10 @@
 	<string name="annanshogi">Shogi Annan (coreano)</string>
 	<string name="kyotoshogi">Shogi Kyoto</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Reglas estándar de shogi</string>
-	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Same rules as standard shogi, but played on a smaller 5x5 board</string>
-	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">The most popular historical variant of shogi played on a 12x12 board</string>
-	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Modern variant of shogi with alternating unique promotions on a 5x5 board</string>
-	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variant similar to standard shogi, where pieces move like friendly pieces behind them</string>
+	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Con las mismas reglas que el shogi estándar, pero jugado en un tablero más pequeño de 5x5</string>
+	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">La variante histórica más popular de shogi jugada en un tablero de 12 x 12</string>
+	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante moderna de shogi con promociones alternas únicas en un tablero de 5x5</string>
+	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante similar al shogi estándar, donde las piezas se mueven igual que las piezas del mismo bando situadas detrás de ellas</string>
 	<string name="unlimited">Ilimitado</string>
 	<string name="mode">Modo</string>
 	<string name="casual">Amistosa</string>
