@@ -514,7 +514,7 @@
 	<string name="yes">Sí</string>
 	<string name="help">Ayuda:</string>
 	<string name="createANewTopic">Crear un tema nuevo</string>
-	<string name="yourTeamBoards" comment="In forum, listing team discussions">Your team boards</string>
+	<string name="yourTeamBoards" comment="In forum, listing team discussions">Temas de discusión de tu equipo</string>
 	<string name="topics">Temas</string>
 	<string name="posts">Publicaciones</string>
 	<string name="lastPost">Última publicación</string>
@@ -541,8 +541,8 @@
 	<string name="questionsAndAnswers">Preguntas y respuestas</string>
 	<string name="notes">Notas</string>
 	<string name="typePrivateNotesHere">Escribe aquí tus notas privadas</string>
-	<string name="writeAPrivateNoteAboutThisUser">Write a private note about this user</string>
-	<string name="noNoteYet">No note yet</string>
+	<string name="writeAPrivateNoteAboutThisUser">Escribe una nota privada sobre este usuario</string>
+	<string name="noNoteYet">Aún no hay notas</string>
 	<string name="invalidUsernameOrPassword">Nombre de usuario o contraseña erróneo</string>
 	<string name="incorrectPassword">Contraseña incorrecta</string>
 	<string name="invalidAuthenticationCode">Código de autenticación inválido</string>
@@ -670,8 +670,8 @@
 	<string name="numberOfByoyomiPeriods">Número de periodos de Byoyomi</string>
 	<string name="hostColorForEachGame">Colores propios para cada partida</string>
 	<string name="onlyMembersOfTeam">Solamente miembros de equipo</string>
-	<string name="noRestriction">No Restriction</string>
-	<string name="estimatedStart">Estimated start time</string>
+	<string name="noRestriction">Sin restricciones</string>
+	<string name="estimatedStart">Hora de inicio aproximada</string>
 	<string name="simulDescription">Descripción del simultaneo</string>
 	<string name="anythingTellParticipants">¿Algo que quiera decirle a los participantes?</string>
 	<string name="lishogiTournaments">Torneos de Lishogi</string>
