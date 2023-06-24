@@ -305,7 +305,7 @@
 	<string name="yourOpponentProposesATakeback">Tu oponente propone deshacer la jugada</string>
 	<string name="bookmarkThisGame">Marcar este juego como favorito</string>
 	<string name="tournament">Torneo</string>
-	<string name="tournamentLeaderboard">Tournament leaderboard</string>
+	<string name="tournamentLeaderboard">Ganadores del torneo</string>
 	<string name="tournaments">Torneos</string>
 	<string name="tournamentPoints">Puntos de torneo</string>
 	<plurals name="nbTournamentPoints">
@@ -357,9 +357,9 @@
 	<string name="apply">Aplicar cambios</string>
 	<string name="save">Guardar</string>
 	<string name="leaderboard">Clasificación</string>
-	<string name="leaderboards">Leaderboards</string>
-	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
-	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
+	<string name="leaderboards">Clasificación</string>
+	<string name="bestPlayersInVariousCategories">Los mejores jugadores en varias categorías</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Los mejores %1$s jugadores en %2$s, ordenados por puntuación</string>
 	<string name="selectHandicap">Seleccionar ventaja</string>
 	<string name="pasteTheSfenStringHere">Pega el texto SFEN aquí</string>
 	<string name="pasteTheKifCsaStringHere">Pega el texto KIF o CSA aquí</string>
@@ -368,7 +368,7 @@
 	<string name="continueFromHere">Continuar desde aquí</string>
 	<string name="toStudy">Estudiar</string>
 	<string name="importGame">Importar partida</string>
-	<string name="importedGame">Game was imported.</string>
+	<string name="importedGame">Partida importada.</string>
 	<string name="importGameKifCsaExplanation">Pega una partida KIF o CSA para obtener una repetición navegable, análisis por ordenador, chat de juego y una URL para compartir.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s partida importada</item>
@@ -454,7 +454,7 @@
 	<string name="averageOpponent">Oponente promedio</string>
 	<string name="membersOnly">Sólo para miembros</string>
 	<string name="boardEditor">Editor de tablero</string>
-	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
+	<string name="editorDescription">Carga posiciones o crea tu propia posición en un editor de tablero</string>
 	<string name="setTheBoard">Configurar tablero</string>
 	<string name="popularOpenings">Aperturas populares</string>
 	<string name="handicaps">Ventajas</string>
@@ -467,7 +467,7 @@
 	<string name="isPrivate">Privado</string>
 	<string name="reportXToModerators">Denunciar a %s a los moderadores</string>
 	<string name="profileCompletion">Perfil completado al %s</string>
-	<string name="thisIsProfilePage">This is your profile page.</string>
+	<string name="thisIsProfilePage">Esta es tu página de perfil.</string>
 	<string name="xRating">Puntuación %s</string>
 	<string name="ifNoneLeaveEmpty">Si no aplica, déjalo en blanco</string>
 	<string name="gameCompletionRate">Porcentaje de partidas terminadas: %s</string>
@@ -480,10 +480,10 @@
 	<string name="socialMediaLinks">Enlaces a redes sociales</string>
 	<string name="inlineNotation">Notación compacta</string>
 	<string name="watchLishogiTV">Ver Lishogi TV</string>
-	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Siéntate, relájate y ve a los mejores jugadores de Lishogi competir en Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Anteriormente en Lishogi TV</string>
 	<string name="onlinePlayers">Jugadores conectados</string>
-	<string name="onlineBots">Online bots</string>
+	<string name="onlineBots">Bots en línea</string>
 	<string name="activeToday">Activos hoy</string>
 	<string name="activePlayers">Jugadores activos</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">¡Cuidado, el juego es por puntos pero sin límite de tiempo!</string>
