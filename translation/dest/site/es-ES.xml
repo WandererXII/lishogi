@@ -934,8 +934,8 @@
 	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s desafía a %2$s</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Pulsa %s para activar el teclado</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Pulsa %s para enviar</string>
-	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
-	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
-	<string name="back" comment="As in: go back">Back</string>
-	<string name="preview">Preview</string>
+	<string name="clickGame">¡Haz clic para reproducir, analizar y discutir la partida!</string>
+	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analizar</string>
+	<string name="back" comment="As in: go back">Volver</string>
+	<string name="preview">Vista previa</string>
 </resources>
