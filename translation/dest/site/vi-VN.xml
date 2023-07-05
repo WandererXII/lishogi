@@ -14,17 +14,17 @@
 	<string name="toggleTheChat">Bật/tắt chat</string>
 	<string name="toggleSound">Bật/Tắt âm thanh</string>
 	<string name="chat">Tán gẫu</string>
-	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Trang</string>
 	<string name="resign">Bỏ cuộc</string>
 	<string name="checkmate">Chiếu hết</string>
 	<string name="stalemate">Hòa pat</string>
 	<string name="impasse">Impasse</string>
-	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
+	<string name="repetition" comment="Status of a game ending due to repeated positions">Lặp lại</string>
 	<string name="perpetualCheck">Chiếu vĩnh viễn</string>
 	<string name="royalsLost" comment="Used in chushogi">Mất tất cả các quân hoàng gia</string>
 	<string name="bareKing" comment="Used in chushogi">Vua đơn</string>
-	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
-	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s đã chơi với %2$s</string>
+	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s đang chơi với %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s won!</string>
 	<string name="xLost" comment="Example: Player lost!">%s lost!</string>
 	<string name="gameWasDraw">Game was a draw!</string>
