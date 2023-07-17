@@ -3,10 +3,10 @@
 	<string name="preferences">Preferencias</string>
 	<string name="gameDisplay">Configuración do taboleiro</string>
 	<string name="boardLayout">Deseño do taboleiro</string>
-	<string name="clearHands">Hide ghosts of pieces in hand</string>
-	<string name="handsBackground">Show background behind pieces in hand</string>
-	<string name="pieceAnimation">Piece animation</string>
-	<string name="materialDifference">Material difference</string>
+	<string name="clearHands">Agochar as pantasmas das pezas en man</string>
+	<string name="handsBackground">Amosar o fondo tras as pezas en man</string>
+	<string name="pieceAnimation">Animación das pezas</string>
+	<string name="materialDifference">Diferenza de material</string>
 	<string name="boardHighlightsLastDests">Board highlights - last move/drop</string>
 	<string name="boardHighlightsCheck">Board highlights - check</string>
 	<string name="pieceDestinations">Piece destinations (valid moves and premoves)</string>
