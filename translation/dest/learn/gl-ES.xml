@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="learnShogi">Learn shogi</string>
-	<string name="byPlaying">by playing!</string>
+	<string name="learnShogi">Aprende shogi</string>
+	<string name="byPlaying">xogando!</string>
 	<string name="menu">Menu</string>
 	<string name="progressX">Progress: %s</string>
 	<string name="resetMyProgress">Reset my progress</string>
