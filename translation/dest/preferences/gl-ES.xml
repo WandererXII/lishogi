@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="preferences">Preferences</string>
-	<string name="gameDisplay">Game display</string>
-	<string name="boardLayout">Board layout</string>
+	<string name="preferences">Preferencias</string>
+	<string name="gameDisplay">Configuración do taboleiro</string>
+	<string name="boardLayout">Deseño do taboleiro</string>
 	<string name="clearHands">Hide ghosts of pieces in hand</string>
 	<string name="handsBackground">Show background behind pieces in hand</string>
 	<string name="pieceAnimation">Piece animation</string>
