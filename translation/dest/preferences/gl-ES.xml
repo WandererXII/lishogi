@@ -14,10 +14,10 @@
 	<string name="boardCoordinates">Coordenadas do taboleiro</string>
 	<string name="moveListWhilePlaying">Listaxe de xogadas durante o xogo</string>
 	<string name="colorName">Nome usado para os xogadores individuais</string>
-	<string name="displayTouchSquareOverlay">Square highlight overlay on touch devices</string>
-	<string name="zenMode">Zen mode</string>
-	<string name="displayBoardResizeHandle">Show board resize handle</string>
-	<string name="onlyOnInitialPosition">Only on initial position</string>
+	<string name="displayTouchSquareOverlay">Resalto das casas sobreposto en dispositivos táctiles</string>
+	<string name="zenMode">Modo Zen</string>
+	<string name="displayBoardResizeHandle">Amosar o tirador de redimensionamento do taboleiro</string>
+	<string name="onlyOnInitialPosition">Só na posición inicial</string>
 	<string name="blindfoldShogi">Blindfold shogi (invisible pieces)</string>
 	<string name="shogiClock">Shogi clock</string>
 	<string name="tenthsOfSeconds">Tenths of seconds</string>
