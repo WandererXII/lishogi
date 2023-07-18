@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">Puzzles</string>
-  <string name="puzzleThemes">Puzzle themes</string>
-  <string name="recommended">Recommended</string>
-  <string name="phases">Phases</string>
-  <string name="motifs">Motifs</string>
-  <string name="advanced">Advanced</string>
+  <string name="puzzles">Crebacabezas</string>
+  <string name="puzzleThemes">Temas de crebacabezas</string>
+  <string name="recommended">Recomendados</string>
+  <string name="phases">Fases do xogo</string>
+  <string name="motifs">Motivos</string>
+  <string name="advanced">Avanzados</string>
   <string name="lengths">Lengths</string>
   <string name="mates">Mates</string>
   <string name="goals">Goals</string>
