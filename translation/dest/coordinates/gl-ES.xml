@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="coordinates">Coordinates</string>
-	<string name="coordinateTraining">Coordinate training</string>
-	<string name="averageScoreAsXY" comment="%1$s - sente(black)/gote(white)">Average score as %1$s: %2$s</string>
-	<string name="knowingTheShogiBoard">Knowing the shogiboard coordinates is a very important shogi skill:</string>
-	<string name="mostShogiCourses">All shogi courses and exercises use some kind of a shogi notation. You can pick between the Japanese one and the western one.</string>
-	<string name="talkToYourShogiFriends">It makes it easier to talk to your shogi friends, since you both understand the \'language of shogi\'.</string>
-	<string name="youCanAnalyseAGameMoreEffectively">You can analyse a game more effectively if you can quickly recognise coordinates.</string>
-	<string name="aSquareNameAppears">A coordinate appears on the board and you must click on the corresponding square. You have 30 seconds to correctly map as many squares as possible!</string>
-	<string name="startTraining">Start training</string>
+	<string name="coordinates">Coordenadas</string>
+	<string name="coordinateTraining">Adestramento de coordenadas</string>
+	<string name="averageScoreAsXY" comment="%1$s - sente(black)/gote(white)">Puntuación media con %1$s: %2$s</string>
+	<string name="knowingTheShogiBoard">Coñecer as coordenadas do taboleiro de shogi é unha habilidade moi importante:</string>
+	<string name="mostShogiCourses">Todos os cursos e exercicios de shogi empregan algún tipo de notación. Podes escoller entre a notación xaponesa ou a occidental.</string>
+	<string name="talkToYourShogiFriends">Isto facilita a comunicación con outros xogadores, xa que todos entendedes a \"linguaxe do shogi\".</string>
+	<string name="youCanAnalyseAGameMoreEffectively">Podes analizar unha partida con máis eficacia se recoñeces con rapidez as coordenadas.</string>
+	<string name="aSquareNameAppears">Unhas coordenadas aparecen no taboleiro e debes facer clic no cadro correspondente. Tes 30 segundos para marcar correctamente tantos cadros como sexa posible!</string>
+	<string name="startTraining">Comezar o adestramento</string>
 </resources>
