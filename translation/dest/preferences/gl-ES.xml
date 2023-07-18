@@ -18,9 +18,9 @@
 	<string name="zenMode">Modo Zen</string>
 	<string name="displayBoardResizeHandle">Amosar o tirador de redimensionamento do taboleiro</string>
 	<string name="onlyOnInitialPosition">Só na posición inicial</string>
-	<string name="blindfoldShogi">Blindfold shogi (invisible pieces)</string>
-	<string name="shogiClock">Shogi clock</string>
-	<string name="tenthsOfSeconds">Tenths of seconds</string>
+	<string name="blindfoldShogi">Shogi a cegas (pezas invisibles)</string>
+	<string name="shogiClock">Reloxo de shogi</string>
+	<string name="tenthsOfSeconds">Décimas de segundo</string>
 	<string name="whenTimeRemainingLessThanTenSeconds">When time remaining &lt; 10 seconds</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Sound when time gets critical</string>
