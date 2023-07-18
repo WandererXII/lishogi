@@ -14,19 +14,19 @@
   <string name="didYouLikeThisPuzzle">Gustouche este crebacabezas?</string>
   <string name="voteToLoadNextOne">Vota para cargar o seguinte!</string>
   <string name="yourPuzzleRatingX">A túa puntuación de crebacabezas: %s</string>
-  <string name="findTheBestMoveForX" comment="%s - sente(black)/gote(white)">Find the best move for %s.</string>
-  <string name="toGetPersonalizedPuzzles">To get personalized puzzles:</string>
-  <string name="puzzleId">Puzzle %s</string>
-  <string name="puzzleOfTheDay">Puzzle of the day</string>
-  <string name="clickToSolve">Click to solve</string>
-  <string name="goodMove">Good move</string>
-  <string name="bestMove">Best move!</string>
-  <string name="keepGoing">Keep going…</string>
-  <string name="puzzleSuccess">Success!</string>
-  <string name="puzzleComplete">Puzzle complete!</string>
-  <string name="notTheMove">That\'s not the move!</string>
-  <string name="trySomethingElse">Try something else.</string>
-  <string name="ratingX">Rating: %s</string>
+  <string name="findTheBestMoveForX" comment="%s - sente(black)/gote(white)">Atopa a mellor xogada para %s.</string>
+  <string name="toGetPersonalizedPuzzles">Para obter crebacabezas personalizados:</string>
+  <string name="puzzleId">Crebacabezas %s</string>
+  <string name="puzzleOfTheDay">Crebacabezas do día</string>
+  <string name="clickToSolve">Fai clic para resolver</string>
+  <string name="goodMove">Boa xogada</string>
+  <string name="bestMove">A mellor xogada!</string>
+  <string name="keepGoing">Continúa…</string>
+  <string name="puzzleSuccess">Éxito!</string>
+  <string name="puzzleComplete">Crebacabezas rematado!</string>
+  <string name="notTheMove">Esa non é a xogada!</string>
+  <string name="trySomethingElse">Proba outra cousa.</string>
+  <string name="ratingX">Puntuación: %s</string>
   <string name="hidden">hidden</string>
   <plurals name="playedXTimes">
     <item quantity="one">Played %s time</item>
