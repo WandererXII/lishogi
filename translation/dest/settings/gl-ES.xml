@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="settings">Settings</string>
-  <string name="closeAccount">Close account</string>
-  <string name="closingIsDefinitive">Closing is definitive. There is no going back. Are you sure?</string>
-  <string name="cantOpenSimilarAccount">You will not be allowed to open a new account with the same name, even if the case is different.</string>
-  <string name="changedMindDoNotCloseAccount">I changed my mind, don\'t close my account</string>
-  <string name="closeAccountExplanation">Are you sure you want to close your account? Closing your account is a permanent decision. You will NEVER be able to log in EVER AGAIN.</string>
-  <string name="thisAccountIsClosed">This account is closed.</string>
+  <string name="settings">Axustes</string>
+  <string name="closeAccount">Pechar a conta</string>
+  <string name="closingIsDefinitive">O peche é definitivo, non hai volta atrás. Estás seguro?</string>
+  <string name="cantOpenSimilarAccount">Non se che permitirá abrir unha nova conta co mesmo nome, nin sequera cambiando maiúsculas e minúsculas</string>
+  <string name="changedMindDoNotCloseAccount">Cambiei de opinión, non pechedes a miña conta</string>
+  <string name="closeAccountExplanation">Estás seguro de que queres pechar a túa conta? Esta decisión é irreversible. NUNCA MÁIS serás quen de iniciar sesión nela.</string>
+  <string name="thisAccountIsClosed">Esta conta está pechada</string>
 </resources>
