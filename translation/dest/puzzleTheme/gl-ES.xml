@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="advantage">Advantage</string>
-  <string name="advantageDescription">Seize your chance to get a decisive advantage.</string>
-  <string name="castling">Castling</string>
-  <string name="castlingDescription">Bring the king to safety.</string>
-  <string name="crushing">Crushing</string>
-  <string name="crushingDescription">Spot the opponent blunder to obtain a crushing advantage.</string>
-  <string name="equality">Equality</string>
+  <string name="advantage">Vantaxe</string>
+  <string name="advantageDescription">Aproveita a oportunidade de obter unha vantaxe decisiva.</string>
+  <string name="castling">Enroque</string>
+  <string name="castlingDescription">Pon o rei a salvo.</string>
+  <string name="crushing">Vantaxe decisiva</string>
+  <string name="crushingDescription">Detecta a metida de zoca do rival para obter unha vantaxe decisiva.</string>
+  <string name="equality">Igualdade</string>
   <string name="equalityDescription">Come back from a losing position, and secure a draw or a balanced position.</string>
   <string name="defensiveMove">Defensive move</string>
   <string name="defensiveMoveDescription">A precise move or sequence of moves that is needed to avoid losing material or another advantage.</string>
