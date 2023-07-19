@@ -47,9 +47,9 @@
   <string name="opening">Apertura</string>
   <string name="openingDescription">Unha táctica durante a primeira fase do xogo.</string>
   <string name="pin">Cravada</string>
-  <string name="pinDescription">A tactic involving pins, where a piece is unable to move without revealing an attack on a higher value piece.</string>
-  <string name="quietMove">Quiet move</string>
-  <string name="quietMoveDescription">A move that does not make a check or capture, but does prepare an unavoidable threat for a later move.</string>
+  <string name="pinDescription">Unha táctica que involucra cravadas, onde unha peza non se pode mover sen expoñer ó ataque unha peza de maior valor.</string>
+  <string name="quietMove">Movemento tranquilo</string>
+  <string name="quietMoveDescription">Unha xogada que non dá xaque nin captura, pero que prepara unha ameaza inevitable nun movemento posterior.</string>
   <string name="rookEndgame">Rook endgame</string>
   <string name="rookEndgameDescription">An endgame with only rooks and pawns.</string>
   <string name="sacrifice">Sacrifice</string>
