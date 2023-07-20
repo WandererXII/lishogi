@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="search">Search</string>
-	<string name="advancedSearch">Advanced search</string>
+	<string name="search">Procura</string>
+	<string name="advancedSearch">Procura avanzada</string>
 	<plurals name="searchInXGames">
-		<item quantity="one">Search in %s shogi game</item>
-		<item quantity="other">Search in %s shogi games</item>
+		<item quantity="one">Busca en %s partida de shogi</item>
+		<item quantity="other">Busca en %s partidas de shogi</item>
 	</plurals>
 	<plurals name="xGamesFound">
-		<item quantity="one">One game found</item>
-		<item quantity="other">%s games found</item>
+		<item quantity="one">Atopouse unha partida</item>
+		<item quantity="other">Atopáronse %s partidas</item>
 	</plurals>
-	<string name="opponentName">Opponent name</string>
-	<string name="loser">Loser</string>
-	<string name="from">From</string>
-	<string name="to">To</string>
-	<string name="humanOrComputer">Whether the player\'s opponent was human or a computer</string>
-	<string name="aiLevel">A.I. level</string>
-	<string name="source">Source</string>
-	<string name="nbTurns">Number of turns</string>
-	<string name="result">Result</string>
-	<string name="winnerColor">Winner color</string>
-	<string name="date">Date</string>
-	<string name="sortBy">Sort by</string>
-	<string name="analysis">Analysis</string>
-	<string name="onlyAnalysed">Only games where a computer analysis is available</string>
+	<string name="opponentName">Nome do rival</string>
+	<string name="loser">Perdedor</string>
+	<string name="from">Dende</string>
+	<string name="to">Ata</string>
+	<string name="humanOrComputer">Rival humano ou máquina</string>
+	<string name="aiLevel">Nivel da I.A.</string>
+	<string name="source">Fonte</string>
+	<string name="nbTurns">Número de quendas</string>
+	<string name="result">Resultado</string>
+	<string name="winnerColor">Cor do gañador</string>
+	<string name="date">Data</string>
+	<string name="sortBy">Ordenar por</string>
+	<string name="analysis">Análise</string>
+	<string name="onlyAnalysed">Só partidas onde a análise por ordenador estea dispoñible</string>
 </resources>
