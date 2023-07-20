@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="isLishogiLagging">Is Lishogi lagging?</string>
-  <string name="measurementInProgressThreeDot">Measurements in progress...</string>
+  <string name="isLishogiLagging">Lishogi tarda en responder?</string>
+  <string name="measurementInProgressThreeDot">Medindo latencias...</string>
   <string name="noAndYourNetworkIsGood">No. And your network is good.</string>
   <string name="noAndYourNetworkIsBad">No. And your network is bad.</string>
   <string name="yesItWillBeFixedSoon">Yes. It will be fixed soon!</string>
