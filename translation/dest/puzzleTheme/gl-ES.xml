@@ -63,15 +63,15 @@
   <string name="strikingPawn">Mallar cun peón</string>
   <string name="strikingPawnDescription">Unha táctica que implica guindar un peón en fronte dunha peza rival pra atacala.</string>
   <string name="joiningPawn">Axuntamento de peón</string>
-  <string name="joiningPawnDescription">A tactic in which a pawn is sacrificially dropped in front of opponent\'s piece.</string>
-  <string name="dancingPawns">Dancing pawns</string>
-  <string name="dancingPawnsDescription">A tactic to capture opponent\'s gold with sacrificing a pawn.</string>
-  <string name="edgeAttack">Edge attack</string>
-  <string name="edgeAttackDescription">A tactic involving attacking opponent\'s first or ninth file.</string>
-  <string name="veryLong">Very long puzzle</string>
-  <string name="veryLongDescription">Seven moves or more to win.</string>
-  <string name="lishogiGames">From Lishogi games</string>
-  <string name="lishogiGamesDescription">Puzzles generated from games played on Lishogi.</string>
-  <string name="otherSources">From other sources</string>
-  <string name="otherSourcesDescription">Many thanks to everyone who submitted or allowed Lishogi to use these puzzles!</string>
+  <string name="joiningPawnDescription">Unha táctica (joining pawn ou 継ぎ歩 tsugifu) na que un peón se guinda e sacrifica diante dun peón do rival para forzar o avance deste peón.</string>
+  <string name="dancingPawns">Peón bailadeiro</string>
+  <string name="dancingPawnsDescription">Unha táctica (ダンスの歩 dansu no fu) na que se guinda e sacrifica un peón diante dun ouro do rival, aproveitando a limitada mobilidade desta peza.</string>
+  <string name="edgeAttack">Ataque no bordo</string>
+  <string name="edgeAttackDescription">Unha táctica na que se ataca na primeira ou na última columna do rival.</string>
+  <string name="veryLong">Crebacabezas moi longo</string>
+  <string name="veryLongDescription">Gaña en sete ou máis xogadas.</string>
+  <string name="lishogiGames">De partidas de Lishogi</string>
+  <string name="lishogiGamesDescription">Crebacabezas xerados a partir de partidas xogadas en Lishogi.</string>
+  <string name="otherSources">Doutras fontes</string>
+  <string name="otherSourcesDescription">Moitas grazas a todos os que enviaron ou permitiron a Lishogi usar os seus crebacabezas!</string>
 </resources>
