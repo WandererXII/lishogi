@@ -21,7 +21,7 @@ Para facelo, preme na engrenaxe ou no teu nome de usuario (recanto superior dere
 	<string name="theRook">A torre (hisha)</string>
 	<string name="itMovesInStraightLines">Move en liña recta</string>
 	<string name="rookIntro">A torre é unha peza poderosa. Estás preparado para dirixila?</string>
-	<string name="rookGoal">Click on the rook to bring it to the star!</string>
+	<string name="rookGoal">Preme na torre para levala ata a estrela!</string>
 	<string name="grabAllTheStarsRemember">Grab all the stars! Remember, look outside of the board.</string>
 	<string name="rookPromotion">The rook promotes to the powerful dragon. Don\'t forget that you can also promote your piece when you leave the promotion zone.</string>
 	<string name="rookSummary">The rook can go up, down, left or right as much as it wants.</string>
