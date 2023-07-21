@@ -120,7 +120,7 @@ ningunha peza indefensa!</string>
 	<string name="combatComplete">Parabéns! Xa sabes como loitar coas pezas do shogi!</string>
 	<string name="checkInOne">Xaque nunha</string>
 	<string name="attackTheOpponentsKing">Ataca o rei rival</string>
-	<string name="checkInOneIntro">To check your opponent, attack their king. They must defend it!</string>
+	<string name="checkInOneIntro">Para poñer en xaque ao teu rival, ataca o seu rei. Debe defendelo!</string>
 	<string name="checkInOneGoal">Aim at the opponent\'s king
 in one move!</string>
 	<string name="checkInOneComplete">Congratulations! You checked your opponent, forcing them to defend their king!</string>
