@@ -75,51 +75,51 @@ de ir dando chimpos!</string>
 	<string name="itMovesInAnyDirectionExceptDiagonallyBack">O xeneral de ouro move en calquera dirección EXCEPTO diagonalmente cara atrás.</string>
 	<string name="goldIntro">Os movementos do xeneral de ouro poden ser un anaco máis difíciles de lembrar ó comezo, pero de seguro que o farás.</string>
 	<string name="goldDoesntPromote">O xeneral de ouro e o rei son as únicas pezas que NON PODEN coroar.</string>
-	<string name="goldSummary">Try to remember these moves, many pieces move the same after they are promoted.</string>
-	<string name="goldComplete">Congratulations! You got this.</string>
-	<string name="theSilver">The silver general</string>
-	<string name="itMovesEitherForwardOrDiagonallyBack">The silver general moves either forward or diagonally back.</string>
-	<string name="silverIntro">Another piece with unusual movements, but this is the last one. Promise!</string>
-	<string name="silverPromotion">When you promote the silver general his movements are the same as the gold general.</string>
-	<string name="silverSummary">You will surely remember these moves with some practice.</string>
-	<string name="psilverSummary">Same as the gold general, you will see this a lot.</string>
-	<string name="silverComplete">Congratulations! You are on a roll.</string>
-	<string name="promotion">This piece can be promoted.</string>
-	<string name="yourPieceReachedThePromotionZone">Your piece reached the promotion zone!</string>
-	<string name="itNowPromotesToAStrongerPiece">It can now be promoted to a stronger piece.</string>
-	<string name="selectThePieceYouWant">Select the piece you want!</string>
-	<string name="fundamentals">Fundamentals</string>
-	<string name="capture">Capture</string>
-	<string name="takeTheEnemyPieces">Take the enemy pieces</string>
-	<string name="captureIntro">Identify the opponent\'s undefended pieces, and capture them!</string>
-	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
-And don\'t lose yours.</string>
-	<string name="captureComplete">Congratulations! You know how to fight with shogi pieces!</string>
-	<string name="pieceDrops">Piece drops</string>
-	<string name="reuseCapturedPieces">Reuse captured pieces!</string>
-	<string name="dropIntro">Once again, capture all the opponent\'s pieces, without losing yours!</string>
-	<string name="capturedPiecesCanBeDropped">Captured pieces can be dropped back on the board on your turn!</string>
-	<string name="dropLimitations">You cannot drop a piece on another piece or drop it where it cannot have any legal moves. Dropping a piece in promotion zone doesn\'t result in promotion.
-Take the enemy pieces!</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
-	<string name="protection">Protection</string>
-	<string name="keepYourPiecesSafe">Keep your pieces safe</string>
-	<string name="protectionIntro">Identify the pieces your opponent attacks, and defend them!</string>
-	<string name="protectionComplete">Congratulations! A piece you don\'t lose is a piece you win!</string>
-	<string name="escape">You\'re under attack!
-Escape the threat!</string>
-	<string name="noEscape">There is no escape,
-but you can defend!</string>
-	<string name="makeSureAllSafe">Make sure all your pieces are safe!</string>
-	<string name="dontForgetYouCanDropToDefend">Don’t forget you can drop pieces to defend!</string>
-	<string name="dontLetThemTakeAnyUndefendedPiece">Don\'t let them take
-any undefended piece!</string>
-	<string name="combat">Combat</string>
-	<string name="captureAndDefendPieces">Capture and defend pieces</string>
-	<string name="combatIntro">A good warrior knows both attack and defence!</string>
-	<string name="combatComplete">Congratulations! You know how to fight with shogi pieces!</string>
-	<string name="checkInOne">Check in one</string>
-	<string name="attackTheOpponentsKing">Attack the opponent\'s king</string>
+	<string name="goldSummary">Tenta lembrar estes movementos, pois moitas pezas se moven igual tras coroar.</string>
+	<string name="goldComplete">Parabéns! Conseguíchelo.</string>
+	<string name="theSilver">O xeneral de prata</string>
+	<string name="itMovesEitherForwardOrDiagonallyBack">O xeneral de prata pode mover un cadro en calquera diagonal ou cara adiante.</string>
+	<string name="silverIntro">Esta é outra peza que move de forma pouco habitual. Esta é a última, prometido!</string>
+	<string name="silverPromotion">Cando o xeneral de prata coroa, os seus movementos pasan a ser iguais cós do xeneral de ouro.</string>
+	<string name="silverSummary">Seguro que lembrarás estes movementos coa práctica.</string>
+	<string name="psilverSummary">Ó mesmo có xeneral de ouro, é algo moi común.</string>
+	<string name="silverComplete">Parabéns! Tes a sorte de cara.</string>
+	<string name="promotion">Esta peza pode coroar.</string>
+	<string name="yourPieceReachedThePromotionZone">A túa peza entrou na zona de promoción!</string>
+	<string name="itNowPromotesToAStrongerPiece">Agora pode ser promovida a unha peza máis forte.</string>
+	<string name="selectThePieceYouWant">Selecciona a peza que queiras!</string>
+	<string name="fundamentals">Fundamentos</string>
+	<string name="capture">Captura</string>
+	<string name="takeTheEnemyPieces">Captura as pezas inimigas</string>
+	<string name="captureIntro">Identifica as pezas rivais non defendidas e captúraas!</string>
+	<string name="takeTheEnemyPiecesAndDontLoseYours">Captura as pezas inimigas!
+E non perdas as túas.</string>
+	<string name="captureComplete">Parabéns! Xa sabes como loitar coas pezas do shogi!</string>
+	<string name="pieceDrops">Pezas guindadas</string>
+	<string name="reuseCapturedPieces">Volve usar as pezas capturadas!</string>
+	<string name="dropIntro">Unha vez máis, captura todas as pezas inimigas sen perderes as túas!</string>
+	<string name="capturedPiecesCanBeDropped">As pezas capturadas poden guindarse no taboleiro na túa quenda!</string>
+	<string name="dropLimitations">Non podes guindar unha peza sobre outra peza ou facelo onde non dispoña de movementos legais. Guindar unha peza na zona de promoción non implica a promoción desa peza.
+Toma as pezas inimigas!</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">Non podes ter dous peóns sen coroar na mesma columna.</string>
+	<string name="protection">Protección</string>
+	<string name="keepYourPiecesSafe">Mantén as túas pezas a salvo</string>
+	<string name="protectionIntro">Identifica as pezas que o teu rival ataca e deféndeas!</string>
+	<string name="protectionComplete">Parabéns! Unha peza que non perdes é unha peza que gañas!</string>
+	<string name="escape">Están atacándote!
+Fuxe da ameaza!</string>
+	<string name="noEscape">Non hai escapatoria,
+pero podes defenderte!</string>
+	<string name="makeSureAllSafe">Asegúrate de que todas as túas pezas están a salvo!</string>
+	<string name="dontForgetYouCanDropToDefend">Non esquezas que podes guindar pezas para defender!</string>
+	<string name="dontLetThemTakeAnyUndefendedPiece">Non permitas que capturen
+ningunha peza indefensa!</string>
+	<string name="combat">Combate</string>
+	<string name="captureAndDefendPieces">Capturar e defender pezas</string>
+	<string name="combatIntro">Un bo guerreiro sabe atacar e máis defender!</string>
+	<string name="combatComplete">Parabéns! Xa sabes como loitar coas pezas do shogi!</string>
+	<string name="checkInOne">Xaque nunha</string>
+	<string name="attackTheOpponentsKing">Ataca o rei rival</string>
 	<string name="checkInOneIntro">To check your opponent, attack their king. They must defend it!</string>
 	<string name="checkInOneGoal">Aim at the opponent\'s king
 in one move!</string>
