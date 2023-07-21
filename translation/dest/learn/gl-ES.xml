@@ -52,7 +52,7 @@ de ir dando chimpos!</string>
 	<string name="knightsCanJumpOverObstacles">Os cabaleiros poden saltar por riba dos obstáculos!</string>
 	<string name="knightSummary">O cabaleiro pode saltar en forma de L, pero só dúas casas cara diante e unha casa de lado. O seu movemento non está restrinxido polas outras pezas — simplemente chimpa sobre elas.</string>
 	<string name="pknightSummary">O cabaleiro coroado move de xeito completamente distinto. Repara en que se despraza igual có xeneral de ouro, así que estuda en profundidade os movementos desta última peza.</string>
-	<string name="knightPromotion">The knight can also be promoted. His movements change a lot after that, so pay attention.</string>
+	<string name="knightPromotion">O cabaleiro tamén pode coroar. Os seus movementos cambian moito tras facelo, polo que debes prestar atención.</string>
 	<string name="knightComplete">Congratulations! You have mastered the knight.</string>
 	<string name="thePawn">The pawn</string>
 	<string name="itMovesForwardOnly">March forward!</string>
