@@ -121,24 +121,24 @@ ningunha peza indefensa!</string>
 	<string name="checkInOne">Xaque nunha</string>
 	<string name="attackTheOpponentsKing">Ataca o rei rival</string>
 	<string name="checkInOneIntro">Para poñer en xaque ao teu rival, ataca o seu rei. Debe defendelo!</string>
-	<string name="checkInOneGoal">Aim at the opponent\'s king
-in one move!</string>
-	<string name="checkInOneComplete">Congratulations! You checked your opponent, forcing them to defend their king!</string>
-	<string name="outOfCheck">Out of check</string>
-	<string name="defendYourKing">Defend your king</string>
-	<string name="outOfCheckIntro">You are in check! You must escape or block the attack.</string>
-	<string name="ifYourKingIsAttacked">If your king is attacked, you must deal with the attack.</string>
-	<string name="escapeWithTheKing">Escape with the king!</string>
-	<string name="theKingCannotEscapeButBlock">The king cannot escape,
-but you can block the attack!</string>
-	<string name="youCanGetOutOfCheckByTaking">You can get out of check
-by taking the attacking piece.</string>
-	<string name="thisKnightIsCheckingThroughYourDefenses">This knight is checking
-through your defences!</string>
-	<string name="getOutOfCheck">Get out of check!</string>
-	<string name="watchOutForYourOpponentsReply">Watch out for your opponent\'s reply!</string>
-	<string name="escapeOrBlock">Escape with the king
-or block the attack!</string>
+	<string name="checkInOneGoal">Ameaza o rei do opoñente
+nun movemento!</string>
+	<string name="checkInOneComplete">Parabéns! Puxeches en xaque ao teu rival, forzándoo a defender o seu rei!</string>
+	<string name="outOfCheck">Fóra de xaque</string>
+	<string name="defendYourKing">Defende o teu rei</string>
+	<string name="outOfCheckIntro">Estás en xaque! Debes escapar ou bloquear o ataque.</string>
+	<string name="ifYourKingIsAttacked">Se hai un ataque sobre o teu rei, tes que facerlle fronte.</string>
+	<string name="escapeWithTheKing">Escapa co rei!</string>
+	<string name="theKingCannotEscapeButBlock">O rei non pode escapar,
+pero podes bloquear o ataque!</string>
+	<string name="youCanGetOutOfCheckByTaking">Podes saír do xaque
+tomando a peza atacante.</string>
+	<string name="thisKnightIsCheckingThroughYourDefenses">Este cabalo está dando xaque
+a través das túas defensas!</string>
+	<string name="getOutOfCheck">Escapa do xaque!</string>
+	<string name="watchOutForYourOpponentsReply">Coidado coa resposta do teu opoñente!</string>
+	<string name="escapeOrBlock">Escapa co rei
+ou bloquea o ataque!</string>
 	<string name="outOfCheckComplete">Congratulations! Your king can never be taken, make sure you can defend against a check!</string>
 	<string name="mateInOne">Mate in one</string>
 	<string name="defeatTheOpponentsKing">Defeat the opponent\'s king</string>
