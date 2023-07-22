@@ -183,8 +183,8 @@ O rei ten un valor incalculable! Perdelo significa perder a partida.</string>
 de maior valor!
 Dama &gt; Bispo</string>
 	<string name="pawnsAreTheLeastValuable">Os peóns son as pezas de menor valor, seguidos polas lanzas. Os cabaleiros valen algo máis cás lanzas. Captura a peza máis valiosa.</string>
-	<string name="knightSilverGold">Knight &lt; Silver &lt; Gold
-Take the most valuable piece without losing your own.</string>
+	<string name="knightSilverGold">Cabaleiro &lt; Prata &lt; Ouro
+Captura a peza de máis valor sen perder a túa.</string>
 	<string name="goldBishopRook">Gold &lt; Bishop &lt; Rook
 Take the most valuable piece.</string>
 	<string name="takeAllThePiecesStartingFromTheMost">Take all the pieces in order, starting from the most valuable until the least valuable!</string>
