@@ -139,32 +139,32 @@ a través das túas defensas!</string>
 	<string name="watchOutForYourOpponentsReply">Coidado coa resposta do teu opoñente!</string>
 	<string name="escapeOrBlock">Escapa co rei
 ou bloquea o ataque!</string>
-	<string name="outOfCheckComplete">Congratulations! Your king can never be taken, make sure you can defend against a check!</string>
-	<string name="mateInOne">Mate in one</string>
-	<string name="defeatTheOpponentsKing">Defeat the opponent\'s king</string>
-	<string name="mateInOneIntro">You win when your opponent cannot defend against a check.</string>
-	<string name="toWinInShogi">To win in shogi, check your opponent\'s king such that they cannot defend. This is mate, or tsume.</string>
-	<string name="dropsCommonDeliverMate">Drops are a very common way to deliver mate.</string>
-	<string name="attackYourOpponentsKing">Attack your opponent\'s king
-in a way that cannot be defended!</string>
-	<string name="chooseYourPieceCarefully">Choose your piece carefully!</string>
-	<string name="mateWithADroppedPawnIs">Mate with a dropped pawn is illegal - in a real game you would be forfeited!</string>
-	<string name="mateWithAPushedPawnIs">Mate with a pushed pawn is fine.</string>
-	<string name="mateInOneComplete">Congratulations! That is how you win shogi games!</string>
-	<string name="intermediate">Intermediate</string>
-	<string name="boardSetup">Board setup</string>
-	<string name="howTheGameStarts">How the game starts</string>
-	<string name="boardSetupIntro">The two armies face each other, ready for the battle.</string>
-	<string name="thisIsTheInitialPosition">This is the initial position
-of every game of shogi!
-Make any move to continue.</string>
-	<string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.</string>
-	<string name="dropAGold">Drop a gold on the left side of the king, then place another gold on the right.</string>
-	<string name="thenPlaceASilver">Then place the silver next to the left-side gold, and a silver beside the right gold.</string>
-	<string name="dropTheKnights">Drop the knights the same way you placed the silvers. Your opponent will be doing the Itou (伊藤) style.</string>
-	<string name="dropTheLances">Drop the lances. Your opponent will start placing pawns left-to-right before the lances. This is the Itou style.</string>
-	<string name="placeTheBishopThenRook">Place the bishop above the left knight, then the rook above the right knight. Of course, in real games there is no need to be in sync with your opponent during setup.</string>
-	<string name="placeThePawns">Finally, on the 3rd rank, drop pawns the same way you placed the back rank pieces. The circle will be your guide.</string>
+	<string name="outOfCheckComplete">Parabéns! O teu rei nunca pode ser capturado, asegúrate de que podes defendelo contra xaque!</string>
+	<string name="mateInOne">Mate nunha</string>
+	<string name="defeatTheOpponentsKing">Derrota o rei rival</string>
+	<string name="mateInOneIntro">Gañas cando o teu rival non pode defenderse dun xaque.</string>
+	<string name="toWinInShogi">Para gañar no shogi tes que dar xaque ó rei rival de modo que non poida defenderse. A isto chámaselle mate ou tsume.</string>
+	<string name="dropsCommonDeliverMate">Guindar pezas é unha forma moi común de dar mate.</string>
+	<string name="attackYourOpponentsKing">Ataca ao rei do teu rival
+de xeito que non se poida defender!</string>
+	<string name="chooseYourPieceCarefully">Escolle con coidado a túa peza!</string>
+	<string name="mateWithADroppedPawnIs">Dar mate guindando un peón é ilegal — nunha partida de verdade perderías!</string>
+	<string name="mateWithAPushedPawnIs">Dar mate avanzando un peón é correcto.</string>
+	<string name="mateInOneComplete">Parabéns! Así se gañan as partidas de shogi!</string>
+	<string name="intermediate">Intermedio</string>
+	<string name="boardSetup">Disposición do taboleiro</string>
+	<string name="howTheGameStarts">Como comeza a partida</string>
+	<string name="boardSetupIntro">Os dous exércitos enfróntanse, listos para a batalla.</string>
+	<string name="thisIsTheInitialPosition">Esta é a posición inicial
+de todas as partidas de shogi!
+Fai calquera movemento para continuar.</string>
+	<string name="firstPlaceTheKing">Hai dúas formas tradicionais de colocar as pezas antes dunha partida. Amosarémosche o estilo Oohashi (大橋), máis comunmente utilizado por profesionais. O rei vai primeiro. Move o rei ó cadro central da primeira fila.</string>
+	<string name="dropAGold">Guinda un ouro á esquerda do rei, logo coloca outro na dereita.</string>
+	<string name="thenPlaceASilver">A continuación pon unha prata a carón do ouro da esquerda, logo a outra prata xunto ó ouro da dereita.</string>
+	<string name="dropTheKnights">Guinda os cabalos do mesmo xeito que puxeches as pratas. O teu opoñente vaino facer ó estilo Itou (伊藤).</string>
+	<string name="dropTheLances">Guinda as lanzas. O teu opoñente comezará a colocar peóns de esquerda a dereita antes cás lanzas. Este é o estilo Itou.</string>
+	<string name="placeTheBishopThenRook">Pon o bispo diante do cabaleiro da esquerda, logo a torre diante do cabaleiro da dereita. Por suposto, nas partidas de verdade non é necesario facelo ó mesmo tempo có rival.</string>
+	<string name="placeThePawns">Finalmente, guinda os peóns na terceira fileira do mesmo xeito que colocaches as pezas da primeira. O círculo vaicho indicar.</string>
 	<string name="pushingThe3rdPawn">Pushing the 3rd pawn to open the bishop’s diagonal is the most common first move. Make this move to continue.</string>
 	<string name="boardSetupComplete">Congratulations! You know how to set up the shogi board.</string>
 	<string name="repetition">Repetition</string>
