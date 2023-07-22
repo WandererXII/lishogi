@@ -165,9 +165,9 @@ Fai calquera movemento para continuar.</string>
 	<string name="dropTheLances">Guinda as lanzas. O teu opoñente comezará a colocar peóns de esquerda a dereita antes cás lanzas. Este é o estilo Itou.</string>
 	<string name="placeTheBishopThenRook">Pon o bispo diante do cabaleiro da esquerda, logo a torre diante do cabaleiro da dereita. Por suposto, nas partidas de verdade non é necesario facelo ó mesmo tempo có rival.</string>
 	<string name="placeThePawns">Finalmente, guinda os peóns na terceira fileira do mesmo xeito que colocaches as pezas da primeira. O círculo vaicho indicar.</string>
-	<string name="pushingThe3rdPawn">Pushing the 3rd pawn to open the bishop’s diagonal is the most common first move. Make this move to continue.</string>
-	<string name="boardSetupComplete">Congratulations! You know how to set up the shogi board.</string>
-	<string name="repetition">Repetition</string>
+	<string name="pushingThe3rdPawn">Avanzar o terceiro peón para abrir a diagonal do bispo é a primeira xogada máis común. Fai este movemento para continuar.</string>
+	<string name="boardSetupComplete">Parabéns! Xa sabes como colocar as pezas no taboleiro!</string>
+	<string name="repetition">Repetición</string>
 	<string name="fourfoldRepetitionIsADrawExcept">Fourfold repetition is a draw, EXCEPT...</string>
 	<string name="repetitionIntro">Fourfold repetition is a draw Perpetual check is a loss.</string>
 	<string name="ifTheSamePositionOccurs">If the same position occurs 4 times in Shogi, it is an automatic draw. This situation is called sennichite (千日手). Make the only legal move.</string>
