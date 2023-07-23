@@ -119,117 +119,117 @@
 	<string name="cpus">Procesadores</string>
 	<string name="memory">Memoria</string>
 	<string name="infiniteAnalysis">Análise infinita</string>
-	<string name="removesTheDepthLimit">Removes the depth limit, and keeps your computer warm</string>
-	<string name="blunder">Blunder</string>
-	<string name="blunders">Blunders</string>
-	<string name="mistake">Mistake</string>
-	<string name="mistakes">Mistakes</string>
-	<string name="inaccuracy">Inaccuracy</string>
-	<string name="inaccuracies">Inaccuracies</string>
-	<string name="moveTimes">Move times</string>
-	<string name="flipBoard">Flip board</string>
-	<string name="claimADraw">Claim a draw</string>
-	<string name="offerDraw">Offer draw</string>
-	<string name="draw">Draw</string>
+	<string name="removesTheDepthLimit">Elimina o límite de profundidade, e mantén o teu ordenador quente</string>
+	<string name="blunder">Metida de zoca</string>
+	<string name="blunders">Metidas de zoca</string>
+	<string name="mistake">Erro</string>
+	<string name="mistakes">Erros</string>
+	<string name="inaccuracy">Imprecisión</string>
+	<string name="inaccuracies">Imprecisións</string>
+	<string name="moveTimes">Tempos por movemento</string>
+	<string name="flipBoard">Xirar o taboleiro</string>
+	<string name="claimADraw">Reclamar táboas</string>
+	<string name="offerDraw">Ofrecer táboas</string>
+	<string name="draw">Táboas</string>
 	<plurals name="nbPlayers">
-		<item quantity="one">%s player</item>
-		<item quantity="other">%s players</item>
+		<item quantity="one">%s xogador</item>
+		<item quantity="other">%s xogadores</item>
 	</plurals>
-	<string name="currentGames">Current games</string>
+	<string name="currentGames">Partidas en curso</string>
 	<plurals name="nbGames">
-		<item quantity="one">%s game</item>
-		<item quantity="other">%s games</item>
+		<item quantity="one">%s partida</item>
+		<item quantity="other">%s partidas</item>
 	</plurals>
 	<plurals name="nbBookmarks">
-		<item quantity="one">%s bookmark</item>
-		<item quantity="other">%s bookmarks</item>
+		<item quantity="one">%s partida favorita</item>
+		<item quantity="other">%s partidas favoritas</item>
 	</plurals>
-	<string name="viewInFullSize">View in full size</string>
-	<string name="logOut">Sign out</string>
-	<string name="signIn">Sign in</string>
-	<string name="youNeedAnAccountToDoThat">You need an account to do that</string>
-	<string name="signUp">Register</string>
-	<string name="computersAreNotAllowedToPlay">Computers and computer-assisted players are not allowed to play. Please do not get assistance from engines, databases, or from other players while playing. Also note that making multiple accounts is strongly discouraged and excessive multi-accounting will lead to being banned.</string>
-	<string name="games">Games</string>
-	<string name="forum">Forum</string>
-	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
-	<string name="xPostedInForumY">%1$s posted in topic %2$s</string>
-	<string name="latestForumPosts">Latest forum posts</string>
-	<string name="players">Players</string>
-	<string name="friends">Friends</string>
-	<string name="discussions">Conversations</string>
-	<string name="today">Today</string>
-	<string name="yesterday">Yesterday</string>
-	<string name="minutesPerSide">Minutes per side</string>
-	<string name="variant">Variant</string>
-	<string name="variants">Variants</string>
-	<string name="timeControl">Time control</string>
-	<string name="realTime">Real time</string>
-	<string name="correspondence">Correspondence</string>
-	<string name="daysPerTurn">Days per turn</string>
-	<string name="oneDay">One day</string>
+	<string name="viewInFullSize">Ver a tamaño completo</string>
+	<string name="logOut">Pechar sesión</string>
+	<string name="signIn">Iniciar sesión</string>
+	<string name="youNeedAnAccountToDoThat">Precisas dunha conta de usuario para facer iso</string>
+	<string name="signUp">Rexistrarse</string>
+	<string name="computersAreNotAllowedToPlay">Non están permitidos os ordenadores ou os xogadores asistidos por eles. Por favor uses a asistencia de módulos de xadrez, bases de datos ou dotros xogadores durante a partida. Lembra tamén que o uso de múltiples contas está altamente desaconsellado e que o uso abusivo deste tipo de contas pode conducir á suspensión</string>
+	<string name="games">Partidas</string>
+	<string name="forum">Foro</string>
+	<string name="forumDescription">Discusións sobre shogi e comentarios sobre o desenvolvemento de Lishogi</string>
+	<string name="xPostedInForumY">%1$s escribiu no fío %2$s</string>
+	<string name="latestForumPosts">Últimas publicacións no foro</string>
+	<string name="players">Xogadores</string>
+	<string name="friends">Amizades</string>
+	<string name="discussions">Conversas</string>
+	<string name="today">Hoxe</string>
+	<string name="yesterday">Onte</string>
+	<string name="minutesPerSide">Minutos por bando</string>
+	<string name="variant">Variante</string>
+	<string name="variants">Variantes</string>
+	<string name="timeControl">Control de tempo</string>
+	<string name="realTime">Cronometrado</string>
+	<string name="correspondence">Postal</string>
+	<string name="daysPerTurn">Días por xogada</string>
+	<string name="oneDay">Un día</string>
 	<plurals name="nbDays">
-		<item quantity="one">%s day</item>
-		<item quantity="other">%s days</item>
+		<item quantity="one">%s día</item>
+		<item quantity="other">%s días</item>
 	</plurals>
 	<plurals name="nbHours">
-		<item quantity="one">%s hour</item>
-		<item quantity="other">%s hours</item>
+		<item quantity="one">%s hora</item>
+		<item quantity="other">%s horas</item>
 	</plurals>
-	<string name="time">Time</string>
-	<string name="rating">Rating</string>
-	<string name="ratingStats">Rating stats</string>
-	<string name="username">User name</string>
-	<string name="usernameOrEmail">User name or email</string>
-	<string name="changeUsername">Change username</string>
-	<string name="changeUsernameNotSame">Only the case of the letters can change. For example \"johndoe\" to \"JohnDoe\".</string>
-	<string name="changeUsernameDescription">Change your username. This can only be done once and you are only allowed to change the case of the letters in your username.</string>
-	<string name="password">Password</string>
-	<string name="changePassword">Change password</string>
-	<string name="changeEmail">Change email</string>
-	<string name="email">Email</string>
-	<string name="passwordReset">Password reset</string>
-	<string name="loginByEmail">Log in by email</string>
-	<string name="forgotPassword">Forgot password?</string>
-	<string name="rank">Rank</string>
-	<string name="rankX">Rank: %s</string>
+	<string name="time">Tempo</string>
+	<string name="rating">Puntuación</string>
+	<string name="ratingStats">Estatísticas de puntuación</string>
+	<string name="username">Nome de usuario</string>
+	<string name="usernameOrEmail">Nome de usuario ou correo</string>
+	<string name="changeUsername">Cambiar nome de usuario</string>
+	<string name="changeUsernameNotSame">Só poden cambiar as letras entre minúsculas e maiúsculas. Por exemplo de \"xoanninguen\" a \"XoanNinguen\".</string>
+	<string name="changeUsernameDescription">Cambiar o teu nome de usuario. Só se pode facer unha vez e só está permitido cambiar minúsculas por maiúsculas e viceversa.</string>
+	<string name="password">Contrasinal</string>
+	<string name="changePassword">Cambiar contrasinal</string>
+	<string name="changeEmail">Cambiar correo</string>
+	<string name="email">Correo electrónico</string>
+	<string name="passwordReset">Restablecer o contrasinal</string>
+	<string name="loginByEmail">Iniciar sesión co correo electrónico</string>
+	<string name="forgotPassword">Esqueciches o teu contrasinal?</string>
+	<string name="rank">Posición</string>
+	<string name="rankX">Posición: %s</string>
 	<plurals name="rankIsUpdatedEveryNbMinutes">
-		<item quantity="one">Rank is updated every minute</item>
-		<item quantity="other">Rank is updated every %s minutes</item>
+		<item quantity="one">A posición actualízase cada minuto</item>
+		<item quantity="other">A posición actualízase cada %s minutos</item>
 	</plurals>
 	<plurals name="nbPuzzles">
-		<item quantity="one">%s puzzle</item>
-		<item quantity="other">%s puzzles</item>
+		<item quantity="one">%s crebacabezas</item>
+		<item quantity="other">%s crebacabezas</item>
 	</plurals>
-	<string name="gamesPlayed">Games played</string>
+	<string name="gamesPlayed">Partidas xogadas</string>
 	<plurals name="nbGamesWithYou">
-		<item quantity="one">%s game with you</item>
-		<item quantity="other">%s games with you</item>
+		<item quantity="one">%s partida contigo</item>
+		<item quantity="other">%s partidas contigo</item>
 	</plurals>
-	<string name="cancel">Cancel</string>
-	<string name="timeOut">Time out</string>
-	<string name="drawOfferSent">Draw offer sent</string>
-	<string name="drawOfferDeclined">Draw offer declined</string>
-	<string name="drawOfferAccepted">Draw offer accepted</string>
-	<string name="drawOfferCanceled">Draw offer cancelled</string>
-	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s offers draw</string>
-	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s declines draw</string>
-	<string name="yourOpponentOffersADraw">Your opponent offers a draw</string>
-	<string name="accept">Accept</string>
-	<string name="decline">Decline</string>
-	<string name="playingRightNow">Playing right now</string>
-	<string name="eventInProgress">Playing right now</string>
-	<string name="finished">Finished</string>
-	<string name="finishesX">finishes %s</string>
-	<string name="abortGame">Abort game</string>
-	<string name="gameAborted">Game aborted</string>
-	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
+	<string name="cancel">Cancelar</string>
+	<string name="timeOut">Esgotouse o tempo</string>
+	<string name="drawOfferSent">Oferta de táboas enviada</string>
+	<string name="drawOfferDeclined">Oferta de táboas rexeitada</string>
+	<string name="drawOfferAccepted">Oferta de táboas aceptada</string>
+	<string name="drawOfferCanceled">Oferta de táboas cancelada</string>
+	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s ofrece as táboas</string>
+	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s rexeita as táboas</string>
+	<string name="yourOpponentOffersADraw">O teu rival ofrece as táboas</string>
+	<string name="accept">Aceptar</string>
+	<string name="decline">Rexeitar</string>
+	<string name="playingRightNow">Xogando agora mesmo</string>
+	<string name="eventInProgress">Xogando agora mesmo</string>
+	<string name="finished">Rematado</string>
+	<string name="finishesX">remata %s</string>
+	<string name="abortGame">Abortar partida</string>
+	<string name="gameAborted">Partida abortada</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Estándar</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
 	<string name="annanshogi">Annan shogi</string>
 	<string name="kyotoshogi">Kyoto shogi</string>
-	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Standard rules of shogi</string>
-	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Same rules as standard shogi, but played on a smaller 5x5 board</string>
+	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Regras estándar do shogi</string>
+	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">As mesmas regras do shogi estándar, pero xogado nun taboleiro máis pequeno de 5x5</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">The most popular historical variant of shogi played on a 12x12 board</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Modern variant of shogi with alternating unique promotions on a 5x5 board</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variant similar to standard shogi, where pieces move like friendly pieces behind them</string>
