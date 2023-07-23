@@ -59,7 +59,7 @@
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s rendeuse</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s saíu da partida</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s non moveu</string>
-	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Share this URL to let spectators see the game</string>
+	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Comparte esta ligazón para que os espectadores poidan ver a partida</string>
 	<string name="theComputerAnalysisHasFailed">The computer analysis has failed</string>
 	<string name="viewTheComputerAnalysis">View the computer analysis</string>
 	<string name="requestAComputerAnalysis">Request a computer analysis</string>
