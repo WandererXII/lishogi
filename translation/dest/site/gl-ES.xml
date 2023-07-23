@@ -230,40 +230,40 @@
 	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Regras estándar do shogi</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">As mesmas regras do shogi estándar, pero xogado nun taboleiro máis pequeno de 5x5</string>
-	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">The most popular historical variant of shogi played on a 12x12 board</string>
-	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Modern variant of shogi with alternating unique promotions on a 5x5 board</string>
-	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variant similar to standard shogi, where pieces move like friendly pieces behind them</string>
-	<string name="unlimited">Unlimited</string>
-	<string name="mode">Mode</string>
-	<string name="casual">Casual</string>
-	<string name="rated">Rated</string>
-	<string name="casualTournament">Casual</string>
-	<string name="ratedTournament">Rated</string>
-	<string name="thisGameIsRated">This game is rated</string>
-	<string name="rematch">Rematch</string>
-	<string name="rematchOfferSent">Rematch offer sent</string>
-	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s offers rematch</string>
-	<string name="rematchOfferAccepted">Rematch offer accepted</string>
-	<string name="rematchOfferCanceled">Rematch offer cancelled</string>
-	<string name="rematchOfferDeclined">Rematch offer declined</string>
-	<string name="cancelRematchOffer">Cancel rematch offer</string>
-	<string name="viewRematch">View rematch</string>
-	<string name="confirmMove">Confirm move</string>
-	<string name="play">Play</string>
-	<string name="inbox">Inbox</string>
-	<string name="streamerManager">Streamer manager</string>
-	<string name="coachManager">Coach manager</string>
-	<string name="chatRoom">Chat room</string>
-	<string name="loginToChat">Sign in to chat</string>
-	<string name="youHaveBeenTimedOut">You have been timed out.</string>
-	<string name="spectatorRoom">Spectator room</string>
-	<string name="composeMessage">Compose message</string>
-	<string name="noNewMessages">No new messages</string>
-	<string name="subject">Subject</string>
-	<string name="recipient">Recipient</string>
-	<string name="send">Send</string>
-	<string name="incrementInSeconds">Increment in seconds</string>
-	<string name="byoyomiInSeconds">Byoyomi in seconds</string>
+	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">A variante histórica do shogi máis popular, xogada nun taboleiro de 12x12</string>
+	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante moderna do shogi con promocións alternas únicas, xogada nun taboleiro de 5x5</string>
+	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante similar ó shogi estándar, onde as pezas se moven igual cás pezas do mesmo bando situadas detrás delas</string>
+	<string name="unlimited">Ilimitado</string>
+	<string name="mode">Modo</string>
+	<string name="casual">Amigable</string>
+	<string name="rated">Puntuada</string>
+	<string name="casualTournament">Amigable</string>
+	<string name="ratedTournament">Puntuado</string>
+	<string name="thisGameIsRated">Esta partida é puntuada</string>
+	<string name="rematch">Desquite</string>
+	<string name="rematchOfferSent">Oferta de desquite enviada</string>
+	<string name="rematchOfferSentX" comment="%s - sente(black)/gote(white)">%s ofrece o desquite</string>
+	<string name="rematchOfferAccepted">Oferta de desquite aceptada</string>
+	<string name="rematchOfferCanceled">Oferta de desquite cancelada</string>
+	<string name="rematchOfferDeclined">Oferta de desquite rexeitada</string>
+	<string name="cancelRematchOffer">Cancelar a oferta de desquite</string>
+	<string name="viewRematch">Ver desquite</string>
+	<string name="confirmMove">Confirmar a xogada</string>
+	<string name="play">Xogar</string>
+	<string name="inbox">Bandexa de entrada</string>
+	<string name="streamerManager">Administrador de presentadores</string>
+	<string name="coachManager">Administrador de adestradores</string>
+	<string name="chatRoom">Sala de conversa</string>
+	<string name="loginToChat">Inicia sesión para conversar</string>
+	<string name="youHaveBeenTimedOut">Fuches silenciado temporalmente.</string>
+	<string name="spectatorRoom">Sala do espectador</string>
+	<string name="composeMessage">Escribir mensaxe</string>
+	<string name="noNewMessages">Non hai mensaxes novas</string>
+	<string name="subject">Asunto</string>
+	<string name="recipient">Destinatario</string>
+	<string name="send">Enviar</string>
+	<string name="incrementInSeconds">Incremento en segundos</string>
+	<string name="byoyomiInSeconds">Byoyomi en segundos</string>
 	<string name="numberOfPeriods">Number of periods</string>
 	<string name="freeOnlineShogi">Free Online Shogi</string>
 	<string name="spectators">Spectators:</string>
