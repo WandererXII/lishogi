@@ -220,8 +220,8 @@
 	<string name="kyotoshogi">Kyoto shogi</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Quy tắc tiêu chuẩn của shogi</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Các quy tắc tương tự như shogi tiêu chuẩn, nhưng được chơi trên bàn cờ nhỏ hơn kích thước 5x5 </string>
-	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">The most popular historical variant of shogi played on a 12x12 board</string>
-	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Modern variant of shogi with alternating unique promotions on a 5x5 board</string>
+	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">Biến thể shogi cổ đại nổi tiếng nhất trên bàn cờ 12x12</string>
+	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Biến thể shogi hiện đại với các nước phong cấp đặc biệt xen kẽ trên bàn cờ 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variant similar to standard shogi, where pieces move like friendly pieces behind them</string>
 	<string name="unlimited">Không giới hạn</string>
 	<string name="mode">Chế độ</string>
