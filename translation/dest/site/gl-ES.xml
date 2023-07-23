@@ -37,28 +37,28 @@
 	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
 	<string name="randomColor" comment="Side - sente/gote">Cor aleatoria</string>
 	<string name="createAGame">Crear unha partida</string>
-	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s is victorious</string>
-	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">You play as %s</string>
-	<string name="itsYourTurn">It\'s your turn!</string>
-	<string name="cheatDetected">Cheat Detected</string>
-	<string name="variantEnding">Variant ending</string>
-	<string name="newOpponent">New opponent</string>
-	<string name="yourOpponentWantsToPlayANewGameWithYou">Your opponent wants to play a new game with you</string>
-	<string name="joinTheGame">Join the game</string>
-	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
+	<string name="xIsVictorious" comment="%s - sente(black)/gote(white)">%s gaña</string>
+	<string name="youPlayAsX" comment="%s - sente(black)/gote(white)">Xogas como %s</string>
+	<string name="itsYourTurn">Tócache!</string>
+	<string name="cheatDetected">Trampas detectadas</string>
+	<string name="variantEnding">Final da partida por normas desta modalidade</string>
+	<string name="newOpponent">Novo rival</string>
+	<string name="yourOpponentWantsToPlayANewGameWithYou">O teu rival quere xogar outra partida contra ti</string>
+	<string name="joinTheGame">Unirse á partida</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">Xoga %s</string>
 	<plurals name="opponentLeftCounter">
-		<item quantity="one">Your opponent left the game. You can claim victory in %s second.</item>
-		<item quantity="other">Your opponent left the game. You can claim victory in %s seconds.</item>
+		<item quantity="one">O teu opoñente saíu da partida. Poderás reclamar a vitoria en %s segundo.</item>
+		<item quantity="other">O teu opoñente saíu da partida. Poderás reclamar a vitoria en %s segundos.</item>
 	</plurals>
-	<string name="opponentLeftChoices">Your opponent left the game. You can claim victory, call the game a draw, or wait.</string>
-	<string name="makeYourOpponentResign">Make your opponent resign</string>
-	<string name="forceResignation">Claim victory</string>
-	<string name="forceDraw">Call draw</string>
-	<string name="talkInChat">Please be nice in the chat!</string>
-	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">The first person to come to this URL will play with you.</string>
-	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
-	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
-	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
+	<string name="opponentLeftChoices">O teu opoñente saíu da partida. Poderás reclamar a vitoria, declarar as táboas ou agardar.</string>
+	<string name="makeYourOpponentResign">Obriga ó teu rival a abandonar</string>
+	<string name="forceResignation">Reclamar a vitoria</string>
+	<string name="forceDraw">Reclamar as táboas</string>
+	<string name="talkInChat">Por favor, sé correcto na sala de conversa!</string>
+	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">A primeira persoa que chegue a este URL xogará contra ti</string>
+	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s rendeuse</string>
+	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s saíu da partida</string>
+	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s non moveu</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Share this URL to let spectators see the game</string>
 	<string name="theComputerAnalysisHasFailed">The computer analysis has failed</string>
 	<string name="viewTheComputerAnalysis">View the computer analysis</string>
