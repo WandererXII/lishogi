@@ -222,7 +222,7 @@
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Các quy tắc tương tự như shogi tiêu chuẩn, nhưng được chơi trên bàn cờ nhỏ hơn kích thước 5x5 </string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">Biến thể shogi cổ đại nổi tiếng nhất trên bàn cờ 12x12</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Biến thể shogi hiện đại với các nước phong cấp đặc biệt xen kẽ trên bàn cờ 5x5</string>
-	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variant similar to standard shogi, where pieces move like friendly pieces behind them</string>
+	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Biến thể tương tự shogi tiêu chuẩn, các quân đi như quân cùng bên đứng sau nó</string>
 	<string name="unlimited">Không giới hạn</string>
 	<string name="mode">Chế độ</string>
 	<string name="casual">Không tính elo</string>
@@ -794,10 +794,10 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Tìm nước đi khác cho %s</string>
 	<string name="solution">Lời giải</string>
 	<string name="waitingForAnalysis">Chờ phân tích</string>
-	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">Không có lỗi nào từ %s</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Đã hoàn thành kiểm tra lỗi của %s</string>
 	<string name="doItAgain">Làm lại</string>
-	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Xem lại lỗi của %s</string>
 	<string name="advantage">Lợi thế</string>
 	<plurals name="nbSeconds">
 		<item quantity="other">%s giây</item>
@@ -874,7 +874,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Tổng giá trị</string>
 	<string name="postGameStudy">Nghiên cứu sau trận đấu</string>
-	<string name="postGameStudies">Post-game studies</string>
+	<string name="postGameStudies">Phân tích sau ván cờ</string>
 	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
 	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
 	<string name="studyWithOpponent">Study with opponent</string>
@@ -887,15 +887,15 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="hereAreSuggestions">Here are a few suggestions:</string>
 	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
 	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
-	<string name="or" comment="links alternatives: Do X or do Y">or</string>
-	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
-	<string name="challengeDeclined">Challenge declined</string>
-	<string name="challengeAccepted">Challenge accepted</string>
-	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="or" comment="links alternatives: Do X or do Y">hoặc</string>
+	<string name="gameInProgressDescription">Bạn không thể chơi ván mới cho đến khi xong ván này.</string>
+	<string name="challengeDeclined">Lời thách đấu bị từ chối</string>
+	<string name="challengeAccepted">Lời thách đấu được chấp nhận</string>
+	<string name="challengeCanceled">Lời mời đã được hủy bỏ</string>
 	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
-	<string name="challengeDescription">Join the challenge or watch the game</string>
-	<string name="challengeFromX" comment="From username">Challenge from %s</string>
-	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
+	<string name="challengeDescription">Tiếp nhận lời thách đấu hoặc xem ván</string>
+	<string name="challengeFromX" comment="From username">Lời thách đấu từ %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s thách đấu %2$s</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
 	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
