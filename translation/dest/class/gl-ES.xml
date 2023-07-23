@@ -37,25 +37,25 @@
 	<string name="studentCredentials">Alumno: %1$s
 Nome de usuario: %2$s
 Contrasinal %3$s</string>
-	<string name="inviteALishogiAccount">Invite a Lishogi account</string>
-	<string name="inviteDesc1">If the student already has a Lishogi account, you can invite them to the class.</string>
-	<string name="inviteDesc2">They will receive a message on Lishogi with a link to join the class.</string>
-	<string name="inviteDesc3">Important: only invite students you know, and who actively want to join the class.</string>
-	<string name="inviteDesc4">Never send unsolicited invites to arbitrary players.</string>
-	<string name="createANewLishogiAccount">Create a new Lishogi account</string>
-	<string name="createDesc1">If the student doesn\'t have a Lishogi account yet, you can create one for them here.</string>
-	<string name="createDesc2">No email address is required. A password will be generated, and you will have to transmit it to the student, so they can log in.</string>
-	<string name="createDesc3">Important: a student must not have multiple accounts.</string>
-	<string name="createDesc4">If they already have one, use the invite form instead.</string>
-	<string name="lishogiUsername">Lishogi username</string>
-	<string name="generateANewUsername">Generate a new username</string>
-	<string name="welcomeToClass">Welcome to your class: %s.
-Here is the link to access the class.</string>
-	<string name="invitationToClass">You are invited to join the class \"%s\" as a student.</string>
-	<string name="clickToViewInvitation">Click the link to view the invitation:</string>
+	<string name="inviteALishogiAccount">Invitar unha conta de Lishogi</string>
+	<string name="inviteDesc1">Se o alumno xa ten conta en Lishogi, pódelo invitar á clase.</string>
+	<string name="inviteDesc2">Recibirán unha mensaxe en Lishogi coa ligazón para unirse á clase.</string>
+	<string name="inviteDesc3">Importante: invita só estudantes que coñezas e queiran unirse de forma activa á clase.</string>
+	<string name="inviteDesc4">Nunca envíes invitacións a xogadores que non as pediran.</string>
+	<string name="createANewLishogiAccount">Crear unha nova conta en Lishogi</string>
+	<string name="createDesc1">Se o alumno non ten conta en Lishogi, podes crearlla desde aquí.</string>
+	<string name="createDesc2">Non se precisa enderezo de correo electrónico. Xerarase un contrasinal que debes pasarlle ó alumno para que poida acceder.</string>
+	<string name="createDesc3">Importante: os alumnos non deben ter máis dunha conta.</string>
+	<string name="createDesc4">Se xa teñen unha conta, usa en troques o formulario de invitación.</string>
+	<string name="lishogiUsername">Nome de usuario de Lishogi</string>
+	<string name="generateANewUsername">Xera un novo nome de usuario</string>
+	<string name="welcomeToClass">Benvido á túa clase: %s
+Aquí está a ligazón para acceder.</string>
+	<string name="invitationToClass">Invitáronte a participar como alumno na clase \"%s\".</string>
+	<string name="clickToViewInvitation">Preme na ligazón para ver a invitación:</string>
 	<plurals name="nbPendingInvitations">
-		<item quantity="one">One pending invitation</item>
-		<item quantity="other">%s pending invitations</item>
+		<item quantity="one">Unha invitación pendente</item>
+		<item quantity="other">%s invitacións pendentes</item>
 	</plurals>
 	<string name="noPendingInvitations">No pending invitations</string>
 	<string name="onlyVisibleToTeachers">Only visible to the class teachers</string>
