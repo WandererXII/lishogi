@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="shogi">Shogi</string>
-	<string name="playWithAFriend">Play with a friend</string>
-	<string name="playWithTheMachine">Play with the computer</string>
-	<string name="toInviteSomeoneToPlayGiveThisUrl">To invite someone to play, give this URL</string>
-	<string name="gameOver">Game Over</string>
-	<string name="waitingForOpponent">Waiting for opponent</string>
-	<string name="waiting">Waiting</string>
-	<string name="yourTurn">Your turn</string>
+	<string name="playWithAFriend">Xogar cun amigo</string>
+	<string name="playWithTheMachine">Xogar contra a máquina</string>
+	<string name="toInviteSomeoneToPlayGiveThisUrl">Para invitar a alguén a xogar, dálle este URL</string>
+	<string name="gameOver">Partida rematada</string>
+	<string name="waitingForOpponent">Agardando un rival</string>
+	<string name="waiting">Agardando</string>
+	<string name="yourTurn">A túa quenda</string>
 	<string name="aiNameLevelAiLevel">%1$s level %2$s</string>
 	<string name="level">Level</string>
 	<string name="strength">Strength</string>
