@@ -320,37 +320,37 @@
 	<string name="backToTournament">Volver ó torneo</string>
 	<string name="thematic">Temático</string>
 	<plurals name="moreThanNbRatedGames">
-		<item quantity="one">≥ %s rated game</item>
-		<item quantity="other">≥ %s rated games</item>
+		<item quantity="one">≥ %s partida puntuada</item>
+		<item quantity="other">≥ %s partidas puntuadas</item>
 	</plurals>
 	<plurals name="moreThanNbPerfRatedGames">
-		<item quantity="one">≥ %1$s %2$s rated game</item>
-		<item quantity="other">≥ %1$s %2$s rated games</item>
+		<item quantity="one">≥ %1$s partida puntuada %2$s</item>
+		<item quantity="other">≥ %1$s partidas puntuadas %2$s</item>
 	</plurals>
 	<plurals name="needNbMorePerfGames">
-		<item quantity="one">You need to play %1$s more %2$s rated game</item>
-		<item quantity="other">You need to play %1$s more %2$s rated games</item>
+		<item quantity="one">Necesitas xogar %1$s partida %2$s puntuada máis</item>
+		<item quantity="other">Necesitas xogar %1$s partidas %2$s puntuadas máis</item>
 	</plurals>
 	<plurals name="needNbMoreGames">
-		<item quantity="one">You need to play %s more rated game</item>
-		<item quantity="other">You need to play %s more rated games</item>
+		<item quantity="one">Necesitas xogar %s partida puntuada máis</item>
+		<item quantity="other">Necesitas xogar %s partidas puntuadas máis</item>
 	</plurals>
-	<string name="yourPerfRatingIsProvisional">Your %s rating is provisional</string>
-	<string name="yourPerfRatingIsTooHigh">Your %1$s rating (%2$s) is too high</string>
-	<string name="yourTopWeeklyPerfRatingIsTooHigh">Your top weekly %1$s rating (%2$s) is too high</string>
-	<string name="yourPerfRatingIsTooLow">Your %1$s rating (%2$s) is too low</string>
-	<string name="ratedMoreThanInPerf">Rated ≥ %1$s in %2$s</string>
-	<string name="ratedLessThanInPerf">Rated ≤ %1$s in %2$s this week</string>
-	<string name="mustBeInTeam">Must be in team %s</string>
-	<string name="youAreNotInTeam">You are not in the team %s</string>
-	<string name="backToGame">Back to game</string>
-	<string name="siteDescription">Free online shogi server. Play shogi in a clean interface. No registration, no ads, no plugin required. Play shogi with the computer, friends or random opponents.</string>
-	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, also known as \"将棋\" in Japanese, is a two-player strategy board game that has been played in Japan for centuries. It is often referred to as \"Japanese chess\" due to its similarities to the Western game of chess, but has unique features that make it a distinct game in its own right.</string>
-	<string name="learnShogiHereX">If you are not familiar with the rules of shogi, check out - %s.</string>
-	<string name="xJoinedTeamY">%1$s joined team %2$s</string>
-	<string name="xCreatedTeamY">%1$s created team %2$s</string>
-	<string name="xStartedStreaming">%s started streaming</string>
-	<string name="averageElo">Average rating</string>
+	<string name="yourPerfRatingIsProvisional">A túa puntuación %s é provisional</string>
+	<string name="yourPerfRatingIsTooHigh">A túa puntuación %1$s (%2$s) é demasiado alta</string>
+	<string name="yourTopWeeklyPerfRatingIsTooHigh">A túa puntuación máxima semanal %1$s (%2$s) é demasiado alta</string>
+	<string name="yourPerfRatingIsTooLow">A túa puntuación %1$s (%2$s) é demasiado baixa</string>
+	<string name="ratedMoreThanInPerf">Puntuación ≥ %1$s en %2$s</string>
+	<string name="ratedLessThanInPerf">Puntuación ≤ %1$s en %2$s na última semana</string>
+	<string name="mustBeInTeam">Tes que estar no equipo %s</string>
+	<string name="youAreNotInTeam">Non estás no equipo %s</string>
+	<string name="backToGame">Volver á partida</string>
+	<string name="siteDescription">Shogi libre en liña. Xoga ó shogi cunha interface limpa. Sen rexistrarse, sen anuncios, sen necesidade de complementos. Xoga ó shogi contra o ordenador, amigos ou rivais ó chou.</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">O shogi (\"将棋\" en xaponés) é un xogo de mesa de estratexia para dúas persoas que se practica no Xapón dende hai séculos. Adoita chamarse \"xadrez xaponés\" por ser semellante ó xadrez occidental, pero ten particularidades que o converten nun xogo independente por dereito propio.</string>
+	<string name="learnShogiHereX">Se non estás familiarizado coas regras do shogi, bótalle unha ollada a - %s.</string>
+	<string name="xJoinedTeamY">%1$s uniuse ó equipo %2$s</string>
+	<string name="xCreatedTeamY">%1$s creou o equipo %2$s</string>
+	<string name="xStartedStreaming">%s comezou unha retransmisión</string>
+	<string name="averageElo">Puntuación media</string>
 	<string name="location">Location</string>
 	<string name="filterGames">Filter games</string>
 	<string name="reset">Reset</string>
