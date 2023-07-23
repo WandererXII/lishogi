@@ -57,42 +57,42 @@ Aquí está a ligazón para acceder.</string>
 		<item quantity="one">Unha invitación pendente</item>
 		<item quantity="other">%s invitacións pendentes</item>
 	</plurals>
-	<string name="noPendingInvitations">No pending invitations</string>
-	<string name="onlyVisibleToTeachers">Only visible to the class teachers</string>
-	<string name="lastActiveDate">Active</string>
-	<string name="managed">Managed</string>
-	<string name="thisStudentAccountIsManaged">This student account is managed</string>
-	<string name="upgradeFromManaged">Upgrade from managed to autonomous</string>
-	<string name="release">Release</string>
-	<string name="releaseTheAccount">Release the account so the student can manage it autonomously.</string>
-	<string name="releaseDesc1">A released account cannot be made managed again. The student will be able to toggle kid mode and reset password themselves.</string>
-	<string name="releaseDesc2">The student will remain in the class after their account is released.</string>
-	<string name="realUniqueEmail">Real, unique email address of the student. We will send a confirmation email to it, with a link to release the account.</string>
-	<string name="teachers">Teachers</string>
+	<string name="noPendingInvitations">Non hai invitacións pendentes</string>
+	<string name="onlyVisibleToTeachers">Só visíbel para os profesores da clase</string>
+	<string name="lastActiveDate">Última conexión</string>
+	<string name="managed">Supervisada</string>
+	<string name="thisStudentAccountIsManaged">A conta deste estudante está supervisada</string>
+	<string name="upgradeFromManaged">Actualizar de supervisada a autónoma</string>
+	<string name="release">Liberar</string>
+	<string name="releaseTheAccount">Libera a conta para que o estudante poida xestionala de forma autónoma.</string>
+	<string name="releaseDesc1">Unha conta liberada non pode ser supervisada de novo. O estudante poderá cambiar o modo infantil e redefinir o contrasinal por si mesmo.</string>
+	<string name="releaseDesc2">O estudante permanecerá na clase tras a liberación da conta.</string>
+	<string name="realUniqueEmail">Enderezo de correo electrónico real e único do estudante. Enviarémoslle un correo de confirmación cunha ligazón para liberar a conta.</string>
+	<string name="teachers">Profesores</string>
 	<plurals name="nbTeachers">
-		<item quantity="one">Teacher</item>
-		<item quantity="other">%s teachers</item>
+		<item quantity="one">Profesor</item>
+		<item quantity="other">%s profesores</item>
 	</plurals>
 	<plurals name="nbStudents">
 		<item quantity="one">Student</item>
-		<item quantity="other">%s students</item>
+		<item quantity="other">%s estudantes</item>
 	</plurals>
-	<string name="students">Students</string>
-	<string name="progress">Progress</string>
-	<string name="noStudents">No students in the class, yet.</string>
-	<string name="noRemovedStudents">No removed students.</string>
-	<string name="overDays">Over days</string>
-	<string name="timePlaying">Time playing</string>
-	<string name="variantXOverLastY">%1$s over last %2$s</string>
-	<string name="winrate">Win rate</string>
-	<string name="na">N/A</string>
-	<string name="news">Class news</string>
-	<string name="editNews">Edit news</string>
-	<string name="notifyAllStudents">Notify all students</string>
-	<string name="nothingHere">Nothing here, yet.</string>
-	<string name="newsEdit1">All class news in a single field.</string>
-	<string name="newsEdit2">Add the recent news at the top. Don\'t delete previous news.</string>
-	<string name="newsEdit3">Separate news with ---
-It will display a horizontal line.</string>
-	<string name="markdownAvailable">%s is available for more advanced syntax.</string>
+	<string name="students">Estudantes</string>
+	<string name="progress">Progreso</string>
+	<string name="noStudents">Aínda non hai estudantes na clase.</string>
+	<string name="noRemovedStudents">Non hai estudantes retirados.</string>
+	<string name="overDays">Ó longo dos días</string>
+	<string name="timePlaying">Tempo xogado</string>
+	<string name="variantXOverLastY">%1$s nos últimos %2$s</string>
+	<string name="winrate">Porcentaxe de vitorias</string>
+	<string name="na">Non dispoñible</string>
+	<string name="news">Novidades da clase</string>
+	<string name="editNews">Editar as novidades</string>
+	<string name="notifyAllStudents">Notificar a todos os estudantes</string>
+	<string name="nothingHere">Aínda non hai nada.</string>
+	<string name="newsEdit1">Todas as novidades sobre a clase nun único campo.</string>
+	<string name="newsEdit2">Engade as novas recentes na parte superior. Non elimines as novas anteriores.</string>
+	<string name="newsEdit3">Separa as novas con ---
+Amosará unha liña separadora horizontal.</string>
+	<string name="markdownAvailable">%s está dispoñible para unha sintaxe máis avanzada.</string>
 </resources>
