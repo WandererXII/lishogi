@@ -351,21 +351,21 @@
 	<string name="xCreatedTeamY">%1$s creou o equipo %2$s</string>
 	<string name="xStartedStreaming">%s comezou unha retransmisión</string>
 	<string name="averageElo">Puntuación media</string>
-	<string name="location">Location</string>
-	<string name="filterGames">Filter games</string>
-	<string name="reset">Reset</string>
-	<string name="apply">Submit</string>
-	<string name="save">Save</string>
-	<string name="leaderboard">Leaderboard</string>
-	<string name="leaderboards">Leaderboards</string>
-	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
-	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
-	<string name="selectHandicap">Select handicap</string>
-	<string name="pasteTheSfenStringHere">Paste the SFEN text here</string>
-	<string name="pasteTheKifCsaStringHere">Paste the KIF or CSA text here</string>
-	<string name="fromPosition">From position</string>
-	<string name="default" comment="Default starting position as opposed to custom starting position">Default</string>
-	<string name="continueFromHere">Continue from here</string>
+	<string name="location">Ubicación</string>
+	<string name="filterGames">Filtrar partidas</string>
+	<string name="reset">Restablecer</string>
+	<string name="apply">Aplicar</string>
+	<string name="save">Gardar</string>
+	<string name="leaderboard">Lista de líderes</string>
+	<string name="leaderboards">Listaxes de líderes</string>
+	<string name="bestPlayersInVariousCategories">Os mellores xogadores en varias categorías</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Os mellores %1$s xogadores en %2$s, ordenados por puntuación</string>
+	<string name="selectHandicap">Seleccionar desvantaxe</string>
+	<string name="pasteTheSfenStringHere">Pega o texto SFEN aquí</string>
+	<string name="pasteTheKifCsaStringHere">Pega o texto KIF ou CSA aquí</string>
+	<string name="fromPosition">Dende posición</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">Por defecto</string>
+	<string name="continueFromHere">Continuar dende aquí</string>
 	<string name="toStudy">Study</string>
 	<string name="importGame">Import game</string>
 	<string name="importedGame">Game was imported.</string>
