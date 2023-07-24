@@ -369,7 +369,7 @@
 	<string name="toStudy">Estudar</string>
 	<string name="importGame">Importar partida</string>
 	<string name="importedGame">A partida foi importada.</string>
-	<string name="importGameKifCsaExplanation">Pega o PGN dunha partida para obter unha versión navegable, análise por ordenador, sala de conversa do xogo e unha ligazón para compartila.</string>
+	<string name="importGameKifCsaExplanation">Pega o KIF/CSA dunha partida para obter unha versión navegable, análise por ordenador, sala de conversa do xogo e unha ligazón para compartila.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s partida importada</item>
 		<item quantity="other">%s partidas importadas</item>
