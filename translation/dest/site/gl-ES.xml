@@ -366,16 +366,16 @@
 	<string name="fromPosition">Dende posición</string>
 	<string name="default" comment="Default starting position as opposed to custom starting position">Por defecto</string>
 	<string name="continueFromHere">Continuar dende aquí</string>
-	<string name="toStudy">Study</string>
-	<string name="importGame">Import game</string>
-	<string name="importedGame">Game was imported.</string>
-	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay, computer analysis, game chat and shareable URL.</string>
+	<string name="toStudy">Estudar</string>
+	<string name="importGame">Importar partida</string>
+	<string name="importedGame">A partida foi importada.</string>
+	<string name="importGameKifCsaExplanation">Pega o PGN dunha partida para obter unha versión navegable, análise por ordenador, sala de conversa do xogo e unha ligazón para compartila.</string>
 	<plurals name="nbImportedGames">
-		<item quantity="one">%s imported game</item>
-		<item quantity="other">%s imported games</item>
+		<item quantity="one">%s partida importada</item>
+		<item quantity="other">%s partidas importadas</item>
 	</plurals>
-	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
-	<string name="clickOnTheBoardToMakeYourMove">Click on the board to make your move, and prove you are human.</string>
+	<string name="thisIsAShogiCaptcha">Isto é un CAPTCHA de shogi.</string>
+	<string name="clickOnTheBoardToMakeYourMove">Preme no taboleiro para facer a túa xogada e demostrar que es humano.</string>
 	<string name="captcha.fail">Please solve the shogi captcha.</string>
 	<string name="notACheckmate">Not a checkmate</string>
 	<string name="xCheckmatesInOneMove" comment="%s - sente(black)/gote(white)">%s to checkmate in one move</string>
