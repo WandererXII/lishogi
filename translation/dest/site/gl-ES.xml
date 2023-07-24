@@ -441,19 +441,19 @@
 	<string name="createdBy">Creado por</string>
 	<string name="tournamentIsStarting">O torneo vai comezar</string>
 	<string name="tournamentPairingsAreNowClosed">Os emparellamentos do torneo xa están pechados.</string>
-	<string name="standByX">Stand by %s, pairing players, get ready!</string>
-	<string name="youArePlaying">You are playing!</string>
-	<string name="winRate">Win rate</string>
-	<string name="berserkRate">Berserk rate</string>
-	<string name="performance">Performance</string>
-	<string name="tournamentComplete">Tournament complete</string>
-	<string name="movesPlayed">Moves played</string>
-	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s wins</string>
-	<string name="draws">Draws</string>
-	<string name="nextXTournament">Next %s tournament:</string>
-	<string name="averageOpponent">Average opponent</string>
-	<string name="membersOnly">Members only</string>
-	<string name="boardEditor">Board editor</string>
+	<string name="standByX">Agarda %s, emparellando xogadores, prepárate!</string>
+	<string name="youArePlaying">Estás xogando!</string>
+	<string name="winRate">Porcentaxe de vitorias</string>
+	<string name="berserkRate">Porcentaxe de berserk</string>
+	<string name="performance">Rendemento</string>
+	<string name="tournamentComplete">Torneo rematado</string>
+	<string name="movesPlayed">Movementos xogados</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s vitorias</string>
+	<string name="draws">Táboas</string>
+	<string name="nextXTournament">Seguinte torneo %s:</string>
+	<string name="averageOpponent">Opoñente medio</string>
+	<string name="membersOnly">Só membros do equipo</string>
+	<string name="boardEditor">Editor de taboleiro</string>
 	<string name="editorDescription">Load shogi positions or create your own shogi position on a shogi board editor</string>
 	<string name="setTheBoard">Set the board</string>
 	<string name="popularOpenings">Popular openings</string>
