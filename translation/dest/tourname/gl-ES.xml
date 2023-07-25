@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="hourlyRapidArena">Hourly Rapid Arena</string>
-  <string name="hourlyRapid">Hourly Rapid</string>
-  <string name="hourlyXArena">Hourly %s Arena</string>
-  <string name="hourlyX" comment="adjective">Hourly %s</string>
-  <string name="dailyRapidArena">Daily Rapid Arena</string>
-  <string name="dailyRapid">Daily Rapid</string>
-  <string name="dailyClassicalArena">Daily Classical Arena</string>
-  <string name="dailyClassical">Daily Classical</string>
-  <string name="dailyXArena">Daily %s Arena</string>
-  <string name="dailyX" comment="adjective">Daily %s</string>
-  <string name="easternRapidArena">Eastern Rapid Arena</string>
-  <string name="easternRapid">Eastern Rapid</string>
-  <string name="easternClassicalArena">Eastern Classical Arena</string>
+  <string name="hourlyRapidArena">Arena Rápida horaria</string>
+  <string name="hourlyRapid">Rápido horario</string>
+  <string name="hourlyXArena">Arena %s horaria</string>
+  <string name="hourlyX" comment="adjective">%s horario</string>
+  <string name="dailyRapidArena">Arena Rápida diaria</string>
+  <string name="dailyRapid">Rápido diario</string>
+  <string name="dailyClassicalArena">Arena Clásica diaria</string>
+  <string name="dailyClassical">Clásico diario</string>
+  <string name="dailyXArena">Arena %s diaria</string>
+  <string name="dailyX" comment="adjective">%s diario</string>
+  <string name="easternRapidArena">Arena Rápida oriental</string>
+  <string name="easternRapid">Rápido oriental</string>
+  <string name="easternClassicalArena">Arena Clásica oriental</string>
   <string name="easternClassical">Eastern Classical</string>
   <string name="easternXArena">Eastern %s Arena</string>
   <string name="easternX">Eastern %s</string>
