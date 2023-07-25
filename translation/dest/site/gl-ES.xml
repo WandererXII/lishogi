@@ -906,36 +906,36 @@
 	<string name="previousBlogPosts">Anteriores publicacións</string>
 	<string name="continueReadingThis"> Continuar lendo esta publicación</string>
 	<string name="discussBlogForum">Discutir esta publicación no foro</string>
-	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
-	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
-	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
-	<string name="postGameStudy">Post-game study</string>
-	<string name="postGameStudies">Post-game studies</string>
-	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
-	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
-	<string name="studyWithOpponent">Study with opponent</string>
-	<string name="studyOfPlayers">Study of players</string>
-	<string name="studyWith">Study with:</string>
-	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
-	<string name="standardStudy">Standard study</string>
-	<string name="welcomeToX">Welcome to %s!</string>
-	<string name="whatNow">What now?</string>
-	<string name="hereAreSuggestions">Here are a few suggestions:</string>
-	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
-	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
-	<string name="or" comment="links alternatives: Do X or do Y">or</string>
-	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
-	<string name="challengeDeclined">Challenge declined</string>
-	<string name="challengeAccepted">Challenge accepted</string>
-	<string name="challengeCanceled">Challenge canceled</string>
-	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
-	<string name="challengeDescription">Join the challenge or watch the game</string>
-	<string name="challengeFromX" comment="From username">Challenge from %s</string>
-	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
-	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
-	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
-	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
-	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
-	<string name="back" comment="As in: go back">Back</string>
-	<string name="preview">Preview</string>
+	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Pezas invasoras</string>
+	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Rei entrante</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Valor total</string>
+	<string name="postGameStudy">Estudo post mortem</string>
+	<string name="postGameStudies">Estudos post mortem</string>
+	<string name="postGameStudyExplanation">Os estudos post mortem aparecen listados na súa propia categoría e permiten a oferta directa de desquite ou solicitar unha nova partida.</string>
+	<string name="postGameStudiesOfGame">Estudos post mortem desta partida</string>
+	<string name="studyWithOpponent">Estudar co rival</string>
+	<string name="studyOfPlayers">Estudo dos xogadores</string>
+	<string name="studyWith">Estudar con:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Opcional</string>
+	<string name="standardStudy">Estudo estándar</string>
+	<string name="welcomeToX">Benvido a %s!</string>
+	<string name="whatNow">E agora que?</string>
+	<string name="hereAreSuggestions">Velaquí algunhas suxestións:</string>
+	<string name="hangOn" comment="Meaning: wait!">Agarda!</string>
+	<string name="gameInProgressWithX">Estás xogando unha partida con %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">ou</string>
+	<string name="gameInProgressDescription">Non podes comezar unha nova partida ata que esta remate.</string>
+	<string name="challengeDeclined">Reto rexeitado</string>
+	<string name="challengeAccepted">Reto aceptado</string>
+	<string name="challengeCanceled">Reto cancelado</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Abrir o reto</string>
+	<string name="challengeDescription">Unirse ó reto ou ver a partida</string>
+	<string name="challengeFromX" comment="From username">Reto de %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s desafía a %2$s</string>
+	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Preme %s para activar o teclado</string>
+	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Preme %s para enviar</string>
+	<string name="clickGame">Preme para repetir, analizar e discutir a partida!</string>
+	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analizar</string>
+	<string name="back" comment="As in: go back">Volver</string>
+	<string name="preview">Vista previa</string>
 </resources>
