@@ -800,42 +800,42 @@
 	<string name="custom">Á medida</string>
 	<string name="notifications">Notificacións</string>
 	<string name="challenges">Retos</string>
-	<string name="perfRatingX">Rating: %s</string>
+	<string name="perfRatingX">Puntuación: %s</string>
 	<plurals name="nbSecondsToPlayTheFirstMove">
-		<item quantity="one">%s second to play the first move</item>
-		<item quantity="other">%s seconds to play the first move</item>
+		<item quantity="one">%s segundo para facer a primeira xogada</item>
+		<item quantity="other">%s segundos para facer a primeira xogada</item>
 	</plurals>
-	<string name="practiceWithComputer">Practice with computer</string>
-	<string name="anotherWasX">Another was %s</string>
-	<string name="bestWasX">Best was %s</string>
-	<string name="youBrowsedAway">You browsed away</string>
-	<string name="resumePractice">Resume practice</string>
-	<string name="theGameIsADraw">The game is a draw.</string>
-	<string name="computerThinking">Computer thinking ...</string>
-	<string name="seeBestMove">See best move</string>
-	<string name="hideBestMove">Hide best move</string>
-	<string name="getAHint">Get a hint</string>
-	<string name="evaluatingYourMove">Evaluating your move ...</string>
-	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s wins</string>
-	<string name="learnFromYourMistakes">Learn from your mistakes</string>
-	<string name="learnFromThisMistake">Learn from this mistake</string>
-	<string name="skipThisMove">Skip this move</string>
-	<string name="next">Next</string>
-	<string name="xWasPlayed">%s was played</string>
-	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Find a better move for %s</string>
-	<string name="resumeLearning">Resume learning</string>
-	<string name="youCanDoBetter">You can do better</string>
-	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Try another move for %s</string>
-	<string name="solution">Solution</string>
-	<string name="waitingForAnalysis">Waiting for analysis</string>
-	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
-	<string name="doItAgain">Do it again</string>
-	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
-	<string name="advantage">Advantage</string>
+	<string name="practiceWithComputer">Practicar coa computadora</string>
+	<string name="anotherWasX">Outra era %s</string>
+	<string name="bestWasX">A mellor era %s</string>
+	<string name="youBrowsedAway">Saíches da revisión</string>
+	<string name="resumePractice">Seguir practicando</string>
+	<string name="theGameIsADraw">A partida remata en táboas.</string>
+	<string name="computerThinking">Computadora pensando...</string>
+	<string name="seeBestMove">Ver o mellor movemento</string>
+	<string name="hideBestMove">Ocultar o mellor movemento</string>
+	<string name="getAHint">Obter unha pista</string>
+	<string name="evaluatingYourMove">Avaliando o teu movemento...</string>
+	<string name="xWinsGame" comment="%s - sente(black)/gote(white)">%s gaña</string>
+	<string name="learnFromYourMistakes">Aprende dos teus erros</string>
+	<string name="learnFromThisMistake">Aprende deste erro</string>
+	<string name="skipThisMove">Salta este movemento</string>
+	<string name="next">Seguinte</string>
+	<string name="xWasPlayed">%s foi xogado</string>
+	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Encontra un movemento mellor para %s</string>
+	<string name="resumeLearning">Retomar avaliación</string>
+	<string name="youCanDoBetter">Podes facelo mellor</string>
+	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Tenta outro movemento para %s</string>
+	<string name="solution">Solución</string>
+	<string name="waitingForAnalysis">Agardando pola análise</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">Non hai erros de %s</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Terminada a revisión de erros de %s</string>
+	<string name="doItAgain">Faino de novo</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Revisar os erros de %s</string>
+	<string name="advantage">Vantaxe</string>
 	<plurals name="nbSeconds">
-		<item quantity="one">%s second</item>
-		<item quantity="other">%s seconds</item>
+		<item quantity="one">%s segundo</item>
+		<item quantity="other">%s segundos</item>
 	</plurals>
 	<string name="opening">Opening</string>
 	<string name="middlegame">Middlegame</string>
