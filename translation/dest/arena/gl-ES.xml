@@ -14,38 +14,36 @@ As seguintes partidas continuarán valendo dobre ata que pares de gañar.
 
 Por exemplo, dúas vitorias seguidas por unhas táboas valen 6 puntos: 2 + 2 + (2 x 1)</string>
   <string name="berserk">Modo Berserk</string>
-  <string name="berserkAnswer">When a player clicks the Berserk button at the beginning of the game, they lose half of their clock time, but the win is worth one extra tournament point.
+  <string name="berserkAnswer">Cando un xogador preme no botón de Berserk ao comezo da partida, perde a metade do seu tempo no reloxo, pero a vitoria, de conseguila, valerá un punto máis.
 
-Going Berserk in time controls with an increment and byoyomi also cancels the increment and byoyomi time (1+2 is an exception, it gives 1+0).
+Facer o Berserk en controis de tempo con incremento e byoyomi tamén cancela o incremento e o byoyomi (1+2 é unha excepción, xa que se converte en 1+0).
 
-Berserk is not available for games with zero initial time (0+1, 0+2).
+O modo Berserk non está dispoñible en partidas con tempo inicial cero (0+1, 0+2).
 
-Berserk only grants an extra point if you play at least 7 moves in the game.</string>
-  <string name="howIsTheWinnerDecided">How is the winner decided?</string>
-  <string name="howIsTheWinnerDecidedAnswer">The player(s) with the most points at the conclusion of the tournament\'s set time limit will be announced winner(s).
-
-When two or more players have the same number of points, the tournament performance is the tie break.</string>
-  <string name="howDoesPairingWork">How does the pairing work?</string>
-  <string name="howDoesPairingWorkAnswer">At the beginning of the tournament, players are paired based on their rating.
-As soon as you finish a game, return to the tournament lobby: you will then be paired with a player close to your ranking. This ensures minimum wait time, however you may not face all other players in the tournament.
-Play fast and return to the lobby to play more games and win more points.</string>
-  <string name="howDoesItEnd">How does it end?</string>
-  <string name="howDoesItEndAnswer">The tournament has a countdown clock. When it reaches zero, the tournament rankings are frozen, and the winner is announced. Games in progress must be finished, however they don\'t count for the tournament.</string>
-  <string name="otherRules">Other important rules</string>
-  <string name="thereIsACountdown">There is a countdown for your first move. Failing to make a move within this time will forfeit the game to your opponent.</string>
+O modo Berserk só garante un punto adicional no caso de que se realicen polo menos 7 xogadas na partida.</string>
+  <string name="howIsTheWinnerDecided">Como se decide o gañador?</string>
+  <string name="howIsTheWinnerDecidedAnswer">O(s) xogador(es) con máis puntos á conclusión do tempo establecido para o torneo será(n) proclamado(s) gañador(es).</string>
+  <string name="howDoesPairingWork">Como funcionan os emparellamentos?</string>
+  <string name="howDoesPairingWorkAnswer">Ao comezo do torneo, os xogadores son emparellados segundo a súa puntuación.
+Así que rematas unha partida, voltas á sala de espera: alí serás emparellado cun xogador que estea preto na clasificación. Isto garante un mínimo tempo de espera, aínda que pode que non xogues contra todos os xogadores do torneo.
+Xoga rápido e volta á sala de espera para xogar máis partidas e gañar máis puntos.</string>
+  <string name="howDoesItEnd">Como remata?</string>
+  <string name="howDoesItEndAnswer">O torneo ten un reloxo cunha conta atrás. Cando chega a cero, a clasificación do torneo se conxela e se proclama ó gañador. As partidas en curso nese momento deben rematar, pero non contan para a clasificación do torneo.</string>
+  <string name="otherRules">Outras regras importantes</string>
+  <string name="thereIsACountdown">Hai unha conta atrás para a túa primeira xogada. Non executala neste tempo dará a vitoria ao teu opoñente.</string>
   <plurals name="drawingWithinNbMoves">
-    <item quantity="one">Drawing the game within the first %s move will earn neither player any points.</item>
-    <item quantity="other">Drawing the game within the first %s moves will earn neither player any points.</item>
+    <item quantity="one">Se a partida remata en táboas no movemento %s, non se concederán puntos a ningún dos xogadores.</item>
+    <item quantity="other">Se a partida remata en táboas durante os primeiros %s movementos, non se concederán puntos a ningún dos xogadores.</item>
   </plurals>
-  <string name="thisIsPrivate">This is a private tournament</string>
-  <string name="shareUrl">Share this URL to let people join: %s</string>
-  <string name="drawStreak">Draw streaks: When a player has consecutive draws in an arena, only the first draw will result in a point, or draws lasting more than %s moves. The draw streak can only be broken by a win, not a loss or a draw.</string>
-  <string name="noBerserkAllowed">No Berserk allowed</string>
-  <string name="noArenaStreaks">No Arena streaks</string>
-  <string name="averagePerformance">Average performance</string>
-  <string name="averageScore">Average score</string>
+  <string name="thisIsPrivate">Este é un torneo privado</string>
+  <string name="shareUrl">Comparte este URL para que a xente se una: %s</string>
+  <string name="drawStreak">Secuencias de táboas: Cando un xogador fai varias táboas consecutivas na Arena, só a primeira delas recibe un punto, así como as que duren máis de %s movementos. Só podes romper unha secuencia de táboas mediante unha vitoria, non serven nin unha derrota nin unhas táboas.</string>
+  <string name="noBerserkAllowed">Non está permitido facer o Berserk</string>
+  <string name="noArenaStreaks">Arena sen secuencias de vitorias</string>
+  <string name="averagePerformance">Rendemento medio</string>
+  <string name="averageScore">Puntuación media</string>
   <plurals name="viewAllXTeams" comment="viewAllXTeams [one] [other]&#10;&#10;%s is the number of teams that can be viewed">
-    <item quantity="one">View the team</item>
-    <item quantity="other">View all %s teams</item>
+    <item quantity="one">Ver o equipo</item>
+    <item quantity="other">Ver todos os %s equipos</item>
   </plurals>
 </resources>
