@@ -837,13 +837,13 @@
 		<item quantity="one">%s segundo</item>
 		<item quantity="other">%s segundos</item>
 	</plurals>
-	<string name="opening">Opening</string>
-	<string name="middlegame">Middlegame</string>
-	<string name="endgame">Endgame</string>
-	<string name="registerToSendChallenges">Please register to send challenges.</string>
-	<string name="youCannotChallengeX">You cannot challenge %s.</string>
-	<string name="xDoesNotAcceptChallenges">%s does not accept challenges.</string>
-	<string name="yourXRatingIsTooFarFromY">Your %1$s rating is too far from %2$s.</string>
+	<string name="opening">Apertura</string>
+	<string name="middlegame">Medio xogo</string>
+	<string name="endgame">Final</string>
+	<string name="registerToSendChallenges">Por favor, rexístrate para enviar retos.</string>
+	<string name="youCannotChallengeX">Non podes retar a %s.</string>
+	<string name="xDoesNotAcceptChallenges">%s non acepta retos.</string>
+	<string name="yourXRatingIsTooFarFromY">A túa puntuación %1$s está demasiado lonxe de %2$s.</string>
 	<string name="cannotChallengeDueToProvisionalXRating">Cannot challenge due to provisional %s rating.</string>
 	<string name="xOnlyAcceptsChallengesFromFriends">%s only accepts challenges from friends.</string>
 	<string name="conditionalPremoves">Conditional premoves</string>
