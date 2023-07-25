@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="arenaTournaments">Arena tournaments</string>
-  <string name="isItRated">Is it rated?</string>
-  <string name="willBeNotified">You will be notified when the tournament starts, so it is safe to play in another tab while waiting.</string>
-  <string name="isRated">This tournament is rated and will affect your rating.</string>
-  <string name="isNotRated">This tournament is *not* rated and will *not* affect your rating.</string>
-  <string name="someRated">Some tournaments are rated and will affect your rating.</string>
-  <string name="howAreScoresCalculated">How are scores calculated?</string>
-  <string name="howAreScoresCalculatedAnswer">A win has a base score of 2 points, a draw 1 point, and a loss is worth no points.
-If you win two games consecutively you will start a double point streak, represented by a flame icon.
-The following games will continue to be worth double points until you fail to win a game.
-That is, a win will be worth 4 points, a draw 2 points, and a loss will still not award any points.
+  <string name="arenaTournaments">Torneos Arena</string>
+  <string name="isItRated">É puntuado?</string>
+  <string name="willBeNotified">Serás notificado cando comece o torneo, polo que podes xogar sen problema noutra lapela mentres agardas.</string>
+  <string name="isRated">Este torneo é puntuado e afectará á túa puntuación.</string>
+  <string name="isNotRated">Este torneo *non* é puntuado e *non* afectará á túa puntuación.</string>
+  <string name="someRated">Algúns torneos son puntuados e afectarán á túa puntuación.</string>
+  <string name="howAreScoresCalculated">Como se calculan os puntos de torneo?</string>
+  <string name="howAreScoresCalculatedAnswer">Unha vitoria ten unha puntuación por defecto de 2 puntos, unhas táboas suman 1 punto e as derrotas cero.
+Se gañas dúas partidas seguidas, comezarás unha secuencia de puntuación dobre, representada por unha icona de lapa.
+As seguintes partidas continuarán valendo dobre ata que pares de gañar.
+É dicir, unha vitoria valerá 4 puntos, unhas táboas 2 puntos e a derrota segue sendo 0.
 
-For example, two wins followed by a draw will be worth 6 points: 2 + 2 + (2 x 1)</string>
-  <string name="berserk">Arena Berserk</string>
+Por exemplo, dúas vitorias seguidas por unhas táboas valen 6 puntos: 2 + 2 + (2 x 1)</string>
+  <string name="berserk">Modo Berserk</string>
   <string name="berserkAnswer">When a player clicks the Berserk button at the beginning of the game, they lose half of their clock time, but the win is worth one extra tournament point.
 
 Going Berserk in time controls with an increment and byoyomi also cancels the increment and byoyomi time (1+2 is an exception, it gives 1+0).
