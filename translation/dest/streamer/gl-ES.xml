@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="xStreamsShogi">%s streams shogi</string>
-  <string name="lishogiStreamers">Lishogi streamers</string>
-  <string name="lishogiStreamer">Lishogi streamer</string>
-  <string name="live">LIVE!</string>
-  <string name="offline">OFFLINE</string>
-  <string name="currentlyStreaming">Currently streaming: %s</string>
-  <string name="lastStream">Last stream %s</string>
-  <string name="becomeStreamer">Become a Lishogi streamer</string>
-  <string name="doYouHaveStream">Do you have a Twitch or YouTube channel?</string>
-  <string name="hereWeGo">Here we go!</string>
-  <string name="allStreamers">All streamers</string>
-  <string name="editPage">Edit streamer page</string>
-  <string name="yourPage">Your streamer page</string>
-  <string name="downloadKit">Download streamer kit</string>
-  <string name="xIsStreaming">%s is streaming</string>
+  <string name="xStreamsShogi">%s transmite shogi</string>
+  <string name="lishogiStreamers">Presentadores de Lishogi</string>
+  <string name="lishogiStreamer">Presentador de Lishogi</string>
+  <string name="live">EN DIRECTO!</string>
+  <string name="offline">DESCONECTADO</string>
+  <string name="currentlyStreaming">Transmitindo agora mesmo: %s</string>
+  <string name="lastStream">Última transmisión %s</string>
+  <string name="becomeStreamer">Convértete nun presentador de Lishogi</string>
+  <string name="doYouHaveStream">Tes unha canle de Twitch ou de YouTube?</string>
+  <string name="hereWeGo">Imos!</string>
+  <string name="allStreamers">Todos os presentadores</string>
+  <string name="editPage">Edita a páxina de presentador</string>
+  <string name="yourPage">A túa páxina de presentador</string>
+  <string name="downloadKit">Descarga o equipo de presentador</string>
+  <string name="xIsStreaming">%s está transmitindo</string>
   <string name="rules">Streaming rules</string>
   <string name="rule1">Include the keyword \"lishogi.org\" in your stream title and use the category \"Shogi\" when you stream on Lishogi.</string>
   <string name="rule2">Remove the keyword when you stream non-Lishogi stuff.</string>
