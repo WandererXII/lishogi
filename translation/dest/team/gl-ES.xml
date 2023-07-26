@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="team">Team</string>
-  <string name="teams">Teams</string>
+  <string name="team">Equipo</string>
+  <string name="teams">Equipos</string>
   <plurals name="nbMembers">
-    <item quantity="one">%s member</item>
-    <item quantity="other">%s members</item>
+    <item quantity="one">%s membro</item>
+    <item quantity="other">%s membros</item>
   </plurals>
-  <string name="allTeams">All teams</string>
-  <string name="newTeam">New team</string>
-  <string name="myTeams">My teams</string>
-  <string name="noTeamFound">No team found</string>
+  <string name="allTeams">Todos os equipos</string>
+  <string name="newTeam">Novo equipo</string>
+  <string name="myTeams">Os meus equipos</string>
+  <string name="noTeamFound">Ningún equipo atopado</string>
   <string name="joinTeam">Join team</string>
   <string name="quitTeam">Leave team</string>
   <string name="anyoneCanJoin">Free for all</string>
