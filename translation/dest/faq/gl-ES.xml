@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="faqAbbreviation">FAQ</string>
-	<string name="frequentlyAskedQuestions">Frequently Asked Questions</string>
-	<string name="whyIsLishogiCalledLishogi">Why is Lishogi called Lishogi?</string>
+	<string name="faqAbbreviation">Preguntas Frecuentes</string>
+	<string name="frequentlyAskedQuestions">Preguntas Frecuentes</string>
+	<string name="whyIsLishogiCalledLishogi">Por que Lishogi se chama Lishogi?</string>
 	<string name="forkedFromLichess">Lishogi is open source project forked from Lichess, but since it\'s for playing shogi, it\'s called Lishogi.</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Because it\'s derived from Lichess. And Lichess is called Lichess because it\'s a combination of live/light/libre and chess. Lishogi is pronounced %1$s.</string>
 	<string name="leeshogi">lee-shogi</string>
