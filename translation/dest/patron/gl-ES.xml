@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="donate">Donate</string>
-	<string name="lishogiPatron">Lishogi Patron</string>
-	<string name="freeAccount">Free account</string>
-	<string name="becomePatron">Become a Lishogi Patron</string>
+	<string name="donate">Doar</string>
+	<string name="lishogiPatron">Patrón de Lishogi</string>
+	<string name="freeAccount">Conta gratuíta</string>
+	<string name="becomePatron">Faite Patrón de Lishogi</string>
 	<string name="xBecamePatron">%s became a Lishogi Patron</string>
 	<string name="newPatrons">New Patrons</string>
 	<string name="freeShogi">Free shogi for everyone, forever!</string>
