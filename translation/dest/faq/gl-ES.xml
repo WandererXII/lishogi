@@ -55,43 +55,43 @@ A análise por ordenador en Lishogi é proporcionada por YaneuraOu e Fairy-Stock
 	<string name="configure">configurar</string>
 	<string name="accounts">Contas</string>
 	<string name="titlesAvailableOnLishogi">Que títulos hai en Lishogi?</string>
-	<string name="showYourTitle">If you have an OTB title, you can apply to have this displayed on your account by completing the %1$s, including a clear image of an identifying document/card and a selfie of you holding the document/card.
+	<string name="showYourTitle">Se tes un título presencial (OTB), podes solicitar que se amose na túa conta completando o %1$s, incluíndo unha imaxe clara dun documento/tarxeta de identificación e unha foto túa portando dito documento/tarxeta.
 
-Verifying as a titled player on Lishogi gives access to play in the Titled Arena events.
+A verificación como xogador titulado en Lishogi dá acceso a xogar nos eventos Arena para Titulados.
 
-Finally there is an honorary %2$s title.</string>
-	<string name="verificationForm">verification form</string>
-	<string name="canIbecomeLM">Can I get the Lishogi Master (LM) title?</string>
-	<string name="noUpperCaseDot">No.</string>
-	<string name="lMtitleComesToYouDoNotRequestIt">This honorific title is unofficial and only exists on Lishogi.
+Finalmente, existe o título honorífico %2$s.</string>
+	<string name="verificationForm">formulario de verificación</string>
+	<string name="canIbecomeLM">Podo obter o título de Lishogi Master (LM)?</string>
+	<string name="noUpperCaseDot">Non.</string>
+	<string name="lMtitleComesToYouDoNotRequestIt">Este título honorífico non é oficial e só existe en Lishogi.
 
-We rarely award it to highly notable players who are good citizens of Lishogi, at our discretion. You don\'t get the LM title, the LM title gets to you. If you qualify, you will get a message from us regarding it and the choice to accept or decline.
+En raras ocasións outorgámosllelo a eito aos xogadores moi destacados que son bos cidadáns de Lishogi. O título de LM non se consegue, senon que chega ós xogadores. Se cumpres os requisitos, recibirás unha mensaxe nosa ao respecto e a opción de aceptar ou rexeitar o título.
 
-Do not ask for the LM title.</string>
-	<string name="whatUsernameCanIchoose">What can my username be?</string>
-	<string name="usernamesNotOffensive">In general, usernames should not be: offensive, impersonating someone else, or advertising. You can read more about the %1$s.</string>
-	<string name="guidelines">guidelines</string>
-	<string name="uniqueTrophies">Unique trophies</string>
-	<string name="ownerUniqueTrophies">That trophy is unique in the history of Lishogi, nobody other than %1$s will ever have it.</string>
-	<string name="aHourlyBulletTournament">a hourly Bullet tournament</string>
-	<string name="lishogiRatings">Lishogi ratings</string>
-	<string name="whichRatingSystemUsedByLishogi">What rating system does Lishogi use?</string>
-	<string name="ratingSystemUsedByLishogi">Ratings are calculated using the Glicko-2 rating method developed by Mark Glickman. This is a very popular rating method, and is used by a significant number of chess organisations (FIDE being a notable counter-example, as they still use the dated Elo rating system).
+Non solicites o título de LM.</string>
+	<string name="whatUsernameCanIchoose">Cal pode ser o meu nome de usuario?</string>
+	<string name="usernamesNotOffensive">En xeral, os nomes de usuario non deben: ser ofensivos, suplantar a alguén ou facer publicidade. Podes ler máis sobre as %1$s.</string>
+	<string name="guidelines">directrices</string>
+	<string name="uniqueTrophies">Trofeos únicos</string>
+	<string name="ownerUniqueTrophies">Este trofeo é único na historia de Lishogi, ninguén máis ca %1$s poderá obtelo.</string>
+	<string name="aHourlyBulletTournament">torneo Bala horario</string>
+	<string name="lishogiRatings">Puntuacións en Lishogi</string>
+	<string name="whichRatingSystemUsedByLishogi">Que sistema de puntuación emprega Lishogi?</string>
+	<string name="ratingSystemUsedByLishogi">As puntuacións calcúlanse empregando o método Glicko-2 desenvolto por Mark Glickman. É un método de puntuación moi popular e que utilizan moitas organizacións de xadrez (a FIDE é un contraexemplo notable, xa que todavía utiliza o anticuado sistema de puntuación Elo).
 
-Fundamentally, Glicko ratings use \"confidence intervals\" when calculating and representing your rating. When you first start using the site, your rating starts at 1500 ± 700. The 1500 represents your rating, and the 700 represents the confidence interval.
+En síntese, a puntuación Glicko usa \"intervalos de confianza\" ao calcular e representar a túa puntuación. Cando empregas por primeira vez a páxina, a túa puntuación é de 1500 ± 700. O 1500 representa a túa puntuación, e o 700 representa o intervalo de confianza.
 
-Basically, the system is 90% sure that your rating is somewhere between 800 and 2200. It is incredibly uncertain. Because of this, when a player is just starting out, their rating will change very dramatically, potentially several hundred points at a time. But after some games against established players the confidence interval will narrow, and the amount of points gained/lost after each game will decrease.
+Basicamente, o sistema ten a seguranza ó 90% de que a túa puntuación está entre 800 e 2200. Isto significa que hai moita incerteza. Por iso, cando un xogador se rexistra, a súa puntuación cambiará de forma moi brusca, incluso varios centos de puntos de cada vez. Só tras algunhas partidas contra xogadores máis veteranos, o intervalo de confianza será máis pequeno e a cantidade de puntos gañados/perdidos despois de cada partida diminuirá.
 
-Another point to note is that, as time passes, the confidence interval will increase. This allows you to gain/lose points points more rapidly to match any changes in your skill level over that time.</string>
-	<string name="whatIsProvisionalRating">Why is there a question mark (?) next to a rating?</string>
-	<string name="provisionalRatingExplanation">The question mark means the rating is provisional. Reasons include:</string>
-	<string name="notPlayedEnoughRatedGamesAgainstX">The player has not yet finished enough rated games against %1$s in the rating category.</string>
-	<string name="similarOpponents">opponents of similar strength</string>
-	<string name="notPlayedRecently">The player hasn\'t played enough recent games. Depending on the number of games you\'ve played, it might take around a year of inactivity for your rating to become provisional again.</string>
-	<string name="ratingDeviationMorethanOneHundredTen">Concretely, it means that the Glicko-2 deviation is greater than 110. The deviation is the level of confidence the system has in the rating. The lower the deviation, the more stable is a rating.</string>
-	<string name="howDoLeaderoardsWork">How do ranks and leaderboards work?</string>
-	<string name="inOrderToAppearsYouMust">In order to get on the %1$s you must:</string>
-	<string name="ratingLeaderboards">rating leaderboard</string>
+Outro punto que cabe sinalar é que, se pasa un tempo sen xogares, o intervalo de confianza aumentará. Isto permite gañar/perder puntos máis rapidamente para igualar calquera cambio na túa forza de xogo durante ese tempo que pasaches sen xogar.</string>
+	<string name="whatIsProvisionalRating">Por que hai un signo de interrogación (?) xunto á puntuación?</string>
+	<string name="provisionalRatingExplanation">O signo de interrogación significa que a puntuación é provisional. Os motivos son:</string>
+	<string name="notPlayedEnoughRatedGamesAgainstX">O xogador non finalizou suficientes partidas puntuadas contra %1$s na categoría.</string>
+	<string name="similarOpponents">opoñentes de similar forza</string>
+	<string name="notPlayedRecently">O usuario non xogou suficientes partidas recentemente. Dependendo do número de partidas que xogases, pode pasar arredor dun ano de inactividade para que a túa puntuación volva ser provisional.</string>
+	<string name="ratingDeviationMorethanOneHundredTen">Concretamente, significa que a desviación Glicko-2 é maior ca 110. A desviación é o nivel de confianza que ten o sistema na puntuación. Canto máis baixa sexa a desviación, máis estable será unha puntuación.</string>
+	<string name="howDoLeaderoardsWork">Como funcionan as clasificacións e as listaxes de líderes?</string>
+	<string name="inOrderToAppearsYouMust">Para chegar á %1$s deberías:</string>
+	<string name="ratingLeaderboards">listaxe de líderes</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">have played at least 30 rated games in a given rating,</string>
 	<string name="havePlayedARatedGameAtLeastOneWeekAgo">have played a rated game within the last week for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
