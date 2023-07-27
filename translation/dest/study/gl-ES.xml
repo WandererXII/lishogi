@@ -149,17 +149,17 @@
   <string name="collectionTag" comment="Tags for kif and csa">Colección</string>
   <string name="lengthTag" comment="Tags for kif and csa">Lonxitude</string>
   <string name="prizeTag" comment="Tags for kif and csa">Premio</string>
-  <string name="initHelp" comment="Interactive study lesson">Axuda cun comentario ó xogador para que atope a xogada inicial.</string>
-  <string name="introGamebook" comment="Interactive study lesson">Introduce the gamebook with a comment</string>
-  <string name="putFirstMove" comment="Interactive study lesson">Put the opponent\'s first move on the board.</string>
-  <string name="explainMove" comment="Interactive study lesson">Explain the opponent move, and help the player find the next move, with a comment.</string>
-  <string name="reflectOnMove" comment="Interactive study lesson">You may reflect on the player\'s correct move, with a comment; or leave empty to jump immediately to the next move.</string>
-  <string name="variationMoves" comment="Interactive study lesson">Add variation moves to explain why specific other moves are wrong.</string>
-  <string name="explainWrongMove" comment="Interactive study lesson">Explain why this move is wrong in a comment</string>
-  <string name="orPromote" comment="Interactive study lesson">Or promote it as the mainline if it is the right move.</string>
-  <string name="otherMove" comment="Interactive study lesson">When any other wrong move is played:</string>
-  <string name="explainAllWrong" comment="Interactive study lesson">Explain why all other moves are wrong</string>
-  <string name="hintOnDemand" comment="Interactive study lesson">Optional, on-demand hint for the player:</string>
-  <string name="playerTip" comment="Interactive study lesson">Give the player a tip so they can find the right move</string>
-  <string name="playQuestion" comment="Interactive study lesson">What would you play in this position?</string>
+  <string name="initHelp" comment="Interactive study lesson">Axuda ó xogador a atopar a xogada inicial cun comentario.</string>
+  <string name="introGamebook" comment="Interactive study lesson">Presenta a lección interactiva cun comentario</string>
+  <string name="putFirstMove" comment="Interactive study lesson">Pon o primeiro movemento do opoñente no taboleiro.</string>
+  <string name="explainMove" comment="Interactive study lesson">Explica o movemento do opoñente e axuda ó xogador a atopar a seguinte xogada cun comentario.</string>
+  <string name="reflectOnMove" comment="Interactive study lesson">Se o xogador fixo a xogada correcta, podes engadir un comentario ou deixar en branco e saltar inmediatamente á seguinte xogada.</string>
+  <string name="variationMoves" comment="Interactive study lesson">Engade variantes para explicar por que algunhas xogadas en concreto son malas.</string>
+  <string name="explainWrongMove" comment="Interactive study lesson">Explica cun comentario por que esta xogada é mala</string>
+  <string name="orPromote" comment="Interactive study lesson">Ou convértea na liña principal se é a xogada correcta.</string>
+  <string name="otherMove" comment="Interactive study lesson">Cando calquera outra xogada incorrecta é xogada:</string>
+  <string name="explainAllWrong" comment="Interactive study lesson">Explica por que o resto de xogadas son malas</string>
+  <string name="hintOnDemand" comment="Interactive study lesson">Opcional, pista a petición do xogador:</string>
+  <string name="playerTip" comment="Interactive study lesson">Dálle unha pista ó xogador para que poida atopar a xogada correcta</string>
+  <string name="playQuestion" comment="Interactive study lesson">Que xogarías nesta posición?</string>
 </resources>
