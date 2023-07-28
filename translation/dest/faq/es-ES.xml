@@ -3,7 +3,7 @@
 	<string name="faqAbbreviation">Preguntas frecuentes</string>
 	<string name="frequentlyAskedQuestions">Preguntas frecuentes</string>
 	<string name="whyIsLishogiCalledLishogi">¿Por qué Lishogi se llama así?</string>
-	<string name="forkedFromLichess">Lishpgo es un proyecto de código abierto bifurcado de liсhess, pero ya que es para jugar shogi, se llama lishogi.</string>
+	<string name="forkedFromLichess">Lishogi es un proyecto de código abierto bifurcado a partir de Lichess. Como sirve para jugar al shogi, lo llamamos Lishogi.</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Porque se deriva de Liсhess. Y Liсhess se llama Liсhess porque es una combinación de liviano/luz/libre y ajedrez. Se pronouncia %1$s.</string>
 	<string name="leeshogi">li-shogi</string>
 	<string name="whyLiveLightLibre">En directo, porque los partidas se juegan y se ven en tiempo real 24/7; ligero y libre porque Lishogi es de código abierto y sin la basura propietaria que abunda en otras páginas.</string>
