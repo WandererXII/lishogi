@@ -15,7 +15,7 @@
 	<string name="breakdownOfOurCosts">descrición dos nosos gastos</string>
 	<string name="otherWaysToHelp">outras maneiras de axudar</string>
 	<string name="fairPlay">Xogo limpo</string>
-	<string name="whyFlaggedRatingManipulationOrCheater">Por que estou marcado por manipulación artificial da puntuación (deflación ou inflación) ou por uso da computadora?</string>
+	<string name="whyFlaggedRatingManipulationOrCheater">Por que estou marcado por manipulación artificial da puntuación (perder adrede ou non gañar limpamente) ou por uso da computadora?</string>
 	<string name="cheatDetectionMethods">Lishogi ten métodos de detección moi potentes e un proceso moi exhaustivo de revisión das probas e toma de decisións. Normalmente neste proceso están involucrados varios moderadores e pode levar un tempo. Aparte da marca en si, non daremos detalles sobre as probas ou a toma de decisións nos casos particulares. Non facelo así facilitaría evitar ser detectado no futuro, e significaría unha invitación a crear debates pouco produtivos. O tempo e o esforzo é mellor adicalos a cousas máis importantes. Os usuarios poden apelar enviándonos un correo a %1$s. Con todo, as decisións non adoitan ser anuladas.</string>
 	<string name="whenAmIEligibleRatinRefund">En que casos me devolven automaticamente os puntos perdidos contra os trampóns?</string>
 	<string name="ratingRefundExplanation">Un minuto despois de que un xogador é marcado, tómanse as súas derradeiras 40 partidas puntuadas dos tres últimos días. Se fuches o seu rival nesas partidas, perdiches puntos nelas (ó seres derrotado ou ó empatares) e a túa puntuación non era provisional, entón reintégranseche os puntos. Este reembolso está limitado pola túa puntuación máxima e pola evolución da túa puntuación despois desas partidas.
@@ -30,7 +30,7 @@
 	<string name="howBulletBlitzEtcDecided">Como se deciden os controis de tempo en Bala, Lóstrego e outros?</string>
 	<string name="basedOnGameDuration">Os controis de tempo de Lishogi están baseados na duración estimada dunha partida = %1$s
 Por exemplo, a duración estimada dunha partida de 5+3|4 (5 min de reloxo; incremento de 3s; 1 período byoyomi de 4s) é de (60 * 5) + (60 * 3) + (25 * 4 * 1) = 580 segundos.</string>
-	<string name="formulaOfDuration">60 * (tempo inicial en minutos) + 60 * (incremento) + 25 * (byoyomi) * (número de períodos)</string>
+	<string name="formulaOfDuration">60 * (tempo inicial en minutos) + 60 * (incremento do reloxo) + 25 * (duración do byoyomi) * (períodos byoyomi)</string>
 	<string name="inferiorThanXsEqualYtimeControl">&lt; %1$ss = %2$s</string>
 	<string name="superiorThanXsEqualYtimeControl">≥ %1$ss = %2$s</string>
 	<string name="whatVariantsCanIplay">Que variantes podo xogar en Lishogi?</string>
