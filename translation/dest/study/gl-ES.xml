@@ -100,7 +100,7 @@
   <string name="loadAPositionFromSfen">Cargar unha posición dende o SFEN</string>
   <string name="automatic">Automática</string>
   <string name="urlOfTheGame">Ligazóns das partidas, unha por liña</string>
-  <string name="loadAGameFromX">Cargar as partidas dende %1$s</string>
+  <string name="loadAGameFromX">Cargar partidas dende %1$s</string>
   <string name="createChapter">Crear capítulo</string>
   <string name="configureLiveBroadcast">Configurar a emisión en directo</string>
   <string name="createStudy">Crear estudo</string>
@@ -157,7 +157,7 @@
   <string name="variationMoves" comment="Interactive study lesson">Engade variantes para explicar por que algunhas xogadas en concreto son malas.</string>
   <string name="explainWrongMove" comment="Interactive study lesson">Explica cun comentario por que esta xogada é mala</string>
   <string name="orPromote" comment="Interactive study lesson">Ou convértea na liña principal se é a xogada correcta.</string>
-  <string name="otherMove" comment="Interactive study lesson">Cando calquera outra xogada incorrecta é xogada:</string>
+  <string name="otherMove" comment="Interactive study lesson">Cando se xoga calquera outro movemento incorrecto:</string>
   <string name="explainAllWrong" comment="Interactive study lesson">Explica por que o resto de xogadas son malas</string>
   <string name="hintOnDemand" comment="Interactive study lesson">Opcional, pista a petición do xogador:</string>
   <string name="playerTip" comment="Interactive study lesson">Dálle unha pista ó xogador para que poida atopar a xogada correcta</string>
