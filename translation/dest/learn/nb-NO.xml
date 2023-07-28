@@ -100,9 +100,10 @@ Ikke mist dine.</string>
 	<string name="reuseCapturedPieces">Gjenbruk tatte brikker!</string>
 	<string name="dropIntro">Som vanlig, ta fiendes brikker uten å miste dine egne!</string>
 	<string name="capturedPiecesCanBeDropped">Tatte brikker kan be settet tilbake på din tur!</string>
-	<string name="dropLimitations">You cannot drop a piece on another piece or drop it where it cannot have any legal moves. Dropping a piece in promotion zone doesn\'t result in promotion.
-Take the enemy pieces!</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
+	<string name="dropLimitations">Brikker kan ikke settet oppå andre brikker eller hvor de ikke har noen gyldige trekk.
+Hvis en brikke er plassert i forvandlessonen, så kan den ikke bli promotert før den har gjort et trekk.
+Ta fiendes brikker!</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">Du kan ikke ha to vanlige bønder på samme fil (vertikal linje).</string>
 	<string name="protection">Beskyttelse</string>
 	<string name="keepYourPiecesSafe">Hold dine brikker trygge</string>
 	<string name="protectionIntro">Oppdag brikkene motstanderen angriper, og dekk dem!</string>
@@ -110,8 +111,8 @@ Take the enemy pieces!</string>
 	<string name="escape">Du er under angrep! Unnslipp trusselen!</string>
 	<string name="noEscape">Det er ingen flukt,
 men du kan forsvare!</string>
-	<string name="makeSureAllSafe">Make sure all your pieces are safe!</string>
-	<string name="dontForgetYouCanDropToDefend">Don’t forget you can drop pieces to defend!</string>
+	<string name="makeSureAllSafe">Hver sikker på at alle brikker er trygge!</string>
+	<string name="dontForgetYouCanDropToDefend">Ikke glem at du kan sette ut brikker for å forsvare!</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">La ikke motstanderen ta en udekket brikke!</string>
 	<string name="combat">Kamp</string>
 	<string name="captureAndDefendPieces">Slå ut og forsvar brikker</string>
@@ -125,33 +126,33 @@ men du kan forsvare!</string>
 	<string name="outOfCheck">Ut av sjakk</string>
 	<string name="defendYourKing">Forsvar kongen din</string>
 	<string name="outOfCheckIntro">Du står i sjakk! Du må flykte fra trusselen eller blokkere angrepet.</string>
-	<string name="ifYourKingIsAttacked">If your king is attacked, you must deal with the attack.</string>
+	<string name="ifYourKingIsAttacked">Hvis kongen er angripet må du forsvare ham.</string>
 	<string name="escapeWithTheKing">Få kongen vekk!</string>
 	<string name="theKingCannotEscapeButBlock">Kongen kommer ikke unna, men du kan blokkere angrepet!</string>
 	<string name="youCanGetOutOfCheckByTaking">Du kan komme unna sjakken ved å slå ut den angripende brikken.</string>
 	<string name="thisKnightIsCheckingThroughYourDefenses">Denne springeren sjakker rett gjennom forsvarsverket ditt!</string>
-	<string name="getOutOfCheck">Get out of check!</string>
-	<string name="watchOutForYourOpponentsReply">Watch out for your opponent\'s reply!</string>
+	<string name="getOutOfCheck">Gå ut av sjakk!</string>
+	<string name="watchOutForYourOpponentsReply">Se på motstanderens svar!</string>
 	<string name="escapeOrBlock">Få kongen vekk eller blokker angrepet!</string>
 	<string name="outOfCheckComplete">Gratulerer! Kongen din kan ikke tas, pass på at du kan forsvare deg mot å bli satt sjakk!</string>
 	<string name="mateInOne">Matt i ett trekk</string>
 	<string name="defeatTheOpponentsKing">Beseire motspillerens konge</string>
 	<string name="mateInOneIntro">Du vinner når motspilleren ikke kan forsvare seg mot sjakk.</string>
-	<string name="toWinInShogi">To win in shogi, check your opponent\'s king such that they cannot defend. This is mate, or tsume.</string>
-	<string name="dropsCommonDeliverMate">Drops are a very common way to deliver mate.</string>
+	<string name="toWinInShogi">For å vinne i shogi må man sette fiendes konge i sjakk slik at de ikke kan forsvare. Dette kalles tsume, som er sjakkmatt.</string>
+	<string name="dropsCommonDeliverMate">Tsume - altså sjakkmatt - er ofte levert av å sette ut tatte brikker.</string>
 	<string name="attackYourOpponentsKing">Angrip motspillerens konge på en måte som det ikke er mulig å forsvare seg mot!</string>
-	<string name="chooseYourPieceCarefully">Choose your piece carefully!</string>
-	<string name="mateWithADroppedPawnIs">Mate with a dropped pawn is illegal - in a real game you would be forfeited!</string>
-	<string name="mateWithAPushedPawnIs">Mate with a pushed pawn is fine.</string>
+	<string name="chooseYourPieceCarefully">Velg din brikke omtenksomt!</string>
+	<string name="mateWithADroppedPawnIs">Å sette tsume (sjakkmatt) med en tatt bonde er ulovlig - i et spill ville du ha tapt!</string>
+	<string name="mateWithAPushedPawnIs">Tsume (sjakkmatt) med en vanlig bonde er greit.</string>
 	<string name="mateInOneComplete">Gratulerer! Slik vinner du i shogi!</string>
 	<string name="intermediate">Middels vanskelig</string>
 	<string name="boardSetup">Oppstilling</string>
 	<string name="howTheGameStarts">Hvordan partiet starter</string>
 	<string name="boardSetupIntro">De to arméene står mot hverandre, klare til kamp.</string>
 	<string name="thisIsTheInitialPosition">Dette er utgangsstillingen i alle sjakkpartier! Gjør et trekk for å fortsette.</string>
-	<string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.</string>
-	<string name="dropAGold">Drop a gold on the left side of the king, then place another gold on the right.</string>
-	<string name="thenPlaceASilver">Then place the silver next to the left-side gold, and a silver beside the right gold.</string>
+	<string name="firstPlaceTheKing">Det fins to tradisjonelle rekkefølger for å sette opp brikkene før starten av spillet. Vi vil lære deg Oohashi- (大橋-) måten, som er det profesjonelle ofte bruker. Kongen er først. Flytt kongen til bakerste midtfeltet.</string>
+	<string name="dropAGold">Sett ut en gull på venstre side av kongen, så på høyre siden.</string>
+	<string name="thenPlaceASilver">Så plasserer du sølv først ved siden av den venstre gull, så ved siden av den til høyre.</string>
 	<string name="dropTheKnights">Drop the knights the same way you placed the silvers. Your opponent will be doing the Itou (伊藤) style.</string>
 	<string name="dropTheLances">Drop the lances. Your opponent will start placing pawns left-to-right before the lances. This is the Itou style.</string>
 	<string name="placeTheBishopThenRook">Place the bishop above the left knight, then the rook above the right knight. Of course, in real games there is no need to be in sync with your opponent during setup.</string>
