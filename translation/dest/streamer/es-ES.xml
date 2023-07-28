@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="xStreamsShogi">%s transmite shogi</string>
-  <string name="lishogiStreamers">Streamers de Lishogi</string>
-  <string name="lishogiStreamer">Streamer de Lishogi</string>
+  <string name="lishogiStreamers">Presentadores de Lishogi</string>
+  <string name="lishogiStreamer">Presentador de Lishogi</string>
   <string name="live">¡EN DIRECTO!</string>
   <string name="offline">DESCONECTADO</string>
   <string name="currentlyStreaming">Transmitiendo ahora: %s</string>
@@ -20,7 +20,7 @@
   <string name="rule2">Elimina la palabra clave cuando transmitas cosas que no son relativas a Lishogi.</string>
   <string name="rule3">Lishogi detectará tu transmisión automáticamente y habilitará los siguientes incentivos:</string>
   <string name="perks">Beneficios de transmitir con la palabra clave</string>
-  <string name="perk1">Obtén un icono de transmisor en tu perfil de Lishogi.</string>
+  <string name="perk1">Obtén un icono de presentador en tu perfil de Lishogi.</string>
   <string name="perk2">Alcanza la cima de la lista de presentadores.</string>
   <string name="perk3">Avisar a tus seguidores de Lishogi.</string>
   <string name="perk4">Mostrar tu transmisión en tus juegos, torneos y estudios.</string>
