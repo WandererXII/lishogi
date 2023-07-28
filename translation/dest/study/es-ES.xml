@@ -99,7 +99,7 @@
   <string name="loadAGameByUrl">Cargar una partida desde una URL</string>
   <string name="loadAPositionFromSfen">Cargar una posición de SFEN</string>
   <string name="automatic">Automática</string>
-  <string name="urlOfTheGame">URL de la partida</string>
+  <string name="urlOfTheGame">URLs de las partidas, una por línea</string>
   <string name="loadAGameFromX">Cargar partidas desde %1$s</string>
   <string name="createChapter">Crear capítulo</string>
   <string name="configureLiveBroadcast">Configurar la emisión en directo</string>
