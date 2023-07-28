@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="learnShogi">Learn shogi</string>
+	<string name="learnShogi">Lær shogi</string>
 	<string name="byPlaying">ved å spille!</string>
 	<string name="menu">Meny</string>
 	<string name="progressX">Fremgang: %s</string>
 	<string name="resetMyProgress">Tilbakestill</string>
 	<string name="youWillLoseAllYourProgress">Du kommer til å miste all din fremgang!</string>
 	<string name="play">spill!</string>
-	<string name="shogiPieces">Shogi pieces</string>
-	<string name="theIntroduction">Introduction</string>
-	<string name="introBasics">Let\'s learn some basics.</string>
+	<string name="shogiPieces">Shogi-brikker</string>
+	<string name="theIntroduction">Introduksjon</string>
+	<string name="introBasics">La oss lære litt grunleggende.</string>
 	<string name="introIntro">Your journey begins here.</string>
 	<string name="clickHereAfterYouveChosen">Click here after you\'ve chosen the piece design you like.</string>
 	<string name="choosePieceDesign">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.
