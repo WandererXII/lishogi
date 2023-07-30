@@ -144,22 +144,22 @@
   <string name="problemNameTag" comment="Tags for kif and csa">Nom du problème</string>
   <string name="problemIdTag" comment="Tags for kif and csa">ID du problème</string>
   <string name="dateOfPublicationTag" comment="Tags for kif and csa">Date de publication</string>
-  <string name="composerTag" comment="Tags for kif and csa">Composer</string>
+  <string name="composerTag" comment="Tags for kif and csa">Compositeur</string>
   <string name="publicationTag" comment="Tags for kif and csa">Publication</string>
   <string name="collectionTag" comment="Tags for kif and csa">Collection</string>
-  <string name="lengthTag" comment="Tags for kif and csa">Length</string>
-  <string name="prizeTag" comment="Tags for kif and csa">Prize</string>
-  <string name="initHelp" comment="Interactive study lesson">Help the player find the initial move, with a comment.</string>
-  <string name="introGamebook" comment="Interactive study lesson">Introduce the gamebook with a comment</string>
-  <string name="putFirstMove" comment="Interactive study lesson">Put the opponent\'s first move on the board.</string>
-  <string name="explainMove" comment="Interactive study lesson">Explain the opponent move, and help the player find the next move, with a comment.</string>
+  <string name="lengthTag" comment="Tags for kif and csa">Longueur</string>
+  <string name="prizeTag" comment="Tags for kif and csa">Prix</string>
+  <string name="initHelp" comment="Interactive study lesson">Aidez le joueur à trouver le premier coup, avec un commentaire.</string>
+  <string name="introGamebook" comment="Interactive study lesson">Introduisez cette leçon par un commentaire.</string>
+  <string name="putFirstMove" comment="Interactive study lesson">Placez le premier coup de l\'adversaire sur le plateau.</string>
+  <string name="explainMove" comment="Interactive study lesson">Expliquer le coup de l\'adversaire et aider le joueur à trouver le coup suivant, avec un commentaire.</string>
   <string name="reflectOnMove" comment="Interactive study lesson">You may reflect on the player\'s correct move, with a comment; or leave empty to jump immediately to the next move.</string>
   <string name="variationMoves" comment="Interactive study lesson">Add variation moves to explain why specific other moves are wrong.</string>
   <string name="explainWrongMove" comment="Interactive study lesson">Explain why this move is wrong in a comment</string>
   <string name="orPromote" comment="Interactive study lesson">Or promote it as the mainline if it is the right move.</string>
-  <string name="otherMove" comment="Interactive study lesson">When any other wrong move is played:</string>
-  <string name="explainAllWrong" comment="Interactive study lesson">Explain why all other moves are wrong</string>
-  <string name="hintOnDemand" comment="Interactive study lesson">Optional, on-demand hint for the player:</string>
-  <string name="playerTip" comment="Interactive study lesson">Give the player a tip so they can find the right move</string>
-  <string name="playQuestion" comment="Interactive study lesson">What would you play in this position?</string>
+  <string name="otherMove" comment="Interactive study lesson">Lorsque tout autre coup incorrect est joué :</string>
+  <string name="explainAllWrong" comment="Interactive study lesson">Expliquer pourquoi tous les autres coups sont erronés</string>
+  <string name="hintOnDemand" comment="Interactive study lesson">Indice facultatif, à la demande, pour le lecteur :</string>
+  <string name="playerTip" comment="Interactive study lesson">Donner un indice au joueur pour qu\'il trouve le bon coup</string>
+  <string name="playQuestion" comment="Interactive study lesson">Que joueriez-vous dans cette situation ?</string>
 </resources>
