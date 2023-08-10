@@ -876,30 +876,30 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="postGameStudy">Nghiên cứu sau trận đấu</string>
 	<string name="postGameStudies">Phân tích sau ván cờ</string>
 	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
-	<string name="postGameStudiesOfGame">Post-game studies of this game</string>
-	<string name="studyWithOpponent">Study with opponent</string>
-	<string name="studyOfPlayers">Study of players</string>
-	<string name="studyWith">Study with:</string>
-	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
-	<string name="standardStudy">Standard study</string>
-	<string name="welcomeToX">Welcome to %s!</string>
-	<string name="whatNow">What now?</string>
-	<string name="hereAreSuggestions">Here are a few suggestions:</string>
-	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
-	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
+	<string name="postGameStudiesOfGame">Các nghiên cứu sau trận đấu được liệt kê trong danh mục riêng của chúng và cho phép đưa ra các trận tái đấu trực tiếp hoặc tìm kiếm một trận đấu mới.</string>
+	<string name="studyWithOpponent">Học cùng đối thủ</string>
+	<string name="studyOfPlayers">Nghiên cứu của người chơi</string>
+	<string name="studyWith">Học với:</string>
+	<string name="optional" comment="Used in forms to indicate the field is optional">Tuỳ chọn</string>
+	<string name="standardStudy">Học chuẩn</string>
+	<string name="welcomeToX">Chào mừng đến với %s</string>
+	<string name="whatNow">Bước tiếp theo?</string>
+	<string name="hereAreSuggestions">Dưới đây là một vài gợi ý:</string>
+	<string name="hangOn" comment="Meaning: wait!">Từ đã!</string>
+	<string name="gameInProgressWithX">Bạn đang có ván đấu với %s.</string>
 	<string name="or" comment="links alternatives: Do X or do Y">hoặc</string>
 	<string name="gameInProgressDescription">Bạn không thể chơi ván mới cho đến khi xong ván này.</string>
 	<string name="challengeDeclined">Lời thách đấu bị từ chối</string>
 	<string name="challengeAccepted">Lời thách đấu được chấp nhận</string>
 	<string name="challengeCanceled">Lời mời đã được hủy bỏ</string>
-	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Thách đấu mở</string>
 	<string name="challengeDescription">Tiếp nhận lời thách đấu hoặc xem ván</string>
 	<string name="challengeFromX" comment="From username">Lời thách đấu từ %s</string>
 	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s thách đấu %2$s</string>
-	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
-	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
-	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
-	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
-	<string name="back" comment="As in: go back">Back</string>
-	<string name="preview">Preview</string>
+	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Nhấn %s để tập trung</string>
+	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Nhấn %s để gửi</string>
+	<string name="clickGame">Nhấp để xem lại, phân tích và thảo luận về trò chơi!</string>
+	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Phân tích</string>
+	<string name="back" comment="As in: go back">Quay Lại</string>
+	<string name="preview">Xem trước</string>
 </resources>
