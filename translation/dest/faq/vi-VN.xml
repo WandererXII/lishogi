@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="faqAbbreviation">Câu hỏi thường gặp</string>
-	<string name="frequentlyAskedQuestions">Những câu hỏi thường gặp</string>
-	<string name="whyIsLishogiCalledLishogi">Tại sao Lishogi lại... có tên là Lishogi?</string>
+	<string name="frequentlyAskedQuestions">Các câu hỏi thường gặp</string>
+	<string name="whyIsLishogiCalledLishogi">Tại sao Lishogi lại có tên là Lishogi?</string>
 	<string name="forkedFromLichess">Lishogi là một dự án mã nguồn mở dựa trên Lichess, nhưng vì nó dùng để chơi Shogi, nên tên của nó là Lishogi!</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Bởi vì nó lấy cảm hứng từ Lichess, mà Lichess có tên như vậy vì nó là sự kết hợp của live/light/libre và chess. Lishogi được đọc là %1$s</string>
 	<string name="leeshogi">lee-shogi</string>
