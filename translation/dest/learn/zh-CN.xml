@@ -26,7 +26,7 @@
 	<string name="rookPromotion">飛車升变成龍王。别忘了走出升变区时也可以升变。</string>
 	<string name="rookSummary">飛車可以向上下左右自由走。</string>
 	<string name="dragonSummary">可以像没变的飛車走，但也可以向四斜走一格，使它更强。</string>
-	<string name="dragonSummaryTwo">The dragon can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
+	<string name="dragonSummaryTwo">成龙既可以像没有升变的飞车一样行动，也可以斜向走一格，这使它加强了不少。</string>
 	<string name="grabAllTheStars">吃掉所有的星星！</string>
 	<string name="theFewerMoves">移动的次数越少，获得的分数越多！</string>
 	<string name="rookComplete">恭喜！您已成功掌握了车。</string>
