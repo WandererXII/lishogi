@@ -6,7 +6,7 @@
 	<string name="progressX">进度：%s</string>
 	<string name="resetMyProgress">重置我的进度</string>
 	<string name="youWillLoseAllYourProgress">您的进度将被清空！</string>
-	<string name="play">玩吧！</string>
+	<string name="play">开始吧！</string>
 	<string name="shogiPieces">将棋棋子</string>
 	<string name="theIntroduction">入门</string>
 	<string name="introBasics">让我们学习基础知识。</string>
@@ -33,7 +33,7 @@
 	<string name="theBishop">角行</string>
 	<string name="itMovesDiagonally">它沿对角线方向移动</string>
 	<string name="bishopIntro">我们接着学习如何操纵象！</string>
-	<string name="ehThereIsNoPiece">Eh? There is no piece on the board. But look outside the board, a bishop! This area is where the pieces you captured go. You can place the piece back on the board. As usual, grab all the stars.</string>
+	<string name="ehThereIsNoPiece">怎么回事？棋盘上怎么一枚棋子都没有？你看棋盘外面是什么——一枚角行！对面被你吃掉的棋子最后都会放在这里。你可以把它打回到棋盘里，然后像之前一样，吃掉所有星星。</string>
 	<string name="bishopPromotion">角行升变后更强，变成叫“龍馬”的子。</string>
 	<string name="bishopSummary">角行可以斜向自由走。</string>
 	<string name="horseSummary">龍馬可以像没变的角行走，但也可以向上下左右走一格。</string>
@@ -68,7 +68,7 @@
 	<string name="lancePromotion">香車生变后移动方法不一样，但您已经见过——与金将相同。</string>
 	<string name="lanceSummary">向前走，这很容易。</string>
 	<string name="planceSummary">它与金将不相同。</string>
-	<string name="planceSummaryTwo">The promoted lance moves the same as the gold general.</string>
+	<string name="planceSummaryTwo">成香（升变之后的香车）的行动方式与金将如出一辙。</string>
 	<string name="lanceComplete">太棒了！</string>
 	<string name="theGold">金将</string>
 	<string name="itMovesInAnyDirectionExceptDiagonallyBack">金将可以向任何方向除了斜后方。</string>
@@ -91,16 +91,16 @@
 	<string name="capture">吃子</string>
 	<string name="takeTheEnemyPieces">吃掉对方的棋子</string>
 	<string name="captureIntro">寻找对方没有保护的棋子并吃掉它们。</string>
-	<string name="takeTheEnemyPiecesAndDontLoseYours">Take the enemy pieces!
-And don\'t lose yours.</string>
+	<string name="takeTheEnemyPiecesAndDontLoseYours">吃掉对面的所有棋子！
+也千万别被对面吃掉。</string>
 	<string name="captureComplete">恭喜！您已经了解如何用将棋子！</string>
-	<string name="pieceDrops">Piece drops</string>
-	<string name="reuseCapturedPieces">Reuse captured pieces!</string>
-	<string name="dropIntro">Once again, capture all the opponent\'s pieces, without losing yours!</string>
-	<string name="capturedPiecesCanBeDropped">Captured pieces can be dropped back on the board on your turn!</string>
-	<string name="dropLimitations">You cannot drop a piece on another piece or drop it where it cannot have any legal moves. Dropping a piece in promotion zone doesn\'t result in promotion.
-Take the enemy pieces!</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">You cannot have two unpromoted pawns in the same file.</string>
+	<string name="pieceDrops">打入</string>
+	<string name="reuseCapturedPieces">把吃掉的棋子利用起来！</string>
+	<string name="dropIntro">跟以前一样，对面的子都吃掉，同时别被对面吃掉！</string>
+	<string name="capturedPiecesCanBeDropped">你吃掉的棋子可以在你的回合被打回棋盘！</string>
+	<string name="dropLimitations">不能把棋子打在另一个子上，或者是把其打到无法行动的位置。被打到敌阵的棋子不能直接升变。
+把对面吃光！</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">同一行里不能同时存在两个未升变的步兵。</string>
 	<string name="protection">保护</string>
 	<string name="keepYourPiecesSafe">确保您的棋子安全</string>
 	<string name="protectionIntro">请找到被对手威胁的棋子并保护它们。</string>
@@ -108,8 +108,8 @@ Take the enemy pieces!</string>
 	<string name="escape">您的棋子有被吃掉的危险。请移开受到威胁的棋子。</string>
 	<string name="noEscape">您的棋子无法逃脱,
 但是可以用别的棋子去保护。</string>
-	<string name="makeSureAllSafe">Make sure all your pieces are safe!</string>
-	<string name="dontForgetYouCanDropToDefend">Don’t forget you can drop pieces to defend!</string>
+	<string name="makeSureAllSafe">保护好你的棋子！</string>
+	<string name="dontForgetYouCanDropToDefend">别忘了，你可以通过把棋子打入场内来防守！</string>
 	<string name="dontLetThemTakeAnyUndefendedPiece">请不要让敌方吃掉
 任何不受保护的棋子。</string>
 	<string name="combat">攻防</string>
@@ -125,24 +125,24 @@ Take the enemy pieces!</string>
 	<string name="outOfCheck">应将</string>
 	<string name="defendYourKing">保护您的王</string>
 	<string name="outOfCheckIntro">您被将军了。您必须将王移开或用其他棋子来阻挡将军。</string>
-	<string name="ifYourKingIsAttacked">If your king is attacked, you must deal with the attack.</string>
+	<string name="ifYourKingIsAttacked">如果王将（玉将）被攻击，你就必须得优先解除它受到的威胁。</string>
 	<string name="escapeWithTheKing">请将王移开！</string>
 	<string name="theKingCannotEscapeButBlock">王无法移开，但您可以用其他棋子来阻挡将军。</string>
 	<string name="youCanGetOutOfCheckByTaking">您可以吃掉攻击王的敌子来应将。</string>
 	<string name="thisKnightIsCheckingThroughYourDefenses">这个马已经穿过您的防线对您的王进行将军。</string>
-	<string name="getOutOfCheck">Get out of check!</string>
-	<string name="watchOutForYourOpponentsReply">Watch out for your opponent\'s reply!</string>
+	<string name="getOutOfCheck">应将！</string>
+	<string name="watchOutForYourOpponentsReply">注意观察你对手的行动！</string>
 	<string name="escapeOrBlock">请将王移开或者用其他棋子来阻挡将军。</string>
 	<string name="outOfCheckComplete">恭喜！王无法被吃掉。但是请务必确保它不被将死！</string>
 	<string name="mateInOne">一步杀</string>
 	<string name="defeatTheOpponentsKing">将死敌王</string>
 	<string name="mateInOneIntro">当您的对手无法应将时您赢得了一局。</string>
-	<string name="toWinInShogi">To win in shogi, check your opponent\'s king such that they cannot defend. This is mate, or tsume.</string>
-	<string name="dropsCommonDeliverMate">Drops are a very common way to deliver mate.</string>
+	<string name="toWinInShogi">要赢下一局将棋，就要将死对面的王将。这在日语里被叫做「詰め」。</string>
+	<string name="dropsCommonDeliverMate">打入是很常见的将军方式。</string>
 	<string name="attackYourOpponentsKing">请对敌王进行将军使得对方无法应将。</string>
-	<string name="chooseYourPieceCarefully">Choose your piece carefully!</string>
-	<string name="mateWithADroppedPawnIs">Mate with a dropped pawn is illegal - in a real game you would be forfeited!</string>
-	<string name="mateWithAPushedPawnIs">Mate with a pushed pawn is fine.</string>
+	<string name="chooseYourPieceCarefully">小心选择你的棋子！</string>
+	<string name="mateWithADroppedPawnIs">在打入步兵的当下将死对方（打步诘，「打ち歩詰め」）在真实对局中是犯规的！</string>
+	<string name="mateWithAPushedPawnIs">而利用走过去的步兵来将军就没问题了。</string>
 	<string name="mateInOneComplete">恭喜！这就是将棋赢局的方法！</string>
 	<string name="intermediate">中级</string>
 	<string name="boardSetup">开局时摆法</string>
@@ -150,20 +150,20 @@ Take the enemy pieces!</string>
 	<string name="boardSetupIntro">两军对峙，准备战斗。</string>
 	<string name="thisIsTheInitialPosition">这是每一盘将棋开局时的棋子摆法。
 请走任何棋子继续。</string>
-	<string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.</string>
-	<string name="dropAGold">Drop a gold on the left side of the king, then place another gold on the right.</string>
-	<string name="thenPlaceASilver">Then place the silver next to the left-side gold, and a silver beside the right gold.</string>
-	<string name="dropTheKnights">Drop the knights the same way you placed the silvers. Your opponent will be doing the Itou (伊藤) style.</string>
-	<string name="dropTheLances">Drop the lances. Your opponent will start placing pawns left-to-right before the lances. This is the Itou style.</string>
-	<string name="placeTheBishopThenRook">Place the bishop above the left knight, then the rook above the right knight. Of course, in real games there is no need to be in sync with your opponent during setup.</string>
-	<string name="placeThePawns">Finally, on the 3rd rank, drop pawns the same way you placed the back rank pieces. The circle will be your guide.</string>
-	<string name="pushingThe3rdPawn">Pushing the 3rd pawn to open the bishop’s diagonal is the most common first move. Make this move to continue.</string>
+	<string name="firstPlaceTheKing">摆放棋子有两种传统顺序。这里演示的是职业棋手最为常用的大桥流。首先，把王将放到最后一排的最中间位置。</string>
+	<string name="dropAGold">在王将左侧摆放一枚金将，然后在右侧也同样摆放一枚金将。</string>
+	<string name="thenPlaceASilver">然后在左侧的金将外摆放银将，右侧同理。</string>
+	<string name="dropTheKnights">按照之前的方式，摆放桂马。你的对手会使用伊藤流继续摆放棋子。</string>
+	<string name="dropTheLances">接下来摆放香车，而你的对手在摆放香车之前会从左至右依次摆放步兵。这就是伊藤流。</string>
+	<string name="placeTheBishopThenRook">把角行放在左边的桂马之前，然后把飞车放在右边的桂马之前。当然了，在真实的对局中，不用和对手同步摆放棋子。</string>
+	<string name="placeThePawns">最后，在第三行上，用同样的方法摆放步兵。这些圆圈会指示你。</string>
+	<string name="pushingThe3rdPawn">打开第三行、为角行清开道路是最常见的初手。打出这一步来继续。</string>
 	<string name="boardSetupComplete">恭喜！您已经了解如何摆棋子。</string>
-	<string name="repetition">Repetition</string>
-	<string name="fourfoldRepetitionIsADrawExcept">Fourfold repetition is a draw, EXCEPT...</string>
-	<string name="repetitionIntro">Fourfold repetition is a draw Perpetual check is a loss.</string>
-	<string name="ifTheSamePositionOccurs">If the same position occurs 4 times in Shogi, it is an automatic draw. This situation is called sennichite (千日手). Make the only legal move.</string>
-	<string name="perpetualCheckIsALoss">But, perpetually checking the opponent’s king is a loss for the checking side. Unfortunately for your opponent, they don’t know! Make the only legal move.</string>
+	<string name="repetition">千日手</string>
+	<string name="fourfoldRepetitionIsADrawExcept">同样手法循环四次将被视为平局，除非……</string>
+	<string name="repetitionIntro">四次重复是平局，而四次重复王手则会被判负。</string>
+	<string name="ifTheSamePositionOccurs">在将棋中，如果双方以同样的着法重复四次，则自动被判为和局。这种情况叫千日手。接下来请下出不犯规的一着。</string>
+	<string name="perpetualCheckIsALoss">但是，如果以重复的着法打出四次王手，则打出王手的一方会被判负。可你的对手却不知道！接下来请下出不犯规的一着。</string>
 	<string name="boardFlippedFindBestMove">The board was just flipped. What is the best move here?</string>
 	<string name="repetitionComplete">The idea behind perpetual check being a loss is to prevent anyone from forcing a draw.</string>
 	<string name="advanced">高级</string>
