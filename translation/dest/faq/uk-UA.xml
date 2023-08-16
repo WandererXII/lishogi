@@ -2,7 +2,7 @@
 <resources>
 	<string name="faqAbbreviation">ЧаПи</string>
 	<string name="frequentlyAskedQuestions">Часті запитання</string>
-	<string name="whyIsLishogiCalledLishogi">Why is Lishogi called Lishogi?</string>
+	<string name="whyIsLishogiCalledLishogi">Чому Lishogi так називається?</string>
 	<string name="forkedFromLichess">Lishogi is open source project forked from Lichess, but since it\'s for playing shogi, it\'s called Lishogi.</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Because it\'s derived from Lichess. And Lichess is called Lichess because it\'s a combination of live/light/libre and chess. Lishogi is pronounced %1$s.</string>
 	<string name="leeshogi">lee-shogi</string>
