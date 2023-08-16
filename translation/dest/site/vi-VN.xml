@@ -875,7 +875,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Tổng giá trị</string>
 	<string name="postGameStudy">Nghiên cứu sau trận đấu</string>
 	<string name="postGameStudies">Phân tích sau ván cờ</string>
-	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
+	<string name="postGameStudyExplanation">Các nghiên cứu sau trận đấu được liệt kê trong danh mục riêng của chúng và cho phép đưa ra các trận tái đấu trực tiếp hoặc tìm kiếm một trận đấu mới.</string>
 	<string name="postGameStudiesOfGame">Các nghiên cứu sau trận đấu được liệt kê trong danh mục riêng của chúng và cho phép đưa ra các trận tái đấu trực tiếp hoặc tìm kiếm một trận đấu mới.</string>
 	<string name="studyWithOpponent">Học cùng đối thủ</string>
 	<string name="studyOfPlayers">Nghiên cứu của người chơi</string>
