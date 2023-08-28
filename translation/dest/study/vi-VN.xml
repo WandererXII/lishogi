@@ -151,7 +151,7 @@
   <string name="putFirstMove" comment="Interactive study lesson">Đặt nước đi đầu tiên của đối thủ trên bàn cờ.</string>
   <string name="explainMove" comment="Interactive study lesson">Giải thích nước đi của đối thủ và giúp người chơi tìm nước đi tiếp theo, kèm theo nhận xét.</string>
   <string name="reflectOnMove" comment="Interactive study lesson">Bạn có thể phản ánh về nước đi chính xác của người chơi, với một nhận xét; hoặc bỏ trống để nhảy ngay sang nước đi tiếp theo.</string>
-  <string name="variationMoves" comment="Interactive study lesson">Add variation moves to explain why specific other moves are wrong.</string>
+  <string name="variationMoves" comment="Interactive study lesson">Thêm các động tác biến thể để giải thích tại sao các động tác cụ thể khác lại sai.</string>
   <string name="explainWrongMove" comment="Interactive study lesson">Giải thích lý do tại sao di chuyển này là sai trong một bình luận</string>
   <string name="orPromote" comment="Interactive study lesson">Hoặc khuyến khích nó như là dòng chính nếu đó là bước đi đúng đắn.</string>
   <string name="otherMove" comment="Interactive study lesson">Khi thực hiện bất kỳ nước đi sai nào khác:</string>
