@@ -20,7 +20,7 @@
   <string name="rule2">Loại bỏ từ khóa khi bạn phát trực tiếp những thứ không liên quan đến Lishogi</string>
   <string name="rule3">Lishogi sẽ tự động phát hiện luồng trực tiếp của bạn và kích hoạt những quyền lợi sau:</string>
   <string name="perks">Những quyền lời khi stream với từ khóa</string>
-  <string name="perk1">Nhận được biểu tượng streamer rực cháy trong trang cá nhân Lishogi của bạn.</string>
+  <string name="perk1">Nhận được biểu tượng streamer bốc lửa trong trang cá nhân Lishogi của bạn.</string>
   <string name="perk2">Được đẩy lên đầu trong danh sách các streamer.</string>
   <string name="perk3">Thông báo cho những người theo dõi Lishogi của bạn.</string>
   <string name="perk4">Hiển thị luồng trực tiếp trong các ván đấu, giải đấu và nghiên cứu của bạn.</string>
@@ -55,7 +55,7 @@ Trang của streamer sẽ hết hạn nếu không được sử dụng trong m�
   <string name="uploadPicture">Tải lên hình ảnh</string>
   <string name="deletePicture">Xóa hình ảnh</string>
   <string name="maxSize">Kích cỡ tối đa: %s</string>
-  <string name="installBlocker">Tải xuống phần mềm chặn mã độc!</string>
+  <string name="installBlocker">Cài phần mềm chặn mã độc!</string>
   <string name="beSafe">Cảnh giác trước quảng cáo và trình tấn công Twitch và YouTube. 
 Lishogi đề xuất uBlock Origin, miễn phí và có mã nguồn mở</string>
 </resources>
