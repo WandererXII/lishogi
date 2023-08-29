@@ -272,7 +272,7 @@
 	<string name="play">Игра</string>
 	<string name="inbox">Входящие</string>
 	<string name="streamerManager">Менеджер стримеров</string>
-	<string name="coachManager">Coach manager</string>
+	<string name="coachManager">Для тренеров</string>
 	<string name="chatRoom">Чат</string>
 	<string name="loginToChat">Войдите, чтобы общаться в чате</string>
 	<string name="youHaveBeenTimedOut">Чат временно недоступен для вас.</string>
@@ -515,7 +515,7 @@
 	<string name="handicap">Фора</string>
 	<string name="startPosition">Начальная позиция</string>
 	<string name="clearBoard">Очистить доску</string>
-	<string name="fillXHand">Fill hand of %s</string>
+	<string name="fillXHand">Заполнить руку %s</string>
 	<string name="savePosition">Сохранить позицию</string>
 	<string name="loadPosition">Загрузить позицию</string>
 	<string name="isPrivate">Закрытый</string>
@@ -898,10 +898,10 @@
 	<string name="tryAnotherMoveForX" comment="%s - sente(black)/gote(white)">Попробуйте другой ход за %s</string>
 	<string name="solution">Ответ</string>
 	<string name="waitingForAnalysis">Ожидание получения анализа</string>
-	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">No mistakes found for %s</string>
-	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Done reviewing %s mistakes</string>
+	<string name="noMistakesFoundForX" comment="%s - sente(black)/gote(white)">Ошибок %s не найдено</string>
+	<string name="doneReviewingXMistakes" comment="%s - sente(black)/gote(white)">Ошибки %s разобраны</string>
 	<string name="doItAgain">Выполнить ещё раз</string>
-	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Review %s mistakes</string>
+	<string name="reviewXMistakes" comment="%s - sente(black)/gote(white)">Разобрать ошибки %s</string>
 	<string name="advantage">Преимущество</string>
 	<plurals name="nbSeconds">
 		<item quantity="one">%s секунда</item>
@@ -949,7 +949,7 @@
 	<string name="agreementNice">Подтверждаю, что я буду с уважением относиться к другим игрокам.</string>
 	<string name="agreementAccount">Подтверждаю, что я не буду создавать дополнительные аккаунты.</string>
 	<string name="agreementPolicy">Подтверждаю, что я буду следовать всем правилам Lishogi.</string>
-	<string name="agreeWithX">I agree with: %s</string>
+	<string name="agreeWithX">Я соглашусь с: %s</string>
 	<string name="searchOrStartNewDiscussion">Найти обсуждение или начать новое</string>
 	<string name="edit">Изменить</string>
 	<string name="rapid">Рапид</string>
@@ -992,24 +992,24 @@
 	<string name="studyWith">Изучать с:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Необязательно</string>
 	<string name="standardStudy">Стандартная студия</string>
-	<string name="welcomeToX">Welcome to %s!</string>
-	<string name="whatNow">What now?</string>
-	<string name="hereAreSuggestions">Here are a few suggestions:</string>
-	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
-	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
-	<string name="or" comment="links alternatives: Do X or do Y">or</string>
-	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
-	<string name="challengeDeclined">Challenge declined</string>
-	<string name="challengeAccepted">Challenge accepted</string>
-	<string name="challengeCanceled">Challenge canceled</string>
-	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
-	<string name="challengeDescription">Join the challenge or watch the game</string>
-	<string name="challengeFromX" comment="From username">Challenge from %s</string>
-	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
-	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
-	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
-	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
-	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
-	<string name="back" comment="As in: go back">Back</string>
-	<string name="preview">Preview</string>
+	<string name="welcomeToX">Добро пожаловать в %s!</string>
+	<string name="whatNow">Что теперь?</string>
+	<string name="hereAreSuggestions">Вот несколько предложений:</string>
+	<string name="hangOn" comment="Meaning: wait!">Подождите!</string>
+	<string name="gameInProgressWithX">У вас идёт игра с %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">или</string>
+	<string name="gameInProgressDescription">Вы не можете начать новую игру, пока не завершена текущая.</string>
+	<string name="challengeDeclined">Вызов отклонён</string>
+	<string name="challengeAccepted">Вызов принят!</string>
+	<string name="challengeCanceled">Вызов отменён</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Открытый вызов</string>
+	<string name="challengeDescription">Примите вызов или наблюдайте игру</string>
+	<string name="challengeFromX" comment="From username">Вызов от %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s бросает вызов %2$s</string>
+	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Нажмите %s для печати</string>
+	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Нажмите %s для подтверждения</string>
+	<string name="clickGame">Нажмите для воспроизведения, анализа и обсуждения игры!</string>
+	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Изучить</string>
+	<string name="back" comment="As in: go back">Назад</string>
+	<string name="preview">Предпросмотр</string>
 </resources>
