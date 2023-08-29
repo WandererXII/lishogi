@@ -5,7 +5,7 @@
 	<string name="whyIsLishogiCalledLishogi">Почему Lishogi называется Lishogi?</string>
 	<string name="forkedFromLichess">Lishogi - это проект с открытым исходным кодом, созданный на основе Lichess, но так как тут играют в сёги, он называется lishogi.</string>
 	<string name="lishogiCombinationLiveLightLibrePronounced">Потому что название происходит от Liсhess. А Liсhess называется так, потому что это комбинация live/light/libre и шахмат. Lishogi произносится как %1$s.</string>
-	<string name="leeshogi">lee-shogi</string>
+	<string name="leeshogi">ли-сёги</string>
 	<string name="whyLiveLightLibre">Живые, потому что можно играть партии и смотреть игры в реальном времени 24/7. Легковесные и свободные, потому что разрабатываются на принципах свободного программного обеспечения и не завалены проприетарным хламом, как коммерческие проекты.</string>
 	<string name="whyIsLilaCalledLila">То же относится к исходному коду Lishogi, %1$s, что означает li[shogi in sca]la, основная часть Lishogi написана на %2$s, интуитивно понятном языке программирования.</string>
 	<string name="howCanIContributeToLishogi">Как я могу внести свой вклад в Lishogi?</string>
