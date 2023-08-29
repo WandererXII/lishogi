@@ -14,18 +14,18 @@
 	<string name="toggleTheChat">Показывать окно чата</string>
 	<string name="toggleSound">Вкл/выкл звук</string>
 	<string name="chat">Отправить сообщение</string>
-	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Страница</string>
 	<string name="resign">Сдаться</string>
 	<string name="checkmate">Мат</string>
 	<string name="stalemate">Пат</string>
 	<string name="impasse">Тупик</string>
-	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
+	<string name="repetition" comment="Status of a game ending due to repeated positions">4-й повтор позиции</string>
 	<string name="perpetualCheck">Вечный шах</string>
 	<string name="royalsLost" comment="Used in chushogi">Главные фигуры утеряны</string>
 	<string name="bareKing" comment="Used in chushogi">Голый король</string>
-	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
-	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
-	<string name="xWon" comment="Example: Player won!">%s won!</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s сыграл %2$s</string>
+	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s играет %2$s</string>
+	<string name="xWon" comment="Example: Player won!">%s выиграл!</string>
 	<string name="xLost" comment="Example: Player lost!">%s lost!</string>
 	<string name="gameWasDraw">Game was a draw!</string>
 	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
