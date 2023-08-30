@@ -5,7 +5,7 @@
 	<string name="areYouCoach">Bạn có phải là một huấn luyện viên Shogi tốt vời %s ?</string>
 	<string name="becomeACoach">Bạn có phải là một huấn luyện viên Shogi tốt với kinh nghiệm, và bạn có muốn được vinh danh tại Lishogi?</string>
 	<string name="nmOrFideTitle">tiêu đề</string>
-	<string name="confirmTitle">Xác nhận danh hiệu của bạn ở đây và chúng tôi sẽ xem xét đơn ứng tuyển của bạn.</string>
+	<string name="confirmTitle">Xác nhận danh hiệu của bạn ở đây và chúng tôi sẽ xem xét đơn của bạn.</string>
 	<string name="sendApplication">Gửi email cho chúng tôi tại %s và chúng tôi sẽ xem xét đơn ứng tuyển của bạn.</string>
 	<string name="location">Địa điểm</string>
 	<string name="languages">Ngôn ngữ</string>
@@ -15,7 +15,7 @@
 	<string name="accepting">Đang nhận học viên</string>
 	<string name="notAccepting">Hiện tại không nhận học viên</string>
 	<string name="xCoachesStudents">%s huấn luyện học viên Shogi</string>
-	<string name="viewXProfile">Xem hồ sơ của %s</string>
+	<string name="viewXProfile">Xem hồ sơ Lishogi của %s</string>
 	<string name="sendPM">Gửi tin nhắn riêng</string>
 	<string name="aboutMe">Thông tin về tôi</string>
 	<string name="playingExperience">Kinh nghiệm chơi cờ</string>
