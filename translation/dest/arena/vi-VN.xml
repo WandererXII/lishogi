@@ -36,7 +36,7 @@ Chơi nhanh và trở lại phòng chờ để chơi được nhiều ván và g
     <item quantity="other">Hòa cờ trong vòng %s nước cờ đầu tiên sẽ không cho cả hai người chơi bất kì điểm nào.</item>
   </plurals>
   <string name="thisIsPrivate">Đây là giải đấu riêng tư</string>
-  <string name="shareUrl">Chia sẻ URL này để mọi người tham dự: %s</string>
+  <string name="shareUrl">Chia sẻ URL này để mọi người tham gia: %s</string>
   <string name="drawStreak">Chuỗi hòa: Khi một người chơi có một chuỗi các trận hòa trong một đấu trường, chỉ có trận hòa đầu tiên hoặc những trận hòa kéo dài hơn %s nước đi mới được tính điểm. Chuỗi hòa này chỉ có thể bị chấm dứt bằng một chiến thắng, không thể bị chấm dứt bởi một trận thua hay một trận hòa.</string>
   <string name="noBerserkAllowed">Không cho phép Berserk</string>
   <string name="noArenaStreaks">Không có Đấu trường streaks</string>
