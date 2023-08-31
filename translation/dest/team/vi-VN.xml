@@ -26,7 +26,7 @@
   </plurals>
   <string name="willBeReviewed">Yêu cầu tham gia đề nghị sẽ được xem xét bởi trưởng nhóm.</string>
   <string name="beingReviewed">Yêu cầu tham gia đề nghị đang được xem xét bởi trưởng nhóm.</string>
-  <string name="teamBattle">Thi đấu theo đội</string>
+  <string name="teamBattle">Giải đấu đội</string>
   <string name="teamBattleOverview">Một trận đấu giữa nhiều điểm, người chơi ghi điểm cho đội của họ</string>
   <string name="teamTournament">Giải đấu theo đội</string>
   <string name="teamTournamentOverview">Một giải đấu mà chỉ thành viên của đội bạn có thể tham gia</string>
