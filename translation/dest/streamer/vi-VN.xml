@@ -7,8 +7,8 @@
   <string name="offline">NGOẠI TUYẾN</string>
   <string name="currentlyStreaming">Đang phát trực tiếp: %s</string>
   <string name="lastStream">Lần stream cuối %s</string>
-  <string name="becomeStreamer">Trở thành một streamer Lishogi</string>
-  <string name="doYouHaveStream">Bạn có kênh YouTube hoặc Twitch không?</string>
+  <string name="becomeStreamer">Trở thành một Streamer Lishogi</string>
+  <string name="doYouHaveStream">Bạn có kênh Twitch hoặc Youtube không?</string>
   <string name="hereWeGo">Bắt đầu nào!</string>
   <string name="allStreamers">Tất cả các streamers</string>
   <string name="editPage">Chỉnh sửa trang streamer</string>
