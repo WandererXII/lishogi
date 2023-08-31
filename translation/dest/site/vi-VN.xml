@@ -13,7 +13,7 @@
 	<string name="strength">Độ mạnh</string>
 	<string name="toggleTheChat">Bật/tắt chat</string>
 	<string name="toggleSound">Bật/Tắt âm thanh</string>
-	<string name="chat">Tán gẫu</string>
+	<string name="chat">Trò chuyện</string>
 	<string name="page" comment="Used for numbering; Example: Page 10">Trang</string>
 	<string name="resign">Bỏ cuộc</string>
 	<string name="checkmate">Chiếu hết</string>
@@ -60,7 +60,7 @@
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s không đi quân</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Chia sẻ url này để mời khán giả đến xem ván cờ</string>
 	<string name="theComputerAnalysisHasFailed">Máy tính không thể phân tích</string>
-	<string name="viewTheComputerAnalysis">Xem phân tích</string>
+	<string name="viewTheComputerAnalysis">Xem máy tính phân tích</string>
 	<string name="requestAComputerAnalysis">Yêu cầu máy tính phân tích</string>
 	<string name="computerAnalysis">Máy tính phân tích</string>
 	<string name="computerAnalysisAvailable">Máy tính phân tích có sẵn</string>
