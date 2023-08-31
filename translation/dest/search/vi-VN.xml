@@ -13,7 +13,7 @@
 	<string name="from">Từ</string>
 	<string name="to">Đến</string>
 	<string name="humanOrComputer">Đối thủ là người hoặc máy tính</string>
-	<string name="aiLevel">Trình độ máy tính</string>
+	<string name="aiLevel">Cấp độ máy tính</string>
 	<string name="source">Nguồn</string>
 	<string name="nbTurns">Số nước đi</string>
 	<string name="result">Kết quả</string>
