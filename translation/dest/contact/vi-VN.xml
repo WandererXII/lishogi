@@ -26,10 +26,10 @@
   <string name="orCloseAccount">Tuy nhiên, bạn có thể đóng tài khoản hiện tại của mình, và tạo một tài khoản mới.</string>
   <string name="wantClearHistory">Tôi muốn xóa lịch sử hoặc hệ số</string>
   <string name="cantClearHistory">Bạn không thể xóa lịch sử các ván đấu, giải đố hay hệ số.</string>
-  <string name="wantReport">Tôi muốn gửi báo cáo về một người chơi</string>
+  <string name="wantReport">Tôi muốn báo cáo một người chơi</string>
   <string name="cheating">gian lận</string>
-  <string name="sandbagging">dưới phong độ</string>
-  <string name="trolling">phá rối</string>
+  <string name="sandbagging">cố tình thua</string>
+  <string name="trolling">quấy rối</string>
   <string name="insults">xúc phạm</string>
   <string name="otherReason">lý do khác</string>
   <string name="toReportAPlayer">Để báo cáo một người chơi cho %s, sử dụng mẫu báo cáo</string>
@@ -52,7 +52,7 @@
   <string name="castlingImported">Nếu bạn nhập ván đấu, hoặc bắt đầu từ một vị trí ván đấu, đảm bảo rằng bạn đặt đúng quyền được nhập thành.</string>
   <string name="insufficientMaterial">Không đủ quân để chiếu hết</string>
   <string name="noRatingPoints">Điểm xếp hạng không được tăng</string>
-  <string name="ratedGame">Xin hãy chắc việc bạn chơi ván cờ xếp hạng. Các ván đấu thường sẽ không ảnh hưởng đến hệ số của người chơi.</string>
+  <string name="ratedGame">Xin hãy chắc việc bạn chơi ván cờ có tính elo. Các ván đấu thường sẽ không ảnh hưởng đến elo của người chơi.</string>
   <string name="errorPage">Trang lỗi</string>
   <string name="reportErrorPage">Nếu bạn gặp một trang lỗi, bạn có thể báo cáo nó:</string>
   <string name="banAppeal">Kháng cáo cho việc ban và chặn IP</string>
