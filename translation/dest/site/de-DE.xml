@@ -23,7 +23,7 @@
 	<string name="perpetualCheck">Dauerschach</string>
 	<string name="royalsLost" comment="Used in chushogi">Alle königlichen Figuren verloren</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="xPlayedY" comment="Played in the past, game is now over">%1$sspielte%1$s.</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s spielte %2$s.</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s won!</string>
 	<string name="xLost" comment="Example: Player lost!">%s lost!</string>
@@ -226,8 +226,8 @@
 	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
-	<string name="annanshogi">Annan shogi</string>
-	<string name="kyotoshogi">Kyoto shogi</string>
+	<string name="annanshogi">Annan Shogi</string>
+	<string name="kyotoshogi">Kyoto Shogi</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Standard rules of shogi</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Same rules as standard shogi, but played on a smaller 5x5 board</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">Die bekannteste historische Shogi-Variante wurde auf einem 12x12 Brett gespielt.</string>
