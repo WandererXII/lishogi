@@ -21,10 +21,10 @@
     <item quantity="other">Đã đi %1$s nước</item>
   </plurals>
   <plurals name="inNbCorrespondenceGames">
-    <item quantity="other">trong %1$s ván qua thư</item>
+    <item quantity="other">trong %1$s ván cờ qua thư</item>
   </plurals>
   <plurals name="completedNbGames">
-    <item quantity="other">Hoàn tất %s ván qua thư</item>
+    <item quantity="other">Hoàn tất %s ván cờ qua thư</item>
   </plurals>
   <plurals name="followedNbPlayers">
     <item quantity="other">Đã theo dõi %s người chơi</item>
