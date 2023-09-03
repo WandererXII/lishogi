@@ -28,8 +28,8 @@
   <string name="cantClearHistory">Bạn không thể xóa lịch sử các ván đấu, giải đố hay hệ số.</string>
   <string name="wantReport">Tôi muốn báo cáo một người chơi</string>
   <string name="cheating">gian lận</string>
-  <string name="sandbagging">cố tình thua</string>
-  <string name="trolling">quấy rối</string>
+  <string name="sandbagging">thao túng xếp hạng</string>
+  <string name="trolling">quấy rối, chơi khăm</string>
   <string name="insults">xúc phạm</string>
   <string name="otherReason">lý do khác</string>
   <string name="toReportAPlayer">Để báo cáo một người chơi cho %s, sử dụng mẫu báo cáo</string>
@@ -38,12 +38,12 @@
   <string name="doNotSendReportEmails">Vui lòng không gửi cho chúng tôi email báo cáo.</string>
   <string name="doNotMessageModerators">Vui lòng không gửi tin nhắn trực tiếp đến các moderator.</string>
   <string name="onlyReports">Chỉ những báo cáo người chơi thông qua biểu mẫu báo cáo mới có hiệu quả.</string>
-  <string name="wantReportBug">Tôi muốn gửi báo cáo về bug</string>
+  <string name="wantReportBug">Tôi muốn gửi báo cáo về một lỗi</string>
   <string name="reportBugInForum">Trong diễn đàn phản hồi Lishogi</string>
-  <string name="reportWebsiteIssue">Bằng một issue về website Lishogi trên Github</string>
-  <string name="reportMobileIssue">Bằng một issue cho ứng dụng mobile Lishogi trên Github</string>
-  <string name="reportBugInDiscord">Trong server discord Lishogi</string>
-  <string name="howToReportBug">Xin vui lòng mô tả hiện tượng của bug, bạn đã mong muốn điều gì xảy ra, và các bước để tái hiện bug.</string>
+  <string name="reportWebsiteIssue">Bằng một vấn đề (issue) về website Lishogi trên Github</string>
+  <string name="reportMobileIssue">Bằng một vấn đề (issue) cho ứng dụng điện thoại Lishogi trên Github</string>
+  <string name="reportBugInDiscord">Trong máy chủ Discord của Lishogi</string>
+  <string name="howToReportBug">Xin vui lòng mô tả hiện tượng của lỗi, bạn đã mong muốn điều gì xảy ra, và các bước để tái hiện lỗi.</string>
   <string name="illegalPawnCapture">Nước ăn tốt không hợp lệ</string>
   <string name="tryEnPassant">Thử trò chơi tương tác nhỏ này để học thêm về \"Bắt tốt qua đường\".</string>
   <string name="illegalCastling">Nước nhập thành không hợp lệ hoặc không khả thi</string>
@@ -65,7 +65,7 @@
   <string name="otherRestriction">Hạn chế khác</string>
   <string name="collaboration">Cộng tác, hợp pháp, thương mại</string>
   <string name="monetizing">Kiếm tiền với Lishogi</string>
-  <string name="buyingLishogi">Mua lại Lishogi?</string>
+  <string name="buyingLishogi">Mua lại Lishogi</string>
   <string name="authorizationToUse">Ủy quyền sử dụng Lishogi</string>
   <string name="welcomeToUse">Bạn được hoan nghênh sử dụng Lishogi cho các hoạt động của mình, kể cả vì mục đích thương mại.</string>
   <string name="videosAndBooks">Bạn có thể hiển thị nó trong video của mình, và có thể in ảnh chụp Lishogi trong sách của bạn.</string>
