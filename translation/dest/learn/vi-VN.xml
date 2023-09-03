@@ -22,11 +22,11 @@
 	<string name="itMovesInStraightLines">Nó đi theo các đường thẳng</string>
 	<string name="rookIntro">Quân xe là một quân cờ mạnh. Bạn đã sẵn sàng điều khiển nó chưa?</string>
 	<string name="rookGoal">Bấm vào quân Xe để đưa nó đến ngôi sao!</string>
-	<string name="grabAllTheStarsRemember">Grab all the stars! Remember, look outside of the board.</string>
+	<string name="grabAllTheStarsRemember">Lấy tất cả các ngôi sao! Hãy nhớ, nhìn ra bên ngoài bàn cờ.</string>
 	<string name="rookPromotion">Phi Xa sẽ phong cấp trở thành Long Vương mạnh mẽ. Đừng quên rằng bạn cũng có thể phong cấp quân khi rời khỏi vùng phong cấp.</string>
 	<string name="rookSummary">Phi Xa có thể lên, xuống, sang trái phải bao nhiêu tùy thích.</string>
 	<string name="dragonSummary">Nó có thể di chuyển như quân Phi Xa chưa phong cấp, nhưng thêm một ô tại hướng chéo tùy ý, khiến nó trở nên mạnh hơn.</string>
-	<string name="dragonSummaryTwo">The dragon can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
+	<string name="dragonSummaryTwo">Quân rồng di chuyển như quân Phi Xa chưa phong cấp, nhưng thêm một ô tại hướng chéo tùy ý, khiến nó trở nên mạnh hơn.</string>
 	<string name="grabAllTheStars">Lấy tất cả các ngôi sao!</string>
 	<string name="theFewerMoves">Bạn đi càng ít nước đi thì bạn sẽ càng được nhiều điểm!</string>
 	<string name="rookComplete">Chúc mừng! Bạn đã làm chủ được quân xe.</string>
