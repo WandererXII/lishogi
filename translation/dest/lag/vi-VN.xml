@@ -11,6 +11,6 @@
   <string name="networkBetweenLishogiAndYou">Mạng giữa Lishogi và bạn</string>
   <string name="networkBetweenLishogiAndYouExplanation">Thời gian cần để gửi một nước đi từ máy tính của bạn đến máy chủ của Lishogi, và nhận phản hồi trở lại. Phụ thuộc cụ thể vào khoảng cách của bạn tới Lishogi (Anh), và vào chất lượng mạng Internet của bạn. Các nhà phát triển của Lishogi không thể sửa mạng wifi của bạn hay khiến ánh sáng di chuyển nhanh hơn được.</string>
   <string name="youCanFindTheseValuesAtAnyTimeByClickingOnYourUsername">Bạn có thể thấy được hai giá trị này bất cứ lúc nào bằng cách nhấn vào tên của bạn ở thanh trên cùng.</string>
-  <string name="lagCompensation">Độ lag chênh lệch</string>
-  <string name="lagCompensationExplanation">Lishogi bù độ trễ mạng. Điều này bao gồm độ trễ liên tục và độ trễ không thường xuyên. Có giới hạn và kinh nghiệm dựa trên kiểm soát thời gian và độ trễ đã bù cho đến nay, do đó kết quả sẽ hợp lý cho cả hai người chơi. Do đó, việc mạng bị lag cao hơn đối thủ không phải là một điểm chấp!</string>
+  <string name="lagCompensation">Độ trễ mạng</string>
+  <string name="lagCompensationExplanation">Lishogi bù trễ mạng. Điều này bao gồm độ trễ liên tục và độ trễ không thường xuyên. Có giới hạn và kinh nghiệm dựa trên kiểm soát thời gian và độ trễ đã bù cho đến nay, do đó kết quả sẽ hợp lý cho cả hai người chơi. Do đó, việc mạng bị lag cao hơn đối thủ không phải là một điểm chấp!</string>
 </resources>
