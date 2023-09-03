@@ -55,7 +55,7 @@
   <string name="ratedGame">Xin hãy chắc việc bạn chơi ván cờ có tính elo. Các ván đấu thường sẽ không ảnh hưởng đến elo của người chơi.</string>
   <string name="errorPage">Trang lỗi</string>
   <string name="reportErrorPage">Nếu bạn gặp một trang lỗi, bạn có thể báo cáo nó:</string>
-  <string name="banAppeal">Kháng cáo cho việc ban và chặn IP</string>
+  <string name="banAppeal">Kháng cáo cho việc cấm và chặn IP</string>
   <string name="engineAppeal">Đánh dấu gian lận hoặc dùng phần mềm thứ ba</string>
   <string name="sendAppealTo">Bạn có thể gửi kháng cáo đến %s.</string>
   <string name="falsePositives">Những giá trị dương do đánh giá sai đôi khi vẫn xảy ra, và chúng tôi xin lỗi vì điều đó.</string>
