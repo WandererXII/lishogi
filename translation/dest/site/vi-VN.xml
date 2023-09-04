@@ -551,7 +551,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="victory">Chiến thắng</string>
 	<string name="defeat">Thua</string>
 	<string name="victoryVsYInZ">%1$s với %2$s trong %3$s</string>
-	<string name="defeatVsYInZ">%1$s với %2$s trong %3$s</string>
+	<string name="defeatVsYInZ">%1$s %2$s trong %3$s</string>
 	<string name="drawVsYInZ">%1$s với %2$s trong %3$s</string>
 	<string name="timeline">Dòng thời gian</string>
 	<string name="starting">Bắt dầu đấu:</string>
@@ -653,7 +653,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="keyMoveBackwardOrForward">tua lại/đi tới</string>
 	<string name="keyGoToStartOrEnd">chuyển đến đầu/cuối</string>
 	<string name="keyShowOrHideComments">hiện/ẩn bình luận</string>
-	<string name="keyEnterOrExitVariation">vào/thoát biến thể cờ</string>
+	<string name="keyEnterOrExitVariation">vào/thoát biến cờ</string>
 	<string name="newTournament">Giải đấu mới</string>
 	<string name="tournamentHomeTitle">Giải đấu Shogi với nhiều thiết lập thời gian và thể loại phong phú</string>
 	<string name="tournamentHomeDescription">Chơi các giải đấu shogi tốc độ! Tham gia một giải đấu chính thức, hoặc tự tạo giải đấu của bạn. Cờ Chớp, cờ Nhanh, cờ Chậm, và nhiều lựa chọn khác cho niềm vui đánh cờ vô tận.</string>
