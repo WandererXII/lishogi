@@ -656,7 +656,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="keyEnterOrExitVariation">vào/thoát biến thể cờ</string>
 	<string name="newTournament">Giải đấu mới</string>
 	<string name="tournamentHomeTitle">Giải đấu Shogi với nhiều thiết lập thời gian và thể loại phong phú</string>
-	<string name="tournamentHomeDescription">Chơi các giải đấu shogi tốc độ! Tham gia một giải đấu chính thức, hoặc tự tạo giải đấu của bạn. Cờ Chớp, cờ Nhanh, cờ Cổ Điển, và nhiều lựa chọn khác cho niềm vui đánh cờ vô tận.</string>
+	<string name="tournamentHomeDescription">Chơi các giải đấu shogi tốc độ! Tham gia một giải đấu chính thức, hoặc tự tạo giải đấu của bạn. Cờ Chớp, cờ Nhanh, cờ Chậm, và nhiều lựa chọn khác cho niềm vui đánh cờ vô tận.</string>
 	<string name="tournamentNotFound">Giải đấu không tìm thấy</string>
 	<string name="tournamentDoesNotExist">Giải đấu này không tồn tại.</string>
 	<string name="tournamentMayHaveBeenCanceled">Nó có thể đã bị huỷ, nếu tất cả người chơi rời giải trước khi giải đấu bắt đầu.</string>
@@ -843,12 +843,12 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="searchOrStartNewDiscussion">Tìm hoặc bắt đầu một cuộc trò chuyện</string>
 	<string name="edit">Chỉnh sửa</string>
 	<string name="rapid">Cờ nhanh</string>
-	<string name="classical">Cờ tiêu chuẩn</string>
+	<string name="classical">Cờ chậm</string>
 	<string name="ultraBulletDesc">Những ván cờ cực nhanh: ít hơn 30 giây</string>
 	<string name="bulletDesc">Những ván cờ rất nhanh: ít hơn 3 phút</string>
 	<string name="blitzDesc">Những ván cờ nhanh: 3 đến 8 phút</string>
 	<string name="rapidDesc">Cờ nhanh: 10 đến 25 phút</string>
-	<string name="classicalDesc">Cờ tiêu chuẩn: từ 25 phút trở lên</string>
+	<string name="classicalDesc">Cờ chậm: từ 25 phút trở lên</string>
 	<string name="correspondenceDesc">Đánh cờ qua thư: Một hoặc vài ngày cho mỗi nước</string>
 	<string name="puzzleDesc">Huấn luyện viên kĩ thuật Shogi</string>
 	<string name="important">Chú ý</string>
