@@ -66,7 +66,7 @@
 	<string name="computerAnalysisAvailable">Máy tính phân tích có sẵn</string>
 	<string name="analysis">Phân tích</string>
 	<string name="analysisDescription">Phân tích các thế cờ shogi và các biến thể trên bảng shogi tương tác</string>
-	<string name="depthX">Năng lực %s</string>
+	<string name="depthX">Độ sâu %s</string>
 	<string name="usingServerAnalysis">Bạn đang sử dụng máy chủ để phân tích</string>
 	<string name="loadingEngine">Đang tải động cơ máy tính ...</string>
 	<string name="cloudAnalysis">Phân tích đám mây</string>
@@ -455,7 +455,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="inlineNotation">Ký hiệu bên trong bàn cờ</string>
 	<string name="watchLishogiTV">Xem Lishogi TV</string>
 	<string name="watchLishogiTVDescription">Ngồi thư giãn và xem những người chơi Lishogi giỏi nhất thi đấu trên Lishogi TV</string>
-	<string name="previouslyOnLishogiTV">Ván trước được lên Lichess TV</string>
+	<string name="previouslyOnLishogiTV">Ván trước được lên Lishogi TV</string>
 	<string name="onlinePlayers">Các kỳ thủ có mặt</string>
 	<string name="onlineBots">Các Bot đang trực tuyến</string>
 	<string name="activeToday">Hoạt động trong ngày</string>
