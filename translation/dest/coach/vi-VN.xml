@@ -2,7 +2,7 @@
 <resources>
 	<string name="lishogiCoaches">Huấn luyện viên Lishogi</string>
 	<string name="lishogiCoach">Huấn luyện viên Lishogi</string>
-	<string name="areYouCoach">Bạn có phải là một huấn luyện viên Shogi tốt vời %s ?</string>
+	<string name="areYouCoach">Bạn có phải là một huấn luyện viên Shogi tốt với %s ?</string>
 	<string name="becomeACoach">Bạn có phải là một huấn luyện viên Shogi tốt với kinh nghiệm, và bạn có muốn được vinh danh tại Lishogi?</string>
 	<string name="nmOrFideTitle">tiêu đề</string>
 	<string name="confirmTitle">Xác nhận danh hiệu của bạn ở đây và chúng tôi sẽ xem xét đơn của bạn.</string>
