@@ -10,7 +10,7 @@
 	<string name="location">Địa điểm</string>
 	<string name="languages">Ngôn ngữ</string>
 	<string name="rating">Hệ số</string>
-	<string name="hourlyRate">Xếp hạng theo giờ</string>
+	<string name="hourlyRate">Mức giá theo giờ</string>
 	<string name="availability">Có tính khả dụng</string>
 	<string name="accepting">Đang nhận học viên</string>
 	<string name="notAccepting">Hiện tại không nhận học viên</string>
@@ -26,9 +26,7 @@
 	<string name="publicStudies">Nghiên cứu công khai</string>
 	<string name="youtubeVideos">Các video trên YouTube</string>
 	<plurals name="studentReviews">
-		<item quantity="other">Một học viên đánh giá
-
-%s học viên đánh giá</item>
+		<item quantity="other">%s học viên đánh giá</item>
 	</plurals>
 	<string name="thankYouForReview">Cảm ơn đánh giá của bạn!</string>
 	<string name="xWillApproveIt">%s sẽ được công nhận sớm, hoặc một quản trị viên sẽ kiểm tra nó.</string>
