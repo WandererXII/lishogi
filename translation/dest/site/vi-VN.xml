@@ -53,7 +53,7 @@
 	<string name="makeYourOpponentResign">Buộc đối thủ chịu thua</string>
 	<string name="forceResignation">Giành chiến thắng</string>
 	<string name="forceDraw">Bắt buộc hòa</string>
-	<string name="talkInChat">Thảo luận trong chat</string>
+	<string name="talkInChat">Hãy cư xử thân thiện trong cuộc trò chuyện!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Người đầu tiên sử dụng url này sẽ bắt đầu chơi với bạn</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s đầu hàng</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s rời ván đấu</string>
@@ -241,7 +241,7 @@
 	<string name="confirmMove">Xác nhận nước đi</string>
 	<string name="play">Chơi</string>
 	<string name="inbox">Hộp thư</string>
-	<string name="streamerManager">Người quản lý streamer</string>
+	<string name="streamerManager">Quản lý trang Streamer của bạn</string>
 	<string name="coachManager">Quản lý huấn luyện viên</string>
 	<string name="chatRoom">Phòng chat</string>
 	<string name="loginToChat">Đăng nhập để trò chuyện</string>
@@ -607,7 +607,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="tpTimeSpentOnTV">Thời gian được lên Lishogi TV: %s</string>
 	<string name="watch">Xem</string>
 	<string name="videoLibrary">Thư viện video</string>
-	<string name="streamersMenu">Các streamer</string>
+	<string name="streamersMenu">Các Streamer</string>
 	<string name="mobileApp">Ứng dụng Điện thoại</string>
 	<string name="webmasters">Các quản trị</string>
 	<string name="about">Giới thiệu</string>
