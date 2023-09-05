@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="xStreamsShogi">%s phát trực tiếp Shogi</string>
-  <string name="lishogiStreamers">Những streamers của Lishogi</string>
+  <string name="lishogiStreamers">Những Streamer của Lishogi</string>
   <string name="lishogiStreamer">Streamer của Lishogi</string>
   <string name="live">TRỰC TIẾP!</string>
   <string name="offline">NGOẠI TUYẾN</string>
@@ -10,8 +10,8 @@
   <string name="becomeStreamer">Trở thành một Streamer Lishogi</string>
   <string name="doYouHaveStream">Bạn có kênh Twitch hoặc Youtube không?</string>
   <string name="hereWeGo">Bắt đầu nào!</string>
-  <string name="allStreamers">Tất cả các streamers</string>
-  <string name="editPage">Chỉnh sửa trang streamer</string>
+  <string name="allStreamers">Tất cả các Streamer</string>
+  <string name="editPage">Sửa trang Streamer</string>
   <string name="yourPage">Trang streamer của bạn</string>
   <string name="downloadKit">Tải bộ công cụ cho streamer</string>
   <string name="xIsStreaming">%s đang phát trực tiếp</string>
@@ -41,7 +41,7 @@ Trang của streamer sẽ hết hạn nếu không được sử dụng trong m�
   <string name="twitchUsername">Tên người dùng hoặc URL Twitch của bạn</string>
   <string name="optionalOrEmpty">Tùy chọn. Bỏ trống nếu không có</string>
   <string name="youtubeChannel">URL hoặc ID kênh YouTube của bạn</string>
-  <string name="streamerName">Tên streamer của bạn trên Lishogi</string>
+  <string name="streamerName">Tên Streamer của bạn trên Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="other">Để tên ngắn gọn: %s ký tự tối đa</item>
   </plurals>
@@ -50,7 +50,7 @@ Trang của streamer sẽ hết hạn nếu không được sử dụng trong m�
   <string name="headline">Tiêu đề</string>
   <string name="tellUsAboutTheStream">Giới thiệu về stream của bạn trong một câu</string>
   <string name="longDescription">Mô tả chi tiết</string>
-  <string name="xStreamerPicture">%s ảnh streamer</string>
+  <string name="xStreamerPicture">Ảnh Streamer của %s</string>
   <string name="changePicture">Thay đổi/xóa ảnh của bạn</string>
   <string name="uploadPicture">Tải lên hình ảnh</string>
   <string name="deletePicture">Xóa hình ảnh</string>
