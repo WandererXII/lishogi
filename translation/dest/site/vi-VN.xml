@@ -570,7 +570,7 @@
 	<string name="side">Bên</string>
 	<string name="clock">Đồng hồ</string>
 	<string name="unauthorizedError">Không có quyền truy cập.</string>
-	<string name="noInternetConnection">Không có nối mạng. Bạn vẫn có thể chơi ngoại tuyến từ bảng chọn.</string>
+	<string name="noInternetConnection">Không có nối mạng. Bạn vẫn có thể chơi ngoại tuyến từ mục lục.</string>
 	<string name="connectedToLishogi">Bây giờ bạn đã kết nối với lishogi.org</string>
 	<string name="signedOut">Bạn đã đăng xuất</string>
 	<string name="loginSuccessful">Bây giờ bạn đã đăng nhập thành công</string>
@@ -596,7 +596,7 @@
 	<string name="error.email_different">Đây đã là địa chỉ email hiện tại của bạn</string>
 	<string name="ifRatingIsPlusMinusX">Nếu điểm hệ số trong phạm vi ± %s</string>
 	<string name="onlyFriends">Chỉ bạn bè</string>
-	<string name="menu">Menu</string>
+	<string name="menu">Mục lục</string>
 	<string name="castling">Nhập thành</string>
 	<plurals name="nbForumPosts">
 		<item quantity="other">%s Bài Viết Diễn Đàn</item>
