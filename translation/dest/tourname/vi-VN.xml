@@ -43,7 +43,7 @@
   <string name="openingRapidArena">%s đấu trường Cờ nhanh</string>
   <string name="openingRapid">%s Cờ nhanh</string>
   <string name="xTeamBattle">%s Giải đấu đội</string>
-  <string name="eliteXArena">Giải đấu %s Chuyên Nghiệp</string>
+  <string name="eliteXArena">Giải đấu %s Chuyên nghiệp</string>
   <string name="eliteX">%s Chuyên nghiệp</string>
   <string name="xArena">Đấu trường %s</string>
 </resources>
