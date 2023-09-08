@@ -6,7 +6,7 @@
   <string name="live">TRỰC TIẾP!</string>
   <string name="offline">NGOẠI TUYẾN</string>
   <string name="currentlyStreaming">Đang phát trực tiếp: %s</string>
-  <string name="lastStream">Lần stream cuối %s</string>
+  <string name="lastStream">Lần phát trực tiếp cuối %s</string>
   <string name="becomeStreamer">Trở thành một Streamer Lishogi</string>
   <string name="doYouHaveStream">Bạn có kênh Twitch hoặc Youtube không?</string>
   <string name="hereWeGo">Bắt đầu nào!</string>
@@ -16,10 +16,10 @@
   <string name="downloadKit">Tải bộ công cụ cho Streamer</string>
   <string name="xIsStreaming">%s đang phát trực tiếp</string>
   <string name="rules">Luật phát trực tiếp</string>
-  <string name="rule1">Dùng từ khóa \" lishogi.org \" ở tên tiều đề trực tiếp và dùng mục \" Shogi \" khi bạn phát trực tiếp tại Lishogi</string>
+  <string name="rule1">Dùng từ khóa \"lishogi.org\" ở tên tiêu đề trực tiếp và dùng mục \"Shogi\" khi bạn phát trực tiếp ở Lishogi</string>
   <string name="rule2">Loại bỏ từ khóa khi bạn phát trực tiếp những thứ không liên quan đến Lishogi</string>
   <string name="rule3">Lishogi sẽ tự động phát hiện luồng trực tiếp của bạn và kích hoạt những quyền lợi sau:</string>
-  <string name="perks">Những quyền lời khi stream với từ khóa</string>
+  <string name="perks">Những quyền lợi khi Stream với từ khóa</string>
   <string name="perk1">Nhận được biểu tượng Streamer bốc lửa trong trang cá nhân Lishogi của bạn.</string>
   <string name="perk2">Được đẩy lên trong danh sách các Streamer.</string>
   <string name="perk3">Thông báo cho những người theo dõi Lishogi của bạn.</string>
@@ -27,15 +27,15 @@
   <string name="youHaveBeenSelectedFrontpage">Bạn đã được lựa chọn để làm gương mặt đại diện!</string>
   <string name="noteThatOnlyLimited">Chú ý rằng chúng tôi chỉ có thể hiện thị một số lượng Streamer nhất định trên trang chủ, </string>
   <string name="soYoursMayNotAlwaysAppear">nên đôi khi luồng của bạn sẽ không hiển thị.</string>
-  <string name="approved">Stream của bạn đã được phê duyệt.</string>
-  <string name="pendingReview">Luồng trực tiếp của bạn đang được quản trị viên đánh giá.</string>
+  <string name="approved">Luồng của bạn đã được phê duyệt.</string>
+  <string name="pendingReview">Luồng của bạn đang được quản trị viên đánh giá.</string>
   <string name="pleaseFillIn">Hãy điền thông tin về Streamer của bạn và tải lên một hình ảnh.</string>
   <string name="whenReady">Khi bạn đã sẵn sàng trở thành một Streamer của Lishogi, %s</string>
   <string name="requestReview">yêu cầu quản trị viên đánh giá</string>
-  <string name="anotherLanguage">Nếu luồng trực tiếp của bạn sử dụng ngôn ngữ không phải tiếng Anh, hãy thêm một chú thích ngôn ngữ chính xác (%s), nằm trong ngoặc vuông và nằm ở đầu tiêu đề của bạn.
-Ví dụ, bạn có thể ghi \"[RU]\" với tiếng Nga, \"[FR]\" với tiếng Pháp, \"[TR]\" với tiếng Thổ Nhĩ Kì hay \"[VI]\" với tiếng Việt. 
+  <string name="anotherLanguage">Nếu luồng của bạn sử dụng ngôn ngữ không phải tiếng Anh, hãy thêm một chú thích ngôn ngữ chính xác (%s), nằm trong ngoặc vuông và nằm ở đầu tiêu đề của bạn.
+Ví dụ, bạn có thể ghi \"[RU]\" với tiếng Nga, \"[FR]\" với tiếng Pháp, \"[TR]\" với tiếng Thổ Nhĩ Kì hay \"[VI]\" với tiếng Việt.
 Hãy đặt chúng tại tiêu đề của luồng trực tiếp trên Twitch hoặc YouTube, không phải trong cài đặt trực tiếp của Lishogi.
-Nếu luồng trực tiếp của bạn sử dụng tiếng Anh, điều này không cần thiết. 
+Nếu luồng trực tiếp của bạn sử dụng tiếng Anh, điều này không cần thiết.
 
 Trang của Streamer sẽ hết hạn nếu không được sử dụng trong một thời gian dài, hơn nữa bạn cũng phải phát trực tiếp ít nhất một lần một tuần để tránh bị vô hiệu hóa. Biểu tượng Streaming cũng sẽ không xuất hiện tại tài khoản của bạn cho đến khi bạn phát trực tiếp. Nếu trang phát trực tiếp của bạn đã hết hạn, bạn phải đăng kí lại và chờ đợi được công nhận. </string>
   <string name="twitchUsername">Tên người dùng hoặc URL Twitch của bạn</string>
@@ -43,17 +43,17 @@ Trang của Streamer sẽ hết hạn nếu không được sử dụng trong m�
   <string name="youtubeChannel">URL hoặc ID kênh YouTube của bạn</string>
   <string name="streamerName">Tên Streamer của bạn trên Lishogi</string>
   <plurals name="keepItShort">
-    <item quantity="other">Để tên ngắn gọn: %s ký tự tối đa</item>
+    <item quantity="other">Để tên ngắn gọn: tối đa %s ký tự</item>
   </plurals>
   <string name="visibility">Hiện lên ở trang các Streamer</string>
   <string name="whenApproved">Khi được quản trị viên xác nhận</string>
   <string name="headline">Tiêu đề</string>
-  <string name="tellUsAboutTheStream">Giới thiệu về stream của bạn trong một câu</string>
+  <string name="tellUsAboutTheStream">Giới thiệu về luồng của bạn trong một câu</string>
   <string name="longDescription">Mô tả chi tiết</string>
   <string name="xStreamerPicture">Ảnh Streamer của %s</string>
   <string name="changePicture">Thay đổi/xóa ảnh của bạn</string>
   <string name="uploadPicture">Tải lên hình ảnh</string>
-  <string name="deletePicture">Xóa hình ảnh</string>
+  <string name="deletePicture">Xóa ảnh</string>
   <string name="maxSize">Kích cỡ tối đa: %s</string>
   <string name="installBlocker">Cài phần mềm chặn mã độc!</string>
   <string name="beSafe">Cảnh giác trước quảng cáo và trình tấn công Twitch và YouTube. 
