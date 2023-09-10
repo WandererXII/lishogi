@@ -255,7 +255,7 @@
 	<string name="incrementInSeconds">Gia tăng theo giây</string>
 	<string name="byoyomiInSeconds">Byoyomi theo giây</string>
 	<string name="numberOfPeriods">Số các chu kì</string>
-	<string name="freeOnlineShogi">Cờ Shogi trực tuyến miễn phí</string>
+	<string name="freeOnlineShogi">Chơi Cờ Shogi Trực Tuyến Miễn Phí</string>
 	<string name="spectators">Khán giả:</string>
 	<plurals name="nbRated">
 		<item quantity="other">%s tính elo</item>
@@ -322,7 +322,7 @@
 	<string name="mustBeInTeam">Phải ở trong đội %s</string>
 	<string name="youAreNotInTeam">Bạn không ở trong đội %s</string>
 	<string name="backToGame">Quay lại ván đấu</string>
-	<string name="siteDescription">Chơi Shogi trực tuyến miễn phí. Chơi Shogi với giao diện đẹp. Không cần đăng ký, không quảng cáo, không yêu cầu plugin. Chơi Shogi với máy tính, bạn bè hoặc đối thủ ngẫu nhiên.</string>
+	<string name="siteDescription">Chơi cờ Shogi trực tuyến miễn phí. Chơi cờ Shogi với giao diện đẹp. Không cần đăng ký, không quảng cáo, không yêu cầu plugin. Chơi cờ Shogi với máy tính, bạn bè hoặc đối thủ ngẫu nhiên.</string>
 	<string name="shogiDescription" comment="Feel free to tweak it">Shogi, còn được gọi là \"将棋\" trong tiếng Nhật, là một loại cờ chiến thuật hai người chơi đã được chơi ở Nhật Bản hàng thế kỷ. Nó thường được gọi là \"cờ vua Nhật Bản\" vì những điểm giống với cờ vua, nhưng nó có những đặc điểm riêng biến nó trở thành một trò chơi riêng biệt.</string>
 	<string name="learnShogiHereX">Nếu bạn không biết luật chơi cờ Shogi, hãy xem qua %s.</string>
 	<string name="xJoinedTeamY">%1$s tham gia đội %2$s</string>
