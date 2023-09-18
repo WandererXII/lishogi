@@ -608,7 +608,7 @@
 	<string name="videoLibrary">Thư viện video</string>
 	<string name="streamersMenu">Các Streamer</string>
 	<string name="mobileApp">Ứng dụng Điện thoại</string>
-	<string name="webmasters">Các quản trị viên</string>
+	<string name="webmasters">Các nhà phát triển web</string>
 	<string name="about">Giới thiệu</string>
 	<string name="aboutX">Giới thiệu về %s</string>
 	<string name="xIsAFreeYLibreOpenSourceShogiServer">%1$s là một máy chủ cờ shogi mã nguồn mở (%2$s), miễn phí, không có quảng cáo.</string>
