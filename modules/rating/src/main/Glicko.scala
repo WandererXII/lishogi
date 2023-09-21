@@ -76,8 +76,8 @@ case object Glicko {
   val defaultIntRating = default.rating.toInt
 
   val minDeviation              = 45
-  val variantRankableDeviation  = 65
-  val standardRankableDeviation = 75
+  val variantRankableDeviation  = 75
+  val standardRankableDeviation = 80
   val provisionalDeviation      = 110
   val cluelessDeviation         = 260
   val maxDeviation              = 500d
