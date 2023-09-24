@@ -448,7 +448,7 @@
 	<string name="performance">Rendemento</string>
 	<string name="tournamentComplete">Torneo rematado</string>
 	<string name="movesPlayed">Movementos xogados</string>
-	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s vitorias</string>
+	<string name="xWins" comment="Stats in tournament (ex. Sente wins: 51%)">%s gaña</string>
 	<string name="draws">Táboas</string>
 	<string name="nextXTournament">Seguinte torneo %s:</string>
 	<string name="averageOpponent">Opoñente medio</string>
