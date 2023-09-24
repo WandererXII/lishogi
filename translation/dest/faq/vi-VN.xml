@@ -76,11 +76,11 @@ Chúng tôi hiếm khi trao giải cho những người chơi nổi bật là c�
 	<string name="aHourlyBulletTournament">một giải đấu cờ siêu chớp hàng giờ</string>
 	<string name="lishogiRatings">Xếp hạng Lishogi</string>
 	<string name="whichRatingSystemUsedByLishogi">Lishogi sử dụng hệ thống xếp hạng nào?</string>
-	<string name="ratingSystemUsedByLishogi">Xếp hạng được tính toán dựa trên phương pháp Glicko-2 được phát triển bởi Mark Glickman. Đây là một phương pháp tính toán xếp hạng rất nổi tiếng, và cũng được sử dụng bởi đa số các tổ chức cờ vua (FIDE là ngoại lệ, họ vẫn sử dụng hệ thống xếp hạng Elo) 
+	<string name="ratingSystemUsedByLishogi">Xếp hạng được tính bằng phương pháp xếp hạng Glicko-2 do Mark Glickman phát triển. Đây là một phương pháp đánh giá rất phổ biến và được sử dụng bởi một số lượng lớn các tổ chức cờ vua (FIDE là một ví dụ ngược lại đáng chú ý, vì họ vẫn sử dụng hệ thống đánh giá Elo lỗi thời).
 
-Về cơ bản, hệ thống xếp hạng Glicko sử dụng \" khoảng tin cậy \" để tính toán và biểu diễn xếp hạng của bạn. Khi bạn lần đầu tiên bắt đầu sử dụng trang web, xếp hạng của bạn bắt đầu ở 1500 ± 700. 1500 thể hiện xếp hạng của bạn và 700 thể hiện khoảng tin cậy.
+Về cơ bản, xếp hạng Glicko sử dụng \"khoảng tin cậy\" khi tính toán và cho ra xếp hạng của bạn. Khi bạn lần đầu tiên bắt đầu sử dụng trang web, xếp hạng của bạn bắt đầu ở 1500 ± 700. 1500 thể hiện xếp hạng của bạn và 700 thể hiện khoảng tin cậy.
 
-Về cơ bản, hệ thống chắc chắn 90% rằng xếp hạng của bạn nằm trong khoảng 800 đến 2200. Điều này cực kỳ không chắc chắn. Do đó, khi một người chơi mới bắt đầu, xếp hạng của họ sẽ thay đổi rất đáng kể, có thể vài trăm điểm một lúc. Nhưng sau một số trận đấu với những người chơi có kĩ năng, khoảng tin cậy sẽ thu hẹp và số điểm đạt được/mất đi sau mỗi trận đấu sẽ giảm xuống.
+Về cơ bản, hệ thống chắc chắn 90% rằng xếp hạng của bạn nằm trong khoảng 800 đến 2200. Điều này cực kỳ không chắc chắn. Do đó, khi một người chơi mới bắt đầu, xếp hạng của họ sẽ thay đổi rất đáng kể, có thể vài trăm điểm một lúc. Nhưng sau một số trận đấu với những người chơi đã thành danh, khoảng tin cậy sẽ thu hẹp và số điểm đạt được/mất đi sau mỗi trận đấu sẽ giảm xuống.
 
 Một điểm cần lưu ý nữa là, khi thời gian trôi qua, khoảng tin cậy sẽ tăng lên. Điều này cho phép bạn tăng/giảm điểm nhanh hơn để phù hợp với bất kỳ thay đổi nào trong cấp độ kỹ năng của bạn trong thời gian đó.</string>
 	<string name="whatIsProvisionalRating">Tại sao lại có dấu chấm hỏi (?) bên cạnh hệ số Elo?</string>
@@ -94,8 +94,8 @@ Một điểm cần lưu ý nữa là, khi thời gian trôi qua, khoảng tin c
 	<string name="ratingLeaderboards">thứ hạng trên bảng xếp hạng</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">Đã chơi ít nhất 30 ván xếp hạng trong một xếp hạng nhất định,</string>
 	<string name="havePlayedARatedGameAtLeastOneWeekAgo">Đã chơi một ván xếp hạng trong tuần trước cho xếp hạng này,</string>
-	<string name="ratingDeviationLowerThanXinShogiYinVariants">có độ lệch xếp hạng thấp hơn %1$s, trong Shogi tiêu chuẩn, và thấp hơn %2$s trong các biến thể,</string>
-	<string name="beInTopTen">nằm trong top 10 trong bảng xếp hạng này.</string>
+	<string name="ratingDeviationLowerThanXinShogiYinVariants">Có độ lệch xếp hạng thấp hơn %1$s, trong Shogi tiêu chuẩn và thấp hơn %2$s trong các biến thể,</string>
+	<string name="beInTopTen">Nằm trong top 10 trong bảng xếp hạng này.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Yêu cầu thứ hai là những người chơi không còn sử dụng tài khoản sẽ không được đưa vào bảng xếp hạng.</string>
 	<string name="whyAreRatingHigher">Tại sao xếp hạng lại khác khi so sánh với các ví dụ khác, như 81Dojo và Shogi Club 24?</string>
 	<string name="whyAreRatingHigherExplanation">Tốt nhất là không nên coi xếp hạng là con số tuyệt đối hoặc so sánh chúng với các tổ chức khác. Các tổ chức khác nhau có các cấp độ người chơi khác nhau, các hệ thống xếp hạng khác nhau (Elo, Glicko, Glicko-2 hoặc một phiên bản sửa đổi đã nói ở trên). Những yếu tố này có thể ảnh hưởng mạnh đến con số tuyệt đối (xếp hạng).
