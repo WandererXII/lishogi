@@ -670,7 +670,7 @@
 	<string name="youDoNotHaveAnEstablishedPerfTypeRating">Bạn chưa có xếp hạng %s.</string>
 	<string name="yourRating">Chỉ số của bạn</string>
 	<string name="cumulative">Tích luỹ</string>
-	<string name="glicko2Rating">Chỉ số Glicko-2</string>
+	<string name="glicko2Rating">Xếp hạng Glicko-2</string>
 	<string name="checkYourEmail">Kiểm tra Email của bạn</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Chúng tôi gửi cho bạn một Email. Nhấn vào link trong Email để kích hoạt tài khoản của bạn</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Nếu bạn không thấy ở trong Email, kiểm tra lại ở các nơi khác có thể có, như rác, thư rác, xã hội hay các thư mục khác</string>
