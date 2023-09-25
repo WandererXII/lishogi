@@ -347,7 +347,8 @@
 	<string name="toStudy">Nghiên cứu</string>
 	<string name="importGame">Nhập ván cờ</string>
 	<string name="importedGame">Ván cờ đã được nhập</string>
-	<string name="importGameKifCsaExplanation">Dán ván cờ KIF hoặc CSA để phát lại có thể duyệt được, phân tích máy tính, trò chuyện trò chơi và URL có thể chia sẻ.</string>
+	<string name="importGameKifCsaExplanation">Dán CSA hoặc KIF của ván đấu để xem lại trên trình duyệt,
+phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL có thể chia sẻ được.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="other">%s các ván cờ đã nhập</item>
 	</plurals>
@@ -631,7 +632,7 @@
 	<string name="aboutSimulSettings">Cờ đồng loạt luôn không tính Elo. Việc tái đấu, đi lại hay cho thêm thời gian đều bị vô hiệu.</string>
 	<string name="create">Tạo</string>
 	<string name="whenCreateSimul">Khi bạn tạo một sự kiện đồng loạt, bạn sẽ chơi với nhiều người cùng một lúc.</string>
-	<string name="simulVariantsHint">Nếu bạn chọn nhiều biến thể, mỗi người chơi khác sẽ được lựa chọn chơi biến thể nào.</string>
+	<string name="simulVariantsHint">Nếu bạn chọn nhiều biến thể, mỗi người chơi sẽ được lựa chọn chơi biến thể nào.</string>
 	<string name="simulClockHint">Thiết lập Đồng hồ Fischer. Bạn càng chơi với nhiều người thì càng có thể cần nhiều thời gian.</string>
 	<string name="simulAddExtraTime">Bạn có thể thêm thời gian cho đồng hồ của bạn để đấu cờ đồng loạt dễ hơn.</string>
 	<string name="simulHostExtraTime">Thời gian thêm cho người chủ trì</string>
