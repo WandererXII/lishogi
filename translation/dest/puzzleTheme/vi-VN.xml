@@ -57,7 +57,7 @@
   <string name="short">Câu đố ngắn</string>
   <string name="shortDescription">Thắng trong 3 nước cờ.</string>
   <string name="healthyMix">Một sự kết hợp nhẹ nhàng</string>
-  <string name="healthyMixDescription">Mỗi thứ một chút. Bạn không biết phải chờ đợi gì cả, vậy nên bạn sẽ sẵn sàng cho mọi thứ! Như một ván cờ thật vậy.</string>
+  <string name="healthyMixDescription">Mỗi thứ một chút. Bạn không biết được thứ gì đang chờ mình, vậy nên bạn cần phải sẵn sàng cho mọi thứ! Như một ván cờ thật vậy!</string>
   <string name="tsume">Cờ thế chiếu hết</string>
   <string name="tsumeDescription">Mục tiêu là chiếu hết quân Vua của đối phương, mọi nước đi đều phải chiếu.</string>
   <string name="strikingPawn">Tốt tấn công</string>
