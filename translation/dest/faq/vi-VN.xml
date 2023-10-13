@@ -36,13 +36,13 @@ Ví dụ: thời lượng ước tính của trò chơi 5+3|4 là 60 × 5 + 60 �
 	<string name="whatVariantsCanIplay">Tôi có thể chơi các loại biến thể nào trên Lishogi?</string>
 	<string name="lishogiSupportShogiAnd">Lishogi hỗ trợ shogi tiêu chuẩn và %1$s.</string>
 	<string name="whatIsACPL">Phần trăm tốt mất trung bình (ACPL) là gì?</string>
-	<string name="acplExplanation">Phần trăm tốt là đơn vị đo lường được sử dụng trong cờ vua để đại diện cho lợi thế. Một phần trăm tốt bằng 1/100 tốt. Do đó 100 phần trăm tốt = 1 tốt. Những giá trị này không đóng vai trò chính thức trong ván đấu nhưng hữu ích cho người chơi, và rất cần thiết trong cờ vua trên máy tính, để đánh giá các vị trí.
+	<string name="acplExplanation">Phần trăm tốt là đơn vị đo lường được sử dụng trong cờ vua (hoặc shogi) để đại diện cho lợi thế. Một phần trăm tốt bằng 1/100 tốt. Do đó 100 phần trăm tốt = 1 tốt. Những giá trị này không đóng vai trò chính thức trong ván đấu nhưng hữu ích cho người chơi và rất cần thiết trong cờ vua (shogi) trên máy tính để đánh giá các thế trận/thế cờ.
 
-Đẩy tốt lên cao sẽ có thể không làm mất phần trăm tốt, nhưng để tốt thấp sẽ làm giảm vị trí, được đo bằng phần trăm tốt.
+Đẩy tốt lên cao sẽ có thể không làm mất phần trăm tốt, nhưng để phần trăm tốt thấp sẽ làm giảm , được đo bằng phần trăm tốt.
 
-Giá trị này có thể được sử dụng như một chỉ báo về chất lượng chơi. Càng ít phần trăm tốt mất mỗi nước đi, càng có ưu thế.
+Giá trị này có thể được sử dụng như một chỉ báo về chất lượng chơi. Càng ít phần trăm mất tốt mỗi nước đi, càng có lợi thế.
 
-Phân tích máy tính trên Lishogi do Stockfish cung cấp.</string>
+Phân tích máy tính trên Lishogi do Fairy-Stockfish và YaneuraOu cung cấp.</string>
 	<string name="insufficientMaterial">Thua do hết giờ, hòa và không đủ quân chiếu hết</string>
 	<string name="goodIntroduction">lời mở đầu tốt</string>
 	<string name="officialRulesPDF">luật chính thức (PDF)</string>
