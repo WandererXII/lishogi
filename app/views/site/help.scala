@@ -75,7 +75,6 @@ $('#asset-version-message').text(lishogi.info.message);"""
   }
 
   def webmasters()(implicit ctx: Context) = {
-    val baseUrl = "https://lishogi.org"
     val parameters = frag(
       p("Parameters:"),
       ul(
@@ -83,7 +82,9 @@ $('#asset-version-message').text(lishogi.info.message);"""
         li(
           strong("pieceSet"),
           ": ",
-          (lila.pref.PieceSet.all ::: lila.pref.ChuPieceSet.all).map(_.name).mkString(", ")
+          (lila.pref.PieceSet.all ::: lila.pref.ChuPieceSet.all ::: lila.pref.KyoPieceSet.all)
+            .map(_.name)
+            .mkString(", ")
         ),
         li(strong("bg"), ": light, dark")
       )
@@ -105,7 +106,7 @@ $('#asset-version-message').text(lishogi.info.message);"""
               input(
                 id  := "tv-embed-src",
                 cls := "copyable autoselect",
-                value := s"""<iframe src="$baseUrl/tv/frame?theme=wood&bg=light&pieceSet=Ryoko_1Kanji" $args></iframe>"""
+                value := s"""<iframe src="$netBaseUrl/tv/frame?theme=wood&bg=light&pieceSet=Ryoko_1Kanji" $args></iframe>"""
               ),
               button(title := "Copy code", cls := "copy button", dataRel := "tv-embed-src", dataIcon := "\"")
             ),
@@ -123,7 +124,7 @@ $('#asset-version-message').text(lishogi.info.message);"""
               input(
                 id  := "puzzle-embed-src",
                 cls := "copyable autoselect",
-                value := s"""<iframe src="$baseUrl/training/frame?theme=wood&bg=light&pieceSet=Ryoko_1Kanji" $args></iframe>"""
+                value := s"""<iframe src="$netBaseUrl/training/frame?theme=wood&bg=light&pieceSet=Ryoko_1Kanji" $args></iframe>"""
               ),
               button(
                 title    := "Copy code",
@@ -191,8 +192,7 @@ $('#asset-version-message').text(lishogi.info.message);"""
     views.html.base.layout(
       title = title,
       moreCss = moreCss,
-      moreJs = moreJs,
-      withHrefLangs = none
+      moreJs = moreJs
     ) {
       val sep                  = div(cls := "sep")
       val external             = frag(" ", i(dataIcon := "0"))

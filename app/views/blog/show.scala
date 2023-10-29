@@ -23,7 +23,15 @@ object show {
         .some,
       moreCss = cssTag("blog"),
       csp = bits.csp,
-      withHrefLangs = Some(lila.i18n.LangList.EnglishJapanese)
+      withHrefLangs = post.allLangIds.map { ids =>
+        lila.i18n.LangList
+          .Custom(
+            Map(
+              "en" -> routes.Blog.show(ids.en).url,
+              "ja" -> routes.Blog.show(ids.ja).url
+            )
+          )
+      }
     )(
       main(cls := "page-menu page-small")(
         bits.menu(none, false),

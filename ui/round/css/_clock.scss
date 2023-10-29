@@ -54,7 +54,7 @@
     opacity: 0.8;
   }
   .time {
-    @extend %roboto;
+    @extend %roboto, %box-shadow;
     background: $c-bg-box;
     font-size: 2.5em;
     font-weight: bold;
@@ -119,7 +119,7 @@
     background: mix($c-secondary, $c-bg-box, 30%);
     color: $c-font-clearer;
   }
-  &.emerg .time,
+  &.emerg:not(.byo) .time,
   &.outoftime .time {
     background-color: mix($c-bad, $c-bg-box, 25%);
   }
@@ -128,11 +128,9 @@
     color: $c-font-clearer;
   }
   &.over {
-    display: none;
-  }
-  .board-layout-1 &.over {
     display: flex;
-    .time, .byoyomi {
+    .time,
+    .byoyomi {
       color: $c-font-dimmer;
     }
   }

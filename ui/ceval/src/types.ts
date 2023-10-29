@@ -9,10 +9,15 @@ export interface Eval {
   mate?: number;
 }
 
+export interface Config {
+  threads: number;
+  hashSize: number;
+}
+
 export interface Work {
   variant: VariantKey;
   threads: number;
-  hashSize: number | undefined;
+  hashSize: number;
   stopRequested: boolean;
 
   path: string;

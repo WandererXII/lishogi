@@ -13,7 +13,6 @@ import { DrawShape } from 'shogiground/draw';
 import * as sg from 'shogiground/types';
 import { eagleLionAttacks, falconLionAttacks } from 'shogiops/attacks';
 import {
-  checksSquareNames,
   shogigroundDropDests,
   shogigroundMoveDests,
   shogigroundSecondLionStep,
@@ -99,6 +98,7 @@ export default class AnalyseCtrl {
   showMoveAnnotation: StoredBooleanProp = storedProp('show-move-annotation', true);
   showComputer: StoredBooleanProp = storedProp('show-computer', true);
   keyboardHelp: boolean = location.hash === '#keyboard';
+  studyModal: Prop<boolean> = prop(false);
   threatMode: Prop<boolean> = prop(false);
   treeView: TreeView;
 
@@ -200,6 +200,7 @@ export default class AnalyseCtrl {
     this.ongoing = !this.synthetic && game.playable(data);
 
     if (this.data.game.variant.key === 'chushogi') li.loadChushogiPieceSprite();
+    else if (this.data.game.variant.key == 'kyotoshogi') li.loadKyotoshogiPieceSprite();
 
     const prevTree = merge && this.tree.root;
     this.tree = makeTree(treeOps.reconstruct(this.data.treeParts));
@@ -323,7 +324,7 @@ export default class AnalyseCtrl {
         droppable: {
           dests: this.embed || movableColor !== color ? new Map() : drops,
         },
-        checks: this.data.game.variant.key === 'chushogi' && posRes.isOk ? checksSquareNames(posRes.value) : node.check,
+        checks: node.check,
         lastDests: node.usi ? usiToSquareNames(node.usi) : undefined,
         drawable: {
           squares: [],
@@ -381,7 +382,7 @@ export default class AnalyseCtrl {
           if (this.node.capture) this.sound.capture();
           else this.sound.move();
         }
-        if (this.node.check) this.sound.check();
+        if (this.node.check && this.data.game.variant.key !== 'chushogi') this.sound.check();
       }
       this.threatMode(false);
       this.ceval.stop();
@@ -456,7 +457,7 @@ export default class AnalyseCtrl {
       success: (data: AnalyseData) => {
         this.reloadData(data, false);
         const $selSpan = $('.mselect__label span'),
-          icon = getPerfIcon(data.game.variant.key)!;
+          icon = getPerfIcon(data.game.variant.key);
         $selSpan.attr('data-icon', icon);
         $selSpan.text(this.trans.noarg(data.game.variant.key));
         $('nav.mselect__list a').each(function (this: HTMLElement) {
@@ -531,7 +532,6 @@ export default class AnalyseCtrl {
       this.shogiground.set({
         activeColor: pos.turn,
         turnColor: pos.turn,
-        checks: checksSquareNames(pos),
         movable: {
           dests: shogigroundSecondLionStep(pos, orig, dest),
         },

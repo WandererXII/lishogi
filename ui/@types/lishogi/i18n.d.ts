@@ -188,6 +188,11 @@ export type I18nKey =
 'chushogi'|
 'annanshogi'|
 'kyotoshogi'|
+'standardDescription'|
+'minishogiDescription'|
+'chushogiDescription'|
+'kyotoshogiDescription'|
+'annanshogiDescription'|
 'unlimited'|
 'mode'|
 'casual'|
@@ -782,6 +787,9 @@ export type I18nKey =
 'pressXtoFocus'|
 'pressXtoSubmit'|
 'clickGame'|
+'analyse'|
+'back'|
+'preview'|
 'opponentLeftCounter'|
 'nbMoves'|
 'nbPlayers'|
@@ -1221,6 +1229,7 @@ export type I18nKey =
 'topicsDescription'|
 'myTopics'|
 'popularTopics'|
+'manageTopics'|
 'startTag'|
 'endTag'|
 'siteTag'|
@@ -1239,6 +1248,19 @@ export type I18nKey =
 'collectionTag'|
 'lengthTag'|
 'prizeTag'|
+'initHelp'|
+'introGamebook'|
+'putFirstMove'|
+'explainMove'|
+'reflectOnMove'|
+'variationMoves'|
+'explainWrongMove'|
+'orPromote'|
+'otherMove'|
+'explainAllWrong'|
+'hintOnDemand'|
+'playerTip'|
+'playQuestion'|
 'nbChapters'|
 'nbGames'|
 'nbMembers'|
@@ -1582,6 +1604,7 @@ export type I18nKey =
 'gameDisplay'|
 'boardLayout'|
 'clearHands'|
+'handsBackground'|
 'pieceAnimation'|
 'materialDifference'|
 'boardHighlightsLastDests'|

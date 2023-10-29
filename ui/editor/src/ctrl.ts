@@ -141,6 +141,21 @@ export default class EditorCtrl {
     else return `${this.data.baseUrl}${variant}/${this.encodeSfen(sfen)}`;
   }
 
+  encodeVariant(variant: VariantKey): number {
+    switch (variant) {
+      case 'minishogi':
+        return 2;
+      case 'chushogi':
+        return 3;
+      case 'annanshogi':
+        return 4;
+      case 'kyotoshogi':
+        return 5;
+      default:
+        return 1;
+    }
+  }
+
   encodeSfen(sfen: string): string {
     return encodeURIComponent(sfen).replace(/%20/g, '_').replace(/%2F/g, '/').replace(/%2B/g, '+');
   }
@@ -289,6 +304,7 @@ export default class EditorCtrl {
       true
     );
     if (rules === 'chushogi') window.lishogi.loadChushogiPieceSprite();
+    else if (rules === 'kyotoshogi') window.lishogi.loadKyotoshogiPieceSprite();
     this.onChange();
   }
 

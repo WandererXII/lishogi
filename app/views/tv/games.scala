@@ -10,8 +10,9 @@ object games {
       ctx: Context
   ) =
     views.html.base.layout(
-      title = s"${channel.name} - ${trans.currentGames.txt()}",
-      moreCss = cssTag("tv.games")
+      title = s"${transKeyTxt(channel.key)} - ${trans.currentGames.txt()}",
+      moreCss = cssTag("tv.games"),
+      withHrefLangs = lila.i18n.LangList.All.some
     ) {
       main(cls := "page-menu tv-games")(
         st.aside(cls := "page-menu__menu")(

@@ -12,7 +12,7 @@ function ratingLog(a) {
   return Math.log(a / 150 + 1);
 }
 
-function ratingY(e) {
+function ratingY(e?: number) {
   const rating = Math.max(1000, Math.min(2200, e || 1500));
   let ratio;
   let mid = 2 / 5;
@@ -42,7 +42,7 @@ function renderPlot(ctrl: LobbyController, hook: Hook) {
   return h('span#' + hook.id + '.' + klass, {
     key: hook.id,
     attrs: {
-      'data-icon': getPerfIcon(hook.perf)!,
+      'data-icon': getPerfIcon(hook.perf || hook.variant),
       style: `bottom:${percents(bottom)};left:${percents(left)}`,
     },
     hook: {
@@ -50,7 +50,7 @@ function renderPlot(ctrl: LobbyController, hook: Hook) {
         $(vnode.elm as HTMLElement)
           .powerTip({
             intentPollInterval: 100,
-            placement: hook.rating > 1800 ? 'se' : 'ne',
+            placement: hook.rating && hook.rating > 1800 ? 'se' : 'ne',
             mouseOnToPopup: true,
             closeDelay: 200,
             popupId: 'hook',
@@ -87,7 +87,12 @@ function renderHook(ctrl: LobbyController, hook: Hook): string {
   }
   html += '<div class="inner-clickable">';
   html += `<div>${hook.clock}</div>`;
-  html += '<i data-icon="' + getPerfIcon(hook.perf) + '"> ' + ctrl.trans(hook.ra ? 'rated' : 'casual') + '</i>';
+  html +=
+    '<i data-icon="' +
+    getPerfIcon(hook.perf || hook.variant) +
+    '"> ' +
+    ctrl.trans(hook.ra ? 'rated' : 'casual') +
+    '</i>';
   html += '</div>';
   html += '</div>';
   return html;

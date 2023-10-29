@@ -1,12 +1,11 @@
 import { Position } from 'shogiops/variant/position';
-import { forsythToRole, parseSfen } from 'shogiops/sfen';
+import { parseSfen } from 'shogiops/sfen';
 import { KeyboardMove } from '../main';
-import { aimingAt, csaToRole, fromKanjiDigit, kanjiToRole } from 'shogiops/notation/util';
-import { makeSquareName, parseSquareName } from 'shogiops/util';
-import { Move, Role, Square, SquareSet, isDrop } from 'shogiops';
-import { makeJapaneseMove } from 'shogiops/notation/japanese';
+import { makeSquareName, opposite } from 'shogiops/util';
+import { Board, RoleMap, Square, isDrop } from 'shogiops';
 import { DrawShape } from 'shogiground/draw';
-import { pieceCanPromote, unpromote } from 'shogiops/variant/util';
+import { unpromote } from 'shogiops/variant/util';
+import { KKlastDestR, allCandidates, allRolesR, regexMatchAllSquares, toMove, toRole } from './util';
 
 // NO chushogi support, because of - lion moves and three character long coords
 
@@ -25,19 +24,9 @@ interface Opts {
   ctrl: KeyboardMove;
 }
 
-const fileR = new RegExp('(?:[１２３４５６７８９]|[一二三四五六七八九]|[1-9])'),
-  rankR = new RegExp('(?:[１２３４５６７８９]|[一二三四五六七八九]|[1-9]|[a-i])'),
-  keyR = new RegExp(`${fileR.source}${rankR.source}`, 'g'),
-  japaneseAmbiguitiesR = new RegExp('左|右|上|行|引|寄|直'),
-  allRolesR = new RegExp(
-    'fu|ky|ke|gi|ki|ka|hi|to|ny|nk|ng|um|ry|ou|p|l|n|s|g|b|r|k|\\+p|\\+l|\\+n|\\+s|\\+b|\\+r|歩|香|桂|銀|金|角|飛|と|成香|成桂|成銀|馬|龍|王|玉|d|h|t'
-  ),
-  KKlastDestR = new RegExp(`^(?:${allRolesR.source})x$`);
-
 interface SubmitOpts {
   submitCommand: boolean;
   isTrusted?: boolean;
-  yourMove?: boolean;
 }
 type Submit = (v: string, submitOpts: SubmitOpts) => void;
 
@@ -45,11 +34,21 @@ window.lishogi.keyboardMove = function (opts: Opts) {
   if (opts.input.classList.contains('ready')) return;
   opts.input.classList.add('ready');
   let pos: Position | null = null,
-    lastKey: Key | null | undefined;
+    lastKey: Key | null | undefined,
+    canPlay: boolean | undefined;
 
   const submit: Submit = (v: string, submitOpts: SubmitOpts) => {
+    opts.input.classList.remove('wrong');
+
     if (!submitOpts.isTrusted) return;
     v = v.toLowerCase().replace(/\s/g, '');
+
+    if (v === '' && submitOpts.submitCommand) {
+      if (canPlay) opts.ctrl.confirmMove();
+      else opts.ctrl.sg.cancelMove();
+      return;
+    }
+
     if (lastKey) {
       if (KKlastDestR.test(v)) v = v + lastKey;
       else if (v.includes('同')) v = v.replace('同', lastKey);
@@ -65,32 +64,32 @@ window.lishogi.keyboardMove = function (opts: Opts) {
           shapes.push({
             orig: makeSquareName(move.from),
             dest: makeSquareName(move.to),
-            brush: 'confirm',
+            brush: `${!canPlay ? 'pre-' : ''}confirm`,
             description: move.promotion ? '+' : undefined,
           });
       } else if (pos) {
         const sqs = regexMatchAllSquares(v),
           m = v.match(allRolesR)?.[0] || '',
-          forceDrop = v.includes('*') || v.includes('打');
-
-        const role = toRole(pos.rules, m);
+          forceDrop = v.includes('*') || v.includes('打'),
+          role = toRole(pos.rules, m),
+          brush = `${!canPlay ? 'pre-' : ''}suggest`;
 
         if (sqs.length === 1) {
           if (role && !forceDrop) {
             for (const sq of allCandidates(sqs[0], role, pos))
-              shapes.push({ orig: makeSquareName(sq), dest: makeSquareName(sqs[0]), brush: 'suggest' });
-          } else shapes.push({ orig: makeSquareName(sqs[0]), dest: makeSquareName(sqs[0]), brush: 'suggest' });
+              shapes.push({ orig: makeSquareName(sq), dest: makeSquareName(sqs[0]), brush });
+          } else shapes.push({ orig: makeSquareName(sqs[0]), dest: makeSquareName(sqs[0]), brush });
         } else if (role && Math.abs(m.length - v.length) <= 1) {
           if (!forceDrop) {
             const pieces = Array.from(pos.board.pieces(pos.turn, role));
             for (const piece of pieces)
-              shapes.push({ orig: makeSquareName(piece), dest: makeSquareName(piece), brush: 'suggest' });
+              shapes.push({ orig: makeSquareName(piece), dest: makeSquareName(piece), brush });
           }
           if (
             pos.hands.color(pos.turn).get(role) > 0 ||
             pos.hands.color(pos.turn).get(unpromote(pos.rules)(role) || role) > 0
           )
-            shapes.push({ orig: { color: pos.turn, role }, dest: { color: pos.turn, role }, brush: 'suggest' });
+            shapes.push({ orig: { color: pos.turn, role }, dest: { color: pos.turn, role }, brush });
         }
       }
       if (!v.length) opts.input.classList.toggle('wrong', false);
@@ -101,7 +100,7 @@ window.lishogi.keyboardMove = function (opts: Opts) {
         clear();
       } else if (v.length > 1 && 'resign'.startsWith(v)) {
         if (v === 'resign') {
-          opts.ctrl.resign(true, true);
+          opts.ctrl.resign(true);
           clear();
         }
       } else if (v.length > 0 && 'clock'.startsWith(v)) {
@@ -134,16 +133,13 @@ window.lishogi.keyboardMove = function (opts: Opts) {
           opts.ctrl.vote?.(false);
           clear();
         }
-      } else if (submitOpts.yourMove && v.length > 1) {
-        setTimeout(window.lishogi.sound.error, 500);
-        opts.input.value = '';
       } else {
         const wrong = !!v.length;
         if (wrong && !opts.input.classList.contains('wrong')) window.lishogi.sound.error();
         opts.input.classList.toggle('wrong', wrong);
       }
     }
-    opts.ctrl.sg.setAutoShapes(shapes);
+    if (!opts.input.classList.contains('wrong')) opts.ctrl.sg.setAutoShapes(shapes);
   };
   const clear = () => {
     opts.input.value = '';
@@ -153,11 +149,23 @@ window.lishogi.keyboardMove = function (opts: Opts) {
   return (variant: VariantKey, sfen: string, lastSquare: Square | undefined, yourMove: boolean) => {
     pos = parseSfen(variant, sfen).unwrap();
     lastKey = lastSquare !== undefined ? makeSquareName(lastSquare) : undefined;
+    canPlay = yourMove;
+    // premove/predrop
+    if (!canPlay) {
+      pos.turn = opposite(pos.turn);
+      const myOccupied = pos.board.color(pos.turn),
+        roleMap: RoleMap = new Map();
+
+      for (const r of pos.board.presentRoles()) {
+        roleMap.set(r, pos.board.role(r).intersect(myOccupied));
+      }
+
+      pos.board = Board.from(myOccupied, [[pos.turn, myOccupied]], roleMap);
+    }
 
     submit(opts.input.value, {
       submitCommand: false,
       isTrusted: true,
-      yourMove: yourMove,
     });
   };
 };
@@ -173,8 +181,7 @@ function makeBindings(opts: any, submit: Submit, clear: () => void) {
     if (v.includes('/')) {
       focusChat();
       clear();
-    } else if (v === '' && submitCommand) opts.ctrl.confirmMove();
-    else
+    } else
       submit(v, {
         submitCommand: submitCommand,
         isTrusted: e.isTrusted,
@@ -196,113 +203,6 @@ function makeBindings(opts: any, submit: Submit, clear: () => void) {
       e.preventDefault();
     }
   });
-}
-
-function fixDigits(str: string): string {
-  return str
-    .split('')
-    .map(c => {
-      const charCode = c.charCodeAt(0);
-      if (charCode >= 0xff10 && charCode <= 0xff19) {
-        return String.fromCharCode(charCode - 0xfee0);
-      }
-      return fromKanjiDigit(c) || c;
-    })
-    .join('');
-}
-
-function toSquare(str: string): Square | undefined {
-  if (str.length !== 2) return;
-  const mapped = fixDigits(str),
-    secondDigit = parseInt(mapped[1]);
-
-  const numberLetter = secondDigit ? mapped[0] + String.fromCharCode(96 + secondDigit) : mapped,
-    parsed = parseSquareName(numberLetter);
-  if (parsed !== undefined) return parsed;
-  else return;
-}
-
-function regexMatchAllSquares(str: string): Square[] {
-  const matches: Square[] = [];
-  let match;
-  while ((match = keyR.exec(str)) !== null) {
-    const sq = toSquare(match[0]);
-    if (sq) matches.push(sq);
-  }
-  return matches;
-}
-
-function toRole(variant: VariantKey, str: string): Role | undefined {
-  if (str.length === 1) {
-    str = str.replace('h', '+b').replace('d', '+r');
-    if (variant !== 'kyotoshogi') str.replace('t', '+p');
-  }
-  return forsythToRole(variant)(str) || kanjiToRole(str)[0] || csaToRole(str.toUpperCase());
-}
-
-function allCandidates(dest: Square, role: Role, pos: Position): SquareSet {
-  return aimingAt(pos, pos.board.pieces(pos.turn, role), dest);
-}
-
-function toMove(str: string, pos: Position): Move | undefined {
-  const sqs = regexMatchAllSquares(str),
-    unpromotion = str.includes('不成') || str.endsWith('='),
-    forceDrop = str.includes('*') || str.includes('打');
-
-  if (sqs.length) {
-    if (sqs.length === 2) {
-      const piece = pos.board.get(sqs[0]);
-      if (piece) {
-        const move = {
-          from: sqs[0],
-          to: sqs[1],
-          promotion: pieceCanPromote(pos.rules)(piece, sqs[0], sqs[1], undefined) && !unpromotion,
-        };
-        return pos.isLegal(move) ? move : undefined;
-      }
-      const pieceReversed = pos.board.get(sqs[1]);
-      if (pieceReversed) {
-        const move = {
-          from: sqs[1],
-          to: sqs[0],
-          promotion: pieceCanPromote(pos.rules)(pieceReversed, sqs[1], sqs[0], undefined) && !unpromotion,
-        };
-        return pos.isLegal(move) ? move : undefined;
-      }
-    } else if (sqs.length === 1) {
-      const keyChar = str.match(keyR)![0],
-        roleChar = str.replace(keyChar, '').match(allRolesR),
-        role = roleChar && toRole(pos.rules, roleChar[0]);
-
-      if (role) {
-        const candidates = allCandidates(sqs[0], role, pos),
-          piece = { color: pos.turn, role };
-        if ((forceDrop || candidates.isEmpty()) && pos.dropDests(piece).has(sqs[0])) {
-          const drop = { role, to: sqs[0] };
-          return pos.isLegal(drop) ? drop : undefined;
-        } else if (candidates.isSingleSquare())
-          return {
-            from: candidates.first()!,
-            to: sqs[0],
-            promotion: pieceCanPromote(pos.rules)(piece, candidates.first()!, sqs[0], undefined) && !unpromotion,
-          };
-        else if (japaneseAmbiguitiesR.test(str)) {
-          const amb = str.match(japaneseAmbiguitiesR)!;
-
-          for (const c of candidates) {
-            const jpMove = makeJapaneseMove(pos, { from: c, to: sqs[0] })!;
-            if (amb.every(a => jpMove.includes(a)))
-              return {
-                from: c,
-                to: sqs[0],
-                promotion: pieceCanPromote(pos.rules)(piece, c, sqs[0], undefined) && !unpromotion,
-              };
-          }
-        }
-      }
-    }
-  }
-  return;
 }
 
 function focusChat() {

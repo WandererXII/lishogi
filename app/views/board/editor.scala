@@ -23,7 +23,11 @@ object editor {
 LishogiEditor(document.getElementById('board-editor'), data);"""
         )
       ),
-      moreCss = cssTag("editor"),
+      moreCss = frag(
+        cssTag("editor"),
+        sit.variant.chushogi option views.html.base.layout.bits.chuPieceSprite,
+        sit.variant.kyotoshogi option views.html.base.layout.bits.kyoPieceSprite
+      ),
       shogiground = false,
       zoomable = true,
       openGraph = lila.app.ui
@@ -33,7 +37,8 @@ LishogiEditor(document.getElementById('board-editor'), data);"""
           description = trans.editorDescription.txt()
         )
         .some,
-      canonicalPath = lila.common.CanonicalPath(routes.Editor.index).some
+      canonicalPath = lila.common.CanonicalPath(routes.Editor.index).some,
+      withHrefLangs = lila.i18n.LangList.All.some
     )(
       main(id := "board-editor")(
         div(cls   := s"board-editor variant-${sit.variant.key}")(

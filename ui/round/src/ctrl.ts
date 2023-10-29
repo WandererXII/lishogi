@@ -83,6 +83,7 @@ export default class RoundController {
   autoScroll: () => void = $.noop;
   challengeRematched: boolean = false;
   shouldSendMoveTime: boolean = false;
+  openStudyModal = false;
   lastDrawOfferAtPly?: Ply;
   nvui?: NvuiPlugin;
 
@@ -122,7 +123,6 @@ export default class RoundController {
       setInterval(this.corresClockTick, 1000);
     }
 
-    this.setKeyboardMove();
     this.setQuietMode();
 
     this.moveOn = new MoveOn(this, 'move-on');
@@ -130,6 +130,8 @@ export default class RoundController {
 
     this.trans = li.trans(opts.i18n);
     this.noarg = this.trans.noarg;
+
+    this.setKeyboardMove();
 
     setTimeout(this.delayedInit, 200);
 
@@ -298,7 +300,7 @@ export default class RoundController {
       config: SgConfig = {
         sfen: { board: splitSfen[0], hands: splitSfen[2] },
         lastDests: s.usi ? usiToSquareNames(s.usi) : undefined,
-        checks: variant === 'chushogi' && posRes?.isOk ? checksSquareNames(posRes.value) : !!s.check,
+        checks: !!s.check,
         turnColor: this.ply % 2 === 0 ? 'sente' : 'gote',
         activeColor: this.isPlaying() ? this.data.player.color : undefined,
         drawable: {
@@ -320,7 +322,7 @@ export default class RoundController {
     if (s.usi && isForwardStep) {
       if (capture) sound.capture();
       else sound.move();
-      if (s.check) sound.check();
+      if (s.check && variant !== 'chushogi') sound.check();
     }
     this.lionFirstMove = undefined;
     this.autoScroll();
@@ -430,19 +432,22 @@ export default class RoundController {
     this.setTitle();
     const move = parseUsi(o.usi!)!,
       keys = usiToSquareNames(o.usi!),
-      posRes =
-        variant === 'chushogi' || (playing && activeColor) ? parseSfen(d.game.variant.key, o.sfen, false) : undefined;
+      posRes = playing && activeColor ? parseSfen(d.game.variant.key, o.sfen, false) : undefined;
 
     if (!this.replaying()) {
       this.ply++;
       if (isDrop(move)) {
         const capture = this.shogiground.state.pieces.get(keys[0]),
+          unpromotedRole =
+            variant === 'kyotoshogi' && !handRoles(variant).includes(move.role)
+              ? unpromote(variant)(move.role)
+              : undefined, // unify this behaviour, somewhere we get piece already promoted, somwehere we get original piece with boolean promotion
           piece = {
-            role: move.role,
+            role: unpromotedRole || move.role,
             color: playedColor,
           };
         // no need to drop the piece if it is already there - would play the sound again
-        if (!capture || !samePiece(capture, piece)) this.shogiground.drop(piece, keys[0]);
+        if (!capture || !samePiece(capture, piece)) this.shogiground.drop(piece, keys[0], !!unpromotedRole);
       } else {
         // This block needs to be idempotent
         if (defined(move.midStep)) {
@@ -469,12 +474,12 @@ export default class RoundController {
         droppable: {
           dests: playing && activeColor && posRes ? util.getDropDests(posRes) : new Map(),
         },
-        checks: variant === 'chushogi' && posRes?.isOk ? checksSquareNames(posRes.value) : o.check,
+        checks: o.check,
         drawable: {
           squares: [],
         },
       });
-      if (o.check) sound.check();
+      if (o.check && variant !== 'chushogi') sound.check();
       blur.onMove();
       li.pubsub.emit('ply', this.ply);
     }
@@ -516,10 +521,7 @@ export default class RoundController {
     this.autoScroll();
     this.onChange();
     if (this.keyboardMove)
-      this.keyboardMove.update(
-        { sfen: step.sfen, lastSquare: lastStep?.usi ? parseUsi(lastStep.usi)?.to : undefined },
-        playedColor != d.player.color
-      );
+      this.keyboardMove.update({ sfen: step.sfen, lastSquare: lastStep?.usi ? parseUsi(lastStep.usi)?.to : undefined });
     if (this.music) this.music.jump(o);
     speech.notation(step.notation);
   };
@@ -640,9 +642,9 @@ export default class RoundController {
     this.shogiground.cancelPremove();
   };
 
-  resign = (v: boolean): void => {
+  resign = (v: boolean, force = false): void => {
     if (v) {
-      if (this.resignConfirm || !this.data.pref.confirmResign) {
+      if (this.resignConfirm || !this.data.pref.confirmResign || force) {
         this.socket.sendLoading('resign');
         clearTimeout(this.resignConfirm);
       } else {
@@ -667,6 +669,7 @@ export default class RoundController {
     this.goneBerserk[color] = true;
     if (color !== this.data.player.color) li.sound.berserk();
     this.redraw();
+    $('<i data-icon="`">').appendTo($(`.game__meta .player.${color} .user-link`));
   };
 
   setLoading = (v: boolean, duration: number = 1500) => {
@@ -709,7 +712,7 @@ export default class RoundController {
     if (this.opts.onChange) setTimeout(() => this.opts.onChange(this.data), 150);
   };
 
-  private goneTick;
+  private goneTick: number | undefined;
   setGone = (gone: number | boolean) => {
     game.setGone(this.data, this.data.opponent.color, gone);
     clearTimeout(this.goneTick);

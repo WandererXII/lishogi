@@ -51,8 +51,9 @@ trait GameHelper {
   def describePov(pov: Pov)(implicit lang: Lang) = {
     import pov._
     val sentePlayer = playerText(game.player(shogi.Sente), withRating = false)
-    val gotePlayer = playerText(game.player(shogi.Gote), withRating = false)
-    val players = if (game.finishedOrAborted) trans.xPlayedY.txt(sentePlayer, gotePlayer)
+    val gotePlayer  = playerText(game.player(shogi.Gote), withRating = false)
+    val players =
+      if (game.finishedOrAborted) trans.xPlayedY.txt(sentePlayer, gotePlayer)
       else trans.xIsPlayingY.txt(sentePlayer, gotePlayer)
     val gameDesc =
       if (game.imported) trans.importedGame.txt()
@@ -63,7 +64,9 @@ trait GameHelper {
           game.variant.standard ?? trans.shogi.txt(),
           game.clock.map(_.config) ?? { clock => s"(${clock.show})" }
         ).filter(_.nonEmpty).mkString(" ")
-    val result = game.winner.map(w => trans.xWon.txt(playerText(w))).getOrElse(trans.gameWasDraw.txt())
+    val result = game.winner.map(w => trans.xWon.txt(playerText(w))) getOrElse {
+      if (game.finishedOrAborted) trans.gameWasDraw.txt() else trans.winnerIsNotYetDecided.txt()
+    }
     s"$players - $gameDesc - $result ${trans.clickGame.txt()}"
   }
 
@@ -87,9 +90,14 @@ trait GameHelper {
       case _                        => trans.standard.txt()
     }
 
-  private def variantNameOrShogi(v: shogi.variant.Variant)(implicit lang: Lang): String =
-    if (v.standard) trans.shogi.txt()
-    else variantName(v)
+  def variantDescription(v: shogi.variant.Variant)(implicit lang: Lang): String =
+    v match {
+      case shogi.variant.Minishogi  => trans.minishogiDescription.txt()
+      case shogi.variant.Chushogi   => trans.chushogiDescription.txt()
+      case shogi.variant.Annanshogi => trans.annanshogiDescription.txt()
+      case shogi.variant.Kyotoshogi => trans.kyotoshogiDescription.txt()
+      case _                        => trans.standardDescription.txt()
+    }
 
   def variantIcon(v: shogi.variant.Variant): String =
     v match {
@@ -127,7 +135,6 @@ trait GameHelper {
     Namer.gameVsTextBlocking(game, withRatings)(lightUser)
 
   val berserkIconSpan = iconTag("`")
-  val statusIconSpan  = i(cls := "status")
 
   def playerLink(
       player: Player,
@@ -136,15 +143,11 @@ trait GameHelper {
       withRating: Boolean = true,
       withDiff: Boolean = true,
       engine: Boolean = false,
-      withStatus: Boolean = false,
       withBerserk: Boolean = false,
       mod: Boolean = false,
       link: Boolean = true
   )(implicit lang: Lang): Frag = {
-    val statusIcon =
-      if (withStatus) statusIconSpan.some
-      else if (withBerserk && player.berserk) berserkIconSpan.some
-      else none
+    val statusIcon = (withBerserk && player.berserk) option berserkIconSpan
     player.userId.flatMap(lightUser) match {
       case None =>
         val klass = cssClass.??(" " + _)

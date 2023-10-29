@@ -22,7 +22,7 @@ object index {
   )(implicit ctx: Context) =
     views.html.round.bits.layout(
       variant = pov.game.variant,
-      title = s"${channel.name} TV: ${playerText(pov.player)} vs ${playerText(pov.opponent)}",
+      title = s"${transKeyTxt(channel.key)} TV: ${playerText(pov.player)} vs ${playerText(pov.opponent)}",
       moreJs = frag(
         roundTag,
         embedJsUnsafe(
@@ -38,12 +38,13 @@ object index {
       shogiground = false,
       openGraph = lila.app.ui
         .OpenGraph(
-          title = trans.watchLishogiTV.txt(),
+          title = s"${trans.watchLishogiTV.txt()} - ${transKeyTxt(channel.key)}",
           description = trans.watchLishogiTVDescription.txt(),
           url = s"$netBaseUrl${routes.Tv.onChannel(channel.key)}"
         )
         .some,
-      robots = true
+      robots = true,
+      withHrefLangs = lila.i18n.LangList.All.some
     )(
       main(cls := "round tv-single")(
         st.aside(cls := "round__side")(

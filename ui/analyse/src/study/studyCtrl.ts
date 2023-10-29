@@ -240,6 +240,7 @@ export default function (
     // path could be gone (because of subtree deletion), go as far as possible
     ctrl.userJump(ctrl.tree.longestValidPath(nextPath));
 
+    updateUrl(data.chapter.id);
     vm.justSetChapterId = undefined;
 
     configurePractice();
@@ -269,13 +270,17 @@ export default function (
 
   if (members.canContribute()) form.openIfNew();
 
-  function currentNode() {
-    return ctrl.node;
-  }
+  const currentNode = () => ctrl.node;
+  const onMainline = () => ctrl.tree.pathIsMainline(ctrl.path);
 
-  const share = shareCtrl(data, currentChapter, currentNode, !!relay, redraw, ctrl.plyOffset(), ctrl.trans);
+  const share = shareCtrl(data, currentChapter, currentNode, onMainline, !!relay, redraw, ctrl.plyOffset(), ctrl.trans);
 
   const practice: StudyPracticeCtrl | undefined = practiceData && practiceCtrl(ctrl, data, practiceData);
+
+  function updateUrl(chapterId: string) {
+    if (!practice) window.history.replaceState(null, '', `/study/${data.id}/${chapterId}`);
+  }
+  updateUrl(data.chapter.id);
 
   let gamebookPlay: GamebookPlayCtrl | undefined;
 

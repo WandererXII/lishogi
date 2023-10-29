@@ -140,6 +140,8 @@ final class Study(
       }
     }
 
+  def postGameStudiesOfDefault(gameId: String, page: Int) = postGameStudiesOf(gameId, Order.default.key, page)
+
   def postGameStudiesOf(gameId: String, order: String, page: Int) =
     Open { implicit ctx =>
       env.study.pager.postGameStudiesOf(gameId.take(8), ctx.me, Order(order), page) flatMap { pag =>
@@ -262,7 +264,12 @@ final class Study(
   def show(id: String) =
     Open { implicit ctx =>
       orRelay(id) {
-        showQuery(env.study.api byIdWithChapter id)
+        showQuery {
+          if (HTTPRequest isCrawler ctx.req)
+            env.study.api byIdWithFirstChapter id
+          else
+            env.study.api byIdWithChapter id
+        }
       }
     }
 

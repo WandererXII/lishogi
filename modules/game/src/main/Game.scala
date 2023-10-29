@@ -564,10 +564,10 @@ case class Game(
 
   def userRatings = playerMaps(_.rating)
 
-  def averageUsersRating =
+  def averageUsersRating(default: Int) =
     userRatings match {
       case a :: b :: Nil => Some((a + b) / 2)
-      case a :: Nil      => Some((a + 1500) / 2)
+      case a :: Nil      => Some((a + default) / 2)
       case _             => None
     }
 
@@ -584,11 +584,6 @@ case class Game(
   def isNotationImport = notationImport.isDefined
   def isKifImport      = notationImport.fold(false)(_.isKif)
   def isCsaImport      = notationImport.fold(false)(_.isCsa)
-
-  def resetPlies =
-    copy(
-      shogi = shogi.copy(plies = 0, startedAtPly = 0)
-    )
 
   def synthetic = id == Game.syntheticId
 

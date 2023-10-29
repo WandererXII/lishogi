@@ -290,15 +290,23 @@ export function view(ctrl: AnalyseCtrl): VNode {
                   ceval.threads
                     ? (id => {
                         return h('div.setting', [
-                          h('label', { attrs: { for: id } }, noarg('cpus')),
+                          h(
+                            'label',
+                            {
+                              attrs: {
+                                for: id,
+                                ...(ceval.maxThreads <= 1 ? { title: notSupported } : null),
+                              },
+                            },
+                            noarg('cpus')
+                          ),
                           h('input#' + id, {
                             attrs: {
                               type: 'range',
-                              min: 0,
+                              min: 1,
                               max: ceval.maxThreads,
                               step: 1,
                               disabled: ceval.maxThreads <= 1,
-                              ...(ceval.maxThreads < 1 ? null : { title: notSupported }),
                             },
                             hook: rangeConfig(() => ceval.threads!(), ctrl.cevalSetThreads),
                           }),
@@ -309,7 +317,16 @@ export function view(ctrl: AnalyseCtrl): VNode {
                   ceval.hashSize
                     ? (id =>
                         h('div.setting', [
-                          h('label', { attrs: { for: id } }, noarg('memory')),
+                          h(
+                            'label',
+                            {
+                              attrs: {
+                                for: id,
+                                ...(ceval.maxHashSize <= 16 ? { title: notSupported } : null),
+                              },
+                            },
+                            noarg('memory')
+                          ),
                           h('input#' + id, {
                             attrs: {
                               type: 'range',
@@ -317,7 +334,6 @@ export function view(ctrl: AnalyseCtrl): VNode {
                               max: Math.floor(Math.log2(ceval.maxHashSize)),
                               step: 1,
                               disabled: ceval.maxHashSize <= 16,
-                              ...(ceval.maxHashSize <= 16 ? { title: notSupported } : null),
                             },
                             hook: rangeConfig(
                               () => Math.floor(Math.log2(ceval.hashSize!())),

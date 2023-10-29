@@ -202,7 +202,10 @@
       width: 100%;
     }
     &.loading {
-      height: 550px;
+      height: 400px;
+      body.hands-background & {
+        height: 550px;
+      }
       .spinner {
         display: flex;
         justify-content: center;
@@ -240,6 +243,9 @@
       .sp-dragger {
         outline: 1px solid #1b1b1b;
       }
+    }
+    body:not(.hands-background) & .hands {
+      display: none;
     }
   }
 }

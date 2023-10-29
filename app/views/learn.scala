@@ -40,10 +40,12 @@ LishogiLearn(document.getElementById('learn-app'), ${safeJsonValue(
         .OpenGraph(
           title = s"${learnShogi.txt()} - ${byPlaying.txt()}",
           description = s"${trans.learn.introBasics.txt()} ${trans.learn.introIntro.txt()}",
-          url = s"$netBaseUrl${routes.Learn.index}"
+          url = s"$netBaseUrl${routes.Learn.index.url}"
         )
         .some,
-      zoomable = true
+      zoomable = true,
+      canonicalPath = lila.common.CanonicalPath(routes.Learn.index).some,
+      withHrefLangs = lila.i18n.LangList.All.some
     ) {
       main(id := "learn-app")
     }

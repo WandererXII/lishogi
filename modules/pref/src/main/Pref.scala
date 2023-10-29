@@ -9,6 +9,7 @@ case class Pref(
     customTheme: Option[CustomTheme],
     pieceSet: String,
     chuPieceSet: String,
+    kyoPieceSet: String,
     soundSet: String,
     blindfold: Int,
     takeback: Int,
@@ -21,6 +22,7 @@ case class Pref(
     animation: Int,
     coords: Int,
     clearHands: Boolean,
+    handsBackground: Boolean,
     follow: Boolean,
     highlightLastDests: Boolean,
     highlightCheck: Boolean,
@@ -75,6 +77,10 @@ case class Pref(
       case "chuPieceSet" =>
         ChuPieceSet.allByName get value map { p =>
           copy(chuPieceSet = p.name)
+        }
+      case "kyoPieceSet" =>
+        KyoPieceSet.allByName get value map { p =>
+          copy(kyoPieceSet = p.name)
         }
       case "soundSet" =>
         SoundSet.allByKey get value map { s =>
@@ -400,6 +406,7 @@ object Pref {
     customTheme = none,
     pieceSet = PieceSet.default.name,
     chuPieceSet = ChuPieceSet.default.name,
+    kyoPieceSet = KyoPieceSet.default.name,
     soundSet = SoundSet.default.name,
     blindfold = Blindfold.NO,
     takeback = Takeback.ALWAYS,
@@ -410,6 +417,7 @@ object Pref {
     animation = 2,
     coords = Coords.OUTSIDE,
     clearHands = false,
+    handsBackground = false,
     follow = true,
     highlightLastDests = true,
     highlightCheck = true,

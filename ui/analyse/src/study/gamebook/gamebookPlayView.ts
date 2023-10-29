@@ -3,17 +3,19 @@ import { transWithColorName } from 'common/colorName';
 import { toBlackWhite } from 'shogiops/util';
 import { VNode, h } from 'snabbdom';
 import { iconTag, richHTML } from '../../util';
-import GamebookPlayCtrl, { State } from './gamebookPlayCtrl';
+import GamebookPlayCtrl, { Feedback, State } from './gamebookPlayCtrl';
 import { isHandicap } from 'shogiops/handicaps';
 
-const defaultComments = {
-  play: 'What would you play in this position?',
-  end: 'Congratulations! You completed this lesson.',
+const defaultComments: Record<Feedback, I18nKey> = {
+  play: 'playQuestion',
+  good: 'goodMove',
+  bad: 'mistake',
+  end: 'goldComplete', // why not
 };
 
 export function render(ctrl: GamebookPlayCtrl): VNode {
   const state = ctrl.state,
-    comment = state.comment || defaultComments[state.feedback];
+    comment = state.comment || ctrl.root.trans.noarg(defaultComments[state.feedback]);
 
   return h(
     'div.gamebook',
@@ -38,12 +40,25 @@ export function render(ctrl: GamebookPlayCtrl): VNode {
           attrs: {
             width: 120,
             height: 120,
-            src: window.lishogi.assetUrl('images/mascot/octopus.svg'),
+            src: window.lishogi.assetUrl(`images/mascot/${mascot(ctrl)}.svg`),
           },
         }),
       ]),
     ]
   );
+}
+
+function mascot(ctrl: GamebookPlayCtrl) {
+  switch (ctrl.root.data.game.variant.key) {
+    case 'chushogi':
+      return 'owl';
+    case 'kyotoshogi':
+      return 'camel-head';
+    case 'minishogi':
+      return 'parrot-head';
+    default:
+      return 'octopus';
+  }
 }
 
 function hintZone(ctrl: GamebookPlayCtrl) {
@@ -52,7 +67,7 @@ function hintZone(ctrl: GamebookPlayCtrl) {
       hook: bind('click', ctrl.hint, ctrl.redraw),
     });
   if (state.showHint) return h('div', clickHook(), [h('div.hint', { hook: richHTML(state.hint!) })]);
-  if (state.hint) return h('a.hint', clickHook(), 'Get a hint');
+  if (state.hint) return h('a.hint', clickHook(), ctrl.root.trans.noarg('getAHint'));
   return undefined;
 }
 
@@ -65,7 +80,7 @@ function renderFeedback(ctrl: GamebookPlayCtrl, state: State) {
       {
         hook: bind('click', ctrl.retry),
       },
-      [iconTag('P'), h('span', 'Retry')]
+      [iconTag('P'), h('span', ctrl.root.trans.noarg('retry'))]
     );
   if (fb === 'good' && state.comment)
     return h(
@@ -102,14 +117,15 @@ function renderFeedback(ctrl: GamebookPlayCtrl, state: State) {
               ),
             ]),
           ]
-        : ['Good move!']
+        : [ctrl.trans.noarg('goodMove')]
     )
   );
 }
 
 function renderEnd(ctrl: GamebookPlayCtrl) {
   const study = ctrl.root.study!,
-    nextChapter = study.nextChapter();
+    nextChapter = study.nextChapter(),
+    noarg = ctrl.root.trans.noarg;
   return h('div.feedback.end', [
     nextChapter
       ? h(
@@ -118,7 +134,7 @@ function renderEnd(ctrl: GamebookPlayCtrl) {
             attrs: dataIcon('G'),
             hook: bind('click', () => study.setChapter(nextChapter.id)),
           },
-          'Next chapter'
+          noarg('next')
         )
       : undefined,
     h(
@@ -127,7 +143,7 @@ function renderEnd(ctrl: GamebookPlayCtrl) {
         attrs: dataIcon('P'),
         hook: bind('click', () => ctrl.root.userJump(''), ctrl.redraw),
       },
-      'Play again'
+      noarg('playAgain')
     ),
     h(
       'a.analyse',
@@ -135,7 +151,7 @@ function renderEnd(ctrl: GamebookPlayCtrl) {
         attrs: dataIcon('A'),
         hook: bind('click', () => study.setGamebookOverride('analyse'), ctrl.redraw),
       },
-      'Analyse'
+      noarg('analyse')
     ),
   ]);
 }

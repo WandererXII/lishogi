@@ -50,6 +50,14 @@ object layout {
         tpe  := "text/css",
         rel  := "stylesheet"
       )
+    def kyoPieceSprite(implicit ctx: Context): Frag = kyoPieceSprite(ctx.currentKyoPieceSet)
+    def kyoPieceSprite(ps: lila.pref.PieceSet): Frag =
+      link(
+        id   := "kyo-piece-sprite",
+        href := assetUrl(s"piece-css/$ps.css"),
+        tpe  := "text/css",
+        rel  := "stylesheet"
+      )
   }
   import bits._
 
@@ -177,14 +185,22 @@ object layout {
   private def hrefLang(langCode: String, pathWithQuery: String) =
     s"""<link rel="alternate" hreflang="$langCode" href="$netBaseUrl$pathWithQuery"/>"""
 
+  private def defaultWithEnHrefLang(path: String) =
+    hrefLang("x-default", path) + hrefLang("en", path)
+
   private def hrefLangs(altLangs: lila.i18n.LangList.AlternativeLangs)(implicit ctx: Context) = raw {
-    val path      = ctx.req.path
-    val baseLangs = hrefLang("x-default", path) + hrefLang("en", path)
+    val path = ctx.req.path
     altLangs match {
-      case lila.i18n.LangList.EnglishJapanese => baseLangs + hrefLang("ja", s"$path?lang=ja")
+      case lila.i18n.LangList.EnglishJapanese =>
+        defaultWithEnHrefLang(path) + hrefLang("ja", s"$path?lang=ja")
       case lila.i18n.LangList.All =>
-        baseLangs + (lila.i18n.LangList.alternativeLangCodes.map { langCode =>
+        defaultWithEnHrefLang(path) + (lila.i18n.LangList.alternativeLangCodes.map { langCode =>
           hrefLang(langCode, s"$path?lang=$langCode")
+        }).mkString
+      case lila.i18n.LangList.Custom(langPathMap) =>
+        (langPathMap.map { case (langCode, path) =>
+          if (langCode == "en") defaultWithEnHrefLang(path)
+          else hrefLang(langCode, path)
         }).mkString
     }
   }
@@ -225,6 +241,7 @@ object layout {
   val dataTheme                 = attr("data-theme")
   val dataPieceSet              = attr("data-piece-set")
   val dataChuPieceSet           = attr("data-chu-piece-set")
+  val dataKyoPieceSet           = attr("data-kyo-piece-set")
   val dataAssetUrl              = attr("data-asset-url")
   val dataAssetVersion          = attr("data-asset-version")
   val dataDev                   = attr("data-dev")
@@ -243,7 +260,7 @@ object layout {
       csp: Option[ContentSecurityPolicy] = None,
       wrapClass: String = "",
       canonicalPath: Option[CanonicalPath] = None,
-      withHrefLangs: Option[lila.i18n.LangList.AlternativeLangs] = Some(lila.i18n.LangList.All)
+      withHrefLangs: Option[lila.i18n.LangList.AlternativeLangs] = None
   )(body: Frag)(implicit ctx: Context): Frag =
     frag(
       doctype,
@@ -284,8 +301,14 @@ object layout {
           boardPreload,
           manifests,
           jsLicense,
-          canonicalPath.filter(_ => robots).map(canonical),
-          withHrefLangs.filter(_ => ctx.req.queryString.removed("lang").isEmpty && robots).map(hrefLangs)
+          canonicalPath.ifTrue(robots).map(canonical),
+          withHrefLangs
+            .ifTrue {
+              robots &&
+              ctx.req.queryString.removed("lang").isEmpty &&
+              canonicalPath.fold(true)(_.value == ctx.req.path)
+            }
+            .map(hrefLangs)
         ),
         st.body(
           cls := List(
@@ -295,6 +318,7 @@ object layout {
             s"board-layout-1"                                        -> (ctx.pref.boardLayout != 2),
             "compact-layout"                                         -> (ctx.pref.boardLayout == 1),
             "clear-hands"                                            -> ctx.pref.clearHands,
+            "hands-background"                                       -> ctx.pref.handsBackground,
             "no-touch"                                               -> !ctx.pref.squareOverlay,
             "zen"                                                    -> ctx.pref.isZen,
             "blind-mode"                                             -> ctx.blind,
@@ -313,6 +337,7 @@ object layout {
           dataTheme         := ctx.currentBg,
           dataPieceSet      := ctx.currentPieceSet.name,
           dataChuPieceSet   := ctx.currentChuPieceSet.name,
+          dataKyoPieceSet   := ctx.currentKyoPieceSet.name,
           dataAnnounce      := AnnounceStore.get.map(a => safeJsonValue(a.json)),
           dataNotation      := ctx.pref.notation.toString,
           dataColorName     := ctx.pref.colorName.toString,
@@ -386,17 +411,24 @@ object layout {
           title     := trans.team.teams.txt()
         )
 
+    // For Japanese let's force lang param - to build backlinks for SEO - for now
+    // unless JP comes from param itself, langHref will take care of that
+    private def siteUrl(implicit ctx: Context) =
+      if (ctx.lang.language == "ja" && ctx.req.getQueryString("lang").isEmpty)
+        urlWithLangQuery("/", "ja")
+      else langHref("/")
+
     def apply(playing: Boolean)(implicit ctx: Context) =
       header(id := "top")(
         div(cls := "site-title-nav")(
           topnavToggle,
-          h1(cls := "site-title")(
+          (if (ctx.req.path == "/") h1 else div) (cls := "site-title")(
             if (ctx.kid) span(title := trans.kidMode.txt(), cls := "kiddo")(":)")
             else ctx.isBot option botImage,
-            a(href := langHref("/"))(
+            a(href := siteUrl)(
               "lishogi",
               span(if (isProd) ".org" else ".dev"),
-              span(style := "position: relative; top: -12px; margin-left: 5px; font-size: 14px;")("beta")
+              span(cls := "site-beta")("beta")
             )
           ),
           ctx.blind option h2("Navigation"),

@@ -37,7 +37,7 @@ import relayIntro from './study/relay/relayIntroView';
 import relayManager from './study/relay/relayManagerView';
 import * as studyView from './study/studyView';
 import { render as renderTreeView } from './treeView/treeView';
-import { studyAdvancedButton } from './viewModal';
+import { studyAdvancedButton, studyModal } from './studyModal';
 
 const li = window.lishogi;
 
@@ -338,7 +338,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
     playerBars = renderPlayerBars(ctrl),
     clocks = !playerBars && renderClocks(ctrl, true),
     gaugeOn = ctrl.showEvalGauge(),
-    needsInnerCoords = !!gaugeOn || !!playerBars,
+    needsInnerCoords = !!playerBars,
     intro = relayIntro(ctrl);
   return h(
     'main.sb-insert.analyse.variant-' + ctrl.data.game.variant.key, // sb-insert - to force snabbdom to call insert
@@ -373,6 +373,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
     },
     [
       ctrl.keyboardHelp ? keyboardView(ctrl) : null,
+      ctrl.studyModal() ? studyModal(ctrl) : null,
       study ? studyView.overboard(study) : null,
       intro ||
         h(

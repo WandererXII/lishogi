@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="team">Đội</string>
-  <string name="teams">Đội</string>
+  <string name="teams">Các Đội</string>
   <plurals name="nbMembers">
     <item quantity="other">%s thành viên</item>
   </plurals>
@@ -26,11 +26,11 @@
   </plurals>
   <string name="willBeReviewed">Yêu cầu tham gia đề nghị sẽ được xem xét bởi trưởng nhóm.</string>
   <string name="beingReviewed">Yêu cầu tham gia đề nghị đang được xem xét bởi trưởng nhóm.</string>
-  <string name="teamBattle">Thi đấu theo đội</string>
+  <string name="teamBattle">Giải đấu đội</string>
   <string name="teamBattleOverview">Một trận đấu giữa nhiều điểm, người chơi ghi điểm cho đội của họ</string>
-  <string name="teamTournament">Giải đấu theo đội</string>
+  <string name="teamTournament">Giải đấu trong đội</string>
   <string name="teamTournamentOverview">Một giải đấu mà chỉ thành viên của đội bạn có thể tham gia</string>
-  <string name="messageAllMembers">Nhắn tin cho tất cả thành viên</string>
+  <string name="messageAllMembers">Nhắn tin tới tất cả thành viên</string>
   <string name="messageAllMembersOverview">Nhắn một tin nhắn riêng cho mỗi thành viên của đội</string>
   <string name="messageAllMembersLongDescription">Gửi một tin nhắn riêng tới TẤT CẢ các thành viên của đội.
 Bạn có thể dùng chức năng này để kêu gọi người chơi tham gia một giải đấu hoặc một trận đấu theo đội.
@@ -39,7 +39,7 @@ Những người chơi không thích nhận tin nhắn chủa bạn có thể r�
   <string name="youWayWantToLinkOneOfTheseTournaments">Có thể bạn muốn dẫn tới những giải đấu sắp tới?</string>
   <string name="usersWhoCanManageThisTeam">Người dùng có thể quản lý đội này</string>
   <string name="leadersChat">Trò chuyện của đội trưởng</string>
-  <string name="upcomingTourns">Upcoming tournaments</string>
-  <string name="completedTourns">Completed tournaments</string>
-  <string name="teamPage">Team page</string>
+  <string name="upcomingTourns">Các giải đấu sắp tới</string>
+  <string name="completedTourns">Các giải đấu đã hoàn thành</string>
+  <string name="teamPage">Trang đội</string>
 </resources>

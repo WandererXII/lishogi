@@ -10,20 +10,20 @@
 	<string name="yourTurn">Du bist am Zug</string>
 	<string name="aiNameLevelAiLevel">%1$s Stufe %2$s</string>
 	<string name="level">Stufe</string>
-	<string name="strength">Strength</string>
+	<string name="strength">Stärke</string>
 	<string name="toggleTheChat">Chat ein-/ausblenden</string>
 	<string name="toggleSound">Ton ein-/ausschalten</string>
 	<string name="chat">Chat</string>
-	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Seite</string>
 	<string name="resign">Aufgeben</string>
 	<string name="checkmate">Schachmatt</string>
 	<string name="stalemate">Patt</string>
 	<string name="impasse">Impasse</string>
-	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
-	<string name="perpetualCheck">Perpetual check</string>
-	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
+	<string name="repetition" comment="Status of a game ending due to repeated positions">Wiederholung</string>
+	<string name="perpetualCheck">Dauerschach</string>
+	<string name="royalsLost" comment="Used in chushogi">Alle königlichen Figuren verloren</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s spielte %2$s.</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s won!</string>
 	<string name="xLost" comment="Example: Player lost!">%s lost!</string>
@@ -226,8 +226,13 @@
 	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
-	<string name="annanshogi">Annan shogi</string>
-	<string name="kyotoshogi">Kyoto shogi</string>
+	<string name="annanshogi">Annan Shogi</string>
+	<string name="kyotoshogi">Kyoto Shogi</string>
+	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Standard rules of shogi</string>
+	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Same rules as standard shogi, but played on a smaller 5x5 board</string>
+	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">Die bekannteste historische Shogi-Variante wurde auf einem 12x12 Brett gespielt.</string>
+	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Moderne Shogi-Varianten mit wechselnden Sonderaktionen auf einem 5x5 Brett</string>
+	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Eine dem Standard-Shogi ähnelnde Variante , wo sich die Figuren freundlich hintereinander bewegen.</string>
 	<string name="unlimited">Unbegrenzt</string>
 	<string name="mode">Modus</string>
 	<string name="casual">Ungewertet</string>
@@ -364,8 +369,7 @@
 	<string name="toStudy">Studie</string>
 	<string name="importGame">Partie importieren</string>
 	<string name="importedGame">Game was imported.</string>
-	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay,
-computer analysis, game chat and shareable URL.</string>
+	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay, computer analysis, game chat and shareable URL.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s importierte Partie</item>
 		<item quantity="other">%s importierte Partien</item>
@@ -664,7 +668,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="simulAddExtraTime">Du kannst dir selbst zusätzliche Zeit hinzufügen, um mit dem Simultan zurechtzukommen.</string>
 	<string name="simulHostExtraTime">Extra Bedenkzeit des Ausrichters</string>
 	<string name="numberOfByoyomiPeriods">Number of byoyomi periods</string>
-	<string name="hostColorForEachGame">Host color for each game</string>
+	<string name="hostColorForEachGame">Host colour for each game</string>
 	<string name="onlyMembersOfTeam">Nur Teammitglieder</string>
 	<string name="noRestriction">No Restriction</string>
 	<string name="estimatedStart">Estimated start time</string>
@@ -763,8 +767,8 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="transparent">Durchsichtig</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Hintergrundbild-URL:</string>
-	<string name="backgroundColor">Background color:</string>
-	<string name="gridColor">Grid color:</string>
+	<string name="backgroundColor">Background colour:</string>
+	<string name="gridColor">Grid colour:</string>
 	<string name="gridWidth">Grid width:</string>
 	<string name="board">Board</string>
 	<string name="grid">Grid</string>
@@ -931,4 +935,7 @@ computer analysis, game chat and shareable URL.</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
 	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
+	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
+	<string name="back" comment="As in: go back">Back</string>
+	<string name="preview">Preview</string>
 </resources>

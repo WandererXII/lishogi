@@ -49,7 +49,8 @@ object home {
         )
         .some,
       deferJs = true,
-      canonicalPath = lila.common.CanonicalPath("/").some
+      canonicalPath = lila.common.CanonicalPath("/").some,
+      withHrefLangs = lila.i18n.LangList.All.some
     ) {
       main(
         cls := List(
@@ -59,7 +60,7 @@ object home {
       )(
         div(cls := "lobby__table")(
           div(cls := "lobby__start")(
-            ctx.blind option h2("Play"),
+            ctx.blind option h2(trans.play()),
             a(
               href := routes.Setup.hookForm,
               cls := List(
@@ -89,7 +90,7 @@ object home {
             ctx.blind option h2("Counters"),
             a(
               id   := "nb_connected_players",
-              href := ctx.noBlind.option(langHref(routes.User.list))
+              href := ctx.noBlind.option(routes.User.list.url)
             )(
               trans.nbPlayers.plural(
                 homepage.counters.members,
@@ -217,6 +218,8 @@ object home {
     trans.chushogi,
     trans.annanshogi,
     trans.kyotoshogi,
+    trans.rapid,
+    trans.classical,
     trans.mode,
     trans.list,
     trans.graph,

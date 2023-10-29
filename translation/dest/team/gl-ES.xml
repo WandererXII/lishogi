@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="team">Equipo</string>
+  <string name="teams">Equipos</string>
+  <plurals name="nbMembers">
+    <item quantity="one">%s membro</item>
+    <item quantity="other">%s membros</item>
+  </plurals>
+  <string name="allTeams">Todos os equipos</string>
+  <string name="newTeam">Novo equipo</string>
+  <string name="myTeams">Os meus equipos</string>
+  <string name="noTeamFound">Ningún equipo atopado</string>
+  <string name="joinTeam">Unirse ó equipo</string>
+  <string name="quitTeam">Saír do equipo</string>
+  <string name="anyoneCanJoin">De acceso libre</string>
+  <string name="aConfirmationIsRequiredToJoin">Precísase unha confirmación para unirse</string>
+  <string name="joiningPolicy">Política de admisión</string>
+  <plurals name="teamLeaders">
+    <item quantity="one">Líder do equipo</item>
+    <item quantity="other">Líderes do equipo</item>
+  </plurals>
+  <string name="teamBestPlayers">Mellores xogadores</string>
+  <string name="teamRecentMembers">Incorporacións recentes</string>
+  <string name="kickSomeone">Botar a alguén fóra do equipo</string>
+  <string name="whoToKick">A quen queres botar fóra do equipo?</string>
+  <plurals name="xJoinRequests">
+    <item quantity="one">%s solilcitude de ingreso</item>
+    <item quantity="other">%s solilcitudes de ingreso</item>
+  </plurals>
+  <string name="willBeReviewed">O líder do equipo revisará a túa solicitude de ingreso.</string>
+  <string name="beingReviewed">O líder do equipo está a revisar a túa solicitude de ingreso.</string>
+  <string name="teamBattle">Batalla por equipos</string>
+  <string name="teamBattleOverview">Unha batalla entre varios equipos onde cada xogador anota puntos para o seu equipo</string>
+  <string name="teamTournament">Torneo de equipo</string>
+  <string name="teamTournamentOverview">Unha Arena á que só poden unirse os membros do teu equipo</string>
+  <string name="messageAllMembers">Mensaxe a todos os membros</string>
+  <string name="messageAllMembersOverview">Enviar unha mensaxe privada a todos os membros do equipo</string>
+  <string name="messageAllMembersLongDescription">Enviar unha mensaxe privada a TODOS os membros do equipo.
+Deste xeito podes convocar ós xogadores para que se unan a un torneo ou batalla por equipos.
+Os xogadores que non gosten de recibiren mensaxes poden abandonar o equipo.</string>
+  <string name="teamsIlead">Equipos que lidero</string>
+  <string name="youWayWantToLinkOneOfTheseTournaments">Ó mellor queres vincular un destes próximos torneos?</string>
+  <string name="usersWhoCanManageThisTeam">Usuarios que poden administrar este equipo</string>
+  <string name="leadersChat">Sala de conversa dos líderes</string>
+  <string name="upcomingTourns">Vindeiros torneos</string>
+  <string name="completedTourns">Torneos finalizados</string>
+  <string name="teamPage">Páxina do equipo</string>
+</resources>

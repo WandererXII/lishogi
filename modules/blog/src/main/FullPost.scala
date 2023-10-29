@@ -10,8 +10,11 @@ case class FullPost(
     date: DateTime,
     image: String,
     author: String,
-    category: String
-)
+    category: String,
+    allLangIds: Option[BlogLang.Ids] // only when translated, hacky but whatevs
+) {
+  def isJapanese = allLangIds.exists(_.ja == id)
+}
 
 object FullPost {
 
@@ -32,6 +35,11 @@ object FullPost {
       date = date.toDateTimeAtStartOfDay,
       image = image,
       author = author,
-      category = category
+      category = category,
+      allLangIds = doc
+        .getText(s"$coll.alllangids")
+        .flatMap(BlogLang.Ids.apply)
+        .filter(ids => doc.id == ids.en || doc.id == ids.ja)
     )
+
 }
