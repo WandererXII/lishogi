@@ -18,7 +18,7 @@
 	<string name="resign">Chịu thua</string>
 	<string name="checkmate">Chiếu hết</string>
 	<string name="stalemate">Hòa pat</string>
-	<string name="check">Check</string>
+	<string name="check">Chiếu</string>
 	<string name="impasse">Bế tắc</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Lặp cờ</string>
 	<string name="perpetualCheck">Chiếu liên tục</string>
@@ -225,7 +225,7 @@
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">Biến thể Shogi cổ đại nổi tiếng nhất trên bàn cờ 12x12</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Biến thể Shogi hiện đại với các nước phong cấp đặc biệt xen kẽ trên bàn cờ 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Biến thể tương tự cờ Shogi tiêu chuẩn, các quân đi như quân cùng bên đứng sau nó</string>
-	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Just like standard shogi, but first to check opponent\'s king wins</string>
+	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Luật chơi ương tự như cờ Shogi tiêu chuẩn, nhưng bên chiếu được vua đối phương trước sẽ thắng</string>
 	<string name="unlimited">Không giới hạn</string>
 	<string name="mode">Chế độ</string>
 	<string name="casual">Không tính Elo</string>
