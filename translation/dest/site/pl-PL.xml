@@ -18,6 +18,7 @@
 	<string name="resign">Poddaj się</string>
 	<string name="checkmate">Mat</string>
 	<string name="stalemate">Pat</string>
+	<string name="check">Check</string>
 	<string name="impasse">Impas</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Powtórzenie</string>
 	<string name="perpetualCheck">Wieczny szach</string>
@@ -248,11 +249,13 @@
 	<string name="chushogi">Chushogi</string>
 	<string name="annanshogi">Annan shogi</string>
 	<string name="kyotoshogi">Kyoto shogi</string>
+	<string name="checkshogi">Checkshogi</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Standardowe zasady shogi</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Takie same zasady, jak standardowe shogi, tylko grane na mniejszej szachownicy 5×5.</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">Najpopularniejszy historyczny wariant shogi, grany na szachownicy 12×12.</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Współczesny wariant shogi z naprzemiennymi unikalnymi promocjami na szachownicy 5×5.</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Wariant podobny do standardowego shogi, gdzie bierki poruszają się jak sojusznicze bierki za nimi.</string>
+	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Just like standard shogi, but first to check opponent\'s king wins</string>
 	<string name="unlimited">Bez limitu</string>
 	<string name="mode">Rodzaj</string>
 	<string name="casual">Towarzyska</string>
