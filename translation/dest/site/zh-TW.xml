@@ -880,7 +880,7 @@
 	<string name="postGameStudyExplanation">在賽後研究列類別中，允許直接提供重賽或尋求新遊戲。</string>
 	<string name="postGameStudiesOfGame">本局的賽後研究</string>
 	<string name="studyWithOpponent">與對手一起學習</string>
-	<string name="studyOfPlayers">Study of players</string>
+	<string name="studyOfPlayers">棋手研究</string>
 	<string name="studyWith">Study with:</string>
 	<string name="optional" comment="Used in forms to indicate the field is optional">Optional</string>
 	<string name="standardStudy">Standard study</string>
