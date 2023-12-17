@@ -228,8 +228,8 @@
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Luật chơi ương tự như cờ Shogi tiêu chuẩn, nhưng bên chiếu được vua đối phương trước sẽ thắng</string>
 	<string name="unlimited">Không giới hạn</string>
 	<string name="mode">Chế độ</string>
-	<string name="casual">Không tính Elo</string>
-	<string name="rated">Tính Elo</string>
+	<string name="casual">Không xếp hạng</string>
+	<string name="rated">Có xếp hạng</string>
 	<string name="casualTournament">Không tính Elo</string>
 	<string name="ratedTournament">Có tính Elo</string>
 	<string name="thisGameIsRated">Ván cờ đã được đánh giá</string>
@@ -261,7 +261,7 @@
 	<string name="freeOnlineShogi">Chơi Cờ Shogi Trực Tuyến Miễn Phí</string>
 	<string name="spectators">Khán giả:</string>
 	<plurals name="nbRated">
-		<item quantity="other">%s tính elo</item>
+		<item quantity="other">%s có xếp hạng</item>
 	</plurals>
 	<plurals name="nbWins">
 		<item quantity="other">%s thắng</item>
@@ -305,13 +305,13 @@
 	<string name="backToTournament">Quay lại giải</string>
 	<string name="thematic">Theo chủ đề</string>
 	<plurals name="moreThanNbRatedGames">
-		<item quantity="other">≥ %s ván có tính Elo</item>
+		<item quantity="other">≥ %s ván có xếp hạng</item>
 	</plurals>
 	<plurals name="moreThanNbPerfRatedGames">
-		<item quantity="other">≥ %1$s ván %2$s tính Elo</item>
+		<item quantity="other">≥ %1$s ván %2$s xếp hạng</item>
 	</plurals>
 	<plurals name="needNbMorePerfGames">
-		<item quantity="other">Bạn cần chơi %1$s ván %2$s tính Elo</item>
+		<item quantity="other">Bạn cần chơi %1$s ván %2$s có xếp hạng</item>
 	</plurals>
 	<plurals name="needNbMoreGames">
 		<item quantity="other">Bạn cần chơi %s ván xếp hạng nữa</item>
@@ -632,7 +632,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="aboutSimulImage">Trong số 50 đối thủ, Fischer thắng 47 ván, hoà 2 và thua 1.</string>
 	<string name="aboutSimulRealLife">Ý tưởng lấy từ các sự kiện có thực. Trong đời thực, thể loại này gồm một người chủ trì cờ đồng loạt di chuyển từ bàn này qua bàn khác để đánh một nước.</string>
 	<string name="aboutSimulRules">Khi cờ đồng loạt bắt đầu, mỗi người chơi bắt đầu một ván cờ với người chủ trì, người sẽ chơi quân trắng. Cờ đồng loạt kết thúc khi tất cả các ván cờ hoàn tất.</string>
-	<string name="aboutSimulSettings">Cờ đồng loạt luôn không tính Elo. Việc tái đấu, đi lại hay cho thêm thời gian đều bị vô hiệu.</string>
+	<string name="aboutSimulSettings">Cờ đồng loạt luôn không xếp hạng. Việc tái đấu, đi lại hay cho thêm thời gian đều bị vô hiệu.</string>
 	<string name="create">Tạo</string>
 	<string name="whenCreateSimul">Khi bạn tạo một sự kiện đồng loạt, bạn sẽ chơi với nhiều người cùng một lúc.</string>
 	<string name="simulVariantsHint">Nếu bạn chọn nhiều biến thể, mỗi người chơi sẽ được lựa chọn chơi biến thể nào.</string>
