@@ -24,8 +24,8 @@
   <string name="losingStreak">Chuỗi thua</string>
   <string name="longestStreak">Chuỗi dài nhất: %s</string>
   <string name="currentStreak">Chuỗi hiện tại: %s</string>
-  <string name="bestRated">Chiến thắng tính elo tốt nhất</string>
-  <string name="worstRated">Trận thua tính elo tệ nhất</string>
+  <string name="bestRated">Ván thắng được cộng Elo nhiều nhất</string>
+  <string name="worstRated">Ván thua mất Elo tệ nhất</string>
   <string name="gamesInARow">Chuỗi ván cờ liên tục</string>
   <string name="lessThanOneHour">Ít hơn một giờ giữa các ván cờ</string>
   <string name="maxTimePlaying">Thời gian dài nhất đã chơi</string>
