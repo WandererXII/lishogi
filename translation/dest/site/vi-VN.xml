@@ -230,8 +230,8 @@
 	<string name="mode">Chế độ</string>
 	<string name="casual">Không xếp hạng</string>
 	<string name="rated">Có xếp hạng</string>
-	<string name="casualTournament">Không tính Elo</string>
-	<string name="ratedTournament">Có tính Elo</string>
+	<string name="casualTournament">Không xếp hạng</string>
+	<string name="ratedTournament">Có xếp hạng</string>
 	<string name="thisGameIsRated">Ván cờ đã được đánh giá</string>
 	<string name="rematch">Đấu lại</string>
 	<string name="rematchOfferSent">Yêu cầu đấu lại đã được gửi</string>
@@ -463,7 +463,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="onlineBots">Các Bot đang trực tuyến</string>
 	<string name="activeToday">Hoạt động trong ngày</string>
 	<string name="activePlayers">Các kỳ thủ tích cực</string>
-	<string name="bewareTheGameIsRatedButHasNoClock">Lưu ý, ván cờ tính Elo nhưng không tính thời gian!</string>
+	<string name="bewareTheGameIsRatedButHasNoClock">Lưu ý, ván cờ có xếp hạng nhưng không tính thời gian!</string>
 	<string name="toTrackYourProgress">Theo dõi tiến trình của bạn:</string>
 	<string name="goodMove">Nước tốt</string>
 	<string name="bestMove">Nước tối ưu</string>
