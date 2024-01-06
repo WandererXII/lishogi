@@ -276,7 +276,7 @@
 		<item quantity="other">%s đang chơi</item>
 	</plurals>
 	<string name="exportGames">Xuất biên bản</string>
-	<string name="export">Xuất ra</string>
+	<string name="export">Xuất</string>
 	<string name="ratingRange">Phạm vi Elo</string>
 	<plurals name="giveNbSeconds">
 		<item quantity="other">Cho thêm %s giây</item>
@@ -686,7 +686,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="downloadRaw">Tải bản thô</string>
 	<string name="downloadImported">Tải tệp đã được nhập</string>
 	<string name="printFriendlyPDF">Bản PDF có thể in</string>
-	<string name="crosstable">Bảng tổng điểm</string>
+	<string name="crosstable">Bảng tổng điểm đối đầu</string>
 	<string name="youCanAlsoScrollOverTheBoardToMoveInTheGame">Bạn cũng có thể cuộn chuột trên bàn cờ để xem các nước đi của ván.</string>
 	<string name="analysisShapesHowTo">Nhấn shift + click hoặc nhấp chuột phải để vẽ vòng tròn, mũi tên trên bàn cờ.</string>
 	<string name="letOtherPlayersMessageYou">Để những người chơi khác gửi tin nhắn cho bạn</string>
