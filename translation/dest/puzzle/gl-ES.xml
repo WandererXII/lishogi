@@ -60,6 +60,8 @@
   <string name="fromMyGames">Das miñas partidas</string>
   <string name="lookupOfPlayer">Busca crebacabezas nas partidas dun xogador</string>
   <string name="fromXGames">Crebacabezas das partidas de %s</string>
+  <string name="submissions">Puzzle submissions</string>
+  <string name="submittedByX">Puzzles submitted by %s</string>
   <string name="searchPuzzles">Buscar crebacabezas</string>
   <string name="fromXGamesFound">%1$s crebacabezas atopados nas partidas de %2$s</string>
 </resources>
