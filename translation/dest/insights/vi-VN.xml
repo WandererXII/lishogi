@@ -17,7 +17,7 @@
   <string name="averageOpponentRating">Average opponent rating</string>
   <string name="averageOpponentRatingDiff">Average opponent rating difference</string>
   <string name="mostPlayedOpponents">Most played opponents</string>
-  <string name="averageAccuracy">Average accuracy</string>
+  <string name="averageAccuracy">Độ chính xác trung bình</string>
   <string name="wins">Thắng</string>
   <string name="draws">Hoà</string>
   <string name="losses">Thua</string>
