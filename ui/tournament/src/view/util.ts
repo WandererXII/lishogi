@@ -3,7 +3,7 @@ import { h } from 'snabbdom';
 
 export function miniBoard(game) {
   return h(
-    'a.mini-board.parse-sfen.mini-board-' + game.id + '.variant-' + game.variant,
+    'a.mini-board.parse-sfen.mini-board-' + game.id,
     {
       key: game.id,
       attrs: {
@@ -18,7 +18,7 @@ export function miniBoard(game) {
         },
       },
     },
-    [h('div.sg-wrap')]
+    [h('div.sg-wrap' + '.variant-' + game.variant)]
   );
 }
 
@@ -58,10 +58,10 @@ export function numberRow(name: string, value: any, typ?: string) {
       typ === 'raw'
         ? value
         : typ === 'percent'
-        ? value[1] > 0
-          ? ratio2percent(value[0] / value[1])
-          : 0
-        : window.lishogi.numberFormat(value)
+          ? value[1] > 0
+            ? ratio2percent(value[0] / value[1])
+            : 0
+          : window.lishogi.numberFormat(value)
     ),
   ]);
 }

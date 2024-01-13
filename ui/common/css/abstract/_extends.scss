@@ -25,10 +25,6 @@
 %page-text {
   @extend %page-font, %page-text-shadow !optional;
 }
-%page-link {
-  @extend %page-link-font !optional;
-  @extend %page-text-shadow !optional;
-}
 
 %metal {
   @include metal;
@@ -63,7 +59,9 @@
   box-shadow: -1px 5px 6px rgba(0, 0, 0, 0.3);
 }
 %popup-shadow {
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow:
+    0 14px 28px rgba(0, 0, 0, 0.25),
+    0 10px 10px rgba(0, 0, 0, 0.22);
 }
 %button-shadow {
   box-shadow: 0 2px 5px 0 hsla(0, 0, 0%, 0.225);
@@ -149,7 +147,7 @@
   @extend %video;
   position: relative;
   height: 0;
-  padding-bottom: calc(56.25% / 11 * 12 + 2.5rem);
+  padding-bottom: 56.25%;
 }
 
 %game-embed {
@@ -193,6 +191,11 @@
 }
 %abs-100 {
   position: absolute;
+  width: 100%;
+  height: 100%;
+}
+%rel-100 {
+  position: relative;
   width: 100%;
   height: 100%;
 }

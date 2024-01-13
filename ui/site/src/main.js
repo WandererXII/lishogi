@@ -358,6 +358,7 @@
       lishogi.loadKyotoshogiPieceSprite();
     $elem.each(function () {
       var $this = $(this).removeClass('parse-sfen');
+      var sgWrap = this.firstChild;
       var lm = $this.data('lastmove');
       var lastDests = lm && (lm[1] === '*' ? [lm.slice(2)] : lm.match(/..?/g));
       var color = $this.data('color') || lishogi.readServerSfen($(this).data('y'));
@@ -371,10 +372,10 @@
         variant === 'chushogi'
           ? []
           : variant === 'minishogi'
-          ? ['rook', 'bishop', 'gold', 'silver', 'pawn']
-          : variant === 'kyotoshogi'
-          ? ['tokin', 'gold', 'silver', 'pawn']
-          : ['rook', 'bishop', 'gold', 'silver', 'knight', 'lance', 'pawn'];
+            ? ['rook', 'bishop', 'gold', 'silver', 'pawn']
+            : variant === 'kyotoshogi'
+              ? ['tokin', 'gold', 'silver', 'pawn']
+              : ['rook', 'bishop', 'gold', 'silver', 'knight', 'lance', 'pawn'];
       var config = {
         coordinates: false,
         viewOnly: !playable,
@@ -391,13 +392,14 @@
             variant === 'chushogi'
               ? chushogiForsythToRole
               : variant === 'kyotoshogi'
-              ? kyotoshogiForsythToRole
-              : undefined,
+                ? kyotoshogiForsythToRole
+                : undefined,
         },
       };
+      sgWrap.classList.remove('preload');
       if (color) config.orientation = color;
       if (ground) ground.set(config);
-      else $this.data('shogiground', Shogiground(config, { board: this }));
+      else $this.data('shogiground', Shogiground(config, { board: sgWrap }));
     });
   };
 

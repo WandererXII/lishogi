@@ -89,7 +89,10 @@ export default class RoundController {
 
   private music?: any;
 
-  constructor(readonly opts: RoundOpts, readonly redraw: Redraw) {
+  constructor(
+    readonly opts: RoundOpts,
+    readonly redraw: Redraw
+  ) {
     round.massage(opts.data);
 
     const d = (this.data = opts.data);
@@ -278,7 +281,7 @@ export default class RoundController {
   replaying = (): boolean => this.ply !== round.lastPly(this.data);
 
   userJump = (ply: Ply): void => {
-    this.cancelMove();
+    this.cancelMoveOrDrop();
     this.lionFirstMove = undefined;
     this.shogiground.selectSquare(null);
     if (ply != this.ply && this.jump(ply)) speech.userJump(this, this.ply);
@@ -296,7 +299,7 @@ export default class RoundController {
     const s = this.stepAt(ply),
       splitSfen = s.sfen.split(' '),
       variant = this.data.game.variant.key,
-      posRes = variant === 'chushogi' || this.isPlaying() ? parseSfen(variant, s.sfen, false) : undefined,
+      posRes = this.isPlaying() ? parseSfen(variant, s.sfen, false) : undefined,
       config: SgConfig = {
         sfen: { board: splitSfen[0], hands: splitSfen[2] },
         lastDests: s.usi ? usiToSquareNames(s.usi) : undefined,
@@ -700,11 +703,11 @@ export default class RoundController {
     const toSubmit = this.usiToSubmit;
     if (v && this.usiToSubmit) this.sendUsiData(this.usiToSubmit);
     else this.jump(this.ply);
-    this.cancelMove();
+    this.cancelMoveOrDrop();
     if (toSubmit) this.setLoading(true, 300);
   };
 
-  cancelMove = (): void => {
+  cancelMoveOrDrop = (): void => {
     this.usiToSubmit = undefined;
   };
 
@@ -798,7 +801,7 @@ export default class RoundController {
         if (!this.nvui && d.pref.submitMove) {
           window.Mousetrap.bind('esc', () => {
             this.submitUsi(false);
-            this.shogiground.cancelMove();
+            this.shogiground.cancelMoveOrDrop();
           });
           window.Mousetrap.bind('return', () => this.submitUsi(true));
         }

@@ -53,9 +53,8 @@ export class Protocol {
   received(command: string): void {
     const parts = command.trim().split(/\s+/g);
     if (parts[0] === 'usiok') {
-      if (this.engineName?.startsWith('YaneuraOu')) {
-        this.setOption('EnteringKingRule', 'CSARule27H');
-      } else this.setOption('USI_AnalyseMode', 'true');
+      if (this.engineName?.startsWith('YaneuraOu')) this.setOption('EnteringKingRule', 'CSARule27H');
+      else this.setOption('USI_AnalyseMode', 'true');
       this.setOption('USI_Hash', this.config?.hashSize || 16);
       this.setOption('Threads', this.config?.threads || 1);
       this.send?.('usinewgame');
@@ -119,8 +118,8 @@ export class Protocol {
       )
         return;
 
-      const pivot = this.work.threatMode ? 0 : 1;
-      const ev = this.work.ply % 2 === pivot ? -povEv : povEv;
+      const pivot = this.work.threatMode ? 0 : 1,
+        ev = this.work.ply % 2 === pivot ? -povEv : povEv;
 
       // For now, ignore most upperbound/lowerbound messages.
       // However non-primary pvs may only have an upperbound.
@@ -202,6 +201,8 @@ export class Protocol {
           ? this.toFairyKyotoFormat(this.work.initialSfen, this.work.moves)
           : ['position sfen', this.work.initialSfen, 'moves', ...this.work.moves].join(' ');
       this.send(command);
+      console.debug(command);
+
       this.send(
         this.work.maxDepth >= 99
           ? `go depth ${maxSearchPlies}` // 'go infinite' would not finish even if entire tree search completed

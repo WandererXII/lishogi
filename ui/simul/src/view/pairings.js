@@ -11,8 +11,8 @@ function miniPairing(ctrl) {
         ? pairing.winnerColor === 'sente'
           ? '1-0'
           : pairing.winnerColor === 'gote'
-          ? '0-1'
-          : '½/½'
+            ? '0-1'
+            : '½/½'
         : '*';
     return m(
       'a',
@@ -24,7 +24,7 @@ function miniPairing(ctrl) {
         m(
           'span',
           {
-            class: 'mini-board mini-board-' + game.id + ' parse-sfen' + ' variant-' + game.variant,
+            class: 'mini-board mini-board-' + game.id + ' parse-sfen',
             'data-color': game.orient,
             'data-sfen': game.sfen,
             'data-lastmove': game.lastMove,
@@ -33,7 +33,7 @@ function miniPairing(ctrl) {
               if (!isUpdate) lishogi.parseSfen($(el));
             },
           },
-          m('div.sg-wrap')
+          m('div.sg-wrap' + ' variant-' + game.variant)
         ),
         m('span.vstext', [
           m('span.vstext__pl', [util.playerVariant(ctrl, player).name, m('br'), result]),
