@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="pawn">Pawn</string>
+  <string name="pawn">Tốt</string>
   <string name="lance">Lance</string>
   <string name="knight">Knight</string>
   <string name="silver">Silver</string>
@@ -17,7 +17,7 @@
   <string comment="Chushogi piece - not tokin" name="promotedpawn">Promoted pawn</string>
   <string comment="Chushogi piece, low priority for translation" name="leopard">Leopard</string>
   <string comment="Chushogi piece, low priority for translation" name="copper">Copper</string>
-  <string comment="Chushogi piece, low priority for translation" name="elephant">Elephant</string>
+  <string comment="Chushogi piece, low priority for translation" name="elephant">Voi</string>
   <string comment="Chushogi piece, low priority for translation" name="chariot">Chariot</string>
   <string comment="Chushogi piece, low priority for translation" name="tiger">Tiger</string>
   <string comment="Chushogi piece, low priority for translation" name="kirin">Kirin</string>
