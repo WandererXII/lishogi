@@ -9,9 +9,9 @@
   <string name="rook">Phi xa</string>
   <string name="king">Vua</string>
   <string name="tokin">Tokin</string>
-  <string name="promotedlance">Promoted lance</string>
+  <string name="promotedlance">Phong hương xa</string>
   <string name="promotedknight">Phong mã</string>
-  <string name="promotedsilver">Promoted silver</string>
+  <string name="promotedsilver">Phong ngân tướng</string>
   <string name="horse">Long mã</string>
   <string name="dragon">Long vương</string>
   <string comment="Chushogi piece - not tokin" name="promotedpawn">Phong tốt</string>
@@ -29,15 +29,15 @@
   <string comment="Chushogi piece, low priority for translation" name="gobetween">Trọng nhân</string>
   <string comment="Chushogi piece, low priority for translation" name="whitehorse">Bạch câu</string>
   <string comment="Chushogi piece, low priority for translation" name="lionpromoted">Phong sư tử</string>
-  <string comment="Chushogi piece, low priority for translation" name="queenpromoted">Promoted queen</string>
-  <string comment="Chushogi piece, low priority for translation" name="bishoppromoted">Promoted bishop</string>
-  <string comment="Chushogi piece, low priority for translation" name="sidemoverpromoted">Promoted side mover</string>
-  <string comment="Chushogi piece, low priority for translation" name="verticalmoverpromoted">Promoted vertical mover</string>
-  <string comment="Chushogi piece, low priority for translation" name="rookpromoted">Promoted rook</string>
+  <string comment="Chushogi piece, low priority for translation" name="queenpromoted">Phong hậu vương</string>
+  <string comment="Chushogi piece, low priority for translation" name="bishoppromoted">Phong giác hành</string>
+  <string comment="Chushogi piece, low priority for translation" name="sidemoverpromoted">Phong hoành hành</string>
+  <string comment="Chushogi piece, low priority for translation" name="verticalmoverpromoted">Phong thụ hành</string>
+  <string comment="Chushogi piece, low priority for translation" name="rookpromoted">Phong phi xa</string>
   <string comment="Chushogi piece, low priority for translation" name="prince">Thái tử</string>
   <string comment="Chushogi piece, low priority for translation" name="whale">Cá voi</string>
-  <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Promoted horse</string>
-  <string comment="Chushogi piece, low priority for translation" name="elephantpromoted">Promoted elephant</string>
+  <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Phong long mã</string>
+  <string comment="Chushogi piece, low priority for translation" name="elephantpromoted">Phong túy tượng</string>
   <string comment="Chushogi piece, low priority for translation" name="stag">Phi lộc</string>
   <string comment="Chushogi piece, low priority for translation" name="boar">Bôn trư</string>
   <string comment="Chushogi piece, low priority for translation" name="ox">Phi ngưu</string>
