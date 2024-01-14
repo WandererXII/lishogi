@@ -29,8 +29,8 @@
   <string name="averageTimePerMoveOrDrop">Average time per move or drop</string>
   <string name="timeSpentThinkingByPiece">Time spent thinking by piece</string>
   <string name="movesAndDropsByPiece">Moves and drops by piece</string>
-  <string name="capturesByPiece">Captured pieces</string>
-  <string name="promotionsByPiece">Promoted pieces</string>
+  <string name="capturesByPiece">Quân bị ăn</string>
+  <string name="promotionsByPiece">Quân được phong cấp</string>
   <string name="mostPlayedOpenings">Most played openings</string>
   <string name="openingMoves">Opening moves</string>
   <string name="insightsUpdate">Insights are refreshed every few hours.</string>
