@@ -16,7 +16,7 @@
   <string name="opponents">Đối thủ</string>
   <string name="averageOpponentRating">Average opponent rating</string>
   <string name="averageOpponentRatingDiff">Average opponent rating difference</string>
-  <string name="mostPlayedOpponents">Most played opponents</string>
+  <string name="mostPlayedOpponents">Đối thủ từng chơi nhiều nhất</string>
   <string name="averageAccuracy">Độ chính xác trung bình</string>
   <string name="wins">Thắng</string>
   <string name="draws">Hoà</string>
@@ -32,7 +32,7 @@
   <string name="capturesByPiece">Quân bị ăn</string>
   <string name="promotionsByPiece">Quân được phong cấp</string>
   <string name="mostPlayedOpenings">Most played openings</string>
-  <string name="openingMoves">Opening moves</string>
+  <string name="openingMoves">Nước đi khai cuộc</string>
   <string name="insightsUpdate">Insights are refreshed every few hours.</string>
   <string name="accuracy">Độ chính xác</string>
   <string name="nbOfMovesAndDrops">Number of moves and drops</string>
