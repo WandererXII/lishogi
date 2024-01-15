@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">Insights</string>
-  <string name="moves">Moves</string>
-  <string name="drops">Drops</string>
-  <string name="movesAndDrops">Moves and drops</string>
-  <string name="total" comment="Usually in chart legend or tooltip summing other bars">Total</string>
-  <string name="count" comment="Example: Count: 11 moves">Count</string>
-  <string name="average">Average</string>
-  <string name="percentage">Percentage</string>
-  <string name="outcomes" comment="win/draw/loss">Outcomes</string>
-  <string name="color" comment="Meaning sente or gote">Color</string>
-  <string name="termination" comment="Checkmate, repetition, timeout, etc">Termination</string>
-  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Speed</string>
-  <string name="game">Game</string>
+  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">洞察</string>
+  <string name="moves">步</string>
+  <string name="drops">落子</string>
+  <string name="movesAndDrops">步数与打出</string>
+  <string name="total" comment="Usually in chart legend or tooltip summing other bars">总计</string>
+  <string name="count" comment="Example: Count: 11 moves">计数</string>
+  <string name="average">平均</string>
+  <string name="percentage">百分比</string>
+  <string name="outcomes" comment="win/draw/loss">输出</string>
+  <string name="color" comment="Meaning sente or gote">颜色</string>
+  <string name="termination" comment="Checkmate, repetition, timeout, etc">终止</string>
+  <string name="speed" comment="Bulltet, blitz, rapid, etc.">速度</string>
+  <string name="game">棋局</string>
   <string name="opponents">Opponents</string>
   <string name="averageOpponentRating">Average opponent rating</string>
   <string name="averageOpponentRatingDiff">Average opponent rating difference</string>
