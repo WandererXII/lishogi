@@ -13,37 +13,37 @@
   <string name="termination" comment="Checkmate, repetition, timeout, etc">终止</string>
   <string name="speed" comment="Bulltet, blitz, rapid, etc.">速度</string>
   <string name="game">棋局</string>
-  <string name="opponents">Opponents</string>
-  <string name="averageOpponentRating">Average opponent rating</string>
-  <string name="averageOpponentRatingDiff">Average opponent rating difference</string>
-  <string name="mostPlayedOpponents">Most played opponents</string>
-  <string name="averageAccuracy">Average accuracy</string>
-  <string name="wins">Wins</string>
-  <string name="draws">Draws</string>
-  <string name="losses">Losses</string>
-  <string name="accuracyByMoveNumber">Accuracy by game turn</string>
-  <string name="accuracyByPiece">Accuracy by piece</string>
-  <string name="times" comment="Move and drop times">Times</string>
-  <string name="totalTimeSpentThinking">Total time spent thinking</string>
-  <string name="averageTimePerGame">Average time per game</string>
-  <string name="averageTimePerMoveOrDrop">Average time per move or drop</string>
-  <string name="timeSpentThinkingByPiece">Time spent thinking by piece</string>
-  <string name="movesAndDropsByPiece">Moves and drops by piece</string>
-  <string name="capturesByPiece">Captured pieces</string>
-  <string name="promotionsByPiece">Promoted pieces</string>
-  <string name="mostPlayedOpenings">Most played openings</string>
-  <string name="openingMoves">Opening moves</string>
-  <string name="insightsUpdate">Insights are refreshed every few hours.</string>
-  <string name="accuracy">Accuracy</string>
-  <string name="nbOfMovesAndDrops">Number of moves and drops</string>
-  <string name="nbOfMovesAndDropsPerGame">Number of moves and drops per game</string>
-  <string name="nbOfCaptures">Number of captured pieces</string>
-  <string name="nbOfPromotions">Number of promoted pieces</string>
-  <string name="opponentRating">Opponent rating</string>
-  <string name="opponentRatingDiff">Opponent rating difference</string>
-  <string name="totalTimeOfMovesAndDrops">Total time of moves and drops</string>
-  <string name="nbOfGames">Number of games</string>
-  <string name="weekday">Weekday</string>
-  <string name="timeOfDay" comment="Morning,afternoon, evening, night">Time of day</string>
-  <string name="earlyBishopExchange" comment="Were bishops exchanged by the players early in the game">Early bishop exchange</string>
+  <string name="opponents">对手</string>
+  <string name="averageOpponentRating">对手平均等级分</string>
+  <string name="averageOpponentRatingDiff">对手平均等级分差异</string>
+  <string name="mostPlayedOpponents">最常对弈的对手</string>
+  <string name="averageAccuracy">平均精度</string>
+  <string name="wins">胜</string>
+  <string name="draws">平</string>
+  <string name="losses">负</string>
+  <string name="accuracyByMoveNumber">每局精度</string>
+  <string name="accuracyByPiece">每驹精度</string>
+  <string name="times" comment="Move and drop times">时间</string>
+  <string name="totalTimeSpentThinking">总思考时间</string>
+  <string name="averageTimePerGame">每局平均时间</string>
+  <string name="averageTimePerMoveOrDrop">每次打出或走子的平均时间</string>
+  <string name="timeSpentThinkingByPiece">每驹思考时间</string>
+  <string name="movesAndDropsByPiece">每驹的打出或走子数</string>
+  <string name="capturesByPiece">已捕获的棋驹</string>
+  <string name="promotionsByPiece">已升变的棋驹</string>
+  <string name="mostPlayedOpenings">最常使用的开局</string>
+  <string name="openingMoves">开局走法</string>
+  <string name="insightsUpdate">洞察每隔几小时就会刷新</string>
+  <string name="accuracy">精度</string>
+  <string name="nbOfMovesAndDrops">打出数或走子数</string>
+  <string name="nbOfMovesAndDropsPerGame">每局的打出数或走子数</string>
+  <string name="nbOfCaptures">捕获的棋驹数</string>
+  <string name="nbOfPromotions">已升变的棋驹数</string>
+  <string name="opponentRating">对手等级</string>
+  <string name="opponentRatingDiff">对手等级分差异</string>
+  <string name="totalTimeOfMovesAndDrops">走子或打出的总用时</string>
+  <string name="nbOfGames">对局场数</string>
+  <string name="weekday">平日</string>
+  <string name="timeOfDay" comment="Morning,afternoon, evening, night">当前时间</string>
+  <string name="earlyBishopExchange" comment="Were bishops exchanged by the players early in the game">前期角行交换</string>
 </resources>
