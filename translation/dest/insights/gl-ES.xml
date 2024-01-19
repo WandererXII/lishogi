@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">Estatísticas</string>
-  <string name="moves">Moves</string>
-  <string name="drops">Drops</string>
-  <string name="movesAndDrops">Moves and drops</string>
+  <string name="moves">Xogadas</string>
+  <string name="drops">Guindadas</string>
+  <string name="movesAndDrops">Xogadas e guindadas</string>
   <string name="total" comment="Usually in chart legend or tooltip summing other bars">Total</string>
-  <string name="count" comment="Example: Count: 11 moves">Count</string>
-  <string name="average">Average</string>
-  <string name="percentage">Percentage</string>
-  <string name="outcomes" comment="win/draw/loss">Outcomes</string>
-  <string name="color" comment="Meaning sente or gote">Color</string>
-  <string name="termination" comment="Checkmate, repetition, timeout, etc">Termination</string>
-  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Speed</string>
+  <string name="count" comment="Example: Count: 11 moves">Reconto</string>
+  <string name="average">Media</string>
+  <string name="percentage">Porcentaxe</string>
+  <string name="outcomes" comment="win/draw/loss">Resultados</string>
+  <string name="color" comment="Meaning sente or gote">Cor</string>
+  <string name="termination" comment="Checkmate, repetition, timeout, etc">Terminación</string>
+  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Velocidade</string>
   <string name="game">Game</string>
-  <string name="opponents">Opponents</string>
+  <string name="opponents">Adversarios</string>
   <string name="averageOpponentRating">Average opponent rating</string>
   <string name="averageOpponentRatingDiff">Average opponent rating difference</string>
   <string name="mostPlayedOpponents">Most played opponents</string>
