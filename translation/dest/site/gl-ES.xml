@@ -18,7 +18,7 @@
 	<string name="resign">Abandonar</string>
 	<string name="checkmate">Xaque mate</string>
 	<string name="stalemate">Rei afogado</string>
-	<string name="check">Check</string>
+	<string name="check">Xaque</string>
 	<string name="impasse">Impasse</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetición</string>
 	<string name="perpetualCheck">Xaque perpetuo</string>
