@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="pawn">Pawn</string>
-  <string name="lance">Lance</string>
-  <string name="knight">Knight</string>
-  <string name="silver">Silver</string>
-  <string name="gold">Gold</string>
-  <string name="bishop">Bishop</string>
-  <string name="rook">Rook</string>
-  <string name="king">King</string>
+  <string name="pawn">Peón</string>
+  <string name="lance">Lanza</string>
+  <string name="knight">Cabaleiro</string>
+  <string name="silver">Prata</string>
+  <string name="gold">Ouro</string>
+  <string name="bishop">Bispo</string>
+  <string name="rook">Torre</string>
+  <string name="king">Rei</string>
   <string name="tokin">Tokin</string>
-  <string name="promotedlance">Promoted lance</string>
-  <string name="promotedknight">Promoted knight</string>
-  <string name="promotedsilver">Promoted silver</string>
-  <string name="horse">Horse</string>
-  <string name="dragon">Dragon</string>
-  <string comment="Chushogi piece - not tokin" name="promotedpawn">Promoted pawn</string>
-  <string comment="Chushogi piece, low priority for translation" name="leopard">Leopard</string>
-  <string comment="Chushogi piece, low priority for translation" name="copper">Copper</string>
-  <string comment="Chushogi piece, low priority for translation" name="elephant">Elephant</string>
-  <string comment="Chushogi piece, low priority for translation" name="chariot">Chariot</string>
-  <string comment="Chushogi piece, low priority for translation" name="tiger">Tiger</string>
+  <string name="promotedlance">Lanza coroada</string>
+  <string name="promotedknight">Cabaleiro coroado</string>
+  <string name="promotedsilver">Prata coroada</string>
+  <string name="horse">Cabalo</string>
+  <string name="dragon">Dragón</string>
+  <string comment="Chushogi piece - not tokin" name="promotedpawn">Peón coroado</string>
+  <string comment="Chushogi piece, low priority for translation" name="leopard">Leopardo</string>
+  <string comment="Chushogi piece, low priority for translation" name="copper">Cobre</string>
+  <string comment="Chushogi piece, low priority for translation" name="elephant">Elefante</string>
+  <string comment="Chushogi piece, low priority for translation" name="chariot">Carro</string>
+  <string comment="Chushogi piece, low priority for translation" name="tiger">Tigre</string>
   <string comment="Chushogi piece, low priority for translation" name="kirin">Kirin</string>
   <string comment="Chushogi piece, low priority for translation" name="phoenix">Phoenix</string>
   <string comment="Chushogi piece, low priority for translation" name="sidemover">Side mover</string>
