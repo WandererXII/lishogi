@@ -11,19 +11,19 @@
   <string name="outcomes" comment="win/draw/loss">Resultados</string>
   <string name="color" comment="Meaning sente or gote">Cor</string>
   <string name="termination" comment="Checkmate, repetition, timeout, etc">Terminación</string>
-  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Velocidade</string>
-  <string name="game">Game</string>
+  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Control de tempo</string>
+  <string name="game">Partida</string>
   <string name="opponents">Adversarios</string>
-  <string name="averageOpponentRating">Average opponent rating</string>
-  <string name="averageOpponentRatingDiff">Average opponent rating difference</string>
-  <string name="mostPlayedOpponents">Most played opponents</string>
-  <string name="averageAccuracy">Average accuracy</string>
-  <string name="wins">Wins</string>
-  <string name="draws">Draws</string>
-  <string name="losses">Losses</string>
-  <string name="accuracyByMoveNumber">Accuracy by game turn</string>
-  <string name="accuracyByPiece">Accuracy by piece</string>
-  <string name="times" comment="Move and drop times">Times</string>
+  <string name="averageOpponentRating">Puntuación media dos adversarios</string>
+  <string name="averageOpponentRatingDiff">Diferencia de puntuación media dos adversarios</string>
+  <string name="mostPlayedOpponents">Adversarios cos que máis xogas</string>
+  <string name="averageAccuracy">Precisión media</string>
+  <string name="wins">Vitorias</string>
+  <string name="draws">Táboas</string>
+  <string name="losses">Derrotas</string>
+  <string name="accuracyByMoveNumber">Precisión por quenda de xogo</string>
+  <string name="accuracyByPiece">Precisión por peza</string>
+  <string name="times" comment="Move and drop times">Tempos</string>
   <string name="totalTimeSpentThinking">Total time spent thinking</string>
   <string name="averageTimePerGame">Average time per game</string>
   <string name="averageTimePerMoveOrDrop">Average time per move or drop</string>
