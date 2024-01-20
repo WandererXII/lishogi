@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="pawn">Pawn</string>
-  <string name="lance">Lance</string>
+  <string name="pawn">Peón</string>
+  <string name="lance">Lanza</string>
   <string name="knight">Knight</string>
   <string name="silver">Silver</string>
   <string name="gold">Gold</string>
