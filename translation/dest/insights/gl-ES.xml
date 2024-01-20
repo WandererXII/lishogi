@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
   <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">Estatísticas</string>
-  <string name="moves">Xogadas</string>
+  <string name="moves">Movementos</string>
   <string name="drops">Guindadas</string>
-  <string name="movesAndDrops">Xogadas e guindadas</string>
+  <string name="movesAndDrops">Movementos e guindadas</string>
   <string name="total" comment="Usually in chart legend or tooltip summing other bars">Total</string>
   <string name="count" comment="Example: Count: 11 moves">Reconto</string>
   <string name="average">Media</string>
@@ -24,13 +24,13 @@
   <string name="accuracyByMoveNumber">Precisión por quenda de xogo</string>
   <string name="accuracyByPiece">Precisión por peza</string>
   <string name="times" comment="Move and drop times">Tempos</string>
-  <string name="totalTimeSpentThinking">Total time spent thinking</string>
-  <string name="averageTimePerGame">Average time per game</string>
-  <string name="averageTimePerMoveOrDrop">Average time per move or drop</string>
-  <string name="timeSpentThinkingByPiece">Time spent thinking by piece</string>
-  <string name="movesAndDropsByPiece">Moves and drops by piece</string>
-  <string name="capturesByPiece">Captured pieces</string>
-  <string name="promotionsByPiece">Promoted pieces</string>
+  <string name="totalTimeSpentThinking">Tempo total pensando</string>
+  <string name="averageTimePerGame">Tempo medio por partida</string>
+  <string name="averageTimePerMoveOrDrop">Tempo medio por xogada ou guindada</string>
+  <string name="timeSpentThinkingByPiece">Tempo pensando por peza</string>
+  <string name="movesAndDropsByPiece">Xogadas e guindadas por peza</string>
+  <string name="capturesByPiece">Pezas capturadas</string>
+  <string name="promotionsByPiece">Pezas coroadas</string>
   <string name="mostPlayedOpenings">Most played openings</string>
   <string name="openingMoves">Opening moves</string>
   <string name="insightsUpdate">Insights are refreshed every few hours.</string>
