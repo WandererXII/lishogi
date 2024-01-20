@@ -18,7 +18,7 @@
 	<string name="resign">Abandonar</string>
 	<string name="checkmate">Jaque mate</string>
 	<string name="stalemate">Ahogado</string>
-	<string name="check">Check</string>
+	<string name="check">Jaque</string>
 	<string name="impasse">Punto muerto</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Tablas por repetición de jugadas</string>
 	<string name="perpetualCheck">Jaque perpetuo</string>
@@ -229,13 +229,13 @@
 	<string name="chushogi">Chushogi</string>
 	<string name="annanshogi">Shogi Annan (coreano)</string>
 	<string name="kyotoshogi">Shogi Kyoto</string>
-	<string name="checkshogi">Checkshogi</string>
+	<string name="checkshogi">Jaqueshogi</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Reglas estándar de shogi</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Con las mismas reglas que el shogi estándar, pero jugado en un tablero más pequeño de 5x5</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">La variante histórica más popular de shogi jugada en un tablero de 12 x 12</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante moderna de shogi con promociones alternas únicas en un tablero de 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante similar al shogi estándar, donde las piezas se mueven igual que las piezas del mismo bando situadas detrás de ellas</string>
-	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Just like standard shogi, but first to check opponent\'s king wins</string>
+	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Igual que el shogi estándar, sólo que gana el primero que da jaque al rey rival</string>
 	<string name="unlimited">Ilimitado</string>
 	<string name="mode">Modo</string>
 	<string name="casual">Amistosa</string>
