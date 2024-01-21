@@ -18,14 +18,14 @@
 	<string name="resign">Poddaj się</string>
 	<string name="checkmate">Mat</string>
 	<string name="stalemate">Pat</string>
-	<string name="check">Check</string>
+	<string name="check">Szach</string>
 	<string name="impasse">Impas</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Powtórzenie</string>
 	<string name="perpetualCheck">Wieczny szach</string>
 	<string name="royalsLost" comment="Used in chushogi">Wszystkie królewskie bierki stracone</string>
 	<string name="bareKing" comment="Used in chushogi">Ogołocony król</string>
-	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
-	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s grał przeciwko %2$s</string>
+	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s gra przeciwko %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s wygrywa!</string>
 	<string name="xLost" comment="Example: Player lost!">%s przegrywa!</string>
 	<string name="gameWasDraw">Partia zakończona remisem!</string>
