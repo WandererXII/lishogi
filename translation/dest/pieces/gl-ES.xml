@@ -38,7 +38,7 @@
   <string comment="Chushogi piece, low priority for translation" name="whale">Balea</string>
   <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Cabalo coroado</string>
   <string comment="Chushogi piece, low priority for translation" name="elephantpromoted">Elefante coroado</string>
-  <string comment="Chushogi piece, low priority for translation" name="stag">Vacaloura</string>
+  <string comment="Chushogi piece, low priority for translation" name="stag">Cervo</string>
   <string comment="Chushogi piece, low priority for translation" name="boar">Porco bravo</string>
   <string comment="Chushogi piece, low priority for translation" name="ox">Boi</string>
   <string comment="Chushogi piece, low priority for translation" name="falcon">Falcón</string>
