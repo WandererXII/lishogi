@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">Insights</string>
-  <string name="moves">Moves</string>
-  <string name="drops">Drops</string>
-  <string name="movesAndDrops">Moves and drops</string>
-  <string name="total" comment="Usually in chart legend or tooltip summing other bars">Total</string>
-  <string name="count" comment="Example: Count: 11 moves">Count</string>
-  <string name="average">Average</string>
-  <string name="percentage">Percentage</string>
-  <string name="outcomes" comment="win/draw/loss">Outcomes</string>
-  <string name="color" comment="Meaning sente or gote">Color</string>
-  <string name="termination" comment="Checkmate, repetition, timeout, etc">Termination</string>
-  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Speed</string>
-  <string name="game">Game</string>
-  <string name="opponents">Opponents</string>
-  <string name="averageOpponentRating">Average opponent rating</string>
-  <string name="averageOpponentRatingDiff">Average opponent rating difference</string>
-  <string name="mostPlayedOpponents">Most played opponents</string>
-  <string name="averageAccuracy">Average accuracy</string>
-  <string name="wins">Wins</string>
-  <string name="draws">Draws</string>
-  <string name="losses">Losses</string>
-  <string name="accuracyByMoveNumber">Accuracy by game turn</string>
-  <string name="accuracyByPiece">Accuracy by piece</string>
-  <string name="times" comment="Move and drop times">Times</string>
-  <string name="totalTimeSpentThinking">Total time spent thinking</string>
-  <string name="averageTimePerGame">Average time per game</string>
-  <string name="averageTimePerMoveOrDrop">Average time per move or drop</string>
-  <string name="timeSpentThinkingByPiece">Time spent thinking by piece</string>
-  <string name="movesAndDropsByPiece">Moves and drops by piece</string>
-  <string name="capturesByPiece">Captured pieces</string>
-  <string name="promotionsByPiece">Promoted pieces</string>
-  <string name="mostPlayedOpenings">Most played openings</string>
-  <string name="openingMoves">Opening moves</string>
-  <string name="insightsUpdate">Insights are refreshed every few hours.</string>
-  <string name="accuracy">Accuracy</string>
-  <string name="nbOfMovesAndDrops">Number of moves and drops</string>
-  <string name="nbOfMovesAndDropsPerGame">Number of moves and drops per game</string>
-  <string name="nbOfCaptures">Number of captured pieces</string>
-  <string name="nbOfPromotions">Number of promoted pieces</string>
-  <string name="opponentRating">Opponent rating</string>
-  <string name="opponentRatingDiff">Opponent rating difference</string>
-  <string name="totalTimeOfMovesAndDrops">Total time of moves and drops</string>
-  <string name="nbOfGames">Number of games</string>
-  <string name="weekday">Weekday</string>
-  <string name="timeOfDay" comment="Morning,afternoon, evening, night">Time of day</string>
-  <string name="earlyBishopExchange" comment="Were bishops exchanged by the players early in the game">Early bishop exchange</string>
+  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">Statistiky</string>
+  <string name="moves">Tahy</string>
+  <string name="drops">Položení</string>
+  <string name="movesAndDrops">Tahy a položení</string>
+  <string name="total" comment="Usually in chart legend or tooltip summing other bars">Celkem</string>
+  <string name="count" comment="Example: Count: 11 moves">Počet</string>
+  <string name="average">Průměr</string>
+  <string name="percentage">Procenta</string>
+  <string name="outcomes" comment="win/draw/loss">Výsledky</string>
+  <string name="color" comment="Meaning sente or gote">Strana</string>
+  <string name="termination" comment="Checkmate, repetition, timeout, etc">Ukončení</string>
+  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Rychlost</string>
+  <string name="game">Hra</string>
+  <string name="opponents">Protihráči</string>
+  <string name="averageOpponentRating">Průměrné hodnocení protihráče</string>
+  <string name="averageOpponentRatingDiff">Průměrný rozdíl hodnocení protihráče</string>
+  <string name="mostPlayedOpponents">Nejvíce hraní protihráči</string>
+  <string name="averageAccuracy">Průměrná přesnost</string>
+  <string name="wins">Výhry</string>
+  <string name="draws">Remízy</string>
+  <string name="losses">Prohry</string>
+  <string name="accuracyByMoveNumber">Přesnost podle herního tahu</string>
+  <string name="accuracyByPiece">Přesnost po kamenech</string>
+  <string name="times" comment="Move and drop times">Časy</string>
+  <string name="totalTimeSpentThinking">Celkový čas strávený přemýšlením</string>
+  <string name="averageTimePerGame">Průměrný čas na hru</string>
+  <string name="averageTimePerMoveOrDrop">Průměrný čas na tah nebo položení</string>
+  <string name="timeSpentThinkingByPiece">Čas strávený přemýšlením - kameny</string>
+  <string name="movesAndDropsByPiece">Pohyby a položení - kameny</string>
+  <string name="capturesByPiece">Zajaté kameny</string>
+  <string name="promotionsByPiece">Povýšené kameny</string>
+  <string name="mostPlayedOpenings">Nejhranější zahájení</string>
+  <string name="openingMoves">Zahajovací tahy</string>
+  <string name="insightsUpdate">Statistiky se aktualizují každých několik hodin.</string>
+  <string name="accuracy">Přesnost</string>
+  <string name="nbOfMovesAndDrops">Počet tahů a položení</string>
+  <string name="nbOfMovesAndDropsPerGame">Počet tahů a položení na hru</string>
+  <string name="nbOfCaptures">Počet zajatých kamenů</string>
+  <string name="nbOfPromotions">Počet povýšení kamenů</string>
+  <string name="opponentRating">Hodnocení protihráče</string>
+  <string name="opponentRatingDiff">Rozdíl hodnocení protihráče</string>
+  <string name="totalTimeOfMovesAndDrops">Celkový čas tahů a položení</string>
+  <string name="nbOfGames">Počet her</string>
+  <string name="weekday">Den v týdnu</string>
+  <string name="timeOfDay" comment="Morning,afternoon, evening, night">Denní doba</string>
+  <string name="earlyBishopExchange" comment="Were bishops exchanged by the players early in the game">Ranná výměna střelců</string>
 </resources>
