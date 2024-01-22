@@ -905,4 +905,5 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Phân tích</string>
 	<string name="back" comment="As in: go back">Quay Lại</string>
 	<string name="preview">Xem chi tiết</string>
+	<string name="variantNotSupported">Variant not supported</string>
 </resources>
