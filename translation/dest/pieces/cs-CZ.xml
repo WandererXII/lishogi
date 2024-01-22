@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="pawn">Pawn</string>
-  <string name="lance">Lance</string>
-  <string name="knight">Knight</string>
-  <string name="silver">Silver</string>
-  <string name="gold">Gold</string>
-  <string name="bishop">Bishop</string>
-  <string name="rook">Rook</string>
-  <string name="king">King</string>
+  <string name="pawn">Pěšec</string>
+  <string name="lance">Kopiník</string>
+  <string name="knight">Jezdec</string>
+  <string name="silver">Stříbrný generál</string>
+  <string name="gold">Zlatý generál</string>
+  <string name="bishop">Střelec</string>
+  <string name="rook">Věž</string>
+  <string name="king">Král</string>
   <string name="tokin">Tokin</string>
-  <string name="promotedlance">Promoted lance</string>
-  <string name="promotedknight">Promoted knight</string>
-  <string name="promotedsilver">Promoted silver</string>
-  <string name="horse">Horse</string>
-  <string name="dragon">Dragon</string>
+  <string name="promotedlance">Povýšený kopiník</string>
+  <string name="promotedknight">Povýšený jezdec</string>
+  <string name="promotedsilver">Povýšený stříbrný generál</string>
+  <string name="horse">Povýšený střelec</string>
+  <string name="dragon">Povýšená věž</string>
   <string comment="Chushogi piece - not tokin" name="promotedpawn">Promoted pawn</string>
   <string comment="Chushogi piece, low priority for translation" name="leopard">Leopard</string>
   <string comment="Chushogi piece, low priority for translation" name="copper">Copper</string>
