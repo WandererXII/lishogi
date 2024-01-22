@@ -1015,4 +1015,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analizuj</string>
 	<string name="back" comment="As in: go back">Wstecz</string>
 	<string name="preview">Podgląd</string>
+	<string name="variantNotSupported">Variant not supported</string>
 </resources>
