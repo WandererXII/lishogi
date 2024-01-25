@@ -1,4 +1,4 @@
-import { InsightData, InsightFilter, InsightOpts, Redraw, Tab, tabs } from './types';
+import { InsightData, InsightFilter, InsightOpts, Redraw, Tab, tabs, Color, Speed } from './types';
 import { defaultFilter, filterOptions } from './filter';
 import { idFromSpeed, idFromVariant } from './util';
 
@@ -43,11 +43,7 @@ export default class InsightCtrl {
     else this.mostPlayedMovesColor = 'sente';
 
     const path = window.location.pathname.split('/').filter(c => c !== '');
-    if (path[path.length - 1] && tabs.includes(path[path.length - 1] as Tab)) {
-      this.activeTab = path[path.length - 1] as Tab;
-    } else {
-      this.activeTab = 'outcomes';
-    }
+    this.activeTab = tabs.includes(path[path.length - 1] as Tab) ? path[path.length - 1] as Tab : 'outcomes';
     this.updateUrl();
 
     this.resetData();
@@ -72,22 +68,19 @@ export default class InsightCtrl {
       flt: Partial<InsightFilter> = this.filter || df;
 
     const keys = Object.keys(flt) as (keyof InsightFilter)[];
-    for (const key of keys) {
+    keys.forEach(key => {
       let val: any = params.get(key);
       if (val) {
         if (key === 'since' || key === 'variant') val = parseInt(val);
         else if (key === 'speeds')
-          val = val
-            .split('')
-            .map((n: string) => parseInt(n))
-            .filter((n: number) => !isNaN(n));
+          val = val.split('').map((n: string) => parseInt(n)).filter((n: number) => !isNaN(n));
         val = val || flt[key] || df[key];
         if (key !== 'custom') {
           const opt = filterOptions(key);
           if (opt.includes(val)) flt[key] = val;
         }
       }
-    }
+    });
 
     const customType = params.get('customType') === 'moves' ? 'moves' : 'game';
     flt.custom = {
@@ -102,16 +95,15 @@ export default class InsightCtrl {
   fetchData(tab: Tab): void {
     this.isError = false;
     const queryString = this.queryString(tab, true);
-    const path = this.endpoint + '/' + tab + (queryString ? '?' + queryString : '');
+    const path = `${this.endpoint}/${tab}${queryString ? `?${queryString}` : ''}`;
+
     fetch(path, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: this.usernameHash,
       },
     })
-      .then(response => {
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => {
         this.data[tab] = data;
         this.redraw();
@@ -126,6 +118,7 @@ export default class InsightCtrl {
   queryString(tab: Tab, forApi: boolean): string {
     const params: Record<string, string> = {},
       df = defaultFilter(false);
+
     if (forApi) {
       params.u = this.username;
       params.tmz = Intl.DateTimeFormat().resolvedOptions().timeZone;
