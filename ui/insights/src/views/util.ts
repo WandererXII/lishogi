@@ -16,11 +16,12 @@ export function smallWinrateChart(winrate: WinRate): VNode {
   const winPercent = toPercentage(winrate[0], totalGames),
     drawPercent = toPercentage(winrate[1], totalGames),
     lossPercent = toPercentage(winrate[2], totalGames);
+  
   return h('div.small-winrate-wrap', [
     h('div.small-winrate-info-wrap', [
-      h('span.win', winPercent + '%'),
-      winrate[1] ? h('span.draw', drawPercent + '%') : null,
-      h('span.loss', lossPercent + '%'),
+      h('span.win', `${winPercent}%`),
+      winrate[1] ? h('span.draw', `${drawPercent}%`) : null,
+      h('span.loss', `${lossPercent}%`),
     ]),
     horizontalBar([winPercent, drawPercent, lossPercent], ['win', 'draw', 'loss']),
   ]);
@@ -29,24 +30,21 @@ export function smallWinrateChart(winrate: WinRate): VNode {
 export function horizontalBar(numbers: number[], cls: string[] = []): VNode {
   const noFirst = numbers[0] === 0,
     noLast = numbers[numbers.length - 1] === 0;
-  return h(
-    'div.simple-horizontal-bar',
-    numbers.map((n, i) =>
-      h('div' + (cls[i] ? `.${cls[i]}` : ''), {
-        style: {
-          width: n + '%',
-          borderRadius:
-            n === 100
-              ? '10px'
-              : i === 0 || (noFirst && i === 1)
-                ? '10px 0 0 10px'
-                : i === numbers.length - 1 || (noLast && i === numbers.length - 2)
-                  ? '0 10px 10px 0'
-                  : '0',
-        },
-      })
-    )
-  );
+  
+  return h('div.simple-horizontal-bar', numbers.map((n, i) =>
+    h('div' + (cls[i] ? `.${cls[i]}` : ''), {
+      style: {
+        width: `${n}%`,
+        borderRadius: n === 100
+          ? '10px'
+          : i === 0 || (noFirst && i === 1)
+            ? '10px 0 0 10px'
+            : i === numbers.length - 1 || (noLast && i === numbers.length - 2)
+              ? '0 10px 10px 0'
+              : '0',
+      },
+    })
+  ));
 }
 
 export function winrateTable(
@@ -64,6 +62,7 @@ export function winrateTable(
     h('div.winrate-table-content', tableContent(records, fn)),
   ]);
 }
+
 function tableContent(records: Record<string, WinRate>, fn: (key: string) => VNode): VNode[] {
   return Object.keys(records).map(key => {
     const cur = records[key];
@@ -78,7 +77,7 @@ function tableContent(records: Record<string, WinRate>, fn: (key: string) => VNo
 
 export function bigNumberWithDesc(nb: number, desc: string, cls: string = '', affix: string = ''): VNode {
   const node = affix ? h('div', [nb, h('span.tiny', affix)]) : nb;
-  return h('div.big-number-with-desc' + (cls ? '.' + cls : ''), [h('div.big-number', node), h('span.desc', desc)]);
+  return h('div.big-number-with-desc' + (cls ? `.${cls}` : ''), [h('div.big-number', node), h('span.desc', desc)]);
 }
 
 export function translateStatus(status: Status, trans: Trans): string {
