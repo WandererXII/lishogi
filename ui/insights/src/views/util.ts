@@ -18,9 +18,9 @@ export function smallWinrateChart(winrate: WinRate): VNode {
     lossPercent = toPercentage(winrate[2], totalGames);
   return h('div.small-winrate-wrap', [
     h('div.small-winrate-info-wrap', [
-      h('span.win', winPercent + '%'),
-      winrate[1] ? h('span.draw', drawPercent + '%') : null,
-      h('span.loss', lossPercent + '%'),
+      h('span.win', `${winPercent}%`),
+      winrate[1] ? h('span.draw', `${drawPercent}%`) : null,
+      h('span.loss', `${lossPercent}%`),
     ]),
     horizontalBar([winPercent, drawPercent, lossPercent], ['win', 'draw', 'loss']),
   ]);
@@ -34,7 +34,7 @@ export function horizontalBar(numbers: number[], cls: string[] = []): VNode {
     numbers.map((n, i) =>
       h('div' + (cls[i] ? `.${cls[i]}` : ''), {
         style: {
-          width: n + '%',
+          width: `${n}%`,
           borderRadius:
             n === 100
               ? '10px'
@@ -64,10 +64,11 @@ export function winrateTable(
     h('div.winrate-table-content', tableContent(records, fn)),
   ]);
 }
+
 function tableContent(records: Record<string, WinRate>, fn: (key: string) => VNode): VNode[] {
   return Object.keys(records).map(key => {
     const cur = records[key];
-    const total = cur[0] + cur[1] + cur[2];
+    const total = cur.reduce((a, b) => a + b, 0);
     return h('div.winrate-table-row', [
       fn(key),
       h('div.table-col2', total),
