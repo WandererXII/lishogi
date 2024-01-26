@@ -51,7 +51,7 @@ function content(ctrl: InsightCtrl, tab: Tab): VNode {
       ctrl.isError
         ? h(
             'p',
-            'Insights are not currently available. Sorry about that! If this keeps happening please report this on GitHub.'
+            'Insights are not currently available. Sorry about that! If this keeps happening, please report this on GitHub.'
           )
         : spinner()
     );
