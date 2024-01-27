@@ -21,6 +21,7 @@ export interface InsightFilter {
   includeComputer: 'yes' | 'no';
   custom: InsightCustom;
 }
+
 export type InsightFilterWithoutCustom = Omit<InsightFilter, 'custom'>;
 
 export interface InsightCustom {
@@ -29,18 +30,10 @@ export interface InsightCustom {
   y: string;
 }
 
-export interface InsightData {
-  outcomes: OutcomeResult | undefined;
-  moves: MovesResult | undefined;
-  times: TimesResult | undefined;
-  analysis: AnalysisResult | undefined;
-  opponents: OpponentResult | undefined;
-  custom: CustomResult | undefined;
-}
-
 export interface Result {
   nbOfGames: number;
 }
+
 export interface CustomResult extends Result {
   data?: {
     labels: string[];
@@ -48,11 +41,13 @@ export interface CustomResult extends Result {
   };
   error?: string;
 }
+
 export interface OutcomeResult extends Result {
   winrate: WinRate;
   winStatuses: CounterObj<Status>;
   lossStatuses: CounterObj<Status>;
 }
+
 export interface MovesResult extends Result {
   nbOfMoves: number;
   nbOfDrops: number;
@@ -70,11 +65,13 @@ export interface MovesResult extends Result {
     no: WinRate;
   };
 }
+
 export interface OpponentResult extends Result {
   avgOpponentRating: number;
   avgOpponentRatingDiff: number;
   winrateByMostPlayedOpponent: Record<string, WinRate>;
 }
+
 export interface TimesResult extends Result {
   totalTime: number;
   avgTimePerMoveAndDrop: number;
@@ -84,6 +81,7 @@ export interface TimesResult extends Result {
   avgTimeByMoveRole: PartialRecord<Role, Centis>;
   avgTimeByDropRole: PartialRecord<Role, Centis>;
 }
+
 export interface AnalysisResult extends Result {
   accuracy: Accuracy;
   accuracyByOutcome: [Accuracy, Accuracy, Accuracy];
