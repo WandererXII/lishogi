@@ -3,11 +3,17 @@ import { Status, WinRate } from '../types';
 import { toPercentage } from '../util';
 
 export function section(title: string, content: VNode | VNode[] | string): VNode {
-  return h('section.with-title', [h('h2', title), h('div.section-container', content)]);
+  return h('section.with-title', [
+    h('h2', title),
+    h('div.section-container', content)
+  ]);
 }
 
 export function halfSection(title: string, content: (VNode | string)[]): VNode {
-  return h('section.half.with-title', [h('h2', title), h('div.section-container', content)]);
+  return h('section.half.with-title', [
+    h('h2', title),
+    h('div.section-container', content)
+  ]);
 }
 
 export function smallWinrateChart(winrate: WinRate): VNode {
@@ -16,19 +22,21 @@ export function smallWinrateChart(winrate: WinRate): VNode {
   const winPercent = toPercentage(winrate[0], totalGames),
     drawPercent = toPercentage(winrate[1], totalGames),
     lossPercent = toPercentage(winrate[2], totalGames);
+
   return h('div.small-winrate-wrap', [
     h('div.small-winrate-info-wrap', [
       h('span.win', winPercent + '%'),
       winrate[1] ? h('span.draw', drawPercent + '%') : null,
-      h('span.loss', lossPercent + '%'),
+      h('span.loss', lossPercent + '%')
     ]),
-    horizontalBar([winPercent, drawPercent, lossPercent], ['win', 'draw', 'loss']),
+    horizontalBar([winPercent, drawPercent, lossPercent], ['win', 'draw', 'loss'])
   ]);
 }
 
 export function horizontalBar(numbers: number[], cls: string[] = []): VNode {
   const noFirst = numbers[0] === 0,
     noLast = numbers[numbers.length - 1] === 0;
+
   return h(
     'div.simple-horizontal-bar',
     numbers.map((n, i) =>
@@ -42,8 +50,8 @@ export function horizontalBar(numbers: number[], cls: string[] = []): VNode {
                 ? '10px 0 0 10px'
                 : i === numbers.length - 1 || (noLast && i === numbers.length - 2)
                   ? '0 10px 10px 0'
-                  : '0',
-        },
+                  : '0'
+        }
       })
     )
   );
@@ -59,11 +67,12 @@ export function winrateTable(
     h('div.winrate-table-header', [
       h('div.table-col1', headers[0]),
       h('div.table-col2', headers[1]),
-      h('div.table-col3', headers[2]),
+      h('div.table-col3', headers[2])
     ]),
     h('div.winrate-table-content', tableContent(records, fn)),
   ]);
 }
+
 function tableContent(records: Record<string, WinRate>, fn: (key: string) => VNode): VNode[] {
   return Object.keys(records).map(key => {
     const cur = records[key];
@@ -83,8 +92,8 @@ export function bigNumberWithDesc(nb: number, desc: string, cls: string = '', af
 
 export function translateStatus(status: Status, trans: Trans): string {
   const noarg = trans.noarg;
-
   const key = Status[status].toLowerCase();
+
   switch (key) {
     case 'checkmate':
     case 'resign':
