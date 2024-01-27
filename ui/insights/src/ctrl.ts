@@ -1,32 +1,11 @@
-import { InsightData, InsightFilter, InsightOpts, Redraw, Tab, tabs } from './types';
+import { InsightData, InsightFilter, InsightOpts, Redraw, Tab, tabs, Color, Speed } from './types';
 import { defaultFilter, filterOptions } from './filter';
 import { idFromSpeed, idFromVariant } from './util';
 
 const li = window.lishogi;
 
 export default class InsightCtrl {
-  username: string;
-  usernameHash: string;
-  endpoint: string;
-  isBot: boolean;
-
-  isError: boolean;
-
-  activeTab: Tab;
-  mostPlayedMovesColor: Color;
-
-  filterToggle: boolean; // mobile view
-
-  data: InsightData;
-  filter: InsightFilter;
-
-  trans: Trans;
-  pref: any;
-
-  constructor(
-    private opts: InsightOpts,
-    readonly redraw: Redraw
-  ) {
+  constructor(private opts: InsightOpts, readonly redraw: Redraw) {
     this.username = opts.username;
     this.usernameHash = opts.usernameHash;
     this.endpoint = opts.endpoint;
@@ -34,20 +13,15 @@ export default class InsightCtrl {
     this.trans = li.trans(this.opts.i18n);
     this.pref = opts.pref;
 
-    const params = new URL(self.location.href).searchParams;
+    const params = new URL(window.location.href).searchParams;
     this.processFilter(params);
 
     this.isError = false;
 
-    if (this.filter.color === 'gote') this.mostPlayedMovesColor = 'gote';
-    else this.mostPlayedMovesColor = 'sente';
+    this.mostPlayedMovesColor = this.filter.color === 'gote' ? 'gote' : 'sente';
 
-    const path = window.location.pathname.split('/').filter(c => c !== '');
-    if (path[path.length - 1] && tabs.includes(path[path.length - 1] as Tab)) {
-      this.activeTab = path[path.length - 1] as Tab;
-    } else {
-      this.activeTab = 'outcomes';
-    }
+    this.setActiveTab();
+
     this.updateUrl();
 
     this.resetData();
@@ -55,9 +29,27 @@ export default class InsightCtrl {
     this.fetchData(this.activeTab);
   }
 
+  username: string;
+  usernameHash: string;
+  endpoint: string;
+  isBot: boolean;
+  isError: boolean;
+  activeTab: Tab;
+  mostPlayedMovesColor: Color;
+  filterToggle: boolean = false; // mobile view
+  data: InsightData;
+  filter: InsightFilter;
+  trans: Trans;
+  pref: any;
+
+  setActiveTab(): void {
+    const path = window.location.pathname.split('/').filter(Boolean);
+    this.activeTab = tabs.includes(path[path.length - 1] as Tab) ? path[path.length - 1] as Tab : 'outcomes';
+  }
+
   updateUrl(): void {
-    const q = this.queryString(this.activeTab, false);
-    window.history.replaceState('', '', `/insights/${this.username}/${this.activeTab}${q ? `?${q}` : ''}`);
+    const queryString = this.queryString(this.activeTab, false);
+    window.history.replaceState('', '', `/insights/${this.username}/${this.activeTab}${queryString ? `?${queryString}` : ''}`);
   }
 
   changeTab(tab: Tab): void {
@@ -68,26 +60,22 @@ export default class InsightCtrl {
   }
 
   processFilter(params: URLSearchParams): void {
-    const df = defaultFilter(this.isBot),
-      flt: Partial<InsightFilter> = this.filter || df;
+    const df = defaultFilter(this.isBot);
+    const flt: Partial<InsightFilter> = { ...this.filter } || df;
 
-    const keys = Object.keys(flt) as (keyof InsightFilter)[];
-    for (const key of keys) {
-      let val: any = params.get(key);
+    Object.keys(flt).forEach((key) => {
+      let val = params.get(key);
       if (val) {
         if (key === 'since' || key === 'variant') val = parseInt(val);
         else if (key === 'speeds')
-          val = val
-            .split('')
-            .map((n: string) => parseInt(n))
-            .filter((n: number) => !isNaN(n));
+          val = val.split('').map((n) => parseInt(n)).filter((n) => !isNaN(n));
         val = val || flt[key] || df[key];
         if (key !== 'custom') {
           const opt = filterOptions(key);
           if (opt.includes(val)) flt[key] = val;
         }
       }
-    }
+    });
 
     const customType = params.get('customType') === 'moves' ? 'moves' : 'game';
     flt.custom = {
@@ -102,16 +90,15 @@ export default class InsightCtrl {
   fetchData(tab: Tab): void {
     this.isError = false;
     const queryString = this.queryString(tab, true);
-    const path = this.endpoint + '/' + tab + (queryString ? '?' + queryString : '');
+    const path = `${this.endpoint}/${tab}${queryString ? `?${queryString}` : ''}`;
+    
     fetch(path, {
       headers: {
         'Content-Type': 'application/json',
         Authorization: this.usernameHash,
       },
     })
-      .then(response => {
-        return response.json();
-      })
+      .then(response => response.json())
       .then(data => {
         this.data[tab] = data;
         this.redraw();
@@ -124,8 +111,9 @@ export default class InsightCtrl {
   }
 
   queryString(tab: Tab, forApi: boolean): string {
-    const params: Record<string, string> = {},
-      df = defaultFilter(false);
+    const params: Record<string, string> = {};
+    const df = defaultFilter(false);
+
     if (forApi) {
       params.u = this.username;
       params.tmz = Intl.DateTimeFormat().resolvedOptions().timeZone;
