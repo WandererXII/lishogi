@@ -1,27 +1,41 @@
 lishogi.ratingDistributionChart = function (data) {
+  // Translate function for internationalization
   const trans = lishogi.trans(data.i18n);
+
+  // Load common chart script
   lishogi.loadScript('javascripts/chart/common.js').done(function () {
+
+    // Load common chart features
     lishogi.chartCommon('highchart').done(function () {
-      var disabled = {
-        enabled: false,
-      };
-      var noText = {
-        text: null,
-      };
+
+      // Disable options
+      const disabled = { enabled: false };
+      const noText = { text: null };
+
+      // Chart container
       $('#rating_distribution_chart').each(function () {
-        var colors = Highcharts.getOptions().colors;
-        var ratingAt = function (i) {
+        const colors = Highcharts.getOptions().colors;
+
+        // Function to calculate rating at a given index
+        const ratingAt = function (i) {
           return 600 + i * 25;
         };
-        var arraySum = function (arr) {
+
+        // Function to calculate the sum of an array
+        const arraySum = function (arr) {
           return arr.reduce(function (a, b) {
             return a + b;
           }, 0);
         };
-        var sum = arraySum(data.freq);
-        var cumul = [];
-        for (var i = 0; i < data.freq.length; i++)
+
+        // Calculate the sum and cumulative percentage
+        const sum = arraySum(data.freq);
+        const cumul = [];
+        for (let i = 0; i < data.freq.length; i++) {
           cumul.push(Math.round((arraySum(data.freq.slice(0, i)) / sum) * 100));
+        }
+
+        // Highcharts configuration
         $(this).highcharts({
           yAxis: {
             title: noText,
@@ -30,6 +44,7 @@ lishogi.ratingDistributionChart = function (data) {
           legend: disabled,
           series: [
             {
+              // Frequency distribution
               name: trans.noarg('players'),
               type: 'area',
               data: data.freq.map(function (nb, i) {
@@ -54,6 +69,7 @@ lishogi.ratingDistributionChart = function (data) {
               lineWidth: 4,
             },
             {
+              // Cumulative percentage
               name: trans.noarg('cumulative'),
               type: 'line',
               yAxis: 1,
@@ -86,40 +102,36 @@ lishogi.ratingDistributionChart = function (data) {
             },
             gridLineWidth: 1,
             tickInterval: 100,
-            plotLines: (function (v) {
-              var right = v > 1800;
-              return v
-                ? [
-                    {
-                      label: {
-                        text: trans.noarg('yourRating'),
-                        verticalAlign: 'top',
-                        align: right ? 'right' : 'left',
-                        y: 13,
-                        x: right ? -5 : 5,
-                        style: {
-                          color: colors[2],
-                        },
-                        rotation: -0,
-                      },
-                      dashStyle: 'dash',
-                      color: colors[2],
-                      width: 3,
-                      value: v,
-                    },
-                  ]
-                : [];
-            })(data.myRating),
+            plotLines: [
+              // Plot line for user's rating
+              {
+                label: {
+                  text: trans.noarg('yourRating'),
+                  verticalAlign: 'top',
+                  align: data.myRating > 1800 ? 'right' : 'left',
+                  y: 13,
+                  x: data.myRating > 1800 ? -5 : 5,
+                  style: {
+                    color: colors[2],
+                  },
+                  rotation: 0,
+                },
+                dashStyle: 'dash',
+                color: colors[2],
+                width: 3,
+                value: data.myRating,
+              },
+            ],
           },
           yAxis: [
             {
-              // frequency
+              // Frequency
               title: {
                 text: trans.noarg('players'),
               },
             },
             {
-              // cumulative
+              // Cumulative
               min: 0,
               max: 100,
               gridLineWidth: 0,
