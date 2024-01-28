@@ -1,27 +1,30 @@
 lishogi.ratingDistributionChart = function (data) {
   const trans = lishogi.trans(data.i18n);
+
   lishogi.loadScript('javascripts/chart/common.js').done(function () {
     lishogi.chartCommon('highchart').done(function () {
-      var disabled = {
-        enabled: false,
-      };
-      var noText = {
-        text: null,
-      };
+      const disabled = { enabled: false };
+      const noText = { text: null };
+
       $('#rating_distribution_chart').each(function () {
-        var colors = Highcharts.getOptions().colors;
-        var ratingAt = function (i) {
+        const colors = Highcharts.getOptions().colors;
+
+        const ratingAt = function (i) {
           return 600 + i * 25;
         };
-        var arraySum = function (arr) {
+
+        const arraySum = function (arr) {
           return arr.reduce(function (a, b) {
             return a + b;
           }, 0);
         };
-        var sum = arraySum(data.freq);
-        var cumul = [];
-        for (var i = 0; i < data.freq.length; i++)
+
+        const sum = arraySum(data.freq);
+        const cumul = [];
+        for (let i = 0; i < data.freq.length; i++) {
           cumul.push(Math.round((arraySum(data.freq.slice(0, i)) / sum) * 100));
+        }
+
         $(this).highcharts({
           yAxis: {
             title: noText,
@@ -86,40 +89,35 @@ lishogi.ratingDistributionChart = function (data) {
             },
             gridLineWidth: 1,
             tickInterval: 100,
-            plotLines: (function (v) {
-              var right = v > 1800;
-              return v
-                ? [
-                    {
-                      label: {
-                        text: trans.noarg('yourRating'),
-                        verticalAlign: 'top',
-                        align: right ? 'right' : 'left',
-                        y: 13,
-                        x: right ? -5 : 5,
-                        style: {
-                          color: colors[2],
-                        },
-                        rotation: -0,
+            plotLines: data.myRating
+              ? [
+                  {
+                    label: {
+                      text: trans.noarg('yourRating'),
+                      verticalAlign: 'top',
+                      align: data.myRating > 1800 ? 'right' : 'left',
+                      y: 13,
+                      x: data.myRating > 1800 ? -5 : 5,
+                      style: {
+                        color: colors[2],
                       },
-                      dashStyle: 'dash',
-                      color: colors[2],
-                      width: 3,
-                      value: v,
+                      rotation: 0,
                     },
-                  ]
-                : [];
-            })(data.myRating),
+                    dashStyle: 'dash',
+                    color: colors[2],
+                    width: 3,
+                    value: data.myRating,
+                  },
+                ]
+              : [],
           },
           yAxis: [
             {
-              // frequency
               title: {
                 text: trans.noarg('players'),
               },
             },
             {
-              // cumulative
               min: 0,
               max: 100,
               gridLineWidth: 0,
