@@ -49,7 +49,7 @@ class ReportContext:
         self.path = path
         self.el = el
         self.name = name
-        self.text = text if text else ""
+        self.text = text.replace("\\\"", "\"").replace("\\'", "'") if text else ""
 
     def lang(self):
         return self.path.stem
@@ -103,6 +103,9 @@ def lint(report, path):
 
 
 def lint_string(ctx, dest, source, allow_missing=0):
+    dest = dest.replace("\\\"", "\"").replace("\\'", "'")
+    source = source.replace("\\\"", "\"").replace("\\'", "'")
+
     if not dest:
         ctx.error("empty translation")
         return
