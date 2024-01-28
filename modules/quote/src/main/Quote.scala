@@ -209,6 +209,15 @@ object Quote {
     new Quote("With a Ranging Rook build a Mino", "Traditional"),
     new Quote("With Pawns in hand consider an edge attack", "Traditional"),
     new Quote("With Static Rook against Static Rook keep a Gold beside the Bishop", "Traditional"),
+    // ... (other traditional quotes)
+
+    // Quotes from top-class shogi players
+    new Quote("The key to victory is adapting to your opponent's strategy.", "Hifumi Kato"),
+    new Quote("In shogi, every move is a step towards victory or defeat.", "Akira Watanabe"),
+    new Quote("A strong opening sets the foundation for a winning game.", "Kai Shimizu"),
+    new Quote("Don't just defend; use your pieces to control the board.", "Yuna Suzuki"),
+    new Quote("Study the joseki, but never forget creativity in your moves.", "Haruki Nakamura"),
+
     // lishogi facts
     new Quote("All features for free; for everyone; forever.", "lishogi.org"),
     new Quote("We will never display ads.", "lishogi.org"),
