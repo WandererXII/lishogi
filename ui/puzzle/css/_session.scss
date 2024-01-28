@@ -1,9 +1,18 @@
+// Assuming the existence of %box-radius, %flex-center, and %data-icon placeholders
+// Define color variables for better maintainability
+$c-good: #4caf50;
+$c-bad: #f44336;
+$c-brag: #ff9900;
+$c-link: #2196f3;
+$block-gap: 1em; // Adjust as needed
+
 .puzzle__session {
   display: flex;
   flex-flow: row wrap-reverse;
   margin-bottom: $block-gap;
 
   a {
+    // Assuming %box-radius and %flex-center are defined elsewhere
     @extend %box-radius, %flex-center;
 
     flex: 0 0 2.3em;
@@ -15,32 +24,39 @@
     font-weight: bold;
     justify-content: center;
 
+    // Styles for result-empty class
     &.result-empty::before {
       @extend %data-icon;
       content: 'E';
       font-size: 0.9em;
     }
 
+    // Styles for result-true class
     &.result-true {
       background: $c-good;
     }
 
+    // Styles for result-false class
     &.result-false {
       background: $c-bad;
 
+      // Nested styles for result-empty within result-false
       &.result-empty::before {
         content: 'L';
       }
     }
 
+    // Styles for current class
     &.current {
       background: $c-brag;
     }
 
+    // Styles for session-new class
     &.session-new {
       background: $c-link;
     }
 
+    // Hover effect
     &:hover {
       opacity: 1;
     }
