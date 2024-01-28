@@ -11,13 +11,13 @@
   <string name="outcomes" comment="win/draw/loss">Resultados</string>
   <string name="color" comment="Meaning sente or gote">Cor</string>
   <string name="termination" comment="Checkmate, repetition, timeout, etc">Terminación</string>
-  <string name="resign" comment="Game termination status">Resignation</string>
-  <string name="noStart" comment="Game termination status - game didn't start">No start</string>
+  <string name="resign" comment="Game termination status">Abandono</string>
+  <string name="noStart" comment="Game termination status - game didn't start">A partida non comezou</string>
   <string name="speed" comment="Bulltet, blitz, rapid, etc.">Control de tempo</string>
   <string name="game">Partida</string>
   <string name="opponents">Adversarios</string>
   <string name="averageOpponentRating">Puntuación media dos adversarios</string>
-  <string name="averageOpponentRatingDiff">Diferencia de puntuación media dos adversarios</string>
+  <string name="averageOpponentRatingDiff">Diferenza de puntuación media dos adversarios</string>
   <string name="mostPlayedOpponents">Adversarios cos que máis xogas</string>
   <string name="averageAccuracy">Precisión media</string>
   <string name="wins">Vitorias</string>
@@ -42,7 +42,7 @@
   <string name="nbOfCaptures">Número de pezas capturadas</string>
   <string name="nbOfPromotions">Número de pezas coroadas</string>
   <string name="opponentRating">Puntuación do adversario</string>
-  <string name="opponentRatingDiff">Diferencia de puntuación do adversario</string>
+  <string name="opponentRatingDiff">Diferenza de puntuación do adversario</string>
   <string name="totalTimeOfMovesAndDrops">Tempo total de movementos e guindadas</string>
   <string name="nbOfGames">Número de partidas</string>
   <string name="weekday">Día da semana</string>
