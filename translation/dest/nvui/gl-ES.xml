@@ -4,12 +4,12 @@
   <string name="gameInfo">Información da partida</string>
   <string name="pieces">Pezas</string>
   <string name="board">Taboleiro</string>
-  <string name="hands">Hands</string>
-  <string name="none" comment="No pieces in hand">None</string>
-  <string name="moves" comment="Followed by list of moves">Moves</string>
-  <string name="currentPosition">Current position</string>
+  <string name="hands">Na man</string>
+  <string name="none" comment="No pieces in hand">Ningunha</string>
+  <string name="moves" comment="Followed by list of moves">Movementos</string>
+  <string name="currentPosition">Posición actual</string>
   <string name="moveForm">Move form</string>
-  <string name="commandInput">Command input</string>
-  <string name="commands">Commands</string>
-  <string name="useArrowKeys">Use arrow keys to navigate in the game</string>
+  <string name="commandInput">Introdución de comandos</string>
+  <string name="commands">Comandos</string>
+  <string name="useArrowKeys">Usa as frechas do teclado para moverte pola partida.</string>
 </resources>
