@@ -8,7 +8,7 @@
   <string name="none" comment="No pieces in hand">Ningunha</string>
   <string name="moves" comment="Followed by list of moves">Movementos</string>
   <string name="currentPosition">Posición actual</string>
-  <string name="moveForm">Move form</string>
+  <string name="moveForm">Introdución de xogadas</string>
   <string name="commandInput">Introdución de comandos</string>
   <string name="commands">Comandos</string>
   <string name="useArrowKeys">Usa as frechas do teclado para moverte pola partida.</string>
