@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Đang chờ đối thủ</string>
 	<string name="waiting">Đang chờ</string>
 	<string name="yourTurn">Đến lượt bạn</string>
-	<string name="aiNameLevelAiLevel">%1$s cấp độ %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s cấp độ %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Cấp độ</string>
 	<string name="strength">Độ mạnh</string>
 	<string name="toggleTheChat">Bật/Tắt trò chuyện</string>
@@ -728,6 +729,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="xCreatesStudyY">%1$s tạo nghiên cứu %2$s</string>
 	<string name="quickPairing">Xếp cặp nhanh</string>
 	<string name="lobby">Phòng chờ</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Ẩn danh</string>
 	<string name="yourScore">Điểm của bạn: %s</string>
 	<string name="language">Ngôn ngữ</string>
@@ -845,6 +847,9 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="agreeWithX">Tôi đồng ý với: %s.</string>
 	<string name="searchOrStartNewDiscussion">Tìm hoặc bắt đầu một cuộc trò chuyện</string>
 	<string name="edit">Chỉnh sửa</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Cờ nhanh</string>
 	<string name="classical">Cờ chậm</string>
 	<string name="ultraBulletDesc">Những ván cờ cực nhanh: ít hơn 30 giây</string>
@@ -905,5 +910,5 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Phân tích</string>
 	<string name="back" comment="As in: go back">Quay Lại</string>
 	<string name="preview">Xem chi tiết</string>
-	<string name="variantNotSupported">Biến thể không được hỗ trợ</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Biến thể không được hỗ trợ</string>
 </resources>
