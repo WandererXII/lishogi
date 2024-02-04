@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Čekání na soupeře</string>
 	<string name="waiting">Čekám</string>
 	<string name="yourTurn">Jste na tahu</string>
-	<string name="aiNameLevelAiLevel">AI %1$s - úrovně %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">AI %1$s - úrovně %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Úroveň</string>
 	<string name="strength">Obtížnost</string>
 	<string name="toggleTheChat">Zapnout/vypnout chat</string>
@@ -829,6 +830,7 @@
 	<string name="xCreatesStudyY">%1$s vytvořil studii %2$s</string>
 	<string name="quickPairing">Rychlá hra</string>
 	<string name="lobby">Výzvy</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Anonymní</string>
 	<string name="yourScore">Vaše skóre: %s</string>
 	<string name="language">Jazyk</string>
@@ -955,6 +957,9 @@
 	<string name="agreeWithX">Souhlasím s: %s</string>
 	<string name="searchOrStartNewDiscussion">Začněte nebo vyhledejte konverzaci</string>
 	<string name="edit">Upravit</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Rapid</string>
 	<string name="classical">Klasické</string>
 	<string name="ultraBulletDesc">Šíleně rychlé hry: méně než 30 sekund</string>
@@ -1015,5 +1020,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyzujte</string>
 	<string name="back" comment="As in: go back">Zpět</string>
 	<string name="preview">Náhled</string>
-	<string name="variantNotSupported">Varianta není podporována</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Varianta není podporována</string>
 </resources>
