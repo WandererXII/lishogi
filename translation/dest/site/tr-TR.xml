@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Rakip bekleniyor</string>
 	<string name="waiting">Bekleniyor</string>
 	<string name="yourTurn">Sıra sizde</string>
-	<string name="aiNameLevelAiLevel">%1$s seviye %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s seviye %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Seviye</string>
 	<string name="strength">Güç</string>
 	<string name="toggleTheChat">Sohbeti aç/kapat</string>
@@ -761,6 +762,7 @@
 	<string name="xCreatesStudyY">%1$s bir çalışma oluşturdu: %2$s</string>
 	<string name="quickPairing">Hızlı eşleşme</string>
 	<string name="lobby">Lobi</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Anonim</string>
 	<string name="yourScore">Puan durumu: %s</string>
 	<string name="language">Dil</string>
@@ -881,6 +883,9 @@
 	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Tartışma ara veya yenisini başlat</string>
 	<string name="edit">Düzenle</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Rapid</string>
 	<string name="classical">Klasik</string>
 	<string name="ultraBulletDesc">Aşırı hızlı oyunlar: 30 saniyeden daha az</string>
@@ -941,5 +946,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
