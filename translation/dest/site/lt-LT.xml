@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Laukiama varžovo</string>
 	<string name="waiting">Laukiama</string>
 	<string name="yourTurn">Jūsų ėjimas</string>
-	<string name="aiNameLevelAiLevel">%1$s lygis Nr. %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s lygis Nr. %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Lygis</string>
 	<string name="strength">Stiprumas</string>
 	<string name="toggleTheChat">Įjungti / išjungti pokalbį</string>
@@ -829,6 +830,7 @@
 	<string name="xCreatesStudyY">%1$s creates study %2$s</string>
 	<string name="quickPairing">Greitas suporavimas</string>
 	<string name="lobby">Laukiamasis</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Anonimas</string>
 	<string name="yourScore">Jūsų rezultatas: %s</string>
 	<string name="language">Kalba</string>
@@ -955,6 +957,9 @@
 	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Ieškokite, arba pradėkite naują diskusiją</string>
 	<string name="edit">Keisti</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Greitieji</string>
 	<string name="classical">Klasikiniai</string>
 	<string name="ultraBulletDesc">Be proto greitos partijos: mažiau nei 30 sekundžių</string>
@@ -1015,5 +1020,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
