@@ -9,7 +9,7 @@
 	<string name="waiting">Đang chờ</string>
 	<string name="yourTurn">Đến lượt bạn</string>
 	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s cấp độ %2$s</string>
-	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Đã đánh bại %1$s cấp độ %2$s</string>
 	<string name="level">Cấp độ</string>
 	<string name="strength">Độ mạnh</string>
 	<string name="toggleTheChat">Bật/Tắt trò chuyện</string>
@@ -847,9 +847,9 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="agreeWithX">Tôi đồng ý với: %s.</string>
 	<string name="searchOrStartNewDiscussion">Tìm hoặc bắt đầu một cuộc trò chuyện</string>
 	<string name="edit">Chỉnh sửa</string>
-	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
-	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
-	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Cờ siêu đạn</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Cờ đạn</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Cờ chớp</string>
 	<string name="rapid">Cờ nhanh</string>
 	<string name="classical">Cờ chậm</string>
 	<string name="ultraBulletDesc">Những ván cờ cực nhanh: ít hơn 30 giây</string>
