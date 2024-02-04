@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Ожидание соперника</string>
 	<string name="waiting">Ожидание</string>
 	<string name="yourTurn">Ваш ход</string>
-	<string name="aiNameLevelAiLevel">%1$s уровня %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s уровня %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Уровень</string>
 	<string name="strength">Сила</string>
 	<string name="toggleTheChat">Показывать окно чата</string>
@@ -829,6 +830,7 @@
 	<string name="xCreatesStudyY">%1$s создал студию %2$s</string>
 	<string name="quickPairing">Быстрый старт</string>
 	<string name="lobby">Зал ожидания</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Аноним</string>
 	<string name="yourScore">Ваш счёт: %s</string>
 	<string name="language">Язык (Language)</string>
@@ -955,6 +957,9 @@
 	<string name="agreeWithX">Я соглашусь с: %s</string>
 	<string name="searchOrStartNewDiscussion">Найти обсуждение или начать новое</string>
 	<string name="edit">Изменить</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Рапид</string>
 	<string name="classical">Классика</string>
 	<string name="ultraBulletDesc">Безумно быстрые игры: менее 30 секунд</string>
@@ -1015,5 +1020,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Изучить</string>
 	<string name="back" comment="As in: go back">Назад</string>
 	<string name="preview">Предпросмотр</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
