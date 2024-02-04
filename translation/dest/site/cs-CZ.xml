@@ -8,7 +8,7 @@
 	<string name="waitingForOpponent">Čekání na soupeře</string>
 	<string name="waiting">Čekám</string>
 	<string name="yourTurn">Jste na tahu</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">AI %1$s - úrovně %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s level %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Porazil %1$s level %2$s</string>
 	<string name="level">Úroveň</string>
 	<string name="strength">Obtížnost</string>
