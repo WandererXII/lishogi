@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Agardando un rival</string>
 	<string name="waiting">Agardando</string>
 	<string name="yourTurn">A túa quenda</string>
-	<string name="aiNameLevelAiLevel">%1$s nivel %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s nivel %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Nivel</string>
 	<string name="strength">Forza</string>
 	<string name="toggleTheChat">(Des)activar a sala de conversa</string>
@@ -761,6 +762,7 @@
 	<string name="xCreatesStudyY">%1$s creou o estudo %2$s</string>
 	<string name="quickPairing">Emparellamento rápido</string>
 	<string name="lobby">Sala de espera</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Anónimo</string>
 	<string name="yourScore">A túa puntuación: %s</string>
 	<string name="language">Lingua</string>
@@ -881,6 +883,9 @@
 	<string name="agreeWithX">Estou de acordo con: %s</string>
 	<string name="searchOrStartNewDiscussion">Busca ou comeza unha nova conversa</string>
 	<string name="edit">Editar</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Rápida</string>
 	<string name="classical">Clásica</string>
 	<string name="ultraBulletDesc">Partidas incriblemente rápidas: menos de 1 minuto</string>
@@ -941,5 +946,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analizar</string>
 	<string name="back" comment="As in: go back">Volver</string>
 	<string name="preview">Vista previa</string>
-	<string name="variantNotSupported">Variante non admitida</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variante non admitida</string>
 </resources>
