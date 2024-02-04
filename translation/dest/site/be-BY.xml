@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Чаканне ворага</string>
 	<string name="waiting">Чаканне</string>
 	<string name="yourTurn">Ваш ход</string>
-	<string name="aiNameLevelAiLevel">%1$s узровень %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s узровень %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Узровень</string>
 	<string name="strength">Магутнасць</string>
 	<string name="toggleTheChat">Пераключыць чат</string>
@@ -829,6 +830,7 @@
 	<string name="xCreatesStudyY">%1$s стварыў навучанне %2$s</string>
 	<string name="quickPairing">Хуткі старт</string>
 	<string name="lobby">Лобі</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Ананімны гулец</string>
 	<string name="yourScore">Ваш вынік: %s</string>
 	<string name="language">Мова</string>
@@ -955,6 +957,9 @@
 	<string name="agreeWithX">Згаджаюся з: %s</string>
 	<string name="searchOrStartNewDiscussion">Знайсці або пачаць новую размову </string>
 	<string name="edit">Рэдагаваць</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Рапід</string>
 	<string name="classical">Класіка</string>
 	<string name="ultraBulletDesc">Па-вар\'яцку хуткія гульні: менш за 30 секунд</string>
@@ -1015,5 +1020,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
