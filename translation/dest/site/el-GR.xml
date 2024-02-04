@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Αναμονή για αντίπαλο</string>
 	<string name="waiting">Αναμονή</string>
 	<string name="yourTurn">Η σειρά σας</string>
-	<string name="aiNameLevelAiLevel">%1$s επιπέδου %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s επιπέδου %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Επίπεδο</string>
 	<string name="strength">Strength</string>
 	<string name="toggleTheChat">Εναλλαγή προβολής της συνομιλίας</string>
@@ -761,6 +762,7 @@
 	<string name="xCreatesStudyY">Ο %1$s δημιουργεί τη μελέτη %2$s</string>
 	<string name="quickPairing">Γρήγορη αντιστοίχιση</string>
 	<string name="lobby">Χώρος αναμονής</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Ανώνυμος</string>
 	<string name="yourScore">Η βαθμολογία σας: %s</string>
 	<string name="language">Γλώσσα</string>
@@ -881,6 +883,9 @@
 	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Αναζήτηση ή έναρξη νέας συνομιλίας</string>
 	<string name="edit">Επεξεργασία</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Rapid</string>
 	<string name="classical">Κλασικό</string>
 	<string name="ultraBulletDesc">Εξαιρετικά γρήγορες παρτίδες: λιγότερο από 30 δεύτερα</string>
@@ -941,5 +946,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
