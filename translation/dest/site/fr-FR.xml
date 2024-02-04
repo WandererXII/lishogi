@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">En attente d\'un adversaire</string>
 	<string name="waiting">En attente</string>
 	<string name="yourTurn">À votre tour</string>
-	<string name="aiNameLevelAiLevel">%1$s niveau %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s niveau %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Niveau</string>
 	<string name="strength">Niveau</string>
 	<string name="toggleTheChat">Activer/désactiver la discussion</string>
@@ -761,6 +762,7 @@
 	<string name="xCreatesStudyY">%1$s crée l\'étude %2$s</string>
 	<string name="quickPairing">Appariement rapide</string>
 	<string name="lobby">Salon</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Anonyme</string>
 	<string name="yourScore">Votre score : %s</string>
 	<string name="language">Langue</string>
@@ -881,6 +883,9 @@
 	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Rechercher ou démarrer une nouvelle conversation</string>
 	<string name="edit">Éditer</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Rapide</string>
 	<string name="classical">Classique</string>
 	<string name="ultraBulletDesc">Parties éclairs : moins de 30 secondes</string>
@@ -941,5 +946,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Retour</string>
 	<string name="preview">Aperçu</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
