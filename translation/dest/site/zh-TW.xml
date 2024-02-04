@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">等待對手</string>
 	<string name="waiting">請稍等</string>
 	<string name="yourTurn">輪到您了</string>
-	<string name="aiNameLevelAiLevel">%1$s 難度 %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s 難度 %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">難度</string>
 	<string name="strength">強度</string>
 	<string name="toggleTheChat">聊天開關</string>
@@ -727,6 +728,7 @@
 	<string name="xCreatesStudyY">%1$s建立了一個研究:%2$s</string>
 	<string name="quickPairing">快速配對</string>
 	<string name="lobby">大廳</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">匿名用户</string>
 	<string name="yourScore">您的分數:%s</string>
 	<string name="language">語言</string>
@@ -844,6 +846,9 @@
 	<string name="agreeWithX">我同意：%s</string>
 	<string name="searchOrStartNewDiscussion">尋找或開始聊天</string>
 	<string name="edit">編輯</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">快速模式</string>
 	<string name="classical">經典</string>
 	<string name="ultraBulletDesc">瘋狂速度模式:低於30秒</string>
@@ -904,5 +909,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
