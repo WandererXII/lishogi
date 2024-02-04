@@ -19,7 +19,7 @@
 	<string name="resign">投了</string>
 	<string name="checkmate">詰み</string>
 	<string name="stalemate">ステイルメイト</string>
-	<string name="check">Check</string>
+	<string name="check">王手</string>
 	<string name="impasse">持将棋</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">千日手</string>
 	<string name="perpetualCheck">連続王手の千日手</string>
@@ -729,7 +729,7 @@
 	<string name="xCreatesStudyY">%1$s が研究 %2$s を作成</string>
 	<string name="quickPairing">自動ペアリング</string>
 	<string name="lobby">ロビー</string>
-	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">プリセット</string>
 	<string name="anonymous">匿名</string>
 	<string name="yourScore">通算成績：%s</string>
 	<string name="language">言語</string>
@@ -848,8 +848,8 @@
 	<string name="searchOrStartNewDiscussion">検索または新しいトピックを始める</string>
 	<string name="edit">編集</string>
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
-	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
-	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">ブレット</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">ブリッツ</string>
 	<string name="rapid">ラピッド</string>
 	<string name="classical">クラシカル</string>
 	<string name="ultraBulletDesc">極早指し戦：30 秒未満</string>
