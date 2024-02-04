@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">相手を待っています</string>
 	<string name="waiting">待機中</string>
 	<string name="yourTurn">あなたの手番です</string>
-	<string name="aiNameLevelAiLevel">%1$s レベル %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s レベル %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">レベル</string>
 	<string name="strength">強さ</string>
 	<string name="toggleTheChat">チャットのオン・オフ</string>
@@ -728,6 +729,7 @@
 	<string name="xCreatesStudyY">%1$s が研究 %2$s を作成</string>
 	<string name="quickPairing">自動ペアリング</string>
 	<string name="lobby">ロビー</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">匿名</string>
 	<string name="yourScore">通算成績：%s</string>
 	<string name="language">言語</string>
@@ -845,6 +847,9 @@
 	<string name="agreeWithX">%s に賛成</string>
 	<string name="searchOrStartNewDiscussion">検索または新しいトピックを始める</string>
 	<string name="edit">編集</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">ラピッド</string>
 	<string name="classical">クラシカル</string>
 	<string name="ultraBulletDesc">極早指し戦：30 秒未満</string>
@@ -905,5 +910,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
