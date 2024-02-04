@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Wag vir uitdager</string>
 	<string name="waiting">Wagtend</string>
 	<string name="yourTurn">Jou beurt</string>
-	<string name="aiNameLevelAiLevel">%1$s vlak %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s vlak %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Vlak</string>
 	<string name="strength">Strength</string>
 	<string name="toggleTheChat">Wissel klets</string>
@@ -762,6 +763,7 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="xCreatesStudyY">%1$s skep studie genaamd %2$s</string>
 	<string name="quickPairing">Vinnige plasing</string>
 	<string name="lobby">Ontvangs</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Anoniem</string>
 	<string name="yourScore">Jou puntetelling: %s</string>
 	<string name="language">Taal</string>
@@ -882,6 +884,9 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Soek of begin \'n nuwe gesprek</string>
 	<string name="edit">Pas aan</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Rapid</string>
 	<string name="classical">Klassiek</string>
 	<string name="ultraBulletDesc">Bitter vinnige spelle: minder as 30 sekondes</string>
@@ -942,5 +947,5 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
