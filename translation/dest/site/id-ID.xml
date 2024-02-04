@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">Menunggu lawan</string>
 	<string name="waiting">Menunggu</string>
 	<string name="yourTurn">Giliran Anda</string>
-	<string name="aiNameLevelAiLevel">%1$s level %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s level %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Level</string>
 	<string name="strength">Kekuatan</string>
 	<string name="toggleTheChat">Ganti tampilan obrolan</string>
@@ -727,6 +728,7 @@
 	<string name="xCreatesStudyY">%1$s creates study %2$s</string>
 	<string name="quickPairing">Pencarian cepat</string>
 	<string name="lobby">Ruang Lobi</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Tanpa Nama</string>
 	<string name="yourScore">Skor Anda: %s</string>
 	<string name="language">Bahasa</string>
@@ -844,6 +846,9 @@
 	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">Cari atau mulai diskusi baru</string>
 	<string name="edit">Ubah</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Cepat</string>
 	<string name="classical">Klasikal</string>
 	<string name="ultraBulletDesc">Sangat-sangat cepat: kurang dari 30 detik</string>
@@ -904,5 +909,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
