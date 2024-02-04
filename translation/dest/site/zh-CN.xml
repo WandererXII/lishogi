@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">等待对手</string>
 	<string name="waiting">等待中</string>
 	<string name="yourTurn">你的回合</string>
-	<string name="aiNameLevelAiLevel">%1$s级別%2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s级別%2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">级别</string>
 	<string name="strength">棋力</string>
 	<string name="toggleTheChat">聊天开关</string>
@@ -727,6 +728,7 @@
 	<string name="xCreatesStudyY">%1$s创建研究%2$s</string>
 	<string name="quickPairing">快速匹配</string>
 	<string name="lobby">大厅</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">匿名</string>
 	<string name="yourScore">你的分数：%s</string>
 	<string name="language">语言</string>
@@ -844,6 +846,9 @@
 	<string name="agreeWithX">我同意： %s。</string>
 	<string name="searchOrStartNewDiscussion">搜索或开始新对话</string>
 	<string name="edit">编辑</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">快棋</string>
 	<string name="classical">经典</string>
 	<string name="ultraBulletDesc">急速对战：少于 30 秒</string>
@@ -904,5 +909,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">分析</string>
 	<string name="back" comment="As in: go back">返回</string>
 	<string name="preview">预览</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
