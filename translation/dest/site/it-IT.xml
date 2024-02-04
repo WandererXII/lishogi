@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">In attesa dell\'avversario</string>
 	<string name="waiting">In attesa</string>
 	<string name="yourTurn">Tocca a te</string>
-	<string name="aiNameLevelAiLevel">%1$s livello %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s livello %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Livello</string>
 	<string name="strength">Forza</string>
 	<string name="toggleTheChat">Attiva/disattiva la chat</string>
@@ -762,6 +763,7 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="xCreatesStudyY">%1$s ha creato uno studio %2$s</string>
 	<string name="quickPairing">Accoppiamento rapido</string>
 	<string name="lobby">Lobby</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Anonimo</string>
 	<string name="yourScore">Il tuo punteggio: %s</string>
 	<string name="language">Lingua</string>
@@ -882,6 +884,9 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="agreeWithX">Sono d\'accordo con: %s</string>
 	<string name="searchOrStartNewDiscussion">Cerca o inizia una nuova conversazione</string>
 	<string name="edit">Modifica</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">Rapido</string>
 	<string name="classical">Classico</string>
 	<string name="ultraBulletDesc">Partite follemente veloci: meno di 30 secondi</string>
@@ -942,5 +947,5 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
