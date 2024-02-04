@@ -8,7 +8,8 @@
 	<string name="waitingForOpponent">상대를 기다리는 중</string>
 	<string name="waiting">기다리는 중</string>
 	<string name="yourTurn">내 차례</string>
-	<string name="aiNameLevelAiLevel">%1$s 레벨 %2$s</string>
+	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s 레벨 %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">레벨</string>
 	<string name="strength">Strength</string>
 	<string name="toggleTheChat">채팅 끄기/켜기</string>
@@ -727,6 +728,7 @@
 	<string name="xCreatesStudyY">%1$s 님이 연구 %2$s (을) 를 만들었습니다.</string>
 	<string name="quickPairing">빠른 상대 찾기</string>
 	<string name="lobby">로비</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">익명 플레이어</string>
 	<string name="yourScore">당신의 점수는 %s입니다.</string>
 	<string name="language">언어</string>
@@ -844,6 +846,9 @@
 	<string name="agreeWithX">I agree with: %s</string>
 	<string name="searchOrStartNewDiscussion">대화 찾기 또는 새 대화 시작하기</string>
 	<string name="edit">편집</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
 	<string name="rapid">래피드</string>
 	<string name="classical">클래시컬</string>
 	<string name="ultraBulletDesc">가장 빠른 게임: 30초 미만</string>
@@ -904,5 +909,5 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
 	<string name="back" comment="As in: go back">Back</string>
 	<string name="preview">Preview</string>
-	<string name="variantNotSupported">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 </resources>
