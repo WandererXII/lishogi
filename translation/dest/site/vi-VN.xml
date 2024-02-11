@@ -911,4 +911,5 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="back" comment="As in: go back">Quay Lại</string>
 	<string name="preview">Xem chi tiết</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Biến thể không được hỗ trợ</string>
+	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
 </resources>
