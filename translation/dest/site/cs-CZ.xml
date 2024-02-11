@@ -1021,4 +1021,5 @@
 	<string name="back" comment="As in: go back">Zpět</string>
 	<string name="preview">Náhled</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Varianta není podporována</string>
+	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
 </resources>
