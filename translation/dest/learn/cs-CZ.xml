@@ -12,6 +12,8 @@
 	<string name="introBasics">Pojďme se naučit nějaké základy.</string>
 	<string name="introIntro">Vaše jízda začíná zde.</string>
 	<string name="clickHereAfterYouveChosen">Klikněte zde poté, co jste si vybrali vzhled kamenů, který se vám líbí.</string>
+	<string name="tellYourPiecesApart">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
+	<string name="howToSelectPieceSet">How to select your piece set?</string>
 	<string name="choosePieceDesign">Je důležité rozeznat své kameny, ujistěte se že si zvolíte správnou sadu.
 Chcete-li tak učinit, klikněte na ozubené kolečko nebo na vaše uživatelské jméno (vpravo nahoře) a poté klikněte na \'vzhled kamenů\'.</string>
 	<string name="promotionZone">Když některé z tvých kamenů dosáhnou nebo opustí první tři řady na území soupeře, můžeš se rozhodnout povýšit svůj kámen a posílit jej.</string>
