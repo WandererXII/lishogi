@@ -796,10 +796,10 @@
 	<string name="transparent">Durchsichtig</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Hintergrundbild-URL:</string>
-	<string name="backgroundColor">Background colour:</string>
+	<string name="backgroundColor">Hintergrundfarbe:</string>
 	<string name="gridColor">Grid colour:</string>
 	<string name="gridWidth">Grid width:</string>
-	<string name="board">Board</string>
+	<string name="board">Spielbrett</string>
 	<string name="grid">Grid</string>
 	<string name="gridSlim">Slim</string>
 	<string name="gridThick">Thick</string>
@@ -815,11 +815,11 @@
 	<string name="usernameCharsInvalid">Der Benutzername darf nur Buchstaben, Zahlen, Unterstriche und Bindestriche beinhalten.</string>
 	<string name="usernameUnacceptable">Dieser Benutzername ist nicht akzeptabel.</string>
 	<string name="directlySupportLishogi">Lishogi direkt unterstützen</string>
-	<string name="playShogiInStyle">Play shogi in style</string>
-	<string name="shogiBasics">Shogi basics</string>
+	<string name="playShogiInStyle">Shogispielen mit Style</string>
+	<string name="shogiBasics">Shogi-Grundlagen</string>
 	<string name="shogiResources">Shogi resources</string>
 	<string name="coaches">Trainer</string>
-	<string name="invalidNotation">Invalid notation</string>
+	<string name="invalidNotation">Ungültige Notation</string>
 	<string name="invalidSfen">Invalid SFEN</string>
 	<string name="error.minLength">Mindestens %s Zeichen</string>
 	<string name="error.maxLength">Höchstens %s Zeichen</string>
@@ -940,7 +940,7 @@
 	<string name="discussBlogForum">Diesen Blog-Beitrag im Forum diskutieren</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
-	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
+	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Gesamtwert</string>
 	<string name="postGameStudy">Post-game study</string>
 	<string name="postGameStudies">Post-game studies</string>
 	<string name="postGameStudyExplanation">Post-game studies are listed in their own category and allow directly offering rematch or seeking a new game.</string>
@@ -954,22 +954,22 @@
 	<string name="whatNow">What now?</string>
 	<string name="hereAreSuggestions">Here are a few suggestions:</string>
 	<string name="hangOn" comment="Meaning: wait!">Hang on!</string>
-	<string name="gameInProgressWithX">You have a game in progress with %s.</string>
-	<string name="or" comment="links alternatives: Do X or do Y">or</string>
+	<string name="gameInProgressWithX">Du hast noch eine laufende Partie mit %s.</string>
+	<string name="or" comment="links alternatives: Do X or do Y">oder</string>
 	<string name="gameInProgressDescription">You can\'t start a new game until this one is finished.</string>
-	<string name="challengeDeclined">Challenge declined</string>
-	<string name="challengeAccepted">Challenge accepted</string>
-	<string name="challengeCanceled">Challenge canceled</string>
-	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
+	<string name="challengeDeclined">Herausforderung abgelehnt</string>
+	<string name="challengeAccepted">Herausforderung angenommen!</string>
+	<string name="challengeCanceled">Herausforderung abgebrochen</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">Erstelle eine Herausforderung</string>
 	<string name="challengeDescription">Join the challenge or watch the game</string>
-	<string name="challengeFromX" comment="From username">Challenge from %s</string>
-	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s challenges %2$s</string>
+	<string name="challengeFromX" comment="From username">Herausforderung von %s</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s fordert %2$s heraus</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">Press %s to focus</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">Press %s to submit</string>
-	<string name="clickGame">Click to replay, analyse, and discuss the game!</string>
+	<string name="clickGame">Klicke, um das Spiel zu wiederholen, zu analysieren und zu besprechen!</string>
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analyse</string>
-	<string name="back" comment="As in: go back">Back</string>
-	<string name="preview">Preview</string>
+	<string name="back" comment="As in: go back">Zurück</string>
+	<string name="preview">Vorschau</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
-	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
+	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Bereit zum Start</string>
 </resources>
