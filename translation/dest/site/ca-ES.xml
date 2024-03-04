@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Esperant a l\'oponent</string>
 	<string name="waiting">Esperant</string>
 	<string name="yourTurn">El teu torn</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s nivell %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Nivell</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Strength</string>
 	<string name="toggleTheChat">Activa/Desactiva el xat</string>
 	<string name="toggleSound">Activa/Desactiva el so</string>
@@ -70,6 +70,7 @@
 	<string name="analysis">Tauler d\'anàlisi</string>
 	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">Profunditat %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">Utilitzant l\'anàlisi del servidor</string>
 	<string name="loadingEngine">Carregant motor...</string>
 	<string name="cloudAnalysis">Anàlisi en el núvol</string>
