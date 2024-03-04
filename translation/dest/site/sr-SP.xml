@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Чека се противник</string>
 	<string name="waiting">Чекање</string>
 	<string name="yourTurn">Ваш потез</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s ниво %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Ниво</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Strength</string>
 	<string name="toggleTheChat">Укључи/искључи ћаскање</string>
 	<string name="toggleSound">Укључи/искључи звук</string>
@@ -71,6 +71,7 @@
 	<string name="analysis">Табла за анализирање</string>
 	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">Дубина %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">Анализа помоћу сервера</string>
 	<string name="loadingEngine">Рачунар се учитава...</string>
 	<string name="cloudAnalysis">Анализа у облаку</string>
