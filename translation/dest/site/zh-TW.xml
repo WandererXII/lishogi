@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">等待對手</string>
 	<string name="waiting">請稍等</string>
 	<string name="yourTurn">輪到您了</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s 難度 %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">難度</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">強度</string>
 	<string name="toggleTheChat">聊天開關</string>
 	<string name="toggleSound">切換音效</string>
@@ -69,6 +69,7 @@
 	<string name="analysis">分析棋局</string>
 	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">深度 %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">使用伺服器分析</string>
 	<string name="loadingEngine">正在載入引擎 ...</string>
 	<string name="cloudAnalysis">雲端分析</string>
