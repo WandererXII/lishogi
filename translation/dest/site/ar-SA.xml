@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">في إنتظار المنافس</string>
 	<string name="waiting">قيد الانتظار</string>
 	<string name="yourTurn">دورك</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s مستوى %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">مستوى</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Strength</string>
 	<string name="toggleTheChat">تعطيل/تشغيل الدردشة</string>
 	<string name="toggleSound">تعطيل/تشغيل الصوت</string>
@@ -74,6 +74,7 @@
 	<string name="analysis">لوحة التحليل</string>
 	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">عمق التحليل %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">استخدام تحليل الخادم</string>
 	<string name="loadingEngine">تحميل المحرك...</string>
 	<string name="cloudAnalysis">تحليل سحابي</string>
