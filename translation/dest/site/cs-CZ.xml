@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Čekání na soupeře</string>
 	<string name="waiting">Čekám</string>
 	<string name="yourTurn">Jste na tahu</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s level %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Porazil %1$s level %2$s</string>
 	<string name="level">Úroveň</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Obtížnost</string>
 	<string name="toggleTheChat">Zapnout/vypnout chat</string>
 	<string name="toggleSound">Zapnout/vypnout zvuk</string>
@@ -72,6 +72,7 @@
 	<string name="analysis">Analýza</string>
 	<string name="analysisDescription">Analyzujte šógi pozice a variace na interaktivní šógi desce</string>
 	<string name="depthX">Hloubka %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">Používání analýzy serveru</string>
 	<string name="loadingEngine">Načítání AI engine...</string>
 	<string name="cloudAnalysis">Cloudová analýza</string>
