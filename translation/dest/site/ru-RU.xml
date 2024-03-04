@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Ожидание соперника</string>
 	<string name="waiting">Ожидание</string>
 	<string name="yourTurn">Ваш ход</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s уровня %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Уровень</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Сила</string>
 	<string name="toggleTheChat">Показывать окно чата</string>
 	<string name="toggleSound">Вкл/выкл звук</string>
@@ -72,6 +72,7 @@
 	<string name="analysis">Анализировать партию</string>
 	<string name="analysisDescription">Изучение позиций и вариантов сёги на интерактивной доске</string>
 	<string name="depthX">Глубина %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">Используется серверный анализ</string>
 	<string name="loadingEngine">Загрузка движка...</string>
 	<string name="cloudAnalysis">Облачный анализ</string>
