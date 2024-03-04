@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Várakozás az ellenfélre</string>
 	<string name="waiting">Várakozás</string>
 	<string name="yourTurn">Te következel</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s szint: %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Szint</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Strength</string>
 	<string name="toggleTheChat">Csevegő ki-be</string>
 	<string name="toggleSound">Hang ki-be</string>
@@ -70,6 +70,7 @@
 	<string name="analysis">Elemzőtábla</string>
 	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">%s mélység</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">A szerver elemzését használja</string>
 	<string name="loadingEngine">Motor betöltése ...</string>
 	<string name="cloudAnalysis">Elemzés felhőben</string>
