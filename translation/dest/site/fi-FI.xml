@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Odotetaan vastustajaa</string>
 	<string name="waiting">Odotetaan</string>
 	<string name="yourTurn">Sinun vuorosi</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s taso %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Taso</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Strength</string>
 	<string name="toggleTheChat">Keskustelu päälle / pois</string>
 	<string name="toggleSound">Ääni päälle / pois</string>
@@ -70,6 +70,7 @@
 	<string name="analysis">Analyysilauta</string>
 	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">Syvyys %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">Palvelimen analyysi</string>
 	<string name="loadingEngine">Tietokonetta ladataan ...</string>
 	<string name="cloudAnalysis">Pilvianalyysi</string>
