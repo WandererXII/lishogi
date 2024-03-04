@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Laukiama varžovo</string>
 	<string name="waiting">Laukiama</string>
 	<string name="yourTurn">Jūsų ėjimas</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s lygis Nr. %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Lygis</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Stiprumas</string>
 	<string name="toggleTheChat">Įjungti / išjungti pokalbį</string>
 	<string name="toggleSound">Toggle sound</string>
@@ -72,6 +72,7 @@
 	<string name="analysis">Analizės lenta</string>
 	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">Gylis: %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">Naudojama serverio analizė</string>
 	<string name="loadingEngine">Įkeliamas variklis...</string>
 	<string name="cloudAnalysis">Analizė debesyje</string>
