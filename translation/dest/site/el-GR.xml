@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Αναμονή για αντίπαλο</string>
 	<string name="waiting">Αναμονή</string>
 	<string name="yourTurn">Η σειρά σας</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s επιπέδου %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Επίπεδο</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Strength</string>
 	<string name="toggleTheChat">Εναλλαγή προβολής της συνομιλίας</string>
 	<string name="toggleSound">Εναλλαγή ήχου</string>
@@ -70,6 +70,7 @@
 	<string name="analysis">Σκακιέρα ανάλυσης</string>
 	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">%s βάθος</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">Ανάλυση διακομιστή</string>
 	<string name="loadingEngine">Εκκίνηση μηχανής ...</string>
 	<string name="cloudAnalysis">Ανάλυση σε νέφος</string>
