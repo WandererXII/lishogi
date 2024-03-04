@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">等待对手</string>
 	<string name="waiting">等待中</string>
 	<string name="yourTurn">你的回合</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s级別%2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">级别</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">棋力</string>
 	<string name="toggleTheChat">聊天开关</string>
 	<string name="toggleSound">声音开关</string>
@@ -69,6 +69,7 @@
 	<string name="analysis">分析面板</string>
 	<string name="analysisDescription">在互动式将棋盘上分析将棋落子位置及其变化</string>
 	<string name="depthX">深度 %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">正在使用服务器分析</string>
 	<string name="loadingEngine">引擎载入中...</string>
 	<string name="cloudAnalysis">云分析</string>
