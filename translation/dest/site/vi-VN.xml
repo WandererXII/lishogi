@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Đang chờ đối thủ</string>
 	<string name="waiting">Đang chờ</string>
 	<string name="yourTurn">Đến lượt bạn</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s cấp độ %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Đã đánh bại %1$s cấp độ %2$s</string>
 	<string name="level">Cấp độ</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Độ mạnh</string>
 	<string name="toggleTheChat">Bật/Tắt trò chuyện</string>
 	<string name="toggleSound">Bật/Tắt âm thanh</string>
@@ -69,6 +69,7 @@
 	<string name="analysis">Phân tích</string>
 	<string name="analysisDescription">Phân tích các thế cờ Shogi và các biến thể trên bàn cờ Shogi tương tác</string>
 	<string name="depthX">Độ sâu %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">Bạn đang sử dụng máy chủ để phân tích</string>
 	<string name="loadingEngine">Đang tải động cơ máy tính ...</string>
 	<string name="cloudAnalysis">Phân tích đám mây</string>
