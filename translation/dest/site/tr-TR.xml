@@ -8,9 +8,9 @@
 	<string name="waitingForOpponent">Rakip bekleniyor</string>
 	<string name="waiting">Bekleniyor</string>
 	<string name="yourTurn">Sıra sizde</string>
-	<string name="aiNameLevelAiLevel" comment="Example: Stockfish level 5">%1$s seviye %2$s</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Seviye</string>
+	<string name="levelX" comment="Engine difficulty level">Level %s</string>
 	<string name="strength">Güç</string>
 	<string name="toggleTheChat">Sohbeti aç/kapat</string>
 	<string name="toggleSound">Sesi aç/kapat</string>
@@ -70,6 +70,7 @@
 	<string name="analysis">Analiz tahtası</string>
 	<string name="analysisDescription">Analyse shogi positions and variations on an interactive shogi board</string>
 	<string name="depthX">Derinlik %s</string>
+	<string name="serverAnalysis">Server analysis</string>
 	<string name="usingServerAnalysis">Sunucu analizi yapılıyor</string>
 	<string name="loadingEngine">Satranç motoru yükleniyor...</string>
 	<string name="cloudAnalysis">Bulut analizi</string>
