@@ -10,7 +10,7 @@
 	<string name="yourTurn">あなたの手番です</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">レベル</string>
-	<string name="levelX" comment="Engine difficulty level">Level %s</string>
+	<string name="levelX" comment="Engine difficulty level">レベル %s</string>
 	<string name="strength">強さ</string>
 	<string name="toggleTheChat">チャットのオン・オフ</string>
 	<string name="toggleSound">音声のオン・オフ</string>
