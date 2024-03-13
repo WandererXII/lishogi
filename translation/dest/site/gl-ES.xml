@@ -247,8 +247,8 @@
 	<string name="standard" comment="Variant - meaning standard shogi">Estándar</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
-	<string name="annanshogi">Annan shogi</string>
-	<string name="kyotoshogi">Kyoto shogi</string>
+	<string name="annanshogi">Annanshogi</string>
+	<string name="kyotoshogi">Kyotoshogi</string>
 	<string name="checkshogi">Xaqueshogi</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Regras estándar do shogi</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">As mesmas regras do shogi estándar, pero xogado nun taboleiro máis pequeno de 5x5</string>
@@ -362,7 +362,7 @@
 		<item quantity="one">Necesitas xogar %s partida puntuada máis</item>
 		<item quantity="other">Necesitas xogar %s partidas puntuadas máis</item>
 	</plurals>
-	<string name="yourPerfRatingIsProvisional">A túa puntuación %s é provisional</string>
+	<string name="yourPerfRatingIsProvisional">A túa puntuación de %s é provisional</string>
 	<string name="yourPerfRatingIsTooHigh">A túa puntuación %1$s (%2$s) é demasiado alta</string>
 	<string name="yourTopWeeklyPerfRatingIsTooHigh">A túa puntuación máxima semanal %1$s (%2$s) é demasiado alta</string>
 	<string name="yourPerfRatingIsTooLow">A túa puntuación %1$s (%2$s) é demasiado baixa</string>
@@ -384,7 +384,7 @@
 	<string name="apply">Aplicar</string>
 	<string name="save">Gardar</string>
 	<string name="leaderboard">Lista de líderes</string>
-	<string name="leaderboards">Listaxes de líderes</string>
+	<string name="leaderboards">Listas de líderes</string>
 	<string name="bestPlayersInVariousCategories">Os mellores xogadores en varias categorías</string>
 	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Os mellores %1$s xogadores en %2$s, ordenados por puntuación</string>
 	<string name="selectHandicap">Seleccionar desvantaxe</string>
