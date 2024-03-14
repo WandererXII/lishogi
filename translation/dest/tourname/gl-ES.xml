@@ -2,7 +2,7 @@
 <resources>
   <string name="hourlyRapidArena">Arena horaria de Rápidas</string>
   <string name="hourlyRapid">Rápidas horaria</string>
-  <string name="hourlyXArena">Arena %s horaria</string>
+  <string name="hourlyXArena">Arena horaria de %s</string>
   <string name="hourlyX" comment="adjective">%s horario</string>
   <string name="dailyRapidArena">Arena diaria de Rápidas</string>
   <string name="dailyRapid">Rápidas diaria</string>
