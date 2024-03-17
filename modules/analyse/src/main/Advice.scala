@@ -60,7 +60,7 @@ private[analyse] case class CpAdvice(
 
 private[analyse] object CpAdvice {
 
-  private def cpWinningChances(cp: Double): Double = 2 / (1 + Math.exp(-0.0007 * cp)) - 1
+  private def cpWinningChances(cp: Double): Double = 2 / (1 + Math.exp(-0.001 * cp)) - 1
 
   private val winningChanceJudgements = List(
     .3 -> Advice.Judgement.Blunder,
