@@ -19,7 +19,7 @@
 	<string name="resign">Сдаться</string>
 	<string name="checkmate">Мат</string>
 	<string name="stalemate">Пат</string>
-	<string name="check">Check</string>
+	<string name="check">Шах</string>
 	<string name="impasse">Тупик</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">4-й повтор позиции</string>
 	<string name="perpetualCheck">Вечный шах</string>
@@ -664,9 +664,9 @@
 	<string name="xAnsweredY">%1$s ответил на вопрос %2$s</string>
 	<string name="xCommentedY">%1$s прокомментировал вопрос %2$s</string>
 	<string name="victory">Победа</string>
-	<string name="youWon">You won</string>
+	<string name="youWon">Вы победили</string>
 	<string name="defeat">Поражение</string>
-	<string name="youLost">You lost</string>
+	<string name="youLost">Вы проиграли</string>
 	<string name="victoryVsYInZ">%1$s против %2$s в %3$s</string>
 	<string name="defeatVsYInZ">%1$s против %2$s в %3$s</string>
 	<string name="drawVsYInZ">%1$s против %2$s в %3$s</string>
@@ -985,8 +985,8 @@
 	<string name="searchOrStartNewDiscussion">Найти обсуждение или начать новое</string>
 	<string name="edit">Изменить</string>
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
-	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
-	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Пуля</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Блиц</string>
 	<string name="rapid">Рапид</string>
 	<string name="classical">Классика</string>
 	<string name="ultraBulletDesc">Безумно быстрые игры: менее 30 секунд</string>
