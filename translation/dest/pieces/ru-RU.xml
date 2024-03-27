@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="pawn">Pawn</string>
+  <string name="pawn">Пешка</string>
   <string name="lance">Lance</string>
-  <string name="knight">Knight</string>
+  <string name="knight">Конь</string>
   <string name="silver">Silver</string>
   <string name="gold">Gold</string>
-  <string name="bishop">Bishop</string>
-  <string name="rook">Rook</string>
-  <string name="king">King</string>
+  <string name="bishop">Слон</string>
+  <string name="rook">Ладья</string>
+  <string name="king">Король</string>
   <string name="tokin">Tokin</string>
   <string name="promotedlance">Promoted lance</string>
-  <string name="promotedknight">Promoted knight</string>
+  <string name="promotedknight">Перевёрнутый конь</string>
   <string name="promotedsilver">Promoted silver</string>
   <string name="horse">Horse</string>
   <string name="dragon">Dragon</string>
@@ -33,8 +33,8 @@
   <string comment="Chushogi piece, low priority for translation" name="bishoppromoted">Promoted bishop</string>
   <string comment="Chushogi piece, low priority for translation" name="sidemoverpromoted">Promoted side mover</string>
   <string comment="Chushogi piece, low priority for translation" name="verticalmoverpromoted">Promoted vertical mover</string>
-  <string comment="Chushogi piece, low priority for translation" name="rookpromoted">Promoted rook</string>
-  <string comment="Chushogi piece, low priority for translation" name="prince">Prince</string>
+  <string comment="Chushogi piece, low priority for translation" name="rookpromoted">Перевёрнутая ладья</string>
+  <string comment="Chushogi piece, low priority for translation" name="prince">Принц</string>
   <string comment="Chushogi piece, low priority for translation" name="whale">Whale</string>
   <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Promoted horse</string>
   <string comment="Chushogi piece, low priority for translation" name="elephantpromoted">Promoted elephant</string>
