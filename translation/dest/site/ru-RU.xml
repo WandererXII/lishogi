@@ -251,11 +251,11 @@
 	<string name="xOffersAdjournment" comment="%s - sente(black)/gote(white)">%s offers adjournment</string>
 	<string name="xDeclinesAdjournment" comment="%s - sente(black)/gote(white)">%s declines adjournment</string>
 	<string name="yourOpponentOffersAnAdjournment">Your opponent offers an adjournment</string>
-	<string name="xOffersResumption" comment="%s - sente(black)/gote(white)">%s proposes resumption</string>
-	<string name="xDeclinesResumption" comment="%s - sente(black)/gote(white)">%s declines resumption</string>
-	<string name="yourOpponentProposesResumption">Your opponent proposes resumption</string>
+	<string name="xOffersResumption" comment="%s - sente(black)/gote(white)">%s предлагает возобновить партию</string>
+	<string name="xDeclinesResumption" comment="%s - sente(black)/gote(white)">%s отклоняет предложение возобновить партию</string>
+	<string name="yourOpponentProposesResumption">Ваш оппонент предлагает возобновить партию</string>
 	<string name="makeASealedMove">Сделайте ход, который сыграете после возобновления</string>
-	<string name="waitingForASealedMove">Waiting for the opponent to make a sealed move</string>
+	<string name="waitingForASealedMove">Ожидание отложенного хода соперника</string>
 	<string name="accept">Принять</string>
 	<string name="decline">Отклонить</string>
 	<string name="playingRightNow">Идёт игра</string>
