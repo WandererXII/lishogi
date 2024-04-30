@@ -273,8 +273,8 @@
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Стандартные правила сёги</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Правила, как в обычных сёги, но в миниатюре, на доске 5x5</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">Наиболее известный исторический вариант сёги на доске 12x12</string>
-	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Современный вариант сёги на доске 5х5; сделав ход, фигура мутирует</string>
-	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Близкий к обычным сёги вариант, где фигуры ходят, как свои сзади их</string>
+	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Современный вариант сёги на доске 5х5 с альтернативными уникальными превращениями на каждом ходу</string>
+	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Вариант близкий к обычным сёги, где фигуры ходят так же как своя фигура стоящая позади</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Как обычные сёги, но выигрывает тот кто первым поставит шах</string>
 	<string name="unlimited">Отсутствует</string>
 	<string name="mode">Режим</string>
