@@ -168,7 +168,7 @@
 	<string name="boardSetupComplete">おめでとう！駒の並べ方を覚えました！</string>
 	<string name="repetition">千日手</string>
 	<string name="fourfoldRepetitionIsADrawExcept">同じ盤面が4回現れたら引き分け。ただし…</string>
-	<string name="repetitionIntro">Fourfold repetition is a draw Perpetual check is a loss.</string>
+	<string name="repetitionIntro">千日手になると引き分けです。ただし連続王手の千日手は反則です。</string>
 	<string name="ifTheSamePositionOccurs">将棋で全く同じ配置の盤面が4回現れた場合、引き分けとなります。この状況を千日手といいます。唯一の合法手を指しましょう。</string>
 	<string name="perpetualCheckIsALoss">しかし、連続王手の千日手は、王手を仕掛けた方の負けになります。どうやら相手はそのことを知らないようです。唯一の合法手を指しましょう。</string>
 	<string name="boardFlippedFindBestMove">今度は立場が逆転しました。最善手はどれでしょう？</string>
