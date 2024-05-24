@@ -163,8 +163,8 @@
 	<string name="dropTheKnights">さっきと同じように桂馬も置きましょう。ここまでは「大橋流」も「伊藤流」も同じです。</string>
 	<string name="dropTheLances">同じように香車も置きましょう。おや？相手は先に左側の歩兵から並べるみたいですね。これが伊藤流です。</string>
 	<string name="placeTheBishopThenRook">角行を左側の桂馬の上に置き、飛車を右側の桂馬の上に置きましょう。もちろん、実際の対局では、相手のペースに合わせて駒を置く必要はなく、自分のペースで置いて構いません。</string>
-	<string name="placeThePawns">最後に、下から3番目に、一番下の段と同じように歩兵を置いていきます。丸の位置に歩兵を置きましょう。全部置けたら、ついに準備完了です！</string>
-	<string name="pushingThe3rdPawn">いよいよ対局開始です。左から3番目の歩兵を進めて角行の開けてあげるのが最も一般的な初手とされています。やってみましょう。</string>
+	<string name="placeThePawns">最後に、下から3段目に、一番下の段と同じように歩兵を置いていきます。丸の位置に歩兵を置きましょう。</string>
+	<string name="pushingThe3rdPawn">左から3番目の歩兵を進めて角行の開けてあげるのが最も一般的な初手とされています。やってみましょう。</string>
 	<string name="boardSetupComplete">おめでとう！駒の並べ方を覚えました！</string>
 	<string name="repetition">千日手</string>
 	<string name="fourfoldRepetitionIsADrawExcept">同じ盤面が4回現れたら引き分け。ただし…</string>
