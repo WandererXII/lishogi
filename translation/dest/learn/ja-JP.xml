@@ -11,7 +11,7 @@
 	<string name="theIntroduction">はじめに</string>
 	<string name="introBasics">基本を学びましょう</string>
 	<string name="introIntro">あなたの旅はここから始まります。</string>
-	<string name="clickHereAfterYouveChosen">好きなピースデザインを選択したら、ここをクリックしてください。</string>
+	<string name="clickHereAfterYouveChosen">好きな駒デザインを選択したら、ここをクリックしてください。</string>
 	<string name="tellYourPiecesApart">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
 	<string name="howToSelectPieceSet">駒を選ぶ方法は？</string>
 	<string name="choosePieceDesign">駒の区別がつくことが大切なので、自分が気に入った駒のデザインを選択しましょう。そのために右上にある歯車かユーザ名をクリックし、そこから「駒のデザイン」をクリックします。</string>
@@ -101,7 +101,7 @@
 	<string name="capturedPiecesCanBeDropped">取った駒は自分の手番に盤面へ打って戻すことができます！</string>
 	<string name="dropLimitations">他の駒がいるところや合法手のないマスに駒を打つことはできません。成れる場所に駒を打っても成ることはできません、
 相手の駒を取りましょう！</string>
-	<string name="youCannotHaveTwoUnpromotedPawns">同じ列に歩を二枚置くことはできません。</string>
+	<string name="youCannotHaveTwoUnpromotedPawns">同じ縦の列にまだ成っていない歩兵を2枚置いてはいけません。「二歩」という反則です。</string>
 	<string name="protection">守り</string>
 	<string name="keepYourPiecesSafe">自分の駒を安全に</string>
 	<string name="protectionIntro">相手に攻撃されている自分の駒を見つけ、守ってください！</string>
@@ -144,7 +144,7 @@
 	<string name="defeatTheOpponentsKing">相手の王将/玉将を詰ませる</string>
 	<string name="mateInOneIntro">相手が王手を防げなくなれば、あなたの勝ちです。</string>
 	<string name="toWinInShogi">将棋で勝つには、相手が守れないように相手の王将を攻撃してください。これはメイト、または詰みと呼ばれます。</string>
-	<string name="dropsCommonDeliverMate">Drops are a very common way to deliver mate.</string>
+	<string name="dropsCommonDeliverMate">持ち駒を打つことは相手を詰ませるための非常に一般的な方法です。</string>
 	<string name="attackYourOpponentsKing">防げないような
 王手をかけて！</string>
 	<string name="chooseYourPieceCarefully">Choose your piece carefully!</string>
@@ -157,19 +157,19 @@
 	<string name="boardSetupIntro">両軍が向かい合い、戦いに備えます。</string>
 	<string name="thisIsTheInitialPosition">これが将棋の初期盤面です。
 続けるには好きな次の手をどうぞ。</string>
-	<string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.</string>
-	<string name="dropAGold">Drop a gold on the left side of the king, then place another gold on the right.</string>
-	<string name="thenPlaceASilver">Then place the silver next to the left-side gold, and a silver beside the right gold.</string>
-	<string name="dropTheKnights">Drop the knights the same way you placed the silvers. Your opponent will be doing the Itou (伊藤) style.</string>
-	<string name="dropTheLances">Drop the lances. Your opponent will start placing pawns left-to-right before the lances. This is the Itou style.</string>
-	<string name="placeTheBishopThenRook">Place the bishop above the left knight, then the rook above the right knight. Of course, in real games there is no need to be in sync with your opponent during setup.</string>
-	<string name="placeThePawns">Finally, on the 3rd rank, drop pawns the same way you placed the back rank pieces. The circle will be your guide.</string>
-	<string name="pushingThe3rdPawn">Pushing the 3rd pawn to open the bishop’s diagonal is the most common first move. Make this move to continue.</string>
+	<string name="firstPlaceTheKing">対局前に駒を並べる伝統的な方法として、「大橋流」と「伊藤流」の2つがあります。今回はプロが最もよく使う「大橋流」をやってみましょう。まずは王将/玉将を一番下の段の真ん中のマスに置きましょう。</string>
+	<string name="dropAGold">金将を王将/玉将の左に置きましょう。そうしたら、右にも置きましょう。</string>
+	<string name="thenPlaceASilver">今度は左側の金将の横に銀将を置き、右側の金将の横に銀将を置きましょう。</string>
+	<string name="dropTheKnights">さっきと同じように桂馬も置きましょう。ここまでは「大橋流」も「伊藤流」も同じです。</string>
+	<string name="dropTheLances">同じように香車も置きましょう。おや？相手は先に左側の歩兵から並べるみたいですね。これが伊藤流です。</string>
+	<string name="placeTheBishopThenRook">角行を左側の桂馬の上に置き、飛車を右側の桂馬の上に置きましょう。もちろん、実際の対局では、相手のペースに合わせて駒を置く必要はなく、自分のペースで置いて構いません。</string>
+	<string name="placeThePawns">最後に、下から3番目に、一番下の段と同じように歩兵を置いていきます。丸の位置に歩兵を置きましょう。全部置けたら、ついに準備完了です！</string>
+	<string name="pushingThe3rdPawn">いよいよ対局開始です。左から3番目の歩兵を進めて角行の開けてあげるのが最も一般的な初手とされています。やってみましょう。</string>
 	<string name="boardSetupComplete">おめでとう！駒の並べ方を覚えました！</string>
 	<string name="repetition">千日手</string>
 	<string name="fourfoldRepetitionIsADrawExcept">同じ盤面が4回現れたら引き分け。ただし…</string>
 	<string name="repetitionIntro">Fourfold repetition is a draw Perpetual check is a loss.</string>
-	<string name="ifTheSamePositionOccurs">将棋で同じ配置が4回現れた場合、引き分けとなります。この状況を千日手といいます。唯一の合法手を指しましょう。</string>
+	<string name="ifTheSamePositionOccurs">将棋で全く同じ配置の盤面が4回現れた場合、引き分けとなります。この状況を千日手といいます。唯一の合法手を指しましょう。</string>
 	<string name="perpetualCheckIsALoss">しかし、連続王手の千日手は、王手を仕掛けた方の負けになります。どうやら相手はそのことを知らないようです。唯一の合法手を指しましょう。</string>
 	<string name="boardFlippedFindBestMove">今度は立場が逆転しました。最善手はどれでしょう？</string>
 	<string name="repetitionComplete">The idea behind perpetual check being a loss is to prevent anyone from forcing a draw.</string>
