@@ -191,7 +191,7 @@
 	<string name="anExchangeIs">駒の交換とは、自分の駒を犠牲に相手の駒を取ることです。銀将で飛車を取るか、金将で桂馬を取るか、どちらがより良い交換になるでしょう？</string>
 	<string name="theOpponentJustGaveAway">相手は貴重な飛車をこちらが取れる状態にしてしまいました。取ってしまいますか？</string>
 	<string name="yourKingsValueIsInfinite">飛車と比較すると、王将/玉将の価値は無限です。最善手は何でしょう？</string>
-	<string name="twoGeneralsAreBetter">Two generals can be worth more than one major piece. A knight and lance can be better than a general. Find a way to sacrifice the bishop and win two generals.</string>
+	<string name="twoGeneralsAreBetter">2つの金将/銀将は1つの大駒よりも価値があることがあります。桂馬と香車は金将/銀将より強い場合もあります。角行を犠牲にし、2つの金将/銀将を取る方法を見つけましょう。</string>
 	<string name="rememberWhichPieceIsTheMostValuable">どの駒が最も価値があるか覚えていますか？</string>
 	<string name="takeThePieceWithTheHighestValue">いちばん価値の大きい
 駒を取ってください。</string>
@@ -207,7 +207,7 @@
 	<string name="register">登録</string>
 	<string name="getAFreeLishogiAccount">Lishogi の無料アカウントを作る</string>
 	<string name="practice">練習</string>
-	<string name="learnCommonShogiPositions">Learn common shogi positions</string>
+	<string name="learnCommonShogiPositions">将棋のよくある局面を学ぼう</string>
 	<string name="puzzles">タクティクス問題</string>
 	<string name="exerciseYourTacticalSkills">戦術の技を磨く</string>
 	<string name="shogiResources">英語圏向けの将棋資料</string>
