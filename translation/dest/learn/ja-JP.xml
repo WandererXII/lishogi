@@ -172,22 +172,22 @@
 	<string name="ifTheSamePositionOccurs">将棋で全く同じ配置の盤面が4回現れた場合、引き分けとなります。この状況を千日手といいます。唯一の合法手を指しましょう。</string>
 	<string name="perpetualCheckIsALoss">しかし、連続王手の千日手は、王手を仕掛けた方の負けになります。どうやら相手はそのことを知らないようです。唯一の合法手を指しましょう。</string>
 	<string name="boardFlippedFindBestMove">今度は立場が逆転しました。最善手はどれでしょう？</string>
-	<string name="repetitionComplete">The idea behind perpetual check being a loss is to prevent anyone from forcing a draw.</string>
+	<string name="repetitionComplete">連続王手の千日手が負けになるのは、千日手によって引き分けを強制するのを防ぐためです。</string>
 	<string name="advanced">上級</string>
 	<string name="pieceValue">駒の価値</string>
 	<string name="evaluatePieceStrength">駒の価値を数字で</string>
-	<string name="pieceValueIntroNew">Pieces with high mobility have a higher value.
-The king is priceless! Losing it means losing the game.</string>
+	<string name="pieceValueIntroNew">機動力の高い駒ほどより価値が高いです。
+王将/玉将は何よりも大切です。これを取られることは敗北を意味します。</string>
 	<string name="queenOverBishop">いちばん価値の大きい
 駒を取ってください。
 クイーン ＞ ビショップ</string>
-	<string name="pawnsAreTheLeastValuable">Pawns are the least valuable piece, followed by lances. Knights are slightly more valuable than lances.
-Take the most valuable piece.</string>
-	<string name="knightSilverGold">Knight &lt; Silver &lt; Gold
-Take the most valuable piece without losing your own.</string>
-	<string name="goldBishopRook">Gold &lt; Bishop &lt; Rook
-Take the most valuable piece.</string>
-	<string name="takeAllThePiecesStartingFromTheMost">Take all the pieces in order, starting from the most valuable until the least valuable!</string>
+	<string name="pawnsAreTheLeastValuable">歩兵は最も価値の低い駒で、香車は歩兵の次に価値が高く、桂馬は香車の次に価値が高いです。
+最も価値の高い駒を取りましょう。</string>
+	<string name="knightSilverGold">桂馬 &lt; 銀将 &lt; 金将
+自分の駒を失うことなく取ることができる、最も価値の高い駒を取りましょう。</string>
+	<string name="goldBishopRook">金将 &lt; 角行 &lt; 飛車
+最も価値の高い駒を取りましょう。</string>
+	<string name="takeAllThePiecesStartingFromTheMost">価値の最も高い駒から最も低い駒まで、順番にすべての駒を取りましょう！</string>
 	<string name="anExchangeIs">An exchange is when you capture a piece, and lose another. Which is a better exchange? Silver-for-rook, or gold-for-knight?</string>
 	<string name="theOpponentJustGaveAway">The opponent just gave away his valuable rook for free! Do you take it?</string>
 	<string name="yourKingsValueIsInfinite">The king\'s value is infinite, compared to a rook. What is the best move here?</string>
