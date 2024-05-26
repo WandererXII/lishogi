@@ -12,7 +12,7 @@
 	<string name="introBasics">基本を学びましょう</string>
 	<string name="introIntro">あなたの旅はここから始まります。</string>
 	<string name="clickHereAfterYouveChosen">好きな駒デザインを選択したら、ここをクリックしてください。</string>
-	<string name="tellYourPiecesApart">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
+	<string name="tellYourPiecesApart">駒の区別がつくことが大切なので、自分が気に入った駒のデザインを選択しましょう。</string>
 	<string name="howToSelectPieceSet">駒を選ぶ方法は？</string>
 	<string name="choosePieceDesign">駒の区別がつくことが大切なので、自分が気に入った駒のデザインを選択しましょう。そのために右上にある歯車かユーザ名をクリックし、そこから「駒のデザイン」をクリックします。</string>
 	<string name="promotionZone">いくつかの駒は相手の陣地 3 列内に入り、または出たときに、成ることを選択して強くすることができます。</string>
@@ -147,9 +147,9 @@
 	<string name="dropsCommonDeliverMate">持ち駒を打つことは相手を詰ませるための非常に一般的な方法です。</string>
 	<string name="attackYourOpponentsKing">防げないような
 王手をかけて！</string>
-	<string name="chooseYourPieceCarefully">Choose your piece carefully!</string>
-	<string name="mateWithADroppedPawnIs">Mate with a dropped pawn is illegal - in a real game you would be forfeited!</string>
-	<string name="mateWithAPushedPawnIs">Mate with a pushed pawn is fine.</string>
+	<string name="chooseYourPieceCarefully">注意して駒を選びましょう！</string>
+	<string name="mateWithADroppedPawnIs">持ち駒の歩兵を打って相手を詰ませるのは「打ち歩詰め」という反則です。実際の対局でやってしまうと負けになってしまいます。</string>
+	<string name="mateWithAPushedPawnIs">盤上の歩兵を動かして相手を詰ませる「突き歩詰め」は反則になりません。</string>
 	<string name="mateInOneComplete">おめでとうございます！これが将棋で勝つ方法です！</string>
 	<string name="intermediate">中級</string>
 	<string name="boardSetup">盤と駒の用意</string>
@@ -168,7 +168,7 @@
 	<string name="boardSetupComplete">おめでとう！駒の並べ方を覚えました！</string>
 	<string name="repetition">千日手</string>
 	<string name="fourfoldRepetitionIsADrawExcept">同じ盤面が4回現れたら引き分け。ただし…</string>
-	<string name="repetitionIntro">千日手になると引き分けです。ただし連続王手の千日手は反則です。</string>
+	<string name="repetitionIntro">千日手になると引き分けです。ただし連続王手の千日手は反則で、仕掛けた側の負けになります。</string>
 	<string name="ifTheSamePositionOccurs">将棋で全く同じ配置の盤面が4回現れた場合、引き分けとなります。この状況を千日手といいます。唯一の合法手を指しましょう。</string>
 	<string name="perpetualCheckIsALoss">しかし、連続王手の千日手は、王手を仕掛けた方の負けになります。どうやら相手はそのことを知らないようです。唯一の合法手を指しましょう。</string>
 	<string name="boardFlippedFindBestMove">今度は立場が逆転しました。最善手はどれでしょう？</string>
@@ -188,14 +188,14 @@
 	<string name="goldBishopRook">金将 &lt; 角行 &lt; 飛車
 最も価値の高い駒を取りましょう。</string>
 	<string name="takeAllThePiecesStartingFromTheMost">価値の最も高い駒から最も低い駒まで、順番にすべての駒を取りましょう！</string>
-	<string name="anExchangeIs">An exchange is when you capture a piece, and lose another. Which is a better exchange? Silver-for-rook, or gold-for-knight?</string>
-	<string name="theOpponentJustGaveAway">The opponent just gave away his valuable rook for free! Do you take it?</string>
-	<string name="yourKingsValueIsInfinite">The king\'s value is infinite, compared to a rook. What is the best move here?</string>
+	<string name="anExchangeIs">駒の交換とは、自分の駒を犠牲に相手の駒を取ることです。銀将で飛車を取るか、金将で桂馬を取るか、どちらがより良い交換になるでしょう？</string>
+	<string name="theOpponentJustGaveAway">相手は貴重な飛車をこちらが取れる状態にしてしまいました。取ってしまいますか？</string>
+	<string name="yourKingsValueIsInfinite">飛車と比較すると、王将/玉将の価値は無限です。最善手は何でしょう？</string>
 	<string name="twoGeneralsAreBetter">Two generals can be worth more than one major piece. A knight and lance can be better than a general. Find a way to sacrifice the bishop and win two generals.</string>
-	<string name="rememberWhichPieceIsTheMostValuable">Do you remember which piece is the most valuable?</string>
+	<string name="rememberWhichPieceIsTheMostValuable">どの駒が最も価値があるか覚えていますか？</string>
 	<string name="takeThePieceWithTheHighestValue">いちばん価値の大きい
 駒を取ってください。</string>
-	<string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">The king is more valuable than every other piece combined. It may be OK to sacrifice pieces to attack the opponent\'s king. Just don\'t forget your own king\'s safety as well!</string>
+	<string name="rememberTheKingIsMoreValuableThanEveryOtherPieceCombined">王将/玉将は他のどの駒よりも大切です。相手の王将/玉将を攻撃するために駒を犠牲にしてもいいかもしれません。自分の王将/玉将を守ることを忘れないでください！</string>
 	<string name="checkInTwo">３手で王手する</string>
 	<string name="twoMovesToGiveCheck">２手動かして王手する</string>
 	<string name="checkInTwoIntro">相手の王将/玉将を王手する３手の組み合わせを考えてください。</string>
