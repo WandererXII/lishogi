@@ -794,6 +794,12 @@
 		<item quantity="many">%1$s %2$s žaidėjų šią savaitę.</item>
 		<item quantity="other">%1$s %2$s žaidėjų šią savaitę.</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="one">%1$s %2$s player this month.</item>
+		<item quantity="few">%1$s %2$s players this month.</item>
+		<item quantity="many">%1$s %2$s players this month.</item>
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">Jūsų „%1$s“ reitingas yra %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">Jūs esate geresni už %1$s iš %2$s žaidėjų.</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">%1$s yra geresnis už %2$s iš %3$s žaidėjų.</string>
