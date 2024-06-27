@@ -693,6 +693,9 @@
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="other">この 1 週間の参加者 %1$s 人（%2$s）。</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">あなたの %1$s レーティングは %2$s です。</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">あなたは全体の %1$s の%2$s参加者より上です。</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">%1$s は全体の %2$s の %3$s 参加者より上です。</string>
