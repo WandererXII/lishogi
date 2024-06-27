@@ -794,6 +794,12 @@
 		<item quantity="many">%1$s %2$s players this week.</item>
 		<item quantity="other">%1$s гульцоў у %2$s на гэтым тыдні.</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="one">%1$s %2$s player this month.</item>
+		<item quantity="few">%1$s %2$s players this month.</item>
+		<item quantity="many">%1$s %2$s players this month.</item>
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">Ваш %1$s рэйтынг %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">Вы гуляеце ў «%1$s» лепей за %2$s гульцоў.</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">%1$s лепей %2$s гульцоў у %3$s.</string>
