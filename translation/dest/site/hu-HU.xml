@@ -726,6 +726,10 @@
 		<item quantity="one">%1$s %2$s játékos ezen a héten.</item>
 		<item quantity="other">%1$s %2$s játékos ezen a héten.</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="one">%1$s %2$s player this month.</item>
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">A te %1$s pontszámod %2$s</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">Jobb vagy mint a [%1$s:variant name] játékosok [%2$s:percentage]-a.</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">%1$s jobb, mint a %3$s játékosok %2$s-a.</string>
