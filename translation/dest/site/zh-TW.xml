@@ -692,6 +692,9 @@
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="other">本周%1$s位棋手下了%2$s模式的棋局</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">您的%1$s分数是%2$s分。</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">您比%1$s的%2$s棋手更强。</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">%1$s比%3$s之中的%2$s棋手強。</string>
