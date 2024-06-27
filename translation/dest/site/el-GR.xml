@@ -726,6 +726,10 @@
 		<item quantity="one">%1$s παίκτης %2$s αυτήν την εβδομάδα.</item>
 		<item quantity="other">%1$s παίκτες %2$s αυτήν την εβδομάδα.</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="one">%1$s %2$s player this month.</item>
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">Η βαθμολογία σας στο %1$s είναι %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">Είστε καλύτεροι από %1$s των παικτών %2$s.</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">Ο/Η %1$s είναι καλύτερος/η από το %2$s των %3$s παικτών.</string>
