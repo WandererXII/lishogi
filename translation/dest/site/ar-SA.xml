@@ -862,6 +862,14 @@
 		<item quantity="many">%2$s %1$s لاعب هذا الإسبوع.</item>
 		<item quantity="other">%2$s %1$s لاعب هذا الإسبوع.</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="zero">%1$s %2$s players this month.</item>
+		<item quantity="one">%1$s %2$s player this month.</item>
+		<item quantity="two">%1$s %2$s players this month.</item>
+		<item quantity="few">%1$s %2$s players this month.</item>
+		<item quantity="many">%1$s %2$s players this month.</item>
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">تقييمك في %1$s هو %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">أنت أفضل من %1$s من %2$s لاعب.</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">%1$s أنت أفضل من %2$s من %3$s اللاعبين.</string>
