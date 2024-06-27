@@ -729,6 +729,10 @@ en %3$s</string>
 		<item quantity="one">%1$s jugador de %2$s aquesta setmana.</item>
 		<item quantity="other">%1$s jugadors de %2$s aquesta setmana.</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="one">%1$s %2$s player this month.</item>
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">La teva puntuació en %1$s és de %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">Ets millor que un %1$s dels jugadors de %2$s.</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">%1$s és millor que el %2$s de %3$s jugadors.</string>
