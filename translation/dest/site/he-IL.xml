@@ -797,6 +797,12 @@
 		<item quantity="many">%1$s שחקני %2$s השבוע.</item>
 		<item quantity="other">%1$s שחקני %2$s השבוע.</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="one">%1$s %2$s player this month.</item>
+		<item quantity="two">%1$s %2$s players this month.</item>
+		<item quantity="many">%1$s %2$s players this month.</item>
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">דירוגך במשחקי %1$s הוא %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">דירוגך גבוה יותר מ-%1$s משחקני %2$s.</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">%1$s טוב יותר ב%2$s משחקני %3$s אחרים.</string>
