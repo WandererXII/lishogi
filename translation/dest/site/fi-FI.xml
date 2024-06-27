@@ -726,6 +726,10 @@
 		<item quantity="one">%1$s %2$s-pelaaja tällä viikolla.</item>
 		<item quantity="other">%1$s %2$s-pelaajaa tällä viikolla.</item>
 	</plurals>
+	<plurals name="nbPerfTypePlayersThisMonth">
+		<item quantity="one">%1$s %2$s player this month.</item>
+		<item quantity="other">%1$s %2$s players this month.</item>
+	</plurals>
 	<string name="yourPerfTypeRatingIsRating">Sinun %1$s-vahvuuslukusi on %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">Olet parempi kuin %1$s %2$s-pelaajista.</string>
 	<string name="userIsBetterThanPercentOfPerfTypePlayers">%1$s on parempi kuin %2$s %3$s-pelaajista.</string>
