@@ -694,7 +694,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 		<item quantity="other">%1$s người chơi %2$s tuần này.</item>
 	</plurals>
 	<plurals name="nbPerfTypePlayersThisMonth">
-		<item quantity="other">%1$s %2$s players this month.</item>
+		<item quantity="other">%1$s kỳ thủ %2$s tháng này</item>
 	</plurals>
 	<string name="yourPerfTypeRatingIsRating">Điểm hệ số thứ hạng %1$s của bạn là %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">Bạn giỏi hơn %1$s người chơi %2$s.</string>
