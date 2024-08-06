@@ -727,7 +727,7 @@
 		<item quantity="other">%1$s xogadores de %2$s esta semana.</item>
 	</plurals>
 	<plurals name="nbPerfTypePlayersThisMonth">
-		<item quantity="one">%1$s %2$s player this month.</item>
+		<item quantity="one">%1$s xogador de %2$s este mes.</item>
 		<item quantity="other">%1$s xogadores de %2$s este mes.</item>
 	</plurals>
 	<string name="yourPerfTypeRatingIsRating">A túa puntuación en %1$s é %2$s.</string>
