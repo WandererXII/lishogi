@@ -941,6 +941,6 @@
 	<string name="general-shogi-discussion">综合将棋讨论</string>
 	<string name="game-analysis">对局分析</string>
 	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="off-topic-discussion">离题讨论</string>
+	<string name="teamXForum">团队论坛 %s</string>
 </resources>
