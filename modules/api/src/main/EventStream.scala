@@ -8,7 +8,7 @@ import org.joda.time.DateTime
 
 import lila.challenge.Challenge
 import lila.common.Bus
-import lila.game.actorApi.StartGame
+import lila.game.actorApi.{ FinishGame, StartGame }
 import lila.game.Game
 import lila.user.{ User, UserRepo }
 
@@ -37,7 +37,7 @@ final class EventStream(
     Bus.publish(PoisonPill, s"eventStreamFor:${me.id}")
 
     blueprint mapMaterializedValue { queue =>
-      gamesInProgress map toJson map some foreach queue.offer
+      gamesInProgress.map { gameJson(_, "gameStart").some }.foreach(queue.offer)
       challenges map toJson map some foreach queue.offer
 
       val actor = system.actorOf(Props(mkActor(me, queue)))
@@ -53,6 +53,7 @@ final class EventStream(
 
       val classifiers = List(
         s"userStartGame:${me.id}",
+        s"userFinishGame:${me.id}",
         s"rematchFor:${me.id}",
         s"eventStreamFor:${me.id}",
         "challenge"
@@ -95,7 +96,9 @@ final class EventStream(
             }
             .unit
 
-        case StartGame(game) => queue.offer(toJson(game).some).unit
+        case StartGame(game) => queue.offer(gameJson(game, "gameStart").some).unit
+
+        case FinishGame(game, _, _) => queue.offer(gameJson(game, "gameFinish").some).unit
 
         case lila.challenge.Event.Create(c) if c.destUserId has me.id => queue.offer(toJson(c).some).unit
 
@@ -109,9 +112,9 @@ final class EventStream(
       }
     }
 
-  private def toJson(game: Game) =
+  private def gameJson(game: Game, tpe: String) =
     Json.obj(
-      "type" -> "gameStart",
+      "type" -> tpe,
       "game" -> Json.obj("id" -> game.id)
     )
   private def toJson(c: Challenge) =
