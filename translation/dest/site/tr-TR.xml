@@ -214,6 +214,7 @@
 		<item quantity="one">Sizinle oynadığı oyun sayısı: %s</item>
 		<item quantity="other">Sizinle oynadığı oyun sayısı: %s</item>
 	</plurals>
+	<string name="confirm">Confirm</string>
 	<string name="cancel">İptal et</string>
 	<string name="timeOut">Zaman doldu</string>
 	<string name="drawOfferSent">Beraberlik teklifi gönderildi</string>
@@ -244,6 +245,7 @@
 	<string name="finishesX">%s sona erecek</string>
 	<string name="abortGame">Oyunu iptal et</string>
 	<string name="gameAborted">Oyun iptal edildi</string>
+	<string name="rules" comment="As in what you can and can't do">Rules</string>
 	<string name="standard" comment="Variant - meaning standard shogi">Standart</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
@@ -453,9 +455,7 @@
 	<string name="advancedSettings">Gelişmiş ayarlar</string>
 	<string name="safeTournamentName">Turnuva için oldukça güvenli bir isim seçin.</string>
 	<string name="inappropriateNameWarning">Herhangi bir uygunsuz isim, hesabınızın yasaklanmasına yol açabilir.</string>
-	<string name="emptyTournamentName">Kutuyu boş bırakarak turnuvaya rastgele bir Büyükusta\'nın ismini verebilirsiniz.</string>
-	<string name="recommendNotTouching">Bu ayarlara dokunmamanızı öneririz.</string>
-	<string name="fewerPlayers">Turnuvaya katılım şartı koyarsanız, daha az oyuncu katılacaktır.</string>
+	<string name="emptyTournamentAnimalName">Leave empty to name the tournament after a random animal.</string>
 	<string name="showAdvancedSettings">Gelişmiş ayarları göster</string>
 	<string name="makePrivateTournament">Turnuvayı özel olarak ayarlayın ve şifre koyarak erişimi kısıtlayın</string>
 	<string name="join">Katıl</string>
@@ -607,6 +607,7 @@
 	<string name="youWon">You won</string>
 	<string name="defeat">Yenilgi</string>
 	<string name="youLost">You lost</string>
+	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s vs %2$s</string>
 	<string name="victoryVsYInZ">%2$s adlı oyuncuya karşı %3$s maçında %1$s</string>
 	<string name="defeatVsYInZ">%2$s adlı oyuncuya karşı %3$s maçında %1$s</string>
 	<string name="drawVsYInZ">%2$s adlı oyuncuya karşı %3$s maçında %1$s</string>
@@ -870,6 +871,10 @@
 	<plurals name="nbSeconds">
 		<item quantity="one">%s saniye</item>
 		<item quantity="other">%s saniye</item>
+	</plurals>
+	<plurals name="nbMinutes">
+		<item quantity="one">%s minute</item>
+		<item quantity="other">%s minutes</item>
 	</plurals>
 	<string name="opening">Açılış</string>
 	<string name="middlegame">Oyunortası</string>
