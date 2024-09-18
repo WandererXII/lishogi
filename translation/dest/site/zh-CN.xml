@@ -204,6 +204,7 @@
 	<plurals name="nbGamesWithYou">
 		<item quantity="other">与您下了%s盘棋</item>
 	</plurals>
+	<string name="confirm">Confirm</string>
 	<string name="cancel">取消</string>
 	<string name="timeOut">超时</string>
 	<string name="drawOfferSent">和棋请求已发送</string>
@@ -234,6 +235,7 @@
 	<string name="finishesX">结束：%s</string>
 	<string name="abortGame">中止本局</string>
 	<string name="gameAborted">棋局已中止</string>
+	<string name="rules" comment="As in what you can and can't do">Rules</string>
 	<string name="standard" comment="Variant - meaning standard shogi">标准将棋</string>
 	<string name="minishogi">小将棋</string>
 	<string name="chushogi">中将棋</string>
@@ -425,9 +427,7 @@
 	<string name="advancedSettings">高级设置</string>
 	<string name="safeTournamentName">为锦标赛提出一个无争议的名称。</string>
 	<string name="inappropriateNameWarning">即使只有一点点违规的内容都可能导致您的帐号被封禁。</string>
-	<string name="emptyTournamentName">这一栏留空，将会用随机的将棋大师的名字命名这比赛。</string>
-	<string name="recommendNotTouching">我们建议您不要碰这些设置。</string>
-	<string name="fewerPlayers">如果您设置参赛条件，您的锦标赛的玩家将会更少。</string>
+	<string name="emptyTournamentAnimalName">Leave empty to name the tournament after a random animal.</string>
 	<string name="showAdvancedSettings">显示高级设置</string>
 	<string name="makePrivateTournament">设置比赛私有，并用密码限制访问</string>
 	<string name="join">参与锦标赛</string>
@@ -577,6 +577,7 @@
 	<string name="youWon">你赢了</string>
 	<string name="defeat">败</string>
 	<string name="youLost">你输了</string>
+	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s vs %2$s</string>
 	<string name="victoryVsYInZ">在 %3$s 中战%1$s对手 %2$s</string>
 	<string name="defeatVsYInZ">在 %3$s 中战%1$s对手 %2$s</string>
 	<string name="drawVsYInZ">在 %3$s 中与对手 %2$s %1$s</string>
@@ -832,6 +833,9 @@
 	<string name="advantage">优势</string>
 	<plurals name="nbSeconds">
 		<item quantity="other">%s秒</item>
+	</plurals>
+	<plurals name="nbMinutes">
+		<item quantity="other">%s minutes</item>
 	</plurals>
 	<string name="opening">开局</string>
 	<string name="middlegame">中盘</string>
