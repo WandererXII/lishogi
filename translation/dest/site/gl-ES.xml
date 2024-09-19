@@ -214,7 +214,7 @@
 		<item quantity="one">%s partida contigo</item>
 		<item quantity="other">%s partidas contigo</item>
 	</plurals>
-	<string name="confirm">Confirm</string>
+	<string name="confirm">Confirmar</string>
 	<string name="cancel">Cancelar</string>
 	<string name="timeOut">Esgotouse o tempo</string>
 	<string name="drawOfferSent">Oferta de táboas enviada</string>
