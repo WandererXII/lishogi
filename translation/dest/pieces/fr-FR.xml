@@ -32,7 +32,7 @@
   <string comment="Chushogi piece, low priority for translation" name="queenpromoted">Promoted queen</string>
   <string comment="Chushogi piece, low priority for translation" name="bishoppromoted">Promoted bishop</string>
   <string comment="Chushogi piece, low priority for translation" name="sidemoverpromoted">Promoted side mover</string>
-  <string comment="Chushogi piece, low priority for translation" name="verticalmoverpromoted">Promoted vertical mover</string>
+  <string comment="Chushogi piece, low priority for translation" name="verticalmoverpromoted">Déplaceur vertical promu</string>
   <string comment="Chushogi piece, low priority for translation" name="rookpromoted">Promoted rook</string>
   <string comment="Chushogi piece, low priority for translation" name="prince">Prince</string>
   <string comment="Chushogi piece, low priority for translation" name="whale">Whale</string>
