@@ -12,8 +12,8 @@
   <string name="promotedlance">Lance promue</string>
   <string name="promotedknight">Cavalier promu</string>
   <string name="promotedsilver">Argent promu</string>
-  <string name="horse">Fou promu</string>
-  <string name="dragon">Tour promue</string>
+  <string name="horse">Pégase</string>
+  <string name="dragon">Dragon</string>
   <string comment="Chushogi piece - not tokin" name="promotedpawn">Pion promu</string>
   <string comment="Chushogi piece, low priority for translation" name="leopard">Léopard</string>
   <string comment="Chushogi piece, low priority for translation" name="copper">Bronze</string>
@@ -36,7 +36,7 @@
   <string comment="Chushogi piece, low priority for translation" name="rookpromoted">Tour promue</string>
   <string comment="Chushogi piece, low priority for translation" name="prince">Prince</string>
   <string comment="Chushogi piece, low priority for translation" name="whale">Baleine</string>
-  <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Cheval promu</string>
+  <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Pégase promu</string>
   <string comment="Chushogi piece, low priority for translation" name="elephantpromoted">Éléphant promu</string>
   <string comment="Chushogi piece, low priority for translation" name="stag">Cerf</string>
   <string comment="Chushogi piece, low priority for translation" name="boar">Sanglier</string>
