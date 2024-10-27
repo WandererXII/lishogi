@@ -8,29 +8,29 @@
 	<string name="waitingForOpponent">Rakip bekleniyor</string>
 	<string name="waiting">Bekleniyor</string>
 	<string name="yourTurn">Sıra sizde</string>
-	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">%1$s\'ı %2$s. seviyede yendiniz</string>
 	<string name="level">Seviye</string>
-	<string name="levelX" comment="Engine difficulty level">Level %s</string>
+	<string name="levelX" comment="Engine difficulty level">Seviye %s</string>
 	<string name="strength">Güç</string>
 	<string name="toggleTheChat">Sohbeti aç/kapat</string>
 	<string name="toggleSound">Sesi aç/kapat</string>
 	<string name="chat">Sohbet</string>
-	<string name="page" comment="Used for numbering; Example: Page 10">Page</string>
+	<string name="page" comment="Used for numbering; Example: Page 10">Sayfa</string>
 	<string name="resign">Oyundan Çekil</string>
 	<string name="checkmate">Şah Mat</string>
 	<string name="stalemate">Pat</string>
-	<string name="check">Check</string>
+	<string name="check">Şah</string>
 	<string name="impasse">Çıkmaz</string>
-	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
+	<string name="repetition" comment="Status of a game ending due to repeated positions">Tekrarlama</string>
 	<string name="perpetualCheck">Sürekli şah</string>
 	<string name="royalsLost" comment="Used in chushogi">Tüm kraliyet taşları kaybedildi</string>
 	<string name="bareKing" comment="Used in chushogi">Yalnız şah</string>
-	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
-	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
-	<string name="xWon" comment="Example: Player won!">%s won!</string>
-	<string name="xLost" comment="Example: Player lost!">%s lost!</string>
-	<string name="gameWasDraw">Game was a draw!</string>
-	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s %2$s oynadı</string>
+	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s, %2$s\'e karşı oynuyor</string>
+	<string name="xWon" comment="Example: Player won!">%s kazandı!</string>
+	<string name="xLost" comment="Example: Player lost!">%s kaybetti!</string>
+	<string name="gameWasDraw">Oyun berabere bitti!</string>
+	<string name="winnerIsNotYetDecided">Kazanan henüz belli değil.</string>
 	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Beyaz</string>
 	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
