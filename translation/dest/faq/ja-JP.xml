@@ -25,7 +25,7 @@
 	<string name="howCanIBecomeModerator">どうすればモデレーターになれますか？</string>
 	<string name="youCannotApply">自分から申請してモデレーターになることはできません。当方から、適任だと思った人に直接コンタクトを取ります。</string>
 	<string name="isCorrespondenceDifferent">通信戦は通常の将棋と異なりますか？</string>
-	<string name="youCanUseOpeningBookNoEngine">Lishogi では、通信戦のルール上の主な違いは序盤の定跡調査が認められていることです。ソフトの使用はそれでも禁止されており、使うとソフト使用者の表示が付くことがあります。[通信戦の国際団体] ICCF は通信戦でのソフト使用を認めていますが、Lishogi は認めません。</string>
+	<string name="youCanUseOpeningBookNoEngine">Lishogi では、通信戦のルール上の主な違いは序盤の定跡調査が認められていることです。ソフトの使用はそれでも禁止されており、使うとソフト使用者の表示が付くことがあります。[チェスの通信戦の国際団体] ICCF は通信戦でのソフト使用を認めていますが、Lishogi は認めません。</string>
 	<string name="gameplay">対局について</string>
 	<string name="howBulletBlitzEtcDecided">ブレット、ブリッツなど持ち時間の区分の基準は？</string>
 	<string name="basedOnGameDuration">Lishogi の持ち時間は推定所要時間（%1$s）で分類されています。
