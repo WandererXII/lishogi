@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">Insights</string>
-  <string name="moves">Moves</string>
+  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">Estadísticas</string>
+  <string name="moves">Movimientos</string>
   <string name="drops">Drops</string>
   <string name="movesAndDrops">Moves and drops</string>
   <string name="total" comment="Usually in chart legend or tooltip summing other bars">Total</string>
