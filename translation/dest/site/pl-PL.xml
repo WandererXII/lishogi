@@ -10,7 +10,7 @@
 	<string name="yourTurn">Twój ruch</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
 	<string name="level">Poziom</string>
-	<string name="levelX" comment="Engine difficulty level">Level %s</string>
+	<string name="levelX" comment="Engine difficulty level">Poziom %s</string>
 	<string name="strength">Siła</string>
 	<string name="toggleTheChat">Pokaż/ukryj rozmowy</string>
 	<string name="toggleSound">Włącz/wyłącz dźwięk</string>
@@ -72,7 +72,7 @@
 	<string name="analysis">Analiza partii</string>
 	<string name="analysisDescription">Analizuj pozycje i warianty na interaktywnej szachownicy shogi</string>
 	<string name="depthX">Głębokość %s</string>
-	<string name="serverAnalysis">Server analysis</string>
+	<string name="serverAnalysis">Analiza na serwerze</string>
 	<string name="usingServerAnalysis">Analiza zdalna</string>
 	<string name="loadingEngine">Wczytywanie silnika...</string>
 	<string name="cloudAnalysis">Analiza w chmurze</string>
@@ -137,12 +137,12 @@
 	<string name="flipBoard">Obróć szachownicę</string>
 	<string name="claimADraw">Ogłoś remis</string>
 	<string name="offerDraw">Zaproponuj remis</string>
-	<string name="offerAdjournment">Offer adjournment</string>
+	<string name="offerAdjournment">Zaproponuj odłożenie partii</string>
 	<string name="offerResumption">Offer resumption</string>
 	<string name="acceptResumption">Accept resumption</string>
 	<string name="draw">Remis</string>
-	<string name="gameAdjourned">Game was adjourned</string>
-	<string name="gameResumed">Game was resumed</string>
+	<string name="gameAdjourned">Partia została odłożona</string>
+	<string name="gameResumed">Partia została wznowiona</string>
 	<plurals name="nbPlayers">
 		<item quantity="one">%s gracz</item>
 		<item quantity="few">%s graczy</item>
@@ -234,24 +234,24 @@
 		<item quantity="many">%s partii z Tobą</item>
 		<item quantity="other">%s partii z Tobą</item>
 	</plurals>
-	<string name="confirm">Confirm</string>
+	<string name="confirm">Zatwierdź</string>
 	<string name="cancel">Anuluj</string>
 	<string name="timeOut">Czas upłynął</string>
 	<string name="drawOfferSent">Wysłano propozycję remisu</string>
 	<string name="drawOfferDeclined">Odrzucono propozycję remisu</string>
 	<string name="drawOfferAccepted">Przyjęto propozycję remisu</string>
 	<string name="drawOfferCanceled">Wycofano propozycję remisu</string>
-	<string name="adjournmentOfferSent">Adjournment offer sent</string>
-	<string name="adjournmentOfferCanceled">Adjournment offer cancelled</string>
-	<string name="adjournmentOfferAccepted">Adjournment offer accepted</string>
+	<string name="adjournmentOfferSent">Propozycja odłożenia partii została wysłana</string>
+	<string name="adjournmentOfferCanceled">Propozycja odłożenia partii została anulowana</string>
+	<string name="adjournmentOfferAccepted">Propozycja odłożenia partii została przyjęta</string>
 	<string name="resumptionOfferSent">Resumption offer sent</string>
 	<string name="resumptionOfferCanceled">Resumption offer cancelled</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s oferują remis</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s odrzucają propozycję remisu</string>
 	<string name="yourOpponentOffersADraw">Przeciwnik proponuje remis</string>
-	<string name="xOffersAdjournment" comment="%s - sente(black)/gote(white)">%s offers adjournment</string>
-	<string name="xDeclinesAdjournment" comment="%s - sente(black)/gote(white)">%s declines adjournment</string>
-	<string name="yourOpponentOffersAnAdjournment">Your opponent offers an adjournment</string>
+	<string name="xOffersAdjournment" comment="%s - sente(black)/gote(white)">%s proponuje odłożenie partii</string>
+	<string name="xDeclinesAdjournment" comment="%s - sente(black)/gote(white)">%s odrzuca propozycję odłożenia partii</string>
+	<string name="yourOpponentOffersAnAdjournment">Twój przeciwnik proponuje odłożenie partii</string>
 	<string name="xOffersResumption" comment="%s - sente(black)/gote(white)">%s proposes resumption</string>
 	<string name="xDeclinesResumption" comment="%s - sente(black)/gote(white)">%s declines resumption</string>
 	<string name="yourOpponentProposesResumption">Your opponent proposes resumption</string>
@@ -265,7 +265,7 @@
 	<string name="finishesX">kończy się %s</string>
 	<string name="abortGame">Przerwij partię</string>
 	<string name="gameAborted">Gra została przerwana</string>
-	<string name="rules" comment="As in what you can and can't do">Rules</string>
+	<string name="rules" comment="As in what you can and can't do">Zasady</string>
 	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
@@ -664,10 +664,10 @@
 	<string name="xAnsweredY">%1$s odpowiedział %2$s</string>
 	<string name="xCommentedY">%1$s skomentował %2$s</string>
 	<string name="victory">Wygrana</string>
-	<string name="youWon">You won</string>
+	<string name="youWon">Zwyciężyłeś</string>
 	<string name="defeat">Przegrana</string>
-	<string name="youLost">You lost</string>
-	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s vs %2$s</string>
+	<string name="youLost">Przegrałeś</string>
+	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s kontra %2$s</string>
 	<string name="victoryVsYInZ">%1$s z %2$s (%3$s)</string>
 	<string name="defeatVsYInZ">%1$s z %2$s (%3$s)</string>
 	<string name="drawVsYInZ">%1$s z %2$s (%3$s)</string>
@@ -952,7 +952,7 @@
 		<item quantity="one">%s minute</item>
 		<item quantity="few">%s minutes</item>
 		<item quantity="many">%s minutes</item>
-		<item quantity="other">%s minutes</item>
+		<item quantity="other">%s minuty</item>
 	</plurals>
 	<string name="opening">Otwarcie</string>
 	<string name="middlegame">Gra środkowa</string>
@@ -999,7 +999,7 @@
 	<string name="edit">Edytuj</string>
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
-	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Błyskawiczne</string>
 	<string name="rapid">Rapid</string>
 	<string name="classical">Classical</string>
 	<string name="ultraBulletDesc">Partie szalenie szybkie: mniej niż 30 sekund</string>
@@ -1060,10 +1060,10 @@
 	<string name="analyse" comment="Verb; After clicking on button saying this, we expect to analyse the position">Analizuj</string>
 	<string name="back" comment="As in: go back">Wstecz</string>
 	<string name="preview">Podgląd</string>
-	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
+	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Wariant nieobsługiwany</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
 	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
+	<string name="game-analysis">Analiza partii</string>
 	<string name="lishogi-feedback">Lishogi Feedback</string>
 	<string name="off-topic-discussion">Off-Topic Discussion</string>
 	<string name="teamXForum">Forum of the team %s</string>
