@@ -31,9 +31,9 @@
 	<string name="xLost" comment="Example: Player lost!">%s przegrywa!</string>
 	<string name="gameWasDraw">Partia zakończona remisem!</string>
 	<string name="winnerIsNotYetDecided">Zwycięzca jeszcze nie został wyłoniony.</string>
-	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Białe</string>
+	<string name="gote" comment="Should be 'Gote', unless equivalent written differently exists (ex. 後手 in JP; し - ši in CZ instead of shi)">Gote</string>
 	<string name="white" comment="Alternative to gote">Białe</string>
-	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Czarne</string>
+	<string name="sente" comment="Should be 'Sente', unless equivalent written differently exists (ex. 先手 in JP; し - ši in CZ instead of shi)">Sente</string>
 	<string name="black" comment="Alternative to sente">Czarne</string>
 	<string name="shitate" comment="Should be 'Shitate', unless equivalent written differently exists (ex. 下手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Shitate</string>
 	<string name="uwate" comment="Should be 'Uwate', unless equivalent written differently exists (ex. 上手 in JP; し - ši in CZ instead of shi) - https://en.wikipedia.org/wiki/Handicap_(shogi)">Uwate</string>
@@ -47,7 +47,7 @@
 	<string name="newOpponent">Nowy przeciwnik</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Przeciwnik chce zagrać z Tobą nową partię</string>
 	<string name="joinTheGame">Dołącz do gry</string>
-	<string name="xPlays" comment="%s - sente(black)/gote(white)">Ruch mają %s</string>
+	<string name="xPlays" comment="%s - sente(black)/gote(white)">Ruch %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Przeciwnik porzucił partię. Możesz ogłosić wygraną za %s sekundę.</item>
 		<item quantity="few">Przeciwnik porzucił partię. Możesz ogłosić wygraną za %s sekundy.</item>
@@ -515,7 +515,7 @@
 	<string name="showAdvancedSettings">Pokaż ustawienia zaawansowane</string>
 	<string name="makePrivateTournament">Uczyń turniej prywatnym ograniczając dostęp za pomocą hasła</string>
 	<string name="join">Dołącz</string>
-	<string name="pause">Pause</string>
+	<string name="pause">Wstrzymaj</string>
 	<string name="withdraw">Wycofaj się</string>
 	<string name="points">Punkty</string>
 	<string name="wins">Wygrane</string>
@@ -563,7 +563,7 @@
 	<string name="socialMediaLinks">Linki do mediów społecznościowych</string>
 	<string name="inlineNotation">Notacja ciągła</string>
 	<string name="watchLishogiTV">Oglądaj Lishogi TV</string>
-	<string name="watchLishogiTVDescription">Sit back, relax, and watch the best Lishogi players compete on Lishogi TV</string>
+	<string name="watchLishogiTVDescription">Usiądź, zrelaksuj się i oglądaj najlepszych graczy Lishogi rywalizujących na Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Poprzednio w Lishogi TV</string>
 	<string name="onlinePlayers">Gracze online</string>
 	<string name="onlineBots">Boty online</string>
@@ -767,7 +767,7 @@
 	<string name="hostColorForEachGame">Kolor prowadzącego w każdej partii</string>
 	<string name="onlyMembersOfTeam">Tylko członkowie klubu</string>
 	<string name="noRestriction">No Restriction</string>
-	<string name="estimatedStart">Estimated start time</string>
+	<string name="estimatedStart">Szacunkowy czas rozpoczęcia</string>
 	<string name="simulDescription">Opis symultany</string>
 	<string name="anythingTellParticipants">Wiadomość do przekazania uczestnikom?</string>
 	<string name="lishogiTournaments">Turnieje Lishogi</string>
@@ -839,7 +839,7 @@
 	<string name="sessions">Sesje</string>
 	<string name="revokeAllSessions">unieważnić wszystkie sesje</string>
 	<string name="playShogiEverywhere">Graj w shogi wszędzie</string>
-	<string name="features">Features</string>
+	<string name="features">Funkcje</string>
 	<string name="asFreeAsLishogi">Darmowa jak całe Lishogi</string>
 	<string name="builtForTheLoveOfShogiNotMoney">Stworzona z miłości do shogi, nie dla pieniędzy</string>
 	<string name="everybodyGetsAllFeaturesForFree">Wszystkie funkcje za darmo dla każdego</string>
@@ -1061,8 +1061,8 @@
 	<string name="back" comment="As in: go back">Wstecz</string>
 	<string name="preview">Podgląd</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Wariant nieobsługiwany</string>
-	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
+	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Gotowe do gry</string>
+	<string name="general-shogi-discussion">Ogólna dyskusja Shogi</string>
 	<string name="game-analysis">Analiza partii</string>
 	<string name="lishogi-feedback">Lishogi Feedback</string>
 	<string name="off-topic-discussion">Off-Topic Discussion</string>
