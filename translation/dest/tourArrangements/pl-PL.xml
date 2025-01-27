@@ -11,5 +11,5 @@
 	<string name="playingRightNow" comment="Games in tournament that are being played right now">W toku</string>
 	<string name="recentlyPlayedGames">Ostatnie partie</string>
 	<string name="gameWillNotStart">Partia nie rozpocznie się automatycznie!</string>
-	<string name="organized" comment="Tournament format - organized, players can only play games created by the organizer">Organized</string>
+	<string name="organized" comment="Tournament format - organized, players can only play games created by the organizer">Zorganizowany</string>
 </resources>
