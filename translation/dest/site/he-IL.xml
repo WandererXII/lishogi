@@ -144,7 +144,7 @@
 	<string name="gameAdjourned">Game was adjourned</string>
 	<string name="gameResumed">Game was resumed</string>
 	<plurals name="nbPlayers">
-		<item quantity="one">%s שחקנים מחוברים</item>
+		<item quantity="one">%s שחקנים</item>
 		<item quantity="two">%s שחקנים</item>
 		<item quantity="many">%s שחקנים</item>
 		<item quantity="other">%s שחקנים</item>
