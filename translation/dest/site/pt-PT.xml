@@ -140,8 +140,8 @@
 	<string name="gameAdjourned">Game was adjourned</string>
 	<string name="gameResumed">Game was resumed</string>
 	<plurals name="nbPlayers">
-		<item quantity="one">%s jogador conectado</item>
-		<item quantity="other">%s jogadores conectados</item>
+		<item quantity="one">%s jogador</item>
+		<item quantity="other">%s jogadores</item>
 	</plurals>
 	<string name="currentGames">Partidas a decorrer</string>
 	<plurals name="nbGames">
