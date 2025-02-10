@@ -142,9 +142,9 @@
 	<string name="gameAdjourned">Game was adjourned</string>
 	<string name="gameResumed">Game was resumed</string>
 	<plurals name="nbPlayers">
-		<item quantity="one">%s играч на вези</item>
-		<item quantity="few">%s играча на вези</item>
-		<item quantity="other">%s играча на вези</item>
+		<item quantity="one">%s играч</item>
+		<item quantity="few">%s играча</item>
+		<item quantity="other">%s играча</item>
 	</plurals>
 	<string name="currentGames">Партије које се управо играју</string>
 	<plurals name="nbGames">
