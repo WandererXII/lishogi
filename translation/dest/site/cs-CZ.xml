@@ -338,9 +338,9 @@
 	</plurals>
 	<plurals name="nbPlaying">
 		<item quantity="one">%s právě hraje</item>
-		<item quantity="few">%s se hrají</item>
-		<item quantity="many">%s se hraje</item>
-		<item quantity="other">%s se hraje</item>
+		<item quantity="few">%s hrají</item>
+		<item quantity="many">%s hraje</item>
+		<item quantity="other">%s hraje</item>
 	</plurals>
 	<plurals name="nbAdjourned" comment="Paused games">
 		<item quantity="one">%s adjourned</item>
