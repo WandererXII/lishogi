@@ -138,7 +138,7 @@
 	<string name="gameAdjourned">棋局已暂停</string>
 	<string name="gameResumed">棋局已恢复</string>
 	<plurals name="nbPlayers">
-		<item quantity="other">%s位在线棋手</item>
+		<item quantity="other">%s将棋棋手</item>
 	</plurals>
 	<string name="currentGames">当前对局</string>
 	<plurals name="nbGames">
