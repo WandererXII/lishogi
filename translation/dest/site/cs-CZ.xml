@@ -144,10 +144,10 @@
 	<string name="gameAdjourned">Game was adjourned</string>
 	<string name="gameResumed">Game was resumed</string>
 	<plurals name="nbPlayers">
-		<item quantity="one">%s hráč online</item>
-		<item quantity="few">%s hráči online</item>
-		<item quantity="many">%s hráče online</item>
-		<item quantity="other">%s hráčů online</item>
+		<item quantity="one">%s hráč</item>
+		<item quantity="few">%s hráči</item>
+		<item quantity="many">%s hráče</item>
+		<item quantity="other">%s hráčů</item>
 	</plurals>
 	<string name="currentGames">Právě probíhající partie</string>
 	<plurals name="nbGames">
