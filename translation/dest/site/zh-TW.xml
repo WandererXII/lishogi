@@ -138,7 +138,7 @@
 	<string name="gameAdjourned">Game was adjourned</string>
 	<string name="gameResumed">Game was resumed</string>
 	<plurals name="nbPlayers">
-		<item quantity="other">%s位棋手目前在線</item>
+		<item quantity="other">%s名將棋棋手</item>
 	</plurals>
 	<string name="currentGames">現在對局</string>
 	<plurals name="nbGames">
