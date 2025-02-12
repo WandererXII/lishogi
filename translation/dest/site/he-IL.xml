@@ -107,6 +107,7 @@
 	<string name="recentGames">משחקים אחרונים</string>
 	<string name="topGames">המשחקים המובילים</string>
 	<string name="noGameFound">אין משחק זמין</string>
+	<string name="pageNotFound">Page not found</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">להוסיף עוד משחקים מתפריט ההגדרות?</string>
 	<string name="openingExplorer">סייר הפתיחות</string>
 	<string name="xOpeningExplorer">חוקר פתיחות %s</string>
@@ -370,6 +371,7 @@
 	<string name="tournament">טורניר</string>
 	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">טורנירים</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">נקודות טורניר</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s נקודת טורניר</item>
@@ -515,7 +517,10 @@
 	<string name="showAdvancedSettings">הצג הגדרות מתקדמות</string>
 	<string name="makePrivateTournament">הפוך את הטורניר לפרטי, והגבל כניסה עם סיסמה</string>
 	<string name="join">הצטרף</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Pause</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">צא</string>
 	<string name="points">נקודות</string>
 	<string name="wins">ניצחונות</string>
@@ -572,6 +577,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">היזהר, המשחק מדורג אך אין שעון.</string>
 	<string name="toTrackYourProgress">למעקב אחרי התקדמותך:</string>
 	<string name="goodMove">מהלך טוב</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">המהלך הטוב ביותר!</string>
 	<string name="success">הצלחה</string>
 	<string name="thankYou">תודה רבה!</string>
@@ -610,6 +616,7 @@
 	<string name="replyToThisTopic">הגב לאשכול הזה</string>
 	<string name="reply">הגב</string>
 	<string name="message">הודעה</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">צור אשכול</string>
 	<string name="reportAUser">דווח על משתמש</string>
 	<string name="user">משתמש</string>
@@ -675,7 +682,8 @@
 	<string name="drawVsYInZ">%1$s נגד %2$s
 ב%3$s</string>
 	<string name="timeline">ציר הזמן</string>
-	<string name="starting">מתחיל:</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">מתחיל:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">כל המידע הוא פומבי ואופציונלי</string>
 	<string name="yourCityRegionOrDepartment">העיר, האזור,המדינה, או המחוז שלך</string>
 	<string name="biographyDescription">Talk about yourself, your interests, what you like in shogi, your favourite openings, players, ...</string>
@@ -775,7 +783,6 @@
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">תחרויות לישוגי</string>
 	<string name="tournamentShields">Tournament shields</string>
-	<string name="tournamentFAQ">שאלות נפוצות לגבי זירת הטורנירים</string>
 	<string name="tournamentOfficial">רשמי</string>
 	<string name="timeBeforeTournamentStarts">זמן לפני שהטורניר מתחיל</string>
 	<string name="averageCentipawnLoss">אובדן מאית חייל ממוצעת</string>
@@ -792,6 +799,7 @@
 	<string name="tournamentMayHaveBeenCanceled">קיימת אפשרות שהטורניר בוטל, במקרה שכל השחקנים יצאו ממנו לפני התחלתו.</string>
 	<string name="returnToTournamentsHomepage">תחזור לדף הבית של טורנירים</string>
 	<string name="weeklyPerfTypeRatingDistribution">התפלגות חודשית של דירוגי %s</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">%1$s שחקני %2$s השבוע.</item>
 		<item quantity="two">%1$s שחקני %2$s השבוע.</item>
@@ -1065,9 +1073,18 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
 </resources>
