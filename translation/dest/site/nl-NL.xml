@@ -103,6 +103,7 @@
 	<string name="recentGames">Recente partijen</string>
 	<string name="topGames">Toppartijen</string>
 	<string name="noGameFound">Geen partij gevonden</string>
+	<string name="pageNotFound">Page not found</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Misschien meer partijen toevoegen via het voorkeuren-menu?</string>
 	<string name="openingExplorer">Openingverkenner</string>
 	<string name="xOpeningExplorer">%s openingsverkenner</string>
@@ -336,6 +337,7 @@
 	<string name="tournament">Toernooi</string>
 	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">Toernooien</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">Toernooipunten</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s toernooipunt</item>
@@ -459,7 +461,10 @@
 	<string name="showAdvancedSettings">Toon uitgebreide instellingen &gt;&gt;</string>
 	<string name="makePrivateTournament">Maak het toernooi privé en beperk de toegang met een wachtwoord</string>
 	<string name="join">Neem deel</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Pause</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">Trek terug</string>
 	<string name="points">Punten</string>
 	<string name="wins">Gewonnen</string>
@@ -516,6 +521,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">Let op, de partij is met rating maar heeft geen klok!</string>
 	<string name="toTrackYourProgress">Om je vooruitgang te volgen:</string>
 	<string name="goodMove">Goede zet</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">Beste zet!</string>
 	<string name="success">Succes</string>
 	<string name="thankYou">Bedankt!</string>
@@ -550,6 +556,7 @@
 	<string name="replyToThisTopic">Reageer op dit onderwerp</string>
 	<string name="reply">Reageer</string>
 	<string name="message">Bericht</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">Maak een nieuw onderwerp</string>
 	<string name="reportAUser">Gebruiker melden</string>
 	<string name="user">Gebruiker</string>
@@ -612,7 +619,8 @@
 	<string name="defeatVsYInZ">%1$s vs %2$s in %3$s</string>
 	<string name="drawVsYInZ">%1$s vs. %2$s in %3$s</string>
 	<string name="timeline">Tijdslijn</string>
-	<string name="starting">Startend:</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">Startend:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">Alle informatie is publiek toegankelijk en optioneel.</string>
 	<string name="yourCityRegionOrDepartment">Je stad, regio of provincie.</string>
 	<string name="biographyDescription">Talk about yourself, your interests, what you like in shogi, your favourite openings, players, ...</string>
@@ -706,7 +714,6 @@
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Lishogi tournaments</string>
 	<string name="tournamentShields">Tournament shields</string>
-	<string name="tournamentFAQ">Veelgestelde vragen over Arena toernooien</string>
 	<string name="tournamentOfficial">Officieel</string>
 	<string name="timeBeforeTournamentStarts">Tijd voordat het toernooi start</string>
 	<string name="averageCentipawnLoss">Gemiddeld centipionverlies</string>
@@ -723,6 +730,7 @@
 	<string name="tournamentMayHaveBeenCanceled">Het is mogelijk afgelast, indien alle spelers zijn weggegaan voordat het toernooi gestart was.</string>
 	<string name="returnToTournamentsHomepage">Ga terug naar de startpagina van de toernooien</string>
 	<string name="weeklyPerfTypeRatingDistribution">Maandelijkse %s rating distributie</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">Eén %2$s speler deze week.</item>
 		<item quantity="other">%1$s %2$s spelers deze week.</item>
@@ -982,9 +990,18 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
 </resources>
