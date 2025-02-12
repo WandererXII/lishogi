@@ -101,6 +101,7 @@
 	<string name="recentGames">Ván gần đây</string>
 	<string name="topGames">Các ván đấu hàng đầu</string>
 	<string name="noGameFound">Không tìm thấy trò chơi</string>
+	<string name="pageNotFound">Page not found</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Bạn có muốn thêm nhiều ván đấu hơn từ mục lục?</string>
 	<string name="openingExplorer">Sách khai cuộc</string>
 	<string name="xOpeningExplorer">Sách khai cuộc %s</string>
@@ -319,6 +320,7 @@
 	<string name="tournament">Giải đấu</string>
 	<string name="tournamentLeaderboard">Bảng xếp hạng giải đấu</string>
 	<string name="tournaments">Các giải đấu</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">Điểm giải đấu</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="other">%s điểm giải đấu</item>
@@ -432,7 +434,10 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="showAdvancedSettings">Hiện thiết lập nâng cao</string>
 	<string name="makePrivateTournament">Đặt giải đấu riêng tư và giới hạn truy cập bởi mật khẩu</string>
 	<string name="join">Tham gia</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Tạm rút</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">Xin rút</string>
 	<string name="points">Điểm</string>
 	<string name="wins">Thắng</string>
@@ -489,6 +494,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="bewareTheGameIsRatedButHasNoClock">Lưu ý, ván cờ có xếp hạng nhưng không tính thời gian!</string>
 	<string name="toTrackYourProgress">Theo dõi tiến trình của bạn:</string>
 	<string name="goodMove">Nước tốt</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">Nước tối ưu</string>
 	<string name="success">Thành công</string>
 	<string name="thankYou">Cám ơn!</string>
@@ -521,6 +527,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="replyToThisTopic">Trả lời chủ đề này</string>
 	<string name="reply">Trả lời</string>
 	<string name="message">Tin nhắn</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">Tạo chủ đề</string>
 	<string name="reportAUser">Báo cáo một kỳ thủ</string>
 	<string name="user">Kỳ thủ</string>
@@ -583,7 +590,8 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="defeatVsYInZ">%1$s %2$s trong %3$s</string>
 	<string name="drawVsYInZ">%1$s %2$s trong %3$s</string>
 	<string name="timeline">Dòng thời gian</string>
-	<string name="starting">Bắt dầu đấu:</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">Bắt dầu đấu:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">Tất cả thông tin thì công khai và không bắt buộc.</string>
 	<string name="yourCityRegionOrDepartment">Thành phố, tôn giáo hoặc nơi cư trú của bạn.</string>
 	<string name="biographyDescription">Giới thiệu gì đó về bạn như sở thích, bạn thích gì ở cờ Shogi, ván cờ yêu thích, thần tượng, ...</string>
@@ -674,7 +682,6 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="anythingTellParticipants">Bạn có muốn nói gì với những người tham gia không?</string>
 	<string name="lishogiTournaments">Giải đấu của Lishogi</string>
 	<string name="tournamentShields">Giải đấu Khiên</string>
-	<string name="tournamentFAQ">Các câu hỏi thường gặp về giải đấu đấu trường</string>
 	<string name="tournamentOfficial">Chính thức</string>
 	<string name="timeBeforeTournamentStarts">Thời gian trước khi giải đấu bắt đầu</string>
 	<string name="averageCentipawnLoss">Phần trăm mất tốt trung bình mỗi nước (ACPL)</string>
@@ -691,6 +698,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="tournamentMayHaveBeenCanceled">Nó có thể đã bị huỷ, nếu tất cả người chơi rời giải trước khi giải đấu bắt đầu.</string>
 	<string name="returnToTournamentsHomepage">Trở về trang chủ các giải đấu</string>
 	<string name="weeklyPerfTypeRatingDistribution">Phân bố xếp hạng %s theo tuần</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="other">%1$s người chơi %2$s tuần này.</item>
 	</plurals>
@@ -943,9 +951,18 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="preview">Xem chi tiết</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Biến thể không được hỗ trợ</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Sẵn sàng chơi</string>
-	<string name="general-shogi-discussion">Thảo luận Chung về Lishogi</string>
-	<string name="game-analysis">Phân Tích Ván Cờ</string>
-	<string name="lishogi-feedback">Phản Hồi Lishogi</string>
-	<string name="off-topic-discussion">Thảo Luận Ngoài Chủ Đề</string>
-	<string name="teamXForum">Diễn đàn của đội %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Diễn đàn của đội %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
 </resources>
