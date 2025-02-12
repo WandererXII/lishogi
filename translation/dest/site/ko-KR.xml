@@ -101,6 +101,7 @@
 	<string name="recentGames">최근 게임</string>
 	<string name="topGames">최고 레이팅 게임</string>
 	<string name="noGameFound">게임을 찾을 수 없습니다.</string>
+	<string name="pageNotFound">Page not found</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">설정에서 더 많은 게임을 포함하세요.</string>
 	<string name="openingExplorer">오프닝 탐색기</string>
 	<string name="xOpeningExplorer">%s 오프닝 탐색기</string>
@@ -319,6 +320,7 @@
 	<string name="tournament">토너먼트</string>
 	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">토너먼트</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">토너먼트 점수</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="other">%s 토너먼트 포인트</item>
@@ -431,7 +433,10 @@
 	<string name="showAdvancedSettings">고급 설정 보기</string>
 	<string name="makePrivateTournament">토너먼트를 비공개로 바꾸고, 비밀번호가 있어야만 들어갈 수 있습니다.</string>
 	<string name="join">참가하기</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Pause</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">중단</string>
 	<string name="points">포인트</string>
 	<string name="wins">승리</string>
@@ -488,6 +493,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">조심하세요, 레이팅 게임이며 시간 제한이 없습니다!</string>
 	<string name="toTrackYourProgress">기록을 저장하려면:</string>
 	<string name="goodMove">괜찮은 수입니다.</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">좋은 수입니다!</string>
 	<string name="success">성공!</string>
 	<string name="thankYou">감사합니다!</string>
@@ -520,6 +526,7 @@
 	<string name="replyToThisTopic">답글 달기</string>
 	<string name="reply">전송</string>
 	<string name="message">내용</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">새 토픽 생성</string>
 	<string name="reportAUser">사용자 신고</string>
 	<string name="user">신고할 사용자 이름</string>
@@ -582,7 +589,8 @@
 	<string name="defeatVsYInZ">%1$s: %2$s / %3$s</string>
 	<string name="drawVsYInZ">%1$s: %2$s / %3$s</string>
 	<string name="timeline">타임라인</string>
-	<string name="starting">시작합니다:</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">시작합니다:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">모든 정보는 공개되며 선택 사항입니다.</string>
 	<string name="yourCityRegionOrDepartment">시도급 또는 시군구급.</string>
 	<string name="biographyDescription">Talk about yourself, your interests, what you like in shogi, your favourite openings, players, ...</string>
@@ -673,7 +681,6 @@
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Lishogi tournaments</string>
 	<string name="tournamentShields">Tournament shields</string>
-	<string name="tournamentFAQ">아레나 토너먼트 FAQ</string>
 	<string name="tournamentOfficial">공식</string>
 	<string name="timeBeforeTournamentStarts">토너먼트 시작까지 시간</string>
 	<string name="averageCentipawnLoss">평균 CP(centipawn) 손실</string>
@@ -690,6 +697,7 @@
 	<string name="tournamentMayHaveBeenCanceled">모든 플레이어가 퇴장하여 취소된 게임일 수 있습니다.</string>
 	<string name="returnToTournamentsHomepage">토너먼트 홈으로 돌아가기</string>
 	<string name="weeklyPerfTypeRatingDistribution">주간 %s 레이팅 분포</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="other">이번 주의 %2$s 플레이어는 %1$s명입니다.</item>
 	</plurals>
@@ -942,9 +950,18 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
 </resources>
