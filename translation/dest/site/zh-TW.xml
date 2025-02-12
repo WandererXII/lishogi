@@ -101,6 +101,7 @@
 	<string name="recentGames">最近的棋局</string>
 	<string name="topGames">評分最高的棋局</string>
 	<string name="noGameFound">未找到遊戲</string>
+	<string name="pageNotFound">Page not found</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">試著從偏好設置中加入更多棋局</string>
 	<string name="openingExplorer">序盤瀏覽器</string>
 	<string name="xOpeningExplorer">%s開局瀏覽器</string>
@@ -319,6 +320,7 @@
 	<string name="tournament">錦標賽</string>
 	<string name="tournamentLeaderboard">錦標賽排行榜</string>
 	<string name="tournaments">錦標賽</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">錦標賽得分</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="other">%s錦標賽得分</item>
@@ -431,7 +433,10 @@
 	<string name="showAdvancedSettings">顯示進階設定</string>
 	<string name="makePrivateTournament">把錦標賽設定為私人，並設定密碼來限制進入。</string>
 	<string name="join">加入</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Pause</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">離開</string>
 	<string name="points">分數</string>
 	<string name="wins">勝</string>
@@ -488,6 +493,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">注意，這盤棋是計分的，但是沒有計時！</string>
 	<string name="toTrackYourProgress">註冊以跟蹤您的進度：</string>
 	<string name="goodMove">好棋</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">最佳着法！</string>
 	<string name="success">大功告成！</string>
 	<string name="thankYou">謝謝！</string>
@@ -520,6 +526,7 @@
 	<string name="replyToThisTopic">回复此话题</string>
 	<string name="reply">回复</string>
 	<string name="message">信息</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">创建话题</string>
 	<string name="reportAUser">举报用户</string>
 	<string name="user">用户</string>
@@ -582,7 +589,8 @@
 	<string name="defeatVsYInZ">%1$s在%3$s模式下輸給了%2$s</string>
 	<string name="drawVsYInZ">%1$s在%3$s模式下和%2$s平手</string>
 	<string name="timeline">时间线</string>
-	<string name="starting">开始时间：</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">开始时间：</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">所有資料是公開的，同時是可選的。</string>
 	<string name="yourCityRegionOrDepartment">您的城市、区域或省份。</string>
 	<string name="biographyDescription">Talk about yourself, your interests, what you like in shogi, your favourite openings, players, ...</string>
@@ -673,7 +681,6 @@
 	<string name="anythingTellParticipants">有什麼想對參與者說的話嗎？</string>
 	<string name="lishogiTournaments">Lishogi 錦標賽</string>
 	<string name="tournamentShields">錦標賽徽章</string>
-	<string name="tournamentFAQ">比赛常见问题</string>
 	<string name="tournamentOfficial">官方</string>
 	<string name="timeBeforeTournamentStarts">比赛准备时间</string>
 	<string name="averageCentipawnLoss">平均厘兵损失</string>
@@ -690,6 +697,7 @@
 	<string name="tournamentMayHaveBeenCanceled">它可能已被取消，假如所有的对手在比赛开始之前离开。</string>
 	<string name="returnToTournamentsHomepage">返回比赛主页</string>
 	<string name="weeklyPerfTypeRatingDistribution">本月%s的分数分布</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="other">本周%1$s位棋手下了%2$s模式的棋局</item>
 	</plurals>
@@ -942,9 +950,18 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
 </resources>
