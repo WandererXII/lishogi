@@ -103,6 +103,7 @@
 	<string name="recentGames">بازی‌های اخیر</string>
 	<string name="topGames">بازی‌های برتر</string>
 	<string name="noGameFound">هیچ بازی یافت نشد</string>
+	<string name="pageNotFound">Page not found</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">بازی‌های بیشتری از لیست ترجیحات لحاظ شوند؟</string>
 	<string name="openingExplorer">جویشگر حرکت گشاینده بازی</string>
 	<string name="xOpeningExplorer">حرکت گشاینده %s برای تنوع مورد بررسی</string>
@@ -336,6 +337,7 @@
 	<string name="tournament">مسابقه</string>
 	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">مسابقات</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">مجموع امتیازات مسابقات</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">مجموع امتیازات مسابقات:%s</item>
@@ -459,7 +461,10 @@
 	<string name="showAdvancedSettings">نمایش تنظیمات پیشرفته</string>
 	<string name="makePrivateTournament">تورنومنت را به حالت خصوصی در بیاورید و دسترسی را محدود به داشتن پسورد کنید</string>
 	<string name="join">وارد شدن</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">توقف</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">منصرف شدن</string>
 	<string name="points">امتیازها</string>
 	<string name="wins">بردها</string>
@@ -516,6 +521,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">مراقب باشید،این بازی رتبه بندی میشود اما بدون ساعت!</string>
 	<string name="toTrackYourProgress">To track your progress:</string>
 	<string name="goodMove">Good move</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">Best move!</string>
 	<string name="success">پیروزی</string>
 	<string name="thankYou">ممنون!</string>
@@ -550,6 +556,7 @@
 	<string name="replyToThisTopic">پاسخ به این موضوع</string>
 	<string name="reply">پاسخ</string>
 	<string name="message">پیام</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">ایجاد موضوع</string>
 	<string name="reportAUser">گزارش یک کاربر</string>
 	<string name="user">کاربر</string>
@@ -612,7 +619,8 @@
 	<string name="defeatVsYInZ">%1$s vs %2$s in %3$s</string>
 	<string name="drawVsYInZ">%1$s vs %2$s in %3$s</string>
 	<string name="timeline">جدول زمانی</string>
-	<string name="starting">شروع</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">شروع</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">تمامی اطلاعات عمومی و اختیاری است.</string>
 	<string name="yourCityRegionOrDepartment">Your city, region, or province.</string>
 	<string name="biographyDescription">درباره ی خودتان بگویید - به چه چیزی در شطرنج علاقه داریدو گشایش ها - بازی ها و بازیکنان مورد علاقه تان…</string>
@@ -706,7 +714,6 @@
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">مسابقات لی چس</string>
 	<string name="tournamentShields">Tournament shields</string>
-	<string name="tournamentFAQ">سوالات متداول مسابقات</string>
 	<string name="tournamentOfficial">Official</string>
 	<string name="timeBeforeTournamentStarts">زمان باقی مانده به شروع مسابقه</string>
 	<string name="averageCentipawnLoss">میانگین سرباز از دست داده</string>
@@ -723,6 +730,7 @@
 	<string name="tournamentMayHaveBeenCanceled">ممکن است مسابقه لغو شده باشد,شاید همه ی بازیکنان مسابقه را قبل از شروع ترک کرده باشند</string>
 	<string name="returnToTournamentsHomepage">بازگشت به صفحه اصلی مسابقات</string>
 	<string name="weeklyPerfTypeRatingDistribution">%s توزیع ریتینگ ماهیانه</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">در هفته گذشته،%1$s بازیکن در واریانت %2$s فعال بود.</item>
 		<item quantity="other">در هفته گذشته،%1$s بازیکن در واریانت %2$s فعال بودند.</item>
@@ -982,9 +990,18 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
 </resources>
