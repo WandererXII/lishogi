@@ -101,6 +101,7 @@
 	<string name="recentGames">Permainan terkini</string>
 	<string name="topGames">Permaninan kelas atas</string>
 	<string name="noGameFound">Permainan tidak ditemukan</string>
+	<string name="pageNotFound">Page not found</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Apakah ingin memasukan Permainan lainnya dari menu preferensi?</string>
 	<string name="openingExplorer">Penjelajah pembukaan</string>
 	<string name="xOpeningExplorer">Menjelajahi pembukaan %s</string>
@@ -319,6 +320,7 @@
 	<string name="tournament">Turnamen</string>
 	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">Turnamen</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">Poin Turnamen</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="other">%s poin turnamen</item>
@@ -431,7 +433,10 @@
 	<string name="showAdvancedSettings">Tampilkan pengaturan lanjutan</string>
 	<string name="makePrivateTournament">Jadikan turnamen pribadi, dan batasi akses dengan kata sandi</string>
 	<string name="join">Gabung</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Jeda</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">Keluar</string>
 	<string name="points">Poin</string>
 	<string name="wins">Menang</string>
@@ -488,6 +493,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">Awas, permainan ini pake rating namun tanpa pake waktu!</string>
 	<string name="toTrackYourProgress">To track your progress:</string>
 	<string name="goodMove">Good move</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">Best move!</string>
 	<string name="success">Berhasil</string>
 	<string name="thankYou">Terima Kasih!</string>
@@ -520,6 +526,7 @@
 	<string name="replyToThisTopic">Jawab topik ini</string>
 	<string name="reply">Jawab</string>
 	<string name="message">Pesan</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">Buat topik</string>
 	<string name="reportAUser">Laporkan pengguna</string>
 	<string name="user">Pengguna</string>
@@ -582,7 +589,8 @@
 	<string name="defeatVsYInZ">%1$s melawan %2$s dalam permainan %3$s</string>
 	<string name="drawVsYInZ">%1$s melawan %2$s dalam permainan %3$s</string>
 	<string name="timeline">Timeline</string>
-	<string name="starting">Mulai:</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">Mulai:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">Semua informasi bersifat publik jika dikehendaki.</string>
 	<string name="yourCityRegionOrDepartment">Your city, region, or province.</string>
 	<string name="biographyDescription">Ceritakan tentang anda, apa yang anda sukai dalam catur, pembukaan kesukaan, permainan, pemain…</string>
@@ -673,7 +681,6 @@
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Lishogi tournaments</string>
 	<string name="tournamentShields">Tournament shields</string>
-	<string name="tournamentFAQ">Arena Turnamen FAQ</string>
 	<string name="tournamentOfficial">Official</string>
 	<string name="timeBeforeTournamentStarts">Waktu sebelum turnamen dimulai</string>
 	<string name="averageCentipawnLoss">Rata-rata poin kekalahan</string>
@@ -690,6 +697,7 @@
 	<string name="tournamentMayHaveBeenCanceled">turnamen harus dibatalkan, jika semua pemain meninggalkannya sebelum turnamen dimulai.</string>
 	<string name="returnToTournamentsHomepage">Kembali ke laman turnamen</string>
 	<string name="weeklyPerfTypeRatingDistribution">Distribusi rating %s bulanan</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="other">%1$s %2$s pemain minggu ini.</item>
 	</plurals>
@@ -942,9 +950,18 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
 </resources>
