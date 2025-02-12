@@ -101,6 +101,7 @@
 	<string name="recentGames">最近のゲーム</string>
 	<string name="topGames">トップのゲーム</string>
 	<string name="noGameFound">ゲームが見つかりません</string>
+	<string name="pageNotFound">Page not found</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">設定メニューからさらに広い範囲を指定しますか？</string>
 	<string name="openingExplorer">序盤探索</string>
 	<string name="xOpeningExplorer">%s 序盤探索</string>
@@ -319,6 +320,7 @@
 	<string name="tournament">トーナメント</string>
 	<string name="tournamentLeaderboard">トーナメント優勝者</string>
 	<string name="tournaments">トーナメント</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">トーナメントポイント</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="other">%s トーナメントポイント</item>
@@ -432,7 +434,10 @@
 	<string name="showAdvancedSettings">「高度な設定」を表示</string>
 	<string name="makePrivateTournament">トーナメントを「非公開」にすると参加にパスワードが必要になります</string>
 	<string name="join">参加する</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">一時停止</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">一時停止する</string>
 	<string name="points">ポイント</string>
 	<string name="wins">勝</string>
@@ -489,6 +494,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">注意！レーティング対象ですが時間無制限です</string>
 	<string name="toTrackYourProgress">履歴を保存するには:</string>
 	<string name="goodMove">好手</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">最善手！</string>
 	<string name="success">成功</string>
 	<string name="thankYou">ありがとう！</string>
@@ -521,6 +527,7 @@
 	<string name="replyToThisTopic">このトピックに返信</string>
 	<string name="reply">返信</string>
 	<string name="message">メッセージ</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">トピックを作成</string>
 	<string name="reportAUser">プレイヤーの報告</string>
 	<string name="user">プレイヤー</string>
@@ -583,7 +590,8 @@
 	<string name="defeatVsYInZ">%1$s 対 %2$s、%3$s で</string>
 	<string name="drawVsYInZ">%1$s 対 %2$s、%3$s で</string>
 	<string name="timeline">タイムライン</string>
-	<string name="starting">開始時刻：</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">開始時刻：</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">すべての情報は任意で、かつ公開されます。</string>
 	<string name="yourCityRegionOrDepartment">居住地の市、地域、または県</string>
 	<string name="biographyDescription">自分自身、興味のあること、将棋のどこが好きか、好きな序盤の形、棋士など...を語ってください。</string>
@@ -674,7 +682,6 @@
 	<string name="anythingTellParticipants">参加者に伝えたいことはありますか?</string>
 	<string name="lishogiTournaments">Lishogiトーナメント</string>
 	<string name="tournamentShields">トーナメント表彰楯</string>
-	<string name="tournamentFAQ">アリーナ・トーナメントFAQ</string>
 	<string name="tournamentOfficial">公式</string>
 	<string name="timeBeforeTournamentStarts">開始までの時間</string>
 	<string name="averageCentipawnLoss">平均センチポーン差</string>
@@ -691,6 +698,7 @@
 	<string name="tournamentMayHaveBeenCanceled">開始前に全員が退場してキャンセルされた可能性があります。</string>
 	<string name="returnToTournamentsHomepage">トーナメントトップに戻る</string>
 	<string name="weeklyPerfTypeRatingDistribution">月別 %s レーティング分布</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="other">この 1 週間の参加者 %1$s 人（%2$s）。</item>
 	</plurals>
@@ -943,9 +951,18 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
 </resources>
