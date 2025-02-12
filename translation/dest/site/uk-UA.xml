@@ -107,6 +107,7 @@
 	<string name="recentGames">Останні ігри</string>
 	<string name="topGames">Найкращі ігри</string>
 	<string name="noGameFound">Не знайдено гри</string>
+	<string name="pageNotFound">Page not found</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Може включити ще ігор з вкладки лаштів?</string>
 	<string name="openingExplorer">Провідник початків</string>
 	<string name="xOpeningExplorer">Провідник початку %s</string>
@@ -370,6 +371,7 @@
 	<string name="tournament">Змаг</string>
 	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">Змаги</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">Очки змагу</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s очко змагу</item>
@@ -516,7 +518,10 @@
 	<string name="showAdvancedSettings">Покаж додаткові лашти</string>
 	<string name="makePrivateTournament">Зроби особистий змаг з ключним доступом</string>
 	<string name="join">Долучись</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Pause</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">Вилучись</string>
 	<string name="points">Очки</string>
 	<string name="wins">Перемоги</string>
@@ -573,6 +578,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">Увага! Щабельна гра, але без обмежень часу!</string>
 	<string name="toTrackYourProgress">Стежити за своїм поступом:</string>
 	<string name="goodMove">Добрий хід</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">Найкращий хід!</string>
 	<string name="success">Успіх</string>
 	<string name="thankYou">Дякуємо!</string>
@@ -611,6 +617,7 @@
 	<string name="replyToThisTopic">Відповідж в дописі</string>
 	<string name="reply">Відповідж</string>
 	<string name="message">Звістка</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">Створи допис</string>
 	<string name="reportAUser">Допові́дь про користувача</string>
 	<string name="user">Користувач</string>
@@ -673,7 +680,8 @@
 	<string name="defeatVsYInZ">%1$s з %2$s в %3$s</string>
 	<string name="drawVsYInZ">%1$s з %2$s в %3$s</string>
 	<string name="timeline">Смуга подій</string>
-	<string name="starting">Початок:</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">Початок:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">Уся інформація публічна та необов\'язкова.</string>
 	<string name="yourCityRegionOrDepartment">Твоє місто, місцина чи область.</string>
 	<string name="biographyDescription">Розкажи про себе, інтереси, чому шьоґі, улюблені початки, гравці ітд.</string>
@@ -773,7 +781,6 @@
 	<string name="anythingTellParticipants">Щось хочеш розказати учасникам?</string>
 	<string name="lishogiTournaments">Lishogi змаги</string>
 	<string name="tournamentShields">Tournament shields</string>
-	<string name="tournamentFAQ">Часті запитання про змаги</string>
 	<string name="tournamentOfficial">Затверджені</string>
 	<string name="timeBeforeTournamentStarts">Час до початку змагу</string>
 	<string name="averageCentipawnLoss">Середня втрата сотих пішок</string>
@@ -790,6 +797,7 @@
 	<string name="tournamentMayHaveBeenCanceled">Він міг бути скасований, якщо всі гравці залишили його до початку.</string>
 	<string name="returnToTournamentsHomepage">Повернутися до домашньої сторінки турніру</string>
 	<string name="weeklyPerfTypeRatingDistribution">Місячний %s розподіл за рейтинґом</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">%1$s %2$s гравець цього тижня.</item>
 		<item quantity="few">%1$s %2$s гравців цього тижня.</item>
@@ -1063,9 +1071,18 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
 </resources>
