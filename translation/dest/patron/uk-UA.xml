@@ -70,6 +70,9 @@
 	<string name="checkOutProfile">Перевірте свою сторінку профілю!</string>
 	<string name="nowLifetime">Тепер ти - пожиттєвий Покровитель Lishogi!</string>
 	<string name="nowOneMonth">Тепер Ви Покровитель Lishogi на один місяць!</string>
+	<string name="justBecamePatron">You just became a lishogi Patron.</string>
 	<string name="downgradeNextMonth">Через один місяць з Вас НЕ буде списано кошти знову, і ваш обліковий запис Lishogi буде повернено до звичайного.</string>
 	<string name="donationPolicy">Donation policy</string>
+	<string name="expired">Patron account expired</string>
+	<string name="considerRenewing">Please consider renewing it!</string>
 </resources>
