@@ -67,6 +67,9 @@ Tuy nhiên, Patron được quyền khoe khoang với một huy hiệu mới.</s
 	<string name="checkOutProfile">Hãy xem trang cá nhân của bạn!</string>
 	<string name="nowLifetime">Giờ bạn đã trở thành Người bảo trợ Lishogi trọn đời!</string>
 	<string name="nowOneMonth">Giờ bạn đã trở thành Người bảo trợ Lishogi trong một tháng!</string>
+	<string name="justBecamePatron">You just became a lishogi Patron.</string>
 	<string name="downgradeNextMonth">Sau một tháng, bạn sẽ KHÔNG phải trả tiền lại nữa và tài khoản Lishogi của bạn sẽ quay trở lại tài khoản thường.</string>
 	<string name="donationPolicy">Chính sách quyên góp</string>
+	<string name="expired">Patron account expired</string>
+	<string name="considerRenewing">Please consider renewing it!</string>
 </resources>
