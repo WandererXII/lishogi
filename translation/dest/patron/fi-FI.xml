@@ -67,6 +67,9 @@ Tai voit %s.</string>
 	<string name="checkOutProfile">Katsohan profiilisivuasi!</string>
 	<string name="nowLifetime">Olet nyt elinikäinen Lishogiin tukija!</string>
 	<string name="nowOneMonth">Olet nyt Lishogiin tukija kuukauden ajan!</string>
+	<string name="justBecamePatron">You just became a lishogi Patron.</string>
 	<string name="downgradeNextMonth">Kuukauden päästä sinua EI veloiteta uudelleen, ja Lishogi-tilisi palautuu ilmaistiliksi.</string>
 	<string name="donationPolicy">Donation policy</string>
+	<string name="expired">Patron account expired</string>
+	<string name="considerRenewing">Please consider renewing it!</string>
 </resources>
