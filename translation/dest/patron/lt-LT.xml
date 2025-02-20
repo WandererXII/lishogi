@@ -70,6 +70,9 @@ Tačiau Rėmėjai gauna pagyrų teises ir šaunią naują profilio piktogramą.<
 	<string name="checkOutProfile">Patikrinkite savo profilio puslapį!</string>
 	<string name="nowLifetime">Jūs esate Lishogi rėmėjas visam gyvenimui!</string>
 	<string name="nowOneMonth">Jūs esate Lishogi rėmėjas vienam mėnesiui!</string>
+	<string name="justBecamePatron">You just became a lishogi Patron.</string>
 	<string name="downgradeNextMonth">Po mėnesio pinigai nebus nuskaityti dar kartą ir jūsų Lishogi paskyra atsistatys į įprastą.</string>
 	<string name="donationPolicy">Donation policy</string>
+	<string name="expired">Patron account expired</string>
+	<string name="considerRenewing">Please consider renewing it!</string>
 </resources>
