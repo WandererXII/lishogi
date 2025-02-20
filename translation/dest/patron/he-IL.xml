@@ -70,6 +70,9 @@
 	<string name="checkOutProfile">בדוק את עמוד הפרופיל שלך!</string>
 	<string name="nowLifetime">אתה עכשיו פטרון לכל החיים!</string>
 	<string name="nowOneMonth">אתה עכשיו פטרון לחודש אחד!</string>
+	<string name="justBecamePatron">You just became a lishogi Patron.</string>
 	<string name="downgradeNextMonth">בעוד חודש לא תחויב שוב, וחשבון ה- Lishogi שלך יחזור לחשבון רגיל.</string>
 	<string name="donationPolicy">Donation policy</string>
+	<string name="expired">Patron account expired</string>
+	<string name="considerRenewing">Please consider renewing it!</string>
 </resources>
