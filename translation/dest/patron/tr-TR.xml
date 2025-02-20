@@ -69,6 +69,9 @@ Ancak Destekçilerimiz, müthiş profil simgeleriyle sonuna kadar övünme hakk�
 	<string name="checkOutProfile">Profil sayfanıza bir bakın derim!</string>
 	<string name="nowLifetime">Bu desteğiniz bize bir ömür yeter!</string>
 	<string name="nowOneMonth">Bir aylığına Lishogi Destekçisi oldunuz!</string>
+	<string name="justBecamePatron">You just became a lishogi Patron.</string>
 	<string name="downgradeNextMonth">Bir ay içinde sizden tekrar ücret talep edilmeyecek ve Lishogi hesabınız ücretsiz hâline dönecek.</string>
 	<string name="donationPolicy">Bağış politikası</string>
+	<string name="expired">Patron account expired</string>
+	<string name="considerRenewing">Please consider renewing it!</string>
 </resources>
