@@ -1007,4 +1007,5 @@
 	<string name="dateStartedNewest">Date started (newest)</string>
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
+	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
 </resources>
