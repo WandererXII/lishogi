@@ -120,23 +120,22 @@
 	<string name="combatComplete">おめでとうございます！どうやって将棋の駒を戦わせるかを覚えました！</string>
 	<string name="checkInOne">1 手で王手</string>
 	<string name="attackTheOpponentsKing">相手の王将/玉将を攻撃する</string>
-	<string name="checkInOneIntro">王手するには相手の王将/玉将を攻撃します。相手は防がなければならない！</string>
+	<string name="checkInOneIntro">王手するには相手の王将/玉将を攻撃します。相手は防ぐしかありません。</string>
 	<string name="checkInOneGoal">1 手で相手の王将/玉将を
 狙ってください！</string>
 	<string name="checkInOneComplete">おめでとうございます！相手の王将/玉将を王手して、防ぐ手を指させました！</string>
 	<string name="outOfCheck">王手を防ぐ</string>
 	<string name="defendYourKing">王将/玉将を守る</string>
 	<string name="outOfCheckIntro">王手されました！逃げるか合駒で防がなければなりません。</string>
-	<string name="ifYourKingIsAttacked">自玉に王手がかけられると、手抜きは出来ません</string>
+	<string name="ifYourKingIsAttacked">王手がかけられた場合、次の手では必ず王手から逃れなければなりません。</string>
 	<string name="escapeWithTheKing">王将/玉将を逃がして！</string>
-	<string name="theKingCannotEscapeButBlock">逃げ道はないが、
-途中に合駒はできる！</string>
-	<string name="youCanGetOutOfCheckByTaking">相手の駒を取ることでも
-王手から逃れられる。</string>
+	<string name="theKingCannotEscapeButBlock">駒の利きを他の駒でブロックすることを「合駒」といいます。
+逃げ道がない場合は、合駒を使って王手から逃れましょう！</string>
+	<string name="youCanGetOutOfCheckByTaking">相手の駒を取ることでも王手から逃れることができます。</string>
 	<string name="thisKnightIsCheckingThroughYourDefenses">桂馬は守りの駒を跳びこえて
 王手してくる！</string>
 	<string name="getOutOfCheck">王手から抜け出してください！</string>
-	<string name="watchOutForYourOpponentsReply">相手の返信に気を付けてください！</string>
+	<string name="watchOutForYourOpponentsReply">相手の応手に気を付けてください！</string>
 	<string name="escapeOrBlock">王将/玉将を逃がすか
 合駒で防いでください！</string>
 	<string name="outOfCheckComplete">おめでとうございます！王将/玉将を取られたらおしまいなので、王手が来たら必ず防ぐこと！</string>
@@ -188,7 +187,7 @@
 	<string name="goldBishopRook">金将 &lt; 角行 &lt; 飛車
 最も価値の高い駒を取りましょう。</string>
 	<string name="takeAllThePiecesStartingFromTheMost">価値の最も高い駒から最も低い駒まで、順番にすべての駒を取りましょう！</string>
-	<string name="anExchangeIs">駒の交換とは、自分の駒を犠牲に相手の駒を取ることです。銀将で飛車を取るか、金将で桂馬を取るか、どちらがより良い交換になるでしょう？</string>
+	<string name="anExchangeIs">駒の交換とは、自分の駒を犠牲に相手の駒を取ることです。飛車で銀将を取るか、桂馬で金将を取るか、どちらがより良い交換になるでしょう？</string>
 	<string name="theOpponentJustGaveAway">相手は貴重な飛車をこちらが取れる状態にしてしまいました。取ってしまいますか？</string>
 	<string name="yourKingsValueIsInfinite">飛車と比較すると、王将/玉将の価値は無限です。最善手は何でしょう？</string>
 	<string name="twoGeneralsAreBetter">2つの金将/銀将は1つの大駒よりも価値があることがあります。桂馬と香車は金将/銀将より強い場合もあります。角行を犠牲にし、2つの金将/銀将を取る方法を見つけましょう。</string>

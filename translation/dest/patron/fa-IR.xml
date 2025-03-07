@@ -68,6 +68,9 @@
 	<string name="checkOutProfile">صفحه کاربری خود را بررسی کنید!</string>
 	<string name="nowLifetime">شما هم‌اکنون یک پشتیبانِ مادام‌العمرِ Lishogi هستید!</string>
 	<string name="nowOneMonth">شما هم‌اکنون برای یک ماه یک پشتیبانِ Lishogi هستید!</string>
+	<string name="justBecamePatron">You just became a lishogi Patron.</string>
 	<string name="downgradeNextMonth">طی یک ماه، دوباره برای شما بدهکاری ثبت نخواهد شد، و حساب کاربری Lishogi شما به یک حساب کاربری معمولی برگردانده خواهد شد.</string>
 	<string name="donationPolicy">Donation policy</string>
+	<string name="expired">Patron account expired</string>
+	<string name="considerRenewing">Please consider renewing it!</string>
 </resources>
