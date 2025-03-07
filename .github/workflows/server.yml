@@ -37,4 +37,8 @@ jobs:
           java-version: 17
           cache: sbt
       - uses: sbt/setup-sbt@v1
+        with:
+          sbt-version: 1.10.7
+          java-home: /opt/hostedtoolcache/Java_Temurin-Hotspot_jdk/17.0.14-7/x64
+      - run: chmod +x ./lila.sh
       - run: ./lila.sh "compile;test;scalafmtCheck;"
