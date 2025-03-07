@@ -968,4 +968,5 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="dateStartedNewest">Date started (newest)</string>
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
+	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
 </resources>
