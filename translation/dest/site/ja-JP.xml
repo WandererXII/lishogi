@@ -102,6 +102,7 @@
 	<string name="topGames">トップのゲーム</string>
 	<string name="noGameFound">ゲームが見つかりません</string>
 	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">設定メニューからさらに広い範囲を指定しますか？</string>
 	<string name="openingExplorer">序盤探索</string>
 	<string name="xOpeningExplorer">%s 序盤探索</string>
@@ -207,6 +208,7 @@
 	</plurals>
 	<string name="confirm">Confirm</string>
 	<string name="cancel">キャンセル</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">時間切れ</string>
 	<string name="drawOfferSent">引き分けの申し込みを送信しました</string>
 	<string name="drawOfferDeclined">引き分けの申し込みは拒否されました</string>
@@ -655,10 +657,13 @@
 	<string name="termsOfService">利用規約（英文）</string>
 	<string name="sourceCode">ソースコード</string>
 	<string name="simultaneousExhibitions">多面指し</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">ホスト</string>
 	<string name="hostColorX">ホストの手番: %s</string>
 	<string name="createdSimuls">新たな多面指し</string>
 	<string name="hostANewSimul">新たな多面指しを作る</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">多面指しが見つかりません</string>
 	<string name="noSimulExplanation">この多面指しは存在しません</string>
 	<string name="returnToSimulHomepage">多面指しトップに戻る</string>
@@ -969,4 +974,14 @@
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
 	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>
