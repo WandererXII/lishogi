@@ -104,6 +104,7 @@
 	<string name="topGames">En yüksek puanlı oyunlar</string>
 	<string name="noGameFound">Oyun bulunamadı</string>
 	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Seçenekler menüsünden daha fazla oyun eklemeyi deneyebilirsiniz.</string>
 	<string name="openingExplorer">Açılış kâşifi</string>
 	<string name="xOpeningExplorer">%s açılış kâşifi</string>
@@ -217,6 +218,7 @@
 	</plurals>
 	<string name="confirm">Onayla</string>
 	<string name="cancel">İptal et</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">Zaman doldu</string>
 	<string name="drawOfferSent">Beraberlik teklifi gönderildi</string>
 	<string name="drawOfferDeclined">Beraberlik teklifi reddedildi</string>
@@ -687,10 +689,13 @@
 	<string name="termsOfService">Hizmet koşulları</string>
 	<string name="sourceCode">Kaynak Kodu</string>
 	<string name="simultaneousExhibitions">Eş zamanlı gösteriler</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">Ev Sahibi</string>
 	<string name="hostColorX">Ev sahibi rengi: %s</string>
 	<string name="createdSimuls">Yeni oluşturulan eş zamanlı gösteriler</string>
 	<string name="hostANewSimul">Eş zamanlı gösteri düzenle</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">Eş zamanlı gösteri bulunamadı</string>
 	<string name="noSimulExplanation">Eş zamanlı gösteri yok.</string>
 	<string name="returnToSimulHomepage">Eş zamanlı gösteri sayfasına geri dön</string>
@@ -1008,4 +1013,16 @@
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
 	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s candidate player</item>
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s accepted player</item>
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>
