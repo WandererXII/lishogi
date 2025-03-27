@@ -104,6 +104,7 @@
 	<string name="topGames">Toppartijen</string>
 	<string name="noGameFound">Geen partij gevonden</string>
 	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Misschien meer partijen toevoegen via het voorkeuren-menu?</string>
 	<string name="openingExplorer">Openingverkenner</string>
 	<string name="xOpeningExplorer">%s openingsverkenner</string>
@@ -217,6 +218,7 @@
 	</plurals>
 	<string name="confirm">Confirm</string>
 	<string name="cancel">Annuleren</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">Tijd voorbij</string>
 	<string name="drawOfferSent">Remiseaanbod verstuurd</string>
 	<string name="drawOfferDeclined">Remiseaanbod geweigerd</string>
@@ -687,10 +689,13 @@
 	<string name="termsOfService">Algemene voorwaarden</string>
 	<string name="sourceCode">Broncode</string>
 	<string name="simultaneousExhibitions">Simultaans</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">Simultaangever</string>
 	<string name="hostColorX">Kleur simultaangever: %s</string>
 	<string name="createdSimuls">Nieuwe simultaans</string>
 	<string name="hostANewSimul">Geef een nieuwe simultaan</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">Simultaan niet gevonden</string>
 	<string name="noSimulExplanation">Deze simultaan bestaat niet.</string>
 	<string name="returnToSimulHomepage">Ga terug naar de Simultaan hoofdpagina</string>
@@ -1008,4 +1013,16 @@
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
 	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s candidate player</item>
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s accepted player</item>
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>
