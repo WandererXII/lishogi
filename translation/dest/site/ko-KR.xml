@@ -102,6 +102,7 @@
 	<string name="topGames">최고 레이팅 게임</string>
 	<string name="noGameFound">게임을 찾을 수 없습니다.</string>
 	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">설정에서 더 많은 게임을 포함하세요.</string>
 	<string name="openingExplorer">오프닝 탐색기</string>
 	<string name="xOpeningExplorer">%s 오프닝 탐색기</string>
@@ -207,6 +208,7 @@
 	</plurals>
 	<string name="confirm">Confirm</string>
 	<string name="cancel">취소</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">시간 초과</string>
 	<string name="drawOfferSent">무승부를 요청했습니다</string>
 	<string name="drawOfferDeclined">무승부 요청이 거절 되었습니다</string>
@@ -654,10 +656,13 @@
 	<string name="termsOfService">이용 약관</string>
 	<string name="sourceCode">소스 코드</string>
 	<string name="simultaneousExhibitions">동시대국</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">호스트</string>
 	<string name="hostColorX">호스트의 색: %s</string>
 	<string name="createdSimuls">새롭게 생성된 동시대국</string>
 	<string name="hostANewSimul">새 동시대국을 생성하기</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">동시대국을 찾을 수 없습니다</string>
 	<string name="noSimulExplanation">존재하지 않는 동시대국입니다.</string>
 	<string name="returnToSimulHomepage">동시대국 홈으로 돌아가기</string>
@@ -968,4 +973,14 @@
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
 	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>
