@@ -111,6 +111,8 @@
 	<string name="recentGames">أحدث المباريات</string>
 	<string name="topGames">أفضل الالعاب</string>
 	<string name="noGameFound">لم يتم العثور على مباريات</string>
+	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">أترغب في ضم مباريات أكثر من قائمة التفضيلات؟</string>
 	<string name="openingExplorer">مستكشف الافتتاحيات</string>
 	<string name="xOpeningExplorer">مستكشف افتتاحيات %s</string>
@@ -256,6 +258,7 @@
 	</plurals>
 	<string name="confirm">Confirm</string>
 	<string name="cancel">إلغاء</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">انتهى الوقت</string>
 	<string name="drawOfferSent">تم ارسال عرض التعادل</string>
 	<string name="drawOfferDeclined">تم رفض عرض التعادل</string>
@@ -404,6 +407,7 @@
 	<string name="tournament">مسابقة</string>
 	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">مسابقات</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">نقاط المسابقة</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="zero">نقاط المسابقة %s</item>
@@ -571,7 +575,10 @@
 	<string name="showAdvancedSettings">إظهار الإعدادات المتقدمة</string>
 	<string name="makePrivateTournament">جعل البطولة خاصة، وتقييد الوصول بكلمة مرور</string>
 	<string name="join">إشترك</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Pause</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">انسحاب</string>
 	<string name="points">النقاط</string>
 	<string name="wins">الفوز</string>
@@ -628,6 +635,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">كن على حذر, هذه المباراة مقيمة وبدون توقيت!</string>
 	<string name="toTrackYourProgress">لمتابعة تقدمك:</string>
 	<string name="goodMove">نقلة جيدة</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">أفضل نقلة</string>
 	<string name="success">تم بنجاح</string>
 	<string name="thankYou">شكرًا لك!</string>
@@ -670,6 +678,7 @@
 	<string name="replyToThisTopic">الرد على هذا الموضوع</string>
 	<string name="reply">الرد</string>
 	<string name="message">رسالة</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">إنشاء الموضوع</string>
 	<string name="reportAUser">الإبلاغ عن مستخدم</string>
 	<string name="user">المستخدم</string>
@@ -732,7 +741,8 @@
 	<string name="defeatVsYInZ">%1$s ضد %2$s في %3$s</string>
 	<string name="drawVsYInZ">%1$s ضد %2$s في %3$s</string>
 	<string name="timeline">الجدول الزمني</string>
-	<string name="starting">تبدأ في:</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">تبدأ في:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">كل المعلومات متاحة للجميع وهي اختيارية.</string>
 	<string name="yourCityRegionOrDepartment">المدينة والمنطقة</string>
 	<string name="biographyDescription">Talk about yourself, your interests, what you like in shogi, your favourite openings, players, ...</string>
@@ -811,10 +821,13 @@
 	<string name="termsOfService">شروط الخدمة</string>
 	<string name="sourceCode">الكود المصدر</string>
 	<string name="simultaneousExhibitions">معارض التزامنيات</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">المضيف</string>
 	<string name="hostColorX">لون المضيف: %s</string>
 	<string name="createdSimuls">تزامنيات مُنشأة حديثاً</string>
 	<string name="hostANewSimul">استضف تزامنية جديدة</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">التزامنية غير موجودة</string>
 	<string name="noSimulExplanation">معرض هذه التزامنية غير موجود.</string>
 	<string name="returnToSimulHomepage">العودة لصفحة التزامنية</string>
@@ -838,7 +851,6 @@
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Lishogi tournaments</string>
 	<string name="tournamentShields">Tournament shields</string>
-	<string name="tournamentFAQ">مسابقة أرينا (سؤال وجواب)</string>
 	<string name="tournamentOfficial">رسمية</string>
 	<string name="timeBeforeTournamentStarts">الوقت حتى بداية المسابقة</string>
 	<string name="averageCentipawnLoss">معدل الخسارة مقيمة ب 0.01 بيدق</string>
@@ -855,6 +867,7 @@
 	<string name="tournamentMayHaveBeenCanceled">إذا غادر جميع اللاعبين قبل بداية المسابقة قإنها تُلغى</string>
 	<string name="returnToTournamentsHomepage">الرجوع إلى المسابقات</string>
 	<string name="weeklyPerfTypeRatingDistribution">توزيع التقييم الأسبوعي لـ %s</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="zero">%2$s %1$s لاعب هذا الإسبوع.</item>
 		<item quantity="one">%2$s %1$s لاعب هذا الإسبوع.</item>
@@ -1142,9 +1155,42 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
+	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
+	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
+	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="zero">%s candidate players</item>
+		<item quantity="one">%s candidate player</item>
+		<item quantity="two">%s candidate players</item>
+		<item quantity="few">%s candidate players</item>
+		<item quantity="many">%s candidate players</item>
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="zero">%s accepted players</item>
+		<item quantity="one">%s accepted player</item>
+		<item quantity="two">%s accepted players</item>
+		<item quantity="few">%s accepted players</item>
+		<item quantity="many">%s accepted players</item>
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>

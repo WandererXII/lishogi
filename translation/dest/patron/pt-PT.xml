@@ -68,6 +68,9 @@ No entanto, os patronos têm direito a um novo ícone de perfil fixe.</string>
 	<string name="checkOutProfile">Visita a tua página de perfil!</string>
 	<string name="nowLifetime">Agora é um patrono do Lishogi vitalício!</string>
 	<string name="nowOneMonth">Agora és um patrono do Lishogi por um mês!</string>
+	<string name="justBecamePatron">You just became a lishogi Patron.</string>
 	<string name="downgradeNextMonth">Em um mês, tu NÃO serás cobrado novamente, e a tua conta Lishogi voltará para uma conta regular.</string>
 	<string name="donationPolicy">Donation policy</string>
+	<string name="expired">Patron account expired</string>
+	<string name="considerRenewing">Please consider renewing it!</string>
 </resources>
