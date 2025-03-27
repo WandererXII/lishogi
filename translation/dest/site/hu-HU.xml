@@ -104,6 +104,7 @@
 	<string name="topGames">Legjobb játszmák</string>
 	<string name="noGameFound">Nem található játszma</string>
 	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">És ha több játszmát beveszel a beállítások menüben?</string>
 	<string name="openingExplorer">Megnyitás böngésző</string>
 	<string name="xOpeningExplorer">%s megnyitás böngésző</string>
@@ -217,6 +218,7 @@
 	</plurals>
 	<string name="confirm">Confirm</string>
 	<string name="cancel">Mégse</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">Lejárt az idő</string>
 	<string name="drawOfferSent">Döntetlen felajánlás elküldve</string>
 	<string name="drawOfferDeclined">Döntetlen felajánlás elutasítva</string>
@@ -687,10 +689,13 @@
 	<string name="termsOfService">Használati útmutató</string>
 	<string name="sourceCode">Forráskód</string>
 	<string name="simultaneousExhibitions">Szimultán játékok</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">Létrehozó</string>
 	<string name="hostColorX">Szimultánt adó színe: %s</string>
 	<string name="createdSimuls">Új szimultán játékok</string>
 	<string name="hostANewSimul">Új szimultán csata létrehozása</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">Szimultán csata nem található</string>
 	<string name="noSimulExplanation">Ez a szimultán játék nem létezik.</string>
 	<string name="returnToSimulHomepage">Visszatérés a szimultán játékok főoldalára</string>
@@ -1008,4 +1013,16 @@
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
 	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s candidate player</item>
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s accepted player</item>
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>
