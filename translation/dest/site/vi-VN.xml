@@ -102,6 +102,7 @@
 	<string name="topGames">Các ván đấu hàng đầu</string>
 	<string name="noGameFound">Không tìm thấy trò chơi</string>
 	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Bạn có muốn thêm nhiều ván đấu hơn từ mục lục?</string>
 	<string name="openingExplorer">Sách khai cuộc</string>
 	<string name="xOpeningExplorer">Sách khai cuộc %s</string>
@@ -207,6 +208,7 @@
 	</plurals>
 	<string name="confirm">Xác nhận</string>
 	<string name="cancel">Hủy bỏ</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">Hết giờ</string>
 	<string name="drawOfferSent">Đã gửi đề nghị hòa</string>
 	<string name="drawOfferDeclined">Từ chối hoà</string>
@@ -655,10 +657,13 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="termsOfService">Điều khoản Dịch vụ</string>
 	<string name="sourceCode">Mã Nguồn</string>
 	<string name="simultaneousExhibitions">Đấu cờ đồng loạt</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">Người chủ trì</string>
 	<string name="hostColorX">Màu quân của người chủ trì: %s</string>
 	<string name="createdSimuls">Sự kiện cờ đồng loạt mới tạo</string>
 	<string name="hostANewSimul">Chủ trì một sự kiện cờ đồng loạt mới</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">Không tìm thấy ván cờ đồng loạt</string>
 	<string name="noSimulExplanation">Sự kiện cờ đồng loạt này không tồn tại.</string>
 	<string name="returnToSimulHomepage">Trở lại trang chủ sự kiện cờ đồng loạt</string>
@@ -969,4 +974,14 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
 	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>
