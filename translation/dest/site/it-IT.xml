@@ -104,6 +104,7 @@
 	<string name="topGames">Migliori partite</string>
 	<string name="noGameFound">Nessun partita trovata</string>
 	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Prova a includere più partite dal menu Preferenze.</string>
 	<string name="openingExplorer">Esplora aperture</string>
 	<string name="xOpeningExplorer">Explorer delle aperture %s</string>
@@ -217,6 +218,7 @@
 	</plurals>
 	<string name="confirm">Confirm</string>
 	<string name="cancel">Annulla</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">Tempo scaduto</string>
 	<string name="drawOfferSent">Offerta di patta inviata</string>
 	<string name="drawOfferDeclined">Offerta di patta rifiutata</string>
@@ -687,10 +689,13 @@
 	<string name="termsOfService">Termini di servizio</string>
 	<string name="sourceCode">Codice sorgente</string>
 	<string name="simultaneousExhibitions">Esibizioni simultanee</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">Simultaneista</string>
 	<string name="hostColorX">Colore del simultaneista: %s</string>
 	<string name="createdSimuls">Simultanee recenti</string>
 	<string name="hostANewSimul">Crea una nuova simultanea</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">Simultanea non trovata</string>
 	<string name="noSimulExplanation">Questa esibizione simultanea non esiste.</string>
 	<string name="returnToSimulHomepage">Ritorna alla pagina delle simultanee</string>
@@ -1009,4 +1014,16 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
 	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s candidate player</item>
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s accepted player</item>
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>
