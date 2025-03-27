@@ -102,6 +102,7 @@
 	<string name="topGames">評分最高的棋局</string>
 	<string name="noGameFound">未找到遊戲</string>
 	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">試著從偏好設置中加入更多棋局</string>
 	<string name="openingExplorer">序盤瀏覽器</string>
 	<string name="xOpeningExplorer">%s開局瀏覽器</string>
@@ -207,6 +208,7 @@
 	</plurals>
 	<string name="confirm">Confirm</string>
 	<string name="cancel">取消</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">時間到</string>
 	<string name="drawOfferSent">和棋請求已發送</string>
 	<string name="drawOfferDeclined">和棋請求被拒絕</string>
@@ -654,10 +656,13 @@
 	<string name="termsOfService">服務條款</string>
 	<string name="sourceCode">原始碼</string>
 	<string name="simultaneousExhibitions">車輪戰</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">主持</string>
 	<string name="hostColorX">主持者使用旗子顏色:%s</string>
 	<string name="createdSimuls">最近开始的同步赛</string>
 	<string name="hostANewSimul">主持新同步赛</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">找不到该同步赛</string>
 	<string name="noSimulExplanation">此車輪戰不存在。</string>
 	<string name="returnToSimulHomepage">返回表演赛主页</string>
@@ -968,4 +973,14 @@
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
 	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>
