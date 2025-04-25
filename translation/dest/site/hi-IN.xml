@@ -103,6 +103,8 @@
 	<string name="recentGames">हाल के खेल</string>
 	<string name="topGames">शीर्ष खेल</string>
 	<string name="noGameFound">कोई गेम नहीं मिला</string>
+	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">शायद प्राथमिकताएं मेनू से अधिक गेम शामिल हैं ?</string>
 	<string name="openingExplorer">प्रारम्भ अन्वेषक (Opening explorer)</string>
 	<string name="xOpeningExplorer">%s प्रारम्भ अन्वेषक</string>
@@ -216,6 +218,7 @@
 	</plurals>
 	<string name="confirm">Confirm</string>
 	<string name="cancel">रद्द करें</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">समय समाप्त</string>
 	<string name="drawOfferSent">बराबरी पे खेल समाप्त करने का प्रस्ताव भेजा गया</string>
 	<string name="drawOfferDeclined">बराबरी पे खेल समाप्त करने का प्रस्ताव अस्वीकारित किया गया</string>
@@ -336,6 +339,7 @@
 	<string name="tournament">प्रतियोगिता</string>
 	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">प्रतियोगिताएँ</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">प्रतियोगिता के अंक</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s टूर्नामेंट अंक</item>
@@ -460,7 +464,10 @@
 	<string name="showAdvancedSettings">एडवांस्ड सेटिंग्स दिखाएं</string>
 	<string name="makePrivateTournament">प्रतियोगिता को निजी बनाएं, और पासवर्ड के साथ पहुंच को प्रतिबंधित करें</string>
 	<string name="join">शामिल हों</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Pause</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">छोड़ के जाएं</string>
 	<string name="points">अंक</string>
 	<string name="wins">जीत</string>
@@ -517,6 +524,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">सावधान, खेल मूल्यांकित है लेकिन कोई समय नियंत्रण नहीं है !</string>
 	<string name="toTrackYourProgress">अपनी प्रगति को ट्रैक करें:</string>
 	<string name="goodMove">अच्छी चाल</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">सबसे अच्छी चाल !</string>
 	<string name="success">सफलता</string>
 	<string name="thankYou">धन्यवाद</string>
@@ -551,6 +559,7 @@
 	<string name="replyToThisTopic">इस विषय पर उत्तर दें</string>
 	<string name="reply">जवाब</string>
 	<string name="message">संदेश</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">नया विषय बनाएँ</string>
 	<string name="reportAUser">किसी उपयोगकर्ता (user) को रिपोर्ट करें</string>
 	<string name="user">उपयोगकर्ता (user)</string>
@@ -613,7 +622,8 @@
 	<string name="defeatVsYInZ">%1$s बनाम (vs) %2$s %3$s में</string>
 	<string name="drawVsYInZ">%1$s बनाम (vs) %2$s %3$s में</string>
 	<string name="timeline">समयरेखा</string>
-	<string name="starting">शुरू :</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">शुरू :</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">सभी जानकारी सार्वजनिक और वैकल्पिक है।</string>
 	<string name="yourCityRegionOrDepartment">आपका शहर, क्षेत्र, या प्रांत।</string>
 	<string name="biographyDescription">अपने बारे मे बताएँ, आपको shogi मे क्या अच्छा लगता है, आपकी पसंदीदा शुरुआतें, खिलाड़ी, ...</string>
@@ -680,10 +690,13 @@
 	<string name="termsOfService">सेवा की शर्तें</string>
 	<string name="sourceCode">सोर्स कोड</string>
 	<string name="simultaneousExhibitions">एकसमयी प्रदर्शनी</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">होस्ट (Host)</string>
 	<string name="hostColorX">मेजबान रंग : %s</string>
 	<string name="createdSimuls">नयें सिमुल</string>
 	<string name="hostANewSimul">एक नए सिमुल की मेजबानी करें</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">सिमुल नहीं मिला</string>
 	<string name="noSimulExplanation">यह एकसमयी प्रदर्शनी मौजूद नहीं है</string>
 	<string name="returnToSimulHomepage">सिमुल के मुख्य पृष्ठ पर जाएं</string>
@@ -707,7 +720,6 @@
 	<string name="anythingTellParticipants">आप प्रतिभागियों (participants) को कुछ बताना चाहते हैं ?</string>
 	<string name="lishogiTournaments">Lishogi की प्रतियोगिताएं</string>
 	<string name="tournamentShields">Tournament shields</string>
-	<string name="tournamentFAQ">अखाडा प्रतियोगिता के बारे में कई बार पूछे गए सवाल</string>
 	<string name="tournamentOfficial">आधिकारिक</string>
 	<string name="timeBeforeTournamentStarts">प्रतियोगिता के आरंभ होने में समय</string>
 	<string name="averageCentipawnLoss">सामान्य सेंटिप्यादे का नुक्सान (Average centipawn loss)</string>
@@ -724,6 +736,7 @@
 	<string name="tournamentMayHaveBeenCanceled">टूर्नमेंट रद्द् हो गया होगा, अगर सभी खिलाड़ी टूर्नमेंट शुरू होने से पहले टूर्नमेंट छोड़कर गए थे।</string>
 	<string name="returnToTournamentsHomepage">प्रतियोगिताओं के मूल पृष्ठ पर लौटें</string>
 	<string name="weeklyPerfTypeRatingDistribution">इस हफ्ते का %s रेटिंग वितरण</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">%1$s %2$s खिलाड़ी इस सप्ताह।</item>
 		<item quantity="other">%1$s %2$s खिलाड़ियों इस सप्ताह।</item>
@@ -983,9 +996,34 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
+	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
+	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
+	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s candidate player</item>
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s accepted player</item>
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>

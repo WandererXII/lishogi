@@ -105,6 +105,8 @@
 	<string name="recentGames">Недавне партије</string>
 	<string name="topGames">Најбоље партије</string>
 	<string name="noGameFound">Партија није нађена</string>
+	<string name="pageNotFound">Page not found</string>
+	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Можда укључите више партија у менију за подешавања?</string>
 	<string name="openingExplorer">Претраживач отварања</string>
 	<string name="xOpeningExplorer">%s претаживач отварања</string>
@@ -142,9 +144,9 @@
 	<string name="gameAdjourned">Game was adjourned</string>
 	<string name="gameResumed">Game was resumed</string>
 	<plurals name="nbPlayers">
-		<item quantity="one">%s играч на вези</item>
-		<item quantity="few">%s играча на вези</item>
-		<item quantity="other">%s играча на вези</item>
+		<item quantity="one">%s играч</item>
+		<item quantity="few">%s играча</item>
+		<item quantity="other">%s играча</item>
 	</plurals>
 	<string name="currentGames">Партије које се управо играју</string>
 	<plurals name="nbGames">
@@ -226,6 +228,7 @@
 	</plurals>
 	<string name="confirm">Confirm</string>
 	<string name="cancel">Откажи</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
 	<string name="timeOut">Истекло време</string>
 	<string name="drawOfferSent">Захтев за реми је послат</string>
 	<string name="drawOfferDeclined">Предлог за реми је одбијен</string>
@@ -353,6 +356,7 @@
 	<string name="tournament">Tурнир</string>
 	<string name="tournamentLeaderboard">Tournament leaderboard</string>
 	<string name="tournaments">Турнири</string>
+	<string name="myTournaments">My tournaments</string>
 	<string name="tournamentPoints">Поени на турнирима</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s поен на турнирима</item>
@@ -487,7 +491,10 @@
 	<string name="showAdvancedSettings">Покажи напредна подешавања</string>
 	<string name="makePrivateTournament">Учини турнир приватним и ограничи приступ са шифром</string>
 	<string name="join">Придружи се</string>
+	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
 	<string name="pause">Pause</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
 	<string name="withdraw">Повуци се</string>
 	<string name="points">Поена</string>
 	<string name="wins">Победа</string>
@@ -544,6 +551,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">Пажња, партија је рангирана али се не игра на време!</string>
 	<string name="toTrackYourProgress">Да пратите свој напредак:</string>
 	<string name="goodMove">Добар потез</string>
+	<string name="brilliantMove">Brilliant move</string>
 	<string name="bestMove">Најбољи потез!</string>
 	<string name="success">Успешно</string>
 	<string name="thankYou">Хвала!</string>
@@ -580,6 +588,7 @@
 	<string name="replyToThisTopic">Одговори на ову тему</string>
 	<string name="reply">Одговор</string>
 	<string name="message">Порука</string>
+	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
 	<string name="createTheTopic">Cтвори тему</string>
 	<string name="reportAUser">Пријавиte корисника</string>
 	<string name="user">Корисник</string>
@@ -642,7 +651,8 @@
 	<string name="defeatVsYInZ">%1$s против %2$s у %3$s</string>
 	<string name="drawVsYInZ">%1$s против %2$s у %3$s</string>
 	<string name="timeline">Временска линија</string>
-	<string name="starting">Почиње:</string>
+	<string name="starting" comment="Ex.: Starting: 50 minutes">Почиње:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
 	<string name="allInformationIsPublicAndOptional">Све информације су јавне и по избору</string>
 	<string name="yourCityRegionOrDepartment">Ваш град, регион или провинција.</string>
 	<string name="biographyDescription">Talk about yourself, your interests, what you like in shogi, your favourite openings, players, ...</string>
@@ -712,10 +722,13 @@
 	<string name="termsOfService">Услови коришћења услуге</string>
 	<string name="sourceCode">Изворни код</string>
 	<string name="simultaneousExhibitions">Симултанка</string>
+	<string name="simulComplete">Simul complete</string>
+	<string name="backToSimul">Back to simul</string>
 	<string name="host">Домаћин</string>
 	<string name="hostColorX">Боја приређивача: %s</string>
 	<string name="createdSimuls">Недавно креиране симултанке</string>
 	<string name="hostANewSimul">Покрени нову симултанку</string>
+	<string name="yourPendingSimuls">Your pending simuls</string>
 	<string name="noSimulFound">Симултанка није пронађена</string>
 	<string name="noSimulExplanation">Симултанка не постоји</string>
 	<string name="returnToSimulHomepage">Врати се на почетну страну</string>
@@ -739,7 +752,6 @@
 	<string name="anythingTellParticipants">Anything you want to tell the participants?</string>
 	<string name="lishogiTournaments">Lishogi tournaments</string>
 	<string name="tournamentShields">Tournament shields</string>
-	<string name="tournamentFAQ">Најчешће постављена питања за арена турнире</string>
 	<string name="tournamentOfficial">Службено</string>
 	<string name="timeBeforeTournamentStarts">Време пре него турнир започне.</string>
 	<string name="averageCentipawnLoss">Просечни губитак у стотим деловима пешака</string>
@@ -756,6 +768,7 @@
 	<string name="tournamentMayHaveBeenCanceled">Можда је отказан зато што су играчи напустили турнир пре његовог почетка</string>
 	<string name="returnToTournamentsHomepage">Вратите се на почетну страницу \"турнири\"</string>
 	<string name="weeklyPerfTypeRatingDistribution">Месечна %s дитрибуција рејтинга</string>
+	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">%1$s %2$s играч ове недеље.</item>
 		<item quantity="few">%1$s %2$s играча ове недеље.</item>
@@ -1022,9 +1035,36 @@
 	<string name="preview">Preview</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variant not supported</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Ready to play</string>
-	<string name="general-shogi-discussion">General Shogi Discussion</string>
-	<string name="game-analysis">Game Analysis</string>
-	<string name="lishogi-feedback">Lishogi Feedback</string>
-	<string name="off-topic-discussion">Off-Topic Discussion</string>
-	<string name="teamXForum">Forum of the team %s</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="kickPlayer">Kick player</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourRecent">Recently played</string>
+	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
+	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
+	<string name="dateStartedNewest">Date started (newest)</string>
+	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
+	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
+	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s candidate player</item>
+		<item quantity="few">%s candidate players</item>
+		<item quantity="other">%s candidate players</item>
+	</plurals>
+	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
+		<item quantity="one">%s accepted player</item>
+		<item quantity="few">%s accepted players</item>
+		<item quantity="other">%s accepted players</item>
+	</plurals>
+	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
+	<string name="acceptRandomCandidate">Accept random candidate</string>
+	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 </resources>

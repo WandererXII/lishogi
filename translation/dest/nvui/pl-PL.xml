@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="textualRepresentation">Textual representation</string>
-  <string name="gameInfo">Game info</string>
-  <string name="pieces">Pieces</string>
-  <string name="board">Board</string>
-  <string name="hands">Hands</string>
-  <string name="none" comment="No hands in hand">None</string>
-  <string name="moves" comment="Followed by list of moves">Moves</string>
-  <string name="currentPosition">Current position</string>
+  <string name="textualRepresentation">Przedstawianie tekstowe</string>
+  <string name="gameInfo">Informacje o partii</string>
+  <string name="pieces">Bierki</string>
+  <string name="board">Plansza</string>
+  <string name="hands">Ręce</string>
+  <string name="none" comment="No pieces in hand">Brak</string>
+  <string name="moves" comment="Followed by list of moves">Posunięcia</string>
+  <string name="currentPosition">Bieżąca pozycja</string>
   <string name="moveForm">Move form</string>
   <string name="commandInput">Command input</string>
-  <string name="commands">Commands</string>
+  <string name="commands">Polecenia</string>
   <string name="useArrowKeys">Use arrow keys to navigate in the game</string>
 </resources>

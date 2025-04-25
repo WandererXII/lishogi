@@ -67,6 +67,9 @@
 	<string name="checkOutProfile">自分のプロフィールのページを見て！</string>
 	<string name="nowLifetime">あなたは Lishogi の永久パトロンです！</string>
 	<string name="nowOneMonth">あなたはこれから 1 か月の間 Lishogi パトロンです！</string>
+	<string name="justBecamePatron">You just became a lishogi Patron.</string>
 	<string name="downgradeNextMonth">1 か月後にまた請求されることはなく、無料アカウントに戻ります。</string>
 	<string name="donationPolicy">寄付のポリシー</string>
+	<string name="expired">Patron account expired</string>
+	<string name="considerRenewing">Please consider renewing it!</string>
 </resources>
