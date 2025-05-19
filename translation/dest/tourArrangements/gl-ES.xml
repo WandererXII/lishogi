@@ -1,15 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="roundRobin" comment="https://en.wikipedia.org/wiki/Round-robin_tournament">Todos contra todos</string>
-	<string name="startGame">Comezar a partida</string>
+	<string name="startGameNow">Start game now</string>
 	<string name="goToGame">Ir á partida</string>
-	<string name="waitingForOther" comment="Waiting for other player (opponent) to join the game">Agardando polo rival</string>
-	<string name="proposeTime" comment="Time that you propose to your opponent to start a game">Propoñer a hora de comezo da partida</string>
-	<string name="cancelScheduled">Cancelar a partida programada</string>
+	<string name="gameScheduling">Game scheduling</string>
+	<string name="suggestTime" comment="Time that you suggest to your opponent to start a game">Suggest time</string>
+	<string name="suggestDifferentTime" comment="Time to start a game that you want to suggest, if some time was already suggested">Suggest different time</string>
+	<string name="acceptSuggestedTime" comment="Accept time opponent suggested to start a game">Accept suggested time</string>
+	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s accepted your suggested time</string>
+	<string name="suggestedTime" comment="Currently suggested time to start a game">Suggested time</string>
 	<string name="scheduledAt" comment="Date/time when game is scheduled for">Programada para</string>
+	<string name="startedAt" comment="Date/time when game started">Started at</string>
+	<string name="upcomingGameWithX" comment="Upcoming game with username">Upcoming game with %s</string>
 	<string name="yourUpcomingGames">As túas próximas partidas</string>
-	<string name="playingRightNow" comment="Games in tournament that are being played right now">Xogando agora mesmo</string>
-	<string name="recentlyPlayedGames">Partidas recentes</string>
+	<string name="allUpcomingAndOngoingGames">All upcoming and ongoing games</string>
+	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">My arranged games</string>
 	<string name="gameWillNotStart">A partida non comezará automaticamente!</string>
 	<string name="organized" comment="Tournament format - organized, players can only play games created by the organizer">Programado</string>
+	<string name="existingGamesBetweenPlayers" comment="For tour organizers, title for a list of upcoming games between two selected players">Existing games between players</string>
+	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">Points (W/D/L)</string>
+	<string name="gameName" comment="Name of arranged game">Game name</string>
+	<string name="howDoesRoundRobinWork">How does round-robin work?</string>
+	<string name="howDoesRoundRobinWorkAnswer">In a round-robin tournament, each player can play one game against every other player. Games don\'t start automatically - both players need to arrange the game and click \"%s\" to begin.</string>
+	<string name="howToPlayGames">How do I play a game?</string>
+	<string name="howToPlayGamesAnswer">To play, click the correct cell in the table where you and your opponent meet. You can schedule a date and time for easy planning and a 24-hour reminder. The game starts only after both players click \"%s\".</string>
+	<string name="roundRobinScoring">How are points given?</string>
+	<string name="roundRobinScoringAnswer">You get 3 points for a win, 2 for a draw, and 1 for a loss. Every match counts toward your total score.</string>
+	<string name="roundRobinWinner">How is the winner decided?</string>
+	<string name="roundRobinWinnerAnswer">The player with the most points at the end wins. If players have the same number of points, the one who joined the tournament earlier is ranked higher.</string>
+	<string name="howDoOrganizedTournamentsWork">How do organized tournaments work?</string>
+	<string name="howDoOrganizedTournamentsWorkAnswer">In organized tournaments, only the tournament organizer can create matches between players. Players can then play those matches by clicking \"%s\".</string>
+	<string name="whoStartsMatches">Who starts the match?</string>
+	<string name="whoStartsMatchesAnswer">The match starts when both players click \"%s\" - the players must start the game themselves. Organizer cannot start a game.</string>
+	<string name="organizedScoring">How are points given?</string>
+	<string name="organizedScoringAnswer">The organizer decides how many points are awarded for a win, draw, or loss.</string>
 </resources>
