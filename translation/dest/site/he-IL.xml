@@ -1089,6 +1089,7 @@
 	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
 	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
 	<string name="tourRecent">Recently played</string>
+	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Format</string>
 	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
 	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
 	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
@@ -1112,4 +1113,6 @@
 	<string name="acceptRandomCandidate">Accept random candidate</string>
 	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
+	<string name="startDate">Start date</string>
+	<string name="endDate">End date</string>
 </resources>
