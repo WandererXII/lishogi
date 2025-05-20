@@ -689,13 +689,13 @@
 	<string name="termsOfService">Termos do Servizo</string>
 	<string name="sourceCode">Código Fonte</string>
 	<string name="simultaneousExhibitions">Exhibicións simultáneas</string>
-	<string name="simulComplete">Simul complete</string>
-	<string name="backToSimul">Back to simul</string>
+	<string name="simulComplete">Simultánea finalizada</string>
+	<string name="backToSimul">Voltar á simultánea</string>
 	<string name="host">Anfitrión</string>
 	<string name="hostColorX">Cor do anfitrión: %s</string>
 	<string name="createdSimuls">Simultáneas creadas recentemente</string>
 	<string name="hostANewSimul">Crear unha nova simultánea</string>
-	<string name="yourPendingSimuls">Your pending simuls</string>
+	<string name="yourPendingSimuls">As túas simultáneas pendentes</string>
 	<string name="noSimulFound">Simultánea non atopada</string>
 	<string name="noSimulExplanation">Esta exhibición simultánea non existe.</string>
 	<string name="returnToSimulHomepage">Volver á paxina principal das simultáneas</string>
@@ -735,7 +735,7 @@
 	<string name="tournamentMayHaveBeenCanceled">Poida que fose cancelado, se todos os xogadores marcharon antes de que o torneo comezase.</string>
 	<string name="returnToTournamentsHomepage">Volver a páxina principal dos torneos</string>
 	<string name="weeklyPerfTypeRatingDistribution">Distribución semanal da puntuación en %s</string>
-	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
+	<string name="monthlyPerfTypeRatingDistribution">Distribución mensual da puntuación en %s</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">%1$s xogador de %2$s esta semana.</item>
 		<item quantity="other">%1$s xogadores de %2$s esta semana.</item>
@@ -995,9 +995,9 @@
 	<string name="preview">Vista previa</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variante non admitida</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Listo para xogar</string>
-	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
-	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
-	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">Conversa xeral sobre Shogi</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Análise de partidas</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Comentarios sobre Lishogi</string>
 	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
 	<string name="teamXForum" comment="Forum category title">Foro do equipo %s</string>
 	<string name="kickPlayer">Kick player</string>
