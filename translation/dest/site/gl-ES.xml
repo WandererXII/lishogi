@@ -103,8 +103,8 @@
 	<string name="recentGames">Partidas recentes</string>
 	<string name="topGames">Mellores partidas</string>
 	<string name="noGameFound">Non se atoparon partidas</string>
-	<string name="pageNotFound">Page not found</string>
-	<string name="returnToHomepage">Return to homepage</string>
+	<string name="pageNotFound">Páxina non atopada</string>
+	<string name="returnToHomepage">Volver á páxina de inicio</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">E se probas a incluír máis partidas dende o menú de preferencias?</string>
 	<string name="openingExplorer">Abrir o explorador</string>
 	<string name="xOpeningExplorer">Explorador de aperturas %s</string>
@@ -218,7 +218,7 @@
 	</plurals>
 	<string name="confirm">Confirmar</string>
 	<string name="cancel">Cancelar</string>
-	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Comezar</string>
 	<string name="timeOut">Esgotouse o tempo</string>
 	<string name="drawOfferSent">Oferta de táboas enviada</string>
 	<string name="drawOfferDeclined">Oferta de táboas rexeitada</string>
@@ -339,7 +339,7 @@
 	<string name="tournament">Torneo</string>
 	<string name="tournamentLeaderboard">Gañadores de torneo</string>
 	<string name="tournaments">Torneos</string>
-	<string name="myTournaments">My tournaments</string>
+	<string name="myTournaments">Os meus torneos</string>
 	<string name="tournamentPoints">Puntos de torneo</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s punto en torneos</item>
@@ -463,10 +463,10 @@
 	<string name="showAdvancedSettings">Amosar axustes avanzados</string>
 	<string name="makePrivateTournament">Fai que o torneo sexa privado e restrinxe o acceso cun contrasinal</string>
 	<string name="join">Unirse</string>
-	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
-	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
+	<string name="askToJoin" comment="Tournament join request">Solicitar unirse</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Agardando a aprobación</string>
 	<string name="pause">Pausa</string>
-	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denegado</string>
 	<string name="withdraw">Retirarse</string>
 	<string name="points">Puntos</string>
 	<string name="wins">Vitorias</string>
@@ -523,7 +523,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">Atención, a partida é puntuada pero sen límite de tempo!</string>
 	<string name="toTrackYourProgress">Para facer un seguimento do teu progreso:</string>
 	<string name="goodMove">Boa xogada</string>
-	<string name="brilliantMove">Brilliant move</string>
+	<string name="brilliantMove">Xogada fenómena</string>
 	<string name="bestMove">A mellor xogada!</string>
 	<string name="success">Éxito!</string>
 	<string name="thankYou">Gracias!</string>
@@ -558,7 +558,7 @@
 	<string name="replyToThisTopic">Responder a este tema</string>
 	<string name="reply">Responder</string>
 	<string name="message">Mensaxe</string>
-	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
+	<string name="xIsTyping" comment="Username is typing...">%s está a escreber...</string>
 	<string name="createTheTopic">Crear o tema</string>
 	<string name="reportAUser">Denunciar a un usuario</string>
 	<string name="user">Usuario</string>
@@ -622,7 +622,7 @@
 	<string name="drawVsYInZ">%1$s contra %2$s en %3$s</string>
 	<string name="timeline">Cronoloxía</string>
 	<string name="starting" comment="Ex.: Starting: 50 minutes">Comezo:</string>
-	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Final:</string>
 	<string name="allInformationIsPublicAndOptional">Toda a información é pública e opcional.</string>
 	<string name="yourCityRegionOrDepartment">A túa cidade, rexión ou provincia.</string>
 	<string name="biographyDescription">Cóntanos sobre ti, os teus intereses, que che gusta do shogi, as túas aperturas e xogadores preferidos…</string>
