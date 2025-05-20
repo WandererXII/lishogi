@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="roundRobin" comment="https://en.wikipedia.org/wiki/Round-robin_tournament">Todos contra todos</string>
-	<string name="startGameNow">Start game now</string>
+	<string name="startGameNow">Comezar a partida</string>
 	<string name="goToGame">Ir á partida</string>
-	<string name="gameScheduling">Game scheduling</string>
-	<string name="suggestTime" comment="Time that you suggest to your opponent to start a game">Suggest time</string>
-	<string name="suggestDifferentTime" comment="Time to start a game that you want to suggest, if some time was already suggested">Suggest different time</string>
-	<string name="acceptSuggestedTime" comment="Accept time opponent suggested to start a game">Accept suggested time</string>
-	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s accepted your suggested time</string>
-	<string name="suggestedTime" comment="Currently suggested time to start a game">Suggested time</string>
+	<string name="gameScheduling">Calendario de partidas</string>
+	<string name="suggestTime" comment="Time that you suggest to your opponent to start a game">Suxerir hora</string>
+	<string name="suggestDifferentTime" comment="Time to start a game that you want to suggest, if some time was already suggested">Suxerir unha hora diferente</string>
+	<string name="acceptSuggestedTime" comment="Accept time opponent suggested to start a game">Aceptar a hora suxerida</string>
+	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s aceptou a túa hora suxerida</string>
+	<string name="suggestedTime" comment="Currently suggested time to start a game">Hora suxerida</string>
 	<string name="scheduledAt" comment="Date/time when game is scheduled for">Programada para</string>
-	<string name="startedAt" comment="Date/time when game started">Started at</string>
+	<string name="startedAt" comment="Date/time when game started">Comezou</string>
 	<string name="upcomingGameWithX" comment="Upcoming game with username">Upcoming game with %s</string>
 	<string name="yourUpcomingGames">As túas próximas partidas</string>
 	<string name="allUpcomingAndOngoingGames">All upcoming and ongoing games</string>
