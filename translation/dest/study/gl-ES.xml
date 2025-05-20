@@ -96,7 +96,7 @@
   <string name="startFromInitialPosition">Comezar desde a posición inicial</string>
   <string name="editor">Editor</string>
   <string name="startFromCustomPosition">Comezar dende unha posición personalizada</string>
-  <string name="loadAGameByUrl">Cargar as partidas dende unha URL</string>
+  <string name="loadAGameByUrl">Cargar as partidas dende un URL</string>
   <string name="loadAPositionFromSfen">Cargar unha posición dende o SFEN</string>
   <string name="automatic">Automática</string>
   <string name="urlOfTheGame">Ligazóns das partidas, unha por liña</string>
