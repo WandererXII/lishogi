@@ -998,34 +998,34 @@
 	<string name="generalShogiDiscussionForum" comment="Forum category title">Conversa xeral sobre Shogi</string>
 	<string name="gameAnalysisForum" comment="Forum category title">Análise de partidas</string>
 	<string name="lishogiFeedbackForum" comment="Forum category title">Comentarios sobre Lishogi</string>
-	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Outros temas de conversa</string>
 	<string name="teamXForum" comment="Forum category title">Foro do equipo %s</string>
-	<string name="kickPlayer">Kick player</string>
-	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
-	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
-	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
-	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
-	<string name="tourRecent">Recently played</string>
-	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Format</string>
-	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
-	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
-	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
-	<string name="dateStartedNewest">Date started (newest)</string>
-	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
-	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
-	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<string name="kickPlayer">Expulsar ó xogador</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Xestionar os xogadores</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Irreversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Compartir o URL da liña principal</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Creados</string>
+	<string name="tourRecent">Xogados recentemente</string>
+	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Formato</string>
+	<string name="tourUpcoming" comment="Upcoming tournaments">Vindeiros</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Mellores resultados</string>
+	<string name="stats" comment="Game, tournament or simul stats">Estatísticas</string>
+	<string name="dateStartedNewest">Data de inicio (máis novos)</string>
+	<string name="timeAlmostUp" comment="Notification for correspondence games">O tempo case se esgotou!</string>
+	<string name="gameAgainstX" comment="Your game against playerX">Partida con %s</string>
+	<string name="pageReload" comment="Confirmation warning">A páxina precisa ser recargada</string>
 	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
-		<item quantity="one">%s candidate player</item>
-		<item quantity="other">%s candidate players</item>
+		<item quantity="one">%s xogador candidato</item>
+		<item quantity="other">%s xogadores candidatos</item>
 	</plurals>
 	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
-		<item quantity="one">%s accepted player</item>
-		<item quantity="other">%s accepted players</item>
+		<item quantity="one">%s xogador aceptado</item>
+		<item quantity="other">%s xogadores aceptados</item>
 	</plurals>
-	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
-	<string name="acceptRandomCandidate">Accept random candidate</string>
-	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
-	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
-	<string name="startDate">Start date</string>
-	<string name="endDate">End date</string>
+	<string name="acceptPlayersStartSimul">Podes comezar as simultáneas cando teñas aceptado a dous ou máis xogadores.</string>
+	<string name="acceptRandomCandidate">Aceptar a un candidato ó chou</string>
+	<string name="exploreSiteAndHaveFun">Explora o sitio e divírtete :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Desliza as pezas pra axudar ó rei a escapar pola apertura inferior do taboleiro.</string>
+	<string name="startDate">Data de inicio</string>
+	<string name="endDate">Data de finalización</string>
 </resources>
