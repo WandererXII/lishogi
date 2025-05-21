@@ -11,11 +11,11 @@
 	<string name="theIntroduction">Introduction</string>
 	<string name="introBasics">Let\'s learn some basics.</string>
 	<string name="introIntro">Your journey begins here.</string>
-	<string name="clickHereAfterYouveChosen">Click here or make a move after you\'ve chosen the piece design you like.</string>
-	<string name="tellYourPiecesApart">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
+	<string name="clickHereAfterYouveChosen">Faceți clic aici sau faceți o mutare după ce ați ales setul pieselor care vă place.</string>
+	<string name="tellYourPiecesApart">Este important să vă puteți identifica piesele, astfel încât să vă asigurați că alegeți setul corect.</string>
 	<string name="howToSelectPieceSet">How to select your piece set?</string>
-	<string name="choosePieceDesign">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.
-To do that click on the cog wheel or your username(top right corner) and then click on \'piece set\'.</string>
+	<string name="choosePieceDesign">Este important să vă puteți identifica piesele, astfel încât să vă asigurați că alegeți setul corect.
+Pentru a face asta, dați click pe numele dvs. (colțul din dreapta sus) și apăsați pe \"set de piese\".</string>
 	<string name="promotionZone">When some of your pieces reach or leave the first three ranks in your opponent\'s territory you can choose to promote your piece and make it stronger.</string>
 	<string name="senteGoesFirst">In shogi the player who goes first is called sente and the player who goes second is called gote. Sente is sometimes represented by black color and gote by white. Make any move as sente to continue.</string>
 	<string name="introComplete">You now know some basics, but this part of tutorial is still under construction. For now learn how individual pieces move.</string>
