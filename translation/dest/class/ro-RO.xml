@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="lishogiClasses">Classes</string>
-	<string name="teachClassesOfShogiStudents">Teach classes of shogi students with the Lishogi Classes tool suite.</string>
+	<string name="teachClassesOfShogiStudents">Învață clase de elevi shogi cu suita de unelte din Clasa Lishogi.</string>
 	<string name="features">Features</string>
 	<string name="quicklyGenerateSafeUsernames">Quickly generate safe usernames and passwords for students</string>
 	<string name="trackStudentProgress">Track student progress in games and puzzles</string>
@@ -31,7 +31,7 @@
 	<string name="generateANewPassword">Generate a new password for the student</string>
 	<string name="invitedToXByY">Invited to %1$s by %2$s</string>
 	<string name="realName">Real name</string>
-	<string name="privateWillNeverBeShown">Private. Will never be shown outside the class. Helps remember who the student is.</string>
+	<string name="privateWillNeverBeShown">Privat. Nu va fi afișat niciodată în afara clasei. Ajută la identificarea studentului.</string>
 	<string name="addStudent">Add student</string>
 	<string name="lishogiProfileXCreatedForY">Lishogi profile %1$s created for %2$s.</string>
 	<string name="studentCredentials">Student:  %1$s
