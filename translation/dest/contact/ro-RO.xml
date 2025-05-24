@@ -16,7 +16,7 @@
   <string name="visitTitleConfirmation">To show your title on your Lishogi profile, and participate in Titled Arenas, contact Lishogi at contact@lishogi.org</string>
   <string name="wantCloseAccount">I want to close my account</string>
   <string name="closeYourAccount">You can close your account on this page</string>
-  <string name="doNotAskByEmail">Do not ask us by email to close an account, we won\'t do it.</string>
+  <string name="doNotAskByEmail">Nu ne cereți prin e-mail să închidem un cont, nu o vom face.</string>
   <string name="wantReopen">I want to reopen my account</string>
   <string name="reopenOnThisPage">You can reopen your account on this page. It only works once.</string>
   <string name="doNotAskByEmailToReopen">Do not ask us by email to reopen an account, we won\'t do it.</string>
