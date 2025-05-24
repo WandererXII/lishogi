@@ -1,36 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="learnShogi">Learn shogi</string>
+	<string name="learnShogi">Învățați shogi</string>
 	<string name="byPlaying">jucând!</string>
 	<string name="menu">Meniu</string>
 	<string name="progressX">Progres: %s</string>
 	<string name="resetMyProgress">Resetează progresul meu</string>
 	<string name="youWillLoseAllYourProgress">Vei pierde tot progresul!</string>
 	<string name="play">joacă!</string>
-	<string name="shogiPieces">Shogi pieces</string>
-	<string name="theIntroduction">Introduction</string>
-	<string name="introBasics">Let\'s learn some basics.</string>
-	<string name="introIntro">Your journey begins here.</string>
-	<string name="clickHereAfterYouveChosen">Click here or make a move after you\'ve chosen the piece design you like.</string>
-	<string name="tellYourPiecesApart">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
-	<string name="howToSelectPieceSet">How to select your piece set?</string>
-	<string name="choosePieceDesign">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.
-To do that click on the cog wheel or your username(top right corner) and then click on \'piece set\'.</string>
-	<string name="promotionZone">When some of your pieces reach or leave the first three ranks in your opponent\'s territory you can choose to promote your piece and make it stronger.</string>
-	<string name="senteGoesFirst">In shogi the player who goes first is called sente and the player who goes second is called gote. Sente is sometimes represented by black color and gote by white. Make any move as sente to continue.</string>
-	<string name="introComplete">You now know some basics, but this part of tutorial is still under construction. For now learn how individual pieces move.</string>
-	<string name="introCompleteTwo">You now know some basics! Now learn how individual pieces move.</string>
+	<string name="shogiPieces">Piesele Shogi</string>
+	<string name="theIntroduction">Introducere</string>
+	<string name="introBasics">Haideți să învățăm câteva elemente de bază.</string>
+	<string name="introIntro">Călătoria ta începe aici.</string>
+	<string name="clickHereAfterYouveChosen">Faceți click aici sau faceți o mutare după ce ați ales setul pieselor care vă place.</string>
+	<string name="tellYourPiecesApart">Este important să vă puteți identifica piesele, astfel încât să vă asigurați că alegeți setul corect.</string>
+	<string name="howToSelectPieceSet">Cum să selectezi setul de piese?</string>
+	<string name="choosePieceDesign">Este important să vă puteți identifica piesele, astfel încât să vă asigurați că alegeți setul corect.
+Pentru a face asta, dați click pe numele dvs. (colțul din dreapta sus) și apăsați pe \"set de piese\".</string>
+	<string name="promotionZone">Când unele dintre piesele tale ajung sau părăsesc primele trei ranguri de pe teritoriul oponentului tău, poți alege să îți promovezi piesa și să o faci mai puternică.</string>
+	<string name="senteGoesFirst">În shogi, jucătorul care merge mai întâi se numește sente și jucătorul care merge al doilea se numește gote. Sente este uneori reprezentat de culoare neagră și gote de alb. Fă orice mișcare ca sente pentru a continua.</string>
+	<string name="introComplete">Acum știi câteva elemente de bază, dar această parte a tutorialului este momentan neterminată. Deocamdată, învață cum se mișcă piesele individuale.</string>
+	<string name="introCompleteTwo">Acum știi câteva lucruri de bază! Acum învață cum se mișcă piesele individuale.</string>
 	<string name="theRook">Turn</string>
 	<string name="itMovesInStraightLines">Se mișcă în linii drepte</string>
 	<string name="rookIntro">Turnul e o piesă puternică. Ești pregătit s-o mânuiești?</string>
-	<string name="rookGoal">Click on the rook to bring it to the star!</string>
-	<string name="grabAllTheStarsRemember">Grab all the stars! Remember, look outside of the board.</string>
-	<string name="rookPromotion">The rook promotes to the powerful dragon. Don\'t forget that you can also promote your piece when you leave the promotion zone.</string>
-	<string name="rookSummary">The rook can go up, down, left or right as much as it wants.</string>
-	<string name="dragonSummary">It can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
-	<string name="dragonSummaryTwo">The dragon can move just like the unpromoted rook, but also one square in any diagonal direction, making it much stronger.</string>
+	<string name="rookGoal">Dă click pe turn ca să îl aduci pe stea!</string>
+	<string name="grabAllTheStarsRemember">Prinde toate stelele! Ține minte, uită-te în afara tablei.</string>
+	<string name="rookPromotion">Turnul este promovat în puternicul dragon. Nu uita că poți să îți promovezi piesa și atunci când părăsești zona de promovare.</string>
+	<string name="rookSummary">Turnul poate urca sus, jos, stânga sau dreapta oricât de mult dorește.</string>
+	<string name="dragonSummary">El se poate mișca ca turnul nepromovat, dar și un pătrat în orice direcție pe diagonală, făcând-ul mult mai puternic.</string>
+	<string name="dragonSummaryTwo">Dragonul se poate mișca ca turnul nepromovat, dar și un pătrat în orice direcție pe diagonală, făcând-ul mult mai puternic.</string>
 	<string name="grabAllTheStars">Prinde toate stelele!</string>
-	<string name="theFewerMoves">The fewer moves you make, the more points you win!</string>
+	<string name="theFewerMoves"></string>
 	<string name="rookComplete">Felicitări! Ai reușit să stăpânești turnul.</string>
 	<string name="theBishop">Nebunul</string>
 	<string name="itMovesDiagonally">Se mișcă în diagonală</string>

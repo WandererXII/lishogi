@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="arena">Arena</string>
-  <string name="arenaTournaments">Arena tournaments</string>
+  <string name="arena">Arenă</string>
+  <string name="arenaTournaments">Turnee</string>
   <string name="isItRated">Este evaluat?</string>
   <string name="willBeNotified">Vei fi notificat când competiția începe, deci este în regulă să joci în altă filă în timp ce aștepți.</string>
   <string name="isRated">Această competiție este evaluată și-ți va afecta scorul.</string>
@@ -14,7 +14,7 @@ Următoarele meciuri vor valora punctaj dublu până se va întrerupe șirul de 
 Asta înseamnă că: un câștig va valora 4 puncte, o remiză: 2 puncte, iar o înfrângere niciun punct.
 
 De exemplu, două câștiguri urmate de o remiză vor valora 6 puncte: 2 + 2 + (2 x 1)</string>
-  <string name="berserk">Arena Berserk</string>
+  <string name="berserk">Frenezie</string>
   <string name="berserkAnswer">Când un jucător apasă pe butonul Berserk la începutul meciului, li se va înjumătăți timpul, dar câștigul va valora un punct în plus.
 
 Apăsând pe butonul Berserk, nu vei beneficia de incrementarea timpului. (1+2 este o excepție, va fi 1+0)
@@ -39,14 +39,14 @@ Joacă rapid și întoarce-te la lobby pentru a juca mai multe meciuri și pentr
   </plurals>
   <string name="thisIsPrivate">Acesta este o competiție privată</string>
   <string name="shareUrl">Pentru a distribui, folosiți acest URL: %s</string>
-  <string name="drawStreak">Draw streaks: When a player has consecutive draws in an arena, only the first draw will result in a point, or draws lasting more than %s moves. The draw streak can only be broken by a win, not a loss or a draw.</string>
-  <string name="noBerserkAllowed">No Berserk allowed</string>
-  <string name="noArenaStreaks">No Arena streaks</string>
-  <string name="averagePerformance">Average performance</string>
-  <string name="averageScore">Average score</string>
+  <string name="drawStreak">Serie de remize consecutive: Când un jucător are remize consecutive într-un turneu, numai prima remiză este punctată, sau remize în partide care au mai mult de %s mutări. Seria de remize poate fi întreruptă doar de o victorie, nu de o înfrângere sau remiză.</string>
+  <string name="noBerserkAllowed">Frenezia nu este permisă</string>
+  <string name="noArenaStreaks">Nicio serie de victorii în arenă</string>
+  <string name="averagePerformance">Performanța medie</string>
+  <string name="averageScore">Scorul mediu</string>
   <plurals name="viewAllXTeams" comment="viewAllXTeams [one] [other]&#10;&#10;%s is the number of teams that can be viewed">
-    <item quantity="one">View the team</item>
-    <item quantity="few">View all %s teams</item>
-    <item quantity="other">View all %s teams</item>
+    <item quantity="one">Vezi echipa</item>
+    <item quantity="few">Vezi toate cele %s de echipe</item>
+    <item quantity="other">Vezi toate cele %s de echipe</item>
   </plurals>
 </resources>

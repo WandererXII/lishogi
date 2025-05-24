@@ -9,8 +9,8 @@
   <string name="xShieldArena">Arena Escudo de %s</string>
   <string name="xShield">Escudo de %s</string>
   <string name="xTeamBattle">Batalla por equipos %s</string>
-  <string name="weekendX">Weekend %s</string>
+  <string name="weekendX">%s de fin de semana</string>
   <string name="eliteX">%s de Elite</string>
   <string name="xArena">Arena %s</string>
-  <string name="xRobin">%s Round-robin</string>
+  <string name="xRobin">Todos contra todos %s</string>
 </resources>

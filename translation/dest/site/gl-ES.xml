@@ -103,8 +103,8 @@
 	<string name="recentGames">Partidas recentes</string>
 	<string name="topGames">Mellores partidas</string>
 	<string name="noGameFound">Non se atoparon partidas</string>
-	<string name="pageNotFound">Page not found</string>
-	<string name="returnToHomepage">Return to homepage</string>
+	<string name="pageNotFound">Páxina non atopada</string>
+	<string name="returnToHomepage">Volver á páxina de inicio</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">E se probas a incluír máis partidas dende o menú de preferencias?</string>
 	<string name="openingExplorer">Abrir o explorador</string>
 	<string name="xOpeningExplorer">Explorador de aperturas %s</string>
@@ -218,7 +218,7 @@
 	</plurals>
 	<string name="confirm">Confirmar</string>
 	<string name="cancel">Cancelar</string>
-	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Comezar</string>
 	<string name="timeOut">Esgotouse o tempo</string>
 	<string name="drawOfferSent">Oferta de táboas enviada</string>
 	<string name="drawOfferDeclined">Oferta de táboas rexeitada</string>
@@ -339,7 +339,7 @@
 	<string name="tournament">Torneo</string>
 	<string name="tournamentLeaderboard">Gañadores de torneo</string>
 	<string name="tournaments">Torneos</string>
-	<string name="myTournaments">My tournaments</string>
+	<string name="myTournaments">Os meus torneos</string>
 	<string name="tournamentPoints">Puntos de torneo</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s punto en torneos</item>
@@ -463,10 +463,10 @@
 	<string name="showAdvancedSettings">Amosar axustes avanzados</string>
 	<string name="makePrivateTournament">Fai que o torneo sexa privado e restrinxe o acceso cun contrasinal</string>
 	<string name="join">Unirse</string>
-	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
-	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
+	<string name="askToJoin" comment="Tournament join request">Solicitar unirse</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Agardando a aprobación</string>
 	<string name="pause">Pausa</string>
-	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Denegado</string>
 	<string name="withdraw">Retirarse</string>
 	<string name="points">Puntos</string>
 	<string name="wins">Vitorias</string>
@@ -523,7 +523,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">Atención, a partida é puntuada pero sen límite de tempo!</string>
 	<string name="toTrackYourProgress">Para facer un seguimento do teu progreso:</string>
 	<string name="goodMove">Boa xogada</string>
-	<string name="brilliantMove">Brilliant move</string>
+	<string name="brilliantMove">Xogada fenómena</string>
 	<string name="bestMove">A mellor xogada!</string>
 	<string name="success">Éxito!</string>
 	<string name="thankYou">Gracias!</string>
@@ -558,7 +558,7 @@
 	<string name="replyToThisTopic">Responder a este tema</string>
 	<string name="reply">Responder</string>
 	<string name="message">Mensaxe</string>
-	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
+	<string name="xIsTyping" comment="Username is typing...">%s está a escreber...</string>
 	<string name="createTheTopic">Crear o tema</string>
 	<string name="reportAUser">Denunciar a un usuario</string>
 	<string name="user">Usuario</string>
@@ -622,7 +622,7 @@
 	<string name="drawVsYInZ">%1$s contra %2$s en %3$s</string>
 	<string name="timeline">Cronoloxía</string>
 	<string name="starting" comment="Ex.: Starting: 50 minutes">Comezo:</string>
-	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Final:</string>
 	<string name="allInformationIsPublicAndOptional">Toda a información é pública e opcional.</string>
 	<string name="yourCityRegionOrDepartment">A túa cidade, rexión ou provincia.</string>
 	<string name="biographyDescription">Cóntanos sobre ti, os teus intereses, que che gusta do shogi, as túas aperturas e xogadores preferidos…</string>
@@ -689,13 +689,13 @@
 	<string name="termsOfService">Termos do Servizo</string>
 	<string name="sourceCode">Código Fonte</string>
 	<string name="simultaneousExhibitions">Exhibicións simultáneas</string>
-	<string name="simulComplete">Simul complete</string>
-	<string name="backToSimul">Back to simul</string>
+	<string name="simulComplete">Simultánea finalizada</string>
+	<string name="backToSimul">Voltar á simultánea</string>
 	<string name="host">Anfitrión</string>
 	<string name="hostColorX">Cor do anfitrión: %s</string>
 	<string name="createdSimuls">Simultáneas creadas recentemente</string>
 	<string name="hostANewSimul">Crear unha nova simultánea</string>
-	<string name="yourPendingSimuls">Your pending simuls</string>
+	<string name="yourPendingSimuls">As túas simultáneas pendentes</string>
 	<string name="noSimulFound">Simultánea non atopada</string>
 	<string name="noSimulExplanation">Esta exhibición simultánea non existe.</string>
 	<string name="returnToSimulHomepage">Volver á paxina principal das simultáneas</string>
@@ -735,7 +735,7 @@
 	<string name="tournamentMayHaveBeenCanceled">Poida que fose cancelado, se todos os xogadores marcharon antes de que o torneo comezase.</string>
 	<string name="returnToTournamentsHomepage">Volver a páxina principal dos torneos</string>
 	<string name="weeklyPerfTypeRatingDistribution">Distribución semanal da puntuación en %s</string>
-	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
+	<string name="monthlyPerfTypeRatingDistribution">Distribución mensual da puntuación en %s</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">%1$s xogador de %2$s esta semana.</item>
 		<item quantity="other">%1$s xogadores de %2$s esta semana.</item>
@@ -995,37 +995,37 @@
 	<string name="preview">Vista previa</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Variante non admitida</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Listo para xogar</string>
-	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
-	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
-	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
-	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">Conversa xeral sobre Shogi</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Análise de partidas</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Comentarios sobre Lishogi</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Outros temas de conversa</string>
 	<string name="teamXForum" comment="Forum category title">Foro do equipo %s</string>
-	<string name="kickPlayer">Kick player</string>
-	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
-	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
-	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
-	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
-	<string name="tourRecent">Recently played</string>
-	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Format</string>
-	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
-	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
-	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
-	<string name="dateStartedNewest">Date started (newest)</string>
-	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
-	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
-	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<string name="kickPlayer">Expulsar ó xogador</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Xestionar os xogadores</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Irreversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Compartir o URL da liña principal</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Creados</string>
+	<string name="tourRecent">Xogados recentemente</string>
+	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Formato</string>
+	<string name="tourUpcoming" comment="Upcoming tournaments">Vindeiros</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Mellores resultados</string>
+	<string name="stats" comment="Game, tournament or simul stats">Estatísticas</string>
+	<string name="dateStartedNewest">Data de inicio (máis novos)</string>
+	<string name="timeAlmostUp" comment="Notification for correspondence games">O tempo case se esgotou!</string>
+	<string name="gameAgainstX" comment="Your game against playerX">Partida con %s</string>
+	<string name="pageReload" comment="Confirmation warning">A páxina precisa ser recargada</string>
 	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
-		<item quantity="one">%s candidate player</item>
-		<item quantity="other">%s candidate players</item>
+		<item quantity="one">%s xogador candidato</item>
+		<item quantity="other">%s xogadores candidatos</item>
 	</plurals>
 	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
-		<item quantity="one">%s accepted player</item>
-		<item quantity="other">%s accepted players</item>
+		<item quantity="one">%s xogador aceptado</item>
+		<item quantity="other">%s xogadores aceptados</item>
 	</plurals>
-	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
-	<string name="acceptRandomCandidate">Accept random candidate</string>
-	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
-	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
-	<string name="startDate">Start date</string>
-	<string name="endDate">End date</string>
+	<string name="acceptPlayersStartSimul">Podes comezar as simultáneas cando teñas aceptado a dous ou máis xogadores.</string>
+	<string name="acceptRandomCandidate">Aceptar a un candidato ó chou</string>
+	<string name="exploreSiteAndHaveFun">Explora o sitio e divírtete :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Desliza as pezas pra axudar ó rei a escapar pola apertura inferior do taboleiro.</string>
+	<string name="startDate">Data de inicio</string>
+	<string name="endDate">Data de finalización</string>
 </resources>

@@ -16,10 +16,10 @@
   <string name="visitTitleConfirmation">To show your title on your Lishogi profile, and participate in Titled Arenas, contact Lishogi at contact@lishogi.org</string>
   <string name="wantCloseAccount">I want to close my account</string>
   <string name="closeYourAccount">You can close your account on this page</string>
-  <string name="doNotAskByEmail">Do not ask us by email to close an account, we won\'t do it.</string>
+  <string name="doNotAskByEmail">Nu ne cereți prin e-mail să închidem un cont, nu o vom face.</string>
   <string name="wantReopen">I want to reopen my account</string>
   <string name="reopenOnThisPage">You can reopen your account on this page. It only works once.</string>
-  <string name="doNotAskByEmailToReopen">Do not ask us by email to reopen an account, we won\'t do it.</string>
+  <string name="doNotAskByEmailToReopen">Nu ne cereți prin e-mail să redeschidem un cont, nu o vom face.</string>
   <string name="wantChangeUsername">I want to change my username</string>
   <string name="changeUsernameCase">Visit this page to change the case of your username</string>
   <string name="cantChangeMore">We can\'t change more than the case. For technical reasons, it\'s downright impossible.</string>
@@ -33,9 +33,9 @@
   <string name="insults">insults</string>
   <string name="otherReason">some other reason</string>
   <string name="toReportAPlayer">To report a player for %s, use the report form</string>
-  <string name="youCanAlsoReachReportPage">You can also reach that page by clicking the %s report button on a profile page.</string>
+  <string name="youCanAlsoReachReportPage">De asemenea, poți ajunge la acea pagină dând click pe butonul %s pentru raport pe o pagină a profilului.</string>
   <string name="doNotReportInForum">Do not report players in the forum.</string>
-  <string name="doNotSendReportEmails">Do not send us report emails.</string>
+  <string name="doNotSendReportEmails">Nu ne trimiteți e-mailuri de raportare.</string>
   <string name="doNotMessageModerators">Do not send direct messages to moderators.</string>
   <string name="onlyReports">Only reporting players through the report form is effective.</string>
   <string name="wantReportBug">I want to report a bug</string>
@@ -46,7 +46,7 @@
   <string name="howToReportBug">Please describe what the bug looks like, what you expected to happen instead, and the steps to reproduce the bug.</string>
   <string name="insufficientMaterial">Insufficient mating material</string>
   <string name="noRatingPoints">No rating points were awarded</string>
-  <string name="ratedGame">Make sure you played a rated game. Casual games do not affect the players ratings.</string>
+  <string name="ratedGame">Asigură-te ca ai jucat un meci oficial. Jocurile neoficiale nu afectează de scorurile jucătorilor.</string>
   <string name="errorPage">Error page</string>
   <string name="reportErrorPage">If you faced an error page, you may report it:</string>
   <string name="banAppeal">Appeal for a ban or IP restriction</string>
