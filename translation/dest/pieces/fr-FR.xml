@@ -8,7 +8,7 @@
   <string name="bishop">Fou</string>
   <string name="rook">Tour</string>
   <string name="king">Roi</string>
-  <string name="tokin"></string>
+  <string name="tokin">Tokin</string>
   <string name="promotedlance">Lance promue</string>
   <string name="promotedknight">Cavalier promu</string>
   <string name="promotedsilver">Argent promu</string>
@@ -20,7 +20,7 @@
   <string comment="Chushogi piece, low priority for translation" name="elephant">Éléphant</string>
   <string comment="Chushogi piece, low priority for translation" name="chariot">Chariot</string>
   <string comment="Chushogi piece, low priority for translation" name="tiger">Tigre</string>
-  <string comment="Chushogi piece, low priority for translation" name="kirin"></string>
+  <string comment="Chushogi piece, low priority for translation" name="kirin">Kirin</string>
   <string comment="Chushogi piece, low priority for translation" name="phoenix">Phénix</string>
   <string comment="Chushogi piece, low priority for translation" name="sidemover">Déplaceur horizontal</string>
   <string comment="Chushogi piece, low priority for translation" name="verticalmover">Déplaceur vertical</string>
