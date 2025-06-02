@@ -50,4 +50,8 @@ Hrajte rychle a vraťte se vždy co nejdříve do turnajové místnosti - stihne
     <item quantity="many">Zobrazit seznam všech %s týmů</item>
     <item quantity="other">Zobrazit seznam všech %s týmů</item>
   </plurals>
+  <string name="howManyPlayersCanJoin">How many players can join?</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
+  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
+  <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
 </resources>
