@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="arena">Arena</string>
+  <string name="arena">アリーナ</string>
   <string name="arenaTournaments">アリーナ トーナメント</string>
   <string name="isItRated">レート戦ですか？</string>
   <string name="willBeNotified">トーナメントが始まると通知が来るので、それまで別のタブでプレイしていても大丈夫です。</string>
@@ -33,15 +33,15 @@
   <string name="thisIsPrivate">これはプライベートのトーナメントです</string>
   <string name="shareUrl">誰もが参加できるようにこの URL を共有しましょう: %s</string>
   <string name="drawStreak">連続引き分け：引き分けが連続した場合、手数が %s 手を超えた対局しかポイントが得られません（最初の引き分けは手数を問わない）。連続引き分けが途切れるのは勝った時だけで、負けや引き分けでは途切れたことになりません。</string>
-  <string name="noBerserkAllowed">No Berserk allowed</string>
-  <string name="noArenaStreaks">No Arena streaks</string>
-  <string name="averagePerformance">Average performance</string>
-  <string name="averageScore">Average score</string>
+  <string name="noBerserkAllowed">バーサークなし</string>
+  <string name="noArenaStreaks">アリーナ連勝記録を表示しない</string>
+  <string name="averagePerformance">平均パフォーマンス</string>
+  <string name="averageScore">平均スコア</string>
   <plurals name="viewAllXTeams" comment="viewAllXTeams [one] [other]&#10;&#10;%s is the number of teams that can be viewed">
-    <item quantity="other">View all %s teams</item>
+    <item quantity="other">%s チームを表示</item>
   </plurals>
-  <string name="howManyPlayersCanJoin">How many players can join?</string>
-  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
+  <string name="howManyPlayersCanJoin">参加可能な人数は？</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">この形式の大会は、通常 %s 人まで参加できます。</string>
+  <string name="howManyPlayersCanJoinAnswer">この大会には %s 人が参加可能です。</string>
+  <string name="howManyPlayersCanJoinDenied">大会開始後に除外されたプレイヤーも、参加可能人数の合計にカウントされます。</string>
 </resources>
