@@ -35,5 +35,5 @@
 	<string name="organizedScoring">How are points given?</string>
 	<string name="organizedScoringAnswer">The organizer decides how many points are awarded for a win, draw, or loss.</string>
 	<string name="howManyGames">How many games can be played?</string>
-	<string name="howManyGamesAnswer">The organizer can create at most %s games.</string>
+	<string name="howManyGamesAnswer">主催者は最大 %s 対局まで作成できます。</string>
 </resources>
