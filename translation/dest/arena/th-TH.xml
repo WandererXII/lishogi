@@ -38,4 +38,8 @@
   <plurals name="viewAllXTeams" comment="viewAllXTeams [one] [other]&#10;&#10;%s is the number of teams that can be viewed">
     <item quantity="other">View all %s teams</item>
   </plurals>
+  <string name="howManyPlayersCanJoin">How many players can join?</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
+  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
+  <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
 </resources>
