@@ -8,7 +8,7 @@
 	<string name="waitingForOpponent">相手を待っています</string>
 	<string name="waiting">待機中</string>
 	<string name="yourTurn">あなたの手番です</string>
-	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">倒された %1$s レベル %2$s</string>
 	<string name="level">レベル</string>
 	<string name="levelX" comment="Engine difficulty level">レベル %s</string>
 	<string name="strength">強さ</string>
@@ -27,7 +27,7 @@
 	<string name="bareKing" comment="Used in chushogi">裸玉</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
-	<string name="xWon" comment="Example: Player won!">%s won!</string>
+	<string name="xWon" comment="Example: Player won!">%s の勝ち！</string>
 	<string name="xLost" comment="Example: Player lost!">%s lost!</string>
 	<string name="gameWasDraw">Game was a draw!</string>
 	<string name="winnerIsNotYetDecided">Winner is not yet decided.</string>
@@ -708,7 +708,7 @@
 		<item quantity="other">この 1 週間の参加者 %1$s 人（%2$s）。</item>
 	</plurals>
 	<plurals name="nbPerfTypePlayersThisMonth">
-		<item quantity="other">%1$s %2$s players this month.</item>
+		<item quantity="other">この 1 月の参加者 %1$s 人（%2$s）。</item>
 	</plurals>
 	<string name="yourPerfTypeRatingIsRating">あなたの %1$s レーティングは %2$s です。</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">あなたは全体の %1$s の%2$s参加者より上です。</string>
