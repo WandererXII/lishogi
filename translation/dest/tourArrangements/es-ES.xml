@@ -34,4 +34,6 @@
 	<string name="whoStartsMatchesAnswer">The match starts when both players click \"%s\" - the players must start the game themselves. Organizer cannot start a game.</string>
 	<string name="organizedScoring">How are points given?</string>
 	<string name="organizedScoringAnswer">The organizer decides how many points are awarded for a win, draw, or loss.</string>
+	<string name="howManyGames">How many games can be played?</string>
+	<string name="howManyGamesAnswer">The organizer can create at most %s games.</string>
 </resources>
