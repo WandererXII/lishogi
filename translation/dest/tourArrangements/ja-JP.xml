@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="roundRobin" comment="https://en.wikipedia.org/wiki/Round-robin_tournament">Round-robin</string>
-	<string name="startGameNow">Start game now</string>
-	<string name="goToGame">Go to game</string>
-	<string name="gameScheduling">Game scheduling</string>
-	<string name="suggestTime" comment="Time that you suggest to your opponent to start a game">Suggest time</string>
-	<string name="suggestDifferentTime" comment="Time to start a game that you want to suggest, if some time was already suggested">Suggest different time</string>
-	<string name="acceptSuggestedTime" comment="Accept time opponent suggested to start a game">Accept suggested time</string>
-	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s accepted your suggested time</string>
-	<string name="suggestedTime" comment="Currently suggested time to start a game">Suggested time</string>
-	<string name="scheduledAt" comment="Date/time when game is scheduled for">Scheduled at</string>
+	<string name="roundRobin" comment="https://en.wikipedia.org/wiki/Round-robin_tournament">総当たり戦</string>
+	<string name="startGameNow">対局開始</string>
+	<string name="goToGame">対局へ移動</string>
+	<string name="gameScheduling">対局スケジューリング</string>
+	<string name="suggestTime" comment="Time that you suggest to your opponent to start a game">日時を提案</string>
+	<string name="suggestDifferentTime" comment="Time to start a game that you want to suggest, if some time was already suggested">別の日時を提案</string>
+	<string name="acceptSuggestedTime" comment="Accept time opponent suggested to start a game">提案された日時を承認</string>
+	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s があなたの提案した日時を承認しました</string>
+	<string name="suggestedTime" comment="Currently suggested time to start a game">提案日時</string>
+	<string name="scheduledAt" comment="Date/time when game is scheduled for">予定日時</string>
 	<string name="startedAt" comment="Date/time when game started">Started at</string>
 	<string name="upcomingGameWithX" comment="Upcoming game with username">Upcoming game with %s</string>
 	<string name="yourUpcomingGames">Your upcoming games</string>
