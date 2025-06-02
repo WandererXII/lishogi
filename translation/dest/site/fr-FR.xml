@@ -280,7 +280,7 @@
 	<string name="play">Jouer</string>
 	<string name="inbox">Boîte de réception</string>
 	<string name="streamerManager">Gestionnaire de streamer</string>
-	<string name="coachManager"></string>
+	<string name="coachManager">Coach Manager</string>
 	<string name="chatRoom">Salon de discussion</string>
 	<string name="loginToChat">Connectez-vous pour discuter</string>
 	<string name="youHaveBeenTimedOut">Vous avez été suspendu temporairement.</string>
@@ -459,7 +459,7 @@
 	<string name="advancedSettings">Paramètres avancés</string>
 	<string name="safeTournamentName">Choisissez un sage nom pour le tournoi.</string>
 	<string name="inappropriateNameWarning">Toute conduite inappropriée aboutira à la fermeture de votre compte.</string>
-	<string name="emptyTournamentAnimalName"></string>
+	<string name="emptyTournamentAnimalName">Leave empty to name the tournament after a random animal.</string>
 	<string name="showAdvancedSettings">Afficher les paramètres avancés</string>
 	<string name="makePrivateTournament">Rendre le tournoi privé et en restreindre l\'accès avec un mot de passe</string>
 	<string name="join">Rejoindre</string>
@@ -718,7 +718,7 @@
 	<string name="simulDescription">Description de la simultanée</string>
 	<string name="anythingTellParticipants">Vous voulez dire quelque chose aux participants ?</string>
 	<string name="lishogiTournaments">Tournois Lishogi</string>
-	<string name="tournamentShields"></string>
+	<string name="tournamentShields">Tournament shields</string>
 	<string name="tournamentOfficial">Officiel</string>
 	<string name="timeBeforeTournamentStarts">Temps restant avant le début du tournoi</string>
 	<string name="averageCentipawnLoss">Perte moyenne en centipions</string>
@@ -741,8 +741,8 @@
 		<item quantity="other">%1$s joueurs de %2$s cette semaine.</item>
 	</plurals>
 	<plurals name="nbPerfTypePlayersThisMonth">
-		<item quantity="one"></item>
-		<item quantity="other"></item>
+		<item quantity="one">%1$s joueur de %2$s ce mois-ci.</item>
+		<item quantity="other">%1$s%2$s joueurs ce mois-ci.</item>
 	</plurals>
 	<string name="yourPerfTypeRatingIsRating">Votre cote en %1$s est de %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">Vous êtes meilleur que %1$s des joueurs de %2$s.</string>
