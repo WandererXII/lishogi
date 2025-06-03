@@ -50,7 +50,7 @@ Xoga rápido e volta á sala de espera para xogar máis partidas e gañar máis 
     <item quantity="other">Ver todos os %s equipos</item>
   </plurals>
   <string name="howManyPlayersCanJoin">Cantos xogadores poden participar?</string>
-  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">Por defecto, nun torneo con este formato, poden participar %s xogadores.</string>
+  <string name="howManyPlayersCanJoinAnswer">Neste torneo poden participar %s xogadores.</string>
+  <string name="howManyPlayersCanJoinDenied">Unha vez que o torneo comeza, os xogadores expulsados seguen a terse en conta no límite total de xogadores.</string>
 </resources>
