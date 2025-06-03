@@ -10,15 +10,15 @@
 	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s があなたの提案した日時を承認しました</string>
 	<string name="suggestedTime" comment="Currently suggested time to start a game">提案日時</string>
 	<string name="scheduledAt" comment="Date/time when game is scheduled for">予定日時</string>
-	<string name="startedAt" comment="Date/time when game started">Started at</string>
-	<string name="upcomingGameWithX" comment="Upcoming game with username">Upcoming game with %s</string>
-	<string name="yourUpcomingGames">Your upcoming games</string>
-	<string name="allUpcomingAndOngoingGames">All upcoming and ongoing games</string>
+	<string name="startedAt" comment="Date/time when game started">開始日時</string>
+	<string name="upcomingGameWithX" comment="Upcoming game with username">%s との対局が間もなく開始されます</string>
+	<string name="yourUpcomingGames">あなたの今後の対局一覧</string>
+	<string name="allUpcomingAndOngoingGames">今後および進行中の全対局</string>
 	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">My arranged games</string>
-	<string name="gameWillNotStart">Game will not start automatically!</string>
+	<string name="gameWillNotStart">対局は自動的に開始されません！</string>
 	<string name="organized" comment="Tournament format - organized, players can only play games created by the organizer">Organized</string>
 	<string name="existingGamesBetweenPlayers" comment="For tour organizers, title for a list of upcoming games between two selected players">Existing games between players</string>
-	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">Points (W/D/L)</string>
+	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">勝ち分（勝／引き分け／負け）</string>
 	<string name="gameName" comment="Name of arranged game">Game name</string>
 	<string name="howDoesRoundRobinWork">How does round-robin work?</string>
 	<string name="howDoesRoundRobinWorkAnswer">In a round-robin tournament, each player can play one game against every other player. Games don\'t start automatically - both players need to arrange the game and click \"%s\" to begin.</string>
