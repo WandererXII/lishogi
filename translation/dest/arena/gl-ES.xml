@@ -49,7 +49,7 @@ Xoga rápido e volta á sala de espera para xogar máis partidas e gañar máis 
     <item quantity="one">Ver o equipo</item>
     <item quantity="other">Ver todos os %s equipos</item>
   </plurals>
-  <string name="howManyPlayersCanJoin">How many players can join?</string>
+  <string name="howManyPlayersCanJoin">Cantos xogadores poden participar?</string>
   <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
   <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
   <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
