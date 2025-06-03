@@ -34,6 +34,6 @@
 	<string name="whoStartsMatchesAnswer">O encontro empeza cando ambos os dous xogadores pulsan \"%s\": son eles os que o inician. O organizador non pode iniciar a partida.</string>
 	<string name="organizedScoring">Como se reparten os puntos?</string>
 	<string name="organizedScoringAnswer">O organizador decide cantos puntos se reciben por cada vitoria, táboas e derrota.</string>
-	<string name="howManyGames">How many games can be played?</string>
-	<string name="howManyGamesAnswer">The organizer can create at most %s games.</string>
+	<string name="howManyGames">Cantas partidas se poden xogar?</string>
+	<string name="howManyGamesAnswer">O organizador pode crear ata %s partidas.</string>
 </resources>
