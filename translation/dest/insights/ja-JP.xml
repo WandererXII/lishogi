@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">Insights</string>
+  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">成績情報</string>
   <string name="moves">動かす</string>
   <string name="drops">打つ</string>
   <string name="movesAndDrops">指す</string>
