@@ -14,26 +14,26 @@
 	<string name="upcomingGameWithX" comment="Upcoming game with username">%s との対局が間もなく開始されます</string>
 	<string name="yourUpcomingGames">あなたの今後の対局一覧</string>
 	<string name="allUpcomingAndOngoingGames">今後および進行中の全対局</string>
-	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">My arranged games</string>
+	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">私の予定済み対局</string>
 	<string name="gameWillNotStart">対局は自動的に開始されません！</string>
-	<string name="organized" comment="Tournament format - organized, players can only play games created by the organizer">Organized</string>
+	<string name="organized" comment="Tournament format - organized, players can only play games created by the organizer">運営型</string>
 	<string name="existingGamesBetweenPlayers" comment="For tour organizers, title for a list of upcoming games between two selected players">Existing games between players</string>
 	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">勝ち分（勝／引き分け／負け）</string>
 	<string name="gameName" comment="Name of arranged game">Game name</string>
-	<string name="howDoesRoundRobinWork">How does round-robin work?</string>
-	<string name="howDoesRoundRobinWorkAnswer">In a round-robin tournament, each player can play one game against every other player. Games don\'t start automatically - both players need to arrange the game and click \"%s\" to begin.</string>
-	<string name="howToPlayGames">How do I play a game?</string>
-	<string name="howToPlayGamesAnswer">To play, click the correct cell in the table where you and your opponent meet. You can schedule a date and time for easy planning and a 24-hour reminder. The game starts only after both players click \"%s\".</string>
-	<string name="roundRobinScoring">How are points given?</string>
-	<string name="roundRobinScoringAnswer">You get 3 points for a win, 2 for a draw, and 1 for a loss. Every match counts toward your total score.</string>
-	<string name="roundRobinWinner">How is the winner decided?</string>
-	<string name="roundRobinWinnerAnswer">The player with the most points at the end wins. If players have the same number of points, the one who joined the tournament earlier is ranked higher.</string>
-	<string name="howDoOrganizedTournamentsWork">How do organized tournaments work?</string>
-	<string name="howDoOrganizedTournamentsWorkAnswer">In organized tournaments, only the tournament organizer can create matches between players. Players can then play those matches by clicking \"%s\".</string>
-	<string name="whoStartsMatches">Who starts the match?</string>
-	<string name="whoStartsMatchesAnswer">The match starts when both players click \"%s\" - the players must start the game themselves. Organizer cannot start a game.</string>
-	<string name="organizedScoring">How are points given?</string>
-	<string name="organizedScoringAnswer">The organizer decides how many points are awarded for a win, draw, or loss.</string>
-	<string name="howManyGames">How many games can be played?</string>
+	<string name="howDoesRoundRobinWork">総当たり戦とは？</string>
+	<string name="howDoesRoundRobinWorkAnswer">総当たり戦では、各プレイヤーが他のすべてのプレイヤーと一局ずつ対局できます。対局は自動的に開始されず、両者が日時を調整し、「%s」をクリックして開始する必要があります。</string>
+	<string name="howToPlayGames">対局はどうやって行うの？</string>
+	<string name="howToPlayGamesAnswer">対局するには、表の中で自分と対戦相手が交差するセルをクリックしてください。日時をスケジュールすることで、計画が立てやすくなり、24時間前にリマインダーも届きます。両プレイヤーが「%s」をクリックして初めて対局が開始されます。</string>
+	<string name="roundRobinScoring">ポイントはどうやって決まるの？</string>
+	<string name="roundRobinScoringAnswer">勝ちは3ポイント、引き分けは2ポイント、負けでも1ポイントが与えられます。すべての対局があなたの総合得点に加算されます。</string>
+	<string name="roundRobinWinner">勝者はどうやって決まるの？</string>
+	<string name="roundRobinWinnerAnswer">最終的に最も多くのポイントを獲得したプレイヤーが勝者となります。ポイントが同じ場合は、先に大会に参加したプレイヤーの方が上位にランクされます。</string>
+	<string name="howDoOrganizedTournamentsWork">運営型トーナメントはどうやって行われるの？</string>
+	<string name="howDoOrganizedTournamentsWorkAnswer">運営型トーナメントでは、対局の作成は大会主催者のみが行えます。プレイヤーは作成された対局を「%s」をクリックして対戦します。</string>
+	<string name="whoStartsMatches">対局は誰が開始するの？</string>
+	<string name="whoStartsMatchesAnswer">対局は両プレイヤーが「%s」をクリックしたときに開始します。プレイヤー自身が対局を開始する必要があり、主催者は開始できません。</string>
+	<string name="organizedScoring">ポイントはどうやって付与されますか？</string>
+	<string name="organizedScoringAnswer">ポイントの配分（勝ち・引き分け・負け）は主催者が決定します。</string>
+	<string name="howManyGames">何試合まで対局できますか？</string>
 	<string name="howManyGamesAnswer">主催者は最大 %s 対局まで作成できます。</string>
 </resources>
