@@ -4,7 +4,7 @@
 	<string name="gameDisplay">表示設定</string>
 	<string name="boardLayout">盤面のレイアウト</string>
 	<string name="clearHands">持ち駒にある駒の影を隠す</string>
-	<string name="handsBackground">Show background behind pieces in hand</string>
+	<string name="handsBackground">持ち駒の背景を表示する</string>
 	<string name="pieceAnimation">駒のアニメーション速度</string>
 	<string name="materialDifference">駒の損得</string>
 	<string name="boardHighlightsLastDests">盤面のハイライト - 最後の指し手</string>
@@ -46,5 +46,5 @@
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki 形式</string>
 	<string name="kifNotation">KIF(柿木) 形式</string>
 	<string name="yourPreferencesHaveBeenSaved">設定が保存されました。</string>
-	<string name="smallMoves">Small moves</string>
+	<string name="smallMoves">小手数</string>
 </resources>
