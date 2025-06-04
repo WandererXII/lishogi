@@ -14,7 +14,7 @@
   <string name="promotedsilver">成銀</string>
   <string name="horse">竜馬</string>
   <string name="dragon">竜王</string>
-  <string comment="Chushogi piece - not tokin" name="promotedpawn">Promoted pawn</string>
+  <string comment="Chushogi piece - not tokin" name="promotedpawn">と金</string>
   <string comment="Chushogi piece, low priority for translation" name="leopard">猛豹</string>
   <string comment="Chushogi piece, low priority for translation" name="copper">銅将</string>
   <string comment="Chushogi piece, low priority for translation" name="elephant">醉象</string>
