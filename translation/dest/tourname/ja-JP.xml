@@ -9,8 +9,8 @@
   <string name="xShieldArena">%s シールド戦アリーナ</string>
   <string name="xShield">%s シールド戦</string>
   <string name="xTeamBattle">%s チームバトル</string>
-  <string name="weekendX">Weekend %s</string>
+  <string name="weekendX">毎週の %s</string>
   <string name="eliteX">エリート %s</string>
   <string name="xArena">%s アリーナ</string>
-  <string name="xRobin">%s Round-robin</string>
+  <string name="xRobin">%s 総当たり戦</string>
 </resources>
