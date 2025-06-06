@@ -8,7 +8,7 @@
 	<string name="waitingForOpponent">Oczekiwanie na przeciwnika</string>
 	<string name="waiting">Oczekiwanie</string>
 	<string name="yourTurn">Twój ruch</string>
-	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Defeated %1$s level %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Pokonano %1$s poziom %2$s</string>
 	<string name="level">Poziom</string>
 	<string name="levelX" comment="Engine difficulty level">Poziom %s</string>
 	<string name="strength">Siła</string>
@@ -107,8 +107,8 @@
 	<string name="recentGames">Ostatnie partie</string>
 	<string name="topGames">Najlepsze partie</string>
 	<string name="noGameFound">Nie znaleziono partii</string>
-	<string name="pageNotFound">Page not found</string>
-	<string name="returnToHomepage">Return to homepage</string>
+	<string name="pageNotFound">Nie znaleziono strony</string>
+	<string name="returnToHomepage">Powrót do strony głównej</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Może zaimportujesz więcej partii z menu narzędzi?</string>
 	<string name="openingExplorer">Biblioteka otwarć</string>
 	<string name="xOpeningExplorer">Biblioteka otwarć %s</string>
@@ -238,7 +238,7 @@
 	</plurals>
 	<string name="confirm">Zatwierdź</string>
 	<string name="cancel">Anuluj</string>
-	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Rozpocznij</string>
 	<string name="timeOut">Czas upłynął</string>
 	<string name="drawOfferSent">Wysłano propozycję remisu</string>
 	<string name="drawOfferDeclined">Odrzucono propozycję remisu</string>
@@ -373,7 +373,7 @@
 	<string name="tournament">Turniej</string>
 	<string name="tournamentLeaderboard">Tabela wyników turnieju</string>
 	<string name="tournaments">Turnieje</string>
-	<string name="myTournaments">My tournaments</string>
+	<string name="myTournaments">Moje turnieje</string>
 	<string name="tournamentPoints">Punkty turniejowe</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s punkt turniejowy</item>
@@ -515,14 +515,14 @@
 	<string name="advancedSettings">Ustawienia zaawansowane</string>
 	<string name="safeTournamentName">Nadaj turniejowi neutralną nazwę.</string>
 	<string name="inappropriateNameWarning">Nawet nieco nieodpowiednia nazwa może spowodować zamknięcie Twojego konta.</string>
-	<string name="emptyTournamentAnimalName">Leave empty to name the tournament after a random animal.</string>
+	<string name="emptyTournamentAnimalName">Jeśli nie podasz nazwy turnieju, zostanie on nazwany nazwą losowego zwierzęcia.</string>
 	<string name="showAdvancedSettings">Pokaż ustawienia zaawansowane</string>
 	<string name="makePrivateTournament">Uczyń turniej prywatnym ograniczając dostęp za pomocą hasła</string>
 	<string name="join">Dołącz</string>
-	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
-	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
+	<string name="askToJoin" comment="Tournament join request">Poproś o dołączenie</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Oczekiwanie an akceptację</string>
 	<string name="pause">Wstrzymaj</string>
-	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Odmówiono</string>
 	<string name="withdraw">Wycofaj się</string>
 	<string name="points">Punkty</string>
 	<string name="wins">Wygrane</string>
@@ -579,7 +579,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">Miej na uwadze, że partia jest rankingowa, ale nie ma limitu czasu!</string>
 	<string name="toTrackYourProgress">Śledź swoje postępy:</string>
 	<string name="goodMove">Dobry ruch</string>
-	<string name="brilliantMove">Brilliant move</string>
+	<string name="brilliantMove">Świetny ruch</string>
 	<string name="bestMove">Najlepszy ruch!</string>
 	<string name="success">Sukces</string>
 	<string name="thankYou">Dziękujemy!</string>
@@ -618,7 +618,7 @@
 	<string name="replyToThisTopic">Odpowiedz w tym temacie</string>
 	<string name="reply">Odpowiedz</string>
 	<string name="message">Wiadomość</string>
-	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
+	<string name="xIsTyping" comment="Username is typing...">%s pisze...</string>
 	<string name="createTheTopic">Załóż temat</string>
 	<string name="reportAUser">Zgłoś użytkownika</string>
 	<string name="user">Użytkownik</string>
@@ -682,7 +682,7 @@
 	<string name="drawVsYInZ">%1$s z %2$s (%3$s)</string>
 	<string name="timeline">Historia</string>
 	<string name="starting" comment="Ex.: Starting: 50 minutes">Rozpoczęcie:</string>
-	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Koniec:</string>
 	<string name="allInformationIsPublicAndOptional">Wszystkie informacje są publiczne i opcjonalne</string>
 	<string name="yourCityRegionOrDepartment">Twoje miasto, region lub województwo</string>
 	<string name="biographyDescription">Napisz coś o sobie: dlaczego grasz w shogi, twoje ulubione otwarcia, partie, zawodnicy…</string>
@@ -755,13 +755,13 @@
 	<string name="termsOfService">Regulamin</string>
 	<string name="sourceCode">Kod źródłowy</string>
 	<string name="simultaneousExhibitions">Symultany</string>
-	<string name="simulComplete">Simul complete</string>
-	<string name="backToSimul">Back to simul</string>
+	<string name="simulComplete">Symultana zakończona</string>
+	<string name="backToSimul">Powrót do symultany</string>
 	<string name="host">Symultanista</string>
 	<string name="hostColorX">Kolor symultanisty: %s</string>
 	<string name="createdSimuls">Nowe symultany</string>
 	<string name="hostANewSimul">Nowa symultana</string>
-	<string name="yourPendingSimuls">Your pending simuls</string>
+	<string name="yourPendingSimuls">Twoje oczekujące symultany</string>
 	<string name="noSimulFound">Nie znaleziono symultany</string>
 	<string name="noSimulExplanation">Taka symultana nie istnieje</string>
 	<string name="returnToSimulHomepage">Wróć do do strony głównej symultan</string>
@@ -1075,8 +1075,8 @@
 	<string name="preview">Podgląd</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">Wariant nieobsługiwany</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Gotowe do gry</string>
-	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
-	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">Ogólne dyskusje o shogi</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Analiza partii</string>
 	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
 	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
 	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
@@ -1110,6 +1110,6 @@
 	<string name="acceptRandomCandidate">Accept random candidate</string>
 	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
-	<string name="startDate">Start date</string>
-	<string name="endDate">End date</string>
+	<string name="startDate">Data rozpoczęcia</string>
+	<string name="endDate">Data zakończenia</string>
 </resources>
