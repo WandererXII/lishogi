@@ -1080,19 +1080,19 @@
 	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
 	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
 	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
-	<string name="kickPlayer">Kick player</string>
-	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="kickPlayer">Wyrzuć gracza</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Zarządzanie graczami</string>
 	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
-	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
-	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
-	<string name="tourRecent">Recently played</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Udostępnij adres URL głównej linii</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Utworzone</string>
+	<string name="tourRecent">Ostatnio rozegrane</string>
 	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Format</string>
-	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
-	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
-	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
-	<string name="dateStartedNewest">Date started (newest)</string>
+	<string name="tourUpcoming" comment="Upcoming tournaments">Nadchodzące</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Najlepsze wyniki</string>
+	<string name="stats" comment="Game, tournament or simul stats">Statystyki</string>
+	<string name="dateStartedNewest">Data rozpoczęcia (od najnowszych)</string>
 	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
-	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
+	<string name="gameAgainstX" comment="Your game against playerX">Partia przeciwko %s</string>
 	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
 	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
 		<item quantity="one">%s candidate player</item>
@@ -1109,7 +1109,7 @@
 	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
 	<string name="acceptRandomCandidate">Accept random candidate</string>
 	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
-	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Przesuwając klocki, pomóż królowi uciec przez wyjście na dole planszy.</string>
 	<string name="startDate">Data rozpoczęcia</string>
 	<string name="endDate">Data zakończenia</string>
 </resources>
