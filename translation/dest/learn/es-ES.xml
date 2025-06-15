@@ -16,6 +16,7 @@
 	<string name="howToSelectPieceSet">¿Cómo seleccionar tu conjunto de piezas?</string>
 	<string name="choosePieceDesign">Es importante que puedas diferenciar tus piezas, así que asegúrate de elegir el conjunto de piezas correcto.
 Para hacerlo, pulsa en la rueda del engranaje o en tu nombre de usuario (esquina superior derecha) y luego haz clic en \"estilo de piezas\".</string>
+	<string name="choosePieceDesignShort">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
 	<string name="promotionZone">Cuando alguna de tus piezas alcancen o dejen las primeras tres filas en el territorio de tu oponente, puedes elegir promocionar tu pieza y hacerla más fuerte.</string>
 	<string name="senteGoesFirst">En shogi quien mueve primero es llamado sente y quien juega segundo es llamado gote. Sente a veces es representado con el color negro y gote con el blanco. Haz cualquier movimiento como sente para continuar.</string>
 	<string name="introComplete">Ahora ya sabes algunos conceptos básicos, pero esta parte del tutorial todavía está en construcción. Por ahora aprende cómo se mueven las piezas individuales.</string>
