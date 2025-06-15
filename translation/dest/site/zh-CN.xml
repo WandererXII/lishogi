@@ -379,6 +379,7 @@
 	<string name="toStudy">研究</string>
 	<string name="importGame">导入棋局</string>
 	<string name="importedGame">对局已导入。</string>
+	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">粘贴KIF或者CSA棋谱后可重放棋局、使用电脑分析、使用对局聊天室以及获得通往本局的链接。</string>
 	<plurals name="nbImportedGames">
 		<item quantity="other">%s盘导入的棋局</item>
@@ -771,6 +772,7 @@
 	<string name="lobby">大厅</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">预设</string>
 	<string name="anonymous">匿名</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
 	<string name="yourScore">你的分数：%s</string>
 	<string name="language">语言</string>
 	<string name="background">背景</string>
@@ -986,4 +988,6 @@
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 	<string name="startDate">Start date</string>
 	<string name="endDate">End date</string>
+	<string name="xJoinedTheGame">%s joined the game</string>
+	<string name="connectingToTheGame">Connecting to the game</string>
 </resources>
