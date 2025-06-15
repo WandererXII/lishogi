@@ -16,6 +16,7 @@
 	<string name="howToSelectPieceSet">Cum să selectezi setul de piese?</string>
 	<string name="choosePieceDesign">Este important să vă puteți identifica piesele, astfel încât să vă asigurați că alegeți setul corect.
 Pentru a face asta, dați click pe numele dvs. (colțul din dreapta sus) și apăsați pe \"set de piese\".</string>
+	<string name="choosePieceDesignShort">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
 	<string name="promotionZone">Când unele dintre piesele tale ajung sau părăsesc primele trei ranguri de pe teritoriul oponentului tău, poți alege să îți promovezi piesa și să o faci mai puternică.</string>
 	<string name="senteGoesFirst">În shogi, jucătorul care merge mai întâi se numește sente și jucătorul care merge al doilea se numește gote. Sente este uneori reprezentat de culoare neagră și gote de alb. Fă orice mișcare ca sente pentru a continua.</string>
 	<string name="introComplete">Acum știi câteva elemente de bază, dar această parte a tutorialului este momentan neterminată. Deocamdată, învață cum se mișcă piesele individuale.</string>
