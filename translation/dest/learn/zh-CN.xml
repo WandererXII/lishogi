@@ -16,6 +16,7 @@
 	<string name="howToSelectPieceSet">How to select your piece set?</string>
 	<string name="choosePieceDesign">为了确保您能分辨棋子，请做好棋子设定。
 点击右上方的齿轮或您的用户名，再点击棋子设定。</string>
+	<string name="choosePieceDesignShort">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
 	<string name="promotionZone">在己方棋子出入敌阵（靠近对手的三段）时，可以选择是否升变。</string>
 	<string name="senteGoesFirst">将棋先行方称先手，后行方称后手。先手有时用黑色表示，而后手则用白色。请作为先手下一步棋以继续。</string>
 	<string name="introComplete">你已经有些基本知识了，但这部分的教程还没有完结。下面，我们来单独学习每种棋子的走法。</string>
