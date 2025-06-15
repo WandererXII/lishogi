@@ -448,6 +448,7 @@
 	<string name="toStudy">Навучанне</string>
 	<string name="importGame">Імпартаваць гульню</string>
 	<string name="importedGame">Game was imported.</string>
+	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Імпартуйце гульню ў фармаце KIF або CSA , каб атрымаць паўтор у браўзеры, камп\'ютарны аналіз, чат гульні і спасылку на гульню.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s imported game</item>
@@ -879,6 +880,7 @@
 	<string name="lobby">Лобі</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Ананімны гулец</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
 	<string name="yourScore">Ваш вынік: %s</string>
 	<string name="language">Мова</string>
 	<string name="background">Фон</string>
@@ -1112,4 +1114,6 @@
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 	<string name="startDate">Start date</string>
 	<string name="endDate">End date</string>
+	<string name="xJoinedTheGame">%s joined the game</string>
+	<string name="connectingToTheGame">Connecting to the game</string>
 </resources>
