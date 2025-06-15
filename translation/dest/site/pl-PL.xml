@@ -448,6 +448,7 @@
 	<string name="toStudy">Opracowanie</string>
 	<string name="importGame">Importuj partię</string>
 	<string name="importedGame">Gra została zaimportowana.</string>
+	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Wklejenie zapisu partii w formacie KIF lub CSA daje możliwość jej odtworzenia, analizy komputerowej, rozmowy i udostępniania.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s zaimportowana partia</item>
@@ -879,6 +880,7 @@
 	<string name="lobby">Poczekalnia</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Anonimowy</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
 	<string name="yourScore">Twój wynik: %s</string>
 	<string name="language">Język</string>
 	<string name="background">Tło</string>
@@ -1112,4 +1114,6 @@
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Przesuwając klocki, pomóż królowi uciec przez wyjście na dole planszy.</string>
 	<string name="startDate">Data rozpoczęcia</string>
 	<string name="endDate">Data zakończenia</string>
+	<string name="xJoinedTheGame">%s joined the game</string>
+	<string name="connectingToTheGame">Connecting to the game</string>
 </resources>
