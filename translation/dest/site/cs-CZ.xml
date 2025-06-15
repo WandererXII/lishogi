@@ -448,6 +448,7 @@
 	<string name="toStudy">Do studie</string>
 	<string name="importGame">Importuj hru</string>
 	<string name="importedGame">Hra byla importována.</string>
+	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Vložení partie ve formátu KIF nebo CSA vám umožní přehrání partii, získáte počítačovou analýzu, chat ke hře a URL ke sdílení hry.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s importovaná</item>
@@ -879,6 +880,7 @@
 	<string name="lobby">Výzvy</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">Předvolby</string>
 	<string name="anonymous">Anonymní</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
 	<string name="yourScore">Vaše skóre: %s</string>
 	<string name="language">Jazyk</string>
 	<string name="background">Pozadí</string>
@@ -1112,4 +1114,6 @@
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 	<string name="startDate">Start date</string>
 	<string name="endDate">End date</string>
+	<string name="xJoinedTheGame">%s joined the game</string>
+	<string name="connectingToTheGame">Connecting to the game</string>
 </resources>
