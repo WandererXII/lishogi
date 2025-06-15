@@ -16,6 +16,7 @@
 	<string name="howToSelectPieceSet">How to select your piece set?</string>
 	<string name="choosePieceDesign">자신의 기물을 구분할 수 있는 것이 중요하므로 반드시 자신에게 맞는 기물을 골라보세요.
 톱니바퀴 또는 사용자 이름(오른쪽 상단 모서리)을 클릭한 다음 \'기물 세트\'를 클릭합니다.</string>
+	<string name="choosePieceDesignShort">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
 	<string name="promotionZone">당신의 말중 몇 종류는 상대편 진영의 3줄 안에 들어갔을때, 말을 승급시켜서 더 강하게 만들 수 있습니다.</string>
 	<string name="senteGoesFirst">쇼기에서는 처음에 두는 사람을 \'선수[先手]\'라고 부르고, 다음에 두는 사람을 \'후수[後手]\'라고 합니다. \'선수\'는 흑, \'후수\'는 백이라고 할 수 있습니다. 계속하시려면 \'선수\'로 원하는 수를 둬주세요.</string>
 	<string name="introComplete">이것으로 기본적인 것은 아셨다고 생각합니다만, 튜토리얼의 이 부분은 아직 작성 중입니다. 지금은 각각의 말이 어떤식으로 움직이는지를 배우세요.</string>
