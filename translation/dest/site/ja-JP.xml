@@ -379,6 +379,7 @@
 	<string name="toStudy">研究</string>
 	<string name="importGame">棋譜をインポート</string>
 	<string name="importedGame">対局がインポートされました。</string>
+	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">対局のKIFあるいはCSAを貼り付けて、ブラウザ上での再現
 サーバー解析、対局チャット、共有可能なURLを取得</string>
 	<plurals name="nbImportedGames">
@@ -772,6 +773,7 @@
 	<string name="lobby">ロビー</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">プリセット</string>
 	<string name="anonymous">匿名</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
 	<string name="yourScore">通算成績：%s</string>
 	<string name="language">言語</string>
 	<string name="background">背景</string>
@@ -987,4 +989,6 @@
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">駒をスライドさせて、王様を盤の下の出口から脱出させよう。</string>
 	<string name="startDate">開始日</string>
 	<string name="endDate">終了日</string>
+	<string name="xJoinedTheGame">%s joined the game</string>
+	<string name="connectingToTheGame">Connecting to the game</string>
 </resources>
