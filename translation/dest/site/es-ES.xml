@@ -402,6 +402,7 @@
 	<string name="toStudy">Estudiar</string>
 	<string name="importGame">Importar partida</string>
 	<string name="importedGame">Partida importada.</string>
+	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Pega una partida KIF o CSA para obtener una repetición navegable, análisis por ordenador, chat de juego y una URL para compartir.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s partida importada</item>
@@ -807,6 +808,7 @@
 	<string name="lobby">Sala de espera</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">Ajustes</string>
 	<string name="anonymous">Anónimo</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
 	<string name="yourScore">Tu puntuación: %s</string>
 	<string name="language">Idioma</string>
 	<string name="background">Fondo</string>
@@ -1028,4 +1030,6 @@
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 	<string name="startDate">Start date</string>
 	<string name="endDate">End date</string>
+	<string name="xJoinedTheGame">%s joined the game</string>
+	<string name="connectingToTheGame">Connecting to the game</string>
 </resources>

@@ -16,6 +16,7 @@
 	<string name="howToSelectPieceSet">Làm thế nào để chọn bộ cờ của bạn?</string>
 	<string name="choosePieceDesign">Việc bạn nhớ mặt quân rất quan trọng, nên hãy chắc chắn bạn chọn bộ cờ phù hợp.
 Để làm điều đó, nhấn vào hình bánh răng cưa hoặc vào tên người dùng của bạn ở góc trên phải rồi chọn bộ cờ.</string>
+	<string name="choosePieceDesignShort">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
 	<string name="promotionZone">Khi một quân của bạn chạm tới hoặc rời khỏi ba hàng đầu trong phần sân của đối phương, bạn có thể lựa chọn phong cấp quân và khiến chúng mạnh hơn.</string>
 	<string name="senteGoesFirst">Trong Shogi, người đi trước được gọi là Tiên thủ, đi sau gọi là Hậu thủ. Tiên thủ đôi khi được biểu diễn là Đen, Hậu thủ là Trắng. Thực hiện nước đi dưới vai trò Tiên thủ để tiếp tục.</string>
 	<string name="introComplete">Bạn có thể đã biết vài điều cơ bản, nhưng phần này của cơ bản vẫn đang trong quá trình xây dựng. Từ giờ, hãy học cách mà các quân cờ di chuyển.</string>

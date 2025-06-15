@@ -16,6 +16,7 @@
 	<string name="howToSelectPieceSet">How to select your piece set?</string>
 	<string name="choosePieceDesign">Важна, каб вы маглі адрозніць свае фігуры, таму пераканайцеся, што вы выбралі правільны набор дэталяў.
 Каб зрабіць гэта, націсніце на зубчастае кола або ваша імя карыстальніка (правы верхні вугал), а затым націсніце на «набор частак»</string>
+	<string name="choosePieceDesignShort">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
 	<string name="promotionZone">Калі некаторыя з вашых фігур дасягаюць або пакідаюць першыя тры шэрагі на тэрыторыі суперніка, вы можаце выбраць прасоўванне сваёй фігуры і зрабіць яе мацнейшай.</string>
 	<string name="senteGoesFirst">У сёгі гулец, які ідзе першым, называецца сентэ, а гулец, які ідзе другім, - готэ. Сентэ часам прадстаўлены чорным колерам, а готэ - белым. Каб працягнуць, зрабіце любы рух за сентэ</string>
 	<string name="introComplete">Цяпер вы ведаеце некаторыя асновы, але гэтая частка падручніка яшчэ распрацоўваецца. А пакуль даведайцеся, як рухаюцца асобныя часткі.</string>
