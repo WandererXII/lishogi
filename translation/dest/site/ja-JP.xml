@@ -166,7 +166,7 @@
 	<string name="today">今日</string>
 	<string name="yesterday">昨日</string>
 	<string name="minutesPerSide">持ち時間</string>
-	<string name="variant">ルール</string>
+	<string name="variant">変則ルール</string>
 	<string name="variants">変則将棋</string>
 	<string name="timeControl">持ち時間</string>
 	<string name="realTime">実時間</string>
@@ -771,7 +771,7 @@
 	<string name="xCreatesStudyY">%1$s が研究 %2$s を作成</string>
 	<string name="quickPairing">自動ペアリング</string>
 	<string name="lobby">ロビー</string>
-	<string name="presets" comment="Tab in lobby, try to keep it short">プリセット</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">持時間選択</string>
 	<string name="anonymous">匿名</string>
 	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
 	<string name="yourScore">通算成績：%s</string>
