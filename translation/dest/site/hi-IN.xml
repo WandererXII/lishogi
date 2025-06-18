@@ -402,6 +402,7 @@
 	<string name="toStudy">अध्ययन</string>
 	<string name="importGame">खेल इम्पोर्ट करे</string>
 	<string name="importedGame">Game was imported.</string>
+	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">जब एक खेल KIF या CSA चिपकाने आप एक ब्राउसेबल पुनरावृत्ति,
 एक कंप्यूटर विश्लेषण, एक खेल चैट और एक साझा URL मिलता है।</string>
 	<plurals name="nbImportedGames">
@@ -808,6 +809,7 @@
 	<string name="lobby">लॉबी</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">गुमनाम</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
 	<string name="yourScore">आपका स्कोर: %s</string>
 	<string name="language">भाषा</string>
 	<string name="background">बैकग्राउंड</string>
@@ -1029,4 +1031,6 @@
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
 	<string name="startDate">Start date</string>
 	<string name="endDate">End date</string>
+	<string name="xJoinedTheGame">%s joined the game</string>
+	<string name="connectingToTheGame">Connecting to the game</string>
 </resources>

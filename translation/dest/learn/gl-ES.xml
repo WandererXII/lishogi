@@ -16,6 +16,7 @@
 	<string name="howToSelectPieceSet">Como escoller o estilo das pezas?</string>
 	<string name="choosePieceDesign">É importante que saibas distinguir as pezas, así que asegúrate de escoller o conxunto de pezas axeitado.
 Para facelo, preme na engrenaxe ou no teu nome de usuario (recanto superior dereito) e logo pulsa en \"Estilo das pezas\".</string>
+	<string name="choosePieceDesignShort">É importante que saibas distinguir as pezas, así que asegúrate de escoller o estilo de pezas axeitado.</string>
 	<string name="promotionZone">Cando algunha das túas pezas entra ou sae das tres primeiras ringleiras do territorio do teu rival, podes escoller coroala e facela máis forte.</string>
 	<string name="senteGoesFirst">No shogi o xogador que move primeiro chámase sente e o que move segundo, gote. Sente ás veces represéntase coa cor negra e gote coa cor branca. Fai calquera xogada con sente para continuar.</string>
 	<string name="introComplete">Xa sabes os conceptos básicos, pero este titorial aínda está en construción. Polo de agora aprende como moven as pezas individuais.</string>

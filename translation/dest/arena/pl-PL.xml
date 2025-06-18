@@ -42,7 +42,7 @@ Graj szybko i wracaj do poczekalni, by rozegrać więcej partii i zdobyć więce
   <string name="shareUrl">Udostępnij ten URL innym aby dołączyli do: %s</string>
   <string name="drawStreak">Seria remisów: gdy gracz ciągle remisuje na arenie, tylko pierwszy remis da punkt lub remisy trwające więcej niż %s ruchów. Seria remisów może zostać przerwana tylko przez zwycięstwo, a nie przez przegraną czy remis.</string>
   <string name="noBerserkAllowed">Berserk niedozwolony</string>
-  <string name="noArenaStreaks">No Arena streaks</string>
+  <string name="noArenaStreaks">Brak serii na Arenie</string>
   <string name="averagePerformance">Average performance</string>
   <string name="averageScore">Średni wynik</string>
   <plurals name="viewAllXTeams" comment="viewAllXTeams [one] [other]&#10;&#10;%s is the number of teams that can be viewed">
@@ -51,8 +51,8 @@ Graj szybko i wracaj do poczekalni, by rozegrać więcej partii i zdobyć więce
     <item quantity="many">Zobacz wszystkie %s zespołów</item>
     <item quantity="other">Zobacz wszystkie %s zespołów</item>
   </plurals>
-  <string name="howManyPlayersCanJoin">How many players can join?</string>
-  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
+  <string name="howManyPlayersCanJoin">Ilu graczy może dołączyć?</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">Domyślnie do turnieju tego formatu może dołączyć %s graczy.</string>
+  <string name="howManyPlayersCanJoinAnswer">Do tego turnieju może dołączyć %s graczy.</string>
+  <string name="howManyPlayersCanJoinDenied">Po rozpoczęciu turnieju gracze, którzy zostali wyrzuceni, nadal liczą się do całkowitego limitu graczy.</string>
 </resources>

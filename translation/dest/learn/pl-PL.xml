@@ -16,6 +16,7 @@
 	<string name="howToSelectPieceSet">Jak wybrać zestaw bierek?</string>
 	<string name="choosePieceDesign">Ważne jest, byś mógł rozróżniać swoje bierki, więc upewnij się, że wybrałeś prawidłowy zestaw bierek,
 Aby to zrobić, kliknij na zębatkę lub swoją nazwę użytkownika (w górnym prawym rogu), a następnie kliknij \"zestaw bierek\".</string>
+	<string name="choosePieceDesignShort">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
 	<string name="promotionZone">Kiedy Twoje bierki osiągną lub opuszczą trzy pierwsze rzędy w terytorium przeciwnika, możesz wybrać, czy chcesz promować bierkę i uczynić ją silniejszą.</string>
 	<string name="senteGoesFirst">W shogi, gracz, który wykonuje ruch jako pierwszy, jest nazywany sente, a gracz, który wykonuje ruch jako drugi, jest nazywany gote. Sente jest czasami oznaczany kolorem czarnym, a gote białym. Wykonaj dowolny ruch jako sente, by kontynuować.</string>
 	<string name="introComplete">Znasz teraz kilka podstaw, ale ta część samouczka jest wciąż w budowie. Na razie możesz dowiedzieć się, jak poruszają się poszczególne bierki.</string>
