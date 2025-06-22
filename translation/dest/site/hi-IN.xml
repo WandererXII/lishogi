@@ -109,6 +109,8 @@
 	<string name="openingExplorer">प्रारम्भ अन्वेषक (Opening explorer)</string>
 	<string name="xOpeningExplorer">%s प्रारम्भ अन्वेषक</string>
 	<string name="allSet">सब तैयार !</string>
+	<string name="kif" comment="KIF notation, most likely language specific translation doesn't exist">KIF</string>
+	<string name="csa" comment="CSA notation, most likely language specific translation doesn't exist">CSA</string>
 	<string name="importKif">KIF आयात करें</string>
 	<string name="importCsa">CSA आयात करें</string>
 	<string name="delete">हटाएं</string>
@@ -1033,4 +1035,9 @@
 	<string name="endDate">End date</string>
 	<string name="xJoinedTheGame">%s joined the game</string>
 	<string name="connectingToTheGame">Connecting to the game</string>
+	<string name="bestMoveWasX">Best move was %s</string>
+	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
+	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
+	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
 </resources>
