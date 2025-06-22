@@ -107,7 +107,7 @@
 	<string name="openingExplorer">序盤探索</string>
 	<string name="xOpeningExplorer">%s 序盤探索</string>
 	<string name="allSet">準備完了！</string>
-	<string name="kif" comment="KIF notation, most likely language specific translation doesn't exist">KIF</string>
+	<string name="kif" comment="KIF notation, most likely language specific translation doesn't exist">棋譜</string>
 	<string name="csa" comment="CSA notation, most likely language specific translation doesn't exist">CSA</string>
 	<string name="importKif">KIFをインポート</string>
 	<string name="importCsa">CSAのインポート</string>
@@ -381,7 +381,7 @@
 	<string name="toStudy">研究</string>
 	<string name="importGame">棋譜をインポート</string>
 	<string name="importedGame">対局がインポートされました。</string>
-	<string name="importedByX">Imported by %s</string>
+	<string name="importedByX">%s によるインポート</string>
 	<string name="importGameKifCsaExplanation">対局のKIFあるいはCSAを貼り付けて、ブラウザ上での再現
 サーバー解析、対局チャット、共有可能なURLを取得</string>
 	<plurals name="nbImportedGames">
@@ -775,7 +775,7 @@
 	<string name="lobby">ロビー</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">持時間選択</string>
 	<string name="anonymous">匿名</string>
-	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">匿名</string>
 	<string name="yourScore">通算成績：%s</string>
 	<string name="language">言語</string>
 	<string name="background">背景</string>
@@ -991,11 +991,11 @@
 	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">駒をスライドさせて、王様を盤の下の出口から脱出させよう。</string>
 	<string name="startDate">開始日</string>
 	<string name="endDate">終了日</string>
-	<string name="xJoinedTheGame">%s joined the game</string>
-	<string name="connectingToTheGame">Connecting to the game</string>
-	<string name="bestMoveWasX">Best move was %s</string>
-	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
-	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
-	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="xJoinedTheGame">%sが対局に参加しました</string>
+	<string name="connectingToTheGame">対局に接続中</string>
+	<string name="bestMoveWasX">最善手は %s</string>
+	<string name="mateCreatedDescription">詰みが避けられません</string>
+	<string name="mateDelayedDescription" comment="Sequence of moves">最善の詰み手順ではありません</string>
+	<string name="mateLostDescription" comment="Sequence of moves">必至の詰み手順を逃しました</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">。</string>
 </resources>
