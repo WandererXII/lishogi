@@ -31,7 +31,7 @@ Pentru a face asta, dați click pe numele dvs. (colțul din dreapta sus) și ap�
 	<string name="dragonSummary">El se poate mișca ca turnul nepromovat, dar și un pătrat în orice direcție pe diagonală, făcând-ul mult mai puternic.</string>
 	<string name="dragonSummaryTwo">Dragonul se poate mișca ca turnul nepromovat, dar și un pătrat în orice direcție pe diagonală, făcând-ul mult mai puternic.</string>
 	<string name="grabAllTheStars">Prinde toate stelele!</string>
-	<string name="theFewerMoves"></string>
+	<string name="theFewerMoves">Cu cât faci mai puține mutări, cu atât câștigi mai multe puncte!</string>
 	<string name="rookComplete">Felicitări! Ai reușit să stăpânești turnul.</string>
 	<string name="theBishop">Nebunul</string>
 	<string name="itMovesDiagonally">Se mișcă în diagonală</string>
