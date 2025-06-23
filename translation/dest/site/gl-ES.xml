@@ -1034,9 +1034,9 @@
 	<string name="endDate">Data de finalización</string>
 	<string name="xJoinedTheGame">%s uniuse á partida</string>
 	<string name="connectingToTheGame">Conectándose á partida</string>
-	<string name="bestMoveWasX">Best move was %s</string>
-	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
-	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
-	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
+	<string name="bestMoveWasX">A mellor xogada era %s</string>
+	<string name="mateCreatedDescription">O xaque mate é inevitable</string>
+	<string name="mateDelayedDescription" comment="Sequence of moves">Non é a mellor secuencia de xaque mate</string>
+	<string name="mateLostDescription" comment="Sequence of moves">Había unha secuencia de xaque mate forzado</string>
 	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
 </resources>
