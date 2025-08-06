@@ -25,7 +25,8 @@
 	<string name="perpetualCheck">Échec perpétuel</string>
 	<string name="royalsLost" comment="Used in chushogi">Toutes les pièces royales perdues</string>
 	<string name="bareKing" comment="Used in chushogi">Roi seul</string>
-	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s a joué contre %2$s</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s a joué contre %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s joue contre %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s de victoires !</string>
 	<string name="xLost" comment="Example: Player lost!">%s de défaites !</string>
@@ -61,6 +62,7 @@
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s abandonne</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s a quitté la partie</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s n\'a pas joué</string>
+	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s played an illegal move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Partagez ce lien pour permettre à des spectateurs de voir la partie</string>
 	<string name="theComputerAnalysisHasFailed">L\'analyse automatique a échoué</string>
 	<string name="viewTheComputerAnalysis">Voir l\'analyse automatique</string>
@@ -444,6 +446,8 @@
 	<string name="memberSince">Membre depuis</string>
 	<string name="lastSeenActive">Actif %s</string>
 	<string name="challengeToPlay">Défier ce joueur</string>
+	<string name="viewChallenge">View challenge</string>
+	<string name="noChallenges">No challenges</string>
 	<string name="player">Joueur</string>
 	<string name="list">Liste</string>
 	<string name="graph">Graphique</string>
@@ -987,6 +991,7 @@
 	<string name="challengeDeclined">Défi décliné</string>
 	<string name="challengeAccepted">Défi accepté</string>
 	<string name="challengeCanceled">Défi annulé</string>
+	<string name="challengeCorrespondenceDescription">Correspondence challenges stay active, even when you leave this page.</string>
 	<string name="openChallenge" comment="A challenge that any 2 players can join">Défi ouvert</string>
 	<string name="challengeDescription">Accepter le défi ou regarder la partie</string>
 	<string name="challengeFromX" comment="From username">Défi de %s</string>
@@ -1039,4 +1044,10 @@
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
 	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="tournamentCandidates">Tournament candidates</string>
+	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
+	<string name="noPlayersJoinedYet">No players joined yet</string>
+	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
+	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
+	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
 </resources>
