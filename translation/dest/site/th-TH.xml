@@ -25,7 +25,8 @@
 	<string name="perpetualCheck">Perpetual check</string>
 	<string name="royalsLost" comment="Used in chushogi">All royal pieces lost</string>
 	<string name="bareKing" comment="Used in chushogi">Bare king</string>
-	<string name="xPlayedY" comment="Played in the past, game is now over">%1$s played %2$s</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s played %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s is playing %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s won!</string>
 	<string name="xLost" comment="Example: Player lost!">%s lost!</string>
@@ -60,6 +61,7 @@
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s didn\'t move</string>
+	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s played an illegal move</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Share this URL to let spectators see the game</string>
 	<string name="theComputerAnalysisHasFailed">The computer analysis has failed</string>
 	<string name="viewTheComputerAnalysis">View the computer analysis</string>
@@ -417,6 +419,8 @@
 	<string name="memberSince">สมาชิกตั้งแต่</string>
 	<string name="lastSeenActive">ลงชื่อเข้าครั้งล่าสุด %s</string>
 	<string name="challengeToPlay">Challenge to a game</string>
+	<string name="viewChallenge">View challenge</string>
+	<string name="noChallenges">No challenges</string>
 	<string name="player">ผู้เล่น</string>
 	<string name="list">รายการ</string>
 	<string name="graph">กราฟ</string>
@@ -947,6 +951,7 @@
 	<string name="challengeDeclined">Challenge declined</string>
 	<string name="challengeAccepted">Challenge accepted</string>
 	<string name="challengeCanceled">Challenge canceled</string>
+	<string name="challengeCorrespondenceDescription">Correspondence challenges stay active, even when you leave this page.</string>
 	<string name="openChallenge" comment="A challenge that any 2 players can join">Open challenge</string>
 	<string name="challengeDescription">Join the challenge or watch the game</string>
 	<string name="challengeFromX" comment="From username">Challenge from %s</string>
@@ -997,4 +1002,10 @@
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
 	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="tournamentCandidates">Tournament candidates</string>
+	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
+	<string name="noPlayersJoinedYet">No players joined yet</string>
+	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
+	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
+	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
 </resources>
