@@ -52,4 +52,5 @@ Joga rápido e volta ao vestíbulo para jogares mais jogos e ganhares mais ponto
   <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
   <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
   <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
+  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defender</string>
 </resources>
