@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="textualRepresentation">Textual representation</string>
-  <string name="gameInfo">Game info</string>
+  <string name="textualRepresentation">文字列表現</string>
+  <string name="gameInfo">対局情報</string>
   <string name="pieces">駒</string>
   <string name="board">将棋盤</string>
   <string name="hands">駒台</string>
@@ -10,6 +10,6 @@
   <string name="currentPosition">現在の局面</string>
   <string name="moveForm">手のフォーム</string>
   <string name="commandInput">指令入力</string>
-  <string name="commands">Commands</string>
-  <string name="useArrowKeys">Use arrow keys to navigate in the game</string>
+  <string name="commands">操作命令</string>
+  <string name="useArrowKeys">矢印キーで対局内を移動してください</string>
 </resources>
