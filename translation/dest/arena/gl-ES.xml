@@ -53,4 +53,5 @@ Xoga rápido e volta á sala de espera para xogar máis partidas e gañar máis 
   <string name="howManyPlayersCanJoinAnswerDefault">Por defecto, nun torneo con este formato, poden participar %s xogadores.</string>
   <string name="howManyPlayersCanJoinAnswer">Neste torneo poden participar %s xogadores.</string>
   <string name="howManyPlayersCanJoinDenied">Unha vez que o torneo comeza, os xogadores expulsados seguen a terse en conta no límite total de xogadores.</string>
+  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defender</string>
 </resources>
