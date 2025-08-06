@@ -1003,10 +1003,10 @@
 	<string name="mateDelayedDescription" comment="Sequence of moves">最善の詰み手順ではありません</string>
 	<string name="mateLostDescription" comment="Sequence of moves">必至の詰み手順を逃しました</string>
 	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">。</string>
-	<string name="tournamentCandidates">Tournament candidates</string>
-	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
-	<string name="noPlayersJoinedYet">No players joined yet</string>
-	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
-	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
-	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="tournamentCandidates">大会参加希望者</string>
+	<string name="kickedAndDeniedPlayers">参加を拒否・追放された参加者</string>
+	<string name="noPlayersJoinedYet">まだ参加者がいません</string>
+	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">募集終了</string>
+	<string name="proMode" comment="Mode where making illegal move loses the game">厳格モード</string>
+	<string name="proModeDescription" comment="Mode where making illegal move loses the game">違法手は即敗北となり、プリムーブ（相手の手番中に次の自分の手を入力する）は無効化されます。王手のハイライトは表示されず、使用できる駒のセットも限定されます。</string>
 </resources>
