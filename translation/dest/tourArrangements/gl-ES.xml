@@ -13,6 +13,7 @@
 	<string name="startedAt" comment="Date/time when game started">Comezou</string>
 	<string name="upcomingGameWithX" comment="Upcoming game with username">Vindeira partida con %s</string>
 	<string name="yourUpcomingGames">As túas próximas partidas</string>
+	<string name="yourScheduledGames">Your scheduled games</string>
 	<string name="allUpcomingAndOngoingGames">Todas as partidas vindeiras e en xogo</string>
 	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">As miñas partidas concertadas</string>
 	<string name="gameWillNotStart">A partida non comezará automaticamente!</string>
@@ -21,17 +22,17 @@
 	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">Puntos (Vitoria/Táboas/Derrota)</string>
 	<string name="gameName" comment="Name of arranged game">Nome da partida</string>
 	<string name="howDoesRoundRobinWork">Como funcionan os \"todos contra todos\"?</string>
-	<string name="howDoesRoundRobinWorkAnswer">Nun torneo todos contra todos cada participante xoga nunha partida con cada un dos outros xogadores. As partidas non comezan automaticamente: ambos os dous xogadores teñen que concertar a partida e pulsar \"%s\" para iniciala.</string>
+	<string name="howDoesRoundRobinWorkAnswerNew">In a round-robin tournament, each player can play one game against every other player.</string>
 	<string name="howToPlayGames">Como xogo unha partida?</string>
-	<string name="howToPlayGamesAnswer">Para xogar tes que facer clic na cela da táboa de emparellamentos onde ti e o teu rival vos cruzades. Podes programar a data e hora así coma un recordatorio de 24h. A partida comeza só cando os dous xogadores pulsan \"%s\".</string>
+	<string name="howToPlayGamesAnswerNew">To play, click the cell in the table where you and the opponent you want to play against meet. You can schedule a date and time of the game or start the game right away by sending a challenge to your opponent.</string>
 	<string name="roundRobinScoring">Como se reparten os puntos?</string>
 	<string name="roundRobinScoringAnswer">Gáñanse 3 puntos pola vitoria, 2 polas táboas e 1 pola derrota. Todos os enfrontamentos contan no marcador final.</string>
 	<string name="roundRobinWinner">Como se decide o vencedor?</string>
 	<string name="roundRobinWinnerAnswer">Gaña o xogador con máis puntos ó final. En caso de empate, gaña o xogador que se uniu antes ó torneo.</string>
 	<string name="howDoOrganizedTournamentsWork">Como funcionan os torneos programados?</string>
-	<string name="howDoOrganizedTournamentsWorkAnswer">Nos torneos programados só o organizador pode crear emparellamentos entre os xogadores. A continuación os participantes xogan eses cruces pulsando \"%s\".</string>
+	<string name="howDoOrganizedTournamentsWorkAnswerNew">In organized tournaments, only the tournament organizer can create matches between players.</string>
 	<string name="whoStartsMatches">Quen empeza o encontro?</string>
-	<string name="whoStartsMatchesAnswer">O encontro empeza cando ambos os dous xogadores pulsan \"%s\": son eles os que o inician. O organizador non pode iniciar a partida.</string>
+	<string name="whoStartsMatchesAnswerNew">The match starts once a challenge is issued and accepted. Organizer cannot start a game.</string>
 	<string name="organizedScoring">Como se reparten os puntos?</string>
 	<string name="organizedScoringAnswer">O organizador decide cantos puntos se reciben por cada vitoria, táboas e derrota.</string>
 	<string name="howManyGames">Cantas partidas se poden xogar?</string>
