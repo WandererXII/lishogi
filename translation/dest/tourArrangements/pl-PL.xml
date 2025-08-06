@@ -13,6 +13,7 @@
 	<string name="startedAt" comment="Date/time when game started">Started at</string>
 	<string name="upcomingGameWithX" comment="Upcoming game with username">Upcoming game with %s</string>
 	<string name="yourUpcomingGames">Twoje nadchodzące partie</string>
+	<string name="yourScheduledGames">Your scheduled games</string>
 	<string name="allUpcomingAndOngoingGames">All upcoming and ongoing games</string>
 	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">My arranged games</string>
 	<string name="gameWillNotStart">Partia nie rozpocznie się automatycznie!</string>
@@ -21,17 +22,17 @@
 	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">Points (W/D/L)</string>
 	<string name="gameName" comment="Name of arranged game">Game name</string>
 	<string name="howDoesRoundRobinWork">How does round-robin work?</string>
-	<string name="howDoesRoundRobinWorkAnswer">In a round-robin tournament, each player can play one game against every other player. Games don\'t start automatically - both players need to arrange the game and click \"%s\" to begin.</string>
+	<string name="howDoesRoundRobinWorkAnswerNew">In a round-robin tournament, each player can play one game against every other player.</string>
 	<string name="howToPlayGames">How do I play a game?</string>
-	<string name="howToPlayGamesAnswer">To play, click the correct cell in the table where you and your opponent meet. You can schedule a date and time for easy planning and a 24-hour reminder. The game starts only after both players click \"%s\".</string>
+	<string name="howToPlayGamesAnswerNew">To play, click the cell in the table where you and the opponent you want to play against meet. You can schedule a date and time of the game or start the game right away by sending a challenge to your opponent.</string>
 	<string name="roundRobinScoring">How are points given?</string>
 	<string name="roundRobinScoringAnswer">You get 3 points for a win, 2 for a draw, and 1 for a loss. Every match counts toward your total score.</string>
 	<string name="roundRobinWinner">How is the winner decided?</string>
 	<string name="roundRobinWinnerAnswer">The player with the most points at the end wins. If players have the same number of points, the one who joined the tournament earlier is ranked higher.</string>
 	<string name="howDoOrganizedTournamentsWork">How do organized tournaments work?</string>
-	<string name="howDoOrganizedTournamentsWorkAnswer">In organized tournaments, only the tournament organizer can create matches between players. Players can then play those matches by clicking \"%s\".</string>
+	<string name="howDoOrganizedTournamentsWorkAnswerNew">In organized tournaments, only the tournament organizer can create matches between players.</string>
 	<string name="whoStartsMatches">Who starts the match?</string>
-	<string name="whoStartsMatchesAnswer">The match starts when both players click \"%s\" - the players must start the game themselves. Organizer cannot start a game.</string>
+	<string name="whoStartsMatchesAnswerNew">The match starts once a challenge is issued and accepted. Organizer cannot start a game.</string>
 	<string name="organizedScoring">How are points given?</string>
 	<string name="organizedScoringAnswer">The organizer decides how many points are awarded for a win, draw, or loss.</string>
 	<string name="howManyGames">How many games can be played?</string>
