@@ -55,4 +55,5 @@ Graj szybko i wracaj do poczekalni, by rozegrać więcej partii i zdobyć więce
   <string name="howManyPlayersCanJoinAnswerDefault">Domyślnie do turnieju tego formatu może dołączyć %s graczy.</string>
   <string name="howManyPlayersCanJoinAnswer">Do tego turnieju może dołączyć %s graczy.</string>
   <string name="howManyPlayersCanJoinDenied">Po rozpoczęciu turnieju gracze, którzy zostali wyrzuceni, nadal liczą się do całkowitego limitu graczy.</string>
+  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defender</string>
 </resources>
