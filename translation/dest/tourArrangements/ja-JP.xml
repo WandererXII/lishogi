@@ -22,17 +22,17 @@
 	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">勝ち分（勝／引き分け／負け）</string>
 	<string name="gameName" comment="Name of arranged game">対局名</string>
 	<string name="howDoesRoundRobinWork">総当たり戦とは？</string>
-	<string name="howDoesRoundRobinWorkAnswerNew">In a round-robin tournament, each player can play one game against every other player.</string>
+	<string name="howDoesRoundRobinWorkAnswerNew">総当たり戦では、各プレイヤーが他のすべてのプレイヤーと1局ずつ対局できます。</string>
 	<string name="howToPlayGames">対局はどうやって行うの？</string>
-	<string name="howToPlayGamesAnswerNew">To play, click the cell in the table where you and the opponent you want to play against meet. You can schedule a date and time of the game or start the game right away by sending a challenge to your opponent.</string>
+	<string name="howToPlayGamesAnswerNew">対局するには、対戦表の自分と対戦相手が交差するマスをクリックしてください。日時を指定して対局を予約することも、すぐに挑戦を送って対局を始めることもできます。</string>
 	<string name="roundRobinScoring">ポイントはどうやって決まるの？</string>
 	<string name="roundRobinScoringAnswer">勝ちは3ポイント、引き分けは2ポイント、負けでも1ポイントが与えられます。すべての対局があなたの総合得点に加算されます。</string>
 	<string name="roundRobinWinner">勝者はどうやって決まるの？</string>
 	<string name="roundRobinWinnerAnswer">最終的に最も多くのポイントを獲得したプレイヤーが勝者となります。ポイントが同じ場合は、先に大会に参加したプレイヤーの方が上位にランクされます。</string>
 	<string name="howDoOrganizedTournamentsWork">運営型トーナメントはどうやって行われるの？</string>
-	<string name="howDoOrganizedTournamentsWorkAnswerNew">In organized tournaments, only the tournament organizer can create matches between players.</string>
+	<string name="howDoOrganizedTournamentsWorkAnswerNew">運営型大会では、対局を作成できるのは主催者のみです。</string>
 	<string name="whoStartsMatches">対局は誰が開始するの？</string>
-	<string name="whoStartsMatchesAnswerNew">The match starts once a challenge is issued and accepted. Organizer cannot start a game.</string>
+	<string name="whoStartsMatchesAnswerNew">挑戦が送信され、相手に受諾されると対局が開始されます。主催者が対局を開始することはできません。</string>
 	<string name="organizedScoring">ポイントはどうやって付与されますか？</string>
 	<string name="organizedScoringAnswer">ポイントの配分（勝ち・引き分け・負け）は主催者が決定します。</string>
 	<string name="howManyGames">何試合まで対局できますか？</string>
