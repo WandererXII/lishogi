@@ -44,4 +44,5 @@
   <string name="howManyPlayersCanJoinAnswerDefault">この形式の大会は、通常 %s 人まで参加できます。</string>
   <string name="howManyPlayersCanJoinAnswer">この大会には %s 人が参加可能です。</string>
   <string name="howManyPlayersCanJoinDenied">大会開始後に除外されたプレイヤーも、参加可能人数の合計にカウントされます。</string>
+  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defender</string>
 </resources>
