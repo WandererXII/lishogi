@@ -180,7 +180,7 @@ Zbij najbardziej wartościową bierkę.</string>
 Zbij najbardziej wartościową bierkę, nie tracąc swojej.</string>
 	<string name="goldBishopRook">Złoty &lt; Goniec &lt; Wieża
 Zbij najbardziej wartościową bierkę.</string>
-	<string name="takeAllThePiecesStartingFromTheMost">Zbij wszystkie bierki w kolejności od najmniej wartościowej do najbardziej wartościowej!</string>
+	<string name="takeAllThePiecesStartingFromTheMost">Zbij wszystkie bierki w kolejności od najbardziej wartościowej do najmniej wartościowej!</string>
 	<string name="anExchangeIs">Wymiana polega na zbiciu jednej bierki i straceniu innej. Która wymiana jest lepsza? Srebrny generał za wieżę, czy złoty generał za skoczka?</string>
 	<string name="theOpponentJustGaveAway">Przeciwnik właśnie oddał swoją cenną wieżę za darmo! Czy ją zbijesz?</string>
 	<string name="yourKingsValueIsInfinite">Wartość króla jest nieskończenie wyższa niż wieży. Jaki jest najlepszy ruch w tej sytuacji?</string>
