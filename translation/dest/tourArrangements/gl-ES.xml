@@ -30,9 +30,9 @@
 	<string name="roundRobinWinner">Como se decide o vencedor?</string>
 	<string name="roundRobinWinnerAnswer">Gaña o xogador con máis puntos ó final. En caso de empate, gaña o xogador que se uniu antes ó torneo.</string>
 	<string name="howDoOrganizedTournamentsWork">Como funcionan os torneos programados?</string>
-	<string name="howDoOrganizedTournamentsWorkAnswerNew">In organized tournaments, only the tournament organizer can create matches between players.</string>
+	<string name="howDoOrganizedTournamentsWorkAnswerNew">Nos torneos planificados, só o organizador do torneo pode crear os cruces entre os xogadores.</string>
 	<string name="whoStartsMatches">Quen empeza o encontro?</string>
-	<string name="whoStartsMatchesAnswerNew">The match starts once a challenge is issued and accepted. Organizer cannot start a game.</string>
+	<string name="whoStartsMatchesAnswerNew">O encontro comeza unha vez que se envía e acepta un desafío. O organizador non pode empezar as partidas.</string>
 	<string name="organizedScoring">Como se reparten os puntos?</string>
 	<string name="organizedScoringAnswer">O organizador decide cantos puntos se reciben por cada vitoria, táboas e derrota.</string>
 	<string name="howManyGames">Cantas partidas se poden xogar?</string>
