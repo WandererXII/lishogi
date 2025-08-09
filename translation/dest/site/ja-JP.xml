@@ -950,13 +950,13 @@
 	<string name="or" comment="links alternatives: Do X or do Y">または</string>
 	<string name="gameInProgressDescription">この対局が終わるまで、別の対局は開始できません。</string>
 	<string name="challengeDeclined">挑戦が拒否されました。</string>
-	<string name="challengeAccepted">チャレンジを受けました</string>
-	<string name="challengeCanceled">チャレンジがキャンセルされました</string>
+	<string name="challengeAccepted">挑戦を受けました</string>
+	<string name="challengeCanceled">挑戦がキャンセルされました</string>
 	<string name="challengeCorrespondenceDescription">通信将棋の挑戦は、このページを離れても有効なままです。</string>
-	<string name="openChallenge" comment="A challenge that any 2 players can join">オープンチャレンジ</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">オープ挑戦</string>
 	<string name="challengeDescription">挑戦に参加するか、対局を観戦する</string>
-	<string name="challengeFromX" comment="From username">%sからのチャレンジ</string>
-	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s が %2$s にチャレンジ！</string>
+	<string name="challengeFromX" comment="From username">%sからの挑戦</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s が %2$s に挑戦！</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">%sキーを押してフォーカスする</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">%s を押して送信</string>
 	<string name="clickGame">クリックして対局を再生・解析・議論しよう！</string>
