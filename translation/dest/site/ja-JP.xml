@@ -100,9 +100,9 @@
 	<string name="unknown">不明</string>
 	<string name="database">データベース</string>
 	<string name="averageRatingX">平均レーティング: %s</string>
-	<string name="recentGames">最近のゲーム</string>
-	<string name="topGames">トップのゲーム</string>
-	<string name="noGameFound">ゲームが見つかりません</string>
+	<string name="recentGames">最近の対局</string>
+	<string name="topGames">トップ対局</string>
+	<string name="noGameFound">対局が見つかりません</string>
 	<string name="pageNotFound">ページが見つかりません</string>
 	<string name="returnToHomepage">トップページに戻る</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">設定メニューからさらに広い範囲を指定しますか？</string>
@@ -238,7 +238,7 @@
 	<string name="decline">拒否</string>
 	<string name="playingRightNow">現在対局中</string>
 	<string name="eventInProgress">対局中</string>
-	<string name="finished">終了したトーナメント</string>
+	<string name="finished">終了</string>
 	<string name="finishesX">終了まで %s</string>
 	<string name="abortGame">対局を中止する</string>
 	<string name="gameAborted">対局を中止しました</string>
@@ -359,7 +359,7 @@
 	<string name="youAreNotInTeam">チーム %s に入っていません</string>
 	<string name="backToGame">対局に戻る</string>
 	<string name="siteDescription">無料オンライン将棋。簡素なインターフェースですぐに対局を。登録不要、広告なし、プラグイン不要。コンピューターと、友達と、知らない相手とも対局できます。</string>
-	<string name="shogiDescription" comment="Feel free to tweak it">将棋（しょうぎ）は、何世紀にもわたって日本で行われてきた二人の対局者による戦略ボードゲームです。チェスとの類似性から\"Japanese chess\"ともしばしば呼ばれますが、独特の特徴をもち、それ自体で別のゲームとして成立しています。</string>
+	<string name="shogiDescription" comment="Feel free to tweak it">将棋（しょうぎ）は、日本で古くから遊ばれている二人対戦の戦略ボードゲームです。独特のルールと深い戦術が魅力で、プロから初心者まで幅広い層に愛されています。</string>
 	<string name="learnShogiHereX">もしあなたが将棋のルールについて詳しくないなら、 %s を確認してください。</string>
 	<string name="xJoinedTeamY">%1$s がチーム %2$s に参加</string>
 	<string name="xCreatedTeamY">%1$s がチーム %2$s を作成</string>
@@ -512,7 +512,7 @@
 	<plurals name="playedXTimes">
 		<item quantity="other">解答数のべ %s 回</item>
 	</plurals>
-	<string name="fromGameLink">ゲーム %s から</string>
+	<string name="fromGameLink">対局 %s から</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="other">%s 局対局中</item>
 	</plurals>
@@ -862,12 +862,12 @@
 	<string name="opening">序盤</string>
 	<string name="middlegame">中盤</string>
 	<string name="endgame">終盤</string>
-	<string name="registerToSendChallenges">チャレンジを送るには登録が必要です。</string>
-	<string name="youCannotChallengeX">%s にチャレンジできません。</string>
-	<string name="xDoesNotAcceptChallenges">%s はチャレンジを受け付けていません。</string>
+	<string name="registerToSendChallenges">挑戦を送るには登録が必要です。</string>
+	<string name="youCannotChallengeX">%s に挑戦できません。</string>
+	<string name="xDoesNotAcceptChallenges">%s は挑戦を受け付けていません。</string>
 	<string name="yourXRatingIsTooFarFromY">%1$s レーティングが %2$s と離れすぎです。</string>
-	<string name="cannotChallengeDueToProvisionalXRating">%s が仮レーティングのためチャレンジできません。</string>
-	<string name="xOnlyAcceptsChallengesFromFriends">%s は友達からのチャレンジしか受け付けません。</string>
+	<string name="cannotChallengeDueToProvisionalXRating">%s が仮レーティングのため挑戦できません。</string>
+	<string name="xOnlyAcceptsChallengesFromFriends">%s は友達からの挑戦しか受け付けません。</string>
 	<string name="conditionalPremoves">コンディショナルムーブ</string>
 	<string name="addCurrentVariation">現在の変化を追加する</string>
 	<string name="playVariationToCreateConditionalPremoves">駒を動かしてコンディショナルムーブを設定します</string>
@@ -949,14 +949,14 @@
 	<string name="gameInProgressWithX">%s と進行中の対局があります。</string>
 	<string name="or" comment="links alternatives: Do X or do Y">または</string>
 	<string name="gameInProgressDescription">この対局が終わるまで、別の対局は開始できません。</string>
-	<string name="challengeDeclined">チャレンジが拒否されました。</string>
-	<string name="challengeAccepted">チャレンジを受けました</string>
-	<string name="challengeCanceled">チャレンジがキャンセルされました</string>
+	<string name="challengeDeclined">挑戦が拒否されました。</string>
+	<string name="challengeAccepted">挑戦を受けました</string>
+	<string name="challengeCanceled">挑戦がキャンセルされました</string>
 	<string name="challengeCorrespondenceDescription">通信将棋の挑戦は、このページを離れても有効なままです。</string>
-	<string name="openChallenge" comment="A challenge that any 2 players can join">オープンチャレンジ</string>
+	<string name="openChallenge" comment="A challenge that any 2 players can join">オープ挑戦</string>
 	<string name="challengeDescription">挑戦に参加するか、対局を観戦する</string>
-	<string name="challengeFromX" comment="From username">%sからのチャレンジ</string>
-	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s が %2$s にチャレンジ！</string>
+	<string name="challengeFromX" comment="From username">%sからの挑戦</string>
+	<string name="xChallengesY" comment="PlayerA challenges PlayerB">%1$s が %2$s に挑戦！</string>
 	<string name="pressXtoFocus" comment="Focus meaning to have a text box with blinking cursor. Example: Press Enter to focus">%sキーを押してフォーカスする</string>
 	<string name="pressXtoSubmit" comment="Example: Press Enter to submit">%s を押して送信</string>
 	<string name="clickGame">クリックして対局を再生・解析・議論しよう！</string>

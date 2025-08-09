@@ -25,7 +25,7 @@
 	<string name="perpetualCheck">Xaque perpetuo</string>
 	<string name="royalsLost" comment="Used in chushogi">Perdéronse todas as pezas reais</string>
 	<string name="bareKing" comment="Used in chushogi">Rei en coiros</string>
-	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Xogada ilegal</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s xogou contra %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s está a xogar contra %2$s</string>
 	<string name="xWon" comment="Example: Player won!">Gañou %s!</string>
@@ -62,7 +62,7 @@
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s rendeuse</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s saíu da partida</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s non moveu</string>
-	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s played an illegal move</string>
+	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s realizou unha xogada ilegal</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Comparte esta ligazón para que os espectadores poidan ver a partida</string>
 	<string name="theComputerAnalysisHasFailed">A análise por computador fallou</string>
 	<string name="viewTheComputerAnalysis">Ver a análise por computador</string>
@@ -446,8 +446,8 @@
 	<string name="memberSince">Membro dende</string>
 	<string name="lastSeenActive">Activo %s</string>
 	<string name="challengeToPlay">Retar a unha partida</string>
-	<string name="viewChallenge">View challenge</string>
-	<string name="noChallenges">No challenges</string>
+	<string name="viewChallenge">Ver o desafío</string>
+	<string name="noChallenges">Non hai retos</string>
 	<string name="player">Xogador</string>
 	<string name="list">Lista</string>
 	<string name="graph">Gráfica</string>
@@ -991,7 +991,7 @@
 	<string name="challengeDeclined">Reto rexeitado</string>
 	<string name="challengeAccepted">Reto aceptado</string>
 	<string name="challengeCanceled">Reto cancelado</string>
-	<string name="challengeCorrespondenceDescription">Correspondence challenges stay active, even when you leave this page.</string>
+	<string name="challengeCorrespondenceDescription">Os desafíos por correspondencia seguen activos, mesmo cando abandonas esta páxina.</string>
 	<string name="openChallenge" comment="A challenge that any 2 players can join">Abrir o reto</string>
 	<string name="challengeDescription">Unirse ó reto ou ver a partida</string>
 	<string name="challengeFromX" comment="From username">Reto de %s</string>
@@ -1044,10 +1044,10 @@
 	<string name="mateDelayedDescription" comment="Sequence of moves">Non é a mellor secuencia de xaque mate</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Había unha secuencia de xaque mate forzado</string>
 	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
-	<string name="tournamentCandidates">Tournament candidates</string>
-	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
-	<string name="noPlayersJoinedYet">No players joined yet</string>
-	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
-	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
-	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="tournamentCandidates">Candidatos ó torneo</string>
+	<string name="kickedAndDeniedPlayers">Xogadores expulsados e denegados</string>
+	<string name="noPlayersJoinedYet">Aínda non se incorporou ningún xogador</string>
+	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Pechado</string>
+	<string name="proMode" comment="Mode where making illegal move loses the game">Modo profesional</string>
+	<string name="proModeDescription" comment="Mode where making illegal move loses the game">As xogadas ilegais implican a derrota, os movementos anticipados están desactivados, os xaques non se resaltan no taboleiro e só se admiten certos estilos de pezas.</string>
 </resources>

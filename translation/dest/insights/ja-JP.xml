@@ -5,7 +5,7 @@
   <string name="drops">打つ</string>
   <string name="movesAndDrops">指す</string>
   <string name="total" comment="Usually in chart legend or tooltip summing other bars">Total</string>
-  <string name="count" comment="Example: Count: 11 moves">Count</string>
+  <string name="count" comment="Example: Count: 11 moves">数</string>
   <string name="average">Average</string>
   <string name="percentage">Percentage</string>
   <string name="outcomes" comment="win/draw/loss">Outcomes</string>
@@ -39,8 +39,8 @@
   <string name="accuracy">Accuracy</string>
   <string name="nbOfMovesAndDrops">Number of moves and drops made by player</string>
   <string name="nbOfMovesAndDropsPerGame">Number of moves and drops made by player per game</string>
-  <string name="nbOfCaptures">Number of pieces captured</string>
-  <string name="nbOfPromotions">Number of promoted pieces</string>
+  <string name="nbOfCaptures">駒をとった回数</string>
+  <string name="nbOfPromotions">成り駒の数</string>
   <string name="opponentRating">Opponent rating</string>
   <string name="opponentRatingDiff">Opponent rating difference</string>
   <string name="totalTimeOfMovesAndDrops">Total time of moves and drops</string>
