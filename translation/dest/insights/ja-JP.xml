@@ -40,7 +40,7 @@
   <string name="nbOfMovesAndDrops">Number of moves and drops made by player</string>
   <string name="nbOfMovesAndDropsPerGame">Number of moves and drops made by player per game</string>
   <string name="nbOfCaptures">Number of pieces captured</string>
-  <string name="nbOfPromotions">Number of promoted pieces</string>
+  <string name="nbOfPromotions">成り駒の数</string>
   <string name="opponentRating">Opponent rating</string>
   <string name="opponentRatingDiff">Opponent rating difference</string>
   <string name="totalTimeOfMovesAndDrops">Total time of moves and drops</string>
