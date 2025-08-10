@@ -73,6 +73,7 @@
 Glicko 方式ではレーティングの算出と表示に「信頼区間」を使います。Lishogi を使い始めた人のレーティングは「1500 ± 700」となります。ここでは 1500 がレーティング、700 が信頼区間です。
 これはつまり「あなたのレーティングは 90% の確率で 800 と 2200 の間にある」ということです。ずいぶん幅がありますね。そのため、プレイを始めたばかりのプレイヤーのレーティングは非常に速く変動し、一度に数百点動くこともあります。しかしレーティングの安定した相手と何局も指すうちに信頼区間は狭まり、1 局の勝ち負けで動く点数も小さくなっていきます。
 もうひとつだいじな点は [プレイしないでいると] 時間とともに信頼区間が広くなることです。対局しなかった期間の棋力の変化に合わせて、点数の動きが速くなるようにしてあるのです。</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">レーティングに「?」が付いているのは？</string>
 	<string name="provisionalRatingExplanation">「?」はレーティングが暫定であることを示します。理由は以下の通りです：</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">まだそのカテゴリーで%1$sと十分な数のレート戦を指していないから。</string>
