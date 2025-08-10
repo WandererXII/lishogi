@@ -83,6 +83,7 @@ Glicko-ratingene bygger på «konfidensintervaller» når ratingen din skal bere
 I bunn og grunn er systemet 95 % sikkert på at ratingen din ligger mellom 500 og 2500. Dette er utrolig usikkert. Det betyr at ratingen vil endre seg dramatisk for spillere i oppstarten, potensielt med flere hundre poeng om gangen. Etter noen partier mot etablerte spillere vil konfidensintervallet innsnevres, og antall poeng som oppnås/tapes etter hvert parti, vil avta.
 
 Vær oppmerksom på at konfidensintervallet øker når du ikke spiller. Slik oppnår/taper du poeng hurtigere for å tilpasse ratingen til eventuelle endringer i ferdighetsnivået ditt i perioden du ikke spilte.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">Hvorfor er det spørsmålstegn (?) ved siden av ratingen?</string>
 	<string name="provisionalRatingExplanation">Spørsmålstegnet betyr at ratingen er provisorisk. Grunnen til dette kan være:</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">Spilleren har så langt ikke fullført mange nok ratede partier mot %1$s i ratingkategorien.</string>
