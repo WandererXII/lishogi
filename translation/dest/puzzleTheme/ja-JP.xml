@@ -17,7 +17,7 @@
   <string name="doubleCheck">両王手</string>
   <string name="doubleCheckDescription">ディスカバード・アタックによって、動いた駒とラインピースが相手の玉に同時に王手をかける手。</string>
   <string name="endgame">終盤</string>
-  <string name="endgameDescription">終盤のタクティクス。</string>
+  <string name="endgameDescription">対局の終盤のタクティクス。</string>
   <string name="fork">両取り</string>
   <string name="forkDescription">動いた駒が相手の 2 つの駒を同時に攻撃する手。</string>
   <string name="hangingPiece">浮き駒</string>
@@ -41,11 +41,11 @@
   <string name="mateIn9">９手詰、もしくはそれ以上</string>
   <string name="mateIn9Description">長い詰めの手順を考える。</string>
   <string name="middlegame">中盤</string>
-  <string name="middlegameDescription">ゲームの中盤でのタクティクス。</string>
+  <string name="middlegameDescription">対局の中盤でのタクティクス。</string>
   <string name="oneMove">1 手問題</string>
   <string name="oneMoveDescription">1 手だけ動かす問題。</string>
   <string name="opening">序盤</string>
-  <string name="openingDescription">ゲームの序盤でのタクティクス。</string>
+  <string name="openingDescription">対局の序盤でのタクティクス。</string>
   <string name="pin">ピン</string>
   <string name="pinDescription">ピンを含む問題。ラインピースに狙われた駒が動くと、より価値の高い駒が取られてしまう状況。</string>
   <string name="quietMove">静かな手</string>
