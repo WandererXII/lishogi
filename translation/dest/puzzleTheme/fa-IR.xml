@@ -50,8 +50,6 @@
   <string name="pinDescription">تاکتیک آچمز (پین)، جایی است که یک مهره مجبور است برای دفاع از یک مهره یا خانهٔ ارزشمند در جای خود میخکوب شود.</string>
   <string name="quietMove">حرکت طبیعی</string>
   <string name="quietMoveDescription">حرکتی که نه کیش ایجاد می کند و نه مهره ای را می گیرد و نه تهدید فوری را در پی دارد اما یک تهدید غیر قابل پیشگیری را در حرکات بعد به همراه دارد.</string>
-  <string name="rookEndgame">آخربازی رخ</string>
-  <string name="rookEndgameDescription">یک آخر بازی تنها با رخ ها و پیاده ها.</string>
   <string name="sacrifice">قربانی</string>
   <string name="sacrificeDescription">یک تاکتیک شامل کنار از دست دادن مهره در کوتاه مدت، برای به دست آوردن مزیت دوباره پس از یک سری حرکات اجباری.</string>
   <string name="short">معمای کوتاه</string>
