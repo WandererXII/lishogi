@@ -83,6 +83,7 @@ Fundamentalmente, as pontuações Glicko usam \"intervalos de confiança\" quand
 Basicamente, o sistema tem 90% de certeza que sua pontuação está entre 800 e 2200. É incrivelmente incerto. Consequentemente, quando um jogador está iniciando, sua pontuação vai mudar drasticamente, potencialmente várias centenas de pontos de uma vez. Mas depois de algumas partidas contra jogadores estabelecidos, o intervalo de confiança diminui e o número de pontos ganhados/perdidos após cada jogo será menor.
 
 Outro ponto importante é que, à medida que o tempo passa, o intervalo de confiança aumenta. Isto permite a você ganhar/perder pontos mais rapidamente para corresponder às mudanças no seu nível ao longo do tempo.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">Por que é que há um ponto de interrogação (?) depois d uma pontuação?</string>
 	<string name="provisionalRatingExplanation">O ponto de interrogação significa que a pontuação é provisória. As razões incluem:</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">O jogador ainda não finalizou um número suficiente de jogos com rating contra %1$s na categoria em questão.</string>
