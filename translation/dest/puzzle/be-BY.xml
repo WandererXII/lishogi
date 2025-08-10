@@ -40,7 +40,6 @@
     <item quantity="many">%s moves left</item>
     <item quantity="other">%s хадоў засталося</item>
   </plurals>
-  <string name="fromGameLink">З гульні %s</string>
   <string name="puzzleSource">Крыніца: %s</string>
   <string name="continueTraining">Працягнуць трэніроўку</string>
   <string name="difficultyLevel">Узровень складанасці</string>
