@@ -27,7 +27,7 @@
   <string name="bestRated">勝った相手の最高レート</string>
   <string name="worstRated">負けた相手の最低レート</string>
   <string name="gamesInARow">連続対局数</string>
-  <string name="lessThanOneHour">ゲーム間隔 1 時間以内</string>
+  <string name="lessThanOneHour">対局間隔 1 時間以内</string>
   <string name="maxTimePlaying">最長連続プレイ時間</string>
   <string name="now">現在</string>
 </resources>
