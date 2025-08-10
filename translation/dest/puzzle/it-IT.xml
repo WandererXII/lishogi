@@ -36,7 +36,6 @@
     <item quantity="one">%s Mossa rimasta</item>
     <item quantity="other">%s Mosse rimaste</item>
   </plurals>
-  <string name="fromGameLink">Dalla partita %s</string>
   <string name="puzzleSource">Fonte: %s</string>
   <string name="continueTraining">Continua l\'allenamento</string>
   <string name="difficultyLevel">Livello di difficoltà</string>
