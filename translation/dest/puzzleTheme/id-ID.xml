@@ -50,8 +50,6 @@
   <string name="pinDescription">Taktik meliputi pin, dimana bidak tidak dapat bergerak tanpa membuka serangan pada bidak yang bernilai lebih tinggi.</string>
   <string name="quietMove">Gerakan tenang</string>
   <string name="quietMoveDescription">A move that does not make a check or capture, but does prepare an unavoidable threat for a later move.</string>
-  <string name="rookEndgame">Permainan Akhir benteng</string>
-  <string name="rookEndgameDescription">Babak akhir dengan hanya benteng dan pion.</string>
   <string name="sacrifice">Sacrifice</string>
   <string name="sacrificeDescription">A tactic involving giving up material in the short-term, to gain an advantage again after a forced sequence of moves.</string>
   <string name="short">Teka-teki pendek</string>
