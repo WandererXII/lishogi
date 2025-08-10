@@ -40,7 +40,6 @@
     <item quantity="many">Pozostało %s posunięć</item>
     <item quantity="other">Pozostało %s posunięć</item>
   </plurals>
-  <string name="fromGameLink">Z partii %s</string>
   <string name="puzzleSource">Źródło: %s</string>
   <string name="continueTraining">Kontynuuj trening</string>
   <string name="difficultyLevel">Poziom trudności</string>
