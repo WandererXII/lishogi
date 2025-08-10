@@ -40,7 +40,6 @@
     <item quantity="many">%s ходов осталось</item>
     <item quantity="other">%s ходов осталось</item>
   </plurals>
-  <string name="fromGameLink">Из партии %s</string>
   <string name="puzzleSource">Источник: %s</string>
   <string name="continueTraining">Продолжить обучение</string>
   <string name="difficultyLevel">Уровень сложности</string>
