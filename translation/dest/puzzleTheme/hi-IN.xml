@@ -50,8 +50,6 @@
   <string name="pinDescription">एक टैक्टिक जिसमें पिन शामिल होता है, जहां एक टुकड़ा उच्च मूल्य के टुकड़े पर हमले का खुलासा किए बिना स्थानांतरित करने में असमर्थ होता है।</string>
   <string name="quietMove">शांत चाल</string>
   <string name="quietMoveDescription">एक चाल जो एक चेक या कैप्चर नहीं करता है, लेकिन बाद के कदम के लिए एक अपरिहार्य खतरा तैयार करता है।</string>
-  <string name="rookEndgame">रूक एंडगेम (Rook Endgame)</string>
-  <string name="rookEndgameDescription">केवल रूक और पॉन के साथ एक एंडगेम।</string>
   <string name="sacrifice">कुर्बानी</string>
   <string name="sacrificeDescription">चालों के मजबूर अनुक्रम के बाद फिर से लाभ प्राप्त करने के लिए अल्पकालिक में सामग्री देने से संबंधित एक रणनीति।</string>
   <string name="short">लघु पहेली</string>
