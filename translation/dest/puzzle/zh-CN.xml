@@ -34,7 +34,6 @@
   <plurals name="xMovesLeft">
     <item quantity="other">还剩%s步</item>
   </plurals>
-  <string name="fromGameLink">来自对局%s</string>
   <string name="puzzleSource">来源：%s</string>
   <string name="continueTraining">继续训练</string>
   <string name="difficultyLevel">难度</string>
