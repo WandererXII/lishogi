@@ -84,6 +84,7 @@ In sostanza, le valutazioni Glicko utilizzano \"intervalli di sicurezza\" per il
 Fondamentalmente, il sistema è sicuro al 90% che il tuo punteggio sia compreso tra 800 e 2200. Questo punteggio iniziale è molto impreciso. Per questo motivo, quando un giocatore gioca le prime partite, il suo punteggio cambierà molto drasticamente, potenzialmente anche di diverse centinaia di punti alla volta. Tuttavia, dopo alcune partite contro dei giocatori dal punteggio stabile, l\'intervallo di sicurezza si restringerà e l\'ammontare di punti guadagnati/persi dopo ogni partita tenderà a diminuire.
 
 Un altro aspetto da notare è che, allo scorrere del tempo, l\'intervallo di sicurezza tornerà ad aumentare. Questo ti permette di guadagnare/perdere punti più rapidamente per adattare il punteggio all\'evoluzione del tuo livello di abilità durante quel periodo di tempo trascorso.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">Perché c\'è un punto interrogativo (?) accanto al rating?</string>
 	<string name="provisionalRatingExplanation">Il punto interrogativo indica che il rating è provvisorio. I motivi includono:</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">Il giocatore non ha ancora partecipato in abbastanza partite valide per la classifica contro %1$s nella categoria di punteggio.</string>
