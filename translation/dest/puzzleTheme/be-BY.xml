@@ -50,8 +50,6 @@
   <string name="pinDescription">Тактыка, уключаючая звязкі, дзе фігура не можа рухацца, не дазволіўшы нападзенне на больш каштоўную фігуру.</string>
   <string name="quietMove">Павольны ход</string>
   <string name="quietMoveDescription">Ход, які не робіць не шах, не збівае штосьці, не стварае непасрэднай пагрозы, але рыхтуе схваную немянуючую пагрозу для наступных хадоў.</string>
-  <string name="rookEndgame">Ладзейны эндшпіль</string>
-  <string name="rookEndgameDescription">Эндшпіль выключна з ладдзямі і пешкамі.</string>
   <string name="sacrifice">Ахвяра</string>
   <string name="sacrificeDescription">Тактыка, уключаючая кароткатэрміновае ахвяраванне матэрыялу, дзеля атрымання перавагі пасля вымушанай паслядоўнасці хадоў.</string>
   <string name="short">Кароткая задача</string>
