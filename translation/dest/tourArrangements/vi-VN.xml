@@ -13,7 +13,6 @@
 	<string name="startedAt" comment="Date/time when game started">Started at</string>
 	<string name="upcomingGameWithX" comment="Upcoming game with username">Upcoming game with %s</string>
 	<string name="yourUpcomingGames">Các ván đấu sắp tới của bạn</string>
-	<string name="yourScheduledGames">Your scheduled games</string>
 	<string name="allUpcomingAndOngoingGames">All upcoming and ongoing games</string>
 	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">My arranged games</string>
 	<string name="gameWillNotStart">Ván đấu sẽ không tự động bắt đầu!</string>
