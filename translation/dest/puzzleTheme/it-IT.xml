@@ -50,8 +50,6 @@
   <string name="pinDescription">Una tattica in cui un pezzo non può muoversi senza scoprire un attacco ad un pezzo di maggior valore.</string>
   <string name="quietMove">Mossa silenziosa</string>
   <string name="quietMoveDescription">Una mossa che non dà scacco e non cattura nulla, ma prepara una successiva minaccia inevitabile.</string>
-  <string name="rookEndgame">Fase finale con torre</string>
-  <string name="rookEndgameDescription">Una fase finale con solo torri e pedoni.</string>
   <string name="sacrifice">Sacrificio</string>
   <string name="sacrificeDescription">Una tattica che include la perdita di materiale nel breve termine, per guadagnare un vantaggio dopo una serie di mosse forzate.</string>
   <string name="short">Problema breve</string>
