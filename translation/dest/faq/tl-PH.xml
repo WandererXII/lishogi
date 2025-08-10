@@ -83,6 +83,7 @@ Fundamentally, Glicko ratings use \"confidence intervals\" when calculating and 
 Basically, the system is 90% sure that your rating is somewhere between 800 and 2200. It is incredibly uncertain. Because of this, when a player is just starting out, their rating will change very dramatically, potentially several hundred points at a time. But after some games against established players the confidence interval will narrow, and the amount of points gained/lost after each game will decrease.
 
 Another point to note is that, as time passes, the confidence interval will increase. This allows you to gain/lose points points more rapidly to match any changes in your skill level over that time.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">Bakit may tandang pananong (?) sa tabi ng isang rating?</string>
 	<string name="provisionalRatingExplanation">The question mark means the rating is provisional. Reasons include:</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">The player has not yet finished enough rated games against %1$s in the rating category.</string>
