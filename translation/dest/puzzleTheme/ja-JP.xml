@@ -50,8 +50,6 @@
   <string name="pinDescription">ピンを含む問題。ラインピースに狙われた駒が動くと、より価値の高い駒が取られてしまう状況。</string>
   <string name="quietMove">静かな手</string>
   <string name="quietMoveDescription">王手でも駒取りでもないが、次に防げない狙いを用意する手。</string>
-  <string name="rookEndgame">ルーク・エンドゲーム</string>
-  <string name="rookEndgameDescription">ルークとポーンだけの終盤。</string>
   <string name="sacrifice">捨て駒</string>
   <string name="sacrificeDescription">短期的な駒損を含み、強制的な手順の後に優位を築く問題。</string>
   <string name="short">短手数問題</string>
