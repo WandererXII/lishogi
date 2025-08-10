@@ -36,7 +36,6 @@
     <item quantity="one">%s lance restante</item>
     <item quantity="other">%s lances restantes</item>
   </plurals>
-  <string name="fromGameLink">Da partida %s</string>
   <string name="puzzleSource">Fonte: %s</string>
   <string name="continueTraining">Continuar o treino</string>
   <string name="difficultyLevel">Nível de dificuldade</string>
