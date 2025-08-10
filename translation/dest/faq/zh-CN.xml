@@ -80,6 +80,7 @@ Lishogi上的电脑分析是基于Stockfish的。</string>
 基本上，评分系统对您的评分在800至2200之间有90%的置信。置信低。 由于这种情况，当一位用户刚刚开始时，他们的评分将有大变化，每次可能会有几百个点。 但在一些对已经确定评分的用户的对局后，置信区间将缩小，每对局后获得/丢失的评分将减少。
 
 另一点是，随着时间过，置信区间将会增加。 这使您能够更快地获得/丢失点数，确保评分和您技能水平的任何变化一直。</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">为什么在分数旁边有一个问号 (?) ？</string>
 	<string name="provisionalRatingExplanation">问号标记表示评分是暂时的。原因包括：</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">该用户还没有在评分对局中对%1$s完成足够多的评分对局。</string>
