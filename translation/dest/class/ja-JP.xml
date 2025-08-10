@@ -4,7 +4,7 @@
 	<string name="teachClassesOfShogiStudents">「Lishogiクラス」機能を使って生徒たちに将棋を教えよう。</string>
 	<string name="features">特徴</string>
 	<string name="quicklyGenerateSafeUsernames">生徒のために安全なユーザー名とパスワードをすぐに生成する</string>
-	<string name="trackStudentProgress">対局やタクティクス問題での生徒の進捗を表示</string>
+	<string name="trackStudentProgress">対局や次の一手での生徒の進捗を表示</string>
 	<string name="messageAllStudents">新しい教材について全生徒に通知する</string>
 	<string name="freeForAllForever">誰にでも永久に完全無料、広告・トラッカーなし</string>
 	<string name="applyToBeLishogiTeacher">「Lishogi講師」になる申請をする</string>
