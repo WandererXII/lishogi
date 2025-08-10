@@ -36,7 +36,6 @@
     <item quantity="one">%s चाल बची</item>
     <item quantity="other">%s चाल बची</item>
   </plurals>
-  <string name="fromGameLink">%s खेल से</string>
   <string name="puzzleSource">स्रोत (Source): %s</string>
   <string name="continueTraining">प्रशिक्षण जारी रखें</string>
   <string name="difficultyLevel">कठिनाई के स्तर</string>
