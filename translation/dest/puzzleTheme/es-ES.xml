@@ -50,8 +50,6 @@
   <string name="pinDescription">Una táctica que involucra clavadas, donde una pieza no puede moverse sin revelar un ataque a una pieza de mayor valor.</string>
   <string name="quietMove">Movimiento tranquilo</string>
   <string name="quietMoveDescription">Un movimiento que no hace un jaque o una captura, pero sí que prepara una amenaza inevitable para un movimiento posterior.</string>
-  <string name="rookEndgame">Final con torre</string>
-  <string name="rookEndgameDescription">Un final de partida solo con torres y peones.</string>
   <string name="sacrifice">Sacrificio</string>
   <string name="sacrificeDescription">Una táctica que implica renunciar a material a corto plazo, para obtener una ventaja después de una secuencia forzada de movimientos.</string>
   <string name="short">Ejercicio corto</string>
