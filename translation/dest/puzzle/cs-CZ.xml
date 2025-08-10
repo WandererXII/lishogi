@@ -40,7 +40,6 @@
     <item quantity="many">zbývá %s tahu</item>
     <item quantity="other">zbývá %s tahů</item>
   </plurals>
-  <string name="fromGameLink">Z partie %s</string>
   <string name="puzzleSource">Zdroj: %s</string>
   <string name="continueTraining">Pokračovat v tréninku</string>
   <string name="difficultyLevel">Úroveň obtížnosti</string>
