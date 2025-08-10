@@ -34,7 +34,6 @@
   <plurals name="xMovesLeft">
     <item quantity="other">%s moves left</item>
   </plurals>
-  <string name="fromGameLink">Dari game %s</string>
   <string name="puzzleSource">Source: %s</string>
   <string name="continueTraining">Lanjutkan latihan</string>
   <string name="difficultyLevel">Level Sulit</string>
