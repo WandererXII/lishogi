@@ -50,8 +50,6 @@
   <string name="pinDescription">Uma tática envolvendo cravada, onde uma peça é incapaz de mover-se sem abrir um descoberto em uma peça de maior valor.</string>
   <string name="quietMove">Lance silencioso</string>
   <string name="quietMoveDescription">Um lance que não dá xeque nem realiza uma captura, mas prepara uma ameaça inevitável para um lance seguinte.</string>
-  <string name="rookEndgame">Rook endgame</string>
-  <string name="rookEndgameDescription">An endgame with only rooks and pawns.</string>
   <string name="sacrifice">Sacrifício</string>
   <string name="sacrificeDescription">Uma tática envolvendo a entrega de material no curto prazo, com o objetivo de se obter uma vantagem após uma sequência forçada de lances.</string>
   <string name="short">Problema curto</string>
