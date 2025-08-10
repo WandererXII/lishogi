@@ -50,8 +50,6 @@
   <string name="pinDescription">Unha táctica que involucra cravadas, onde unha peza non se pode mover sen expoñer ó ataque unha peza de maior valor.</string>
   <string name="quietMove">Movemento tranquilo</string>
   <string name="quietMoveDescription">Unha xogada que non dá xaque nin captura, pero que prepara unha ameaza inevitable nun movemento posterior.</string>
-  <string name="rookEndgame">Final de torres</string>
-  <string name="rookEndgameDescription">Un final no que só hai torres e peóns.</string>
   <string name="sacrifice">Sacrificio</string>
   <string name="sacrificeDescription">Unha táctica que implica ceder material a curto prazo, para recuperar a vantaxe logo dunha secuencia forzada de xogadas.</string>
   <string name="short">Crebacabezas curto</string>
