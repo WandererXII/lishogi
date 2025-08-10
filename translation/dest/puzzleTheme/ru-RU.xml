@@ -50,8 +50,6 @@
   <string name="pinDescription">Тактика, использующая связку, когда фигура не может сделать ход, иначе под атаку попадёт стоящая за ней более ценная фигура.</string>
   <string name="quietMove">Тихий ход</string>
   <string name="quietMoveDescription">Ход, на первый взгляд бесполезный: без шаха, взятия или нападения, но он подготавливает следующий ход, в котором заключается настоящая угроза.</string>
-  <string name="rookEndgame">Ладейный эндшпиль</string>
-  <string name="rookEndgameDescription">Эндшпиль с ладьями и пешками.</string>
   <string name="sacrifice">Жертва</string>
   <string name="sacrificeDescription">Тактика, при которой происходит отдача какой-либо фигуры для получения преимущества, объявления мата или сведения игры вничью.</string>
   <string name="short">Короткая задача</string>
