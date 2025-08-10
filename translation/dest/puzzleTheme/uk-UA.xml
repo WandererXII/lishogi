@@ -50,8 +50,6 @@
   <string name="pinDescription">A tactic involving pins, where a piece is unable to move without revealing an attack on a higher value piece.</string>
   <string name="quietMove">Quiet move</string>
   <string name="quietMoveDescription">A move that does not make a check or capture, but does prepare an unavoidable threat for a later move.</string>
-  <string name="rookEndgame">Rook endgame</string>
-  <string name="rookEndgameDescription">An endgame with only rooks and pawns.</string>
   <string name="sacrifice">Жертва</string>
   <string name="sacrificeDescription">A tactic involving giving up material in the short-term, to gain an advantage again after a forced sequence of moves.</string>
   <string name="short">Коротка задача</string>
