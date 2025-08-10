@@ -83,6 +83,7 @@ Grundsätzlich verwenden Glicko-Wertungen \"Konfidenzintervalle\" bei der Berech
 Grundsätzlich ist sich das System zu 90% sicher, dass deine Wertung zwischen 800 und 2200 liegt. Das ist unglaublich ungewiss. Aus diesem Grund wird sich die Wertung, wenn ein Spieler gerade beginnt drastisch ändern, möglicherweise um mehrere hundert Punkte pro Stunde. Aber nach einigen Spielen gegen etablierte Spieler wird sich das Konfidenzintervall verkleinern und die Anzahl der gewonnenen/verlorenen Punkte nach jedem Spiel sinken.
 
 Ein weiterer Punkt ist, dass sich das Konfidenzintervall im Laufe der Zeit erhöhen wird. Dies erlaubt es dir, Punkte schneller zu gewinnen oder zu verlieren, um alle Änderungen in deinem Fertigkeitslevel über diese Zeit hinweg zu berücksichtigen.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">Warum gibt es ein Fragezeichen (?) neben einer Wertung?</string>
 	<string name="provisionalRatingExplanation">Das Fragezeichen bedeutet, dass die Wertung vorläufig ist. Zu den Gründen gehört:</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">Der Spieler hat noch nicht genug gewertete Partien gegen %1$s in der Wertungskategorie beendet.</string>
