@@ -82,6 +82,7 @@ Iš esmės Glicko algoritmas skaičiuojant ir atvaizduojant jūsų reitingą nau
 Sistema 90% užtikrinta, kad jūsų reitingas kažkur tarp 800 ir 2200. Tai yra labai netiklu. Dėl šios priežasties, kai žaidėjas dar tik pradeda žaisti, jų reitingas keisis labai stipriai, galimai net per kelis šimtus taškų už vieną žaidimą. Po kelių žaidimų pagal dažnus žaidėjus, pasitikėjimo intervalas susitrauks ir gautų ar prarastų taškų už kiekvieną žaidimą skaičius mažės.
 
 Dar verta įsidėmėti, kad bėgant laikui pasitikėjimo intervalas plečiasi. Tai leidžia jums gauti/prarasti taškus greičiau, kad greičiau būtų pasivytas jūsų įgūdžių pokytis žaidime.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">Kodėl šalia mano reitingo yra klaustukas?</string>
 	<string name="provisionalRatingExplanation">Šis klaustukas reiškia, kad jūsų reitingas laikinas. Galimos priežastys:</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">Šis žaidėjas sužaidė nepakankamai reitinguotų žaidimų prieš %1$s reitingo kategorijoje.</string>
