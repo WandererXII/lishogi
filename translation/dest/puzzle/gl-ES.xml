@@ -36,7 +36,6 @@
     <item quantity="one">%s movemento restante</item>
     <item quantity="other">%s movementos restantes</item>
   </plurals>
-  <string name="fromGameLink">Da partida %s</string>
   <string name="puzzleSource">Fonte: %s</string>
   <string name="continueTraining">Continúa o adestramento</string>
   <string name="difficultyLevel">Nivel de dificultade</string>
