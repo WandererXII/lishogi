@@ -36,7 +36,6 @@
     <item quantity="one">%s hamle kaldı</item>
     <item quantity="other">%s moves left</item>
   </plurals>
-  <string name="fromGameLink">%s oynundan</string>
   <string name="puzzleSource">Kaynak: %s</string>
   <string name="continueTraining">Pratik yapmaya devam et</string>
   <string name="difficultyLevel">Zorluk seviyesi</string>
