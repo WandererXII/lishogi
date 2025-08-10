@@ -36,7 +36,6 @@
     <item quantity="one">Il reste %s coup</item>
     <item quantity="other">Il reste %s coups</item>
   </plurals>
-  <string name="fromGameLink">Tiré de la partie %s</string>
   <string name="puzzleSource">Source : %s</string>
   <string name="continueTraining">Continuer l\'entraînement</string>
   <string name="difficultyLevel">Niveau de difficulté</string>
