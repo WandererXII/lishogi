@@ -50,8 +50,6 @@
   <string name="pinDescription">一种涉及牵制的策略，一个棋子不能移动否则背后更高价值棋子将被攻击。</string>
   <string name="quietMove">停着</string>
   <string name="quietMoveDescription">一步没有将军或捉子棋，但确实为后续准备了一个不可避免的威胁。</string>
-  <string name="rookEndgame">车残局</string>
-  <string name="rookEndgameDescription">只有车和兵的残局。</string>
   <string name="sacrifice">弃子</string>
   <string name="sacrificeDescription">涉及在短期内弃子的策略，以便在强制执行一系列着法后再次获得优势。</string>
   <string name="short">短谜题</string>
