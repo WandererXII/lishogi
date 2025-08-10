@@ -50,8 +50,6 @@
   <string name="pinDescription">En taktikk som utnytter bindinger, der en brikke ikke kan flyttes uten at en brikke med høyere verdi trues.</string>
   <string name="quietMove">Rolig trekk</string>
   <string name="quietMoveDescription">Et trekk som ikke gir sjakk eller slår en brikke, men som forbereder en uunngåelig trussel i et senere trekk.</string>
-  <string name="rookEndgame">Tårnsluttspill</string>
-  <string name="rookEndgameDescription">Et sluttspill med kun tårn og bønder.</string>
   <string name="sacrifice">Offer</string>
   <string name="sacrificeDescription">En taktikk der man gir fra seg materiell på kort sikt, for å oppnå en fordel etter en tvungen trekkrekke.</string>
   <string name="short">Kort sjakknøtt</string>
