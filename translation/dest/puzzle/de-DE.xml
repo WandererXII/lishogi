@@ -36,7 +36,6 @@
     <item quantity="one">Noch %s Zug</item>
     <item quantity="other">Noch %s Züge</item>
   </plurals>
-  <string name="fromGameLink">Aus der Partie %s</string>
   <string name="puzzleSource">Quelle: %s</string>
   <string name="continueTraining">Training fortsetzen</string>
   <string name="difficultyLevel">Schwierigkeitsgrad</string>
