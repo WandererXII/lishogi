@@ -13,7 +13,6 @@
 	<string name="startedAt" comment="Date/time when game started">Comezou</string>
 	<string name="upcomingGameWithX" comment="Upcoming game with username">Vindeira partida con %s</string>
 	<string name="yourUpcomingGames">As túas próximas partidas</string>
-	<string name="yourScheduledGames">As túas partidas programadas</string>
 	<string name="allUpcomingAndOngoingGames">Todas as partidas vindeiras e en xogo</string>
 	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">As miñas partidas concertadas</string>
 	<string name="gameWillNotStart">A partida non comezará automaticamente!</string>
