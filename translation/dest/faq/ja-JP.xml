@@ -94,7 +94,7 @@ Glicko 方式ではレーティングの算出と表示に「信頼区間」を�
 	<string name="enableZenMode">%1$sで集中モード (Zen-mode) を「はい」にするか、対局中に「%2$s」キーを押します。</string>
 	<string name="displayPreferences">表示設定</string>
 	<string name="connexionLostCanIGetMyRatingBack">ラグ／接続切れのせいで負けました。レーティングは戻ってきますか？</string>
-	<string name="weCannotDoThatEvenIfItIsServerSideButThatsRare">あいにくですがラグや接続切れで負けてもレーティングは戻せません。接続上の問題があなたの方にあったか当方にあったかを問わずです（Lishogi に問題があることはまれですが）。なお Lishogi の再起動の際に時間切れで負けたゲームは、不当な負けを防ぐために中止扱いになります。</string>
+	<string name="weCannotDoThatEvenIfItIsServerSideButThatsRare">あいにくですがラグや接続切れで負けてもレーティングは戻せません。接続上の問題があなたの方にあったか当方にあったかを問わずです（Lishogi に問題があることはまれですが）。なお Lishogi の再起動の際に時間切れで負けた対局は、不当な負けを防ぐために中止扱いになります。</string>
 	<string name="howToThreeDots">さまざまな操作</string>
 	<string name="enableDisableNotificationPopUps">通知ポップアップの有無を設定するには？</string>
 	<string name="viewSiteInformationPopUp">サイト情報ポップアップを表示</string>
