@@ -50,8 +50,6 @@
   <string name="pinDescription">Une tactique impliquant des clouages, où une pièce est incapable de se déplacer sans découvrir une attaque sur une pièce de valeur supérieure.</string>
   <string name="quietMove">Coup silencieux</string>
   <string name="quietMoveDescription">Un coup qui ne fait pas échec ni n\'est une capture, mais qui prépare une menace inévitable.</string>
-  <string name="rookEndgame">Finale de tours</string>
-  <string name="rookEndgameDescription">Une finale avec seulement des tours et des pions.</string>
   <string name="sacrifice">Sacrifice</string>
   <string name="sacrificeDescription">Une tactique consistant à donner du matériel à court terme, pour gagner un avantage à long terme.</string>
   <string name="short">Court problème</string>
