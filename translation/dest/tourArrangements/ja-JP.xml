@@ -13,7 +13,6 @@
 	<string name="startedAt" comment="Date/time when game started">開始日時</string>
 	<string name="upcomingGameWithX" comment="Upcoming game with username">%s との対局が間もなく開始されます</string>
 	<string name="yourUpcomingGames">あなたの今後の対局一覧</string>
-	<string name="yourScheduledGames">予定されている対局</string>
 	<string name="allUpcomingAndOngoingGames">今後および進行中の全対局</string>
 	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">私の予定済み対局</string>
 	<string name="gameWillNotStart">対局は自動的に開始されません！</string>
