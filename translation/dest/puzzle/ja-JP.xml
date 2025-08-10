@@ -34,7 +34,6 @@
   <plurals name="xMovesLeft">
     <item quantity="other">残り%s手</item>
   </plurals>
-  <string name="fromGameLink">ゲーム %s から</string>
   <string name="puzzleSource">出典: %s</string>
   <string name="continueTraining">トレーニングを続ける</string>
   <string name="difficultyLevel">難易度</string>
