@@ -50,8 +50,6 @@
   <string name="pinDescription">Eine Taktik mit Fesselung, bei der eine Figur sich nicht bewegen kann, ohne einen Angriff auf eine höherwertige Figur zuzulassen.</string>
   <string name="quietMove">Stiller Zug</string>
   <string name="quietMoveDescription">Ein Zug, der nicht Schach gibt oder schlägt, aber eine unvermeidliche Bedrohung durch einen späteren Zug vorbereitet.</string>
-  <string name="rookEndgame">Turmendspiel</string>
-  <string name="rookEndgameDescription">Ein Endspiel nur mit Türmen und Bauern.</string>
   <string name="sacrifice">Opfer</string>
   <string name="sacrificeDescription">Eine Taktik mit kurzfristigem Materialverlust, um nach einer erzwungenen Zugfolge wieder einen Vorteil zu erlangen.</string>
   <string name="short">Kurze Aufgabe</string>
