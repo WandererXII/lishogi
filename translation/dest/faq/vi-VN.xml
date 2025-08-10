@@ -83,6 +83,7 @@ Về cơ bản, xếp hạng Glicko sử dụng \"khoảng tin cậy\" để tí
 Về cơ bản, hệ thống chắc chắn 90% rằng xếp hạng của bạn nằm trong khoảng 800 đến 2200. Điều này cực kỳ không chắc chắn. Do đó, khi một người chơi mới bắt đầu, xếp hạng của họ sẽ thay đổi rất đáng kể, có thể vài trăm điểm một lúc. Nhưng sau một số trận đấu với những người chơi đã thành danh, khoảng tin cậy sẽ thu hẹp và số điểm đạt được/mất đi sau mỗi trận đấu sẽ giảm xuống.
 
 Một điểm cần lưu ý nữa là, khi thời gian trôi qua, khoảng tin cậy sẽ tăng lên. Điều này cho phép bạn tăng/giảm điểm nhanh hơn để phù hợp với bất kỳ thay đổi nào trong cấp độ kỹ năng của bạn trong thời gian đó.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">Tại sao lại có dấu chấm hỏi (?) bên cạnh hệ số Elo?</string>
 	<string name="provisionalRatingExplanation">Dấu chấm hỏi có nghĩa là Elo tạm thời. Các lý do bao gồm:</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">Người chơi vẫn chưa hoàn thành đủ các ván đấu xếp hạng so với %1$s trong danh mục xếp hạng.</string>
