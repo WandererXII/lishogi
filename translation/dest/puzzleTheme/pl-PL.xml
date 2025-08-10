@@ -50,8 +50,6 @@
   <string name="pinDescription">Taktyka wykorzystująca związania, czyli sytuacje, w których ruch bierki naraża na atak figurę o wyższej wartości.</string>
   <string name="quietMove">Cichy ruch</string>
   <string name="quietMoveDescription">Posunięcie niebędące ani szachem, ani biciem, które przygotowuje groźbę nie do uniknięcia w jednym z kolejnych posunięć.</string>
-  <string name="rookEndgame">Końcówka wieżowa</string>
-  <string name="rookEndgameDescription">Gra końcowa wyłącznie z wieżami i pionami.</string>
   <string name="sacrifice">Poświęcenie</string>
   <string name="sacrificeDescription">Taktyka wykorzystująca krótkoterminowe oddanie materiału do zdobycia przewagi po forsownej sekwencji posunięć.</string>
   <string name="short">Krótkie zadanie</string>
