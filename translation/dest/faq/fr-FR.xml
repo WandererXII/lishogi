@@ -83,6 +83,7 @@ Fondamentalement, les notations Glicko utilisent des \"intervalles de confiance\
 Fondamentalement, le système est sûr à 90 % que votre note se situe entre 800 et 2200. Il est incroyablement incertain. C\'est pourquoi, lorsqu\'un joueur débute, sa cote change de façon très importante, potentiellement de plusieurs centaines de points à la fois. Mais après quelques matchs contre des joueurs établis, l\'intervalle de confiance se réduit et le nombre de points gagnés/perdus après chaque match diminue.
 
 Il faut également noter que l\'intervalle de confiance augmente avec le temps. Cela vous permet de gagner/perdre des points plus rapidement pour correspondre à tout changement de votre niveau de compétence au cours de cette période.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
 	<string name="whatIsProvisionalRating">Pourquoi y a-t-il un point d\'interrogation (?) à côté d\'un de mes classements ?</string>
 	<string name="provisionalRatingExplanation">Le point d\'interrogation indique que le classement est provisoire. Les raisons comprennent :</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">Le joueur n\'a pas encore terminé suffisamment de parties notées contre des %1$s dans la catégorie de notation.</string>
