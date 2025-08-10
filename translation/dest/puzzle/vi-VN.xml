@@ -34,7 +34,6 @@
   <plurals name="xMovesLeft">
     <item quantity="other">%s nước đi nữa</item>
   </plurals>
-  <string name="fromGameLink">Từ ván cờ %s</string>
   <string name="puzzleSource">Nguồn: %s</string>
   <string name="continueTraining">Tiếp tục luyện tập</string>
   <string name="difficultyLevel">Độ khó</string>
