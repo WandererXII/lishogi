@@ -50,8 +50,6 @@
   <string name="pinDescription">Một chiến thuật liên quan tới ghim, trong đó một quân cờ không thể di chuyển mà không làm lộ quân cờ đằng sau nó với giá trị lớn hơn.</string>
   <string name="quietMove">Nước đi tĩnh</string>
   <string name="quietMoveDescription">Một nước cờ không chiếu hay ăn quân, nhưng lại tạo ra một sự đe dọa không thể tránh cho những nước đi sau.</string>
-  <string name="rookEndgame">Tàn cuộc với Xe</string>
-  <string name="rookEndgameDescription">Một thế cờ tàn chỉ có xe và tốt.</string>
   <string name="sacrifice">Thí quân</string>
   <string name="sacrificeDescription">Một chiến thuật sử dụng việc thí quân, để giành lại lợi thế sau một chuỗi di chuyển bắt buộc.</string>
   <string name="short">Câu đố ngắn</string>
