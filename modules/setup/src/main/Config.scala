@@ -91,7 +91,7 @@ trait BaseConfig {
     shogi.variant.Checkshogi.id,
   )
   val aiVariants =
-    List(shogi.variant.Standard.id, shogi.variant.Minishogi.id, shogi.variant.Kyotoshogi.id)
+    List(shogi.variant.Standard.id, shogi.variant.Minishogi.id, shogi.variant.Kyotoshogi.id, shogi.variant.Checkshogi.id)
 
   val speeds = Speed.all.map(_.id)
 
