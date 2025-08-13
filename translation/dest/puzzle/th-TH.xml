@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">ปริศนา</string>
   <string name="puzzleThemes">รูปแบบปริศนา</string>
   <string name="recommended">แนะนำ</string>
   <string name="phases">ช่วงของเกม</string>
