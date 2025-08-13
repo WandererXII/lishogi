@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">Teka-teki</string>
   <string name="puzzleThemes">Tema teka-teki</string>
   <string name="recommended">Direkomendasikan</string>
   <string name="phases">Tahapan</string>
