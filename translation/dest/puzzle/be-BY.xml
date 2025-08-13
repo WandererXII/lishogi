@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">Задачы</string>
   <string name="puzzleThemes">Тэмы задач</string>
   <string name="recommended">Рэкамендаваныя</string>
   <string name="phases">Стадыі гульні</string>
