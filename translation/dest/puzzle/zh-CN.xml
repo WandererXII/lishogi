@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">训练题</string>
   <string name="puzzleThemes">主题</string>
   <string name="recommended">推荐</string>
   <string name="phases">阶段</string>
