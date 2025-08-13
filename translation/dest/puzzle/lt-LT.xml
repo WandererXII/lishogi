@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">Užduotys</string>
   <string name="puzzleThemes">Užduočių temos</string>
   <string name="recommended">Rekomenduojama</string>
   <string name="phases">Fazės</string>
