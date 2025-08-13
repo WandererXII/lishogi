@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">Taktikaufgaben</string>
   <string name="puzzleThemes">Aufgabenthemen</string>
   <string name="recommended">Empfohlen</string>
   <string name="phases">Phasen</string>
