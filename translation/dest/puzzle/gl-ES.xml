@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">Crebacabezas</string>
   <string name="puzzleThemes">Temas de crebacabezas</string>
   <string name="recommended">Recomendados</string>
   <string name="phases">Fases do xogo</string>
