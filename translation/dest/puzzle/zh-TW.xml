@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">訓練問題</string>
   <string name="puzzleThemes">訓練主題</string>
   <string name="recommended">推薦</string>
   <string name="phases">序盤・中盤・終盤</string>
