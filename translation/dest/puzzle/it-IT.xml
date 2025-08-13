@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="puzzles">Problemi</string>
   <string name="puzzleThemes">Problemi a tema</string>
   <string name="recommended">Consigliato</string>
   <string name="phases">Fasi</string>
