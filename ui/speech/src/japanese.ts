@@ -58,6 +58,31 @@ function toHiragana(kanji: string | undefined): string | undefined {
 const jReg =
   /((?:[１２３４５６７８９][一二三四五六七八九])|同　)(歩|香|桂|銀|金|角|飛|と|成香|成桂|成銀|馬|龍|玉|王)(打|左|右|上|行|引|寄|直)*(成|不成)?/;
 
+export function numberToSpeech(num: number): string | undefined {
+  switch (num) {
+    case 1:
+      return 'いち';
+    case 2:
+      return 'に';
+    case 3:
+      return 'さん';
+    case 4:
+      return 'よん';
+    case 5:
+      return 'ご';
+    case 6:
+      return 'ろく';
+    case 7:
+      return 'なな';
+    case 8:
+      return 'はち';
+    case 9:
+      return 'きゅう';
+    default:
+      return undefined;
+  }
+}
+
 export function renderMoveOrDrop(md: string): string | undefined {
   const match = md.match(jReg);
   if (match)

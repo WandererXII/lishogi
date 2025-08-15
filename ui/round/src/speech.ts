@@ -12,9 +12,14 @@ export function setup(ctrl: RoundController): void {
 
 function onSpeechChange(ctrl: RoundController) {
   return (enabled: boolean) => {
-    if (!window.lishogi.modules.speech && enabled)
-      loadLishogiScript('speech').then(() => status(ctrl));
-    else if (window.lishogi.modules.speech && !enabled) window.lishogi.modules.speech = undefined;
+    const isUsingByoyomiCount = (ctrl.clock?.byoStyle ?? 0) !== 0;
+    const shouldLoadSpeechModule = enabled || isUsingByoyomiCount;
+    if (!window.lishogi.modules.speech && shouldLoadSpeechModule)
+      loadLishogiScript('speech').then(() => {
+        if (enabled) status(ctrl)
+      });
+    else if (window.lishogi.modules.speech && !shouldLoadSpeechModule)
+      window.lishogi.modules.speech = undefined;
   };
 }
 

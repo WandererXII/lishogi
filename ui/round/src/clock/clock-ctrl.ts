@@ -82,6 +82,7 @@ export class ClockController {
   } as ColorMap<ClockElements>;
 
   byoyomi: number;
+  byoStyle: number;
   initial: number;
 
   totalPeriods: number;
@@ -116,6 +117,7 @@ export class ClockController {
 
     this.emergMs = 1000 * Math.min(60, Math.max(10, cdata.initial * 0.125));
     this.byoEmergeS = cdata.clockCountdown ?? 3;
+    this.byoStyle = d.pref.byoyomiStyle ?? 0;
 
     this.setClock(d, cdata.sente, cdata.gote, cdata.sPeriods, cdata.gPeriods);
   }
@@ -228,7 +230,32 @@ export class ClockController {
         this.isUsingByo(color)
       ) {
         this.emergSound.byoTicks = Math.floor(millis / 1000);
-        this.emergSound.tick();
+        if (this.byoStyle === 0) {
+          this.emergSound.tick();
+        }
+        else if (window.lishogi.modules.speech) {
+          var counted = false;
+          if (this.byoStyle === 2) {
+            // Japanese byo-yomi is counted from 1 to 9
+            const jpByoCount = this.byoEmergeS - this.emergSound.byoTicks - 1;
+            if (jpByoCount === 0) {
+              // Don't count zero if using japanese byo-yomi count
+              return;
+            }
+            counted = window.lishogi.modules.speech({ byoyomiCount: jpByoCount, forceJapanese: true });
+          } else {
+            // Add 1 to make the zeroth second to be counted as 1 (seconds left)
+            const enByoCount = this.emergSound.byoTicks + 1;
+            counted = window.lishogi.modules.speech({ byoyomiCount: enByoCount });
+          }
+
+          if (!counted) {
+            // Fall back to the tick sound if the count speech synthesis fails
+            this.emergSound.tick();
+          }
+        } else {
+          this.emergSound.tick();
+        }
       }
     }
   };

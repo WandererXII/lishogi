@@ -17,6 +17,7 @@ case class Pref(
     clockTenths: Int,
     clockCountdown: Int,
     clockSound: Boolean,
+    byoyomiStyle: Int,
     premove: Boolean,
     boardLayout: Int,
     animation: Int,
@@ -340,6 +341,18 @@ object Pref {
     )
   }
 
+  object ByoyomiStyle {
+    val TICK     = 0
+    val ENGLISH  = 1
+    val JAPANESE = 2
+
+    val choices = Seq(
+      TICK,
+      ENGLISH,
+      JAPANESE,
+    )
+  }
+
   object Challenge {
     val NEVER  = 1
     val RATING = 2
@@ -417,6 +430,7 @@ object Pref {
     takeback = Takeback.ALWAYS,
     moretime = Moretime.ALWAYS,
     clockSound = true,
+    byoyomiStyle = ByoyomiStyle.TICK,
     premove = true,
     boardLayout = BoardLayout.DEFAULT,
     animation = 2,

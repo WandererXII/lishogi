@@ -926,6 +926,9 @@ object I18nKeys {
   val `andSaveNbPremoveLines` = new I18nKey("andSaveNbPremoveLines")
   val `nbCandidatePlayers` = new I18nKey("nbCandidatePlayers")
   val `nbAcceptedPlayers` = new I18nKey("nbAcceptedPlayers")
+  val `byoyomiStyleTick` = new I18nKey("byoyomiStyleTick")
+  val `byoyomiStyleEnglish` = new I18nKey("byoyomiStyleEnglish")
+  val `byoyomiStyleJapanese` = new I18nKey("byoyomiStyleJapanese")
 
   object activity {
     val `activity` = new I18nKey("activity:activity")
@@ -1786,6 +1789,7 @@ object I18nKeys {
     val `whenTimeRemainingLessThanTenSeconds` = new I18nKey("preferences:whenTimeRemainingLessThanTenSeconds")
     val `clockTickingStart` = new I18nKey("preferences:clockTickingStart")
     val `soundWhenTimeGetsCritical` = new I18nKey("preferences:soundWhenTimeGetsCritical")
+    val `byoyomiStyle` = new I18nKey("preferences:byoyomiStyle")
     val `giveMoreTime` = new I18nKey("preferences:giveMoreTime")
     val `gameBehavior` = new I18nKey("preferences:gameBehavior")
     val `howDoYouMovePieces` = new I18nKey("preferences:howDoYouMovePieces")

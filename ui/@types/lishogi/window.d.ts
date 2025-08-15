@@ -121,7 +121,7 @@ declare global {
     getVolume: () => number;
     enabled: () => boolean;
     speech: (v?: boolean) => boolean;
-    say: (texts: { en?: string; jp?: string }, cut?: boolean, force?: boolean) => boolean;
+    say: (texts: { en?: string; jp?: string }, cut?: boolean, force?: boolean, forceJapanese?: boolean) => boolean;
     sayOrPlay: (name: string, texts: { en?: string; jp?: string }) => boolean;
     publish: () => void;
     changeSet: (s: string) => void;
@@ -130,8 +130,10 @@ declare global {
   }
 
   interface LishogiSpeech {
-    notation: string | undefined;
-    cut: boolean;
+    notation?: string | undefined;
+    byoyomiCount?: number,
+    cut?: boolean;
+    forceJapanese?: boolean;
   }
 
   type LishogiNvui = (redraw: () => void) => {

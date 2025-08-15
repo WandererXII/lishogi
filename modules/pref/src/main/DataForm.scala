@@ -41,10 +41,11 @@ object DataForm {
         "keyboardMove"  -> optional(booleanNumber),
       )(BehaviorData.apply)(BehaviorData.unapply),
       "clock" -> mapping(
-        "tenths"    -> checkedNumber(Pref.ClockTenths.choices),
-        "countdown" -> checkedNumber(Pref.ClockCountdown.choices),
-        "sound"     -> booleanNumber,
-        "moretime"  -> checkedNumber(Pref.Moretime.choices),
+        "tenths"       -> checkedNumber(Pref.ClockTenths.choices),
+        "countdown"    -> checkedNumber(Pref.ClockCountdown.choices),
+        "sound"        -> booleanNumber,
+        "moretime"     -> checkedNumber(Pref.Moretime.choices),
+        "byoyomiStyle" -> checkedNumber(Pref.ByoyomiStyle.choices),
       )(ClockData.apply)(ClockData.unapply),
       "follow"        -> booleanNumber,
       "challenge"     -> checkedNumber(Pref.Challenge.choices),
@@ -87,6 +88,7 @@ object DataForm {
       countdown: Int,
       sound: Int,
       moretime: Int,
+      byoyomiStyle: Int,
   )
 
   case class PrefData(
@@ -108,6 +110,7 @@ object DataForm {
         clockTenths = clock.tenths,
         clockCountdown = clock.countdown,
         clockSound = clock.sound == 1,
+        byoyomiStyle = clock.byoyomiStyle,
         follow = follow == 1,
         highlightLastDests = display.highlightLastDests == 1,
         highlightCheck = display.highlightCheck == 1,
@@ -170,6 +173,7 @@ object DataForm {
           countdown = pref.clockCountdown,
           sound = if (pref.clockSound) 1 else 0,
           moretime = pref.moretime,
+          byoyomiStyle = pref.byoyomiStyle,
         ),
         follow = if (pref.follow) 1 else 0,
         challenge = pref.challenge,

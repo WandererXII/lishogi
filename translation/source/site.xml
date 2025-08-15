@@ -1050,4 +1050,7 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="byoyomiStyleTick">Tick</string>
+	<string name="byoyomiStyleEnglish">English countdown</string>
+	<string name="byoyomiStyleJapanese">Japanese count-up</string>
 </resources>

@@ -128,6 +128,10 @@ object pref {
               radios(form("clock.sound"), booleanChoices),
             ),
             setting(
+              byoyomiStyle(),
+              radios(form("clock.byoyomiStyle"), translatedByoyomiStyles),
+            ),
+            setting(
               giveMoreTime(),
               radios(form("clock.moretime"), translatedMoretimeChoices),
             ),
