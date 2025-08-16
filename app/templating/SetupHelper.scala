@@ -232,6 +232,13 @@ trait SetupHelper { self: I18nHelper =>
       (Pref.ClockCountdown.TEN, trans.nbSeconds.pluralSameTxt(10)),
     )
 
+  def translatedByoyomiStyles(implicit lang: Lang) =
+    List(
+      (Pref.ByoyomiStyle.TICK, trans.byoyomiStyleTick.txt()),
+      (Pref.ByoyomiStyle.ENGLISH, trans.byoyomiStyleEnglish.txt()),
+      (Pref.ByoyomiStyle.JAPANESE, trans.byoyomiStyleJapanese.txt()),
+    )
+
   def translatedMoveEventChoices(implicit lang: Lang) =
     List(
       (Pref.MoveEvent.CLICK, trans.preferences.clickTwoSquares.txt()),

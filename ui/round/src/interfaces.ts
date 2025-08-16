@@ -124,6 +124,7 @@ interface Pref {
   clockCountdown: 0 | 3 | 5 | 10;
   confirmResign: boolean;
   coords: 0 | 1 | 2;
+  byoyomiStyle: 0 | 1 | 2;
   destination: boolean;
   dropDestination: boolean;
   enablePremove: boolean;

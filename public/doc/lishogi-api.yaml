@@ -5009,6 +5009,9 @@ components:
         clockSound:
           type: boolean
           example: true
+        byoyomiStyle:
+          type: integer
+          example: 1
         premove:
           type: boolean
           example: true

@@ -25,6 +25,7 @@ object JsonView {
       "clockTenths"        -> p.clockTenths,
       "clockCountdown"     -> p.clockCountdown,
       "clockSound"         -> p.clockSound,
+      "byoyomiStyle"       -> p.byoyomiStyle,
       "premove"            -> p.premove,
       "boardLayout"        -> p.boardLayout,
       "animation"          -> p.animation,

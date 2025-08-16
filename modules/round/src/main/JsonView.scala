@@ -99,6 +99,7 @@ final class JsonView(
                   "clockTenths"       -> pref.clockTenths,
                   "clockCountdown"    -> pref.clockCountdown,
                   "moveEvent"         -> pref.moveEvent,
+                  "byoyomiStyle"      -> pref.byoyomiStyle,
                 )
                 .add("clockSound" -> pref.clockSound)
                 .add("confirmResign" -> (!nvui && pref.confirmResign == Pref.ConfirmResign.YES))

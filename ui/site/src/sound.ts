@@ -95,10 +95,10 @@ export function createSound(): typeof window.lishogi.sound {
     return state.speechStorage.get();
   }
 
-  function say(texts: { en?: string; jp?: string }, cut = false, force = false) {
+  function say(texts: { en?: string; jp?: string }, cut = false, force = false, forceJp = false) {
     try {
       if (!state.speechStorage.get() && !force) return false;
-      const useJp = !!texts.jp && document.documentElement.lang === 'ja';
+      const useJp = forceJp || (!!texts.jp && document.documentElement.lang === 'ja');
       const text = useJp ? texts.jp : texts.en;
       const lang = useJp ? 'ja-JP' : 'en-US';
       const msg = new SpeechSynthesisUtterance(text);
