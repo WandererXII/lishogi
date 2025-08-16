@@ -1,5 +1,5 @@
 import { renderMoveOrDrop as enRender } from '../english';
-import { renderMoveOrDrop as jpRender, numberToSpeech as jpNum } from '../japanese';
+import { numberToSpeech as jpNum, renderMoveOrDrop as jpRender } from '../japanese';
 
 function main(opts: LishogiSpeech): boolean {
   if (opts.notation !== undefined) {
@@ -10,7 +10,7 @@ function main(opts: LishogiSpeech): boolean {
       },
       opts.cut ?? false,
       false,
-      opts.forceJapanese ?? false
+      opts.forceJapanese ?? false,
     );
   } else if (opts.byoyomiCount !== undefined) {
     return window.lishogi.sound.say(
@@ -20,7 +20,7 @@ function main(opts: LishogiSpeech): boolean {
       },
       opts.cut ?? false,
       true,
-      opts.forceJapanese ?? false
+      opts.forceJapanese ?? false,
     );
   }
 

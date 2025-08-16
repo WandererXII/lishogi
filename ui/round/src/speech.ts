@@ -16,7 +16,7 @@ function onSpeechChange(ctrl: RoundController) {
     const shouldLoadSpeechModule = enabled || isUsingByoyomiCount;
     if (!window.lishogi.modules.speech && shouldLoadSpeechModule)
       loadLishogiScript('speech').then(() => {
-        if (enabled) status(ctrl)
+        if (enabled) status(ctrl);
       });
     else if (window.lishogi.modules.speech && !shouldLoadSpeechModule)
       window.lishogi.modules.speech = undefined;
