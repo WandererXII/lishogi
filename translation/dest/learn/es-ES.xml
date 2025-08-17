@@ -180,15 +180,15 @@ Mueve cualquier pieza para continuar.</string>
 ¡El rey no tiene precio! Perderlo significa perder el juego.</string>
 	<string name="queenOverBishop">¡Captura la pieza más valiosa!
 Dama &gt; Alfil</string>
-	<string name="pawnsAreTheLeastValuable">Los peones son las piezas menos valiosas, seguidos de los lanceros. Los caballos son ligeramente más valiosos que los lanceros.
-Recoge la pieza más valiosa.</string>
+	<string name="pawnsAreTheLeastValuable">Los peones son las piezas menos valiosas, seguidos de las lanzas. Los caballos son ligeramente más valiosos que las lanzas.
+Captura la pieza más valiosa.</string>
 	<string name="knightSilverGold">Caballo &lt; General de Plata &lt; General de Oro
 Captura la pieza más valiosa sin perder las tuyas.</string>
 	<string name="goldBishopRook">General de Oro &lt; Alfil &lt; Torre
 Toma la pieza más valiosa.</string>
 	<string name="takeAllThePiecesStartingFromTheMost">¡Tome todas las piezas en orden, empezando desde las más valiosas hasta las menos valiosas!</string>
-	<string name="anExchangeIs">Un intercambio es cuando capturas una pieza a cambio de otra. ¿Cuál es un mejor intercambio? ¿Plata-por-torre, o Oro-por-caballo?</string>
-	<string name="theOpponentJustGaveAway">¡El oponente acaba de regalar su valiosa torre gratuitamente! ¿La tomas?</string>
+	<string name="anExchangeIs">Un intercambio se produce cuando capturas una pieza y pierdes otra. ¿Cuál es un mejor intercambio? ¿Plata por torre u Oro por caballo?</string>
+	<string name="theOpponentJustGaveAway">¡El oponente acaba de entregar gratis su valiosa torre! ¿La tomas?</string>
 	<string name="yourKingsValueIsInfinite">El valor del rey es infinito, comparado con una torre. ¿Cuál es el mejor movimiento aquí?</string>
 	<string name="twoGeneralsAreBetter">Dos generales pueden valer más que una pieza mayor. Un caballo y un lancero pueden ser mejores que un general. Encuentra una manera de sacrificar al alfil y ganar dos generales.</string>
 	<string name="rememberWhichPieceIsTheMostValuable">¿Recuerdas cuál es la pieza más valiosa?</string>
@@ -200,7 +200,7 @@ Toma la pieza más valiosa.</string>
 	<string name="checkInTwoGoal">¡Amenaza al rey enemigo en dos movimientos!</string>
 	<string name="checkInTwoComplete">¡Felicidades! ¡Has dado jaque a tu oponente, obligándole a defender su rey!</string>
 	<string name="whatNext">Y ahora ¿qué?</string>
-	<string name="youKnowHowToPlayShogi">Sabes jugar al shogi ¡enhorabuena! ¿Quieres aprender a jugar mejor?</string>
+	<string name="youKnowHowToPlayShogi">¡Enhorabuena, ya sabes jugar al shogi! ¿Quieres convertirte en un jugador más fuerte?</string>
 	<string name="register">Registrarse</string>
 	<string name="getAFreeLishogiAccount">Crea una cuenta gratuita en Lishogi</string>
 	<string name="practice">Practicar</string>
