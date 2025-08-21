@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">&lt; 10 sekondes voor tyd uitloop</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Klank as tyd noop</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Gee meer tyd</string>
 	<string name="gameBehavior">Spel gedrag</string>
 	<string name="howDoYouMovePieces">Hoe beweeg jy stukke?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">Japanese notatation</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
 	<string name="kifNotation">Kif notation</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Jou voorkeure is gestoor.</string>
 	<string name="smallMoves">Small moves</string>
 </resources>
