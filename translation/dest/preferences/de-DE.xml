@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Wenn Restzeit &lt; 10 Sekunden</string>
 	<string name="clockTickingStart">Die Uhr sollte ticken um</string>
 	<string name="soundWhenTimeGetsCritical">Ton, wenn die Zeit knapp wird</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Mehr Zeit geben</string>
 	<string name="gameBehavior">Spielverhalten</string>
 	<string name="howDoYouMovePieces">Wie möchtest du die Figuren bewegen?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">Japanische Notation</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki Notation</string>
 	<string name="kifNotation">KIF Notation</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Deine Einstellungen wurden gespeichert.</string>
 	<string name="smallMoves">Small moves</string>
 </resources>
