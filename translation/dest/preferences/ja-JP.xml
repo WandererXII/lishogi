@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">持ち時間が残り 10 秒以下の場合</string>
 	<string name="clockTickingStart">対局時計が音を鳴らし始める時間</string>
 	<string name="soundWhenTimeGetsCritical">時間が迫ってきたら音を鳴らす</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">相手に時間追加</string>
 	<string name="gameBehavior">対局中の動作</string>
 	<string name="howDoYouMovePieces">どのように駒を動かす？</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">日本表記</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki 形式</string>
 	<string name="kifNotation">KIF(柿木) 形式</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">設定が保存されました。</string>
 	<string name="smallMoves">小手数</string>
 </resources>
