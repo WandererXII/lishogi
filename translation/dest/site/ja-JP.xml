@@ -777,7 +777,7 @@
 	<string name="xCreatesStudyY">%1$s が研究 %2$s を作成</string>
 	<string name="quickPairing">自動ペアリング</string>
 	<string name="lobby">ロビー</string>
-	<string name="presets" comment="Tab in lobby, try to keep it short">持時間選択</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">プリセット</string>
 	<string name="anonymous">匿名</string>
 	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">匿名</string>
 	<string name="yourScore">通算成績：%s</string>
@@ -1009,4 +1009,7 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">募集終了</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">厳格モード</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">違法手は即敗北となり、プリムーブ（相手の手番中に次の自分の手を入力する）は無効化されます。王手のハイライトは表示されず、使用できる駒のセットも限定されます。</string>
+	<string name="byoyomiStyleTick">Tick</string>
+	<string name="byoyomiStyleEnglish">English countdown</string>
+	<string name="byoyomiStyleJapanese">Japanese count-up</string>
 </resources>
