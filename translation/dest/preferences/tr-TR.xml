@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Kalan zaman 10 saniyeden az ise</string>
 	<string name="clockTickingStart">Saat şu zamanda başlamalı</string>
 	<string name="soundWhenTimeGetsCritical">Zaman azaldığında sesle uyarı</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Süre ver</string>
 	<string name="gameBehavior">Oyun tercihleri</string>
 	<string name="howDoYouMovePieces">Taşları nasıl hareket ettirmek istersiniz?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">Japon notasyonu</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notasyonu</string>
 	<string name="kifNotation">Kif gösterimi</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Tercihleriniz kaydedildi.</string>
 	<string name="smallMoves">Küçük hareketler</string>
 </resources>
