@@ -1050,7 +1050,7 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Pechado</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Modo profesional</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">As xogadas ilegais implican a derrota, os movementos anticipados están desactivados, os xaques non se resaltan no taboleiro e só se admiten certos estilos de pezas.</string>
-	<string name="byoyomiStyleTick">Tick</string>
-	<string name="byoyomiStyleEnglish">English countdown</string>
-	<string name="byoyomiStyleJapanese">Japanese count-up</string>
+	<string name="byoyomiStyleTick">Tic-tac</string>
+	<string name="byoyomiStyleEnglish">Conta atrás en inglés</string>
+	<string name="byoyomiStyleJapanese">Conta atrás en Xaponés</string>
 </resources>
