@@ -623,6 +623,8 @@
 	<string name="youWon">Gañaches</string>
 	<string name="defeat">Derrota</string>
 	<string name="youLost">Perdiches</string>
+	<string name="winOneChar" comment="One letter symbolizing win (leave as is or use 1, if your language doesn't have a concept of this)">W</string>
+	<string name="lossOneChar" comment="One letter symbolizing loss (leave as is or use 0, if your language doesn't have a concept of this)">L</string>
 	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s contra %2$s</string>
 	<string name="victoryVsYInZ">%1$s contra %2$s en %3$s</string>
 	<string name="defeatVsYInZ">%1$s contra %2$s en %3$s</string>
