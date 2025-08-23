@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Kun aikaa jäljellä &lt; 10 sekuntia</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Äänimerkki kun aika on vähissä</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Anna lisää aikaa</string>
 	<string name="gameBehavior">Pelillisiä lisäasetuksia</string>
 	<string name="howDoYouMovePieces">Kuinka siirrät nappuloita?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">Japanese notatation</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
 	<string name="kifNotation">Kif notation</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Asetuksesi on tallennettu.</string>
 	<string name="smallMoves">Small moves</string>
 </resources>

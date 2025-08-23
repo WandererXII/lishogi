@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">当剩余时间小于10秒</string>
 	<string name="clockTickingStart">棋钟应该在何时开始</string>
 	<string name="soundWhenTimeGetsCritical">时间不足时声音提醒</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">给对方更多时间</string>
 	<string name="gameBehavior">对局行为</string>
 	<string name="howDoYouMovePieces">您想通过什么方式走棋？</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">日式记谱法</string>
 	<string name="kitaoKawasakiNotation">北尾—川崎记谱法</string>
 	<string name="kifNotation">Kif 记谱法</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">您的设置已保存。</string>
 	<string name="smallMoves">Small moves</string>
 </resources>

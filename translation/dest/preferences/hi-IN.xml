@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">जब बचा हुआ समय &lt; 10 सेकेंड</string>
 	<string name="clockTickingStart">घड़ी की टिक होनी चाहिए</string>
 	<string name="soundWhenTimeGetsCritical">ध्वनि जब समय महत्वपूर्ण (कम) हो जाता है</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">अधिक समय दें</string>
 	<string name="gameBehavior">खेल का व्यवहार</string>
 	<string name="howDoYouMovePieces">आप टुकड़ों को कैसे चलाते हैं?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">जापानी संकेतन (Japanese notatation)</string>
 	<string name="kitaoKawasakiNotation">किताओ-कावासाकी (Kitao-Kawasaki)</string>
 	<string name="kifNotation">Kif notation</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">आपकी प्राथमिकताएं सेव कर ली गई हैं</string>
 	<string name="smallMoves">Small moves</string>
 </resources>

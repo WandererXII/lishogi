@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Amikor a hátralévő idő &lt; 10 másodperc</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Figyelmeztető hang, ha nagyon kevés idő maradt</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Több idő adása</string>
 	<string name="gameBehavior">Játék működése</string>
 	<string name="howDoYouMovePieces">Hogyan mozgatod a bábukat?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">Japanese notatation</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
 	<string name="kifNotation">Kif notation</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Beállítások elmentve.</string>
 	<string name="smallMoves">Small moves</string>
 </resources>

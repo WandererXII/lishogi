@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">남은 시간이 10초 미만일 때</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">시간이 위태로울 때 소리 재생</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">시간 더 주기</string>
 	<string name="gameBehavior">Game behaviour</string>
 	<string name="howDoYouMovePieces">기물을 어떻게 움직이나요?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">Japanese notatation</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
 	<string name="kifNotation">Kif notation</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">설정이 저장되었습니다.</string>
 	<string name="smallMoves">Small moves</string>
 </resources>

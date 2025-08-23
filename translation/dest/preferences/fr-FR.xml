@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Quand il reste moins de 10 secondes</string>
 	<string name="clockTickingStart">La pendule devrait commencer à s\'écouler à</string>
 	<string name="soundWhenTimeGetsCritical">Alerte quand le temps restant devient critique</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Donner plus de temps</string>
 	<string name="gameBehavior">Conduite de la partie</string>
 	<string name="howDoYouMovePieces">Comment voulez-vous déplacer les pièces ?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">Notation japonaise</string>
 	<string name="kitaoKawasakiNotation">Notation Kitao-Kawasaki</string>
 	<string name="kifNotation">Notation Kif</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Vos préférences ont été sauvegardées.</string>
 	<string name="smallMoves">Coups minuscules</string>
 </resources>

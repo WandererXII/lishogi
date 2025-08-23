@@ -25,7 +25,7 @@
 	<string name="perpetualCheck">Jaque perpetuo</string>
 	<string name="royalsLost" comment="Used in chushogi">Se han perdido todas las piezas reales</string>
 	<string name="bareKing" comment="Used in chushogi">Rey despojado</string>
-	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Jugada ilegal</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s jugó contra %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s está jugando contra %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s ha ganado!</string>
@@ -623,6 +623,8 @@
 	<string name="youWon">Has ganado</string>
 	<string name="defeat">Derrota</string>
 	<string name="youLost">Has perdido</string>
+	<string name="winOneChar" comment="One letter symbolizing win (leave as is or use 1, if your language doesn't have a concept of this)">W</string>
+	<string name="lossOneChar" comment="One letter symbolizing loss (leave as is or use 0, if your language doesn't have a concept of this)">L</string>
 	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s vs %2$s</string>
 	<string name="victoryVsYInZ">%1$s vs %2$s en %3$s</string>
 	<string name="defeatVsYInZ">%1$s vs %2$s en %3$s</string>
@@ -1050,4 +1052,7 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="byoyomiStyleTick">Tick</string>
+	<string name="byoyomiStyleEnglish">English countdown</string>
+	<string name="byoyomiStyleJapanese">Japanese count-up</string>
 </resources>
