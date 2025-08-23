@@ -594,6 +594,8 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="youWon">Bạn thắng</string>
 	<string name="defeat">Thua</string>
 	<string name="youLost">Bạn thua</string>
+	<string name="winOneChar" comment="One letter symbolizing win (leave as is or use 1, if your language doesn't have a concept of this)">W</string>
+	<string name="lossOneChar" comment="One letter symbolizing loss (leave as is or use 0, if your language doesn't have a concept of this)">L</string>
 	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s với %2$s</string>
 	<string name="victoryVsYInZ">%1$s %2$s trong %3$s</string>
 	<string name="defeatVsYInZ">%1$s %2$s trong %3$s</string>
