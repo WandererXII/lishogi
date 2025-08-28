@@ -623,8 +623,6 @@
 	<string name="youWon">Gañaches</string>
 	<string name="defeat">Derrota</string>
 	<string name="youLost">Perdiches</string>
-	<string name="winOneChar" comment="One letter symbolizing win (leave as is or use 1, if your language doesn't have a concept of this)">1</string>
-	<string name="lossOneChar" comment="One letter symbolizing loss (leave as is or use 0, if your language doesn't have a concept of this)">0</string>
 	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s contra %2$s</string>
 	<string name="victoryVsYInZ">%1$s contra %2$s en %3$s</string>
 	<string name="defeatVsYInZ">%1$s contra %2$s en %3$s</string>
@@ -1052,7 +1050,5 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Pechado</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Modo profesional</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">As xogadas ilegais implican a derrota, os movementos anticipados están desactivados, os xaques non se resaltan no taboleiro e só se admiten certos estilos de pezas.</string>
-	<string name="byoyomiStyleTick">Tic-tac</string>
-	<string name="byoyomiStyleEnglish">Conta atrás en inglés</string>
-	<string name="byoyomiStyleJapanese">Conta atrás en Xaponés</string>
+	<string name="icon">Icon</string>
 </resources>
