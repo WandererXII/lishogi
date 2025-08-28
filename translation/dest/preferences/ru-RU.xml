@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Когда остаётся меньше 10 секунд</string>
 	<string name="clockTickingStart">Часы должны начать тикать в</string>
 	<string name="soundWhenTimeGetsCritical">Звук, когда время подходит к концу</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Добавить времени</string>
 	<string name="gameBehavior">Настройки игры</string>
 	<string name="howDoYouMovePieces">Как вы передвигаете фигуры?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">Японская нотация</string>
 	<string name="kitaoKawasakiNotation">Китайская</string>
 	<string name="kifNotation">Нотация кифу</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Ваши настройки сохранены.</string>
 	<string name="smallMoves">Малые ходы</string>
 </resources>

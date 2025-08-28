@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Khi thời gian còn lại &lt; 10 giây</string>
 	<string name="clockTickingStart">Đồng hồ sẽ bắt đầu tích tắc</string>
 	<string name="soundWhenTimeGetsCritical">Âm thanh khi sắp hết thời gian</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Cho thêm thời gian</string>
 	<string name="gameBehavior">Thao tác chơi</string>
 	<string name="howDoYouMovePieces">Bạn di chuyển quân như thế nào?</string>
@@ -45,6 +46,7 @@
 	<string name="japaneseNotation">Ký hiệu Nhật Bản</string>
 	<string name="kitaoKawasakiNotation">Kí hiệu Kitao-Kawasaki</string>
 	<string name="kifNotation">Kí hiệu trẻ em</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Các tùy chọn của bạn đã được lưu</string>
 	<string name="smallMoves">Nước đi bé</string>
 </resources>
