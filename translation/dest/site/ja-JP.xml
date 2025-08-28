@@ -594,8 +594,6 @@
 	<string name="youWon">勝利</string>
 	<string name="defeat">負け</string>
 	<string name="youLost">負</string>
-	<string name="winOneChar" comment="One letter symbolizing win (leave as is or use 1, if your language doesn't have a concept of this)">W</string>
-	<string name="lossOneChar" comment="One letter symbolizing loss (leave as is or use 0, if your language doesn't have a concept of this)">L</string>
 	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s 対 %2$s</string>
 	<string name="victoryVsYInZ">%1$s 対 %2$s、%3$s</string>
 	<string name="defeatVsYInZ">%1$s 対 %2$s、%3$s で</string>
@@ -1011,7 +1009,5 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">募集終了</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">厳格モード</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">違法手は即敗北となり、プリムーブ（相手の手番中に次の自分の手を入力する）は無効化されます。王手のハイライトは表示されず、使用できる駒のセットも限定されます。</string>
-	<string name="byoyomiStyleTick">Tick</string>
-	<string name="byoyomiStyleEnglish">English countdown</string>
-	<string name="byoyomiStyleJapanese">Japanese count-up</string>
+	<string name="icon">Icon</string>
 </resources>
