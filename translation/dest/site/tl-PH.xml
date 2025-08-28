@@ -623,8 +623,6 @@
 	<string name="youWon">You won</string>
 	<string name="defeat">Defeat</string>
 	<string name="youLost">You lost</string>
-	<string name="winOneChar" comment="One letter symbolizing win (leave as is or use 1, if your language doesn't have a concept of this)">W</string>
-	<string name="lossOneChar" comment="One letter symbolizing loss (leave as is or use 0, if your language doesn't have a concept of this)">L</string>
 	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s vs %2$s</string>
 	<string name="victoryVsYInZ">%1$s vs %2$s in %3$s</string>
 	<string name="defeatVsYInZ">%1$s vs %2$s in %3$s</string>
@@ -1052,7 +1050,5 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
-	<string name="byoyomiStyleTick">Tick</string>
-	<string name="byoyomiStyleEnglish">English countdown</string>
-	<string name="byoyomiStyleJapanese">Japanese count-up</string>
+	<string name="icon">Icon</string>
 </resources>
