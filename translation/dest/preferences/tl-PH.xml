@@ -49,4 +49,8 @@
 	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Your preferences have been saved.</string>
 	<string name="smallMoves">Small moves</string>
+	<string name="audibleClocks">Clocks allowed to make sounds</string>
+	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">System</string>
+	<string name="myClock" comment="What clocks should make sound?">My clock</string>
+	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">All clocks</string>
 </resources>
