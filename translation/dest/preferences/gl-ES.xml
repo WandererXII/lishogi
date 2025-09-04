@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Cando o tempo restante &lt; 10 segundos</string>
 	<string name="clockTickingStart">O reloxo comeza a facer tictac ós</string>
 	<string name="soundWhenTimeGetsCritical">Alerta cando queda pouco tempo</string>
+	<string name="byoyomiStyle">Estilo byoyomi</string>
 	<string name="giveMoreTime">Dar máis tempo</string>
 	<string name="gameBehavior">Comportamento durante a partida</string>
 	<string name="howDoYouMovePieces">Como moves as pezas?</string>
@@ -45,6 +46,11 @@
 	<string name="japaneseNotation">Notación xaponesa</string>
 	<string name="kitaoKawasakiNotation">Notación Kitao-Kawasaki</string>
 	<string name="kifNotation">Notación kifu</string>
+	<string name="yorozuyaNotation">Notación Yorozuya</string>
 	<string name="yourPreferencesHaveBeenSaved">As túas preferencias gardáronse.</string>
 	<string name="smallMoves">Lista compacta</string>
+	<string name="audibleClocks">Reloxos que poden emitir sons</string>
+	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">Sistema</string>
+	<string name="myClock" comment="What clocks should make sound?">O meu reloxo</string>
+	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">Todos os reloxos</string>
 </resources>

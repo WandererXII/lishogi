@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Калі засталося менш за 10 с</string>
 	<string name="clockTickingStart">Гадзіннікі павінны пачаць працаваць, калі</string>
 	<string name="soundWhenTimeGetsCritical">Гукавое апавяшчэнне пры нястачы часу</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Дадаць часу</string>
 	<string name="gameBehavior">Налады гульні</string>
 	<string name="howDoYouMovePieces">Як вы перасоўваеце фігуры?</string>
@@ -45,6 +46,11 @@
 	<string name="japaneseNotation">Японскія абазначэнні</string>
 	<string name="kitaoKawasakiNotation">Абазначэнні Кітаа-Кавасакі</string>
 	<string name="kifNotation">Kif notation</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Вашы налады былі захаваныя.</string>
 	<string name="smallMoves">Small moves</string>
+	<string name="audibleClocks">Clocks allowed to make sounds</string>
+	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">System</string>
+	<string name="myClock" comment="What clocks should make sound?">My clock</string>
+	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">All clocks</string>
 </resources>

@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Când rămân mai puțin de 10 secunde</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Sunet când timpul e aproape de expirare</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Adaugă timp adversarului</string>
 	<string name="gameBehavior">Comportamentul din joc</string>
 	<string name="howDoYouMovePieces">Cum mutați piesele?</string>
@@ -45,6 +46,11 @@
 	<string name="japaneseNotation">Japanese notatation</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notation</string>
 	<string name="kifNotation">Kif notation</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Preferințele tale au fost salvate</string>
 	<string name="smallMoves">Small moves</string>
+	<string name="audibleClocks">Clocks allowed to make sounds</string>
+	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">System</string>
+	<string name="myClock" comment="What clocks should make sound?">My clock</string>
+	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">All clocks</string>
 </resources>

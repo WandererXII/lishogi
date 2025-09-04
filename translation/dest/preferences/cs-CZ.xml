@@ -24,6 +24,7 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Když zbývající čas &lt; 10 sekund</string>
 	<string name="clockTickingStart">Hodiny by měly začít tikat</string>
 	<string name="soundWhenTimeGetsCritical">Zvuk, když zbývá velmi málo času</string>
+	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Přidej čas</string>
 	<string name="gameBehavior">Chování hry</string>
 	<string name="howDoYouMovePieces">Způsob provádění tahů</string>
@@ -45,6 +46,11 @@
 	<string name="japaneseNotation">Japonská notace</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notace</string>
 	<string name="kifNotation">Kif notace</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Vaše předvolby byly uloženy.</string>
 	<string name="smallMoves">Small moves</string>
+	<string name="audibleClocks">Clocks allowed to make sounds</string>
+	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">System</string>
+	<string name="myClock" comment="What clocks should make sound?">My clock</string>
+	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">All clocks</string>
 </resources>
