@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">När återstående tid &lt; 10 sekunder</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Ljud när tiden blir kritisk</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Ge mer tid</string>
 	<string name="gameBehavior">Spelbeteende</string>
 	<string name="howDoYouMovePieces">Flytta pjäser</string>
