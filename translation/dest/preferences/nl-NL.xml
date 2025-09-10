@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Wanneer resterende tijd &lt; 10 seconden</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Geluidssignaal als tijd opraakt</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Meer tijd geven</string>
 	<string name="gameBehavior">Spelgedrag</string>
 	<string name="howDoYouMovePieces">Hoe zet je stukken?</string>
