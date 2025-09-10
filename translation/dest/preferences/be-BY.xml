@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Калі засталося менш за 10 с</string>
 	<string name="clockTickingStart">Гадзіннікі павінны пачаць працаваць, калі</string>
 	<string name="soundWhenTimeGetsCritical">Гукавое апавяшчэнне пры нястачы часу</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Дадаць часу</string>
 	<string name="gameBehavior">Налады гульні</string>
 	<string name="howDoYouMovePieces">Як вы перасоўваеце фігуры?</string>
