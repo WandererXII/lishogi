@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">เมื่อเหลือเวลา &lt; 10 วินาที</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">เสียงเมื่อเวลาถึงจุดวิกฤต</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">ให้เวลาเพิ่ม</string>
 	<string name="gameBehavior">พฤติกรรมของเกม</string>
 	<string name="howDoYouMovePieces">คุณเดินหมากอย่างไร?</string>
