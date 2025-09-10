@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Când rămân mai puțin de 10 secunde</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Sunet când timpul e aproape de expirare</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Adaugă timp adversarului</string>
 	<string name="gameBehavior">Comportamentul din joc</string>
 	<string name="howDoYouMovePieces">Cum mutați piesele?</string>
