@@ -1010,4 +1010,6 @@
 	<string name="proMode" comment="Mode where making illegal move loses the game">厳格モード</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">違法手は即敗北となり、プリムーブ（相手の手番中に次の自分の手を入力する）は無効化されます。王手のハイライトは表示されず、使用できる駒のセットも限定されます。</string>
 	<string name="icon">アイコン</string>
+	<string name="online">Online</string>
+	<string name="offline">Offline</string>
 </resources>
