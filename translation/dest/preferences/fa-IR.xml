@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">وقتی زمان باقی مانده کمتر از ده ثانیه می باشد</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">صدا در هنگام زمان بحرانی زده می شود</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">افزایش زمان حریف</string>
 	<string name="gameBehavior">تنظیمات بازی</string>
 	<string name="howDoYouMovePieces">تمایل دارید که چگونه مهره ها را حرکت دهید؟</string>
