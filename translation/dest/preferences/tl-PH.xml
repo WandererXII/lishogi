@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">When time remaining &lt; 10 seconds</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Sound when time gets critical</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Magbigay ng karagdagang oras</string>
 	<string name="gameBehavior">Pag-uugali sa laro</string>
 	<string name="howDoYouMovePieces">Paano mo ginagalaw ang iyong mga piyesa?</string>
