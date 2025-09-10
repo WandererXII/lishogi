@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Quan restin menys de 10 segons</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">So quan quedi poc temps</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Donar més temps</string>
 	<string name="gameBehavior">Opcions de la partida</string>
 	<string name="howDoYouMovePieces">Com mous les peces?</string>
