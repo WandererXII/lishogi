@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Když zbývající čas &lt; 10 sekund</string>
 	<string name="clockTickingStart">Hodiny by měly začít tikat</string>
 	<string name="soundWhenTimeGetsCritical">Zvuk, když zbývá velmi málo času</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Přidej čas</string>
 	<string name="gameBehavior">Chování hry</string>
 	<string name="howDoYouMovePieces">Způsob provádění tahů</string>
