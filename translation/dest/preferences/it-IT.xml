@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Quando il tempo rimanente è &lt; 10 secondi</string>
 	<string name="clockTickingStart">L\'orologio inizierà a ticchettare a</string>
 	<string name="soundWhenTimeGetsCritical">Suono quando sei a corto di tempo</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Dai più tempo</string>
 	<string name="gameBehavior">Preferenze di gioco</string>
 	<string name="howDoYouMovePieces">Come vuoi muovere i pezzi?</string>
