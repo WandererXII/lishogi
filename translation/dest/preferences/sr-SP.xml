@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Када имате &lt; 10 секунди</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Звук када преостане мало времена</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Додај још времена</string>
 	<string name="gameBehavior">Game behaviour</string>
 	<string name="howDoYouMovePieces">Како померате фигуре?</string>
