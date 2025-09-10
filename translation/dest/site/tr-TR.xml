@@ -1051,4 +1051,6 @@
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
 	<string name="icon">Icon</string>
+	<string name="online">Online</string>
+	<string name="offline">Offline</string>
 </resources>
