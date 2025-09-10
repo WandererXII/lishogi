@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Όταν απομένουν &lt; 10 δευτερόλεπτα</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">Ηχητική ειδοποίηση όταν ο χρόνος γίνεται κρίσιμος</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Προσθέστε περισσότερο χρόνο</string>
 	<string name="gameBehavior">Συμπεριφορά παιχνιδιού</string>
 	<string name="howDoYouMovePieces">Πώς θέλετε να μετακινείτε τα κομμάτια;</string>
