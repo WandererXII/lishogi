@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">Kiedy na zegarze jest mniej niż 10 sekund</string>
 	<string name="clockTickingStart">Zegar powinien tykać przed końcem czasu</string>
 	<string name="soundWhenTimeGetsCritical">Powiadom dźwiękiem przy niedoczasie</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">Dodaj więcej czasu</string>
 	<string name="gameBehavior">Zachowanie gry</string>
 	<string name="howDoYouMovePieces">W jaki sposób wykonywać ruch?</string>
