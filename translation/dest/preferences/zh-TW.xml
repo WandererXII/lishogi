@@ -24,7 +24,6 @@
 	<string name="whenTimeRemainingLessThanTenSeconds">當剩餘時間小於10秒</string>
 	<string name="clockTickingStart">Clock should start ticking at</string>
 	<string name="soundWhenTimeGetsCritical">時間不足時聲音提醒</string>
-	<string name="byoyomiStyle">Byo-yomi style</string>
 	<string name="giveMoreTime">給對方更多時間</string>
 	<string name="gameBehavior">對局行為</string>
 	<string name="howDoYouMovePieces">要如何移動棋駒呢？</string>
