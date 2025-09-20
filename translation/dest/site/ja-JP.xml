@@ -475,7 +475,7 @@
 	<string name="handicap">手合割</string>
 	<string name="startPosition">開始局面</string>
 	<string name="clearBoard">盤面をクリアする</string>
-	<string name="fillXHand">%s の手を入力</string>
+	<string name="fillXHand">%s の持ち駒に残りを追加</string>
 	<string name="savePosition">盤面を保存</string>
 	<string name="loadPosition">局面を読み込む</string>
 	<string name="isPrivate">プライベート</string>
