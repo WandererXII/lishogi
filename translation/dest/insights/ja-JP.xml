@@ -4,48 +4,48 @@
   <string name="moves">動かす</string>
   <string name="drops">打つ</string>
   <string name="movesAndDrops">指す</string>
-  <string name="total" comment="Usually in chart legend or tooltip summing other bars">Total</string>
+  <string name="total" comment="Usually in chart legend or tooltip summing other bars">合計</string>
   <string name="count" comment="Example: Count: 11 moves">数</string>
-  <string name="average">Average</string>
-  <string name="percentage">Percentage</string>
-  <string name="outcomes" comment="win/draw/loss">Outcomes</string>
-  <string name="color" comment="Meaning sente or gote">Color</string>
-  <string name="termination" comment="Checkmate, repetition, timeout, etc">Termination</string>
+  <string name="average">平均</string>
+  <string name="percentage">パーセンテージ</string>
+  <string name="outcomes" comment="win/draw/loss">結果</string>
+  <string name="color" comment="Meaning sente or gote">先後</string>
+  <string name="termination" comment="Checkmate, repetition, timeout, etc">終局理由</string>
   <string name="resign" comment="Game termination status">投了</string>
-  <string name="noStart" comment="Game termination status - game didn't start">No start</string>
-  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Speed</string>
-  <string name="game">Game</string>
-  <string name="opponents">Opponents</string>
-  <string name="averageOpponentRating">Average opponent rating</string>
-  <string name="averageOpponentRatingDiff">Average opponent rating difference</string>
-  <string name="mostPlayedOpponents">Most played opponents</string>
-  <string name="averageAccuracy">Average accuracy</string>
-  <string name="wins">Wins</string>
-  <string name="draws">Draws</string>
-  <string name="losses">Losses</string>
-  <string name="accuracyByMoveNumber">Accuracy by game turn</string>
-  <string name="accuracyByPiece">Accuracy by piece</string>
-  <string name="times" comment="Move and drop times">Times</string>
-  <string name="totalTimeSpentThinking">Total time spent on player\'s turn</string>
-  <string name="averageTimePerGame">Average time spent on player\'s turn per game</string>
-  <string name="averageTimePerMoveOrDrop">Average time per move or drop</string>
-  <string name="timeSpentThinkingByPiece">Time spent by piece</string>
-  <string name="movesAndDropsByPiece">Moves and drops by piece</string>
+  <string name="noStart" comment="Game termination status - game didn't start">開始前</string>
+  <string name="speed" comment="Bulltet, blitz, rapid, etc.">持ち時間</string>
+  <string name="game">対局</string>
+  <string name="opponents">対局相手</string>
+  <string name="averageOpponentRating">対局相手の平均レート</string>
+  <string name="averageOpponentRatingDiff">対局相手とのレート差の平均</string>
+  <string name="mostPlayedOpponents">最も対局した相手</string>
+  <string name="averageAccuracy">平均精度</string>
+  <string name="wins">勝ち</string>
+  <string name="draws">引き分け</string>
+  <string name="losses">負け</string>
+  <string name="accuracyByMoveNumber">手数ごとの精度</string>
+  <string name="accuracyByPiece">駒ごとの精度</string>
+  <string name="times" comment="Move and drop times">時間</string>
+  <string name="totalTimeSpentThinking">消費時間の合計</string>
+  <string name="averageTimePerGame">１対局あたりの消費時間平均</string>
+  <string name="averageTimePerMoveOrDrop">１手あたりの消費時間平均</string>
+  <string name="timeSpentThinkingByPiece">駒ごとの消費時間</string>
+  <string name="movesAndDropsByPiece">駒ごとの移動と打つ手</string>
   <string name="capturesByPiece">持ち駒</string>
   <string name="promotionsByPiece">成り駒</string>
-  <string name="mostPlayedOpenings">Most played openings</string>
-  <string name="openingMoves">Opening moves</string>
-  <string name="insightsUpdate">Insights are refreshed every few hours.</string>
-  <string name="accuracy">Accuracy</string>
-  <string name="nbOfMovesAndDrops">Number of moves and drops made by player</string>
-  <string name="nbOfMovesAndDropsPerGame">Number of moves and drops made by player per game</string>
+  <string name="mostPlayedOpenings">最も指された序盤</string>
+  <string name="openingMoves">初手</string>
+  <string name="insightsUpdate">成績情報は数時間ごとに更新されます</string>
+  <string name="accuracy">精度</string>
+  <string name="nbOfMovesAndDrops">あなたの指し手の合計数</string>
+  <string name="nbOfMovesAndDropsPerGame">１対局あたりのあなたの指し手の数</string>
   <string name="nbOfCaptures">駒をとった回数</string>
-  <string name="nbOfPromotions">成り駒の数</string>
-  <string name="opponentRating">Opponent rating</string>
-  <string name="opponentRatingDiff">Opponent rating difference</string>
-  <string name="totalTimeOfMovesAndDrops">Total time of moves and drops</string>
-  <string name="nbOfGames">Number of games</string>
-  <string name="weekday">Weekday</string>
-  <string name="timeOfDay" comment="Morning,afternoon, evening, night">Time of day</string>
+  <string name="nbOfPromotions">駒を成った回数</string>
+  <string name="opponentRating">対局相手のレート</string>
+  <string name="opponentRatingDiff">対局相手とのレート差</string>
+  <string name="totalTimeOfMovesAndDrops">指し手にかけた合計時間</string>
+  <string name="nbOfGames">対局数</string>
+  <string name="weekday">曜日別</string>
+  <string name="timeOfDay" comment="Morning,afternoon, evening, night">時間帯</string>
   <string name="earlyBishopExchange" comment="Were bishops exchanged by the players early in the game">角交換</string>
 </resources>
