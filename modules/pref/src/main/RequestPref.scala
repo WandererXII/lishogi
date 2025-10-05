@@ -20,7 +20,7 @@ object RequestPref {
     def paramOrSession(name: String): Option[String] =
       queryParam(req, name) orElse req.session.get(name)
 
-    val bg       = paramOrSession("bg") | "light"
+    val bg       = paramOrSession("bg") | "dark"
     val theme    = paramOrSession("theme") | default.theme
     val pieceSet = paramOrSession("pieceSet") | default.pieceSet
 
