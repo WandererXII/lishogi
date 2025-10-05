@@ -46,12 +46,9 @@ function presetPerf(p: Preset): Perf {
 
 function presetLabel(p: Preset, perf: Perf) {
   const ja = useJapanese();
-  return ja && !p.lim && p.byo == 10 ? '10秒秒読み' :
-    ja && p.lim == 3 && !p.byo ? '３分切れ負け' :
-    ja && p.lim == 5 && !p.byo ? '５分切れ負け' :
-    ja && p.lim == 10 && !p.byo ? '10分切れ負け' :
-    ja && p.lim == 10 && p.byo == 30 ? '10分切れ30秒' :
-    ja && p.lim == 15 && p.byo == 60 ? '15分切れ60秒' :
+  return ja && !p.lim && p.byo ? `${p.byo}秒秒読み` :
+    ja && p.lim && !p.byo ? `${p.lim == 3 ? '３' : p.lim == 5 ? '５' : p.lim}分切れ負け` :
+    ja && p.lim == 10 && p.byo == 30 ? `${p.lim}分切れ${p.byo}秒` :
     i18nPerf(perf);
 }
 
