@@ -44,11 +44,19 @@ function presetPerf(p: Preset): Perf {
   return p.timeMode == 2 ? 'correspondence' : clockToPerf(p.lim * 60, p.byo, p.inc, p.per);
 }
 
+function fullWidthNumber(n: number): string {
+  return n
+    .toString()
+    .split('')
+    .map(d => String.fromCharCode(d.charCodeAt(0) + 0xfee0))
+    .join('');
+}
+
 function presetLabel(p: Preset, perf: Perf) {
   const ja = useJapanese();
-  return ja && !p.lim && p.byo ? `${p.byo}秒秒読み` :
-    ja && p.lim && !p.byo ? `${p.lim == 3 ? '３' : p.lim == 5 ? '５' : p.lim}分切れ負け` :
-    ja && p.lim == 10 && p.byo == 30 ? `${p.lim}分切れ${p.byo}秒` :
+  return ja && !p.lim && p.byo ? `${fullWidthNumber(p.byo)}秒秒読み` :
+    ja && p.lim && !p.byo ? `${fullWidthNumber(p.lim)}分切れ負け` :
+    ja && p.lim && p.byo ? `${fullWidthNumber(p.lim)}分切れ${fullWidthNumber(p.byo)}秒` :
     i18nPerf(perf);
 }
 
