@@ -54,10 +54,13 @@ function fullWidthNumber(n: number): string {
 
 function presetLabel(p: Preset, perf: Perf) {
   const ja = useJapanese();
-  return ja && !p.lim && p.byo ? `${fullWidthNumber(p.byo)}秒秒読み` :
-    ja && p.lim && !p.byo ? `${fullWidthNumber(p.lim)}分切れ負け` :
-    ja && p.lim && p.byo ? `${fullWidthNumber(p.lim)}分切れ${fullWidthNumber(p.byo)}秒` :
-    i18nPerf(perf);
+  return ja && !p.lim && p.byo
+    ? `${fullWidthNumber(p.byo)}秒秒読み`
+    : ja && p.lim && !p.byo
+      ? `${fullWidthNumber(p.lim)}分切れ負け`
+      : ja && p.lim && p.byo
+        ? `${fullWidthNumber(p.lim)}分切れ${fullWidthNumber(p.byo)}秒`
+        : i18nPerf(perf);
 }
 
 function presetButton(p: Preset, ctrl: LobbyController): VNode {
