@@ -895,6 +895,7 @@
 	<string name="background">רקע</string>
 	<string name="light">בהיר</string>
 	<string name="dark">כהה</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">שקוף</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">כתובת תמונת רקע (URL):</string>
