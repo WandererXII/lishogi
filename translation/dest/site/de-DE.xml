@@ -820,6 +820,7 @@
 	<string name="background">Hintergrund</string>
 	<string name="light">Hell</string>
 	<string name="dark">Dunkel</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Durchsichtig</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Hintergrundbild-URL:</string>
