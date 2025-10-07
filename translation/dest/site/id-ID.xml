@@ -784,6 +784,7 @@
 	<string name="background">Latar</string>
 	<string name="light">Terang</string>
 	<string name="dark">Gelap</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Tembus pandang</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">URL gambar latar belakang:</string>
