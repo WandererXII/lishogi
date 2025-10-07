@@ -821,6 +821,7 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="background">Sfondo</string>
 	<string name="light">Chiaro</string>
 	<string name="dark">Scuro</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Trasparente</string>
 	<string name="customTheme">Tema personalizzato</string>
 	<string name="backgroundImageUrl">URL dell\'immagine di sfondo:</string>
