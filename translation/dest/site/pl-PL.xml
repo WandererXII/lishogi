@@ -892,6 +892,7 @@
 	<string name="background">Tło</string>
 	<string name="light">Jasne</string>
 	<string name="dark">Ciemne</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Przezroczyste</string>
 	<string name="customTheme">Własny motyw</string>
 	<string name="backgroundImageUrl">Adres do obrazu tła:</string>
