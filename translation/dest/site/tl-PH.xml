@@ -820,6 +820,7 @@
 	<string name="background">Background</string>
 	<string name="light">Maliwanag</string>
 	<string name="dark">Madilim</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Transparent</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Background image URL:</string>
