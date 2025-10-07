@@ -820,6 +820,7 @@
 	<string name="background">Fundo</string>
 	<string name="light">Claro</string>
 	<string name="dark">Escuro</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Transparente</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">URL da imagem de fundo:</string>
