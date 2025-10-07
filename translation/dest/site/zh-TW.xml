@@ -784,6 +784,7 @@
 	<string name="background">背景</string>
 	<string name="light">亮</string>
 	<string name="dark">暗</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">透明度</string>
 	<string name="customTheme">自訂主題</string>
 	<string name="backgroundImageUrl">背景圖片網址:</string>
