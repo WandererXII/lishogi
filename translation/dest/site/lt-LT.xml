@@ -892,6 +892,7 @@
 	<string name="background">Fonas</string>
 	<string name="light">Šviesus</string>
 	<string name="dark">Tamsus</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Permatomas</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Fono paveikslo URL:</string>
