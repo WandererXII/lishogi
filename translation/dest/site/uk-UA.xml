@@ -893,6 +893,7 @@
 	<string name="background">Фон</string>
 	<string name="light">Світла</string>
 	<string name="dark">Темна</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Прозора</string>
 	<string name="customTheme">Вільний вигляд</string>
 	<string name="backgroundImageUrl">URL зображення в тлі:</string>
