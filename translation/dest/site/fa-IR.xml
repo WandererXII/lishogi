@@ -820,6 +820,7 @@
 	<string name="background">زمینه</string>
 	<string name="light">روشن</string>
 	<string name="dark">تیره</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">شفاف</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">لینک تصویر پس زمینه:</string>
