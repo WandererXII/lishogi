@@ -784,6 +784,7 @@
 	<string name="background">배경</string>
 	<string name="light">밝게</string>
 	<string name="dark">어둡게</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">투명하게</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">배경 이미지 URL:</string>
