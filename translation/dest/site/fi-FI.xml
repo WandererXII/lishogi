@@ -820,6 +820,7 @@
 	<string name="background">Tausta</string>
 	<string name="light">Vaalea</string>
 	<string name="dark">Tumma</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Läpinäkyvä</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Taustakuvan URL:</string>
