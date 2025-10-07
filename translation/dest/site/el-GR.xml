@@ -820,6 +820,7 @@
 	<string name="background">Φόντο</string>
 	<string name="light">Φωτεινό</string>
 	<string name="dark">Σκοτεινό</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Διάφανο</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Διεύθυνση εικόνας φόντου:</string>
