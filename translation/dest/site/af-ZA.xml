@@ -821,6 +821,7 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="background">Agtergrond</string>
 	<string name="light">Lig</string>
 	<string name="dark">Donker</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Deurdigtig</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Agtergrond prent URL:</string>
