@@ -964,6 +964,7 @@
 	<string name="background">الخلفية</string>
 	<string name="light">فاتح</string>
 	<string name="dark">داكن</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">شفّاف</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">رابط صورة الخلفية:</string>
