@@ -892,6 +892,7 @@
 	<string name="background">Pozadí</string>
 	<string name="light">Světlé</string>
 	<string name="dark">Tmavé</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Průhledné</string>
 	<string name="customTheme">Vlastní téma</string>
 	<string name="backgroundImageUrl">URL zdroj obrázku na pozadí:</string>
