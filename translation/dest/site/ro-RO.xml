@@ -856,6 +856,7 @@
 	<string name="background">Fundal</string>
 	<string name="light">Luminos</string>
 	<string name="dark">Culoare închisă</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Transparent</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">URL-ul imaginii de fundal:</string>
