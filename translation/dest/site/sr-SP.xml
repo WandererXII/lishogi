@@ -856,6 +856,7 @@
 	<string name="background">Позадина</string>
 	<string name="light">Светла</string>
 	<string name="dark">Тамна</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Прозирна</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">УРЛ слике позадине:</string>
