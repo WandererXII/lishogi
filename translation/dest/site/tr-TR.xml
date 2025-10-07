@@ -820,6 +820,7 @@
 	<string name="background">Arkaplan</string>
 	<string name="light">Açık</string>
 	<string name="dark">Koyu</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Şeffaf</string>
 	<string name="customTheme">Özel tema</string>
 	<string name="backgroundImageUrl">Arka plan resim linki:</string>
