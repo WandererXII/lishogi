@@ -892,6 +892,7 @@
 	<string name="background">Фон</string>
 	<string name="light">Светлы</string>
 	<string name="dark">Цёмны</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Празрысты</string>
 	<string name="customTheme">Карыстальніцкая тэма</string>
 	<string name="backgroundImageUrl">Спасылка на фон:</string>
