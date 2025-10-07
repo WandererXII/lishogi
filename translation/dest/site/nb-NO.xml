@@ -820,6 +820,7 @@
 	<string name="background">Bakgrunn</string>
 	<string name="light">Lys</string>
 	<string name="dark">Mørk</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Gjennomsiktig</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">URL for bakgrunnsbilde:</string>
