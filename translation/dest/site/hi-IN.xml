@@ -821,6 +821,7 @@
 	<string name="background">बैकग्राउंड</string>
 	<string name="light">रोशनी</string>
 	<string name="dark">डार्क</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">पारदर्शी</string>
 	<string name="customTheme">कस्टम थीम्स</string>
 	<string name="backgroundImageUrl">पृष्ठभूमि छवि URL:</string>
