@@ -895,6 +895,7 @@
 	<string name="background">רקע</string>
 	<string name="light">בהיר</string>
 	<string name="dark">כהה</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">שקוף</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">כתובת תמונת רקע (URL):</string>
@@ -1137,4 +1138,7 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="icon">Icon</string>
+	<string name="online">Online</string>
+	<string name="offline">Offline</string>
 </resources>

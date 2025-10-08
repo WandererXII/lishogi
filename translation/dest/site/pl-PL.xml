@@ -892,6 +892,7 @@
 	<string name="background">Tło</string>
 	<string name="light">Jasne</string>
 	<string name="dark">Ciemne</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Przezroczyste</string>
 	<string name="customTheme">Własny motyw</string>
 	<string name="backgroundImageUrl">Adres do obrazu tła:</string>
@@ -1134,4 +1135,7 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="icon">Icon</string>
+	<string name="online">Online</string>
+	<string name="offline">Offline</string>
 </resources>

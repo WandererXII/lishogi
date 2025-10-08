@@ -785,6 +785,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="background">Nền</string>
 	<string name="light">Sáng</string>
 	<string name="dark">Tối</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Trong suốt</string>
 	<string name="customTheme">Tùy chỉnh chủ đề</string>
 	<string name="backgroundImageUrl">URL ảnh nền:</string>
@@ -1009,4 +1010,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="icon">Icon</string>
+	<string name="online">Online</string>
+	<string name="offline">Offline</string>
 </resources>
