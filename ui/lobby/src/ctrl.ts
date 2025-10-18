@@ -64,7 +64,7 @@ export default class LobbyController {
       isNewPlayer: !!opts.data.me?.isNewPlayer,
       aiLevel: opts.data.me?.aiLevel && Number.parseInt(opts.data.me.aiLevel),
       ratings: opts.data.me?.ratings,
-      ratingDiff: 300,
+      ratingDiff: 200,
     };
     this.filter = new Filter(li.storage.make('lobby.filter2'), this);
     this.setupCtrl = new SetupCtrl(this);
