@@ -84,7 +84,7 @@ Glicko 方式ではレーティングの算出と表示に「信頼区間」を�
 	<string name="inOrderToAppearsYouMust">%1$sに入るための条件は：</string>
 	<string name="ratingLeaderboards">レーティングのランキング</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">そのカテゴリーでレート戦 30 局以上を終え、</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">そのカテゴリーで過去 1 週間以内にレート戦を指し、</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">本将棋ではレーティング偏差が%1$sより小さく、変則将棋では%2$sよりも小さい</string>
 	<string name="beInTopTen">そのカテゴリーで上位 10 人に入っていることです。</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">2 番目の要件は、アカウントを使わなくなった人がランキングの中に残らないようにするためです。</string>
