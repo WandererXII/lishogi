@@ -48,6 +48,9 @@
 	<string name="newOpponent">Nuovo avversario</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Il tuo avversario vuole giocare un\'altra partita con te</string>
 	<string name="joinTheGame">Unisciti alla partita</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Tocca a %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Il tuo avversario ha lasciato la partita. Puoi reclamare la vittoria fra %s secondo.</item>
@@ -483,6 +486,7 @@
 	<string name="tournamentIsStarting">Sta per iniziare il torneo</string>
 	<string name="tournamentPairingsAreNowClosed">Gli accoppiamenti del torneo sono ora chiusi.</string>
 	<string name="standByX">Resta in attesa %s, accoppiamento giocatori, preparati!</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">Stai giocando!</string>
 	<string name="winRate">Percentuale di vittorie</string>
 	<string name="berserkRate">Percentuale Berserk</string>
@@ -548,6 +552,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">Passa automaticamente alla partita successiva dopo aver mosso</string>
 	<string name="autoSwitch">Cambia automaticamente</string>
 	<string name="puzzles">Tattiche</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">Ultimi aggiornamenti</string>
 	<string name="tournamentWinners">Vincitori dei tornei</string>
 	<string name="name">Nome</string>
@@ -943,6 +948,8 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">Rapido</string>
 	<string name="classical">Classico</string>
 	<string name="ultraBulletDesc">Partite follemente veloci: meno di 30 secondi</string>
@@ -1045,7 +1052,8 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Tournament candidates</string>
 	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
 	<string name="noPlayersJoinedYet">No players joined yet</string>
@@ -1055,4 +1063,5 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 </resources>
