@@ -94,7 +94,7 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="inOrderToAppearsYouMust">For at blive opført i %1$s skal du:</string>
 	<string name="ratingLeaderboards">rating-klassementer:</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">have spillet mindst 30 ratede partier med en given rating,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">have spillet et ratet parti inden for den seneste uge ved denne rating,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">være i top 10 for denne rating.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Det andet krav sikrer at spillere, som ikke længere benytter deres konto, ikke fylder i klassementer.</string>
