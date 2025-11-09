@@ -94,7 +94,7 @@ Outro punto que cabe sinalar é que, se pasa un tempo sen xogares, o intervalo d
 	<string name="inOrderToAppearsYouMust">Para chegar á %1$s deberías:</string>
 	<string name="ratingLeaderboards">listaxe de líderes</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">ter xogado cando menos 30 partidas puntuadas nunha modalidade,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">ter xogado unha partida puntuada na última semana nesta modalidade,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">ter unha desviación da puntuación menor de %1$s, en shogi estándar, e menor de %2$s en variantes,</string>
 	<string name="beInTopTen">estar entre os 10 mellores nesta modalidade.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">A razón de ser da segunda condición é que os xogadores que xa non usan as súas contas deixen de aparecer na listaxe de líderes.</string>
