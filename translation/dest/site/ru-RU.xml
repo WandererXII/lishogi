@@ -48,6 +48,9 @@
 	<string name="newOpponent">Найти другого соперника</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Соперник предлагает вам сыграть ещё раз</string>
 	<string name="joinTheGame">Принять вызов</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Ход %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Ваш соперник покинул игру. Вы можете объявить победу через %s секунду.</item>
@@ -539,6 +542,7 @@
 	<string name="tournamentIsStarting">Турнир начинается</string>
 	<string name="tournamentPairingsAreNowClosed">Жеребьёвка турнира завершена.</string>
 	<string name="standByX">Ожидайте, %s, идёт жеребьёвка. Будьте готовы!</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">Вы в игре!</string>
 	<string name="winRate">Победы</string>
 	<string name="berserkRate">Берсерк</string>
@@ -608,6 +612,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">После хода автоматически переходить к следующей игре</string>
 	<string name="autoSwitch">Автосмена</string>
 	<string name="puzzles">Задачи</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">Последние обновления</string>
 	<string name="tournamentWinners">Победители турниров</string>
 	<string name="name">Имя</string>
@@ -1022,6 +1027,8 @@
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">УльтраПуля</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Пуля</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Блиц</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">Рапид</string>
 	<string name="classical">Классика</string>
 	<string name="ultraBulletDesc">Безумно быстрые игры: менее 30 секунд</string>
@@ -1128,7 +1135,8 @@
 	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Tournament candidates</string>
 	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
 	<string name="noPlayersJoinedYet">No players joined yet</string>
@@ -1138,4 +1146,5 @@
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 </resources>
