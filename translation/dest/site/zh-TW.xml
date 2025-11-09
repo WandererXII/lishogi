@@ -48,6 +48,9 @@
 	<string name="newOpponent">換個對手</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">您的對手想和你複賽</string>
 	<string name="joinTheGame">加入這盤棋</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">你的對手已經離開了遊戲。你將在 %s 秒內獲勝。</item>
@@ -455,6 +458,7 @@
 	<string name="tournamentIsStarting">錦標賽即將開始</string>
 	<string name="tournamentPairingsAreNowClosed">此錦標賽的對手配對已結束。</string>
 	<string name="standByX">%s準備好，你馬上要開始對棋了！</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">等待對手中</string>
 	<string name="winRate">勝率</string>
 	<string name="berserkRate">快棋率</string>
@@ -518,6 +522,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">移动棋子后自动进入下一盘棋</string>
 	<string name="autoSwitch">自动更换</string>
 	<string name="puzzles">題目</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">最近更新</string>
 	<string name="tournamentWinners">比赛赢家</string>
 	<string name="name">名</string>
@@ -902,6 +907,8 @@
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">快速模式</string>
 	<string name="classical">經典</string>
 	<string name="ultraBulletDesc">瘋狂速度模式:低於30秒</string>
@@ -1002,7 +1009,8 @@
 	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Tournament candidates</string>
 	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
 	<string name="noPlayersJoinedYet">No players joined yet</string>
@@ -1012,4 +1020,5 @@
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 </resources>
