@@ -48,6 +48,9 @@
 	<string name="newOpponent">新しい相手</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">相手が再対局を申し込みました。</string>
 	<string name="joinTheGame">対局に参加する</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s番です</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">相手がいなくなりました。後 %s 秒で勝ちにできます。</item>
@@ -456,6 +459,7 @@
 	<string name="tournamentIsStarting">トーナメント開始</string>
 	<string name="tournamentPairingsAreNowClosed">トーナメントの対局の組み合わせは終了しました。</string>
 	<string name="standByX">%s さん、現在ペアリング中です。用意して！</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">参加中！</string>
 	<string name="winRate">勝率</string>
 	<string name="berserkRate">バーサーク率</string>
@@ -519,6 +523,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">指した後 自動的に次の対局に進む</string>
 	<string name="autoSwitch">自動切り替え</string>
 	<string name="puzzles">次の一手</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">最新情報</string>
 	<string name="tournamentWinners">トーナメント優勝者</string>
 	<string name="name">名称</string>
@@ -903,6 +908,8 @@
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">ウルトラブレット</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">ブレット</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">ブリッツ</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">ラピッド</string>
 	<string name="classical">クラシカル</string>
 	<string name="ultraBulletDesc">極早指し戦：30 秒未満</string>
@@ -1003,7 +1010,8 @@
 	<string name="mateCreatedDescription">詰みが避けられません</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">最善の詰み手順ではありません</string>
 	<string name="mateLostDescription" comment="Sequence of moves">必至の詰み手順を逃しました</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">。</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">。</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">大会参加希望者</string>
 	<string name="kickedAndDeniedPlayers">参加を拒否・追放された参加者</string>
 	<string name="noPlayersJoinedYet">まだ参加者がいません</string>
@@ -1013,4 +1021,5 @@
 	<string name="icon">アイコン</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 </resources>
