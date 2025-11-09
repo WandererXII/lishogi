@@ -48,6 +48,9 @@
 	<string name="newOpponent">Penantang baru</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Lawan Anda ingin bermain lagi dengan Anda</string>
 	<string name="joinTheGame">Ikuti permainan</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">Lawanmu telah meninggalkan permainan. Anda dapat mengklaim kemenangan dalam %s detik.</item>
@@ -455,6 +458,7 @@
 	<string name="tournamentIsStarting">Turnamen sudah dimulai</string>
 	<string name="tournamentPairingsAreNowClosed">Pairing pemain sudah ditutup.</string>
 	<string name="standByX">Bersiaplah %s, pairing pemain sedang dilakukan!</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">Anda bermain!</string>
 	<string name="winRate">Rating kemenangan</string>
 	<string name="berserkRate">Rating berserk</string>
@@ -518,6 +522,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">Otomatis memproses permainan berikutnya setelah melangkah</string>
 	<string name="autoSwitch">Pindah otomatis</string>
 	<string name="puzzles">Taktik</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">Latest updates</string>
 	<string name="tournamentWinners">Pemenang turnamen</string>
 	<string name="name">Nama</string>
@@ -902,6 +907,8 @@
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">Cepat</string>
 	<string name="classical">Klasikal</string>
 	<string name="ultraBulletDesc">Sangat-sangat cepat: kurang dari 30 detik</string>
@@ -1002,7 +1009,8 @@
 	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Tournament candidates</string>
 	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
 	<string name="noPlayersJoinedYet">No players joined yet</string>
@@ -1012,4 +1020,5 @@
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 </resources>
