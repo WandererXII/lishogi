@@ -94,7 +94,7 @@ Một điểm cần lưu ý nữa là, khi thời gian trôi qua, khoảng tin c
 	<string name="inOrderToAppearsYouMust">Để nhận được %1$s, bạn phải:</string>
 	<string name="ratingLeaderboards">thứ hạng trên bảng xếp hạng</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">Đã chơi ít nhất 30 ván xếp hạng trong một xếp hạng nhất định,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">Đã chơi một ván xếp hạng trong tuần trước cho xếp hạng này,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">Có độ lệch xếp hạng thấp hơn %1$s, trong Shogi tiêu chuẩn và thấp hơn %2$s trong các biến thể,</string>
 	<string name="beInTopTen">Nằm trong top 10 trong bảng xếp hạng này.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Yêu cầu thứ hai là những người chơi không còn sử dụng tài khoản sẽ không được đưa vào bảng xếp hạng.</string>
