@@ -48,6 +48,9 @@
 	<string name="newOpponent">Nou adversari</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">El teu adversari vol jugar una altra partida amb tu</string>
 	<string name="joinTheGame">Uneix-te a la partida</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">El seu contrincant ha abandonat el joc. Pot reclamar la victòria en %s segons.</item>
@@ -483,6 +486,7 @@
 	<string name="tournamentIsStarting">El torneig està començant</string>
 	<string name="tournamentPairingsAreNowClosed">L\'emparellament al torneig s\'ha finalitzat.</string>
 	<string name="standByX">Estigues a punt %s, emparellant jugadors, prepara\'t!</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">¡Estàs jugant!</string>
 	<string name="winRate">Percentatge de victòries</string>
 	<string name="berserkRate">Taxa de Berserk</string>
@@ -548,6 +552,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">Anar automàticament a la següent partida després de cada moviment</string>
 	<string name="autoSwitch">Canvi automàtic</string>
 	<string name="puzzles">Problemes</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">Darreres actualitzacions</string>
 	<string name="tournamentWinners">Guanyadors de tornejos</string>
 	<string name="name">Nom</string>
@@ -945,6 +950,8 @@ en %3$s</string>
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">Ràpides</string>
 	<string name="classical">Clàssic</string>
 	<string name="ultraBulletDesc">Partides extramadament ràpides: menys de 30 segons</string>
@@ -1047,7 +1054,8 @@ en %3$s</string>
 	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Tournament candidates</string>
 	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
 	<string name="noPlayersJoinedYet">No players joined yet</string>
@@ -1057,4 +1065,5 @@ en %3$s</string>
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 </resources>
