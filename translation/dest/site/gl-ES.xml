@@ -48,7 +48,7 @@
 	<string name="newOpponent">Novo rival</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">O teu rival quere xogar outra partida contra ti</string>
 	<string name="joinTheGame">Unirse á partida</string>
-	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="registeredJoinTheGame">Tes que rexistrarte pra poderte unir ás partidas doutros usuarios rexistrados</string>
 	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
 	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Xoga %s</string>
