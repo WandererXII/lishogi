@@ -94,7 +94,7 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="inOrderToAppearsYouMust">Om op de %1$s te komen moet je:</string>
 	<string name="ratingLeaderboards">ranglijst</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">minstens 30 partijen hebben gespeeld met een gegeven rating,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">de afgelopen week een partij met rating gespeeld voor deze beoordeling,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">deel uitmaken van de top 10 van deze rating.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">De tweede vereiste is dat spelers die hun accounts niet meer gebruiken, niet langer in de scoreborden worden vermeld.</string>

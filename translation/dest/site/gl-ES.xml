@@ -48,6 +48,9 @@
 	<string name="newOpponent">Novo rival</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">O teu rival quere xogar outra partida contra ti</string>
 	<string name="joinTheGame">Unirse á partida</string>
+	<string name="registeredJoinTheGame">Tes que rexistrarte pra poderte unir ás partidas doutros usuarios rexistrados</string>
+	<string name="outsideYourRating">A túa puntuación está fóra do rango permitido para esta partida</string>
+	<string name="gamesOutsideYourRatingRange">Amosar partidas fóra do teu rango de puntuación</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Xoga %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">O teu opoñente saíu da partida. Poderás reclamar a vitoria en %s segundo.</item>
@@ -483,6 +486,7 @@
 	<string name="tournamentIsStarting">O torneo vai comezar</string>
 	<string name="tournamentPairingsAreNowClosed">Os emparellamentos do torneo xa están pechados.</string>
 	<string name="standByX">Agarda %s, emparellando xogadores, prepárate!</string>
+	<string name="waitingForPlayersToPair">Agardando que máis xogadores comecen o emparellamento...</string>
 	<string name="youArePlaying">Estás xogando!</string>
 	<string name="winRate">Porcentaxe de vitorias</string>
 	<string name="berserkRate">Porcentaxe de berserk</string>
@@ -523,8 +527,8 @@
 	<string name="watchLishogiTV">Ver Lishogi TV</string>
 	<string name="watchLishogiTVDescription">Senta, reláxate e mira como compiten os mellores xogadores en Lishogi TV</string>
 	<string name="previouslyOnLishogiTV">Anteriormente en Lishogi TV</string>
-	<string name="onlinePlayers">Xogadores en liña</string>
-	<string name="onlineBots">Máquinas en liña</string>
+	<string name="onlinePlayers">Xogadores conectados</string>
+	<string name="onlineBots">Máquinas conectadas</string>
 	<string name="activeToday">Activo hoxe</string>
 	<string name="activePlayers">Xogadores activos</string>
 	<string name="bewareTheGameIsRatedButHasNoClock">Atención, a partida é puntuada pero sen límite de tempo!</string>
@@ -548,6 +552,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">Pasar automaticamente á seguinte partida despois de mover</string>
 	<string name="autoSwitch">Cambio automático</string>
 	<string name="puzzles">Crebacabezas</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Trebón de crebacabezas</string>
 	<string name="latestUpdates">Últimas actualizacións</string>
 	<string name="tournamentWinners">Gañadores do torneo</string>
 	<string name="name">Nome</string>
@@ -820,6 +825,7 @@
 	<string name="background">Fondo</string>
 	<string name="light">Claro</string>
 	<string name="dark">Escuro</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">Sistema</string>
 	<string name="transparent">Transparente</string>
 	<string name="customTheme">Tema personalizado</string>
 	<string name="backgroundImageUrl">URL da imaxe de fondo:</string>
@@ -941,6 +947,8 @@
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBala</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bala</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Lóstrego</string>
+	<string name="veryFastShogi">Shogi moi rápido</string>
+	<string name="fastShogi">Shogi rápido</string>
 	<string name="rapid">Rápidas</string>
 	<string name="classical">Clásicas</string>
 	<string name="ultraBulletDesc">Partidas incriblemente rápidas: menos de 1 minuto</string>
@@ -1043,11 +1051,16 @@
 	<string name="mateCreatedDescription">O xaque mate é inevitable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Non é a mellor secuencia de xaque mate</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Había unha secuencia de xaque mate forzado</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Candidatos ó torneo</string>
 	<string name="kickedAndDeniedPlayers">Xogadores expulsados e denegados</string>
 	<string name="noPlayersJoinedYet">Aínda non se incorporou ningún xogador</string>
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Pechado</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Modo profesional</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">As xogadas ilegais implican a derrota, os movementos anticipados están desactivados, os xaques non se resaltan no taboleiro e só se admiten certos estilos de pezas.</string>
+	<string name="icon">Icona</string>
+	<string name="online">Conectado</string>
+	<string name="offline">Desconectado</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">Subiches de nivel!</string>
 </resources>

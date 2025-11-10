@@ -94,7 +94,7 @@ LM शीर्षक के लिए मत पूछो।</string>
 	<string name="inOrderToAppearsYouMust">%1$s पर पाने के लिए आपको चाहिए:</string>
 	<string name="ratingLeaderboards">रेटिंग लीडरबोर्ड</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">किसी रेटिंग में कम से कम 30 रेटेड गेम खेले हैं,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">इस रेटिंग के लिए पिछले सप्ताह के भीतर एक रेटेड गेम खेला है,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">इस रेटिंग में शीर्ष 10 में रहें।</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">दूसरी आवश्यकता इतनी है कि जो खिलाड़ी अब अपने खातों का उपयोग नहीं करते हैं वे लीडरबोर्ड को आबाद करना बंद कर देते हैं।</string>

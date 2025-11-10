@@ -94,7 +94,7 @@ Il faut également noter que l\'intervalle de confiance augmente avec le temps. 
 	<string name="inOrderToAppearsYouMust">Pour être sur la %1$s vous devez:</string>
 	<string name="ratingLeaderboards">classement des leaders</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">avoir joué à au moins 30 parties classées dans un jeu donné,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">avoir à un jeu classé au cours de la dernière semaine pour cette classification</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">avoir un écart de classement inférieur à %1$s, en shogi standard, et inférieur à %2$s dans les variantes,</string>
 	<string name="beInTopTen">être dans le top 10 de ce classement.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">La deuxième exigence est pour que les joueurs qui n\'utilisent plus leur compte cessent de remplir les classements.</string>
