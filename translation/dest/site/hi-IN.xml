@@ -436,6 +436,9 @@
 	<string name="block">ब्लॉक</string>
 	<string name="blocked">ब्लॉक किया</string>
 	<string name="unblock">ब्लॉक से हटाएँ</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">आपको फॉलो करता है</string>
 	<string name="xStartedFollowingY">%1$s ने %2$s का फ़ॉलो करना शुरू किया</string>
 	<plurals name="nbFollowers">
@@ -702,6 +705,7 @@
 	<string name="termsOfService">सेवा की शर्तें</string>
 	<string name="sourceCode">सोर्स कोड</string>
 	<string name="simultaneousExhibitions">एकसमयी प्रदर्शनी</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">होस्ट (Host)</string>
@@ -1063,5 +1067,7 @@
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 </resources>
