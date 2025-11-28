@@ -460,6 +460,9 @@
 	<string name="block">Блокирај</string>
 	<string name="blocked">Блокиран</string>
 	<string name="unblock">Одблокирај</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Прате тебе</string>
 	<string name="xStartedFollowingY">%1$s је почео/ла пратити %2$s</string>
 	<plurals name="nbFollowers">
@@ -734,6 +737,7 @@
 	<string name="termsOfService">Услови коришћења услуге</string>
 	<string name="sourceCode">Изворни код</string>
 	<string name="simultaneousExhibitions">Симултанка</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">Домаћин</string>
@@ -1104,5 +1108,7 @@
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 </resources>
