@@ -411,6 +411,9 @@
 	<string name="block">ブロックする</string>
 	<string name="blocked">ブロック済</string>
 	<string name="unblock">ブロックを外す</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">あなたをフォローしています</string>
 	<string name="xStartedFollowingY">%1$s が %2$s のフォローを開始</string>
 	<plurals name="nbFollowers">
@@ -669,6 +672,7 @@
 	<string name="termsOfService">利用規約（英文）</string>
 	<string name="sourceCode">ソースコード</string>
 	<string name="simultaneousExhibitions">多面指し</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">多面指し終了</string>
 	<string name="backToSimul">多面指しに戻る</string>
 	<string name="host">ホスト</string>
@@ -1021,5 +1025,7 @@
 	<string name="icon">アイコン</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 </resources>
