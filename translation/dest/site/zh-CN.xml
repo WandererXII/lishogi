@@ -410,6 +410,9 @@
 	<string name="block">加入黑名单</string>
 	<string name="blocked">已加入黑名单</string>
 	<string name="unblock">移出黑名单</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">关注你</string>
 	<string name="xStartedFollowingY">%1$s开始关注%2$s</string>
 	<plurals name="nbFollowers">
@@ -668,6 +671,7 @@
 	<string name="termsOfService">服务条款</string>
 	<string name="sourceCode">源代码</string>
 	<string name="simultaneousExhibitions">车轮战</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">主持</string>
@@ -1020,5 +1024,7 @@
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 </resources>
