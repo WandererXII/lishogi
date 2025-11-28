@@ -435,6 +435,9 @@
 	<string name="block">Engelle</string>
 	<string name="blocked">Engellendi</string>
 	<string name="unblock">Engeli kaldır</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Sizi takip ediyor</string>
 	<string name="xStartedFollowingY">%1$s, %2$s isimli oyuncuyu takip etmeye başladı</string>
 	<plurals name="nbFollowers">
@@ -701,6 +704,7 @@
 	<string name="termsOfService">Hizmet koşulları</string>
 	<string name="sourceCode">Kaynak Kodu</string>
 	<string name="simultaneousExhibitions">Eş zamanlı gösteriler</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">Ev Sahibi</string>
@@ -1062,5 +1066,7 @@
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 </resources>
