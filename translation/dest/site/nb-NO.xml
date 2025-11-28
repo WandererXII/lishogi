@@ -435,6 +435,9 @@
 	<string name="block">Blokker</string>
 	<string name="blocked">Blokkert</string>
 	<string name="unblock">Fjern blokkering</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Følger deg</string>
 	<string name="xStartedFollowingY">%1$s begynte å følge %2$s</string>
 	<plurals name="nbFollowers">
@@ -701,6 +704,7 @@
 	<string name="termsOfService">Tjenestevilkår</string>
 	<string name="sourceCode">Kildekode</string>
 	<string name="simultaneousExhibitions">Simultanoppvisninger</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">Vert</string>
@@ -1062,5 +1066,7 @@
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 </resources>
