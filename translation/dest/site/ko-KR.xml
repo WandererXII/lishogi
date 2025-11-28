@@ -410,6 +410,9 @@
 	<string name="block">차단</string>
 	<string name="blocked">차단됨</string>
 	<string name="unblock">차단 해제</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">팔로워</string>
 	<string name="xStartedFollowingY">%1$s(이)가 %2$s(을)를 팔로우했습니다</string>
 	<plurals name="nbFollowers">
@@ -668,6 +671,7 @@
 	<string name="termsOfService">이용 약관</string>
 	<string name="sourceCode">소스 코드</string>
 	<string name="simultaneousExhibitions">동시대국</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">호스트</string>
@@ -1020,5 +1024,7 @@
 	<string name="icon">Icon</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 </resources>
