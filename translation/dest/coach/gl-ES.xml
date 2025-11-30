@@ -24,13 +24,13 @@
 	<string name="teachingMethod">Metodoloxía de adestramento</string>
 	<string name="publicStudies">Estudos públicos</string>
 	<string name="youtubeVideos">Vídeos do YouTube</string>
-	<string name="headline">Short and inspiring headline</string>
-	<string name="publishOnList">Publish on the coaches list</string>
-	<string name="publishOnListHelp">Enable when your profile is ready</string>
-	<string name="availableForLessons">Currently available for lessons</string>
-	<string name="availableForLessonsHelp">Enable to get more students</string>
-	<string name="allLanguages" comment="List all languages">All languages</string>
-	<string name="languagesSpoken">Languages spoken</string>
+	<string name="headline">Un lema curto e suxestivo</string>
+	<string name="publishOnList">Publicar na lista de adestradores</string>
+	<string name="publishOnListHelp">Activar cando o teu perfil estea listo</string>
+	<string name="availableForLessons">Dispoñible para dar clases</string>
+	<string name="availableForLessonsHelp">Activar para conseguir máis estudantes</string>
+	<string name="allLanguages" comment="List all languages">Todos os idiomas</string>
+	<string name="languagesSpoken">Idiomas falados</string>
 	<string name="languagesSpokenHelp">Which languages can you give lessons in?</string>
 	<string name="hourlyRateHelp">Indicative, non-contractual (3 to 140 chars)</string>
 	<string name="todoTitle">TODO list before publishing your coach profile</string>
