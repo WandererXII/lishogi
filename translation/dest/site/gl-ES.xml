@@ -1066,7 +1066,7 @@
 	<string name="icon">Icona</string>
 	<string name="online">Conectado</string>
 	<string name="offline">Desconectado</string>
-	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Niveis</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">Subiches de nivel!</string>
-	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Os niveis só se conceden após acadar unha puntuación estábel.</string>
 </resources>
