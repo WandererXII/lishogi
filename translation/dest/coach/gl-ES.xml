@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="lishogiCoach">Adestrador de Lishogi</string>
-	<string name="editMyCoachProfile">Edit my coach profile</string>
-	<string name="lishogiOnlyFeatures">Lishogi only features independent coaches and is not responsible for their conduct or the quality of their teaching.</string>
-	<string name="lishogiNoFees">Coaching fees are strictly between coaches and students - Lishogi takes nothing.</string>
+	<string name="editMyCoachProfile">Editar o meu perfil de adestrador</string>
+	<string name="lishogiOnlyFeatures">Lishogi só amosa adestradores independentes e non é responsable da súa conduta ou da calidade do seu ensino.</string>
+	<string name="lishogiNoFees">Os pagos de adestramento fican estritamente entre os adestradores e os estudantes. Lishogi non recibe nada.</string>
 	<string name="becomeACoach">Es un grande adestrador de shogi con experiencia e queres ser incluído en Lishogi?</string>
 	<string name="sendApplication">Envíamos un correo a %s e revisaremos a túa solicitude.</string>
 	<string name="location">Localización</string>
