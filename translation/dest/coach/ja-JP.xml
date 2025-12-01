@@ -33,7 +33,6 @@
 	<string name="languagesSpoken">Languages spoken</string>
 	<string name="languagesSpokenHelp">Which languages can you give lessons in?</string>
 	<string name="hourlyRateHelp">Indicative, non-contractual (3 to 140 chars)</string>
-	<string name="todoTitle">TODO list before publishing your coach profile</string>
 	<string name="whoAreYou">Who are you?</string>
 	<string name="whoAreYouHelp">Age, profession, country... let your students know you</string>
 	<string name="playingExperienceHelp">Tournaments played, best wins, other achievements</string>
