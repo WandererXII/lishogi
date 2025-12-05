@@ -32,13 +32,9 @@
   <string name="pleaseFillIn">Udfyld venligst din streamer-information og upload et billede.</string>
   <string name="whenReady">Når du er klar til at blive opført som en lishogi-streamer, %s</string>
   <string name="requestReview">anmod om en moderator-gennemgang</string>
-  <string name="anotherLanguage">Inkluder det korrekte sprog-tag (%s), i kantede parenteser, i starten af din stream-titel, hvis din stream er på et andet sprog end engelsk.
-Inkluder for eksempel \"[RU]\" for russisk, \"[TR]\" for tyrkisk, \"[FR]\" for fransk, etc.
-Anfør det i stream-titlen på Twitch- eller YouTube-siden, ikke i Lishogi-streamindstillingerne.
-Hvis din stream er på engelsk, er det ikke nødvendigt at inkludere et sprog-tag.</string>
   <string name="twitchUsername">Dit Twitch-brugernavn eller URL</string>
   <string name="optionalOrEmpty">Valgfrit. Efterlad tomt hvis intet</string>
-  <string name="youtubeChannel">Dit YouTube-kanal-id eller URL</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Dit streamernavn på Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Hold det kort: maksimalt %s tegn</item>
