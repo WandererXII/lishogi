@@ -32,13 +32,9 @@
   <string name="pleaseFillIn">Παρακαλώ συμπληρώστε τις πληροφορίες μεταδότη, και ανεβάστε μια εικόνα.</string>
   <string name="whenReady">Όταν είστε έτοιμος να εμφανίζεστε ως Lishogi μεταδότης, %s</string>
   <string name="requestReview">αιτηθείτε μια αξιολόγηση από διαχειριστή</string>
-  <string name="anotherLanguage">Αν η μετάδοσή σας είναι σε γλώσσα διαφορετικά από τα Αγγλικά, συμπεριλάβετε την σωστή ετικέτα γλώσσας (%s), σε ορθογώνιες αγκύλες, στην αρχή του τίτλου μετάδοσης.
-Παράδειγμα, συμπεριλάβετε \"[RU]\" για Ρώσικα, \"[GR]\" για Ελληνικά, \"[FR]\" για Γαλλικά, κ. ο. κ.
-Τοποθετήστε το στο τίτλο μετάδοσης στη σελίδα του Twitch ή YouTube, και όχι στις ρυθμίσεις μετάδοσης του Lishogi.
-Αν η μετάδοσή σας είναι στα Αγγλικά, δεν χρειάζεται να συμπεριλάβετε μια ετικέτα γλώσσας.</string>
   <string name="twitchUsername">Το όνομα χρήστη σας στο Twitch ή URL</string>
   <string name="optionalOrEmpty">Προαιρετικό. Αφήστε το κενό αν δεν υπάρχει</string>
-  <string name="youtubeChannel">Το ID καναλιού σας στο YouTube ή URL</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Το όνομα μεταδότη στο Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Σύντομη περιγραφή: %s χαρακτήρας το πολύ</item>
