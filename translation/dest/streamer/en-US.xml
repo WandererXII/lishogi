@@ -32,16 +32,9 @@
   <string name="pleaseFillIn">Please fill in your streamer information, and upload a picture.</string>
   <string name="whenReady">When you are ready to be listed as a Lishogi streamer, %s</string>
   <string name="requestReview">request a moderator review</string>
-  <string name="anotherLanguage">If your stream is in a language other than English, include the correct language tag (%s), enclosed in square brackets, at the start of your stream title.
-As examples, you can include \"[RU]\" for Russian, \"[TR]\" for Turkish, \"[FR]\" for French, etc.
-Put this in the stream title in the Twitch or YouTube page, not in the Lishogi stream settings.
-If your stream is in English, there is no need to include a language tag.
-
-Streamer pages eventually expire if they are not used for a long time, also, you must stream once within a week of your approval or the page de-activates. The streaming trophy will also not appear on your account until you\'ve streamed. If your streamer page has expired you must apply again and wait to be approved.
- </string>
   <string name="twitchUsername">Your Twitch username or URL</string>
   <string name="optionalOrEmpty">Optional. Leave empty if none</string>
-  <string name="youtubeChannel">Your YouTube channel ID or URL</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Your streamer name on Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Keep it short: %s character max</item>
