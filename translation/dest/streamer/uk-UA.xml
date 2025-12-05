@@ -32,13 +32,9 @@
   <string name="pleaseFillIn">Будь ласка, заповніть інформацію про стрім та завантажте фотографію.</string>
   <string name="whenReady">Коли ви будете готові бути переліченим як стрімер Lishogi, %s</string>
   <string name="requestReview">запросити відгук модератора</string>
-  <string name="anotherLanguage">Якщо ви транслюєте на мові, окрім англійської, вкажіть правильний тег мови (%s), оточений квадратними дужками, на початку назви вашого потоку.
-Як приклад, ви можете вказати \"[RU]\" для російської, \"[TR]\" для турецької, \"[FR]\" для французької мови тощо.
-Поставте це в заголовок трансляції Twitch або YouTube, а не в налаштуваннях Lishogi трансляції.
-Якщо ваш стрім англійською, немає необхідності включати мовний тег.</string>
   <string name="twitchUsername">Ваше ім\'я користувача Twitch або посилання</string>
   <string name="optionalOrEmpty">Необов\'язково. Залиште пустим, якщо немає</string>
-  <string name="youtubeChannel">ID вашого YouTube каналу або посилання</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Ваше ім\'я для трансляцій на Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Скоротіть: максимум %s символ</item>
