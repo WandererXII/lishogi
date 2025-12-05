@@ -32,13 +32,9 @@
   <string name="pleaseFillIn">Wypełnij proszę informacje o sobie i prześlij nam swoje zdjęcie.</string>
   <string name="whenReady">Gdy jesteś gotowy do pojawienia się na liście streamerów Lishogi, %s</string>
   <string name="requestReview">poproś o recenzję moderatora</string>
-  <string name="anotherLanguage">Jeśli Twój stream jest w innym języku niż angielski, dodaj na początku jego tytułu poprawny znacznik języka w nawiasach kwadratowych (%s).
-Przykładowo: dołącz [PL] dla języka polskiego, [DE] dla niemiecki, [FR] dla francuskiego itd.
-Umieść go w tytule streama na stronie Twitch lub YouTube, a nie w ustawieniach streama Lishogi.
-Jeśli Twój stream jest w języku angielskim, nie ma potrzeby dołączania znacznika.</string>
   <string name="twitchUsername">Twoja nazwa użytkownika lub adres URL na Twitch</string>
   <string name="optionalOrEmpty">Opcjonalne. Pozostaw puste, jeśli nie ma</string>
-  <string name="youtubeChannel">ID lub adres URL Twojego kanału YouTube</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Twoja nazwa streamera na Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Zachowaj zwięzłość: maksymalnie %s znak</item>
