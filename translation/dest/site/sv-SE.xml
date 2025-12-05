@@ -1069,4 +1069,5 @@
 	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
+	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
 </resources>
