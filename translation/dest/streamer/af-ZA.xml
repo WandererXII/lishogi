@@ -32,13 +32,9 @@
   <string name="pleaseFillIn">Vul asseblief jou uitsending inligting in en laai \'n prent op.</string>
   <string name="whenReady">Sodra jy gereed is om as \'n Lishogi aanbieder te verskyn, %s</string>
   <string name="requestReview">versoek hersiening deur \'n moderator</string>
-  <string name="anotherLanguage">Indien jou uitsending in \'n taal anders as Engels is, voeg die korrekte taal etiket (%s), in blokhakies aan die begin van die uitsending titel.
-Byvoorbeeld: Voeg \"[AF]\" vir Afrikaans, \"[RU]\" vir Russies, \"[FR]\" vir Frans, ens.
-Plaas dit in die uitsendingstitel in die Twitch of Youtube blad, nie in die Lishogi uitsendings verstellings nie.
-As jou uitsending in Engels is, hoef daar nie \'n taal etiket bygevoeg te word nie.</string>
   <string name="twitchUsername">Jou Twitch gebruikersnaam of URL</string>
   <string name="optionalOrEmpty">Optioneel. Los leeg indien jy nie een het nie</string>
-  <string name="youtubeChannel">Jou YouTube kanaal ID of URL</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Jou uitsendingsnaam op Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Hou dit kort: %s karakter maks</item>
