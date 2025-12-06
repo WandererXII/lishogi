@@ -34,7 +34,7 @@
   <string name="requestReview">solicita a revisión dun moderador</string>
   <string name="twitchUsername">O teu usuario de Twitch ou URL</string>
   <string name="optionalOrEmpty">Opcional. Déixao baleiro se non tes</string>
-  <string name="youtubeChannelId">Your YouTube channel ID</string>
+  <string name="youtubeChannelId">O ID da túa canle de YouTube</string>
   <string name="streamerName">O teu nome de presentador en Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Sé breve: máximo %s carácter</item>
