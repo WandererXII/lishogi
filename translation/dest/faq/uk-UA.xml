@@ -94,9 +94,10 @@
 	<string name="inOrderToAppearsYouMust">Для того, щоб потрапити до %1$s ви повинні:</string>
 	<string name="ratingLeaderboards">таблиця рейтингу лідерів</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">зіграти не менше 30 рейтингових ігор в певний варіант,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">зіграти рейтингову гру за останній тиждень в цей варіант,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">мати відхилення рейтингу нижче, ніж %1$s у стандартних шьоґі та нижче, ніж %2$s у варіантах,</string>
 	<string name="beInTopTen">бути в топ-10 у даному списку.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Другою вимогою є те, щоб гравці, які більше не користувалися своїми обліковими записами, припинили населяти таблицю лідерів.</string>
 	<string name="whyAreRatingHigher">Чому рейтинги вищі порівняно з іншими сайтами та організаціями, такими як FIDE, USCF та ICC?</string>
 	<string name="whyAreRatingHigherExplanation">Найкраще не думати про рейтинг як про абсолютні числа, або порівнювати їх з іншими організаціями. Різні організації мають різний рівень гравців, різні рейтингові системи (Elo, Glicko, Glicko-2 або модифіковану версію попередньої). Ці фактори можуть кардинально впливати на абсолютні числа (рейтинги).

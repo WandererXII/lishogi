@@ -87,9 +87,10 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="inOrderToAppearsYouMust">برای اینکه وارد %1$s شوید شما باید:</string>
 	<string name="ratingLeaderboards">تابلوی امتیازات</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">حداقل 30 بازی ریتد در ریتینگ مشخص بازی کرده،</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">در طول هفته گذشته یک بازی ریتد برای این ریتینگ بازی کرده،</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">جزو 10 نفر برتر این ریتینگ بودن.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">شرط دوم این است که بازیکنانی که دیگر از حساب‌های خود استفاده نمی‌کنند، از پر کردن تابلوهای امتیازات خودداری کنند.</string>
 	<string name="whyAreRatingHigher">چرا ریتینگ ها بالاتر از سایت ها دیگر و سازمان هایی مانند FIDE,USCF و ICC است؟</string>
 	<string name="whyAreRatingHigherExplanation">بهتر است رتبه بندی ها را تنها به عنوان اعداد در نظر نگیرید، یا آنها را با سایر سازمان ها مقایسه نکنید. سازمان‌های مختلف دارای سطوح مختلف بازیکنان، سیستم‌های رتبه‌بندی متفاوتی هستند (Elo، Glicko، Glicko-2، یا یک نسخه اصلاح‌شده از موارد فوق). این عوامل می توانند به شدت بر رتبه بندی ها تأثیر بگذارند.

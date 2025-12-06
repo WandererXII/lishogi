@@ -48,6 +48,9 @@
 	<string name="newOpponent">換個對手</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">您的對手想和你複賽</string>
 	<string name="joinTheGame">加入這盤棋</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">你的對手已經離開了遊戲。你將在 %s 秒內獲勝。</item>
@@ -407,6 +410,9 @@
 	<string name="block">加入黑名單</string>
 	<string name="blocked">已加入黑名單</string>
 	<string name="unblock">移除出黑名單</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">關注您</string>
 	<string name="xStartedFollowingY">%1$s開始關注%2$s</string>
 	<plurals name="nbFollowers">
@@ -455,6 +461,7 @@
 	<string name="tournamentIsStarting">錦標賽即將開始</string>
 	<string name="tournamentPairingsAreNowClosed">此錦標賽的對手配對已結束。</string>
 	<string name="standByX">%s準備好，你馬上要開始對棋了！</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">等待對手中</string>
 	<string name="winRate">勝率</string>
 	<string name="berserkRate">快棋率</string>
@@ -518,6 +525,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">移动棋子后自动进入下一盘棋</string>
 	<string name="autoSwitch">自动更换</string>
 	<string name="puzzles">題目</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">最近更新</string>
 	<string name="tournamentWinners">比赛赢家</string>
 	<string name="name">名</string>
@@ -663,6 +671,7 @@
 	<string name="termsOfService">服務條款</string>
 	<string name="sourceCode">原始碼</string>
 	<string name="simultaneousExhibitions">車輪戰</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">主持</string>
@@ -784,6 +793,7 @@
 	<string name="background">背景</string>
 	<string name="light">亮</string>
 	<string name="dark">暗</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">透明度</string>
 	<string name="customTheme">自訂主題</string>
 	<string name="backgroundImageUrl">背景圖片網址:</string>
@@ -901,6 +911,8 @@
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">快速模式</string>
 	<string name="classical">經典</string>
 	<string name="ultraBulletDesc">瘋狂速度模式:低於30秒</string>
@@ -1001,11 +1013,19 @@
 	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Tournament candidates</string>
 	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
 	<string name="noPlayersJoinedYet">No players joined yet</string>
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="icon">Icon</string>
+	<string name="online">Online</string>
+	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
+	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
 </resources>

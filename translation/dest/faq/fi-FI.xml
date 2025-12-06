@@ -94,9 +94,10 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="inOrderToAppearsYouMust">Päästäksesi %1$s:</string>
 	<string name="ratingLeaderboards">pistetaulukkoihin</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">sinulla tulee olla vähintään 30 pisteytettyä peliä pelattuna kyseisessä kategoriassa,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">sinulla tulee olla vähintään yksi pisteytetty peli viime viikon ajalta kyseisessä kategoriassa,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">sinun tulee kuulua kyseisen kategorian kärkikymmenikköön.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Toinen ehdoista on asetettu sitä varten, etteivät ne pelaajat, jotka eivät enää käytä tunnuksiaan, jäisi kansoittamaan pistetaulukkoja.</string>
 	<string name="whyAreRatingHigher">Miksi vahvuusluvut ovat korkeampia kuin toisilla sivustoilla ja sellaisilla organisaatioilla kuin FIDE, USCF ja ICC?</string>
 	<string name="whyAreRatingHigherExplanation">On parasta olla ajattelematta vahvuuslukuja absoluuttisina lukuina ja olla vertaamatta niitä toisiin organisaatioihin. Eri organisaatioilla on eri tasoiset pelaajat ja erilaiset vahvuuslukujärjestelmät (ELO, Glicko, Glicko-2 tai niiden muunneltu versio). Nämä tekijät voivat vaikuttaa absoluuttisiin (vahvuus)lukuihin voimakkaasti.

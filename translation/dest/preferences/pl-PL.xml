@@ -45,6 +45,13 @@
 	<string name="japaneseNotation">Notacja japońska</string>
 	<string name="kitaoKawasakiNotation">Notacja Kitao-Kawasaki</string>
 	<string name="kifNotation">Notacja KIF</string>
+	<string name="yorozuyaNotation">Yorozuya notation</string>
 	<string name="yourPreferencesHaveBeenSaved">Twoje ustawienia zostały zapisane.</string>
 	<string name="smallMoves">Mała lista ruchów</string>
+	<string name="audibleClocks">Clocks allowed to make sounds</string>
+	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">System</string>
+	<string name="myClock" comment="What clocks should make sound?">My clock</string>
+	<string name="myAndOpponentClock" comment="What clocks should make sound?">My and my opponent\'s clock</string>
+	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">All clocks</string>
+	<string name="noFlags">Hide all flags</string>
 </resources>

@@ -93,9 +93,10 @@ Dar verta įsidėmėti, kad bėgant laikui pasitikėjimo intervalas plečiasi. T
 	<string name="inOrderToAppearsYouMust">Norėdami patekti į %1$s turite:</string>
 	<string name="ratingLeaderboards">reitingo lyderių lentą</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">būti sužaidę bent 30 reitinguotų partijų duotame reitinge,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">būti sužaidę reitinguotą žaidimą šiame reitinge per paskutinę savaitę,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">būti top 10 šiame reitinge.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Antras reikalavimas reikalingas tam, kad žaidėjai, kurie daugiau nebežaidžia nebeužimtų vietų lyderių lentelėse.</string>
 	<string name="whyAreRatingHigher">Kodėl reitingai aukštesni palyginus su kitomis organizacijomis, kaip FIDE, USCF ir ICC?</string>
 	<string name="whyAreRatingHigherExplanation">Geriausia negalvoti apie reitingus kaip apie absoliučius skaičius ar lyginti juos su kitomis organizacijomis. Skirtingos organizacijos turi žaidėjus su skirtingais žaidimo lygiais, skirtingas reitingavimo sistemas (Elo, Glicko, Glicko-2 ar jų modifikuotas versijas). Šie faktoriai gali stipriai pakeisti absoliučius skaičius (reitingus).

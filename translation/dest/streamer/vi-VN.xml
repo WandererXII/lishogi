@@ -32,15 +32,9 @@
   <string name="pleaseFillIn">Hãy điền thông tin về Streamer của bạn và tải lên một hình ảnh.</string>
   <string name="whenReady">Khi bạn đã sẵn sàng trở thành một Streamer của Lishogi, %s</string>
   <string name="requestReview">yêu cầu quản trị viên đánh giá</string>
-  <string name="anotherLanguage">Nếu luồng của bạn sử dụng ngôn ngữ không phải tiếng Anh, hãy thêm một chú thích ngôn ngữ chính xác (%s), nằm trong ngoặc vuông và nằm ở đầu tiêu đề của bạn.
-Ví dụ, bạn có thể ghi \"[RU]\" với tiếng Nga, \"[FR]\" với tiếng Pháp, \"[TR]\" với tiếng Thổ Nhĩ Kì hay \"[VI]\" với tiếng Việt.
-Hãy đặt chúng tại tiêu đề của luồng trực tiếp trên Twitch hoặc YouTube, không phải trong cài đặt trực tiếp của Lishogi.
-Nếu luồng trực tiếp của bạn sử dụng tiếng Anh, điều này không cần thiết.
-
-Trang của Streamer sẽ hết hạn nếu không được sử dụng trong một thời gian dài, hơn nữa bạn cũng phải phát trực tiếp ít nhất một lần một tuần để tránh bị vô hiệu hóa. Biểu tượng Streaming cũng sẽ không xuất hiện tại tài khoản của bạn cho đến khi bạn phát trực tiếp. Nếu trang phát trực tiếp của bạn đã hết hạn, bạn phải đăng kí lại và chờ đợi được công nhận. </string>
   <string name="twitchUsername">Tên người dùng hoặc URL Twitch của bạn</string>
   <string name="optionalOrEmpty">Tùy chọn. Bỏ trống nếu không có</string>
-  <string name="youtubeChannel">URL hoặc ID kênh YouTube của bạn</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Tên Streamer của bạn trên Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="other">Để tên ngắn gọn: tối đa %s ký tự</item>

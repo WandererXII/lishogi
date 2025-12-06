@@ -32,13 +32,9 @@
   <string name="pleaseFillIn">Vyplňte prosím informace o vysílání a nahrajte obrázek.</string>
   <string name="whenReady">Když jste připraveni být uvedeni jako Lishogi streamer, %s</string>
   <string name="requestReview">požádal moderátora o schválení</string>
-  <string name="anotherLanguage">Pokud je váš stream v jiném než angličtině, uveďte správnou jazykovnou značku (%s) uzavřenou v hranatých závorkách na začátku názvu svého streamu.
-Jako příklad můžete uvést \"[RU]\" pro ruštinu, \"[TR]\" pro turečtinu, \"[FR]\" pro francouzštinu atd.
-Vložte to do názvu streamu na Twitch nebo YouTube stránce, ne v nastavení Lishogi streamu.
-Pokud je váš stream v angličtině, není třeba uvádět jazykovou značku.</string>
   <string name="twitchUsername">Vaše uživatelské jméno na Twitch nebo URL</string>
   <string name="optionalOrEmpty">Nepovinné. Ponechte prázdné, pokud nemáte</string>
-  <string name="youtubeChannel">ID nebo URL adresa vašeho YouTube kanálu</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Vaše jméno streamera na Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Krátce: nejvýše %s znak</item>

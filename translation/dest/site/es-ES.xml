@@ -25,7 +25,7 @@
 	<string name="perpetualCheck">Jaque perpetuo</string>
 	<string name="royalsLost" comment="Used in chushogi">Se han perdido todas las piezas reales</string>
 	<string name="bareKing" comment="Used in chushogi">Rey despojado</string>
-	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Jugada ilegal</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s jugó contra %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s está jugando contra %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s ha ganado!</string>
@@ -48,6 +48,9 @@
 	<string name="newOpponent">Nuevo oponente</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Tu oponente quiere la revancha</string>
 	<string name="joinTheGame">Unirse a la partida</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Juega %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Tu oponente ha salido de la partida. Podrás reclamar la victoria en %s segundo.</item>
@@ -432,6 +435,9 @@
 	<string name="block">Bloquear</string>
 	<string name="blocked">Bloqueado</string>
 	<string name="unblock">Desbloquear</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Te sigue</string>
 	<string name="xStartedFollowingY">%1$s comenzó a seguir a %2$s</string>
 	<plurals name="nbFollowers">
@@ -483,6 +489,7 @@
 	<string name="tournamentIsStarting">El torneo va a empezar</string>
 	<string name="tournamentPairingsAreNowClosed">Los emparejamientos del torneo están cerrados.</string>
 	<string name="standByX">Espera %s, emparejando jugadores, ¡prepárate!</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">¡Te toca jugar!</string>
 	<string name="winRate">Tasa de victorias</string>
 	<string name="berserkRate">Tasa de berserk</string>
@@ -548,6 +555,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">Pasar automáticamente a la siguiente partida después de mover</string>
 	<string name="autoSwitch">Cambio automático</string>
 	<string name="puzzles">Ejercicios</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">Últimas actualizaciones</string>
 	<string name="tournamentWinners">Ganadores del torneo</string>
 	<string name="name">Nombre</string>
@@ -696,6 +704,7 @@
 	<string name="termsOfService">Condiciones del servicio</string>
 	<string name="sourceCode">Código fuente</string>
 	<string name="simultaneousExhibitions">Exhibiciones simultáneas</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">Anfitrión</string>
@@ -820,6 +829,7 @@
 	<string name="background">Fondo</string>
 	<string name="light">Claro</string>
 	<string name="dark">Oscuro</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Transparente</string>
 	<string name="customTheme">Tema personalizado</string>
 	<string name="backgroundImageUrl">URL de imagen de fondo:</string>
@@ -941,6 +951,8 @@
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBala</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bala</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Relámpago</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">Rápida</string>
 	<string name="classical">Clásica</string>
 	<string name="ultraBulletDesc">Partidas increíblemente rápidas: menos de 30 segundos</string>
@@ -1043,11 +1055,19 @@
 	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Tournament candidates</string>
 	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
 	<string name="noPlayersJoinedYet">No players joined yet</string>
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="icon">Icon</string>
+	<string name="online">Online</string>
+	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
+	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
 </resources>

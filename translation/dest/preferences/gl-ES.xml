@@ -45,6 +45,13 @@
 	<string name="japaneseNotation">Notación xaponesa</string>
 	<string name="kitaoKawasakiNotation">Notación Kitao-Kawasaki</string>
 	<string name="kifNotation">Notación kifu</string>
+	<string name="yorozuyaNotation">Notación Yorozuya</string>
 	<string name="yourPreferencesHaveBeenSaved">As túas preferencias gardáronse.</string>
 	<string name="smallMoves">Lista compacta</string>
+	<string name="audibleClocks">Reloxos que poden emitir sons</string>
+	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">Sistema</string>
+	<string name="myClock" comment="What clocks should make sound?">O meu reloxo</string>
+	<string name="myAndOpponentClock" comment="What clocks should make sound?">O meu reloxo e o do meu rival</string>
+	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">Todos os reloxos</string>
+	<string name="noFlags">Agochar todas as bandeiras</string>
 </resources>

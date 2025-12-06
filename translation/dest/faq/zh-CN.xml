@@ -91,9 +91,10 @@ Lishogi上的电脑分析是基于Stockfish的。</string>
 	<string name="inOrderToAppearsYouMust">为了登上%1$s您必须：</string>
 	<string name="ratingLeaderboards">排行榜：</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">在给定的评级中进行过至少30场排位赛，</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">过去一周内，在此评级中进行过至少一场排位赛，</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">标准将棋对局的排名偏差小于 %1$s，变体棋局的排名偏差小于 %2$s，</string>
 	<string name="beInTopTen">在此排名中获得前十。</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">第二项要求是为了让不再使用它们的帐号的棋手停止占用排行榜。</string>
 	<string name="whyAreRatingHigher">为什么等级分相比其他网站和组织要不同，比如81道场和将棋俱乐部24？</string>
 	<string name="whyAreRatingHigherExplanation">最好不要将评分视为绝对数字，或将其他组织相比较。 不同的组织有不同的参与者级别、不同的评级制度（Elo、Glicko、Glicko-2 或上述改变过版）。这些因素可能会对绝对数字（评分）产生影响。

@@ -96,9 +96,10 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="inOrderToAppearsYouMust">Para entrares na %1$s, tens de:</string>
 	<string name="ratingLeaderboards">tabela de liderança</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">ter jogado pelo menos 30 partidas a valer pontos num dado modo,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">ter jogado uma partida a valer pontos na última semana nesse modo,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">estar entre os 10 melhores (que satisfazem as condições acima) nesse modo.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">O segundo requisito é para que jogadores que já não usam as suas contas não estejam a preencher as tabelas de liderança.</string>
 	<string name="whyAreRatingHigher">Por que é que as pontuações são maiores quando comparadas a outros sites e organizações como por exemplo, FIDE, USCF e ICC?</string>
 	<string name="whyAreRatingHigherExplanation">É melhor não pensar nas pontuações como números absolutos, ou compará-las com outras organizações. Organizações diferentes tem níveis diferentes de jogadores, diferentes sistemas de pontuação (Elo, Glicko, Glicko-2, ou uma versão modificada dos supracitados). Estes fatores afetam os número absolutos (pontuações).

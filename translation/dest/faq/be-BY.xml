@@ -94,9 +94,10 @@
 	<string name="inOrderToAppearsYouMust">Каб трапіць на %1$s вам трэба:</string>
 	<string name="ratingLeaderboards">дошку лідараў рэйтынгу</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">сыграць па меншай меры 30 рэйтынгавых партый у дадзеным варыянце,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">сыграць хаця б адну рэйтынгавую партыю на працягу мінулага тыдня ў гэтым варыянце,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">мець адхіленне рэйтынгу менш за %1$s у звычайных сёгі, і менш за %2$s у варыянтах,</string>
 	<string name="beInTopTen">уваходзіць у першую 10 па рэйтынгу.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Другое патрабаванне для таго, каб гульцы, якія больш не карыстаюцца сваімі ўліковымі запісамі, не адабражаліся на дошках лідараў.</string>
 	<string name="whyAreRatingHigher">Чаму рэйтынгі вышэй, чым на іншых сайтах та арганісацыях такіх як ФІДЭ, USCF і ICC?</string>
 	<string name="whyAreRatingHigherExplanation">Лепш не думаць пра рэйтынгі як абсалютныя значэнні, ці параўноўваць іх з іншымі арганізацыямі. У кожнай арганізацыі гуляюць свае гульцы, з рознымі ўзроўнямі, існуюць розныя сістэмы рэйтынгу (Эло, Glicko, Glicko-2 або іх мадыфікацыі). Гэтыя фактары могуць рэзка ўплываць на абсалютныя лічбы (рэйтынгі).

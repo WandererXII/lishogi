@@ -90,13 +90,14 @@ Outro punto que cabe sinalar é que, se pasa un tempo sen xogares, o intervalo d
 	<string name="similarOpponents">opoñentes de similar forza</string>
 	<string name="notPlayedRecently">O usuario non xogou suficientes partidas recentemente. Dependendo do número de partidas que xogases, pode pasar arredor dun ano de inactividade para que a túa puntuación volva ser provisional.</string>
 	<string name="ratingDeviationMorethanOneHundredTen">Concretamente, significa que a desviación Glicko-2 é maior ca 110. A desviación é o nivel de confianza que ten o sistema na puntuación. Canto máis baixa sexa a desviación, máis estable será unha puntuación.</string>
-	<string name="howDoLeaderoardsWork">Como funcionan as clasificacións e as listaxes de líderes?</string>
+	<string name="howDoLeaderoardsWork">Como funcionan as listaxes de líderes?</string>
 	<string name="inOrderToAppearsYouMust">Para chegar á %1$s deberías:</string>
 	<string name="ratingLeaderboards">listaxe de líderes</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">ter xogado cando menos 30 partidas puntuadas nunha modalidade,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">ter xogado unha partida puntuada na última semana nesta modalidade,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">ter xogado unha partida puntuada no último mes nesta modalidade,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">ter unha desviación da puntuación menor de %1$s, en shogi estándar, e menor de %2$s en variantes,</string>
 	<string name="beInTopTen">estar entre os 10 mellores nesta modalidade.</string>
+	<string name="clickHereRatingRanks">Fai clic aquí para ver a equivalencia entre as puntuacións e os niveis.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">A razón de ser da segunda condición é que os xogadores que xa non usan as súas contas deixen de aparecer na listaxe de líderes.</string>
 	<string name="whyAreRatingHigher">Por que as puntuacións son diferentes comparadas con outras páxinas e organizacións coma 81Dojo e Shogi Club 24?</string>
 	<string name="whyAreRatingHigherExplanation">O mellor é non considerar as puntuacións coma cifras absolutas, nin comparalas coas doutras organizacións. As diferentes organizacións teñen distintos niveis de xogadores e sistemas de puntuación (Elo, Glicko, Glicko-2 ou unha versión modificada dos mesmos). Estes factores poden afectar drasticamente os números absolutos (puntuacións).

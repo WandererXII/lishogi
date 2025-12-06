@@ -32,11 +32,9 @@
   <string name="pleaseFillIn">Syötä striimaajatiedot ja lataa kuva.</string>
   <string name="whenReady">Kun haluat Lishogi-striimaajien listalle, %s</string>
   <string name="requestReview">pyydä moderaattorin arviointia</string>
-  <string name="anotherLanguage">Jos striimisi ei ole englanninkielinen, laita striimisi otsikon alkuun oikea kielitunniste (%s) hakasulkujen sisään.
-Esimerkiksi \"[FI]\" on suomen kielen, \"[SV]\" ruotsin kielen ja \"[DE]\" saksan kielen tunniste jne. Laita tämä striimin otsikkoon Twitch- tai Youtube-sivulla, älä Lishogiin striimiasetuksissa. Jos striimaat englanniksi, ei ole tarpeen sisällyttää kielitunnistetta.</string>
   <string name="twitchUsername">Twitch-käyttäjänimesi tai URL</string>
   <string name="optionalOrEmpty">Ei-pakollinen. Jätä tyhjäksi jollei sinulla ole</string>
-  <string name="youtubeChannel">YouTube-kanavasi kanava-ID tai URL</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Striimaajanimesi Lishogiissä</string>
   <plurals name="keepItShort">
     <item quantity="one">Pidä se lyhyenä: %s merkki enintään</item>

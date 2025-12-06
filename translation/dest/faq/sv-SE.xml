@@ -95,9 +95,10 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="inOrderToAppearsYouMust">För att komma in på %1$s måste du:</string>
 	<string name="ratingLeaderboards">rankinglistor</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">ha spelat minst 30 rankade partier i en viss rating,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">ha spelat ett rankat parti under den senaste veckan i denna rating,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">vara i topp 10 i denna rating.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Det andra kravet är så att spelare som inte längre använder sina konton populerar rankinglistorna.</string>
 	<string name="whyAreRatingHigher">Varför är ratings högre jämfört med andra webbplatser och organisationer såsom FIDE, USCF och ICC?</string>
 	<string name="whyAreRatingHigherExplanation">Det är bäst att inte betrakta betyg som absoluta tal eller jämföra dem mot andra organisationer. Olika organisationer har olika nivåer av spelare, olika ratingsystem (Elo, Glicko, Glicko-2 eller en modifierad version av tidigarenämnda). Dessa faktorer kan drastiskt påverka absoluta tal (ratings).

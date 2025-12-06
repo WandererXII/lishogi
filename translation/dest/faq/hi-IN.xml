@@ -94,9 +94,10 @@ LM शीर्षक के लिए मत पूछो।</string>
 	<string name="inOrderToAppearsYouMust">%1$s पर पाने के लिए आपको चाहिए:</string>
 	<string name="ratingLeaderboards">रेटिंग लीडरबोर्ड</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">किसी रेटिंग में कम से कम 30 रेटेड गेम खेले हैं,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">इस रेटिंग के लिए पिछले सप्ताह के भीतर एक रेटेड गेम खेला है,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">इस रेटिंग में शीर्ष 10 में रहें।</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">दूसरी आवश्यकता इतनी है कि जो खिलाड़ी अब अपने खातों का उपयोग नहीं करते हैं वे लीडरबोर्ड को आबाद करना बंद कर देते हैं।</string>
 	<string name="whyAreRatingHigher">81Dojo और Shogi Club 24 जैसी अन्य साइटों और संगठनों की तुलना में रेटिंग अधिक क्यों हैं ?</string>
 	<string name="whyAreRatingHigherExplanation">रेटिंग को निरपेक्ष संख्या के रूप में नहीं सोचना, या अन्य संगठनों के खिलाफ उनकी तुलना करना सबसे अच्छा है। विभिन्न संगठनों में खिलाड़ियों के विभिन्न स्तर, अलग रेटिंग सिस्टम (ELO, Glicko, Glicko-2, या पूर्वोक्त संस्करण का एक संशोधित संस्करण) है। ये कारक पूर्ण संख्याओं (रेटिंग्स) को अत्यधिक प्रभावित कर सकते हैं।

@@ -48,6 +48,9 @@
 	<string name="newOpponent">Đối thủ mới</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Đối thủ muốn chơi một ván cờ mới với bạn</string>
 	<string name="joinTheGame">Tham gia ván cờ</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Tới lượt %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">Đối thủ bỏ cuộc. Bạn có thể tuyên bố thắng cuộc trong %s giây.</item>
@@ -408,6 +411,9 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="block">Chặn</string>
 	<string name="blocked">Đã chặn</string>
 	<string name="unblock">Bỏ chặn</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Theo dõi bạn</string>
 	<string name="xStartedFollowingY">%1$s bắt đầu theo dõi %2$s</string>
 	<plurals name="nbFollowers">
@@ -456,6 +462,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="tournamentIsStarting">Giải đấu đang diễn ra</string>
 	<string name="tournamentPairingsAreNowClosed">Đã đóng việc sắp xếp cặp đấu.</string>
 	<string name="standByX">%s hãy đợi, đang xếp cặp người chơi, chuẩn bị nhé!</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">Đã vào ván!</string>
 	<string name="winRate">Tỉ lệ thắng</string>
 	<string name="berserkRate">Tỉ lệ Berserk</string>
@@ -519,6 +526,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="automaticallyProceedToNextGameAfterMoving">Tự động chuyển đến ván tiếp theo sau khi thực hiện nước đi</string>
 	<string name="autoSwitch">Tự động chuyển</string>
 	<string name="puzzles">Câu đố</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">Cập nhật mới nhất</string>
 	<string name="tournamentWinners">Các nhà vô địch giải đấu</string>
 	<string name="name">Tên</string>
@@ -664,6 +672,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="termsOfService">Điều khoản Dịch vụ</string>
 	<string name="sourceCode">Mã Nguồn</string>
 	<string name="simultaneousExhibitions">Đấu cờ đồng loạt</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">Người chủ trì</string>
@@ -785,6 +794,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="background">Nền</string>
 	<string name="light">Sáng</string>
 	<string name="dark">Tối</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Trong suốt</string>
 	<string name="customTheme">Tùy chỉnh chủ đề</string>
 	<string name="backgroundImageUrl">URL ảnh nền:</string>
@@ -902,6 +912,8 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Cờ siêu đạn</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Cờ đạn</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Cờ chớp</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">Cờ nhanh</string>
 	<string name="classical">Cờ chậm</string>
 	<string name="ultraBulletDesc">Những ván cờ cực nhanh: ít hơn 30 giây</string>
@@ -1002,11 +1014,19 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Tournament candidates</string>
 	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
 	<string name="noPlayersJoinedYet">No players joined yet</string>
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="icon">Icon</string>
+	<string name="online">Online</string>
+	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
+	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
 </resources>

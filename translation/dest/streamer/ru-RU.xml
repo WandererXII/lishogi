@@ -32,13 +32,9 @@
   <string name="pleaseFillIn">Пожалуйста, заполните информацию о стриме и загрузите изображение.</string>
   <string name="whenReady">Когда вы будете готовы оказаться в списке стримеров Lishogi, %s</string>
   <string name="requestReview">запросить отзыв модератора</string>
-  <string name="anotherLanguage">Если ваш стрим на языке, отличном от английского, укажите тег вашего языка (%s) в начале заголовка стрима, заключив его в квадратные скобки.
-В качестве примера: «[RU]» для русского языка, «[TR]» для турецкого, «[FR]» для французского и т. д.
-Добавляйте его в заголовок стрима на страницах Twitch или YouTube, а не в настройках стрима Lishogi.
-Если ваш стрим на английском языке, то не обязательно включать тег языка.</string>
   <string name="twitchUsername">Ваше имя пользователя или URL на Twitch</string>
   <string name="optionalOrEmpty">Необязательно. Оставьте пустым, если нет</string>
-  <string name="youtubeChannel">ID или URL вашего YouTube-канала</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Ваше имя стримера на Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Сократите: максимум %s символ</item>

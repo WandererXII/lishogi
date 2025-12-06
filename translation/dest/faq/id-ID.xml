@@ -91,9 +91,10 @@ Another point to note is that, as time passes, the confidence interval will incr
 	<string name="inOrderToAppearsYouMust">Agar mencapai %1$s anda harus:</string>
 	<string name="ratingLeaderboards">daftar Peringkat Rating</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">telah memainkan setidaknya 30 game berating di rating tertentu,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">telah memainkan game berating dalam seminggu terakhir untuk akun ini,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">menjadi top 10 dalam rating ini.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Persyaratan kedua adalah agar pemain yang tidak lagi menggunakan akunnya berhenti mengisi papan peringkat.</string>
 	<string name="whyAreRatingHigher">Mengapa rating terasa lebih tinggi dibandingkan dengan situs dan organisasi lain seperti FIDE, USCF dan ICC?</string>
 	<string name="whyAreRatingHigherExplanation">Yang terbaik adalah tidak menganggap rating sebagai angka mutlak, atau membandingkannya dengan organisasi lain. Organisasi yang berbeda memiliki tingkat pemain yang berbeda, sistem penilaian yang berbeda (Elo, Glicko, Glicko-2, atau versi modifikasi dari yang disebutkan di atas). Faktor-faktor ini secara drastis dapat mempengaruhi angka mutlak (rating).

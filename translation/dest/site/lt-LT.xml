@@ -48,6 +48,9 @@
 	<string name="newOpponent">Naujas varžovas</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Jūsų varžovas norėtų sužaisti dar kartą</string>
 	<string name="joinTheGame">Prisijungti prie žaidimo</string>
+	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
+	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s to play</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Jūsų varžovas paliko partiją. Galėsite prisiimti pergalę už %s sekundės.</item>
@@ -482,6 +485,9 @@
 	<string name="block">Blokuoti</string>
 	<string name="blocked">Užblokuotas</string>
 	<string name="unblock">Atblokuoti</string>
+	<string name="thanksForReport">Thanks for the report</string>
+	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
+	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Seka jus</string>
 	<string name="xStartedFollowingY">%1$s pradėjo sekti %2$s</string>
 	<plurals name="nbFollowers">
@@ -539,6 +545,7 @@
 	<string name="tournamentIsStarting">Turnyras prasideda</string>
 	<string name="tournamentPairingsAreNowClosed">Suporavimai turnyrui jau baigėsi.</string>
 	<string name="standByX">%s, būkite pasiruošę, suporuojami žaidėjai!</string>
+	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
 	<string name="youArePlaying">Jūs žaidžiate!</string>
 	<string name="winRate">Pergalių proc.</string>
 	<string name="berserkRate">Įsiūčio proc.</string>
@@ -608,6 +615,7 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">Po ėjimo automatiškai pereiti prie kitos partijos</string>
 	<string name="autoSwitch">Automatinis perjungimas</string>
 	<string name="puzzles">Užduotys</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
 	<string name="latestUpdates">Latest updates</string>
 	<string name="tournamentWinners">Turnyrų nugalėtojai</string>
 	<string name="name">Pavadinimas</string>
@@ -762,6 +770,7 @@
 	<string name="termsOfService">Naudojimosi sąlygos</string>
 	<string name="sourceCode">Pirminis kodas</string>
 	<string name="simultaneousExhibitions">Simulai</string>
+	<string name="xSimul" comment="Name simul">%s simul</string>
 	<string name="simulComplete">Simul complete</string>
 	<string name="backToSimul">Back to simul</string>
 	<string name="host">Šeimininkas</string>
@@ -892,6 +901,7 @@
 	<string name="background">Fonas</string>
 	<string name="light">Šviesus</string>
 	<string name="dark">Tamsus</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
 	<string name="transparent">Permatomas</string>
 	<string name="customTheme">Custom theme</string>
 	<string name="backgroundImageUrl">Fono paveikslo URL:</string>
@@ -1021,6 +1031,8 @@
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
+	<string name="veryFastShogi">Very fast shogi</string>
+	<string name="fastShogi">Fast shogi</string>
 	<string name="rapid">Greitieji</string>
 	<string name="classical">Klasikiniai</string>
 	<string name="ultraBulletDesc">Be proto greitos partijos: mažiau nei 30 sekundžių</string>
@@ -1127,11 +1139,19 @@
 	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
 	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
 	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
-	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。)">.</string>
+	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
 	<string name="tournamentCandidates">Tournament candidates</string>
 	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
 	<string name="noPlayersJoinedYet">No players joined yet</string>
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
+	<string name="icon">Icon</string>
+	<string name="online">Online</string>
+	<string name="offline">Offline</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
+	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
 </resources>

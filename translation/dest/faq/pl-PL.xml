@@ -95,9 +95,10 @@ Warto zwrócić uwagę też na to, że w miarę upływu czasu Twój przedział u
 	<string name="inOrderToAppearsYouMust">Aby dostać się na %1$s musisz:</string>
 	<string name="ratingLeaderboards">listę najlepszych graczy</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">rozegrać co najmniej 30 rankingowych partii w danym rankingu,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">rozegrać rankingową partię w ciągu ostatniego tygodnia dla tego rankingu,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">mieć w standardowym shogi odchylenie rankingu niższe niż %1$s, i niższe niż %2$s w wariantach,</string>
 	<string name="beInTopTen">być w pierwszej 10 w tym rankingu.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Gracze, którzy zaprzestali korzystać ze swoich kont, zostają usunięci z tabel z najlepszymi graczami.</string>
 	<string name="whyAreRatingHigher">Dlaczego rankingi na Lishogi są wyższe w porównaniu z rankingami na innych portalach szachowych i rankingami w organizacjach, takimi jak FIDE, USCF i ICC?</string>
 	<string name="whyAreRatingHigherExplanation">Najlepiej nie myśleć o rankingu jako liczbie bezwzględnej, czy też porównywać ją z rankingami w innych organizacjach. Różne organizacje zrzeszają graczy na różnych poziomach zaawansowania, używają różnych systemów rankingowych (Elo, Glicko, Glicko-2 lub ich zmodyfikowanych wersji). Czynniki te mogą drastycznie wpłynąć na ranking wyliczony w danych warunkach.

@@ -94,9 +94,10 @@ Vær oppmerksom på at konfidensintervallet øker når du ikke spiller. Slik opp
 	<string name="inOrderToAppearsYouMust">For å bli ført opp i %1$s må du:</string>
 	<string name="ratingLeaderboards">ratingledertabellene</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">ha spilt minst 30 ratede partier for en gitt ratingkategori,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">ha spilt et ratet parti siste uke for denne ratingkategorien,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">have a rating deviation lower than %1$s, in standard shogi, and lower than %2$s in variants,</string>
 	<string name="beInTopTen">være blant topp ti i denne ratingkategorien.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Det andre kravet er slik at spillere som ikke lenger bruker kontoen sin, faller ut av ledertabellene.</string>
 	<string name="whyAreRatingHigher">Hvorfor er ratingene høyere sammenlignet med andre nettsteder og organisasjoner som FIDE, USCF og ICC?</string>
 	<string name="whyAreRatingHigherExplanation">Det beste er å ikke se på ratinger som absolutte tall eller å sammenligne dem med andre organisasjoner. De forskjellige organisasjonene har forskjellige nivåer på spillerne og forskjellige ratingsystemer (Elo, Glicko, Glicko-2 eller modifiserte versjoner av disse). Disse forholdene kan ha avgjørende innvirkning på de absolutte ratingtallene.

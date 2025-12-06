@@ -32,12 +32,9 @@
   <string name="pleaseFillIn">Bitte fülle deine Streamer-Informationen aus und lade ein Bild hoch.</string>
   <string name="whenReady">Wenn du bereit bist als Streamer angezeigt zu werden, %s</string>
   <string name="requestReview">fordere eine Moderatorüberprüfung an</string>
-  <string name="anotherLanguage">Falls du in einer anderen Sprache als Englisch streamst, füge das richtige Sprach-Tag (%s) am Anfang deines Streamtitels ein, eingeschlossen von eckigen Klammern. Zum Beispiel \"[DE]\" für deutsch, \"[FR]\" für französisch, \"[RU]\" für russisch, usw.
-Das geht auf Twitch oder YouTube, nicht in den Lishogi Streamereinstellungen. 
-Falls dein Stream in Englisch ist, musst du kein Sprach-Tag einfügen.</string>
   <string name="twitchUsername">Dein Twitch-Benutzername oder die URL</string>
   <string name="optionalOrEmpty">Optional. Leer lassen falls nicht verfügbar</string>
-  <string name="youtubeChannel">Deine YouTube Kanal-ID oder URL</string>
+  <string name="youtubeChannelId">Your YouTube channel ID</string>
   <string name="streamerName">Dein Streamername auf Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Kurz fassen: Maximal %s Zeichen</item>

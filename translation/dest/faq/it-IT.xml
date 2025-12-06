@@ -95,9 +95,10 @@ Un altro aspetto da notare è che, allo scorrere del tempo, l\'intervallo di sic
 	<string name="inOrderToAppearsYouMust">Al fine di comparire nelle %1$s devi:</string>
 	<string name="ratingLeaderboards">classifiche generali</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">aver giocato almeno 30 partite valide per il rating in una data categoria,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">aver giocato una partita valida per il rating nella categoria di riferimento</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">avere una deviazione minore di %1$s, nello Shogi standard, e minore di %2$s nelle sue varianti,</string>
 	<string name="beInTopTen">essere fra i 10 migliori giocatori in una data categoria di riferimento.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Il secondo requisito è che i giocatori che non utilizzano più i loro account smettano di essere inclusi nelle classifiche.</string>
 	<string name="whyAreRatingHigher">Perché i rating sono più elevati rispetto ad altri siti e organizzazioni quali FIDE, USCF e ICC?</string>
 	<string name="whyAreRatingHigherExplanation">È meglio non considerare i rating come valutazioni assolute o confrontarli con quelli di altre organizzazioni. Infatti, diverse organizzazioni hanno diversi livelli di giocatori, diversi sistemi di rating (Elo, Glicko, Glicko-2 o una versione personalizzata di tali sistemi). Questi fattori possono influenzare drasticamente le valutazioni assolute (i rating).

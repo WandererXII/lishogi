@@ -32,15 +32,9 @@
   <string name="pleaseFillIn">Por favor, cubre a túa información de presentador e sube unha foto.</string>
   <string name="whenReady">Cando esteas preparado para apareceres na lista de presentadores de Lishogi, %s</string>
   <string name="requestReview">solicita a revisión dun moderador</string>
-  <string name="anotherLanguage">Se transmites nunha lingua diferente do inglés, inclúe a etiqueta de idioma axeitada (%s) entre corchetes no inicio do título da transmisión.
-Por exemplo, podes incluír \"[RU]\" para o ruso, \"[TR]\" para o turco, \"[FR]\" para o francés, etc.
-Tes que facelo no título da transmisión na páxina de Twitch ou YouTube, non nos axustes de retransmisión de Lishogi.
-Se a túa emisión é en inglés, non precisas incluír ningunha etiqueta de idioma.
-
-Ó cabo, as páxinas de transmisión caducan se non se empregan dende hai tempo. Ademais, tes que emitir na primeira semana dende a túa aprobación ou a páxina desactívase. O trofeo de emisións tampouco aparecerá na túa conta ata que teñas realizado unha transmisión. Se a túa páxina de presentador caducou, tes que solicitala de novo e agardar pola aprobación. </string>
   <string name="twitchUsername">O teu usuario de Twitch ou URL</string>
   <string name="optionalOrEmpty">Opcional. Déixao baleiro se non tes</string>
-  <string name="youtubeChannel">O ID da túa canle de YouTube ou URL</string>
+  <string name="youtubeChannelId">O ID da túa canle de YouTube</string>
   <string name="streamerName">O teu nome de presentador en Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Sé breve: máximo %s carácter</item>

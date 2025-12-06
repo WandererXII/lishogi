@@ -94,9 +94,10 @@
 	<string name="inOrderToAppearsYouMust">Чтобы попасть в %1$s, вы должны:</string>
 	<string name="ratingLeaderboards">список лидеров:</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">сыграть как минимум 30 рейтинговых игр в этом виде,</string>
-	<string name="havePlayedARatedGameAtLeastOneWeekAgo">сыграть рейтинговую партию в течение последней недели в этом виде,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">иметь отклонение рейтинга меньше чем %1$s в стандартных сёги и %2$s в других видах,</string>
 	<string name="beInTopTen">быть в числе 10 лучших в этом списке.</string>
+	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">Второе условие заключается в том, что игроки с закрытыми учётными записями пропадают из списков лидеров.</string>
 	<string name="whyAreRatingHigher">Почему рейтинги игроков выше, чем на других сайтах и в других организациях, как, например, ФИДЕ или РШФ?</string>
 	<string name="whyAreRatingHigherExplanation">Лучше всего не думать о рейтинге в абсолютных числах и не сравнивать их с другими организациями. Разные организации имеют разный уровень игроков, разные системы подсчёта рейтинга (Elo, Glicko, Glicko-2, и их модификации). Всё это очень сильно влияет на конкретные значения.
