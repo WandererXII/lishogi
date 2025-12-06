@@ -1069,5 +1069,5 @@
 	<string name="ranks" comment="Ranks like 1-kyu etc.">Niveis</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">Subiches de nivel!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Os niveis só se conceden após acadar unha puntuación estábel.</string>
-	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
+	<string name="leavingLobbyAlert">Ó marchares desta páxina eliminas as túas solicitudes de emparellamento en tempo real.</string>
 </resources>
