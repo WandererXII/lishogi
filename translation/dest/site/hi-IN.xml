@@ -557,6 +557,8 @@
 	<string name="autoSwitch">स्वत: बदलना (Auto switch)</string>
 	<string name="puzzles">पहेलियाँ</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">नवीनतम बदलाव (अपडेट)</string>
 	<string name="tournamentWinners">टूर्नामेंट के विजेता</string>
 	<string name="name">नाम</string>
