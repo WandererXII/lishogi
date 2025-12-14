@@ -556,6 +556,8 @@
 	<string name="autoSwitch">Αυτόματη εναλλαγή</string>
 	<string name="puzzles">Γρίφοι</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Τελευταίες ενημερώσεις</string>
 	<string name="tournamentWinners">Νικητές πρωταθλημάτων</string>
 	<string name="name">Ονομασία</string>
