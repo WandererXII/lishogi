@@ -526,6 +526,8 @@
 	<string name="autoSwitch">สลับอัตโนมัติ</string>
 	<string name="puzzles">ปริศนา</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Latest updates</string>
 	<string name="tournamentWinners">ผู้ชนะทัวร์นาเมนต์</string>
 	<string name="name">ชื่อ</string>
