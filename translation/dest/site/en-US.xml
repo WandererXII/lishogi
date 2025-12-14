@@ -557,6 +557,8 @@ computer analysis, game chat, and shareable URL.</string>
 	<string name="autoSwitch">Auto switch</string>
 	<string name="puzzles">Puzzles</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Latest updates</string>
 	<string name="tournamentWinners">Tournament winners</string>
 	<string name="name">Name</string>
