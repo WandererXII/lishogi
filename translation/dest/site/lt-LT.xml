@@ -616,6 +616,8 @@
 	<string name="autoSwitch">Automatinis perjungimas</string>
 	<string name="puzzles">Užduotys</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Latest updates</string>
 	<string name="tournamentWinners">Turnyrų nugalėtojai</string>
 	<string name="name">Pavadinimas</string>
