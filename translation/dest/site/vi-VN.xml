@@ -527,6 +527,8 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="autoSwitch">Tự động chuyển</string>
 	<string name="puzzles">Câu đố</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Cập nhật mới nhất</string>
 	<string name="tournamentWinners">Các nhà vô địch giải đấu</string>
 	<string name="name">Tên</string>
