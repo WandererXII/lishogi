@@ -556,6 +556,8 @@
 	<string name="autoSwitch">تعویض خودکار</string>
 	<string name="puzzles">پازل ها</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Latest updates</string>
 	<string name="tournamentWinners">برندگان مسابقات</string>
 	<string name="name">نام</string>
