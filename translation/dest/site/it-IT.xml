@@ -556,6 +556,8 @@
 	<string name="autoSwitch">Cambia automaticamente</string>
 	<string name="puzzles">Tattiche</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Ultimi aggiornamenti</string>
 	<string name="tournamentWinners">Vincitori dei tornei</string>
 	<string name="name">Nome</string>
