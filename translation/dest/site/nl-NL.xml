@@ -556,6 +556,8 @@
 	<string name="autoSwitch">Automatische switch</string>
 	<string name="puzzles">Puzzels</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Laatste updates</string>
 	<string name="tournamentWinners">Toernooiwinnaars</string>
 	<string name="name">Naam</string>
