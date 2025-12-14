@@ -556,6 +556,8 @@
 	<string name="autoSwitch">Outomatiese oorskakel</string>
 	<string name="puzzles">Kopkrappers</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Onlangste bywerkings</string>
 	<string name="tournamentWinners">Toernooi wenners</string>
 	<string name="name">Naam</string>
