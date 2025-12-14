@@ -586,6 +586,8 @@
 	<string name="autoSwitch">Schimbă automat</string>
 	<string name="puzzles">Probleme de șah</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
+	<string name="reportPuzzle">Report puzzle</string>
+	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
 	<string name="latestUpdates">Ultimele noutăţi</string>
 	<string name="tournamentWinners">Câștigători de turnee</string>
 	<string name="name">Nume</string>
