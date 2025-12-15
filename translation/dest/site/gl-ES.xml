@@ -556,8 +556,8 @@
 	<string name="autoSwitch">Cambio automático</string>
 	<string name="puzzles">Crebacabezas</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Trebón de crebacabezas</string>
-	<string name="reportPuzzle">Report puzzle</string>
-	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
+	<string name="reportPuzzle">Crebacabezas dubidoso</string>
+	<string name="reportPuzzleReason">Por que se debería eliminar este crebacabezas?</string>
 	<string name="latestUpdates">Últimas actualizacións</string>
 	<string name="tournamentWinners">Gañadores do torneo</string>
 	<string name="name">Nome</string>
