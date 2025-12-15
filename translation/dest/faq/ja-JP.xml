@@ -84,10 +84,10 @@ Glicko 方式ではレーティングの算出と表示に「信頼区間」を�
 	<string name="inOrderToAppearsYouMust">%1$sに入るための条件は：</string>
 	<string name="ratingLeaderboards">レーティングのランキング</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">そのカテゴリーでレート戦 30 局以上を終え、</string>
-	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">そのカテゴリーで過去 1 か月以内にレート戦を指し、</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">本将棋ではレーティング偏差が%1$sより小さく、変則将棋では%2$sよりも小さい</string>
 	<string name="beInTopTen">そのカテゴリーで上位 10 人に入っていることです。</string>
-	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
+	<string name="clickHereRatingRanks">レーティングと段級位の対応を見る。</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">2 番目の要件は、アカウントを使わなくなった人がランキングの中に残らないようにするためです。</string>
 	<string name="whyAreRatingHigher">レーティングの数字が他のチェスサイトや団体 (FIDE, USCFなど) より高いのはなぜ？</string>
 	<string name="whyAreRatingHigherExplanation">レーティングは絶対的な評価と考えてはいけませんし、他の団体のレーティングとそのまま比べるのも間違いです。プレイヤーのレベルは団体によって違うし、レーティング方式も違います（Elo、Glicko、Glicko-2、これらの修正版など）。こういった要因はレーティングの数値を大きく左右します。
