@@ -48,9 +48,9 @@
 	<string name="newOpponent">新しい相手</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">相手が再対局を申し込みました。</string>
 	<string name="joinTheGame">対局に参加する</string>
-	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
-	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
-	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
+	<string name="registeredJoinTheGame">登録ユーザー同士のみ対局に参加できます。</string>
+	<string name="outsideYourRating">あなたのレーティングは、この対局の許可範囲外です。</string>
+	<string name="gamesOutsideYourRatingRange">レーティング範囲外の対局を表示</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s番です</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="other">相手がいなくなりました。後 %s 秒で勝ちにできます。</item>
@@ -411,9 +411,9 @@
 	<string name="block">ブロックする</string>
 	<string name="blocked">ブロック済</string>
 	<string name="unblock">ブロックを外す</string>
-	<string name="thanksForReport">Thanks for the report</string>
-	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
-	<string name="blockSuggestions">In the meantime, you can block this user:</string>
+	<string name="thanksForReport">ご報告ありがとうございます</string>
+	<string name="moderatorsReportReview">モデレーターがまもなく確認し、適切な対応を行います。</string>
+	<string name="blockSuggestions">その間、このユーザーをブロックできます：</string>
 	<string name="followsYou">あなたをフォローしています</string>
 	<string name="xStartedFollowingY">%1$s が %2$s のフォローを開始</string>
 	<plurals name="nbFollowers">
@@ -462,7 +462,7 @@
 	<string name="tournamentIsStarting">トーナメント開始</string>
 	<string name="tournamentPairingsAreNowClosed">トーナメントの対局の組み合わせは終了しました。</string>
 	<string name="standByX">%s さん、現在ペアリング中です。用意して！</string>
-	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
+	<string name="waitingForPlayersToPair">他の参加者を待っています…</string>
 	<string name="youArePlaying">参加中！</string>
 	<string name="winRate">勝率</string>
 	<string name="berserkRate">バーサーク率</string>
@@ -526,9 +526,9 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">指した後 自動的に次の対局に進む</string>
 	<string name="autoSwitch">自動切り替え</string>
 	<string name="puzzles">次の一手</string>
-	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
-	<string name="reportPuzzle">Report puzzle</string>
-	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">パズルストーム</string>
+	<string name="reportPuzzle">次の一手を報告する</string>
+	<string name="reportPuzzleReason">なぜこの次の一手問題を削除すべきですか？</string>
 	<string name="latestUpdates">最新情報</string>
 	<string name="tournamentWinners">トーナメント優勝者</string>
 	<string name="name">名称</string>
@@ -674,7 +674,7 @@
 	<string name="termsOfService">利用規約（英文）</string>
 	<string name="sourceCode">ソースコード</string>
 	<string name="simultaneousExhibitions">多面指し</string>
-	<string name="xSimul" comment="Name simul">%s simul</string>
+	<string name="xSimul" comment="Name simul">%s 多面指し</string>
 	<string name="simulComplete">多面指し終了</string>
 	<string name="backToSimul">多面指しに戻る</string>
 	<string name="host">ホスト</string>
@@ -796,7 +796,7 @@
 	<string name="background">背景</string>
 	<string name="light">明るい</string>
 	<string name="dark">暗い</string>
-	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">システム</string>
 	<string name="transparent">透明</string>
 	<string name="customTheme">カスタムテーマ</string>
 	<string name="backgroundImageUrl">背景画像URL:</string>
@@ -1017,7 +1017,7 @@
 	<string name="mateDelayedDescription" comment="Sequence of moves">最善の詰み手順ではありません</string>
 	<string name="mateLostDescription" comment="Sequence of moves">必至の詰み手順を逃しました</string>
 	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">。</string>
-	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
+	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">：</string>
 	<string name="tournamentCandidates">大会参加希望者</string>
 	<string name="kickedAndDeniedPlayers">参加を拒否・追放された参加者</string>
 	<string name="noPlayersJoinedYet">まだ参加者がいません</string>
@@ -1027,8 +1027,8 @@
 	<string name="icon">アイコン</string>
 	<string name="online">オンライン</string>
 	<string name="offline">オフライン</string>
-	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
-	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
-	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
-	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">段級位</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">昇級しました！</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">段級位は、レーティングが安定してから付与されます。</string>
+	<string name="leavingLobbyAlert">このページを離れると、実時間対局のリクエストは削除されます。</string>
 </resources>
