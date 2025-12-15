@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="lishogiCoach">Lishogi コーチ</string>
-	<string name="editMyCoachProfile">Edit my coach profile</string>
-	<string name="lishogiOnlyFeatures">Lishogi only features independent coaches and is not responsible for their conduct or the quality of their teaching.</string>
-	<string name="lishogiNoFees">Coaching fees are strictly between coaches and students - Lishogi takes nothing.</string>
+	<string name="editMyCoachProfile">自分のコーチプロフィールを編集</string>
+	<string name="lishogiOnlyFeatures">Lishogi は独立したコーチのみを掲載しており、コーチの行為や指導の質について責任を負いません。</string>
+	<string name="lishogiNoFees">コーチング料金はコーチと生徒の間で直接取り決められ、Lishogi は一切関与しません。</string>
 	<string name="becomeACoach">あなたは経験豊富で優秀な将棋コーチで、Lishogiで紹介されたいですか？</string>
 	<string name="sendApplication">%s までメールをお送りくだされば登録のための審査を行ないます。</string>
 	<string name="location">住所</string>
@@ -24,27 +24,27 @@
 	<string name="teachingMethod">指導方法</string>
 	<string name="publicStudies">公開研究</string>
 	<string name="youtubeVideos">YouTube 動画</string>
-	<string name="headline">Short and inspiring headline</string>
-	<string name="publishOnList">Publish on the coaches list</string>
-	<string name="publishOnListHelp">Enable when your profile is ready</string>
-	<string name="availableForLessons">Currently available for lessons</string>
-	<string name="availableForLessonsHelp">Enable to get more students</string>
-	<string name="allLanguages" comment="List all languages">All languages</string>
-	<string name="languagesSpoken">Languages spoken</string>
-	<string name="languagesSpokenHelp">Which languages can you give lessons in?</string>
-	<string name="hourlyRateHelp">Indicative, non-contractual (3 to 140 chars)</string>
-	<string name="whoAreYou">Who are you?</string>
-	<string name="whoAreYouHelp">Age, profession, country... let your students know you</string>
-	<string name="playingExperienceHelp">Tournaments played, best wins, other achievements</string>
-	<string name="teachingExperienceHelp">Diplomas, years of practice, best student results</string>
-	<string name="otherExperiencesHelp">E.g. as shogi commentator, or teaching other domains</string>
-	<string name="bestSkillsHelp">Best skills in shogi and teaching</string>
-	<string name="teachingMethodHelp">How you prepare and run lessons. How you follow up with students.</string>
-	<string name="publicStudiesHelp">Up to 6 Lishogi study URLs, one per line</string>
-	<string name="youtubeChannelUrl">URL of your YouTube channel</string>
-	<string name="youtubeVideosHelp">Up to 6 YouTube video URLs, one per line</string>
-	<string name="basicsTab">Basics</string>
-	<string name="textsTab">Texts</string>
-	<string name="contentsTab">Contents</string>
-	<string name="profileSaved">Your changes have been saved.</string>
+	<string name="headline">短く魅力的な見出し</string>
+	<string name="publishOnList">コーチ一覧に公開</string>
+	<string name="publishOnListHelp">プロフィールの準備ができたら有効にしてください</string>
+	<string name="availableForLessons">現在レッスンを受け付けています</string>
+	<string name="availableForLessonsHelp">生徒募集を有効にする</string>
+	<string name="allLanguages" comment="List all languages">すべての言語</string>
+	<string name="languagesSpoken">対応言語</string>
+	<string name="languagesSpokenHelp">どの言語でレッスンできますか？</string>
+	<string name="hourlyRateHelp">目安・参考用（契約を伴いません、3～140 文字）</string>
+	<string name="whoAreYou">あなたはどんな人ですか？</string>
+	<string name="whoAreYouHelp">年齢、職業、国など、あなたのことを生徒に知ってもらいましょう</string>
+	<string name="playingExperienceHelp">出場大会、主な勝利、その他の実績</string>
+	<string name="teachingExperienceHelp">資格、経験年数、指導生徒の主な実績</string>
+	<string name="otherExperiencesHelp">例：将棋の解説者として、または他分野の指導経験など</string>
+	<string name="bestSkillsHelp">将棋と指導における得意分野</string>
+	<string name="teachingMethodHelp">レッスンの準備や進め方、生徒へのフォロー方法について。</string>
+	<string name="publicStudiesHelp">Lishogi の研究 URL を最大 6 件まで（1 行に 1 件）</string>
+	<string name="youtubeChannelUrl">YouTubeチャンネルのURL</string>
+	<string name="youtubeVideosHelp">YouTube 動画の URL を最大 6 件まで（1 行に 1 件）</string>
+	<string name="basicsTab">基本情報</string>
+	<string name="textsTab">テキスト</string>
+	<string name="contentsTab">内容</string>
+	<string name="profileSaved">変更が保存されました</string>
 </resources>
