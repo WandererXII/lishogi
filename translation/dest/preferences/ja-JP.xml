@@ -51,7 +51,7 @@
 	<string name="audibleClocks">時計の音声を有効にする</string>
 	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">システム</string>
 	<string name="myClock" comment="What clocks should make sound?">自分の時計のみ</string>
-	<string name="myAndOpponentClock" comment="What clocks should make sound?">My and my opponent\'s clock</string>
+	<string name="myAndOpponentClock" comment="What clocks should make sound?">自分と相手の対局時計</string>
 	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">すべての時計</string>
-	<string name="noFlags">Hide all flags</string>
+	<string name="noFlags">すべての国旗を非表示</string>
 </resources>
