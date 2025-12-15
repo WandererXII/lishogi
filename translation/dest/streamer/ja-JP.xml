@@ -34,7 +34,7 @@
   <string name="requestReview">モデレーターによる審査を求めます</string>
   <string name="twitchUsername">あなたの Twitch ユーザー名または URL</string>
   <string name="optionalOrEmpty">任意。なければ空白</string>
-  <string name="youtubeChannelId">Your YouTube channel ID</string>
+  <string name="youtubeChannelId">あなたの YouTube チャンネル ID</string>
   <string name="streamerName">Lishogi での配信者名</string>
   <plurals name="keepItShort">
     <item quantity="other">短めに、最大 %s 字まで</item>
