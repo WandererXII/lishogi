@@ -914,8 +914,8 @@
 	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">ウルトラブレット</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">ブレット</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">ブリッツ</string>
-	<string name="veryFastShogi">Very fast shogi</string>
-	<string name="fastShogi">Fast shogi</string>
+	<string name="veryFastShogi">超早指し</string>
+	<string name="fastShogi">早指し</string>
 	<string name="rapid">ラピッド</string>
 	<string name="classical">クラシカル</string>
 	<string name="ultraBulletDesc">極早指し戦：30 秒未満</string>
@@ -1025,8 +1025,8 @@
 	<string name="proMode" comment="Mode where making illegal move loses the game">厳格モード</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">違法手は即敗北となり、プリムーブ（相手の手番中に次の自分の手を入力する）は無効化されます。王手のハイライトは表示されず、使用できる駒のセットも限定されます。</string>
 	<string name="icon">アイコン</string>
-	<string name="online">Online</string>
-	<string name="offline">Offline</string>
+	<string name="online">オンライン</string>
+	<string name="offline">オフライン</string>
 	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
