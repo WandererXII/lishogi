@@ -16,7 +16,7 @@
 	<string name="howToSelectPieceSet">Wie wähle ich ein Figurenset aus?</string>
 	<string name="choosePieceDesign">Es ist wichtig, dass du deine Figuren voneinander unterscheiden kannst, also stell sicher, dass du den richtigen Figurenstil wählst.
 Um das zu tun, klicke auf das Zahnrad oder deinen Benutzernamen (oben rechts) und klicke dann auf \'Figurenstil\'.</string>
-	<string name="choosePieceDesignShort">It\'s important that you can tell your pieces apart, so make sure you choose the right piece set.</string>
+	<string name="choosePieceDesignShort">Es ist wichtig die Figuren auseinanderhalten zu können, wähle daher das passende Figurenset aus.</string>
 	<string name="promotionZone">Wenn einige deiner Figuren eine der ersten drei Reihen im Territorium deines Gegners erreichen oder verlassen, kannst die gezogene Figur befördern und sie somit stärker machen.</string>
 	<string name="senteGoesFirst">In Shogi nennt man den Spieler, der zuerst zieht, Sente und den Spieler, der als Zweites zieht, Gote. Der Sente wird manchmal durch die Farbe Schwarz dargestellt und Gote durch Weiß. Mache einen beliebigen Zug um fortzufahren.</string>
 	<string name="introComplete">Du kennst jetzt einige Grundlagen, aber dieser Teil des Tutorials ist noch im Aufbau. Lerne erstmal wie die einzelnen Figuren ziehen.</string>
@@ -153,15 +153,15 @@ Um das zu tun, klicke auf das Zahnrad oder deinen Benutzernamen (oben rechts) un
 	<string name="dropTheKnights">Setze die Springer auf die gleiche Art, wie die silbernen Generäle ein. Dein Gegner wird den Itou-Stil machen.</string>
 	<string name="dropTheLances">Setze die Lanzen ein. Dein Gegner wird beginnen, die Bauern von links nach rechts vor den Lanzen zu platzieren. Das ist der Itou-Stil.</string>
 	<string name="placeTheBishopThenRook">Platziere den Läufer über dem linken Springer, dann den Turm über dem rechten Springer. Natürlich ist es in echten Spielen nicht nötig, während eines Setups mit dem Gegner synchronisiert zu sein.</string>
-	<string name="placeThePawns">Finally, on the 3rd rank, drop pawns the same way you placed the back rank pieces. The circle will be your guide.</string>
+	<string name="placeThePawns">Schließlich platzierst du auf der dritten Reihe die Bauern auf die gleiche Weise wie die Figuren der hinteren Reihe. Der Kreis dient dir dabei als Orientierung.</string>
 	<string name="pushingThe3rdPawn">Den 3. Bauern für die Läuferdiagonale zu öffnen, ist der Häufigste erste Zug. Mache diesen Zug, um fortzufahren.</string>
 	<string name="boardSetupComplete">Herzlichen Glückwunsch! Du weißt jetzt, wie man die Shogi-Figuren aufstellt.</string>
 	<string name="repetition">Wiederholung</string>
 	<string name="fourfoldRepetitionIsADrawExcept">Vierfache Zugwiederholung ist ein Remis, AUẞER...</string>
-	<string name="repetitionIntro">Fourfold repetition is a draw Perpetual check is a loss.</string>
-	<string name="ifTheSamePositionOccurs">If the same position occurs 4 times in Shogi, it is an automatic draw. This situation is called sennichite (千日手). Make the only legal move.</string>
-	<string name="perpetualCheckIsALoss">But, perpetually checking the opponent’s king is a loss for the checking side. Unfortunately for your opponent, they don’t know! Make the only legal move.</string>
-	<string name="boardFlippedFindBestMove">The board was just flipped. What is the best move here?</string>
+	<string name="repetitionIntro">Vierfache Wiederholung ist ein Remis, Schachmatt ist eine Niederlage.</string>
+	<string name="ifTheSamePositionOccurs">Wenn dieselbe Position im Shogi viermal auftritt, ist das Spiel automatisch Remis. Diese Situation wird als Sennichite (千日手) bezeichnet. Mach den einzig zulässigen Zug.</string>
+	<string name="perpetualCheckIsALoss">Aber wenn man den König des Gegners ständig schachmatt setzt, verliert man. Leider weiß dein Gegner das nicht! Mach den einzigen zulässigen Zug.</string>
+	<string name="boardFlippedFindBestMove">Das Brett wurde gerade umgedreht. Was ist hier der beste Zug?</string>
 	<string name="repetitionComplete">Die Idee dahinter, dass Dauerschach verliert, ist es das Erzwingen eines Remis zu verhindern.</string>
 	<string name="advanced">Fortgeschritten</string>
 	<string name="pieceValue">Figurenwerte</string>
