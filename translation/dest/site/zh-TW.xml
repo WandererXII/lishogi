@@ -19,6 +19,7 @@
 	<string name="resign">投了</string>
 	<string name="checkmate">詰死</string>
 	<string name="stalemate">逼和</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
 	<string name="check">王手</string>
 	<string name="impasse">僵局</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">連續王手</string>
@@ -385,6 +386,7 @@
 	<string name="continueFromHere">從此處繼續</string>
 	<string name="toStudy">研究</string>
 	<string name="importGame">導入棋局</string>
+	<string name="importCategory" comment="Category name for games that were imported">Import</string>
 	<string name="importedGame">已會入遊戲。</string>
 	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">貼上對局的 KIF 或是 CSA 棋譜可以進行棋局瀏覽、電腦分析、棋局聊天室與分享的連結。</string>
@@ -406,11 +408,13 @@
 	<string name="favoriteOpponents">最喜歡的對手</string>
 	<string name="follow">關注</string>
 	<string name="following">已關注</string>
+	<string name="followers">Followers</string>
 	<string name="unfollow">取消關注</string>
 	<string name="block">加入黑名單</string>
 	<string name="blocked">已加入黑名單</string>
 	<string name="unblock">移除出黑名單</string>
 	<string name="thanksForReport">Thanks for the report</string>
+	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">關注您</string>
@@ -1030,4 +1034,6 @@
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
+	<string name="oneUrlPerLine">One URL per line.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 </resources>
