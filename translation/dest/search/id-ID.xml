@@ -19,7 +19,10 @@
 	<string name="result">Hasil</string>
 	<string name="winnerColor">Warna pemenang</string>
 	<string name="date">Tanggal</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Urut berdasarkan</string>
 	<string name="analysis">Analisa</string>
 	<string name="onlyAnalysed">Hanya permainan di mana analisa komputer tersedia</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
