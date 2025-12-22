@@ -21,7 +21,10 @@
 	<string name="result">نتیجه</string>
 	<string name="winnerColor">رنگ مهره های بازیکن برنده</string>
 	<string name="date">تاریخ</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">مرتب کردن بر اساس</string>
 	<string name="analysis">برسی بازی</string>
 	<string name="onlyAnalysed">فقط بازی هایی که تجزیه و تحلیل کامپیوتر در آنها موجود است</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
