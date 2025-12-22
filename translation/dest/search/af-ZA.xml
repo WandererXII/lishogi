@@ -21,7 +21,10 @@
 	<string name="result">Uitslag</string>
 	<string name="winnerColor">Wenner se kleur</string>
 	<string name="date">Datum</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Sorteer volgens</string>
 	<string name="analysis">Analise</string>
 	<string name="onlyAnalysed">Slegs wedstryde waarvan daar rekenaar analise beskikbaar is</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
