@@ -29,7 +29,10 @@
 	<string name="result">نتيجة</string>
 	<string name="winnerColor">لون الفائز</string>
 	<string name="date">تاريخ</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">ترتيب حسب</string>
 	<string name="analysis">تحليل</string>
 	<string name="onlyAnalysed">فقط الادوار حيث يتوفر تحليل الكمبيوتر</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
