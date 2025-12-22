@@ -21,7 +21,10 @@
 	<string name="result">परिणाम</string>
 	<string name="winnerColor">विजेता का रंग</string>
 	<string name="date">दिनांक</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">क्रमबद्ध करें</string>
 	<string name="analysis">विश्लेषण</string>
 	<string name="onlyAnalysed">केवल ऐसे खेल जहां कंप्यूटर विश्लेषण उपलब्ध है</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
