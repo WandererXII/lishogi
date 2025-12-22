@@ -19,6 +19,7 @@
 	<string name="resign">Здацца</string>
 	<string name="checkmate">Мат</string>
 	<string name="stalemate">Зарэз</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
 	<string name="check">Check</string>
 	<string name="impasse">Зарэз</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
@@ -454,6 +455,7 @@
 	<string name="continueFromHere">Працягнуць адсюль</string>
 	<string name="toStudy">Навучанне</string>
 	<string name="importGame">Імпартаваць гульню</string>
+	<string name="importCategory" comment="Category name for games that were imported">Import</string>
 	<string name="importedGame">Game was imported.</string>
 	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Імпартуйце гульню ў фармаце KIF або CSA , каб атрымаць паўтор у браўзеры, камп\'ютарны аналіз, чат гульні і спасылку на гульню.</string>
@@ -481,11 +483,13 @@
 	<string name="favoriteOpponents">Улюблёныя супраціўнікі</string>
 	<string name="follow">Падпісацца</string>
 	<string name="following">Падпісант</string>
+	<string name="followers">Followers</string>
 	<string name="unfollow">Адпісацца</string>
 	<string name="block">Заблакаваць</string>
 	<string name="blocked">Заблакіраваныя</string>
 	<string name="unblock">Разблакіраваць</string>
 	<string name="thanksForReport">Thanks for the report</string>
+	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Падпісаны на вас</string>
@@ -1156,4 +1160,6 @@
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
+	<string name="oneUrlPerLine">One URL per line.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 </resources>
