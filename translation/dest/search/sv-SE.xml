@@ -21,7 +21,10 @@
 	<string name="result">Resultat</string>
 	<string name="winnerColor">Vinnarens färg</string>
 	<string name="date">Datum</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Sortera efter</string>
 	<string name="analysis">Analys</string>
 	<string name="onlyAnalysed">Endast partier där en datoranalys finns tillgänglig</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
