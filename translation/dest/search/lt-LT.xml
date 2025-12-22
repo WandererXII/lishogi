@@ -25,7 +25,10 @@
 	<string name="result">Rezultatas</string>
 	<string name="winnerColor">Nugalėtojo spalva</string>
 	<string name="date">Data</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Rūšiuoti pagal</string>
 	<string name="analysis">Analizė</string>
 	<string name="onlyAnalysed">Tik partijos, kurios turi kompiuterinę analizę</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
