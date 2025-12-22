@@ -25,7 +25,10 @@
 	<string name="result">Результат</string>
 	<string name="winnerColor">Цвет победителя</string>
 	<string name="date">Дата</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Сортировать по</string>
 	<string name="analysis">Анализ</string>
 	<string name="onlyAnalysed">Только партии, для которых выполнен компьютерный анализ</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
