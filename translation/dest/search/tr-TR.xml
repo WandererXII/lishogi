@@ -21,7 +21,10 @@
 	<string name="result">Sonuç</string>
 	<string name="winnerColor">Kazanının rengi</string>
 	<string name="date">Tarih</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Sıralama ölçütü</string>
 	<string name="analysis">Analiz</string>
 	<string name="onlyAnalysed">Sadece bilgisayar analizi yapılmış oyunları göster</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
