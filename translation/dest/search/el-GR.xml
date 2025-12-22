@@ -21,7 +21,10 @@
 	<string name="result">Αποτέλεσμα</string>
 	<string name="winnerColor">Χρώμα νικητή</string>
 	<string name="date">Ημερομηνία</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Ταξινόμηση κατά</string>
 	<string name="analysis">Ανάλυση</string>
 	<string name="onlyAnalysed">Μόνο παρτίδες με ανάλυση από υπολογιστή</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
