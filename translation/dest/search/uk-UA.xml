@@ -25,7 +25,10 @@
 	<string name="result">Результат</string>
 	<string name="winnerColor">Колір переможця</string>
 	<string name="date">Дата</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Підбирати за</string>
 	<string name="analysis">Аналіз</string>
 	<string name="onlyAnalysed">Тільки ігри з комп\'ютерним аналізом є доступними</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
