@@ -25,7 +25,10 @@
 	<string name="result">תוצאה</string>
 	<string name="winnerColor">הצבע המנצח</string>
 	<string name="date">תאריך</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">מיין לפי</string>
 	<string name="analysis">ניתוח</string>
 	<string name="onlyAnalysed">רק משחקים בהם ניתוח המחשב זמין</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
