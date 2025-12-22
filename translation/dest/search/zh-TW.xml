@@ -19,7 +19,10 @@
 	<string name="result">結果</string>
 	<string name="winnerColor">獲勝方棋子顏色</string>
 	<string name="date">日期</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">排序條件</string>
 	<string name="analysis">分析</string>
 	<string name="onlyAnalysed">僅可進行有電腦分析的遊戲</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
