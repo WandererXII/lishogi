@@ -21,7 +21,10 @@
 	<string name="result">Risultato</string>
 	<string name="winnerColor">Colore del vincitore</string>
 	<string name="date">Data</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Ordina per</string>
 	<string name="analysis">Analisi</string>
 	<string name="onlyAnalysed">Solo partite in cui è disponibile l\'analisi del computer</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
