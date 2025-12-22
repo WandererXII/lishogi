@@ -19,7 +19,7 @@
 	<string name="resign">投了</string>
 	<string name="checkmate">詰み</string>
 	<string name="stalemate">ステイルメイト</string>
-	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">投了</string>
 	<string name="check">王手</string>
 	<string name="impasse">持将棋</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">千日手</string>
@@ -386,7 +386,7 @@
 	<string name="continueFromHere">中断した所から再開</string>
 	<string name="toStudy">研究</string>
 	<string name="importGame">棋譜をインポート</string>
-	<string name="importCategory" comment="Category name for games that were imported">Import</string>
+	<string name="importCategory" comment="Category name for games that were imported">インポート</string>
 	<string name="importedGame">対局がインポートされました。</string>
 	<string name="importedByX">%s によるインポート</string>
 	<string name="importGameKifCsaExplanation">対局のKIFあるいはCSAを貼り付けて、ブラウザ上での再現
@@ -409,13 +409,13 @@
 	<string name="favoriteOpponents">お気に入りの対局相手</string>
 	<string name="follow">フォローする</string>
 	<string name="following">フォローしています</string>
-	<string name="followers">Followers</string>
+	<string name="followers">フォロワー</string>
 	<string name="unfollow">フォローをやめる</string>
 	<string name="block">ブロックする</string>
 	<string name="blocked">ブロック済</string>
 	<string name="unblock">ブロックを外す</string>
 	<string name="thanksForReport">ご報告ありがとうございます</string>
-	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
+	<string name="reportedSomeoneBanned">あなたが通報したユーザーはアカウント停止になりました</string>
 	<string name="moderatorsReportReview">モデレーターがまもなく確認し、適切な対応を行います。</string>
 	<string name="blockSuggestions">その間、このユーザーをブロックできます：</string>
 	<string name="followsYou">あなたをフォローしています</string>
@@ -1035,6 +1035,6 @@
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">昇級しました！</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">段級位は、レーティングが安定してから付与されます。</string>
 	<string name="leavingLobbyAlert">このページを離れると、実時間対局のリクエストは削除されます。</string>
-	<string name="oneUrlPerLine">One URL per line.</string>
-	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
+	<string name="oneUrlPerLine">1行につき1つのURL</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">翻訳</string>
 </resources>
