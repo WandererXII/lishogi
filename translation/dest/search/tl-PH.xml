@@ -21,7 +21,10 @@
 	<string name="result">Mga Resulta</string>
 	<string name="winnerColor">Panalong kulay</string>
 	<string name="date">Petsa</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Ayusin ayon sa</string>
 	<string name="analysis">Pagsusuri</string>
 	<string name="onlyAnalysed">Only games where a computer analysis is available</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
