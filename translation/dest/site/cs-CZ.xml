@@ -306,7 +306,7 @@
 	<string name="viewRematch">Sledovat odvetu</string>
 	<string name="confirmMove">Potvrdit tah</string>
 	<string name="play">Hrát</string>
-	<string name="inbox">Doručené</string>
+	<string name="inbox">Zprávy</string>
 	<string name="streamerManager">Správa streamu</string>
 	<string name="coachManager">Nastavení trenéra</string>
 	<string name="chatRoom">Chat</string>
