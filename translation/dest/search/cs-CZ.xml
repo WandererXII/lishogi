@@ -25,7 +25,10 @@
 	<string name="result">Výsledek</string>
 	<string name="winnerColor">Barva vítěze</string>
 	<string name="date">Datum</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Seřadit podle</string>
 	<string name="analysis">Analýza</string>
 	<string name="onlyAnalysed">Pouze hry, kde je k dispozici počítačová analýza</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
