@@ -19,6 +19,7 @@
 	<string name="resign">Abbandona</string>
 	<string name="checkmate">Scacco matto</string>
 	<string name="stalemate">Stallo</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
 	<string name="check">Check</string>
 	<string name="impasse">Impraticabile</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
@@ -408,6 +409,7 @@
 	<string name="continueFromHere">Continua da qui</string>
 	<string name="toStudy">Studia</string>
 	<string name="importGame">Importa partita</string>
+	<string name="importCategory" comment="Category name for games that were imported">Import</string>
 	<string name="importedGame">Game was imported.</string>
 	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Incolla una partita KIF o CSA per ottenere un replay navigabile, analisi computerizzata, chat di gioco e collegamenti URL condivisibili.</string>
@@ -431,11 +433,13 @@
 	<string name="favoriteOpponents">Avversari preferiti</string>
 	<string name="follow">Segui</string>
 	<string name="following">Stai seguendo</string>
+	<string name="followers">Followers</string>
 	<string name="unfollow">Non seguire più</string>
 	<string name="block">Blocca</string>
 	<string name="blocked">Bloccato</string>
 	<string name="unblock">Sblocca</string>
 	<string name="thanksForReport">Thanks for the report</string>
+	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Ti segue</string>
@@ -1073,4 +1077,6 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
+	<string name="oneUrlPerLine">One URL per line.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 </resources>
