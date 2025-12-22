@@ -21,7 +21,10 @@
 	<string name="result">Tulos</string>
 	<string name="winnerColor">Voittajan väri</string>
 	<string name="date">Pvm</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Lajittelutapa</string>
 	<string name="analysis">Analyysi</string>
 	<string name="onlyAnalysed">Vain pelit, joihin on saatavilla tietokoneanalyysi</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
