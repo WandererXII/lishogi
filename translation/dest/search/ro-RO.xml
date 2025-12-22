@@ -23,7 +23,10 @@
 	<string name="result">Rezultat</string>
 	<string name="winnerColor">Culoarea pieselor câștigătorului</string>
 	<string name="date">Data</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Sortare după</string>
 	<string name="analysis">Analiză</string>
 	<string name="onlyAnalysed">Doar meciuri în care analiza computerului este disponibilă</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
