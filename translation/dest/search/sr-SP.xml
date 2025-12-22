@@ -23,7 +23,10 @@
 	<string name="result">Result</string>
 	<string name="winnerColor">Winner color</string>
 	<string name="date">Date</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Sort by</string>
 	<string name="analysis">Analysis</string>
 	<string name="onlyAnalysed">Only games where a computer analysis is available</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
