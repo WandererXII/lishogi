@@ -19,6 +19,7 @@
 	<string name="resign">Aufgeben</string>
 	<string name="checkmate">Schachmatt</string>
 	<string name="stalemate">Patt</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
 	<string name="check">Schach</string>
 	<string name="impasse">Impasse</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Wiederholung</string>
@@ -408,6 +409,7 @@
 	<string name="continueFromHere">Von hier aus weiterspielen</string>
 	<string name="toStudy">Studie</string>
 	<string name="importGame">Partie importieren</string>
+	<string name="importCategory" comment="Category name for games that were imported">Import</string>
 	<string name="importedGame">Spiel wurde importiert.</string>
 	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay, computer analysis, game chat and shareable URL.</string>
@@ -431,11 +433,13 @@
 	<string name="favoriteOpponents">Häufigste Gegner</string>
 	<string name="follow">Folgen</string>
 	<string name="following">Folge ich</string>
+	<string name="followers">Followers</string>
 	<string name="unfollow">Nicht mehr folgen</string>
 	<string name="block">Blockieren</string>
 	<string name="blocked">Blockiert</string>
 	<string name="unblock">Nicht mehr blockieren</string>
 	<string name="thanksForReport">Thanks for the report</string>
+	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Folgt dir</string>
@@ -1072,4 +1076,6 @@
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">Du bist aufgestiegen!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Wenn du diese Seite verlässt, werden deine Echtzeit-Spielanfragen entfernt.</string>
+	<string name="oneUrlPerLine">One URL per line.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 </resources>
