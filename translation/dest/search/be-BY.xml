@@ -25,7 +25,10 @@
 	<string name="result">Вынік</string>
 	<string name="winnerColor">Колер пераможца</string>
 	<string name="date">Дата</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Сартаваць па</string>
 	<string name="analysis">Аналіз</string>
 	<string name="onlyAnalysed">Толькі гульні, для якіх даступны камп\'ютарны аналіз</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
