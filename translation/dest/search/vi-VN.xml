@@ -19,7 +19,10 @@
 	<string name="result">Kết quả</string>
 	<string name="winnerColor">Màu người thắng</string>
 	<string name="date">Ngày</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Sắp xếp theo</string>
 	<string name="analysis">Phân tích</string>
 	<string name="onlyAnalysed">Chỉ những ván đấu mà máy tính phân tích khả dụng</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
