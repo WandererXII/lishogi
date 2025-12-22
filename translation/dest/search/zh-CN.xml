@@ -19,7 +19,10 @@
 	<string name="result">结果</string>
 	<string name="winnerColor">赢家颜色</string>
 	<string name="date">日期</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">排序依据</string>
 	<string name="analysis">分析</string>
 	<string name="onlyAnalysed">仅在电脑分析可用的游戏</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
