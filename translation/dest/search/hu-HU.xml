@@ -21,7 +21,10 @@
 	<string name="result">Eredmény</string>
 	<string name="winnerColor">Nyertes szín</string>
 	<string name="date">Dátum</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Rendezés</string>
 	<string name="analysis">Elemzés</string>
 	<string name="onlyAnalysed">Csak azok a játszmák, ahol számítógépes elemzés elérhető</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
