@@ -19,6 +19,7 @@
 	<string name="resign">Abandonar</string>
 	<string name="checkmate">Xaque mate</string>
 	<string name="stalemate">Rei afogado</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
 	<string name="check">Xaque</string>
 	<string name="impasse">Impasse</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetición</string>
@@ -408,6 +409,7 @@
 	<string name="continueFromHere">Continuar dende aquí</string>
 	<string name="toStudy">Estudar</string>
 	<string name="importGame">Importar partida</string>
+	<string name="importCategory" comment="Category name for games that were imported">Import</string>
 	<string name="importedGame">A partida foi importada.</string>
 	<string name="importedByX">Importado por %s</string>
 	<string name="importGameKifCsaExplanation">Pega o KIF/CSA dunha partida para obter unha versión navegable, análise por ordenador, sala de conversa do xogo e unha ligazón para compartila.</string>
@@ -431,11 +433,13 @@
 	<string name="favoriteOpponents">Rivais preferidos</string>
 	<string name="follow">Seguir</string>
 	<string name="following">Seguindo</string>
+	<string name="followers">Followers</string>
 	<string name="unfollow">Deixar de seguir</string>
 	<string name="block">Bloquear</string>
 	<string name="blocked">Bloqueado</string>
 	<string name="unblock">Desbloquear</string>
 	<string name="thanksForReport">Gracias pola túa denuncia</string>
+	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
 	<string name="moderatorsReportReview">Os moderadores revisarana decontado e tomarán as medidas necesarias.</string>
 	<string name="blockSuggestions">De momento podes bloquear a este usuario:</string>
 	<string name="followsYou">Séguete</string>
@@ -1072,4 +1076,6 @@
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">Subiches de nivel!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Os niveis só se conceden após acadar unha puntuación estábel.</string>
 	<string name="leavingLobbyAlert">Ó marchares desta páxina eliminas as túas solicitudes de emparellamento pendentes.</string>
+	<string name="oneUrlPerLine">One URL per line.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 </resources>
