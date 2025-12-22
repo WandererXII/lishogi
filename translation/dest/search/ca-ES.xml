@@ -21,7 +21,10 @@
 	<string name="result">Resultat</string>
 	<string name="winnerColor">Color guanyador</string>
 	<string name="date">Data</string>
+	<string name="moves" comment="Sort by number of moves">Moves</string>
 	<string name="sortBy">Ordena per</string>
 	<string name="analysis">Anàlisi</string>
 	<string name="onlyAnalysed">Només partides on hi ha disponible l\'anàlisi computeritzat</string>
+	<string name="descending" comment="sort">Descending</string>
+	<string name="ascending" comment="sort">Ascending</string>
 </resources>
