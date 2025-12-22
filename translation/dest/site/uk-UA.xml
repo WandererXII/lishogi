@@ -19,6 +19,7 @@
 	<string name="resign">Здайся</string>
 	<string name="checkmate">Згуба</string>
 	<string name="stalemate">Безвихідь</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
 	<string name="check">Check</string>
 	<string name="impasse">Безвихідь</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
@@ -454,6 +455,7 @@
 	<string name="continueFromHere">Продовж звідси</string>
 	<string name="toStudy">Дослідження</string>
 	<string name="importGame">Імпортувати гру</string>
+	<string name="importCategory" comment="Category name for games that were imported">Import</string>
 	<string name="importedGame">Game was imported.</string>
 	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Встав KIF чи CSA, аби отримати огляд гри,
@@ -482,11 +484,13 @@
 	<string name="favoriteOpponents">Улюблені суперники</string>
 	<string name="follow">Спостерігати</string>
 	<string name="following">Сліджений</string>
+	<string name="followers">Followers</string>
 	<string name="unfollow">Не слідуй</string>
 	<string name="block">Відгороди</string>
 	<string name="blocked">Відгороджений</string>
 	<string name="unblock">Розгороди</string>
 	<string name="thanksForReport">Thanks for the report</string>
+	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Слідується</string>
@@ -1157,4 +1161,6 @@
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
+	<string name="oneUrlPerLine">One URL per line.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 </resources>
