@@ -19,6 +19,7 @@
 	<string name="resign">استسلام</string>
 	<string name="checkmate">كش مات</string>
 	<string name="stalemate">مات مخنوق</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
 	<string name="check">Check</string>
 	<string name="impasse">Impasse</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetition</string>
@@ -500,6 +501,7 @@
 	<string name="continueFromHere">تابع من هنا</string>
 	<string name="toStudy">دراسة</string>
 	<string name="importGame">استورد مباراة</string>
+	<string name="importCategory" comment="Category name for games that were imported">Import</string>
 	<string name="importedGame">Game was imported.</string>
 	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Paste a game KIF or CSA to get a browsable replay, computer analysis, game chat and shareable URL.</string>
@@ -531,11 +533,13 @@
 	<string name="favoriteOpponents">خصوم مفضلين</string>
 	<string name="follow">تابع</string>
 	<string name="following">متابع</string>
+	<string name="followers">Followers</string>
 	<string name="unfollow">إالغاء المتابعة</string>
 	<string name="block">حظر</string>
 	<string name="blocked">محظور</string>
 	<string name="unblock">إلغاء الحظر</string>
 	<string name="thanksForReport">Thanks for the report</string>
+	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">يتابعك</string>
@@ -1240,4 +1244,6 @@
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
+	<string name="oneUrlPerLine">One URL per line.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 </resources>
