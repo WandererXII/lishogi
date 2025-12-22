@@ -19,6 +19,7 @@
 	<string name="resign">Chịu thua</string>
 	<string name="checkmate">Chiếu hết</string>
 	<string name="stalemate">Hòa pat</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
 	<string name="check">Chiếu</string>
 	<string name="impasse">Bế tắc</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Lặp cờ</string>
@@ -385,6 +386,7 @@
 	<string name="continueFromHere">Tiếp tục từ đây</string>
 	<string name="toStudy">Nghiên cứu</string>
 	<string name="importGame">Nhập ván cờ</string>
+	<string name="importCategory" comment="Category name for games that were imported">Import</string>
 	<string name="importedGame">Ván cờ đã được nhập</string>
 	<string name="importedByX">Imported by %s</string>
 	<string name="importGameKifCsaExplanation">Dán CSA hoặc KIF của ván đấu để xem lại trên trình duyệt,
@@ -407,11 +409,13 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="favoriteOpponents">Đối thủ yêu thích</string>
 	<string name="follow">Theo dõi</string>
 	<string name="following">Đang theo dõi</string>
+	<string name="followers">Followers</string>
 	<string name="unfollow">Bỏ theo dõi</string>
 	<string name="block">Chặn</string>
 	<string name="blocked">Đã chặn</string>
 	<string name="unblock">Bỏ chặn</string>
 	<string name="thanksForReport">Thanks for the report</string>
+	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Theo dõi bạn</string>
@@ -1031,4 +1035,6 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
+	<string name="oneUrlPerLine">One URL per line.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 </resources>
