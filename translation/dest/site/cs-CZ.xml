@@ -8,7 +8,7 @@
 	<string name="waitingForOpponent">Čekání na soupeře</string>
 	<string name="waiting">Čekám</string>
 	<string name="yourTurn">Jste na tahu</string>
-	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Porazil %1$s level %2$s</string>
+	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Porazil %1$s úroveň %2$s</string>
 	<string name="level">Úroveň</string>
 	<string name="levelX" comment="Engine difficulty level">Úroveň %s</string>
 	<string name="strength">Obtížnost</string>
@@ -619,9 +619,9 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">Automaticky přejdi k další hře po tahu</string>
 	<string name="autoSwitch">Přepnout automaticky</string>
 	<string name="puzzles">Puzzle</string>
-	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
-	<string name="reportPuzzle">Report puzzle</string>
-	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Hádanková bouře</string>
+	<string name="reportPuzzle">Nahlásit hádanku</string>
+	<string name="reportPuzzleReason">Proč by měla být hádanka odstraněna?</string>
 	<string name="latestUpdates">Poslední aktualizace</string>
 	<string name="tournamentWinners">Vítězové turnajů</string>
 	<string name="name">Jméno</string>
@@ -639,7 +639,7 @@
 	<string name="replyToThisTopic">Odpovědět na toto téma</string>
 	<string name="reply">Odpovědět</string>
 	<string name="message">Zpráva</string>
-	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
+	<string name="xIsTyping" comment="Username is typing...">%s píše...</string>
 	<string name="createTheTopic">Vytvořit téma</string>
 	<string name="reportAUser">Nahlásit uživatele</string>
 	<string name="user">Uživatel</string>
@@ -694,16 +694,16 @@
 	<string name="xAnsweredY">%1$s odpověděl v %2$s</string>
 	<string name="xCommentedY">%1$s okomentoval %2$s</string>
 	<string name="victory">Vítězství</string>
-	<string name="youWon">You won</string>
+	<string name="youWon">Vyhráli jste</string>
 	<string name="defeat">Porážka</string>
-	<string name="youLost">You lost</string>
-	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s vs %2$s</string>
+	<string name="youLost">Prohráli jste</string>
+	<string name="xVsY" comment="Meaning: Player A versus Player B">%1$s vs. %2$s</string>
 	<string name="victoryVsYInZ">%1$s proti %2$s v %3$s</string>
 	<string name="defeatVsYInZ">%1$s proti %2$s v %3$s</string>
 	<string name="drawVsYInZ">%1$s proti %2$s v %3$s</string>
 	<string name="timeline">Časová osa</string>
 	<string name="starting" comment="Ex.: Starting: 50 minutes">Začíná:</string>
-	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Konec:</string>
 	<string name="allInformationIsPublicAndOptional">Všechny informace jsou veřejné a nepovinné.</string>
 	<string name="yourCityRegionOrDepartment">Vaše město, nebo region.</string>
 	<string name="biographyDescription">Napiš o sobě, co máš na šógi rád, oblíbená zahájení, partie, hráče…</string>
@@ -776,14 +776,14 @@
 	<string name="termsOfService">Podmínky používání</string>
 	<string name="sourceCode">Zdrojový kod</string>
 	<string name="simultaneousExhibitions">Simultánky</string>
-	<string name="xSimul" comment="Name simul">%s simul</string>
-	<string name="simulComplete">Simul complete</string>
-	<string name="backToSimul">Back to simul</string>
+	<string name="xSimul" comment="Name simul">%s simultánka</string>
+	<string name="simulComplete">Simultánka dokončena</string>
+	<string name="backToSimul">Zpět k simultánce</string>
 	<string name="host">Host</string>
 	<string name="hostColorX">Barva zakladatele: %s</string>
 	<string name="createdSimuls">Nově vytvořené simultánky</string>
 	<string name="hostANewSimul">Vytvoř novou simultánku</string>
-	<string name="yourPendingSimuls">Your pending simuls</string>
+	<string name="yourPendingSimuls">Vaše nevyřízené simultánky</string>
 	<string name="noSimulFound">Simultánka nenalezena</string>
 	<string name="noSimulExplanation">Tato simultánka neexistuje</string>
 	<string name="returnToSimulHomepage">Vrať se na domovskou sránku simultánek</string>
@@ -901,13 +901,13 @@
 	<string name="lobby">Výzvy</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">Předvolby</string>
 	<string name="anonymous">Anonymní</string>
-	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymní uživatel</string>
 	<string name="yourScore">Vaše skóre: %s</string>
 	<string name="language">Jazyk</string>
 	<string name="background">Pozadí</string>
 	<string name="light">Světlé</string>
 	<string name="dark">Tmavé</string>
-	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">Systém</string>
 	<string name="transparent">Průhledné</string>
 	<string name="customTheme">Vlastní téma</string>
 	<string name="backgroundImageUrl">URL zdroj obrázku na pozadí:</string>
@@ -986,10 +986,10 @@
 		<item quantity="other">%s sekund</item>
 	</plurals>
 	<plurals name="nbMinutes">
-		<item quantity="one">%s minute</item>
-		<item quantity="few">%s minutes</item>
-		<item quantity="many">%s minutes</item>
-		<item quantity="other">%s minutes</item>
+		<item quantity="one">%s minuta</item>
+		<item quantity="few">%s minuty</item>
+		<item quantity="many">%s minut</item>
+		<item quantity="other">%s minut</item>
 	</plurals>
 	<string name="opening">Zahájení</string>
 	<string name="middlegame">Střední hra</string>
@@ -1107,11 +1107,11 @@
 	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
 	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
 	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
-	<string name="kickPlayer">Kick player</string>
-	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
+	<string name="kickPlayer">Vyhodit hráče</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Správa hráčů</string>
 	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
 	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
-	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Vytvořeno</string>
 	<string name="tourRecent">Recently played</string>
 	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Format</string>
 	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
