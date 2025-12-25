@@ -10,7 +10,7 @@
 	<string name="yourTurn">Jste na tahu</string>
 	<string name="defeatedAiNameAiLevel" comment="Example: Defeated Stockfish level 3">Porazil %1$s level %2$s</string>
 	<string name="level">Úroveň</string>
-	<string name="levelX" comment="Engine difficulty level">Level %s</string>
+	<string name="levelX" comment="Engine difficulty level">Úroveň %s</string>
 	<string name="strength">Obtížnost</string>
 	<string name="toggleTheChat">Zapnout/vypnout chat</string>
 	<string name="toggleSound">Zapnout/vypnout zvuk</string>
@@ -26,7 +26,7 @@
 	<string name="perpetualCheck">Věčný šach</string>
 	<string name="royalsLost" comment="Used in chushogi">Všechny královské kameny ztracené</string>
 	<string name="bareKing" comment="Used in chushogi">Obnažený král</string>
-	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Nepovolený tah</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s hrál s %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s hraje s %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s vyhrál!</string>
@@ -49,7 +49,7 @@
 	<string name="newOpponent">Nový protihráč</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Váš soupeř s Vámi chce hrát další partii</string>
 	<string name="joinTheGame">Připojit se ke hře</string>
-	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
+	<string name="registeredJoinTheGame">Pouze registrovaní uživatelé se mohou připojit ke hrám od ostatních registrovaných uživatelů</string>
 	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
 	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s je na tahu</string>
