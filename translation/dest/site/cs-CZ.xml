@@ -19,7 +19,7 @@
 	<string name="resign">Vzdát se</string>
 	<string name="checkmate">Šach mat</string>
 	<string name="stalemate">Pat</string>
-	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Vzdání se</string>
 	<string name="check">Šach</string>
 	<string name="impasse">Slepá cesta</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Repetice</string>
@@ -50,8 +50,8 @@
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Váš soupeř s Vámi chce hrát další partii</string>
 	<string name="joinTheGame">Připojit se ke hře</string>
 	<string name="registeredJoinTheGame">Pouze registrovaní uživatelé se mohou připojit ke hrám od ostatních registrovaných uživatelů</string>
-	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
-	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
+	<string name="outsideYourRating">Vaše hodnocení je mimo povolený rozsah této hry</string>
+	<string name="gamesOutsideYourRatingRange">Zobrazit hry mimo rozsah vašeho hodnocení</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s je na tahu</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Tvůj soupeř opustil hru. Můžeš si vyžádat vítězství za %s sekundu.</item>
@@ -68,7 +68,7 @@
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s rezignoval</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s opustil hru.</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s netáhl</string>
-	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s played an illegal move</string>
+	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s hrál nepovolený tah</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Pomocí tohoto odkazu můžete pozvat ostatní ke sledování této partie</string>
 	<string name="theComputerAnalysisHasFailed">Počítačová analýza selhala</string>
 	<string name="viewTheComputerAnalysis">Zobrazit počítačovou analýzu</string>
@@ -78,7 +78,7 @@
 	<string name="analysis">Analýza</string>
 	<string name="analysisDescription">Analyzujte šógi pozice a variace na interaktivní šógi desce</string>
 	<string name="depthX">Hloubka %s</string>
-	<string name="serverAnalysis">Server analysis</string>
+	<string name="serverAnalysis">Serverová analýza</string>
 	<string name="usingServerAnalysis">Používání analýzy serveru</string>
 	<string name="loadingEngine">Načítání AI engine...</string>
 	<string name="cloudAnalysis">Cloudová analýza</string>
@@ -113,8 +113,8 @@
 	<string name="recentGames">Nedávné hry</string>
 	<string name="topGames">Top hry</string>
 	<string name="noGameFound">Žádná hra nenalezena</string>
-	<string name="pageNotFound">Page not found</string>
-	<string name="returnToHomepage">Return to homepage</string>
+	<string name="pageNotFound">Stránka nenalezena</string>
+	<string name="returnToHomepage">Návrat na domovskou stránku</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Možná zkuste vybrat více her z menu preferencí?</string>
 	<string name="openingExplorer">Průzkumník zahájení</string>
 	<string name="xOpeningExplorer">%s průzkumník zahájení</string>
@@ -147,12 +147,12 @@
 	<string name="flipBoard">Otočit desku</string>
 	<string name="claimADraw">Reklamovat remízu</string>
 	<string name="offerDraw">Nabídnout remízu</string>
-	<string name="offerAdjournment">Offer adjournment</string>
-	<string name="offerResumption">Offer resumption</string>
-	<string name="acceptResumption">Accept resumption</string>
+	<string name="offerAdjournment">Nabídnout odklad</string>
+	<string name="offerResumption">Nabídnout pokračování</string>
+	<string name="acceptResumption">Přijmout pokračování</string>
 	<string name="draw">Remíza</string>
-	<string name="gameAdjourned">Game was adjourned</string>
-	<string name="gameResumed">Game was resumed</string>
+	<string name="gameAdjourned">Hra byla odložena</string>
+	<string name="gameResumed">Hra byla znovu spuštěna</string>
 	<plurals name="nbPlayers">
 		<item quantity="one">%s hráč</item>
 		<item quantity="few">%s hráči</item>
@@ -244,30 +244,30 @@
 		<item quantity="many">%s partií s Vámi</item>
 		<item quantity="other">%s partií s Vámi</item>
 	</plurals>
-	<string name="confirm">Confirm</string>
+	<string name="confirm">Potvrdit</string>
 	<string name="cancel">Zrušit</string>
-	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Začít</string>
 	<string name="timeOut">Čas vypršel</string>
 	<string name="drawOfferSent">Nabídka remízy byla odeslána</string>
 	<string name="drawOfferDeclined">Soupeř remízu odmítl</string>
 	<string name="drawOfferAccepted">Soupeř remízu přijal</string>
 	<string name="drawOfferCanceled">Nabídka remízy byla zrušena</string>
-	<string name="adjournmentOfferSent">Adjournment offer sent</string>
-	<string name="adjournmentOfferCanceled">Adjournment offer cancelled</string>
-	<string name="adjournmentOfferAccepted">Adjournment offer accepted</string>
-	<string name="resumptionOfferSent">Resumption offer sent</string>
-	<string name="resumptionOfferCanceled">Resumption offer cancelled</string>
+	<string name="adjournmentOfferSent">Nabídka odložení odeslána</string>
+	<string name="adjournmentOfferCanceled">Nabídka odložení zrušena</string>
+	<string name="adjournmentOfferAccepted">Nabídka odevzdání přijata</string>
+	<string name="resumptionOfferSent">Nabídka pokračování odeslána</string>
+	<string name="resumptionOfferCanceled">Nabídka pokračování zrušena</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s nabízí remízu</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s odmítá remízu</string>
 	<string name="yourOpponentOffersADraw">Soupeř nabízí remízu</string>
-	<string name="xOffersAdjournment" comment="%s - sente(black)/gote(white)">%s offers adjournment</string>
-	<string name="xDeclinesAdjournment" comment="%s - sente(black)/gote(white)">%s declines adjournment</string>
-	<string name="yourOpponentOffersAnAdjournment">Your opponent offers an adjournment</string>
-	<string name="xOffersResumption" comment="%s - sente(black)/gote(white)">%s proposes resumption</string>
-	<string name="xDeclinesResumption" comment="%s - sente(black)/gote(white)">%s declines resumption</string>
-	<string name="yourOpponentProposesResumption">Your opponent proposes resumption</string>
-	<string name="makeASealedMove">Make a move, that will be played after the game is resumed</string>
-	<string name="waitingForASealedMove">Waiting for the opponent to make a sealed move</string>
+	<string name="xOffersAdjournment" comment="%s - sente(black)/gote(white)">%s nabízí odklad</string>
+	<string name="xDeclinesAdjournment" comment="%s - sente(black)/gote(white)">%s odmítá odklad</string>
+	<string name="yourOpponentOffersAnAdjournment">Váš soupeř nabízí odklad</string>
+	<string name="xOffersResumption" comment="%s - sente(black)/gote(white)">%s navrhuje pokračování</string>
+	<string name="xDeclinesResumption" comment="%s - sente(black)/gote(white)">%s odmítá pokračování</string>
+	<string name="yourOpponentProposesResumption">Váš soupeř navrhuje pokračování</string>
+	<string name="makeASealedMove">Proveďte tah, který se bude hrát po obnovení hry</string>
+	<string name="waitingForASealedMove">Čekání na soupeřovo zapečetěný tah</string>
 	<string name="accept">Přijmout</string>
 	<string name="decline">Odmítnout</string>
 	<string name="playingRightNow">Právě se hraje</string>
@@ -276,7 +276,7 @@
 	<string name="finishesX">končí za %s</string>
 	<string name="abortGame">Zrušit hru</string>
 	<string name="gameAborted">Hra byla zrušena</string>
-	<string name="rules" comment="As in what you can and can't do">Rules</string>
+	<string name="rules" comment="As in what you can and can't do">Pravidla</string>
 	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
 	<string name="minishogi">Minišógi</string>
 	<string name="chushogi">Čú šógi</string>
@@ -354,10 +354,10 @@
 		<item quantity="other">%s hraje</item>
 	</plurals>
 	<plurals name="nbAdjourned" comment="Paused games">
-		<item quantity="one">%s adjourned</item>
-		<item quantity="few">%s adjourned</item>
-		<item quantity="many">%s adjourned</item>
-		<item quantity="other">%s adjourned</item>
+		<item quantity="one">%s pozastavena</item>
+		<item quantity="few">%s pozastaveny</item>
+		<item quantity="many">%s pozastaveny</item>
+		<item quantity="other">%s pozastaveny</item>
 	</plurals>
 	<string name="exportGames">Exportovat partie</string>
 	<string name="export">Export</string>
@@ -381,7 +381,7 @@
 	<string name="tournament">Turnaj</string>
 	<string name="tournamentLeaderboard">Turnajový žebříček</string>
 	<string name="tournaments">Turnaje</string>
-	<string name="myTournaments">My tournaments</string>
+	<string name="myTournaments">Moje turnaje</string>
 	<string name="tournamentPoints">Turnajové body</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s turnajový bod</item>
@@ -455,9 +455,9 @@
 	<string name="continueFromHere">Pokračovat zde</string>
 	<string name="toStudy">Do studie</string>
 	<string name="importGame">Importuj hru</string>
-	<string name="importCategory" comment="Category name for games that were imported">Import</string>
+	<string name="importCategory" comment="Category name for games that were imported">Importovat</string>
 	<string name="importedGame">Hra byla importována.</string>
-	<string name="importedByX">Imported by %s</string>
+	<string name="importedByX">Importováno %s</string>
 	<string name="importGameKifCsaExplanation">Vložení partie ve formátu KIF nebo CSA vám umožní přehrání partii, získáte počítačovou analýzu, chat ke hře a URL ke sdílení hry.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s importovaná</item>
@@ -483,13 +483,13 @@
 	<string name="favoriteOpponents">Oblíbení soupeři</string>
 	<string name="follow">Sledovat</string>
 	<string name="following">Sledován</string>
-	<string name="followers">Followers</string>
+	<string name="followers">Sledující</string>
 	<string name="unfollow">Přestat sledovat</string>
 	<string name="block">Blokovat</string>
 	<string name="blocked">Blokován</string>
 	<string name="unblock">Odblokovat</string>
-	<string name="thanksForReport">Thanks for the report</string>
-	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
+	<string name="thanksForReport">Děkujeme za nahlášení</string>
+	<string name="reportedSomeoneBanned">Někdo, koho jste nahlásili, byl zablokován</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Vás sleduje</string>
@@ -510,8 +510,8 @@
 	<string name="memberSince">Členem od</string>
 	<string name="lastSeenActive">Poslední přihlášení %s</string>
 	<string name="challengeToPlay">Vyzvat k partii</string>
-	<string name="viewChallenge">View challenge</string>
-	<string name="noChallenges">No challenges</string>
+	<string name="viewChallenge">Zobrazit výzvu</string>
+	<string name="noChallenges">Žádné výzvy</string>
 	<string name="player">Hráč</string>
 	<string name="list">Seznam</string>
 	<string name="graph">Graf</string>
@@ -532,14 +532,14 @@
 	<string name="advancedSettings">Pokročilá nastavení</string>
 	<string name="safeTournamentName">Vyberte \"bezpečné\" jméno turnaje.</string>
 	<string name="inappropriateNameWarning">Cokoli i mírně nevhodného může způsobit uzavření vašeho účtu.</string>
-	<string name="emptyTournamentAnimalName">Leave empty to name the tournament after a random animal.</string>
+	<string name="emptyTournamentAnimalName">Ponechte prázdné pro pojmenování turnaje po náhodném zvířeti.</string>
 	<string name="showAdvancedSettings">Zobrazit pokročilá nastavení</string>
 	<string name="makePrivateTournament">Udělejte turnaj soukromý a omezte přístup heslem</string>
 	<string name="join">Přidat se</string>
-	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
-	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
+	<string name="askToJoin" comment="Tournament join request">Požádat o připojení</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">Čekání na schválení</string>
 	<string name="pause">Pozastavit</string>
-	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Zamítnuto</string>
 	<string name="withdraw">Odhlásit se</string>
 	<string name="points">Body</string>
 	<string name="wins">Výhry</string>
@@ -597,7 +597,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">Pozor, hra je o body i když je bez hodin!</string>
 	<string name="toTrackYourProgress">Pro sledování Vašeho pokroku:</string>
 	<string name="goodMove">Dobrý tah</string>
-	<string name="brilliantMove">Brilliant move</string>
+	<string name="brilliantMove">Skvělý tah</string>
 	<string name="bestMove">Nejlepší tah!</string>
 	<string name="success">Úspěch</string>
 	<string name="thankYou">Děkujeme!</string>
@@ -1153,13 +1153,13 @@
 	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
 	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
 	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
-	<string name="icon">Icon</string>
-	<string name="online">Online</string>
-	<string name="offline">Offline</string>
-	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
-	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
+	<string name="icon">Ikona</string>
+	<string name="online">Připojený</string>
+	<string name="offline">Odpojeno</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Pořadí</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">Pořadí vylepšeno!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
 	<string name="oneUrlPerLine">One URL per line.</string>
-	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Přeložit</string>
 </resources>
