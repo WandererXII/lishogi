@@ -113,7 +113,7 @@
 	<string name="recentGames">Недавние игры</string>
 	<string name="topGames">Лучшие игры</string>
 	<string name="noGameFound">Партий не найдено</string>
-	<string name="pageNotFound">Page not found</string>
+	<string name="pageNotFound">Страница не найдена</string>
 	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Возможно, стоит включить больше игр в настройках?</string>
 	<string name="openingExplorer">База дебютов</string>
