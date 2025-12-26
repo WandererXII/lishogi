@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="arena">Arena</string>
+  <string name="arena">Арена</string>
   <string name="arenaTournaments">Турниры «Арена»</string>
   <string name="isItRated">Что будет с рейтингом?</string>
   <string name="willBeNotified">О начале турнира известит всплывающее уведомление, так что вы не пропустите его, если будете играть на другой вкладке.</string>
@@ -18,7 +18,7 @@
 
 Дополнительное очко добавляется, только если оба игрока сделали хотя бы 7 ходов.</string>
   <string name="howIsTheWinnerDecided">Как определяется победитель?</string>
-  <string name="howIsTheWinnerDecidedAnswer">Игрок с наибольшим количеством очков в момент окончания времени турнира будет объявлен победителем.</string>
+  <string name="howIsTheWinnerDecidedAnswer">Игрок(и) с наибольшим количеством очков в момент окончания времени турнира будет(-ут) объявлен(ы) победителем(-ями).</string>
   <string name="howDoesPairingWork">Как проходит жеребьёвка?</string>
   <string name="howDoesPairingWorkAnswer">В начале турнира пары образуются согласно рейтингу. По окончании каждой партии игроки возвращаются на страницу турнира, и им предоставляется свободный соперник с близким количеством турнирных очков. Это обеспечивает маленькое время ожидания соперника, однако в результате вы можете встретиться с некоторыми участниками много раз или же не встретиться с кем-то ни разу.
 Играйте быстро и возвращайтесь на страницу турнира, чтобы сыграть больше игр и заработать больше очков.</string>
@@ -45,9 +45,9 @@
     <item quantity="many">Посмотреть все %s клубов</item>
     <item quantity="other">Посмотреть все %s клубов</item>
   </plurals>
-  <string name="howManyPlayersCanJoin">How many players can join?</string>
-  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
+  <string name="howManyPlayersCanJoin">Сколько игроков может присоединиться?</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">По умолчанию, к соревнованию этого формата может присоединиться %s игроков.</string>
+  <string name="howManyPlayersCanJoinAnswer">К этому соревнованию может присоединиться %s игроков.</string>
   <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
   <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defender</string>
 </resources>
