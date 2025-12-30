@@ -36,4 +36,6 @@
 	<string name="organizedScoringAnswer">The organizer decides how many points are awarded for a win, draw, or loss.</string>
 	<string name="howManyGames">How many games can be played?</string>
 	<string name="howManyGamesAnswer">The organizer can create at most %s games.</string>
+	<string name="annulResults">Annul results</string>
+	<string name="annulledGames">Annulled games</string>
 </resources>
