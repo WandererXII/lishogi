@@ -36,4 +36,6 @@
 	<string name="organizedScoringAnswer">O organizador decide cantos puntos se reciben por cada vitoria, táboas e derrota.</string>
 	<string name="howManyGames">Cantas partidas se poden xogar?</string>
 	<string name="howManyGamesAnswer">O organizador pode crear ata %s partidas.</string>
+	<string name="annulResults">Annul results</string>
+	<string name="annulledGames">Annulled games</string>
 </resources>
