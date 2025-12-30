@@ -36,6 +36,6 @@
 	<string name="organizedScoringAnswer">ポイントの配分（勝ち・引き分け・負け）は主催者が決定します。</string>
 	<string name="howManyGames">何試合まで対局できますか？</string>
 	<string name="howManyGamesAnswer">主催者は最大 %s 対局まで作成できます。</string>
-	<string name="annulResults">Annul results</string>
-	<string name="annulledGames">Annulled games</string>
+	<string name="annulResults">結果を無効にする</string>
+	<string name="annulledGames">無効化された対局</string>
 </resources>
