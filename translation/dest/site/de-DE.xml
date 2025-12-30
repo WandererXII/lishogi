@@ -3,6 +3,7 @@
 	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Spiele mit einem Freund</string>
 	<string name="playWithTheMachine">Spiele mit dem Computer</string>
+	<string name="playOtherPlayers">Play other players</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Versende diese URL, um jemanden zum Spiel einzuladen</string>
 	<string name="gameOver">Spiel vorbei</string>
 	<string name="waitingForOpponent">Auf den Gegner warten</string>
@@ -893,6 +894,7 @@
 	<string name="learnFromThisMistake">Lerne aus diesem Fehler</string>
 	<string name="skipThisMove">Überspringe diesen Zug</string>
 	<string name="next">Nächster</string>
+	<string name="prev">Previous</string>
 	<string name="xWasPlayed">%s wurde gespielt</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Finde einen besseren Zug für %s</string>
 	<string name="resumeLearning">Mit dem Lernen fortfahren</string>
@@ -1078,4 +1080,13 @@
 	<string name="leavingLobbyAlert">Wenn du diese Seite verlässt, werden deine Echtzeit-Spielanfragen entfernt.</string>
 	<string name="oneUrlPerLine">One URL per line.</string>
 	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
+	<string name="newPlayerIntro">Welcome to lishogi. If you\'re new here, this quick overview will help you get started and discover what the site offers.</string>
+	<string name="newPlayerRegisterCta">Create an account to unlock all features</string>
+	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
+	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
+	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
+	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
+	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
+	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
+	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
 </resources>
