@@ -3,6 +3,7 @@
 	<string name="shogi">Šógi</string>
 	<string name="playWithAFriend">Vyzvi kamaráda</string>
 	<string name="playWithTheMachine">Hrát proti počítači</string>
+	<string name="playOtherPlayers">Play other players</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Pozvi kamaráda k partii tímto odkazem</string>
 	<string name="gameOver">Konec hry</string>
 	<string name="waitingForOpponent">Čekání na soupeře</string>
@@ -967,6 +968,7 @@
 	<string name="learnFromThisMistake">Poučte se z této chyby</string>
 	<string name="skipThisMove">Přeskočit tento krok</string>
 	<string name="next">Další</string>
+	<string name="prev">Previous</string>
 	<string name="xWasPlayed">Bylo zahráno %s</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Najděte lepší tah pro %s</string>
 	<string name="resumeLearning">Pokračovat v učení</string>
@@ -1162,4 +1164,13 @@
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
 	<string name="oneUrlPerLine">One URL per line.</string>
 	<string name="translate" comment="Button text used to translate forum posts for example">Přeložit</string>
+	<string name="newPlayerIntro">Welcome to lishogi. If you\'re new here, this quick overview will help you get started and discover what the site offers.</string>
+	<string name="newPlayerRegisterCta">Create an account to unlock all features</string>
+	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
+	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
+	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
+	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
+	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
+	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
+	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
 </resources>
