@@ -3,7 +3,7 @@
 	<string name="shogi">将棋</string>
 	<string name="playWithAFriend">友達と対局する</string>
 	<string name="playWithTheMachine">AI と対局する</string>
-	<string name="playOtherPlayers">Play other players</string>
+	<string name="playOtherPlayers">他のプレイヤーと対局</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">対局に招待するとき、下記のリンク先を知らせてください</string>
 	<string name="gameOver">終局</string>
 	<string name="waitingForOpponent">相手を待っています</string>
@@ -858,7 +858,7 @@
 	<string name="learnFromThisMistake">この悪手に学ぶ</string>
 	<string name="skipThisMove">この手を飛ばす</string>
 	<string name="next">次</string>
-	<string name="prev">Previous</string>
+	<string name="prev">前</string>
 	<string name="xWasPlayed">指されたのは %s</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">%sのもっといい手を見つけてください</string>
 	<string name="resumeLearning">学習を続ける</string>
@@ -1039,13 +1039,13 @@
 	<string name="leavingLobbyAlert">このページを離れると、実時間対局のリクエストは削除されます。</string>
 	<string name="oneUrlPerLine">1行につき1つのURL</string>
 	<string name="translate" comment="Button text used to translate forum posts for example">翻訳</string>
-	<string name="newPlayerIntro">Welcome to lishogi. If you\'re new here, this quick overview will help you get started and discover what the site offers.</string>
-	<string name="newPlayerRegisterCta">Create an account to unlock all features</string>
-	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
-	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
-	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
-	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
-	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
-	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
-	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="newPlayerIntro">Lishogiへようこそ。初めての方は、この簡単な案内で使い始め方やサイトでできることが分かります。</string>
+	<string name="newPlayerRegisterCta">アカウントを作成してすべての機能を利用</string>
+	<string name="newPlayerPreferences">駒のデザイン、盤面、棋譜表記、効果音など、サイトの見た目や使い心地をカスタマイズできます。</string>
+	<string name="newPlayerLearn">各駒の動かし方や基本ルールを学び、ガイド付きレッスンで練習できます。</string>
+	<string name="newPlayerPlayPeople">他のプレイヤーとレート戦やカジュアル対局をしたり、友だちに挑戦できます。</string>
+	<string name="newPlayerPlayAi">コンピューター相手に練習し、自分のレベルに合った難易度を選べます。</string>
+	<string name="newPlayerTournaments">他のプレイヤーと将棋大会に参加したり、自分で大会を開催できます。</string>
+	<string name="newPlayerPuzzles">将棋の詰将棋や局面問題を解いて実力を伸ばしましょう。</string>
+	<string name="newPlayerStudies">コミュニティが作成した研究やレッスンを学べます。自分で作って共有することもできます。</string>
 </resources>
