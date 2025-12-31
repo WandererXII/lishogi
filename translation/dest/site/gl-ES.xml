@@ -1083,10 +1083,10 @@
 	<string name="newPlayerIntro">Benvido a Lishogi. Se entras por primeira vez, esta guía axudarache a comezar e a descubrir o que este sitio web ofrece.</string>
 	<string name="newPlayerRegisterCta">Crea unha conta para desbloquear todas as funcións</string>
 	<string name="newPlayerPreferences">Personaliza a fasquía do sitio: pezas, taboleiros, notación, sons e máis.</string>
-	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
-	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
-	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
-	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
+	<string name="newPlayerLearn">Aprende a mover as pezas, a entender as regras básicas e practica con leccións guiadas.</string>
+	<string name="newPlayerPlayPeople">Xoga partidas puntuadas ou amigables con outros usuarios ou desafía ás túas amizades.</string>
+	<string name="newPlayerPlayAi">Practica coa computadora e elixe a dificultade que se axusta ó teu nivel.</string>
+	<string name="newPlayerTournaments">Participa en torneos de shogi con outros usuarios ou organiza os teus propios torneos.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
 </resources>
