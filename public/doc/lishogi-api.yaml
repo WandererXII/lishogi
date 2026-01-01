@@ -210,7 +210,7 @@ paths:
         - Users
       security: []
       description: |
-        Get the top 10 players for each speed and variant.
+        Get the top 10 players for each variant.
 
         See <https://lishogi.org/player>.
       responses:
@@ -229,10 +229,10 @@ paths:
         - Users
       security: []
       description: |
-        Get the leaderboard for a single speed or variant (a.k.a. `perfType`).
+        Get the leaderboard for a single variant (a.k.a. `perfType`).
         There is no leaderboard for correspondence or puzzles.
 
-        See <https://lishogi.org/player/top/200/bullet>.
+        See <https://lishogi.org/player/top/200/realTime>.
       parameters:
         - in: path
           name: nb
@@ -245,16 +245,12 @@ paths:
           required: true
         - in: path
           name: perfType
-          description: The speed or variant
+          description: The variant
           schema:
             type: string
-            example: bullet
+            example: realTime
             enum:
-              - ultraBullet
-              - bullet
-              - blitz
-              - rapid
-              - classical
+              - realTime
               - minishogi
               - chushogi
               - annanshogi
@@ -827,7 +823,7 @@ paths:
           name: perfType
           description: "[Filter] Only games in these speeds or variants.\n
           \nMultiple perf types can be specified, separated by a comma.\n
-          \nExample: blitz,rapid,classical"
+          \nExample: correspondence,realTime"
           schema:
             allOf:
               - $ref: '#/components/schemas/PerfType'
@@ -976,8 +972,8 @@ paths:
                   "id": "A5fcMO3k",
                   "rated": true,
                   "variant": "standard",
-                  "speed": "bullet",
-                  "perf": "bullet",
+                  "speed": "realTime",
+                  "perf": "realTime",
                   "createdAt": 1525789431889,
                   "status": 20,
                   "clock": {
@@ -1088,7 +1084,7 @@ paths:
       operationId: tvChannels
       summary: Get current TV games
       description: |
-        Get basic info about the best games being played for each speed and variant,
+        Get basic info about the best games being played for each variant,
         but also computer games and bot games.
 
         See [lishogi.org/tv](https://lishogi.org/tv).
@@ -1097,7 +1093,7 @@ paths:
       security: []
       responses:
         "200":
-          description: The list of games being played for each speed and variant.
+          description: The list of games being played for each variant.
           headers:
             Access-Control-Allow-Origin:
               schema:
@@ -1114,30 +1110,6 @@ paths:
                       },
                       "rating": 1500,
                       "gameId": "n35AmydN"
-                  },
-                  "UltraBullet": {
-                      "user": {
-                          "name": "vnamese_shogi_player",
-                          "id": "vnamese_shogi_player"
-                      },
-                      "rating": 1502,
-                      "gameId": "e13EEMJH"
-                  },
-                  "Bullet": {
-                      "user": {
-                          "name": "Harururu",
-                          "id": "harururu"
-                      },
-                      "rating": 1175,
-                      "gameId": "SplWCERy"
-                  },
-                  "Classical": {
-                      "user": {
-                          "name": "it",
-                          "id": "it"
-                      },
-                      "rating": 1611,
-                      "gameId": "Qs6A7q6X"
                   },
                   "Computer": {
                       "user": {
@@ -1162,14 +1134,6 @@ paths:
                       },
                       "rating": 1500,
                       "gameId": "CUPfcBlg"
-                  },
-                  "Blitz": {
-                      "user": {
-                          "name": "nekomiya_tank",
-                          "id": "nekomiya_tank"
-                      },
-                      "rating": 1930,
-                      "gameId": "nOYWf3Tc"
                   },
                   "Minishogi": {
                       "user": {
@@ -3683,21 +3647,13 @@ components:
     Speed:
       type: string
       enum:
-        - ultraBullet
-        - bullet
-        - blitz
-        - rapid
-        - classical
+        - realTime 
         - correspondence
 
     PerfType:
       type: string
       enum:
-        - ultraBullet
-        - bullet
-        - blitz
-        - rapid
-        - classical
+        - realTime
         - correspondence
         - minishogi
         - chushogi
@@ -3874,7 +3830,7 @@ components:
           "name": "Correspondence"
         },
         "rated": true,
-        "speed": "blitz",
+        "speed": "realTime",
         "status": "created"
       }
 
@@ -3920,7 +3876,7 @@ components:
           "name": "Correspondence"
         },
         "rated": true,
-        "speed": "blitz",
+        "speed": "realTime",
         "status": "created"
       }
 
@@ -4052,8 +4008,8 @@ components:
         "id": "q7ZvsdUF",
         "rated": true,
         "variant": "standard",
-        "speed": "blitz",
-        "perf": "blitz",
+        "speed": "realTime",
+        "perf": "realTime",
         "createdAt": 1514505150384,
         "lastMoveAt": 1514505592843,
         "status": "outoftime",
@@ -4090,7 +4046,7 @@ components:
       example: |
         開始日時：2021/11/08 10:55:03
         終了日時：2021/11/08 11:14:37
-        棋戦：Rated Classical game
+        棋戦：Rated Shogi game
         場所：https://lishogi.org/oeUPnZRT
         持ち時間：10分+60秒
         手合割：平手
@@ -4185,7 +4141,7 @@ components:
       example: |
         開始日時：2021/11/08 10:55:03
         終了日時：2021/11/08 11:14:37
-        棋戦：Rated Classical game
+        棋戦：Rated Shogi game
         場所：https://lishogi.org/oeUPnZRT
         持ち時間：10分+60秒
         手合割：平手
@@ -4405,19 +4361,11 @@ components:
     Perfs:
       type: object
       properties:
-        ultraBullet:
-          $ref: '#/components/schemas/Perf'
-        blitz:
-          $ref: '#/components/schemas/Perf'
-        bullet:
-          $ref: '#/components/schemas/Perf'
         correspondence:
           $ref: '#/components/schemas/Perf'
         puzzle:
           $ref: '#/components/schemas/Perf'
-        classical:
-          $ref: '#/components/schemas/Perf'
-        rapid:
+        realTime:
           $ref: '#/components/schemas/Perf'
 
     PlayTime:
@@ -4686,7 +4634,7 @@ components:
       }
 
     RatingHistory:
-      example: [{"name": "Bullet","points":[[2011,0,8,1472],[2011,0,9,1332],[2011,8,12,1314]]},{"name": "Blitz","points":[[2011,7,29,1332]]}]
+      example: [{"name": "Correspondence","points":[[2011,0,8,1472],[2011,0,9,1332],[2011,8,12,1314]]},{"name": "Shogi","points":[[2011,7,29,1332]]}]
 
     PerfStat:
       example: {
@@ -4698,7 +4646,7 @@ components:
         "rank": 98121,
         "percentile": 69.7,
         "stat": {
-          "perfType": { "key": "bullet", "name": "Bullet" },
+          "perfType": { "key": "realTime", "name": "Shogi" },
           "highest": { "int": 1902, "at": "2021-05-31T08:58:53.701Z", "gameId": "YEDqtwig" },
           "lowest": { "int": 1417, "at": "2016-06-28T13:54:39.656Z", "gameId": "rNM4J1GJ" },
           "bestWins": {
@@ -4826,12 +4774,12 @@ components:
 
     Top10s:
       example: {
-        "bullet": [
+        "realTime": [
           {
             "id": "bahadirozen",
             "username": "BahadirOzen",
             "perfs": {
-              "bullet": {
+              "realTime": {
                 "rating": 3018,
                 "progress": 18
               }
@@ -4843,7 +4791,7 @@ components:
             "id": "penguingim1",
             "username": "penguingim1",
             "perfs": {
-              "bullet": {
+              "realTime": {
                 "rating": 2983,
                 "progress": -36
               }
@@ -4856,7 +4804,7 @@ components:
             "id": "night-king96",
             "username": "Night-King96",
             "perfs": {
-              "bullet": {
+              "realTime": {
                 "rating": 2958,
                 "progress": 35
               }
@@ -4864,10 +4812,6 @@ components:
             "title": "LM"
           },
         ],
-        "blitz": [],
-        "rapid": [],
-        "classical": [],
-        "ultraBullet": [],
         "minishogi": [],
         "chushogi": [],
         "annanshogi": [],
@@ -4882,7 +4826,7 @@ components:
             "id": "bahadirozen",
             "username": "BahadirOzen",
             "perfs": {
-              "bullet": {
+              "realTime": {
                 "rating": 3018,
                 "progress": 18
               }
@@ -4894,7 +4838,7 @@ components:
             "id": "penguingim1",
             "username": "penguingim1",
             "perfs": {
-              "bullet": {
+              "realTime": {
                 "rating": 2983,
                 "progress": -36
               }
@@ -4907,7 +4851,7 @@ components:
             "id": "night-king96",
             "username": "Night-King96",
             "perfs": {
-              "bullet": {
+              "realTime": {
                 "rating": 2958,
                 "progress": 35
               }
@@ -5041,13 +4985,13 @@ components:
         "nbPlayers": 154,
         "perf": {
           "icon": ")",
-          "key": "blitz",
-          "name": "Blitz",
+          "key": "realTime",
+          "name": "Shogi",
           "position": 1
         },
         "schedule": {
           "freq": "hourly",
-          "speed": "superblitz"
+          "speed": "realTime"
         },
         "variant": {
           "key": "standard",
@@ -5287,7 +5231,7 @@ components:
           properties:
             name:
               type: string
-              description: Translated perf name (e.g. "Classical" or "Blitz")
+              description: Translated perf name (e.g. "Corresponence" or "Shogi")
         rated:
           type: boolean
         createdAt:
@@ -5484,8 +5428,8 @@ components:
         {
           "id": "LuGQwhBb",
           "variant": { "key": "standard", "name": "Standard", "short": "Std" },
-          "speed": "blitz",
-          "perf": "blitz",
+          "speed": "realTime",
+          "perf": "realTime",
           "rated": true,
           "initialSfen": "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1",
           "sfen": "rnbqkb1r/1p1ppppp/p6n/2p4Q/8/1P2P3/P1PP1PPP/RNB1KBNR w KQkq - 0 4",
@@ -5599,10 +5543,10 @@ components:
             "show":"5+25"
           },
           "color":"random",
-          "speed":"rapid",
+          "speed":"realTime",
           "perf": {
             "icon":"#",
-            "name":"Rapid"
+            "name":"Shogi"
           }
         }
       }
@@ -5651,10 +5595,10 @@ components:
             "show":"5+25"
           },
           "color":"random",
-          "speed":"rapid",
+          "speed":"realTime",
           "perf": {
             "icon":"#",
-            "name":"Rapid"
+            "name":"Shogi"
           }
         }
       }
@@ -5725,9 +5669,9 @@ components:
           "byoyomi": 0,
           "periods": 1,
         },
-        "speed": "classical",
+        "speed": "realTime",
         "perf": {
-          "name": "Classical"
+          "name": "Shogi"
         },
         "createdAt": 1523825103562,
         "sente": {
