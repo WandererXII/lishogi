@@ -58,7 +58,7 @@ export function createIconSelector(
   el.appendChild(modal);
 
   window.lishogi.xhr
-    .text('GET', assetUrl(`icons/${categ}.txt`))
+    .text('GET', assetUrl(`icons/${categ}.txt`, { sameDomain: true }))
     .then(txt => txt.split('\n').filter(l => !!l))
     .then(list => {
       list.forEach(icon => {
@@ -93,5 +93,5 @@ export function createIconSelector(
 }
 
 export function svgSprite(categ: string, key: string): string {
-  return `<svg class="extra-icon"><use href="${assetUrl(`icons/${categ}.svg`)}#${key}"></use></svg>`;
+  return `<svg class="extra-icon"><use href="${assetUrl(`icons/${categ}.svg`, { sameDomain: true })}#${key}"></use></svg>`;
 }
