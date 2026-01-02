@@ -55,6 +55,20 @@ function toTwitterEmbedUrl(url: string | undefined): Parsed | undefined {
 
 const domain = window.location.host;
 
+// list of urls that get matched as game, because their length is 8
+const denyList = [
+  'training',
+  'features',
+  'timeline',
+  'insights',
+  'practice',
+  'streamer',
+  'analysis',
+].map(p => `${domain}/${p}`);
+function shouldSkipUrl(url: string) {
+  return denyList.some(p => url.includes(p));
+}
+
 function toStudyEmbedUrl(url: string | undefined): Parsed | undefined {
   const studyRegex = new RegExp(`${domain}/study/(?:embed/)?(\\w{8})/(\\w{8})(#\\d+)?\\b`, 'i');
   const m = url?.match(studyRegex);
@@ -67,7 +81,7 @@ function toGameEmbedUrl(url: string | undefined): Parsed | undefined {
     'i',
   );
   const m = url?.match(gameRegex);
-  if (!m) return;
+  if (!m || !url || shouldSkipUrl(url)) return;
 
   let src = `/embed/${m[1]}`;
   if (m[2]) src += `/${m[2]}`; // orientation
