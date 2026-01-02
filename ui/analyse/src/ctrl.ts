@@ -582,6 +582,13 @@ export default class AnalyseCtrl {
     }
   };
 
+  cancelLionMidMove(): void {
+    this.lionFirstMove = undefined;
+    this.shogiground.selectSquare(null);
+    this.shogiground.setSquareHighlights([]);
+    this.showGround();
+  }
+
   private preparePreMD(): void {
     this.shogiground.set({
       turnColor: this.shogiground.state.activeColor as Color,

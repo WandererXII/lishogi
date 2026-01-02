@@ -305,6 +305,13 @@ export default class RoundController {
     }
   };
 
+  cancelLionMidMove(): void {
+    this.lionFirstMove = undefined;
+    this.shogiground.selectSquare(null);
+    this.shogiground.setSquareHighlights([]);
+    this.jump(this.ply);
+  }
+
   private onMove = (_orig: Key, _dest: Key, _prom: boolean, captured?: Piece) => {
     if (status.prepaused(this.data)) return;
     li.sound.move(!!captured);

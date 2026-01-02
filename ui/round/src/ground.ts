@@ -52,6 +52,15 @@ export function makeConfig(ctrl: RoundController): Config {
     events: {
       move: hooks.onMove,
       drop: hooks.onDrop,
+      select: (key: Key) => {
+        if (
+          ctrl.lionFirstMove &&
+          ctrl.shogiground.state.movable.dests &&
+          !ctrl.shogiground.state.movable.dests.has(key)
+        ) {
+          ctrl.cancelLionMidMove();
+        }
+      },
       unselect: (key: Key) => {
         if (ctrl.lionFirstMove && ctrl.lionFirstMove.to === parseSquareName(key)) {
           const from = ctrl.lionFirstMove.from;

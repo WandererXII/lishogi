@@ -72,6 +72,15 @@ export function makeConfig(ctrl: AnalyseCtrl): SgConfig {
     events: {
       move: ctrl.userMove,
       drop: ctrl.userDrop,
+      select: (key: Key) => {
+        if (
+          ctrl.lionFirstMove &&
+          ctrl.shogiground.state.movable.dests &&
+          !ctrl.shogiground.state.movable.dests.has(key)
+        ) {
+          ctrl.cancelLionMidMove();
+        }
+      },
       unselect: (key: Key) => {
         if (ctrl.lionFirstMove && ctrl.lionFirstMove.to === parseSquareName(key)) {
           const from = ctrl.lionFirstMove.from;
