@@ -7,8 +7,6 @@
 @use 'pkg:common/theme';
 
 $c-font-clas: theme.$m-font-clear_clas_mix_30;
-$c-bg-clas: theme.$c-clas;
-$c-bg-clas-over: theme.$c-clas-over;
 $c-bg-clas-over-dim: theme.$m-white_clas_mix_80;
 
 %archived {
@@ -21,14 +19,23 @@ $c-bg-clas-over-dim: theme.$m-white_clas_mix_80;
 
 .subnav a {
   white-space: normal;
-  max-width: 22vw;
 
   @include breakpoint.breakpoint(media-queries.$mq-medium) {
     max-width: 15vw;
   }
 
+  &:hover {
+    color: $c-bg-clas-over-dim;
+  }
+
   &.active {
-    color: $c-font-clas;
+    background: theme.$c-clas;
+    color: theme.$c-clas-over;
+
+    @include breakpoint.breakpoint(media-queries.$mq-subnav-side) {
+      background: none;
+      color: theme.$c-clas;
+    }
   }
 
   &::after {
@@ -60,12 +67,12 @@ $c-bg-clas-over-dim: theme.$m-white_clas_mix_80;
 
 .clas-index {
   .box__top {
-    background: $c-bg-clas;
+    background: theme.$c-clas;
     flex-flow: row nowrap;
 
     &,
     a {
-      color: $c-bg-clas-over;
+      color: theme.$c-clas-over;
     }
 
     h1 {
@@ -139,13 +146,13 @@ $c-bg-clas-over-dim: theme.$m-white_clas_mix_80;
   @extend %box-neat-force;
 
   &__top {
-    background: $c-bg-clas;
+    background: theme.$c-clas;
 
     &,
     a,
     .button,
     .title {
-      color: $c-bg-clas-over;
+      color: theme.$c-clas-over;
     }
   }
 
@@ -434,14 +441,14 @@ $c-bg-clas-over-dim: theme.$m-white_clas_mix_80;
 
   &__top {
     padding: calc(5vh - 1rem) var(--box-padding);
-    background: $c-bg-clas;
+    background: theme.$c-clas;
     margin-bottom: 3em;
 
     &,
     a,
     .button,
     .title {
-      color: $c-bg-clas-over;
+      color: theme.$c-clas-over;
     }
 
     a:not(.button) {
@@ -590,8 +597,8 @@ $c-bg-clas-over-dim: theme.$m-white_clas_mix_80;
 }
 
 .clas-home {
-  background: $c-bg-clas;
-  color: $c-bg-clas-over;
+  background: theme.$c-clas;
+  color: theme.$c-clas-over;
 
   &__doc {
     margin-bottom: 4em;

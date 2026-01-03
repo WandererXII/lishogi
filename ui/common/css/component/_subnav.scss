@@ -15,7 +15,6 @@
     grid-template-columns: repeat(auto-fit, minmax(21ch, 1fr));
     grid-gap: 3px;
     margin-bottom: 3px;
-    background: theme.$c-bg-page;
 
     a {
       @include mixins.box-neat;
