@@ -38,17 +38,21 @@ object Fragment {
     def getUrl(linkResolver: DocumentLinkResolver): String
   }
 
-  case class WebLink(url: String, contentType: Option[String] = None) extends Link {
+  case class WebLink(url: String, target: Option[String]) extends Link {
     override def getUrl(linkResolver: DocumentLinkResolver) = url
-    def asHtml: String                                      = s"""<a href="$url">$url</a>"""
+    def targetHtml = target.map { t => s""" target="$t" rel="noopener"""" }.getOrElse("")
+    def asHtml: String = {
+      s"""<a href="$url"$targetHtml>$url</a>"""
+    }
   }
 
   object WebLink {
 
     implicit val reader: Reads[WebLink] = {
-      (__ \ "url").read[String].map { case url =>
-        WebLink(url)
-      }
+      ((__ \ "url").read[String] and
+        (__ \ "target").readNullable[String])(
+        WebLink.apply _,
+      )
     }
 
   }
@@ -436,8 +440,10 @@ object Fragment {
             case _: Span.Strong => s"<strong>$content</strong>"
             case Span.Hyperlink(_, _, link: DocumentLink) =>
               s"""<a href="${linkResolver(link)}">$content</a>"""
-            case Span.Hyperlink(_, _, link: MediaLink) => s"""<a href="${link.url}">$content</a>"""
-            case Span.Hyperlink(_, _, link: WebLink)   => s"""<a href="${link.url}">$content</a>"""
+            case Span.Hyperlink(_, _, link: MediaLink) =>
+              s"""<a href="${link.url}">$content</a>"""
+            case Span.Hyperlink(_, _, link: WebLink) =>
+              s"""<a href="${link.url}"${link.targetHtml}>$content</a>"""
             case Span.Label(_, _, label) => s"""<span class="$label">$content</span>"""
             case _                       => s"<span>$content</span>"
           }
