@@ -78,10 +78,7 @@ function findPlayer(ctrl: AnalyseCtrl, color: Color): UsernameData {
         username: engineNameFromCode(player.aiCode),
         engineLvl: player.ai,
       };
-    else if (player.name || !ctrl.synthetic)
-      return {
-        username: player.name,
-      };
+    else if (player.name || !ctrl.synthetic) return usernameDataFromName(player.name);
     else
       return {
         username: '?',
