@@ -90,10 +90,10 @@ final private class Cleaner(
   system.scheduler.scheduleWithFixedDelay(10 seconds, 5 seconds) { () =>
     cleanMoves.unit
   }
-  system.scheduler.scheduleWithFixedDelay(16 seconds, 15 seconds) { () =>
+  system.scheduler.scheduleWithFixedDelay(16 seconds, 30 seconds) { () =>
     cleanAnalysis.unit
   }
-  system.scheduler.scheduleWithFixedDelay(21 seconds, 50 seconds) { () =>
+  system.scheduler.scheduleWithFixedDelay(21 seconds, 80 seconds) { () =>
     cleanPuzzle.unit
   }
 }
