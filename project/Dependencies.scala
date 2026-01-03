@@ -76,14 +76,4 @@ object Dependencies {
     val prometheus = "io.kamon" %% "kamon-prometheus"     % version
   }
 
-  object flexmark {
-    val version = "0.64.8"
-
-    val bundle =
-      ("com.vladsch.flexmark" % "flexmark" % version) ::
-        List("ext-tables", "ext-autolink", "ext-gfm-strikethrough").map { ext =>
-          "com.vladsch.flexmark" % s"flexmark-$ext" % version
-        }
-  }
-
 }

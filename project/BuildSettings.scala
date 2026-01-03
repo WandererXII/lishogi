@@ -47,10 +47,8 @@ object BuildSettings {
 
   def extraLibs(name: String) =
     name match {
-      case "api" => Seq(hasher, galimatias)
-      case "common" => {
-        Seq(play.jodaForms, scalatags, kamon.core) ++ flexmark.bundle
-      }
+      case "api"      => Seq(hasher, galimatias)
+      case "common"   => Seq(play.jodaForms, scalatags, kamon.core)
       case "db"       => Seq(hasher, scrimage)
       case "i18n"     => Seq(scalatags)
       case "memo"     => Seq(akka.testkit)
