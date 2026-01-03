@@ -19,9 +19,6 @@ object bits {
       miniPlayer(pov.player),
     )
 
-  def featuredJs(pov: Pov): Frag =
-    miniWrap(pov, gameSfenNoCtx(pov, tv = true))(lila.i18n.defaultLang)
-
   def mini(pov: Pov)(implicit ctx: Context): Frag =
     a(href := gameLink(pov, ctx.me))(
       miniWrap(pov, gameSfen(pov, ctx.me, withLink = false)),

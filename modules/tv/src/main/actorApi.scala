@@ -3,4 +3,4 @@ package actorApi
 
 import lila.game.Game
 
-case class RenderFeaturedJs(game: Game) extends AnyVal
+case class RenderFeaturedTv(game: Game) extends AnyVal
