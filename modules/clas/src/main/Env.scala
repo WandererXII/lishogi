@@ -31,8 +31,6 @@ final class Env(
 
   lazy val progressApi = wire[ClasProgressApi]
 
-  lazy val markup = wire[ClasMarkup]
-
   lila.common.Bus.subscribeFuns(
     "finishGame" -> { case lila.game.actorApi.FinishGame(game, _, _) =>
       progressApi.onFinishGame(game).unit

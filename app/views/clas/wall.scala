@@ -8,12 +8,13 @@ import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
 import lila.clas.Clas
 import lila.clas.Student
+import lila.common.String.html.richText
 
 object wall {
 
   def show(
       c: Clas,
-      html: Frag,
+      wall: String,
       students: List[Student.WithUser],
   )(implicit ctx: Context) =
     teacherDashboard.layout(c, students.filter(_.student.isActive), "wall")(
@@ -36,7 +37,9 @@ object wall {
       if (c.wall.isEmpty)
         div(cls := "box__pad clas-wall clas-wall--empty")(trans.clas.nothingHere())
       else
-        div(cls := "box__pad clas-wall")(html),
+        div(cls := "box__pad clas-wall")(
+          richText(wall),
+        ),
     )
 
   def edit(
@@ -48,21 +51,7 @@ object wall {
       div(cls := "box-pad clas-wall__edit")(
         p(
           strong(trans.clas.newsEdit1()),
-          ul(
-            li(trans.clas.newsEdit2()),
-            li(trans.clas.newsEdit3()),
-            li(
-              trans.clas.markdownAvailable(
-                a(
-                  href   := "https://guides.github.com/features/mastering-markdown/",
-                  target := "_blank",
-                  rel    := "noopener",
-                )(
-                  "Markdown",
-                ),
-              ),
-            ),
-          ),
+          trans.clas.newsEdit2(),
         ),
         postForm(cls := "form3", action := routes.Clas.wallUpdate(c.id.value))(
           form3.globalError(form),

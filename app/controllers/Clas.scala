@@ -76,8 +76,7 @@ final class Clas(
         forStudent = (clas, students) =>
           env.clas.api.clas.teachers(clas) map { teachers =>
             preloadStudentUsers(students)
-            val wall = scalatags.Text.all.raw(env.clas.markup(clas.wall))
-            Ok(views.html.clas.studentDashboard(clas, wall, teachers, students))
+            Ok(views.html.clas.studentDashboard(clas, clas.wall, teachers, students))
           },
       )
     }
@@ -103,8 +102,7 @@ final class Clas(
       WithClassAny(id, me)(
         forTeacher = WithClass(me, id) { clas =>
           env.clas.api.student.allWithUsers(clas) map { students =>
-            val wall = scalatags.Text.all.raw(env.clas.markup(clas.wall))
-            views.html.clas.wall.show(clas, wall, students)
+            views.html.clas.wall.show(clas, clas.wall, students)
           }
         },
         forStudent = (clas, _) => Redirect(routes.Clas.show(clas.id.value)).fuccess,
