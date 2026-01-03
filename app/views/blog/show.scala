@@ -47,7 +47,6 @@ object show {
               .getHtml(s"${post.coll}.body", prismic.linkResolver)
               .map(lila.blog.Youtube.fixStartTimes)
               .map(lila.blog.BlogTransform.removeProtocol)
-              .map(lila.blog.BlogTransform.markdown.apply)
               .map(raw),
           ),
           post.doc.uid.ifTrue(ctx.noKid) map { uid =>
