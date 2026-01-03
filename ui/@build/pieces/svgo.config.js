@@ -10,7 +10,12 @@ export default {
     'removeEditorsNSData',
     'cleanupAttrs',
     'mergeStyles',
-    'inlineStyles',
+    {
+      name: 'inlineStyles',
+      params: {
+        onlyMatchedOnce: false,
+      },
+    },
     'minifyStyles',
     'cleanupIds',
     'removeUselessDefs',
@@ -58,8 +63,8 @@ export default {
         attrs: ['font-weight', 'font-size', 'font-family', 'letter-spacing', 'word-spacing'],
       },
     },
-    'prefixIds',
     'removeScripts',
     'removeTitle',
+    'prefixIds',
   ],
 };
