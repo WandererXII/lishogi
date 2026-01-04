@@ -25,7 +25,6 @@
   .entries {
     @extend %flex-column;
 
-    margin-top: 0;
     padding-top: 10px;
     position: relative;
     border-left: 3px solid theme.$c-brag;
