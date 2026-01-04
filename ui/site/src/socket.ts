@@ -67,12 +67,6 @@ export class StrongSocket implements IStrongSocket {
   connect = (): void => {
     this.destroy();
 
-    if (!isOnline()) {
-      updateNetworkStatusElement('offline');
-      this.scheduleConnect(4000);
-      return;
-    }
-
     const fullUrl = urlWithParams(`${this.options.protocol}//${this.baseUrl()}${this.url}`, {
       ...this.settings.params,
       v: this.version === false ? undefined : this.version.toString(),
