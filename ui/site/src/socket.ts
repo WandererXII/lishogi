@@ -295,7 +295,7 @@ export class StrongSocket implements IStrongSocket {
       () => {
         this.options.idle = false;
         if (this.ws) clearTimeout(disconnectTimeout);
-        else location.reload();
+        else if (this.options.reloadOnResume) location.reload();
       },
     );
   };

@@ -10,6 +10,7 @@ export function boot(
   let ctrl: TournamentController | undefined;
 
   opts.socketSend = wsConnect(`/tournament/${opts.data.id}/socket/v4`, opts.data.socketVersion!, {
+    options: { reloadOnResume: true },
     receive: (t: string, d: any) => ctrl?.socket.receive(t, d),
   }).send;
   ctrl = start(opts);

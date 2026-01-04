@@ -38,6 +38,7 @@ export function study(opts: AnalyseOpts, start: (opts: AnalyseOpts) => AnalyseCt
 
   opts.initialPly = 'url';
   opts.socketSend = wsConnect(`/study/${opts.study.id}/socket/v5`, opts.socketVersion, {
+    options: { reloadOnResume: true },
     receive: (t: string, d: any) => {
       ctrl?.socket.receive(t, d);
     },
@@ -71,6 +72,7 @@ export function practice(
 ): AnalyseCtrl {
   let ctrl: AnalyseCtrl | undefined;
   opts.socketSend = wsConnect('/analysis/socket/v4', false, {
+    options: { reloadOnResume: true },
     receive: (t: string, d: any) => {
       ctrl?.socket.receive(t, d);
     },

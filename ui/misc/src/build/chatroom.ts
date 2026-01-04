@@ -2,7 +2,9 @@ import { makeChat } from 'chat';
 import { wsConnect, wsOnOpen, wsSend } from 'common/ws';
 
 function main(data: any) {
-  wsConnect('/chatroom/socket', data.socketVersion);
+  wsConnect('/chatroom/socket', data.socketVersion, {
+    options: { reloadOnResume: true },
+  });
   data.chat.withColorTags = true;
   data.chat && makeChat(data.chat);
 

@@ -18,6 +18,7 @@ export default function boot(
   };
 
   opts.socketSend = wsConnect('/lobby/socket/v4', false, {
+    options: { reloadOnResume: true },
     receive: (t: string, d: any) => {
       ctrl?.socket.receive(t, d);
     },

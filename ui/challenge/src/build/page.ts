@@ -5,6 +5,7 @@ function main(opts: any): void {
   const selector = '.challenge-page';
 
   wsConnect(`/challenge/${opts.data.challenge.id}/socket/v5`, opts.data.socketVersion, {
+    options: { reloadOnResume: true },
     events: {
       reload: () => {
         if (!accepting)

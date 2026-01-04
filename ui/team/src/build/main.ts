@@ -3,7 +3,9 @@ import { wsConnect } from 'common/ws';
 import type { TeamData } from '../interface';
 
 function main(data: TeamData) {
-  wsConnect(`/team/${data.id}`, data.socketVersion);
+  wsConnect(`/team/${data.id}`, data.socketVersion, {
+    options: { reloadOnResume: true },
+  });
   data.chat && makeChat(data.chat);
   $('#team-subscribe').on('change', function (this: HTMLInputElement) {
     $(this)

@@ -25,6 +25,7 @@ declare global {
       protocol: string;
       isAuth: boolean;
       debug?: boolean;
+      reloadOnResume?: boolean;
     }
 
     interface Params extends Record<string, any> {

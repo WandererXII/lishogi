@@ -56,6 +56,7 @@ export function boot(
   }
 
   opts.socketSend = wsConnect(socketUrl, opts.socketVersion, {
+    options: { reloadOnResume: true },
     params: { userTv: data.userTv?.id },
     receive(t: string, d: any) {
       ctrl?.socket.receive(t, d);
