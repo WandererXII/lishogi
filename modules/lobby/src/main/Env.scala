@@ -31,7 +31,7 @@ final class Env(
   private lazy val seekApiConfig = new SeekApi.Config(
     coll = db(CollName("seek")),
     archiveColl = db(CollName("seek_archive")),
-    maxPerPage = MaxPerPage(13),
+    maxPerPage = MaxPerPage(10),
     maxPerUser = Max(5),
     maxHard = Max(255),
   )
