@@ -1,5 +1,6 @@
 package lila.activity
 
+import lila.common.Day
 import lila.db.dsl._
 import lila.db.ignoreDuplicateKey
 import lila.game.Game
@@ -11,7 +12,6 @@ final class ActivityWriteApi(
     studyApi: lila.study.StudyApi,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  import Activity._
   import BSONHandlers._
   import activities._
   import model._
@@ -19,101 +19,86 @@ final class ActivityWriteApi(
   def game(game: Game): Funit =
     game.userIds
       .flatMap { userId =>
-        for {
-          player <- game playerByUserId userId
-        } yield for {
-          a <- getOrCreate(userId)
-          setGames = !game.isCorrespondence ?? $doc(
-            ActivityFields.games -> a.games.orDefault
-              .add(game.perfType, Score.make(game wonBy player.color, RatingProg make player)),
-          )
-          setCorres = game.hasCorrespondenceClock ?? $doc(
-            ActivityFields.corres -> a.corres.orDefault.add(GameId(game.id), false, true),
-          )
-          setters = setGames ++ setCorres
-          _ <-
-            (!setters.isEmpty) ?? coll.update
-              .one($id(a.id), $set(setters), upsert = true)
-              .void
-              .recover(ignoreDuplicateKey)
-        } yield ()
+        game.playerByUserId(userId) map { player =>
+          updateToday(userId) { a =>
+            if (!game.isCorrespondence)
+              a.copy(
+                games = a.games.orDefault
+                  .add(game.perfType, Score.make(game wonBy player.color, RatingProg make player))
+                  .some,
+              )
+            else
+              a.copy(
+                corres = a.corres.orDefault.add(GameId(game.id), false, true).some,
+              )
+          }
+        }
       }
       .sequenceFu
       .void
 
   def forumPost(post: lila.forum.Post): Funit =
     post.userId.filter(User.lishogiId !=) ?? { userId =>
-      getOrCreate(userId) flatMap { a =>
-        coll.update
-          .one(
-            $id(a.id),
-            $set(ActivityFields.posts -> (~a.posts + PostId(post.id))),
-            upsert = true,
-          )
-          .void
-          .recover(ignoreDuplicateKey)
+      updateToday(userId) { a =>
+        a.copy(
+          posts = (~a.posts + PostId(post.id)).some,
+        )
       }
     }
 
   def puzzle(res: lila.puzzle.Puzzle.UserResult): Funit =
-    getOrCreate(res.userId) flatMap { a =>
-      coll.update
-        .one(
-          $id(a.id),
-          $set(ActivityFields.puzzles -> {
-            ~a.puzzles + Score.make(
-              res = res.result.win.some,
-              rp = RatingProg(Rating(res.rating._1), Rating(res.rating._2)).some,
-            )
-          }),
-          upsert = true,
-        )
-        .void
-        .recover(ignoreDuplicateKey)
+    updateToday(res.userId) { a =>
+      a.copy(
+        puzzles = (~a.puzzles + Score.make(
+          res = res.result.win.some,
+          rp = RatingProg(Rating(res.rating._1), Rating(res.rating._2)).some,
+        )).some,
+      )
     }
 
   def storm(userId: User.ID, score: Int): Funit =
-    getOrCreate(userId) flatMap { a =>
-      coll.update
-        .one(
-          $id(a.id),
-          $set(ActivityFields.storm -> { ~a.storm + score }),
-          upsert = true,
-        )
-        .void
+    updateToday(userId) { a =>
+      a.copy(
+        storm = (~a.storm + score).some,
+      )
     }
 
   def practice(prog: lila.practice.PracticeProgress.OnComplete) =
-    update(prog.userId) { a =>
-      a.copy(practice = Some(~a.practice + prog.studyId)).some
+    updateToday(prog.userId) { a =>
+      a.copy(practice = (~a.practice + prog.studyId).some)
     }
 
   def simul(simul: lila.simul.Simul) =
     simulParticipant(simul, simul.hostId) >>
       simul.pairings.map(_.player.user).map { simulParticipant(simul, _) }.sequenceFu.void
 
+  private def simulParticipant(simul: lila.simul.Simul, userId: String) =
+    updateToday(userId) { a =>
+      a.copy(simuls = (~a.simuls + SimulId(simul.id)).some)
+    }
+
   def corresMove(gameId: Game.ID, userId: User.ID) =
-    update(userId) { a =>
-      a.copy(corres = Some((~a.corres).add(GameId(gameId), true, false))).some
+    updateToday(userId) { a =>
+      a.copy(corres = ((~a.corres).add(GameId(gameId), true, false)).some)
     }
 
   def plan(userId: User.ID, months: Int) =
-    update(userId) { a =>
-      a.copy(patron = Some(Patron(months))).some
+    updateToday(userId) { a =>
+      a.copy(patron = (Patron(months)).some)
     }
 
   def follow(from: User.ID, to: User.ID) =
-    update(from) { a =>
-      a.copy(follows = Some(~a.follows addOut to)).some
+    updateToday(from) { a =>
+      a.copy(follows = (~a.follows addOut to).some)
     } >>
-      update(to) { a =>
-        a.copy(follows = Some(~a.follows addIn from)).some
+      updateToday(to) { a =>
+        a.copy(follows = (~a.follows addIn from).some)
       }
 
   def unfollowAll(from: User, following: Set[User.ID]) =
     coll.secondaryPreferred.distinctEasy[User.ID, Set](
       "f.o.ids",
-      regexId(from.id),
+      byUser(from.id),
     ) flatMap { extra =>
       val all = following ++ extra
       all.nonEmpty.?? {
@@ -121,7 +106,7 @@ final class ActivityWriteApi(
         all
           .map { userId =>
             coll.update.one(
-              regexId(userId) ++ $doc("f.i.ids" -> from.id),
+              byUser(userId) ++ $doc("f.i.ids" -> from.id),
               $pull("f.i.ids" -> from.id),
             )
           }
@@ -133,33 +118,29 @@ final class ActivityWriteApi(
   def study(id: Study.Id) =
     studyApi byId id flatMap {
       _.filter(_.isPublic) ?? { s =>
-        update(s.ownerId) { a =>
-          a.copy(studies = Some(~a.studies + s.id)).some
+        updateToday(s.ownerId) { a =>
+          a.copy(studies = (~a.studies + s.id).some)
         }
       }
     }
 
   def team(id: String, userId: User.ID) =
-    update(userId) { a =>
-      a.copy(teams = Some(~a.teams + id)).some
+    updateToday(userId) { a =>
+      a.copy(teams = (~a.teams + id).some)
     }
 
   def streamStart(userId: User.ID) =
-    update(userId) { _.copy(stream = true).some }
+    updateToday(userId) { _.copy(stream = true) }
 
-  def erase(user: User) = coll.delete.one(regexId(user.id))
+  def erase(user: User) = coll.delete.one(byUser(user.id))
 
-  private def simulParticipant(simul: lila.simul.Simul, userId: String) =
-    update(userId) { a =>
-      a.copy(simuls = Some(~a.simuls + SimulId(simul.id))).some
-    }
-
-  private def get(userId: User.ID)         = coll.byId[Activity, Id](Id today userId)
-  private def getOrCreate(userId: User.ID) = get(userId) map { _ | Activity.make(userId) }
-  private def save(activity: Activity) =
-    coll.update.one($id(activity.id), activity, upsert = true).void.recover(ignoreDuplicateKey)
-  private def update(userId: User.ID)(f: Activity => Option[Activity]): Funit =
-    getOrCreate(userId) flatMap { old =>
-      f(old) ?? save
+  private def getToday(userId: User.ID): Fu[Option[Activity]] =
+    coll.one[Activity](byUser(userId) ++ $doc(ActivityFields.day -> Day.today.value))
+  private def getOrCreateToday(userId: User.ID): Fu[Activity] =
+    getToday(userId) map { _ | Activity.make(userId) }
+  private def updateToday(userId: User.ID)(f: Activity => Activity): Funit =
+    getOrCreateToday(userId) flatMap { old =>
+      val updated = f(old)
+      coll.update.one($id(updated.id), updated, upsert = true).void.recover(ignoreDuplicateKey)
     }
 }

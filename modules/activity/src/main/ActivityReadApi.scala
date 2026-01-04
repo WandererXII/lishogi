@@ -31,8 +31,8 @@ final class ActivityReadApi(
     for {
       activities <-
         coll
-          .find(regexId(u.id))
-          .sort($sort desc "_id")
+          .find(byUser(u.id))
+          .sort($sort desc ActivityFields.day)
           .cursor[Activity](ReadPreference.secondaryPreferred)
           .vector(recentNb)
           .dmap(_.filterNot(_.isEmpty))
@@ -67,12 +67,12 @@ final class ActivityReadApi(
           .toMap
       } filter (_.nonEmpty)
       corresMoves <- a.corres ?? { corres =>
-        getLightPovs(a.id.userId, corres.movesIn) dmap {
+        getLightPovs(a.userId, corres.movesIn) dmap {
           _.map(corres.moves -> _)
         }
       }
       corresEnds <- a.corres ?? { corres =>
-        getLightPovs(a.id.userId, corres.end) dmap {
+        getLightPovs(a.userId, corres.end) dmap {
           _.map { povs =>
             Score.make(povs) -> povs
           }
@@ -93,7 +93,7 @@ final class ActivityReadApi(
       tours <- a.games.exists(_.hasNonCorres) ?? {
         val dateRange = a.date -> a.date.plusDays(1)
         tourLeaderApi
-          .timeRange(a.id.userId, dateRange)
+          .timeRange(a.userId, dateRange)
           .dmap { entries =>
             entries.nonEmpty option ActivityView.Tours(
               nb = entries.size,

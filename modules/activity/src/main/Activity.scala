@@ -7,7 +7,9 @@ import lila.common.Day
 import lila.user.User
 
 case class Activity(
-    id: Activity.Id,
+    id: Activity.ID,
+    userId: User.ID,
+    day: Day,
     games: Option[Games] = None,
     posts: Option[Posts] = None,
     puzzles: Option[Puzzles] = None,
@@ -22,7 +24,7 @@ case class Activity(
     stream: Boolean = false,
 ) {
 
-  def date = id.day.toDate
+  def date = day.toDate
 
   def interval = new Interval(date, date plusDays 1)
 
@@ -45,10 +47,14 @@ case class Activity(
 
 object Activity {
 
-  case class Id(userId: User.ID, day: Day)
-  object Id {
-    def today(userId: User.ID) = Id(userId, Day.today)
-  }
+  type ID = String
 
-  def make(userId: User.ID) = Activity(Id today userId)
+  val expireAfterDays = 15
+
+  def make(userId: User.ID) =
+    Activity(
+      id = lila.common.ThreadLocalRandom nextString 8,
+      userId = userId,
+      day = Day.today,
+    )
 }

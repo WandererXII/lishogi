@@ -23,13 +23,18 @@
   }
 
   .entries {
+    @extend %flex-column;
+
     margin-top: 0;
     padding-top: 10px;
     position: relative;
+    border-left: 3px solid theme.$c-brag;
+    margin: 10px 20px 0 20px;
   }
 
   .entry {
     padding: 1em 0 1em;
+    padding-left: 45px;
 
     > i {
       font-size: 24px;
@@ -50,11 +55,6 @@
   @include breakpoint.breakpoint(media-queries.$mq-xx-small) {
     .entries {
       margin: 30px 50px 0 50px;
-      border-left: 3px solid theme.$c-brag;
-    }
-
-    .entry {
-      padding-left: 45px;
     }
   }
 
