@@ -359,8 +359,6 @@ case class Game(
   // Classical and beyond
   def isVerySlow = estimateClockTotalTime.exists(ets => ets >= 1500)
 
-  def isCorrespondence = perfType == PerfType.Correspondence
-
   def perfKey = perfType.key
   def perfType =
     if (imported && variant.standard && !hasClock && !hasCorrespondenceClock) PerfType.RealTime
@@ -561,6 +559,8 @@ case class Game(
   def hasClock = clock.isDefined
 
   def hasCorrespondenceClock = daysPerTurn.isDefined
+
+  def isCorrespondence = !hasClock
 
   def isUnlimited = !hasClock && !hasCorrespondenceClock
 
