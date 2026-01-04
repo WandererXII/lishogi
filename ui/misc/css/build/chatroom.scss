@@ -13,7 +13,7 @@ main.chat-room {
   .chat__members {
     @extend %box-neat-top;
 
-    display: flex;
+    display: flex !important;
     align-items: center;
     height: 3rem;
     padding: 0 0.5rem;
