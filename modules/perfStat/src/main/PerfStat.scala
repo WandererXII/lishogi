@@ -62,10 +62,12 @@ object PerfStat {
 
 case class ResultStreak(win: Streaks, loss: Streaks) {
   def agg(pov: Pov) =
-    copy(
-      win = win(~pov.win, pov)(1),
-      loss = loss(~pov.loss, pov)(1),
-    )
+    if (pov.game.hasAi) this
+    else
+      copy(
+        win = win(~pov.win, pov)(1),
+        loss = loss(~pov.loss, pov)(1),
+      )
 }
 
 case class PlayStreak(nb: Streaks, time: Streaks, lastDate: Option[DateTime]) {
