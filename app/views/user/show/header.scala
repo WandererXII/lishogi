@@ -260,22 +260,60 @@ object header {
               trans.thisAccountViolatedTos(),
             ),
           ),
-          (ctx.noKid && (!u.marks.troll || ctx.is(u))) option frag(
-            div(cls := "ps-personal")(
-              strong(cls := "name text", dataIcon := Icons.person)(
-                raw(profile.nonEmptyRealName(u.realLang).getOrElse(u.username)),
+          if (ctx.noKid && (!u.marks.troll || ctx.is(u)))
+            frag(
+              div(cls := "ps-personal")(
+                strong(cls := "name text", dataIcon := Icons.person)(
+                  raw(profile.nonEmptyRealName(u.realLang).getOrElse(u.username)),
+                ),
+                profile.nonEmptyLocation.ifTrue(ctx.noKid) map { l =>
+                  span(cls := "location text", dataIcon := Icons.pin)(
+                    l,
+                  )
+                },
+                profile.countryInfo.map { c =>
+                  span(cls := "country")(
+                    flagImage(c.code),
+                  )
+                },
               ),
-              profile.nonEmptyLocation.ifTrue(ctx.noKid) map { l =>
-                span(cls := "location text", dataIcon := Icons.pin)(
-                  l,
-                )
-              },
-              profile.countryInfo.map { c =>
-                span(cls := "country")(
-                  flagImage(c.code),
-                )
-              },
-            ),
+              div(cls := "profile-times")(
+                p(cls := "thin text")(
+                  trans.memberSince(),
+                  " ",
+                  timeTag(showDate(u.createdAt)),
+                ),
+                u.seenAt.map { seen =>
+                  p(cls := "thin text")(
+                    trans.lastSeenActive(momentFromNow(seen)),
+                  )
+                },
+              ),
+              p(cls := "bio")(
+                profile.nonEmptyBio.ifFalse(u.lameOrTroll || u.disabled) map { bio =>
+                  richText(bio, nl2br = true)
+                },
+              ),
+              profile.actualLinks.nonEmpty option div(cls := "social_links")(
+                div(cls := "title text")(trans.socialMediaLinks()),
+                profile.actualLinks.map { link =>
+                  a(
+                    href   := link.url,
+                    target := "_blank",
+                    rel    := "nofollow noopener noreferrer",
+                  )(
+                    link.site.name,
+                  )
+                },
+              ),
+              info.teamIds.nonEmpty option div(cls := "teams")(
+                div(cls := "title text")(trans.team.teams()),
+                info.teamIds.sorted.map { t =>
+                  teamLink(t, withIcon = false)
+                },
+              ),
+            )
+          else
             div(cls := "profile-times")(
               p(cls := "thin text")(
                 trans.memberSince(),
@@ -288,30 +326,6 @@ object header {
                 )
               },
             ),
-            p(cls := "bio")(
-              profile.nonEmptyBio.ifFalse(u.lameOrTroll || u.disabled) map { bio =>
-                richText(bio, nl2br = true)
-              },
-            ),
-            profile.actualLinks.nonEmpty option div(cls := "social_links")(
-              div(cls := "title text")(trans.socialMediaLinks()),
-              profile.actualLinks.map { link =>
-                a(
-                  href   := link.url,
-                  target := "_blank",
-                  rel    := "nofollow noopener noreferrer",
-                )(
-                  link.site.name,
-                )
-              },
-            ),
-            info.teamIds.nonEmpty option div(cls := "teams")(
-              div(cls := "title text")(trans.team.teams()),
-              info.teamIds.sorted.map { t =>
-                teamLink(t, withIcon = false)
-              },
-            ),
-          ),
         ),
       ),
     )
