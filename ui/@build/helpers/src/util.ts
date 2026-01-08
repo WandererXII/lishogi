@@ -11,3 +11,10 @@ export async function writeIfChanged(filePath: string, data: string): Promise<bo
   await fs.writeFile(filePath, data, 'utf8');
   return true;
 }
+
+// todo - build prod somewhere else, don't overwrite dev
+export function getOutputDirectory() {
+  const isProd = process.argv.includes('--prod');
+  if (isProd) return 'public';
+  else return 'public';
+}

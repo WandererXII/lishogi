@@ -1,5 +1,6 @@
 import { mkdir, rm } from 'node:fs/promises';
 import * as path from 'node:path';
+import { getOutputDirectory } from '@build/helpers/util';
 import { getRootDir } from '@build/helpers/workspace-packages';
 import { chushogi } from './chushogi.js';
 import { dobutsu } from './dobutsu.js';
@@ -13,7 +14,7 @@ async function main() {
   try {
     const rootDir = await getRootDir();
     const assetsDir = path.join(import.meta.dirname, '../assets');
-    const baseDestDir = path.join(rootDir, 'public/piece-css/');
+    const baseDestDir = path.join(rootDir, getOutputDirectory(), 'piece-css/');
 
     function build(variant: PieceSetVariant): void {
       const fn =

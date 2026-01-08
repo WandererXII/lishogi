@@ -1,6 +1,7 @@
 import type { FSWatcher, WatchEventType } from 'node:fs';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
+import { getOutputDirectory } from './util.js';
 import { watchers } from './watcher.js';
 import { getPackages, getRootDir, type Project } from './workspace-packages.js';
 
@@ -22,7 +23,7 @@ export async function workspaceBuildConductor(
     const isWatch = process.argv.includes('--watch');
     const fswatchers: FSWatcher[] = [];
 
-    const outdir = path.join(rootDir, 'public', key);
+    const outdir = path.join(rootDir, getOutputDirectory(), key);
 
     await fs.rm(outdir, { recursive: true, force: true });
     await fs.mkdir(outdir, { recursive: true });

@@ -1,5 +1,6 @@
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
+import { getOutputDirectory } from '@build/helpers/util';
 import { getRootDir } from '@build/helpers/workspace-packages';
 import { copyLocalPackage, copyVendorPackage } from './util.js';
 
@@ -19,7 +20,7 @@ const vendorsJs: [string, string[]][] = [
 async function main(): Promise<void> {
   try {
     const rootDir = await getRootDir();
-    const baseDestFolder = path.join(rootDir, 'public/vendors');
+    const baseDestFolder = path.join(rootDir, getOutputDirectory(), 'vendors');
 
     await fs.rm(baseDestFolder, { recursive: true, force: true });
     await fs.mkdir(baseDestFolder, { recursive: true });
