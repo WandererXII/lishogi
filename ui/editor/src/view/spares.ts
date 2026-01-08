@@ -1,3 +1,4 @@
+import { roleName } from 'shogi/notation';
 import type { MouchEvent } from 'shogiground/types';
 import { eventPosition } from 'shogiground/util';
 import type { Piece, Role } from 'shogiops/types';
@@ -76,6 +77,7 @@ function sparesVNodes(
     if (typeof sel !== 'string') {
       attrs['data-color'] = s[0];
       attrs['data-role'] = s[1];
+      attrs.title = roleName(ctrl.rules, s[1] as Role);
     }
 
     const selectableNode =

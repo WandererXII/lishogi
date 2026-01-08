@@ -15,6 +15,7 @@ import {
   pieceForcePromote,
   promotableOnDrop,
   promote as shogiPromote,
+  unpromote as shogiUnpromote,
 } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type AnalyseCtrl from './ctrl';
@@ -115,6 +116,7 @@ export function makeConfig(ctrl: AnalyseCtrl): SgConfig {
     },
     promotion: {
       promotesTo: (role: Role) => shogiPromote(variant)(role),
+      unpromotesTo: (role: Role) => shogiUnpromote(variant)(role),
       movePromotionDialog: (orig: Key, dest: Key) => {
         const piece = ctrl.shogiground.state.pieces.get(orig) as Piece;
         const capture = ctrl.shogiground.state.pieces.get(dest) as Piece | undefined;
