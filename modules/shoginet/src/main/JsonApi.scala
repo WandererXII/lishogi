@@ -161,22 +161,22 @@ object JsonApi {
       moves = Kyoto.makeFairyUsiList(g.usiList, g.initialSfen).mkString(" "),
     )
 
-  sealed trait Work {
+  sealed trait WorkPayload {
     val id: String
     val game: Game
     val engine: String
   }
 
-  case class Move(
+  case class MovePayload(
       id: String,
       level: Int,
       game: Game,
       engine: String,
-      clock: Option[Work.Clock],
-  ) extends Work
+      clock: Option[W.Clock],
+  ) extends WorkPayload
 
-  def moveFromWork(m: Work.Move) =
-    Move(
+  def move(m: W.Move) =
+    MovePayload(
       id = m.id.value,
       level = m.level,
       game = fromGame(m.game),
@@ -184,16 +184,16 @@ object JsonApi {
       clock = m.clock,
     )
 
-  case class Analysis(
+  case class AnalysisPayload(
       id: String,
       game: Game,
       engine: String,
       nodes: Int,
       skipPositions: List[Int],
-  ) extends Work
+  ) extends WorkPayload
 
-  def analysisFromWork(nodes: Int)(a: Work.Analysis) =
-    Analysis(
+  def analysis(nodes: Int)(a: W.Analysis) =
+    AnalysisPayload(
       id = a.id.value,
       game = fromGame(a.game),
       engine = a.engine,
@@ -201,17 +201,19 @@ object JsonApi {
       skipPositions = a.skipPositions,
     )
 
-  case class Puzzle(
+  case class PuzzlePayload(
       id: String,
       game: Game,
       engine: String,
-  ) extends Work
+      source: W.Puzzle.Source,
+  ) extends WorkPayload
 
-  def puzzleFromWork(p: Work.Puzzle) =
-    Puzzle(
+  def puzzle(p: W.Puzzle) =
+    PuzzlePayload(
       id = p.id.value,
       game = fromGame(p.game),
       engine = p.engine,
+      source = p.source,
     )
 
   object readers {
@@ -254,15 +256,15 @@ object JsonApi {
     implicit val VariantWrites: Writes[Variant] = Writes[Variant] { v =>
       JsString(v.key)
     }
-    implicit val ClockWrites: Writes[Work.Clock] = Json.writes[Work.Clock]
-    implicit val GameWrites: Writes[Game]        = Json.writes[Game]
-    implicit val WorkIdWrites: Writes[W.Id] = Writes[Work.Id] { id =>
+    implicit val ClockWrites: Writes[W.Clock] = Json.writes[W.Clock]
+    implicit val GameWrites: Writes[Game]     = Json.writes[Game]
+    implicit val WorkIdWrites: Writes[W.Id] = Writes[W.Id] { id =>
       JsString(id.value)
     }
 
-    implicit val WorkWrites: OWrites[Work] = OWrites[Work] { work =>
+    implicit val WorkWrites: OWrites[WorkPayload] = OWrites[WorkPayload] { work =>
       (work match {
-        case a: Analysis =>
+        case a: AnalysisPayload =>
           Json.obj(
             "work" -> Json.obj(
               "type"   -> "analysis",
@@ -272,7 +274,7 @@ object JsonApi {
             "nodes"         -> a.nodes,
             "skipPositions" -> a.skipPositions,
           )
-        case m: Move =>
+        case m: MovePayload =>
           Json.obj(
             "work" -> Json.obj(
               "type"   -> "move",
@@ -282,12 +284,16 @@ object JsonApi {
               "engine" -> m.engine,
             ),
           )
-        case p: Puzzle =>
+        case p: PuzzlePayload =>
           Json.obj(
             "work" -> Json.obj(
               "type"   -> "puzzle",
               "id"     -> p.id,
               "engine" -> p.engine,
+              "source" -> Json.obj(
+                "game" -> p.source.game.map(_.id),
+                "user" -> p.source.user.map(_.submittedBy),
+              ),
             ),
           )
       }) ++ Json.toJson(work.game).as[JsObject]

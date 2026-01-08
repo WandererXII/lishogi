@@ -48,7 +48,7 @@ final class ShoginetApi(
     case failure         => fuccess(failure)
   }
 
-  def acquire(client: Client, slow: Boolean = false): Fu[Option[JsonApi.Work]] =
+  def acquire(client: Client, slow: Boolean = false): Fu[Option[JsonApi.WorkPayload]] =
     (client.skill match {
       case Skill.Move | Skill.MoveStd => acquireMove(client)
       case Skill.Analysis             => acquireAnalysis(client, slow)
@@ -63,10 +63,10 @@ final class ShoginetApi(
         none
       }
 
-  private def acquireMove(client: Client): Fu[Option[JsonApi.Work]] =
-    moveDb.acquire(client) map { _ map JsonApi.moveFromWork }
+  private def acquireMove(client: Client): Fu[Option[JsonApi.WorkPayload]] =
+    moveDb.acquire(client) map { _ map JsonApi.move }
 
-  private def acquireAnalysis(client: Client, slow: Boolean): Fu[Option[JsonApi.Work]] =
+  private def acquireAnalysis(client: Client, slow: Boolean): Fu[Option[JsonApi.WorkPayload]] =
     workQueue {
       colls.analysis
         .find(
@@ -89,9 +89,9 @@ final class ShoginetApi(
             repo.updateAnalysis(work assignTo client) inject work.some
           }
         }
-    }.map { _ map JsonApi.analysisFromWork(config.analysisNodes) }
+    }.map { _ map JsonApi.analysis(config.analysisNodes) }
 
-  private def acquirePuzzle(client: Client): Fu[Option[JsonApi.Work]] =
+  private def acquirePuzzle(client: Client): Fu[Option[JsonApi.WorkPayload]] =
     workQueue {
       colls.puzzle
         .find(
@@ -107,7 +107,7 @@ final class ShoginetApi(
             repo.updatePuzzle(work assignTo client) inject work.some
           }
         }
-    }.map { _ map JsonApi.puzzleFromWork }
+    }.map { _ map JsonApi.puzzle }
 
   def postMove(workId: Work.Id, client: Client, data: JsonApi.Request.PostMove): Funit =
     fuccess {

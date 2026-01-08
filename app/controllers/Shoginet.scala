@@ -81,7 +81,7 @@ final class Shoginet(env: Env) extends LilaController(env) {
     }
 
   private def ClientAction[A <: JsonApi.Request](
-      f: A => lila.shoginet.Client => Fu[Either[Result, Option[JsonApi.Work]]],
+      f: A => lila.shoginet.Client => Fu[Either[Result, Option[JsonApi.WorkPayload]]],
   )(implicit reads: Reads[A]) =
     Action.async(parse.tolerantJson) { req =>
       req.body
