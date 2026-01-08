@@ -339,7 +339,6 @@ POST  /shoginet/puzzle/$workId<\w{8}>          controllers.Shoginet.puzzle(workI
 POST  /shoginet/abort/$workId<\w{8}>           controllers.Shoginet.abort(workId: String)
 GET   /shoginet/key/$key<\w{8}>                controllers.Shoginet.keyExists(key: String)
 GET   /shoginet/status                         controllers.Shoginet.status
-GET   /shoginet/config                         controllers.ExternalAssets.at(path = "public/shoginet", file = "config.json")
 
 # Pref
 POST  /pref/:name                             controllers.Pref.set(name: String)
