@@ -34,6 +34,10 @@
     background: theme.$c-bg-action;
     color: theme.$c-font-clear;
 
+    @include mixins.transp-theme {
+      background: none;
+    }
+
     @include mixins.transition;
 
     &.highlight {
@@ -58,6 +62,11 @@
       .check-mark {
         color: theme.$c-accent-over;
         opacity: 0.9;
+      }
+
+      @include mixins.transp-theme {
+        background: theme.$c-accent;
+        color: theme.$c-accent-over;
       }
     }
 

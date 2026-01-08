@@ -50,7 +50,8 @@ html.transp {
   .analyse__underboard > div:nth-child(2),
   .coord-trainer__table,
   .crosstable,
-  .game__meta {
+  .game__meta,
+  #powerTip {
     backdrop-filter: blur(10px);
   }
 

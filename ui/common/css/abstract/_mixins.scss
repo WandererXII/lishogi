@@ -109,6 +109,12 @@
   }
 }
 
+@mixin transp-theme {
+  html.transp & {
+    @content;
+  }
+}
+
 @mixin has-bg-img {
   body.custom-background-img & {
     @content;
