@@ -2,6 +2,7 @@ import { mkdir, rm } from 'node:fs/promises';
 import * as path from 'node:path';
 import { getRootDir } from '@build/helpers/workspace-packages';
 import { chushogi } from './chushogi.js';
+import { dobutsu } from './dobutsu.js';
 import { kyotoshogi } from './kyotoshogi.js';
 import { special } from './special.js';
 import { standard } from './standard.js';
@@ -16,7 +17,13 @@ async function main() {
 
     function build(variant: PieceSetVariant): void {
       const fn =
-        variant === 'chushogi' ? chushogi : variant === 'kyotoshogi' ? kyotoshogi : standard;
+        variant === 'chushogi'
+          ? chushogi
+          : variant === 'kyotoshogi'
+            ? kyotoshogi
+            : variant === 'dobutsu'
+              ? dobutsu
+              : standard;
 
       fn(path.join(assetsDir, variant), path.join(baseDestDir, variant));
 

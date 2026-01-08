@@ -6,6 +6,7 @@ import { dasherCss, readImageAsBase64, types } from './util.js';
 
 const variantSelectors: Record<PieceSetVariant, string> = {
   standard: '',
+  dobutsu: '.v-dobutsu',
   chushogi: '.v-chushogi',
   kyotoshogi: '.v-kyotoshogi',
 };

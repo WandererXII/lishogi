@@ -3,7 +3,12 @@ import { basename, extname, join, sep } from 'node:path';
 import type { CategorizedPieceSets, Ext, PieceSet, PieceSetVariant } from './types.js';
 
 export const colors = ['sente', 'gote'] as const;
-export const variants: PieceSetVariant[] = ['standard', 'kyotoshogi', 'chushogi'] as const;
+export const variants: PieceSetVariant[] = [
+  'standard',
+  'kyotoshogi',
+  'chushogi',
+  'dobutsu',
+] as const;
 export const types: Record<Ext, string> = {
   svg: 'svg+xml;base64,',
   png: 'png;base64,',
