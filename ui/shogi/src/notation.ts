@@ -4,7 +4,7 @@ import type { Notation as sgNotation } from 'shogiground/types';
 import { makeJapaneseMoveOrDrop } from 'shogiops/notation/japanese';
 import { makeKifMoveOrDrop } from 'shogiops/notation/kif';
 import { makeKitaoKawasakiMoveOrDrop } from 'shogiops/notation/kitao-kawasaki';
-import { roleToFullKanji, roleToKanji, roleToWestern } from 'shogiops/notation/util';
+import { roleToKanji, roleToWestern } from 'shogiops/notation/util';
 import { makeWesternMoveOrDrop } from 'shogiops/notation/western';
 import { makeWesternEngineMoveOrDrop } from 'shogiops/notation/western-engine';
 import { makeYorozuyaMoveOrDrop } from 'shogiops/notation/yorozuya';
@@ -55,9 +55,8 @@ export function roleName(rules: Rules, role: Role): string {
     case prefs.notation.KAWASAKI:
       return roleToKanji(role).replace('成', '+');
     case prefs.notation.JAPANESE:
-      return roleToKanji(role);
     case prefs.notation.KIF:
-      return roleToFullKanji(role);
+      return roleToKanji(role);
     case prefs.notation.USI:
       return roleToForsyth(rules)(role)!;
     default:
