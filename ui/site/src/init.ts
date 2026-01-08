@@ -104,11 +104,15 @@ export function init(): void {
     $(document).on('click', 'a.relation-button', function (this: HTMLAnchorElement) {
       const $a = $(this).addClass('processing').css('opacity', 0.3);
       const post = window.lishogi.xhr.text('POST', this.href);
-      if ($a.closest('.click-menu').length) reload();
-      else
+      if ($a.closest('.click-menu').length) {
+        post.then(() => {
+          reload();
+        });
+      } else {
         post.then(html => {
           $a.replaceWith(html);
         });
+      }
       return false;
     });
 
