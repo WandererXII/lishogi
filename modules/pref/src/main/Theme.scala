@@ -25,7 +25,7 @@ object Theme {
     new Theme("painting2", "Painting 2", "painting2.jpg".some),
     new Theme("kinkaku", "Kinkaku-ji", "kinkaku.jpg".some),
     new Theme("space", "Space", "space.png".some),
-    new Theme("doubutsu", "Doubutsu", "doubutsu.png".some),
+    new Theme("dobutsu", "Dobutsu", "dobutsu.png".some),
     new Theme("custom", "Custom", None),
   )
 

@@ -13,7 +13,7 @@ $board-files: (
   'painting2': 'painting2.jpg',
   'kinkaku': 'kinkaku.jpg',
   'space': 'space.png',
-  'doubutsu': 'doubutsu.png',
+  'dobutsu': 'dobutsu.png',
 );
 
 @each $board, $file in $board-files {
@@ -427,9 +427,9 @@ sg-squares {
   }
 }
 
-.doubutsu {
+.dobutsu {
   .orientation-gote sg-board {
-    background-image: url('../images/boards/doubutsu_flip.png');
+    background-image: url('../images/boards/dobutsu_flip.png');
   }
 
   sg-squares {
@@ -454,7 +454,7 @@ sg-squares {
 
   @include breakpoint.breakpoint(uniboard.$mq-col2-uniboard) {
     .orientation-gote sg-hand {
-      background-image: url('../images/boards/doubutsu_flip.png');
+      background-image: url('../images/boards/dobutsu_flip.png');
     }
 
     sg-hand {

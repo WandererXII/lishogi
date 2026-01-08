@@ -81,7 +81,7 @@ function themeView(ctrl: ThemeCtrl, t: Theme | 'thickGrid') {
 function thickGrid(ctrl: ThemeCtrl): VNode {
   const title = i18n('gridThick');
   return h(
-    `div.thick-switch${['blue', 'gray', 'doubutsu'].includes(ctrl.data.current) ? '.disabled' : ''}`,
+    `div.thick-switch${['blue', 'gray', 'dobutsu'].includes(ctrl.data.current) ? '.disabled' : ''}`,
     [
       h('label', { attrs: { for: 'thickGrid' } }, title),
       h('div.switch', [
