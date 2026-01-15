@@ -16,32 +16,32 @@
   <string name="dragon">Ejderha</string>
   <string comment="Chushogi piece - not tokin" name="promotedpawn">Terfi edilmiş piyon</string>
   <string comment="Chushogi piece, low priority for translation" name="leopard">Leopar</string>
-  <string comment="Chushogi piece, low priority for translation" name="copper">Copper</string>
-  <string comment="Chushogi piece, low priority for translation" name="elephant">Elephant</string>
-  <string comment="Chushogi piece, low priority for translation" name="chariot">Chariot</string>
-  <string comment="Chushogi piece, low priority for translation" name="tiger">Tiger</string>
+  <string comment="Chushogi piece, low priority for translation" name="copper">Bakır General</string>
+  <string comment="Chushogi piece, low priority for translation" name="elephant">Fil (chushogi)</string>
+  <string comment="Chushogi piece, low priority for translation" name="chariot">Savaş Arabası</string>
+  <string comment="Chushogi piece, low priority for translation" name="tiger">Kaplan</string>
   <string comment="Chushogi piece, low priority for translation" name="kirin">Kirin</string>
-  <string comment="Chushogi piece, low priority for translation" name="phoenix">Phoenix</string>
-  <string comment="Chushogi piece, low priority for translation" name="sidemover">Side mover</string>
-  <string comment="Chushogi piece, low priority for translation" name="verticalmover">Vertical mover</string>
-  <string comment="Chushogi piece, low priority for translation" name="lion">Lion</string>
-  <string comment="Chushogi piece, low priority for translation" name="queen">Queen</string>
-  <string comment="Chushogi piece, low priority for translation" name="gobetween">Go-between</string>
-  <string comment="Chushogi piece, low priority for translation" name="whitehorse">White horse</string>
-  <string comment="Chushogi piece, low priority for translation" name="lionpromoted">Promoted lion</string>
-  <string comment="Chushogi piece, low priority for translation" name="queenpromoted">Promoted queen</string>
-  <string comment="Chushogi piece, low priority for translation" name="bishoppromoted">Promoted bishop</string>
-  <string comment="Chushogi piece, low priority for translation" name="sidemoverpromoted">Promoted side mover</string>
-  <string comment="Chushogi piece, low priority for translation" name="verticalmoverpromoted">Promoted vertical mover</string>
-  <string comment="Chushogi piece, low priority for translation" name="rookpromoted">Promoted rook</string>
-  <string comment="Chushogi piece, low priority for translation" name="prince">Prince</string>
-  <string comment="Chushogi piece, low priority for translation" name="whale">Whale</string>
-  <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Promoted horse</string>
-  <string comment="Chushogi piece, low priority for translation" name="elephantpromoted">Promoted elephant</string>
-  <string comment="Chushogi piece, low priority for translation" name="stag">Stag</string>
-  <string comment="Chushogi piece, low priority for translation" name="boar">Boar</string>
-  <string comment="Chushogi piece, low priority for translation" name="ox">Ox</string>
-  <string comment="Chushogi piece, low priority for translation" name="falcon">Falcon</string>
-  <string comment="Chushogi piece, low priority for translation" name="eagle">Eagle</string>
-  <string comment="Chushogi piece, low priority for translation" name="dragonpromoted">Promoted dragon</string>
+  <string comment="Chushogi piece, low priority for translation" name="phoenix">Anka</string>
+  <string comment="Chushogi piece, low priority for translation" name="sidemover">Yan gidici</string>
+  <string comment="Chushogi piece, low priority for translation" name="verticalmover">Dikey gidici</string>
+  <string comment="Chushogi piece, low priority for translation" name="lion">Aslan</string>
+  <string comment="Chushogi piece, low priority for translation" name="queen">Vezir</string>
+  <string comment="Chushogi piece, low priority for translation" name="gobetween">Arasında giden</string>
+  <string comment="Chushogi piece, low priority for translation" name="whitehorse">Beyaz At</string>
+  <string comment="Chushogi piece, low priority for translation" name="lionpromoted">Terfi ettirilmiş aslan</string>
+  <string comment="Chushogi piece, low priority for translation" name="queenpromoted">Terfi edilmiş vezir</string>
+  <string comment="Chushogi piece, low priority for translation" name="bishoppromoted">Terfi edilmiş fil</string>
+  <string comment="Chushogi piece, low priority for translation" name="sidemoverpromoted">Terfi edilmiş yan gidici</string>
+  <string comment="Chushogi piece, low priority for translation" name="verticalmoverpromoted">Terfi edilmiş dikey gidici</string>
+  <string comment="Chushogi piece, low priority for translation" name="rookpromoted">Terfi edilmiş kale</string>
+  <string comment="Chushogi piece, low priority for translation" name="prince">Prens</string>
+  <string comment="Chushogi piece, low priority for translation" name="whale">Balina</string>
+  <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Terfi edilmiş at</string>
+  <string comment="Chushogi piece, low priority for translation" name="elephantpromoted">Terfi edilmiş fil (chushogi)</string>
+  <string comment="Chushogi piece, low priority for translation" name="stag">Geyik</string>
+  <string comment="Chushogi piece, low priority for translation" name="boar">Domuz</string>
+  <string comment="Chushogi piece, low priority for translation" name="ox">Öküz</string>
+  <string comment="Chushogi piece, low priority for translation" name="falcon">Şahin</string>
+  <string comment="Chushogi piece, low priority for translation" name="eagle">Kartal</string>
+  <string comment="Chushogi piece, low priority for translation" name="dragonpromoted">Terfi edilmiş ejderha</string>
 </resources>
