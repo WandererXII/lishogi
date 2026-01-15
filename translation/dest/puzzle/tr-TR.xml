@@ -33,7 +33,7 @@
   </plurals>
   <plurals name="xMovesLeft">
     <item quantity="one">%s hamle kaldı</item>
-    <item quantity="other">%s moves left</item>
+    <item quantity="other">%s hamle kaldı</item>
   </plurals>
   <string name="puzzleSource">Kaynak: %s</string>
   <string name="continueTraining">Pratik yapmaya devam et</string>
@@ -47,9 +47,9 @@
   <string name="addAnotherTheme">Başka bir tema ekle</string>
   <string name="jumpToNextPuzzleImmediately">Hemen sonraki bulmacaya atla</string>
   <string name="puzzleDashboard">Bulmaca kontrol paneli</string>
-  <string name="puzzleDashboardSubtitle">Train, analyse, improve</string>
+  <string name="puzzleDashboardSubtitle">Egzersiz yapın, analiz edin, becerilerinizi geliştirin</string>
   <string name="improvementAreas">Gelişim alanları</string>
-  <string name="improvementAreasSubtitle">Train these to optimize your progress!</string>
+  <string name="improvementAreasSubtitle">Gelişiminizi optimize etmek için bunlara çalışın!</string>
   <string name="strengths">Güçlü yönler</string>
   <string name="strengthsSubtitle">You perform the best in these themes</string>
   <string name="history">Bulmaca geçmişi</string>
