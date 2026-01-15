@@ -45,13 +45,13 @@
 	<string name="japaneseNotation">Japon notasyonu</string>
 	<string name="kitaoKawasakiNotation">Kitao-Kawasaki notasyonu</string>
 	<string name="kifNotation">Kif gösterimi</string>
-	<string name="yorozuyaNotation">Yorozuya notation</string>
+	<string name="yorozuyaNotation">Yorozuya notasyonu</string>
 	<string name="yourPreferencesHaveBeenSaved">Tercihleriniz kaydedildi.</string>
 	<string name="smallMoves">Küçük hareketler</string>
-	<string name="audibleClocks">Clocks allowed to make sounds</string>
-	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">System</string>
-	<string name="myClock" comment="What clocks should make sound?">My clock</string>
-	<string name="myAndOpponentClock" comment="What clocks should make sound?">My and my opponent\'s clock</string>
-	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">All clocks</string>
-	<string name="noFlags">Hide all flags</string>
+	<string name="audibleClocks">Saatlerin ses çıkarmasına izin verildi</string>
+	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">Sistem</string>
+	<string name="myClock" comment="What clocks should make sound?">Saatim</string>
+	<string name="myAndOpponentClock" comment="What clocks should make sound?">Benim ve rakibimin saati</string>
+	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">Bütün saatler</string>
+	<string name="noFlags">Bütün bayrakları gizle</string>
 </resources>
