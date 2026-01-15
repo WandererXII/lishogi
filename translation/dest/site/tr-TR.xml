@@ -3,7 +3,7 @@
 	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Bir arkadaşınla oyna</string>
 	<string name="playWithTheMachine">Bilgisayara karşı oyna</string>
-	<string name="playOtherPlayers">Play other players</string>
+	<string name="playOtherPlayers">Diğer oyuncularla oyna</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Oyuna davet etmek için, bu linki gönderin</string>
 	<string name="gameOver">Oyun bitti</string>
 	<string name="waitingForOpponent">Rakip bekleniyor</string>
@@ -20,14 +20,14 @@
 	<string name="resign">Oyundan Çekil</string>
 	<string name="checkmate">Şah Mat</string>
 	<string name="stalemate">Pat</string>
-	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Terk</string>
 	<string name="check">Şah</string>
 	<string name="impasse">Çıkmaz</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Tekrarlama</string>
 	<string name="perpetualCheck">Sürekli şah</string>
 	<string name="royalsLost" comment="Used in chushogi">Tüm kraliyet taşları kaybedildi</string>
 	<string name="bareKing" comment="Used in chushogi">Yalnız şah</string>
-	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Geçersiz hamle</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s %2$s oynadı</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s, %2$s\'e karşı oynuyor</string>
 	<string name="xWon" comment="Example: Player won!">%s kazandı!</string>
@@ -50,9 +50,9 @@
 	<string name="newOpponent">Yeni rakip</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Rakibiniz sizinle yeni bir oyun oynamak istiyor</string>
 	<string name="joinTheGame">Oyuna katıl</string>
-	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
-	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
-	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
+	<string name="registeredJoinTheGame">Sadece kayıtlı kullanıcılar, diğer kayıtlı kullanıcıların oyunlarına katılabilir.</string>
+	<string name="outsideYourRating">Ratinginiz, bu oyundaki izin verilen aralığın dışında.</string>
+	<string name="gamesOutsideYourRatingRange">Rating aralığınızın dışındaki oyunları göster</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">%s oynar</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Rakibiniz oyundan ayrıldı. %s saniye sonra galibiyet talep edebilirsiniz.</item>
@@ -67,7 +67,7 @@
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s çekildi</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s oyunu terk etti</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s hamle yapmadı</string>
-	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s played an illegal move</string>
+	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s, geçersiz hamle oynadı.</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Oyunu izlemek isteyenlerle bu bağlantıyı paylaşın</string>
 	<string name="theComputerAnalysisHasFailed">Bilgisayar analizi başarısız oldu</string>
 	<string name="viewTheComputerAnalysis">Bilgisayar analizini incele</string>
@@ -110,8 +110,8 @@
 	<string name="recentGames">Son oyunlar</string>
 	<string name="topGames">En yüksek puanlı oyunlar</string>
 	<string name="noGameFound">Oyun bulunamadı</string>
-	<string name="pageNotFound">Page not found</string>
-	<string name="returnToHomepage">Return to homepage</string>
+	<string name="pageNotFound">Sayfa bulunamadı</string>
+	<string name="returnToHomepage">Anasayfaya dön</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Seçenekler menüsünden daha fazla oyun eklemeyi deneyebilirsiniz.</string>
 	<string name="openingExplorer">Açılış kâşifi</string>
 	<string name="xOpeningExplorer">%s açılış kâşifi</string>
@@ -227,7 +227,7 @@
 	</plurals>
 	<string name="confirm">Onayla</string>
 	<string name="cancel">İptal et</string>
-	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Başlat</string>
 	<string name="timeOut">Zaman doldu</string>
 	<string name="drawOfferSent">Beraberlik teklifi gönderildi</string>
 	<string name="drawOfferDeclined">Beraberlik teklifi reddedildi</string>
@@ -241,14 +241,14 @@
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s beraberlik teklif ediyor</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s beraberliği kabul etmedi</string>
 	<string name="yourOpponentOffersADraw">Rakibiniz beraberlik teklif ediyor</string>
-	<string name="xOffersAdjournment" comment="%s - sente(black)/gote(white)">%s offers adjournment</string>
-	<string name="xDeclinesAdjournment" comment="%s - sente(black)/gote(white)">%s declines adjournment</string>
-	<string name="yourOpponentOffersAnAdjournment">Your opponent offers an adjournment</string>
-	<string name="xOffersResumption" comment="%s - sente(black)/gote(white)">%s proposes resumption</string>
-	<string name="xDeclinesResumption" comment="%s - sente(black)/gote(white)">%s declines resumption</string>
-	<string name="yourOpponentProposesResumption">Your opponent proposes resumption</string>
-	<string name="makeASealedMove">Make a move, that will be played after the game is resumed</string>
-	<string name="waitingForASealedMove">Waiting for the opponent to make a sealed move</string>
+	<string name="xOffersAdjournment" comment="%s - sente(black)/gote(white)">%s, erteleme teklif etti.</string>
+	<string name="xDeclinesAdjournment" comment="%s - sente(black)/gote(white)">%s, ertelemeyi reddetti.</string>
+	<string name="yourOpponentOffersAnAdjournment">Rakibiniz erteleme teklif etti.</string>
+	<string name="xOffersResumption" comment="%s - sente(black)/gote(white)">%s, geri alma önerdi.</string>
+	<string name="xDeclinesResumption" comment="%s - sente(black)/gote(white)">%s, geri almayı reddetti.</string>
+	<string name="yourOpponentProposesResumption">Rakibiniz geri alma önerdi.</string>
+	<string name="makeASealedMove">Oyun yeniden başladıktan sonra oynanacak bir hamle yapın.</string>
+	<string name="waitingForASealedMove">Rakibinizin gizli bir hamle yapmasını bekliyoruz.</string>
 	<string name="accept">Kabul et</string>
 	<string name="decline">Reddet</string>
 	<string name="playingRightNow">Şu an oynanıyor</string>
@@ -257,19 +257,19 @@
 	<string name="finishesX">%s sona erecek</string>
 	<string name="abortGame">Oyunu iptal et</string>
 	<string name="gameAborted">Oyun iptal edildi</string>
-	<string name="rules" comment="As in what you can and can't do">Rules</string>
+	<string name="rules" comment="As in what you can and can't do">Kurallar</string>
 	<string name="standard" comment="Variant - meaning standard shogi">Standart</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
 	<string name="annanshogi">Annanshogi</string>
 	<string name="kyotoshogi">Kyotoshogi</string>
 	<string name="checkshogi">Checkshogi</string>
-	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Standard rules of shogi</string>
-	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Same rules as standard shogi, but played on a smaller 5x5 board</string>
-	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">The most popular historical variant of shogi played on a 12x12 board</string>
-	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Modern variant of shogi with alternating unique promotions on a 5x5 board</string>
-	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variant similar to standard shogi, where pieces move like friendly pieces behind them</string>
-	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Just like standard shogi, but first to check opponent\'s king wins</string>
+	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Shogi\'nin standart kuralları</string>
+	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Standart shogi\'deki kurallar, ama daha küçük 5x5 tahtada oynanır.</string>
+	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">12x12 tahtada oynanan en popüler tarihi shogi varyantı</string>
+	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Shogi\'nin modern varyantı, 5x5 tahtada alternatif benzersiz promosyonlarla birlikte.</string>
+	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Standart shogi\'ye benzeyen varyant; ama taşlar, arkasındaki arkadaş taş gibi hareket eder.</string>
+	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Standart shogi gibi, ama rakibe ilk şah çeken kazanır.</string>
 	<string name="unlimited">Sınırsız</string>
 	<string name="mode">Mod</string>
 	<string name="casual">Puansız</string>
@@ -289,7 +289,7 @@
 	<string name="play">Oyna</string>
 	<string name="inbox">Gelen kutusu</string>
 	<string name="streamerManager">Yayın yöneticisi</string>
-	<string name="coachManager">Coach manager</string>
+	<string name="coachManager">Eğitmen ayarları</string>
 	<string name="chatRoom">Sohbet odası</string>
 	<string name="loginToChat">Sohbete katılmak için oturum aç</string>
 	<string name="youHaveBeenTimedOut">Sohbetten men edildiniz.</string>
@@ -325,8 +325,8 @@
 		<item quantity="other">%s şimdi oynanıyor</item>
 	</plurals>
 	<plurals name="nbAdjourned" comment="Paused games">
-		<item quantity="one">%s adjourned</item>
-		<item quantity="other">%s adjourned</item>
+		<item quantity="one">%s oyunu durdurdu</item>
+		<item quantity="other">%s oyunu durdurdu</item>
 	</plurals>
 	<string name="exportGames">Oyunları indir</string>
 	<string name="export">Dışa aktar</string>
@@ -346,9 +346,9 @@
 	<string name="yourOpponentProposesATakeback">Rakibiniz hamleyi geri alma teklifi gönderdi</string>
 	<string name="bookmarkThisGame">Bu oyunu işaretle</string>
 	<string name="tournament">Turnuva</string>
-	<string name="tournamentLeaderboard">Tournament leaderboard</string>
+	<string name="tournamentLeaderboard">Turnuva liderlik sıralaması</string>
 	<string name="tournaments">Turnuvalar</string>
-	<string name="myTournaments">My tournaments</string>
+	<string name="myTournaments">Turnuvalarım</string>
 	<string name="tournamentPoints">Turnuvada alınan puanlar</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s Turnuva Puanı</item>
@@ -399,9 +399,9 @@
 	<string name="apply">Uygula</string>
 	<string name="save">Kaydet</string>
 	<string name="leaderboard">Lider Tablosu</string>
-	<string name="leaderboards">Leaderboards</string>
-	<string name="bestPlayersInVariousCategories">Best players in various categories</string>
-	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">Top %1$s best players in %2$s, sorted by rating</string>
+	<string name="leaderboards">Lider tabloları</string>
+	<string name="bestPlayersInVariousCategories">Çeşitli kategorilerdeki en iyi oyuncular</string>
+	<string name="topXPlayersInY" comment="Example: Top 200 best players in chushogi, sorted by rating">%2$s\'deki en iyi %1$s oyuncu, ratinge göre sıralanmıştır.</string>
 	<string name="selectHandicap">Handikap seç</string>
 	<string name="pasteTheSfenStringHere">SFEN kodunu buraya yapıştırın</string>
 	<string name="pasteTheKifCsaStringHere">KIF veya CSA yazısını buraya yapıştırın</string>
@@ -410,9 +410,9 @@
 	<string name="continueFromHere">Bu pozisyondan devam et</string>
 	<string name="toStudy">Çalışma oluştur</string>
 	<string name="importGame">Oyun yükle</string>
-	<string name="importCategory" comment="Category name for games that were imported">Import</string>
-	<string name="importedGame">Game was imported.</string>
-	<string name="importedByX">Imported by %s</string>
+	<string name="importCategory" comment="Category name for games that were imported">Aktarılmış</string>
+	<string name="importedGame">Oyun aktarıldı</string>
+	<string name="importedByX">%s tarafından aktarıldı</string>
 	<string name="importGameKifCsaExplanation">Göz atılabilir bir oyun tekrarı, bilgisayar analizi, oyun sohbeti ve paylaşilabilir URL için bir oyun KIF\'i veya CSA\'sı yapıştırın.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s yüklenen oyun</item>
@@ -434,15 +434,15 @@
 	<string name="favoriteOpponents">Favori rakipler</string>
 	<string name="follow">Takip et</string>
 	<string name="following">Takip ediyorsun</string>
-	<string name="followers">Followers</string>
+	<string name="followers">Takipçiler</string>
 	<string name="unfollow">Takibi bırak</string>
 	<string name="block">Engelle</string>
 	<string name="blocked">Engellendi</string>
 	<string name="unblock">Engeli kaldır</string>
-	<string name="thanksForReport">Thanks for the report</string>
-	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
-	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
-	<string name="blockSuggestions">In the meantime, you can block this user:</string>
+	<string name="thanksForReport">Bildiriminiz için teşekkürler</string>
+	<string name="reportedSomeoneBanned">İhbar ettiğiniz biri banlandı.</string>
+	<string name="moderatorsReportReview">Moderatörler konuyu çok yakında inceliycek ve en uygun önlemleri alıcak.</string>
+	<string name="blockSuggestions">Bu arada, şu kullanıcıyı engelleyebilirsiniz:</string>
 	<string name="followsYou">Sizi takip ediyor</string>
 	<string name="xStartedFollowingY">%1$s, %2$s isimli oyuncuyu takip etmeye başladı</string>
 	<plurals name="nbFollowers">
@@ -457,8 +457,8 @@
 	<string name="memberSince">Üyelik tarihi</string>
 	<string name="lastSeenActive">Aktif %s</string>
 	<string name="challengeToPlay">Oyun teklif et</string>
-	<string name="viewChallenge">View challenge</string>
-	<string name="noChallenges">No challenges</string>
+	<string name="viewChallenge">Meydan okumaya bak</string>
+	<string name="noChallenges">Meydan okuma yok.</string>
 	<string name="player">Oyuncu</string>
 	<string name="list">Liste</string>
 	<string name="graph">Grafik</string>
