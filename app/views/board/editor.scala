@@ -17,8 +17,7 @@ object editor {
       title = trans.boardEditor.txt(),
       moreCss = frag(
         cssTag("editor"),
-        sit.variant.chushogi option chuPieceSprite,
-        sit.variant.kyotoshogi option kyoPieceSprite,
+        variantPieceSprite(sit.variant),
       ),
       moreJs = moduleJsTag("editor", jsData(sit, orientation)),
       shogiground = false,

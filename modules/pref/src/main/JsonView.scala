@@ -17,6 +17,7 @@ object JsonView {
       "pieceSet"           -> p.pieceSet,
       "chuPieceSet"        -> p.chuPieceSet,
       "kyoPieceSet"        -> p.kyoPieceSet,
+      "dobutsuPieceSet"    -> p.dobutsuPieceSet,
       "soundSet"           -> p.soundSet,
       "clockSoundSet"      -> p.clockSoundSet,
       "notation"           -> p.notation,

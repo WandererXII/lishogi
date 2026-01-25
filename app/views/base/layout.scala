@@ -281,6 +281,7 @@ object layout {
   val dataPieceSet              = attr("data-piece-set")
   val dataChuPieceSet           = attr("data-chu-piece-set")
   val dataKyoPieceSet           = attr("data-kyo-piece-set")
+  val dataDobutsuPieceSet       = attr("data-dobutsu-piece-set")
   val dataAssetUrl              = attr("data-asset-url")
   val dataAssetVersion          = attr("data-asset-version")
   val dataDev                   = attr("data-dev")
@@ -378,23 +379,24 @@ object layout {
             "mobile"                            -> ctx.isMobileBrowser,
             "playing"                           -> playing,
           ),
-          dataDev           := (!isProd).option("true"),
-          dataVapid         := vapidPublicKey,
-          dataUser          := ctx.userId,
-          dataSoundSet      := ctx.currentSoundSet.toString,
-          dataClockSoundSet := ctx.currentClockSoundSet.toString,
-          dataSocketDomains := socketDomains.mkString(","),
-          dataAssetUrl      := assetBaseUrl,
-          dataAssetVersion  := assetVersion.value,
-          dataNonce         := ctx.nonce.ifTrue(sameAssetDomain).map(_.value),
-          dataTheme         := ctx.currentBg.key,
-          dataBoardTheme    := ctx.currentTheme.key,
-          dataPieceSet      := ctx.currentPieceSet.key,
-          dataChuPieceSet   := ctx.currentChuPieceSet.key,
-          dataKyoPieceSet   := ctx.currentKyoPieceSet.key,
-          dataAnnounce      := AnnounceStore.get.map(a => safeJsonValue(a.json)),
-          dataNotation      := ctx.pref.notation.toString,
-          dataColorName     := ctx.pref.colorName.toString,
+          dataDev             := (!isProd).option("true"),
+          dataVapid           := vapidPublicKey,
+          dataUser            := ctx.userId,
+          dataSoundSet        := ctx.currentSoundSet.toString,
+          dataClockSoundSet   := ctx.currentClockSoundSet.toString,
+          dataSocketDomains   := socketDomains.mkString(","),
+          dataAssetUrl        := assetBaseUrl,
+          dataAssetVersion    := assetVersion.value,
+          dataNonce           := ctx.nonce.ifTrue(sameAssetDomain).map(_.value),
+          dataTheme           := ctx.currentBg.key,
+          dataBoardTheme      := ctx.currentTheme.key,
+          dataPieceSet        := ctx.currentPieceSet.key,
+          dataChuPieceSet     := ctx.currentChuPieceSet.key,
+          dataKyoPieceSet     := ctx.currentKyoPieceSet.key,
+          dataDobutsuPieceSet := ctx.currentDobutsuPieceSet.key,
+          dataAnnounce        := AnnounceStore.get.map(a => safeJsonValue(a.json)),
+          dataNotation        := ctx.pref.notation.toString,
+          dataColorName       := ctx.pref.colorName.toString,
         )(
           blindModeForm,
           ctx.pageData.inquiry map { views.html.mod.inquiry(_) },

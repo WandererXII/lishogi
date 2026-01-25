@@ -68,6 +68,8 @@ sealed trait Context extends lila.user.UserContextWrapper {
 
   def currentKyoPieceSet = lila.pref.KyoPieceSet(pref.kyoPieceSet)
 
+  def currentDobutsuPieceSet = lila.pref.DobutsuPieceSet(pref.dobutsuPieceSet)
+
   def currentSoundSet = lila.pref.SoundSet(pref.soundSet)
 
   def currentClockSoundSet = lila.pref.ClockSoundSet(pref.clockSoundSet)

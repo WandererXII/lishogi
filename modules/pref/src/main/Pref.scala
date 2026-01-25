@@ -10,6 +10,7 @@ case class Pref(
     pieceSet: String,
     chuPieceSet: String,
     kyoPieceSet: String,
+    dobutsuPieceSet: String,
     soundSet: String,
     clockSoundSet: String,
     takeback: Int,
@@ -93,6 +94,10 @@ case class Pref(
       case "kyoPieceSet" =>
         KyoPieceSet.allByKey get value map { p =>
           copy(kyoPieceSet = p.key)
+        }
+      case "dobutsuPieceSet" =>
+        DobutsuPieceSet.allByKey get value map { p =>
+          copy(dobutsuPieceSet = p.key)
         }
       case "soundSet" =>
         SoundSet.allByKey get value map { s =>
@@ -379,6 +384,7 @@ object Pref {
     pieceSet = PieceSet.default.key,
     chuPieceSet = ChuPieceSet.default.key,
     kyoPieceSet = KyoPieceSet.default.key,
+    dobutsuPieceSet = DobutsuPieceSet.default.key,
     soundSet = SoundSet.default.key,
     clockSoundSet = ClockSoundSet.default.key,
     takeback = Takeback.ALWAYS,

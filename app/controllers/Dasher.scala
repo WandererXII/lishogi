@@ -86,6 +86,10 @@ final class Dasher(env: Env) extends LilaController(env) {
                 "current" -> ctx.currentKyoPieceSet.key,
                 "list"    -> lila.pref.KyoPieceSet.all,
               ),
+              "dobutsuPiece" -> Json.obj(
+                "current" -> ctx.currentDobutsuPieceSet.key,
+                "list"    -> lila.pref.DobutsuPieceSet.all,
+              ),
               "inbox"    -> ctx.hasInbox,
               "coach"    -> isGranted(_.Coach),
               "streamer" -> isStreamer,

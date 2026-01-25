@@ -16,6 +16,7 @@ case class EmbedConfig(
     pieceSet: lila.pref.PieceSet,
     chuPieceSet: lila.pref.PieceSet,
     kyoPieceSet: lila.pref.PieceSet,
+    dobutsuPieceSet: lila.pref.PieceSet,
     notation: String,
     colorName: Int,
     lang: Lang,
@@ -67,6 +68,7 @@ object EmbedConfig {
       pieceSet = lila.pref.PieceSet(~pieceSet),
       chuPieceSet = lila.pref.ChuPieceSet(get("chuPieceSet") | ~pieceSet),
       kyoPieceSet = lila.pref.KyoPieceSet(get("kyoPieceSet") | ~pieceSet),
+      dobutsuPieceSet = lila.pref.DobutsuPieceSet(get("dobutsuPieceSet") | ~pieceSet),
       notation = ~get("notation"),
       colorName = ~get("colorName").flatMap(_.toIntOption),
       lang = get("lang")

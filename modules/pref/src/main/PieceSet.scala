@@ -114,3 +114,13 @@ object KyoPieceSet extends PieceSetBase {
   )
 
 }
+
+object DobutsuPieceSet extends PieceSetBase {
+
+  val default = new PieceSet("dobutsu", "Dobutsu", pro = true)
+
+  val all = List(
+    default,
+  )
+
+}

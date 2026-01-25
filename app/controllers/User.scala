@@ -286,6 +286,7 @@ final class User(
                 "annanshogi"     -> leaderboards.annanshogi,
                 "kyotoshogi"     -> leaderboards.kyotoshogi,
                 "checkshogi"     -> leaderboards.checkshogi,
+                "dobutsu"        -> leaderboards.dobutsu,
               ),
             )
           },

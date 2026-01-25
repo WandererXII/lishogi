@@ -113,6 +113,18 @@ trait AssetHelper { self: I18nHelper with SecurityHelper =>
   def kyoPieceSprite(ps: lila.pref.PieceSet): Frag =
     pieceSprite("kyo-piece-sprite", s"piece-css/kyotoshogi/$ps.css")
 
+  def dobutsuPieceSprite(implicit ctx: Context): Frag = dobutsuPieceSprite(
+    ctx.currentDobutsuPieceSet,
+  )
+  def dobutsuPieceSprite(ps: lila.pref.PieceSet): Frag =
+    pieceSprite("dobutsu-piece-sprite", s"piece-css/dobutsu/$ps.css")
+
+  def variantPieceSprite(variant: shogi.variant.Variant)(implicit ctx: Context): Option[Frag] =
+    if (variant.chushogi) chuPieceSprite.some
+    else if (variant.kyotoshogi) kyoPieceSprite.some
+    else if (variant.dobutsu) dobutsuPieceSprite.some
+    else none
+
   def spriteSvg(categ: String, key: String): Frag =
     tag("svg")(cls := "extra-icon")(
       tag("use")(href := baseAssetUrl(s"icons/${categ}.svg#$key")),

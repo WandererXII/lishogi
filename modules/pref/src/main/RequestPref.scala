@@ -30,6 +30,7 @@ object RequestPref {
       pieceSet = pieceSet,
       chuPieceSet = paramOrSession("chuPieceSet") | default.chuPieceSet,
       kyoPieceSet = paramOrSession("kyoPieceSet") | default.kyoPieceSet,
+      dobutsuPieceSet = paramOrSession("dobutsuPieceSet") | default.dobutsuPieceSet,
       soundSet = paramOrSession("soundSet") | default.soundSet,
       clockSoundSet = paramOrSession("clockSoundSet") | default.clockSoundSet,
       bgImg = paramOrSession("bgImg"),

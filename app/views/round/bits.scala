@@ -33,8 +33,7 @@ object bits {
       moreCss = frag(
         cssTag("round"),
         ctx.blind option cssTag("round.nvui"),
-        variant.chushogi option chuPieceSprite,
-        variant.kyotoshogi option kyoPieceSprite,
+        variantPieceSprite(variant),
         moreCss,
       ),
       shogiground = shogiground,

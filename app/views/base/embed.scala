@@ -35,23 +35,27 @@ object embed {
           moreJs,
         ),
         st.body(cls := s"base highlight ${config.theme}")(
-          layout.dataSoundSet      := lila.pref.SoundSet.silent.key,
-          layout.dataClockSoundSet := lila.pref.ClockSoundSet.silent.key,
-          layout.dataAssetUrl      := env.net.assetBaseUrl,
-          layout.dataAssetVersion  := assetVersion.value,
-          layout.dataTheme         := config.bg,
-          layout.dataPieceSet      := config.pieceSet.key,
-          layout.dataChuPieceSet   := config.chuPieceSet.key,
-          layout.dataKyoPieceSet   := config.kyoPieceSet.key,
-          layout.dataNotation      := config.notation,
-          layout.dataColorName     := config.colorName.toString,
+          layout.dataSoundSet        := lila.pref.SoundSet.silent.key,
+          layout.dataClockSoundSet   := lila.pref.ClockSoundSet.silent.key,
+          layout.dataAssetUrl        := env.net.assetBaseUrl,
+          layout.dataAssetVersion    := assetVersion.value,
+          layout.dataTheme           := config.bg,
+          layout.dataPieceSet        := config.pieceSet.key,
+          layout.dataChuPieceSet     := config.chuPieceSet.key,
+          layout.dataKyoPieceSet     := config.kyoPieceSet.key,
+          layout.dataDobutsuPieceSet := config.dobutsuPieceSet.key,
+          layout.dataNotation        := config.notation,
+          layout.dataColorName       := config.colorName.toString,
           body,
         ),
       ),
     )
 
-  def pieceSpriteByVariant(variant: shogi.variant.Variant)(implicit config: EmbedConfig): Frag =
+  private def pieceSpriteByVariant(
+      variant: shogi.variant.Variant,
+  )(implicit config: EmbedConfig): Frag =
     if (variant.chushogi) chuPieceSprite(config.chuPieceSet)
     else if (variant.kyotoshogi) kyoPieceSprite(config.kyoPieceSet)
+    else if (variant.dobutsu) dobutsuPieceSprite(config.dobutsuPieceSet)
     else defaultPieceSprite(config.pieceSet)
 }
