@@ -15,13 +15,13 @@ object edit {
   private val dataTab = attr("data-tab")
 
   private lazy val jsonLanguages = safeJsonValue {
-    Json toJson LangList.popular.map { l =>
+    Json toJson LangList.allWithMissing.map { case (lang, langName) =>
       Json.obj(
-        "code"  -> l.code,
-        "value" -> LangList.name(l),
+        "code"  -> lang.code,
+        "value" -> langName,
         "searchBy" -> List(
-          l.toLocale.getDisplayLanguage,
-          l.toLocale.getDisplayCountry,
+          lang.toLocale.getDisplayLanguage,
+          lang.toLocale.getDisplayCountry,
         ).mkString(","),
       )
     }
