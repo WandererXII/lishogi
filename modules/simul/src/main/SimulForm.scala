@@ -102,6 +102,7 @@ object SimulForm {
               shogi.variant.Annanshogi.id,
               shogi.variant.Kyotoshogi.id,
               shogi.variant.Checkshogi.id,
+              shogi.variant.Dobutsu.id,
             ) contains _,
           )
         }.verifying("At least one variant", _.nonEmpty),

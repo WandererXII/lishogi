@@ -179,7 +179,7 @@ object DataForm {
   val minutesDefault = 60
 
   val validVariants =
-    List(Standard, Minishogi, Chushogi, Annanshogi, Kyotoshogi, Checkshogi)
+    List(Standard, Minishogi, Chushogi, Annanshogi, Kyotoshogi, Checkshogi, Dobutsu)
 
   def guessVariant(from: String): Option[Variant] =
     validVariants.find { v =>

@@ -69,6 +69,7 @@ trait SetupHelper { self: I18nHelper =>
         shogi.variant.Annanshogi,
         shogi.variant.Kyotoshogi,
         shogi.variant.Checkshogi,
+        shogi.variant.Dobutsu,
       ).map(variantTuple(encodeId))
 
   def translatedVariantChoices(
@@ -80,6 +81,7 @@ trait SetupHelper { self: I18nHelper =>
       shogi.variant.Annanshogi,
       shogi.variant.Kyotoshogi,
       shogi.variant.Checkshogi,
+      shogi.variant.Dobutsu,
     ).map(variantTuple(encode))
 
   def translatedBoardLayoutChoices(implicit lang: Lang) =

@@ -46,6 +46,7 @@ trait ShogiHelper { self: I18nHelper =>
       case shogi.variant.Annanshogi => trans.annanshogi.txt()
       case shogi.variant.Kyotoshogi => trans.kyotoshogi.txt()
       case shogi.variant.Checkshogi => trans.checkshogi.txt()
+      case shogi.variant.Dobutsu    => trans.dobutsu.txt()
       case _                        => trans.shogi.txt()
     }
 
@@ -56,6 +57,7 @@ trait ShogiHelper { self: I18nHelper =>
       case shogi.variant.Annanshogi => trans.annanshogiDescription.txt()
       case shogi.variant.Kyotoshogi => trans.kyotoshogiDescription.txt()
       case shogi.variant.Checkshogi => trans.checkshogiDescription.txt()
+      case shogi.variant.Dobutsu    => trans.dobutsuDescription.txt()
       case _                        => trans.standardDescription.txt()
     }
 
@@ -66,6 +68,7 @@ trait ShogiHelper { self: I18nHelper =>
       case shogi.variant.Annanshogi => Icons.annanshogi
       case shogi.variant.Kyotoshogi => Icons.kyotoshogi
       case shogi.variant.Checkshogi => Icons.checkshogi
+      case shogi.variant.Dobutsu    => Icons.dobutsu
       case _                        => Icons.standard
     }
 

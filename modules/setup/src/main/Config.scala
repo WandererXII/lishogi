@@ -88,6 +88,7 @@ trait BaseConfig {
     shogi.variant.Annanshogi.id,
     shogi.variant.Kyotoshogi.id,
     shogi.variant.Checkshogi.id,
+    shogi.variant.Dobutsu.id,
   )
   val aiVariants =
     List(
@@ -95,6 +96,7 @@ trait BaseConfig {
       shogi.variant.Minishogi.id,
       shogi.variant.Kyotoshogi.id,
       shogi.variant.Checkshogi.id,
+      shogi.variant.Dobutsu.id,
     )
 
   private val timeMin             = 0

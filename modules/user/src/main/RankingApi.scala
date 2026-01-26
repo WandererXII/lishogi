@@ -92,6 +92,7 @@ final class RankingApi(
       annanshogi     <- topPerf(PerfType.Annanshogi.id, nb)
       kyotoshogi     <- topPerf(PerfType.Kyotoshogi.id, nb)
       checkshogi     <- topPerf(PerfType.Checkshogi.id, nb)
+      dobutsu        <- topPerf(PerfType.Dobutsu.id, nb)
     } yield Perfs.Leaderboards(
       realTime = realTime,
       correspondence = correspondence,
@@ -100,6 +101,7 @@ final class RankingApi(
       annanshogi = annanshogi,
       kyotoshogi = kyotoshogi,
       checkshogi = checkshogi,
+      dobutsu = dobutsu,
     )
 
   object monthlyStableRanking {

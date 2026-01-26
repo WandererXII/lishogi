@@ -12,6 +12,7 @@ case class Perfs(
     annanshogi: Perf,
     kyotoshogi: Perf,
     checkshogi: Perf,
+    dobutsu: Perf,
     realTime: Perf,
     correspondence: Perf,
     puzzle: Perf,
@@ -26,6 +27,7 @@ case class Perfs(
       "annanshogi"     -> annanshogi,
       "kyotoshogi"     -> kyotoshogi,
       "checkshogi"     -> checkshogi,
+      "dobutsu"        -> dobutsu,
       "realTime"       -> realTime,
       "correspondence" -> correspondence,
       "puzzle"         -> puzzle,
@@ -90,6 +92,7 @@ case class Perfs(
     "annanshogi"     -> annanshogi,
     "kyotoshogi"     -> kyotoshogi,
     "checkshogi"     -> checkshogi,
+    "dobutsu"        -> dobutsu,
     "puzzle"         -> puzzle,
   )
 
@@ -106,6 +109,7 @@ case class Perfs(
       case PerfType.Annanshogi     => annanshogi
       case PerfType.Kyotoshogi     => kyotoshogi
       case PerfType.Checkshogi     => checkshogi
+      case PerfType.Dobutsu        => dobutsu
       case PerfType.Puzzle         => puzzle
     }
 
@@ -132,6 +136,7 @@ case object Perfs {
       annanshogi = p,
       kyotoshogi = p,
       checkshogi = p,
+      dobutsu = p,
       realTime = p,
       correspondence = p,
       puzzle = p,
@@ -162,6 +167,7 @@ case object Perfs {
         annanshogi = perf("annanshogi"),
         kyotoshogi = perf("kyotoshogi"),
         checkshogi = perf("checkshogi"),
+        dobutsu = perf("dobutsu"),
         realTime = perf("realTime"),
         correspondence = perf("correspondence"),
         puzzle = perf("puzzle"),
@@ -179,6 +185,7 @@ case object Perfs {
         "annanshogi"     -> notNew(o.annanshogi),
         "kyotoshogi"     -> notNew(o.kyotoshogi),
         "checkshogi"     -> notNew(o.checkshogi),
+        "dobutsu"        -> notNew(o.dobutsu),
         "realTime"       -> notNew(o.realTime),
         "correspondence" -> notNew(o.correspondence),
         "puzzle"         -> notNew(o.puzzle),
@@ -195,6 +202,7 @@ case object Perfs {
       annanshogi: List[User.LightPerf],
       kyotoshogi: List[User.LightPerf],
       checkshogi: List[User.LightPerf],
+      dobutsu: List[User.LightPerf],
   )
 
 }

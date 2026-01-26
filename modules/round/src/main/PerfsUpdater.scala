@@ -38,6 +38,8 @@ final class PerfsUpdater(
           val ratingsGote  = mkRatings(gote.perfs)
           val result       = resultOf(game)
           perfType match {
+            case PT.Dobutsu =>
+              updateRatings(ratingsSente.dobutsu, ratingsGote.dobutsu, result)
             case PT.Checkshogi =>
               updateRatings(ratingsSente.checkshogi, ratingsGote.checkshogi, result)
             case PT.Kyotoshogi =>
@@ -85,6 +87,7 @@ final class PerfsUpdater(
       annanshogi: Rating,
       kyotoshogi: Rating,
       checkshogi: Rating,
+      dobutsu: Rating,
       realTime: Rating,
       correspondence: Rating,
   )
@@ -96,6 +99,7 @@ final class PerfsUpdater(
       annanshogi = perfs.annanshogi.toRating,
       kyotoshogi = perfs.kyotoshogi.toRating,
       checkshogi = perfs.checkshogi.toRating,
+      dobutsu = perfs.dobutsu.toRating,
       realTime = perfs.realTime.toRating,
       correspondence = perfs.correspondence.toRating,
     )
@@ -140,6 +144,7 @@ final class PerfsUpdater(
           annanshogi = addRatingIf(game.variant.annanshogi, perfs.annanshogi, ratings.annanshogi),
           kyotoshogi = addRatingIf(game.variant.kyotoshogi, perfs.kyotoshogi, ratings.kyotoshogi),
           checkshogi = addRatingIf(game.variant.checkshogi, perfs.checkshogi, ratings.checkshogi),
+          dobutsu = addRatingIf(game.variant.dobutsu, perfs.dobutsu, ratings.dobutsu),
           realTime = addRatingIf(isStd && game.hasClock, perfs.realTime, ratings.realTime),
           correspondence = addRatingIf(
             isStd && game.isCorrespondence,
@@ -154,6 +159,7 @@ final class PerfsUpdater(
           annanshogi = r(PT.Annanshogi, perfs.annanshogi, perfs1.annanshogi),
           kyotoshogi = r(PT.Kyotoshogi, perfs.kyotoshogi, perfs1.kyotoshogi),
           checkshogi = r(PT.Checkshogi, perfs.checkshogi, perfs1.checkshogi),
+          dobutsu = r(PT.Dobutsu, perfs.dobutsu, perfs1.dobutsu),
           realTime = r(PT.RealTime, perfs.realTime, perfs1.realTime),
           correspondence = r(PT.Correspondence, perfs.correspondence, perfs1.correspondence),
         )

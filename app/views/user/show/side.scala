@@ -75,6 +75,7 @@ object side {
         showNonEmptyPerf(u.perfs.annanshogi, PerfType.Annanshogi),
         showNonEmptyPerf(u.perfs.kyotoshogi, PerfType.Kyotoshogi),
         showNonEmptyPerf(u.perfs.checkshogi, PerfType.Checkshogi),
+        showNonEmptyPerf(u.perfs.dobutsu, PerfType.Dobutsu),
         br,
         u.noBot option showPerf(u.perfs.puzzle, PerfType.Puzzle),
         (u.noBot && u.perfs.storm.nonEmpty) option showStorm(u.perfs.storm, u),

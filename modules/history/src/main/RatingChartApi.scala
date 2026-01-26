@@ -56,6 +56,7 @@ final class RatingChartApi(
             Annanshogi,
             Kyotoshogi,
             Checkshogi,
+            Dobutsu,
             Puzzle,
           ).map(_.key) ::: List(
             "ultraBullet",

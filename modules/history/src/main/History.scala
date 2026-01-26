@@ -10,6 +10,7 @@ case class History(
     annanshogi: RatingsMap,
     kyotoshogi: RatingsMap,
     checkshogi: RatingsMap,
+    dobutsu: RatingsMap,
     ultraBullet: RatingsMap,
     bullet: RatingsMap,
     blitz: RatingsMap,
@@ -36,6 +37,7 @@ case class History(
       case "annanshogi"     => annanshogi
       case "kyotoshogi"     => kyotoshogi
       case "checkshogi"     => checkshogi
+      case "dobutsu"        => dobutsu
       case _                => Nil
     }
 }
@@ -70,6 +72,7 @@ object History {
             annanshogi = ratingsMap("annanshogi"),
             kyotoshogi = ratingsMap("kyotoshogi"),
             checkshogi = ratingsMap("checkshogi"),
+            dobutsu = ratingsMap("dobutsu"),
             ultraBullet = ratingsMap("ultraBullet"),
             bullet = ratingsMap("bullet"),
             blitz = ratingsMap("blitz"),

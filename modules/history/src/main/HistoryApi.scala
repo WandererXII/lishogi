@@ -40,6 +40,7 @@ final class HistoryApi(coll: Coll, userRepo: UserRepo, cacheApi: lila.memo.Cache
       game.variant.annanshogi.option("annanshogi"              -> perfs.annanshogi),
       game.variant.kyotoshogi.option("kyotoshogi"              -> perfs.kyotoshogi),
       game.variant.checkshogi.option("checkshogi"              -> perfs.checkshogi),
+      game.variant.dobutsu.option("dobutsu"                    -> perfs.dobutsu),
       (isStd && game.hasClock).option("realTime"               -> perfs.realTime),
       (isStd && game.isCorrespondence).option("correspondence" -> perfs.correspondence),
     ).flatten.map { case (k, p) =>

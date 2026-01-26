@@ -344,5 +344,6 @@ object User {
     PerfType.Annanshogi,
     PerfType.Kyotoshogi,
     PerfType.Checkshogi,
+    PerfType.Dobutsu,
   )
 }

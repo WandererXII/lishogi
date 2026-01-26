@@ -55,6 +55,7 @@ object list {
               userTopPerf(leaderboards.annanshogi, PerfType.Annanshogi),
               userTopPerf(leaderboards.kyotoshogi, PerfType.Kyotoshogi),
               userTopPerf(leaderboards.checkshogi, PerfType.Checkshogi),
+              userTopPerf(leaderboards.dobutsu, PerfType.Dobutsu),
             ),
           ),
         ),

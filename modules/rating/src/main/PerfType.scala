@@ -67,6 +67,13 @@ object PerfType {
         icon = Icons.checkshogi,
       )
 
+  case object Dobutsu
+      extends PerfType(
+        17,
+        key = "dobutsu",
+        icon = Icons.dobutsu,
+      )
+
   case object Puzzle
       extends PerfType(
         20,
@@ -82,6 +89,7 @@ object PerfType {
     Annanshogi,
     Kyotoshogi,
     Checkshogi,
+    Dobutsu,
     Puzzle,
   )
   private val byKeyMap = all map { p =>
@@ -108,6 +116,7 @@ object PerfType {
     Annanshogi,
     Kyotoshogi,
     Checkshogi,
+    Dobutsu,
   )
   val leaderboardable: List[PerfType] = List(
     RealTime,
@@ -117,6 +126,7 @@ object PerfType {
     Annanshogi,
     Kyotoshogi,
     Checkshogi,
+    Dobutsu,
   )
   val variants: List[PerfType] = List(Minishogi, Chushogi, Annanshogi, Kyotoshogi, Checkshogi)
   val standard: List[PerfType] = List(RealTime, Correspondence)
@@ -126,6 +136,7 @@ object PerfType {
       case Kyotoshogi => shogi.variant.Kyotoshogi
       case Annanshogi => shogi.variant.Annanshogi
       case Checkshogi => shogi.variant.Checkshogi
+      case Dobutsu    => shogi.variant.Dobutsu
       case Chushogi   => shogi.variant.Chushogi
       case Minishogi  => shogi.variant.Minishogi
       case _          => shogi.variant.Standard
@@ -135,6 +146,7 @@ object PerfType {
     variant match {
       case shogi.variant.Kyotoshogi => Kyotoshogi.some
       case shogi.variant.Annanshogi => Annanshogi.some
+      case shogi.variant.Dobutsu    => Dobutsu.some
       case shogi.variant.Checkshogi => Checkshogi.some
       case shogi.variant.Chushogi   => Chushogi.some
       case shogi.variant.Minishogi  => Minishogi.some
@@ -151,6 +163,7 @@ object PerfType {
       case Annanshogi     => I18nKeys.annanshogi.txt()
       case Kyotoshogi     => I18nKeys.kyotoshogi.txt()
       case Checkshogi     => I18nKeys.checkshogi.txt()
+      case Dobutsu        => I18nKeys.dobutsu.txt()
     }
 
 }

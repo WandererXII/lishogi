@@ -172,6 +172,12 @@ object TournamentShield {
           icon = Icons.checkshogi,
         )
 
+    case object Dobutsu
+        extends Category(
+          of = Right(shogi.variant.Dobutsu),
+          icon = Icons.dobutsu,
+        )
+
     val all: List[Category] = List(
       VeryFastShogi,
       FastShogi,
@@ -180,6 +186,7 @@ object TournamentShield {
       Annanshogi,
       Kyotoshogi,
       Checkshogi,
+      Dobutsu,
     )
 
     def of(t: Tournament): Option[Category] = all.find(_ matches t)
