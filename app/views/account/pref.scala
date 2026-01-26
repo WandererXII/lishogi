@@ -110,6 +110,10 @@ object pref {
               radios(form("display.noFlags"), booleanChoices),
             ),
             setting(
+              noRanks(),
+              radios(form("display.noRanks"), booleanChoices),
+            ),
+            setting(
               displayBoardResizeHandle(),
               radios(form("display.resizeHandle"), translatedBoardResizeHandleChoices),
             ),

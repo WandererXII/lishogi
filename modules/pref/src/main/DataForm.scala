@@ -30,6 +30,7 @@ object DataForm {
         "boardLayout"        -> checkedNumber(Pref.BoardLayout.choices),
         "zen"                -> optional(booleanNumber),
         "noFlags"            -> optional(booleanNumber),
+        "noRanks"            -> optional(booleanNumber),
         "resizeHandle"       -> optional(checkedNumber(Pref.ResizeHandle.choices)),
       )(DisplayData.apply)(DisplayData.unapply),
       "behavior" -> mapping(
@@ -70,6 +71,7 @@ object DataForm {
       boardLayout: Int,
       zen: Option[Int],
       noFlags: Option[Int],
+      noRanks: Option[Int],
       resizeHandle: Option[Int],
   )
 
@@ -132,6 +134,7 @@ object DataForm {
         keyboardMove = behavior.keyboardMove | pref.keyboardMove,
         zen = display.zen | pref.zen,
         noFlags = display.noFlags | pref.noFlags,
+        noRanks = display.noRanks | pref.noRanks,
         resizeHandle = display.resizeHandle | pref.resizeHandle,
         moveEvent = behavior.moveEvent | pref.moveEvent,
       )
@@ -155,6 +158,7 @@ object DataForm {
           colorName = pref.colorName,
           zen = pref.zen.some,
           noFlags = pref.noFlags.some,
+          noRanks = pref.noRanks.some,
           resizeHandle = pref.resizeHandle.some,
         ),
         behavior = BehaviorData(

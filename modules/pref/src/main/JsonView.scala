@@ -50,6 +50,7 @@ object JsonView {
       "keyboardMove"       -> p.keyboardMove,
       "zen"                -> p.zen,
       "noFlags"            -> p.noFlags,
+      "noRanks"            -> p.noRanks,
       "moveEvent"          -> p.moveEvent,
     )
   }

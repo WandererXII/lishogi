@@ -57,3 +57,9 @@
 .r-8-Dan {
   color: theme.$c-font-clearer;
 }
+
+body.no-ranks {
+  .rank-tag {
+    display: none;
+  }
+}

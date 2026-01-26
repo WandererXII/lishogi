@@ -43,6 +43,7 @@ case class Pref(
     keyboardMove: Int,
     zen: Int,
     noFlags: Int,
+    noRanks: Int,
     moveEvent: Int,
     notation: Int,
     resizeHandle: Int,
@@ -138,6 +139,8 @@ case class Pref(
   def isZen = zen == Zen.YES
 
   def wantsNoFlags = noFlags == NoFlags.YES
+
+  def wantsNoRanks = noRanks == NoRanks.YES
 }
 
 object Pref {
@@ -372,6 +375,8 @@ object Pref {
 
   object NoFlags extends BooleanPref
 
+  object NoRanks extends BooleanPref
+
   def create(id: String) = default.copy(_id = id)
 
   lazy val default = Pref(
@@ -417,6 +422,7 @@ object Pref {
     keyboardMove = KeyboardMove.NO,
     zen = Zen.NO,
     noFlags = NoFlags.NO,
+    noRanks = NoRanks.NO,
     moveEvent = MoveEvent.BOTH,
     notation = Notations.western.index,
     resizeHandle = ResizeHandle.INITIAL,
