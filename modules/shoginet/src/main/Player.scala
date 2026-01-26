@@ -8,22 +8,40 @@ import shogi.Clock
 import shogi.Gote
 import shogi.Sente
 
+import lila.common.Bus
 import lila.common.Random.approximately
 import lila.game.Game
+import lila.hub.actorApi.map.Tell
+import lila.hub.actorApi.round.ShoginetPlay
 
 final class Player(
     moveDb: MoveDB,
     val maxPlies: Int,
 )(implicit
     ec: scala.concurrent.ExecutionContext,
+    system: akka.actor.ActorSystem,
 ) {
 
   def apply(game: Game): Funit =
     game.aiEngine ?? { engine =>
-      makeWork(game, engine) addEffect moveDb.add void
+      val obUsi =
+        (engine.level <= maxLevelForOpeningBook && OpeningBook.valid(game)) ?? OpeningBook.find(
+          game,
+        )
+      obUsi.fold {
+        makeWork(game, engine) addEffect moveDb.add void
+      } { usi =>
+        lila.common.Future.delay(500.millis) {
+          fuccess {
+            Bus.publish(Tell(game.id, ShoginetPlay(usi, game.plies)), "roundSocket")
+          }
+        }
+      }
     } recover { case e: Exception =>
       logger.info(e.getMessage)
     }
+
+  private val maxLevelForOpeningBook = 8
 
   private val delayFactor  = 0.011f
   private val defaultClock = Clock(300, 0, 0, 0)
