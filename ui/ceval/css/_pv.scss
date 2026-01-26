@@ -88,6 +88,10 @@
     background: theme.$c-bg-zebra;
     z-index: 3;
 
+    &:has(.v-dobutsu) {
+      width: 60%;
+    }
+
     sg-hand-wrap {
       .hand-top {
         @extend %box-radius-top;

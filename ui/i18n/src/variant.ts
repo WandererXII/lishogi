@@ -4,6 +4,8 @@ export function i18nVariant(key: VariantKey): string;
 export function i18nVariant(key: string): string | undefined;
 export function i18nVariant(key: string): string | undefined {
   switch (key) {
+    case 'standard':
+      return i18n('standard');
     case 'minishogi':
       return i18n('minishogi');
     case 'chushogi':
@@ -14,8 +16,8 @@ export function i18nVariant(key: string): string | undefined {
       return i18n('kyotoshogi');
     case 'checkshogi':
       return i18n('checkshogi');
-    case 'standard':
-      return i18n('standard');
+    case 'dobutsu':
+      return i18n('dobutsu');
     default:
       return undefined;
   }

@@ -10,6 +10,8 @@ export function variantToId(variant: VariantKey): number {
       return 5;
     case 'checkshogi':
       return 6;
+    case 'dobutsu':
+      return 7;
     default:
       return 1;
   }
@@ -27,6 +29,8 @@ export function idToVariant(id: number | string): VariantKey {
       return 'kyotoshogi';
     case 6:
       return 'checkshogi';
+    case 7:
+      return 'dobutsu';
     default:
       return 'standard';
   }

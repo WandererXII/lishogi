@@ -52,6 +52,7 @@ const styles: ChartPerf[] = [
   { color: '#CC79A7', borderDash: shortDash, symbol: 'triangle', name: 'kyotoshogi' },
   { color: '#DF5353', borderDash: shortDash, symbol: 'triangle', name: 'annanshogi' },
   { color: '#66558C', borderDash: shortDash, symbol: 'triangle', name: 'checkshogi' },
+  { color: '#558c60ff', borderDash: shortDash, symbol: 'triangle', name: 'dobutsu' },
   { color: '#0072B2', borderDash: longDash, symbol: 'rect', name: 'puzzle' },
 ];
 

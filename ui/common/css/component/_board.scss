@@ -35,6 +35,14 @@
     }
   }
 
+  &.v-dobutsu {
+    padding-bottom: calc(100% / 11 * 12 / 3 * 6 + #{uniboard.$hands-gap});
+
+    .sg-wrap {
+      grid-template-rows: 1fr 4fr 1fr;
+    }
+  }
+
   &.v-chushogi {
     padding-bottom: calc(100% / 11 * 12);
 
@@ -64,6 +72,15 @@
 
       .sg-wrap {
         grid-template-columns: 1fr 5fr 1fr;
+        grid-template-rows: auto;
+      }
+    }
+
+    &.v-dobutsu {
+      padding-bottom: calc((100% - #{uniboard.$hands-gap}) / 5 * 4 / 11 * 12);
+
+      .sg-wrap {
+        grid-template-columns: 1fr 3fr 1fr;
         grid-template-rows: auto;
       }
     }

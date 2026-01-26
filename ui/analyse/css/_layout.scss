@@ -26,6 +26,16 @@
       );
     }
 
+    &:has(.main-v-dobutsu) {
+      --main-max-width: calc(
+        (
+            100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
+              #{uniboard.$hands-gap}
+          ) /
+          5 * 3 / 12 * 11
+      );
+    }
+
     &:has(.main-v-chushogi) {
       --main-max-width: calc(
         (

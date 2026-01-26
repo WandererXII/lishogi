@@ -35,7 +35,8 @@ declare global {
     | 'chushogi'
     | 'annanshogi'
     | 'kyotoshogi'
-    | 'checkshogi';
+    | 'checkshogi'
+    | 'dobutsu';
 
   type Color = shogiops.Color;
 

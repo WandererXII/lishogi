@@ -21,6 +21,7 @@ const supportedVariants: VariantKey[] = [
   'annanshogi',
   'kyotoshogi',
   'checkshogi',
+  'dobutsu',
 ];
 
 export function supportedVariant(key: VariantKey): boolean {

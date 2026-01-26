@@ -32,6 +32,14 @@ sg-hand-wrap {
     }
   }
 
+  &.r-3 {
+    width: calc(100% / 3 * 3);
+
+    sg-hand sg-hp-wrap piece {
+      flex: 1 0 calc(100% / 3);
+    }
+  }
+
   &.r-0 {
     display: none;
   }
@@ -63,6 +71,11 @@ sg-hand-wrap {
 
     &.r-4 {
       height: calc(100% / 5 * 4);
+      width: 100%;
+    }
+
+    &.r-3 {
+      height: calc(100% / 4 * 3);
       width: 100%;
     }
   }

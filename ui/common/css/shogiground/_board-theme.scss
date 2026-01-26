@@ -96,6 +96,25 @@ sg-squares {
     }
   }
 
+  &.d-3x4 {
+    sg-squares sq {
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(11),
+      &:nth-child(12) {
+        position: relative;
+
+        &::after {
+          @extend %grid-dot;
+        }
+      }
+    }
+
+    &.preload sg-squares {
+      background-size: calc(100% / 3) calc(100% / 4);
+    }
+  }
+
   &.d-12x12 {
     sg-squares sq {
       &:nth-child(53),

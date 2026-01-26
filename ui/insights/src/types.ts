@@ -142,4 +142,5 @@ export const variants: VariantKey[] = [
   'annanshogi',
   'kyotoshogi',
   'checkshogi',
+  'dobutsu',
 ];

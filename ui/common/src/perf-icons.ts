@@ -15,4 +15,5 @@ const perfIcons: Record<string, string> = {
   annanshogi: icons.annanshogi,
   kyotoshogi: icons.kyotoshogi,
   checkshogi: icons.checkshogi,
+  dobutsu: icons.dobutsu,
 };

@@ -38,6 +38,10 @@ sg-squares {
   justify-content: space-between;
   grid-template: repeat(9, 1fr) / repeat(9, 1fr);
 
+  .d-3x4 & {
+    grid-template: repeat(4, 1fr) / repeat(3, 1fr);
+  }
+
   .d-5x5 & {
     grid-template: repeat(5, 1fr) / repeat(5, 1fr);
   }
@@ -117,6 +121,12 @@ piece {
   width: calc(200% / 9);
   height: calc(200% / 9);
   margin: calc(-50% / 11 * 12 / 9) calc(-50% / 9);
+
+  .d-3x4 sg-board & {
+    width: calc(200% / 3);
+    height: calc(200% / 4);
+    margin: calc(-50% / 11 * 12 / 3) calc(-50% / 3);
+  }
 
   .d-5x5 sg-board & {
     width: calc(200% / 5);
