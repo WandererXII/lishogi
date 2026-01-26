@@ -7,7 +7,7 @@ object BuildSettings {
 
   val globalLilaVersion  = "3.0"
   val globalOrganization = "org.lishogi"
-  val globalScalaVersion = "2.13.16"
+  val globalScalaVersion = "2.13.18"
 
   def buildSettings =
     Defaults.coreDefaultSettings ++ Seq(

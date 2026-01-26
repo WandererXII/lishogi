@@ -36,8 +36,7 @@ object RawHtml {
 
   private[this] val USER_LINK = """/@/([\w-]{2,30}+)?""".r
 
-  final private[this] val DOMAIN      = "lishogi.org"
-  final private[this] val linkReplace = DOMAIN + "/@/$1"
+  final private[this] val DOMAIN = "lishogi.org"
 
   // Matches a lishogi username with an '@' prefix if it is used as a single
   // word (i.e. preceded and followed by space or appropriate punctuation):
