@@ -226,12 +226,14 @@ object I18nKeys {
   val `annanshogi` = new I18nKey("annanshogi")
   val `kyotoshogi` = new I18nKey("kyotoshogi")
   val `checkshogi` = new I18nKey("checkshogi")
+  val `dobutsu` = new I18nKey("dobutsu")
   val `standardDescription` = new I18nKey("standardDescription")
   val `minishogiDescription` = new I18nKey("minishogiDescription")
   val `chushogiDescription` = new I18nKey("chushogiDescription")
   val `kyotoshogiDescription` = new I18nKey("kyotoshogiDescription")
   val `annanshogiDescription` = new I18nKey("annanshogiDescription")
   val `checkshogiDescription` = new I18nKey("checkshogiDescription")
+  val `dobutsuDescription` = new I18nKey("dobutsuDescription")
   val `unlimited` = new I18nKey("unlimited")
   val `mode` = new I18nKey("mode")
   val `casual` = new I18nKey("casual")
@@ -1878,6 +1880,7 @@ object I18nKeys {
     val `myAndOpponentClock` = new I18nKey("preferences:myAndOpponentClock")
     val `allClocks` = new I18nKey("preferences:allClocks")
     val `noFlags` = new I18nKey("preferences:noFlags")
+    val `noRanks` = new I18nKey("preferences:noRanks")
 }
 
   object puzzle {
