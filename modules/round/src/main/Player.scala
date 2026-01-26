@@ -158,7 +158,7 @@ final private class Player(
       case Valid(nsg) =>
         Valid(
           if (nsg.clock.exists(_.outOfTime(game.turnColor, withGrace = false))) Flagged
-          else if (game.prePaused && !nsg.situation.end(withImpasse = true))
+          else if (game.prePaused && !nsg.situation.end)
             UsiApplied(game.pauseAndSealUsi(usi, nsg, blur))
           else UsiApplied(game.applyGame(nsg, blur)),
         )
@@ -225,8 +225,8 @@ final private class Player(
         finisher.other(game, _.PerpetualCheck, winner = game.situation.winner)
       case Status.RoyalsLost => finisher.other(game, _.RoyalsLost, winner = game.situation.winner)
       case Status.BareKing   => finisher.other(game, _.BareKing, winner = game.situation.winner)
-      case Status.SpecialVariantEnd =>
-        finisher.other(game, _.SpecialVariantEnd, winner = game.situation.winner)
+      case Status.Check =>
+        finisher.other(game, _.Check, winner = game.situation.winner)
       case Status.Draw => finisher.other(game, _.Draw, winner = none)
       case _           => fuccess(Nil)
     }

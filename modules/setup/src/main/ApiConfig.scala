@@ -36,7 +36,7 @@ final case class ApiConfig(
   def validSfen =
     sfen.fold(true) { sf =>
       sf.toSituationPlus(variant)
-        .exists(_.situation.playable(strict = strictSfen, withImpasse = true))
+        .exists(_.situation.playable(strict = strictSfen))
     }
 
   def validSpeed(isBot: Boolean) =

@@ -239,7 +239,7 @@ final class ShoginetApi(
     val puzs = sfens
       .flatMap(sfen => sfen.toSituation(shogi.variant.Standard))
       .withFilter(
-        _.playable(true, true),
+        _.playable(strict = true),
       )
       .map { sit =>
         Work.Puzzle(

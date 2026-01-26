@@ -70,7 +70,7 @@ trait Positional { self: Config =>
   lazy val validSfen =
     sfen.fold(true) { sf =>
       sf.toSituationPlus(variant)
-        .exists(_.situation.playable(strict = strictSfen, withImpasse = true))
+        .exists(_.situation.playable(strict = strictSfen))
     }
 
   def makeGame = ShogiGame(sfen, variant).withClock(makeClock.map(_.toClock))

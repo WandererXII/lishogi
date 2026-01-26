@@ -77,11 +77,10 @@ final private class Captcher(gameRepo: GameRepo)(implicit ec: scala.concurrent.E
 
     // Not looking for drop checkmates or checking promotions
     private def solve(game: ShogiGame): Option[Captcha.Solutions] =
-      game.situation
-        .moveActorsOf(game.situation.color)
+      game.situation.moveActors.values
         .flatMap { case moveActor =>
           moveActor.toUsis filter { usi =>
-            game.situation(usi).toOption.fold(false)(_.checkmate)
+            game.situation(usi).toOption.fold(false)(_.status.contains(shogi.Status.Mate))
           }
         }
         .to(List) map { usi =>

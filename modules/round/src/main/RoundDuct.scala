@@ -295,11 +295,9 @@ final private[round] class RoundDuct(
       handle { game =>
         (game.playable && game.plies == ply) ?? {
           logger.warn(s"Shoginet play fallback: ${game.shogi.toSfen}")
-          val usiOpt = game.situation
-            .moveActorsOf(game.situation.color)
+          val usiOpt = game.situation.moveActors.values
             .flatMap(_.toUsis)
-            .headOption orElse game.situation
-            .dropActorsOf(game.situation.color)
+            .headOption orElse game.situation.dropActors.values
             .flatMap(_.toUsis)
             .headOption
           usiOpt ?? { usi => player.shoginet(game, ply, usi) }

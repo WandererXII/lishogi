@@ -77,21 +77,21 @@ trait ShogiHelper { self: I18nHelper =>
       case shogi.Status.UnknownFinish => trans.finished.txt()
       case shogi.Status.Stalemate     => trans.stalemate.txt()
       case shogi.Status.TryRule => "Try Rule" // games before July 2021 might still have this status
-      case shogi.Status.Impasse27         => trans.impasse.txt()
-      case shogi.Status.PerpetualCheck    => trans.perpetualCheck.txt()
-      case shogi.Status.RoyalsLost        => trans.royalsLost.txt()
-      case shogi.Status.BareKing          => trans.bareKing.txt()
-      case shogi.Status.SpecialVariantEnd => trans.check.txt()
-      case shogi.Status.IllegalMove       => trans.illegalMove.txt()
-      case shogi.Status.Timeout           => trans.timeOut.txt()
-      case shogi.Status.Repetition        => trans.repetition.txt()
-      case shogi.Status.Draw              => trans.draw.txt()
-      case shogi.Status.Outoftime         => trans.timeOut.txt()
-      case shogi.Status.Paused            => trans.gameAdjourned.txt()
-      case shogi.Status.Cheat             => trans.cheatDetected.txt()
-      case shogi.Status.NoStart           => ""
-      case shogi.Status.Created           => ""
-      case shogi.Status.Started           => ""
+      case shogi.Status.Impasse27      => trans.impasse.txt()
+      case shogi.Status.PerpetualCheck => trans.perpetualCheck.txt()
+      case shogi.Status.RoyalsLost     => trans.royalsLost.txt()
+      case shogi.Status.BareKing       => trans.bareKing.txt()
+      case shogi.Status.Check          => trans.check.txt()
+      case shogi.Status.IllegalMove    => trans.illegalMove.txt()
+      case shogi.Status.Timeout        => trans.timeOut.txt()
+      case shogi.Status.Repetition     => trans.repetition.txt()
+      case shogi.Status.Draw           => trans.draw.txt()
+      case shogi.Status.Outoftime      => trans.timeOut.txt()
+      case shogi.Status.Paused         => trans.gameAdjourned.txt()
+      case shogi.Status.Cheat          => trans.cheatDetected.txt()
+      case shogi.Status.NoStart        => ""
+      case shogi.Status.Created        => ""
+      case shogi.Status.Started        => ""
     }
 
 }

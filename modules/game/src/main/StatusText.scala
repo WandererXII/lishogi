@@ -2,13 +2,12 @@ package lila.game
 
 import shogi.Color
 import shogi.Status
-import shogi.variant.Variant
 
 object StatusText {
 
   import Status._
 
-  def apply(status: Status, win: Option[Color], variant: Variant): String =
+  def apply(status: Status, win: Option[Color]): String =
     status match {
       case Aborted                     => "Game was aborted."
       case Paused                      => "Game was adjourned."
@@ -23,17 +22,17 @@ object StatusText {
       case Repetition                  => s"The game is a draw due to repetition."
       case RoyalsLost                  => s"${winner(win)} wins by capturing all royal pieces."
       case BareKing                    => s"${winner(win)} wins due to bare king rule."
-      case SpecialVariantEnd if variant.checkshogi => s"${winner(win)} wins by check."
-      case IllegalMove                             => s"${loser(win)} made an illegal move."
-      case Timeout if win.isDefined                => s"${loser(win)} left the game."
-      case Timeout | Draw                          => "The game is a draw."
-      case Outoftime                               => s"${winner(win)} wins on time."
-      case NoStart                                 => s"${loser(win)} wins by forfeit."
-      case Cheat                                   => "Cheat detected."
-      case _                                       => ""
+      case Check                       => s"${winner(win)} wins by check."
+      case IllegalMove                 => s"${loser(win)} made an illegal move."
+      case Timeout if win.isDefined    => s"${loser(win)} left the game."
+      case Timeout | Draw              => "The game is a draw."
+      case Outoftime                   => s"${winner(win)} wins on time."
+      case NoStart                     => s"${loser(win)} wins by forfeit."
+      case Cheat                       => "Cheat detected."
+      case _                           => ""
     }
 
-  def apply(game: lila.game.Game): String = apply(game.status, game.winnerColor, game.variant)
+  def apply(game: lila.game.Game): String = apply(game.status, game.winnerColor)
 
   private def winner(win: Option[Color]) = win.??(_.toString)
   private def loser(win: Option[Color])  = winner(win.map(!_))

@@ -78,9 +78,7 @@ final class NotationDump(
       if (game.finished) {
         terminationMove.fold(
           notation.updateLastPly(
-            _.copy(comments =
-              List(lila.game.StatusText(game.status, game.winnerColor, game.variant)),
-            ),
+            _.copy(comments = List(lila.game.StatusText(game.status, game.winnerColor))),
           ),
         ) { t =>
           notation.updateLastPly(_.copy(result = t.some))

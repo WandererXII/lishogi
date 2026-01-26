@@ -146,7 +146,7 @@ object SimulForm {
       position.fold(true) { sfen =>
         sfen
           .toSituation(actualVariants.headOption | shogi.variant.Standard)
-          .exists(_.playable(strict = true, withImpasse = true))
+          .exists(_.playable(strict = true))
       }
 
     def actualVariants = variants.flatMap(shogi.variant.Variant(_)).distinct

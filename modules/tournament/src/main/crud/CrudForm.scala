@@ -76,7 +76,7 @@ object CrudForm {
 
     def isCustomPositionValid =
       position.fold(true) { sfen =>
-        sfen.toSituation(realVariant).exists(_.playable(strict = true, withImpasse = true))
+        sfen.toSituation(realVariant).exists(_.playable(strict = true))
       }
 
     def validTiming = (minutes * 60) >= (3 * estimatedGameDuration)

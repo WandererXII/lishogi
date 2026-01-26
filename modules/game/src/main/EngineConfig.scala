@@ -59,7 +59,7 @@ object EngineConfig {
       val default = Standard.pieces.values.map(_.role)
       def countHands(r: Role): Int =
         ~Standard.handRoles.find(_ == r).map(hr => sit.hands.count(hr))
-      sit.playable(strict = true, withImpasse = true) &&
+      sit.playable(strict = true) &&
       Standard.allRoles.filterNot(r => Standard.unpromote(r).isDefined).forall { r =>
         default
           .count(_ == r) >= (sit.board

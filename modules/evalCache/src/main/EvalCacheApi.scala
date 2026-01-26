@@ -94,7 +94,7 @@ final class EvalCacheApi(
 
   private def destSize(variant: shogi.variant.Variant, sfen: Sfen): Int =
     ~(sfen.toSituation(variant) map { sit =>
-      sit.moveDestinations.view.map(_._2.size).sum +
-        sit.dropDestinations.view.map(_._2.size).sum
+      sit.moveActors.values.map(_.toUsis.size).sum +
+        sit.dropActors.values.map(_.destinations.size).sum
     })
 }

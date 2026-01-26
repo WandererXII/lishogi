@@ -47,7 +47,7 @@ final class Player(
       } yield divided.millis
 
   private def makeWork(game: Game, ec: lila.game.EngineConfig): Fu[Work.Move] =
-    if (game.situation.playable(true, true))
+    if (game.situation.playable(strict = true))
       if (game.plies <= maxPlies)
         fuccess(
           Work.Move(
