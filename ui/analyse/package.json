@@ -4,7 +4,6 @@
   "license": "AGPL-3.0-or-later",
   "type": "module",
   "dependencies": {
-    "@badrap/result": "catalog:",
     "@yaireo/tagify": "^4.35.6",
     "breakpoint-sass": "catalog:",
     "ceval": "workspace:*",

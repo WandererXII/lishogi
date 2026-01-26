@@ -53,10 +53,10 @@ export function notationRanks(): sgNotation {
 export function roleName(rules: Rules, role: Role): string {
   switch (notationPref()) {
     case prefs.notation.KAWASAKI:
-      return roleToKanji(role).replace('成', '+');
+      return roleToKanji(rules)(role).replace('成', '+');
     case prefs.notation.JAPANESE:
     case prefs.notation.KIF:
-      return roleToKanji(role);
+      return roleToKanji(rules)(role);
     case prefs.notation.USI:
       return roleToForsyth(rules)(role)!;
     default:

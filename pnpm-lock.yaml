@@ -6,9 +6,6 @@ settings:
 
 catalogs:
   default:
-    '@badrap/result':
-      specifier: 0.2.13
-      version: 0.2.13
     breakpoint-sass:
       specifier: github:WandererXII/breakpoint#4.1
       version: 4.0.0-beta.1
@@ -16,8 +13,8 @@ catalogs:
       specifier: ^0.10.3
       version: 0.10.3
     shogiops:
-      specifier: ^0.19.0
-      version: 0.19.0
+      specifier: ^0.20.0
+      version: 0.20.0
     snabbdom:
       specifier: ^3.6.3
       version: 3.6.3
@@ -215,13 +212,10 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
 
   ui/analyse:
     dependencies:
-      '@badrap/result':
-        specifier: 'catalog:'
-        version: 0.2.13
       '@yaireo/tagify':
         specifier: ^4.35.6
         version: 4.35.6(prop-types@15.8.1)(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
@@ -257,7 +251,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -274,9 +268,6 @@ importers:
 
   ui/ceval:
     dependencies:
-      '@badrap/result':
-        specifier: 'catalog:'
-        version: 0.2.13
       breakpoint-sass:
         specifier: 'catalog:'
         version: https://codeload.github.com/WandererXII/breakpoint/tar.gz/ec62164affacb6a0ed084b17ec22fe091baf2e47
@@ -297,7 +288,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -387,7 +378,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -426,7 +417,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -453,7 +444,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -504,7 +495,7 @@ importers:
         version: link:../shogi
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -522,7 +513,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -546,7 +537,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -570,7 +561,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -612,7 +603,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       tablesort:
         specifier: ^5.6.0
         version: 5.6.0
@@ -667,7 +658,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -701,7 +692,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -731,7 +722,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -741,9 +732,6 @@ importers:
 
   ui/round:
     dependencies:
-      '@badrap/result':
-        specifier: 'catalog:'
-        version: 0.2.13
       breakpoint-sass:
         specifier: 'catalog:'
         version: https://codeload.github.com/WandererXII/breakpoint/tar.gz/ec62164affacb6a0ed084b17ec22fe091baf2e47
@@ -773,7 +761,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -797,7 +785,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -856,7 +844,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.19.0
+        version: 0.20.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.3
@@ -968,8 +956,9 @@ packages:
     resolution: {integrity: sha512-Q/N6JNWvIvPnLDvjlE1OUBLPQHH6l3CltCEsHIujp45zQUSSh8K+gHnaEX45yAT1nyngnINhvWtzN+Nb9D8RAQ==}
     engines: {node: '>=6.9.0'}
 
-  '@badrap/result@0.2.13':
-    resolution: {integrity: sha512-Qvyzz0dmGY0h8pwvBFo1BznAKf5Y5NXIDiqhPALWtfU7oHbAToCtPu4FlYQ3uysskSWLx8GUiyhe0nv0nDd/7Q==}
+  '@badrap/result@0.3.1':
+    resolution: {integrity: sha512-ECvpsyZYknoRD0peG1K+UkX5llld3TyK1Ot9Cq2epSoWK19nyzpGKVl98sadSmohu5wHNuiDl+Ex9SVdcIjiFg==}
+    engines: {node: '>= 22'}
 
   '@biomejs/biome@2.3.8':
     resolution: {integrity: sha512-Qjsgoe6FEBxWAUzwFGFrB+1+M8y/y5kwmg5CHac+GSVOdmOIqsAiXM5QMVGZJ1eCUCLlPZtq4aFAQ0eawEUuUA==}
@@ -4580,8 +4569,9 @@ packages:
   shogiground@0.10.3:
     resolution: {integrity: sha512-MqMVjmQv+i9h3ISRk//FZ6pPYPNqq14ZtPGYw9qfkaCKReMkB39ogP5wnXynpLFtE7ja7RyiOpXeC1MZS8UAoA==}
 
-  shogiops@0.19.0:
-    resolution: {integrity: sha512-cMmazXORRClObWPjMe9hW+whr7oGF2mXKYJlHi76bHDffCY19UQjtlb9zSC04LchfdJOLQNXYLYKUTeddQcClA==}
+  shogiops@0.20.0:
+    resolution: {integrity: sha512-zQUXzY6hkO2mJ+Ix+AC8ekN7MMWNuwnRKqksl5Y2SRlAyTZtLpiWh1Q1IfA32IdZZRe/tlgsnFQJOiFFLRmMbg==}
+    engines: {pnpm: '>=10.16.0'}
 
   signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
@@ -5168,7 +5158,7 @@ snapshots:
 
   '@babel/runtime@7.28.4': {}
 
-  '@badrap/result@0.2.13': {}
+  '@badrap/result@0.3.1': {}
 
   '@biomejs/biome@2.3.8':
     optionalDependencies:
@@ -8939,9 +8929,9 @@ snapshots:
 
   shogiground@0.10.3: {}
 
-  shogiops@0.19.0:
+  shogiops@0.20.0:
     dependencies:
-      '@badrap/result': 0.2.13
+      '@badrap/result': 0.3.1
 
   signal-exit@3.0.7: {}
 

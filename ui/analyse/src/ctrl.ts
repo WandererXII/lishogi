@@ -1,4 +1,3 @@
-import type { Result } from '@badrap/result';
 import cevalCtrl from 'ceval/ctrl';
 import { cevalRestarter } from 'ceval/restarter';
 import type { CevalCtrl, EvalMeta, NodeEvals } from 'ceval/types';
@@ -31,7 +30,14 @@ import {
 import { isHandicap as sgIsHandicap } from 'shogiops/handicaps';
 import { parseSfen } from 'shogiops/sfen';
 import type { NormalMove, Outcome, Piece } from 'shogiops/types';
-import { makeSquareName, makeUsi, opposite, parseSquareName, squareDist } from 'shogiops/util';
+import {
+  makeSquareName,
+  makeUsi,
+  opposite,
+  parseSquareName,
+  type Result,
+  squareDist,
+} from 'shogiops/util';
 import type { Chushogi } from 'shogiops/variant/chushogi';
 import type { Position, PositionError } from 'shogiops/variant/position';
 import { promotableOnDrop, promote } from 'shogiops/variant/util';

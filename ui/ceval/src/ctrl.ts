@@ -1,12 +1,10 @@
-import { Result } from '@badrap/result';
 import { prop } from 'common/common';
 import { isAndroid, isIOS, isIPad } from 'common/mobile';
 import { storedProp } from 'common/storage';
 import throttle from 'common/throttle';
 import { EngineCode, engineCode, engineNameFromCode } from 'shogi/engine-name';
 import { isImpasse } from 'shogi/impasse';
-import { parseSfen } from 'shogiops/sfen';
-import { defaultPosition } from 'shogiops/variant/variant';
+import { initialSfen, parseSfen } from 'shogiops/sfen';
 import { Cache } from './cache';
 import type {
   CevalCtrl,
@@ -77,9 +75,7 @@ export default function (opts: CevalOpts): CevalCtrl {
   const enableNnue = storedProp('ceval.enable-nnue', true);
 
   // check root position
-  const pos = opts.initialSfen
-    ? parseSfen(opts.variant.key, opts.initialSfen, false)
-    : Result.ok(defaultPosition(opts.variant.key));
+  const pos = parseSfen(opts.variant.key, opts.initialSfen || initialSfen(opts.variant.key), false);
   const analysable = pos.isOk && !unsupportedVariants.includes(opts.variant.key);
 
   // select nnue > hce > none

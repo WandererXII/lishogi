@@ -1,4 +1,3 @@
-import type { Result } from '@badrap/result';
 import type * as sg from 'shogiground/types';
 import {
   shogigroundDropDests,
@@ -6,7 +5,7 @@ import {
   squareSetToSquareNames,
 } from 'shogiops/compat';
 import type { SquareName } from 'shogiops/types';
-import { makePieceName, makeSquareName } from 'shogiops/util';
+import { makePieceName, makeSquareName, type Result } from 'shogiops/util';
 import type { Position } from 'shogiops/variant/position';
 import { fullSquareSet, handRoles } from 'shogiops/variant/util';
 import type { VNodeData } from 'snabbdom';

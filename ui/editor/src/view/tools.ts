@@ -5,8 +5,8 @@ import { roleName } from 'shogi/notation';
 import { colors } from 'shogiground/constants';
 import { RULES } from 'shogiops/constants';
 import { findHandicaps, isHandicap } from 'shogiops/handicaps';
+import { initialSfen, parseSfen } from 'shogiops/sfen';
 import type { Handicap, Role, Rules } from 'shogiops/types';
-import { defaultPosition } from 'shogiops/variant/variant';
 import { h, type VNode } from 'snabbdom';
 import type EditorCtrl from '../ctrl';
 import type { EditorState } from '../interfaces';
@@ -148,7 +148,7 @@ function pieceCounter(ctrl: EditorCtrl): VNode {
       h('span', suffix),
     ]);
   }
-  const defaultBoard = defaultPosition(ctrl.rules).board;
+  const defaultBoard = parseSfen(ctrl.rules, initialSfen(ctrl.rules)).unwrap().board;
   const initialRoles = defaultBoard.presentRoles().sort((a, b) => {
     const indexA = pieceValueOrder.indexOf(a);
     const indexB = pieceValueOrder.indexOf(b);

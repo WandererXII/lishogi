@@ -1,6 +1,7 @@
 import { plyColor } from 'shogi/common';
 import { opposite } from 'shogiground/util';
 import { parseSfen } from 'shogiops/sfen';
+import type { Result } from 'shogiops/types';
 import { isDrop, isMove, parseUsi } from 'shogiops/util';
 import type { Shogi } from 'shogiops/variant/shogi';
 import { pieceForcePromote } from 'shogiops/variant/util';
@@ -39,7 +40,9 @@ export default function moveTest(vm: Vm, puzzle: Puzzle): MoveTestReturn {
 
   for (const i in nodes) {
     const shogi = parseSfen('standard', nodes[i].sfen, false).unwrap() as Shogi;
-    if (shogi.isCheckmate()) {
+    const outcome = shogi.outcome()?.result;
+    const winOutcomes: Result[] = ['checkmate', 'stalemate'];
+    if (!!outcome && winOutcomes.includes(outcome)) {
       vm.node.puzzle = 'win';
       return vm.node.puzzle;
     }

@@ -3,13 +3,16 @@ packages:
   - bin
 
 catalog:
-  '@badrap/result': 0.2.13
   breakpoint-sass: github:WandererXII/breakpoint#4.1
   shogiground: ^0.10.3
-  shogiops: ^0.19.0
+  shogiops: ^0.20.0
   snabbdom: ^3.6.3
 
 minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - shogiops
+  - shogiground
+  - breakpoint-sass
 
 onlyBuiltDependencies:
   - esbuild

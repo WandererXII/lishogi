@@ -5,11 +5,10 @@ import { initialSfen, makeSfen, parseSfen } from 'shogiops/sfen';
 import type { MoveOrDrop } from 'shogiops/types';
 import { makeUsi, parseUsi, toColor } from 'shogiops/util';
 import type { Position } from 'shogiops/variant/position';
-import { Shogi } from 'shogiops/variant/shogi';
 import type { TreeWrapper } from 'tree';
 
 export function usiToTree(usis: Usi[]): Tree.Node {
-  const pos = Shogi.default();
+  const pos = parseSfen('standard', initialSfen('standard'), false).unwrap();
   const root: Tree.Node = {
     ply: 0,
     id: '',

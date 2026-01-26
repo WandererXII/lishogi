@@ -1,5 +1,6 @@
 import type { Piece } from 'shogiground/types';
 import { samePiece } from 'shogiground/util';
+import type { Result } from 'shogiops/types';
 import { opposite, parseSquareName, parseUsi } from 'shogiops/util';
 import type { Assertion, Level, UsiWithColor } from './interfaces';
 import { findCapture, findUnprotectedCapture } from './shogi';
@@ -55,7 +56,9 @@ export function check(color: Color): Assertion {
 
 export function checkmate(level: Level, usiCList: UsiWithColor[]): boolean {
   const shogi = currentPosition(level, usiCList);
-  return shogi.isCheckmate();
+  const outcome = shogi.outcome()?.result;
+  const winOutcomes: Result[] = ['checkmate', 'stalemate'];
+  return !!outcome && winOutcomes.includes(outcome);
 }
 
 export function unprotectedCapture(level: Level, usiCList: UsiWithColor[]): boolean {

@@ -21,7 +21,6 @@ import {
 import type { Role, Rules, Setup } from 'shogiops/types';
 import { toBW, toColor } from 'shogiops/util';
 import { handRoles, promotableRoles, promote, unpromote } from 'shogiops/variant/util';
-import { defaultPosition } from 'shogiops/variant/variant';
 import type { EditorData, EditorOptions, EditorState, Selected } from './interfaces';
 import { makeConfig } from './shogiground';
 
@@ -296,7 +295,7 @@ export default class EditorCtrl {
 
   canFillGoteHand(): boolean {
     const setup = this.getSetup();
-    const startingBoard = defaultPosition(this.rules).board;
+    const startingBoard = parseSfen(this.rules, initialSfen(this.rules), false).unwrap().board;
     return (
       this.countPieces('pawn', setup) <= startingBoard.role('pawn').size() &&
       this.countPieces('lance', setup) <= startingBoard.role('lance').size() &&
@@ -328,7 +327,7 @@ export default class EditorCtrl {
     const setup = this.getSetup();
     const board = setup.board;
     const senteHand = setup.hands.color('sente');
-    const startingBoard = defaultPosition(this.rules).board;
+    const startingBoard = parseSfen(this.rules, initialSfen(this.rules)).unwrap().board;
 
     const pieceCounts: { [index: string]: number } = {
       lance:

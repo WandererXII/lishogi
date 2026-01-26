@@ -8,7 +8,7 @@ import sign from 'puz/sign';
 import { getNow, puzzlePov } from 'puz/util';
 import { Shogiground } from 'shogiground';
 import type { Api as SgApi } from 'shogiground/api';
-import type { MoveOrDrop, Piece, Role } from 'shogiops/types';
+import type { MoveOrDrop, Piece, Result, Role } from 'shogiops/types';
 import { isDrop, isMove, makeUsi, parseSquareName, parseUsi } from 'shogiops/util';
 import { pieceForcePromote } from 'shogiops/variant/util';
 import config from './config';
@@ -106,8 +106,12 @@ export default class StormCtrl {
     let captureSound = pos.board.occupied.has(md.to);
 
     pos.play(md);
+
+    const outcome = pos.outcome()?.result;
+    const winResult: Result[] = ['checkmate', 'stalemate'];
+
     if (
-      pos.isCheckmate() ||
+      (outcome && winResult.includes(outcome)) ||
       usi == puzzle.expectedMove() ||
       (!isDrop(md) &&
         this.isSameMove(usi, puzzle.expectedMove(), pos.turn, pos.board.getRole(md.from)))

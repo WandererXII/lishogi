@@ -48,13 +48,14 @@ export function add(ctrl: LobbyController, hook: Hook): boolean {
   ctrl.data.hooks.push(hook);
   return flushable;
 }
+
 export function setAll(ctrl: LobbyController, hooks: Hook[]): void {
   hooks.forEach(h => {
     init(ctrl, h);
   });
-
   ctrl.data.hooks = hooks;
 }
+
 export function remove(ctrl: LobbyController, id: string): void {
   ctrl.data.hooks = ctrl.data.hooks.filter(h => h.id !== id);
   ctrl.stepHooks.forEach(h => {
@@ -63,11 +64,13 @@ export function remove(ctrl: LobbyController, id: string): void {
   if (ctrl.currentPresetId && !ctrl.data.hooks.some(h => h.sri === window.lishogi.sri))
     ctrl.currentPresetId = undefined;
 }
+
 export function syncIds(ctrl: LobbyController, ids: string[]): void {
   ctrl.data.hooks = ctrl.data.hooks.filter(h => ids.includes(h.id));
   if (ctrl.currentPresetId && !ctrl.data.hooks.some(h => h.sri === window.lishogi.sri))
     ctrl.currentPresetId = undefined;
 }
+
 export function find(ctrl: LobbyController, id: string): Hook | undefined {
   return ctrl.data.hooks.find(h => h.id === id);
 }
