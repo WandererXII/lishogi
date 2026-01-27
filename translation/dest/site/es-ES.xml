@@ -264,12 +264,14 @@
 	<string name="annanshogi">Annanshogi</string>
 	<string name="kyotoshogi">Kyotoshogi</string>
 	<string name="checkshogi">Jaqueshogi</string>
+	<string name="dobutsu">Dobutsu</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Reglas estándar de shogi</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Con las mismas reglas que el shogi estándar, pero jugado en un tablero más pequeño de 5x5</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">La variante histórica más popular de shogi jugada en un tablero de 12 x 12</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante moderna de shogi con promociones alternas únicas en un tablero de 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante similar al shogi estándar, donde las piezas se mueven igual que las piezas del mismo bando situadas detrás de ellas</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Igual que el shogi estándar, sólo que gana el primero que da jaque al rey rival</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">A beginner-friendly shogi variant on a very small board</string>
 	<string name="unlimited">Ilimitado</string>
 	<string name="mode">Modo</string>
 	<string name="casual">Amistosa</string>
