@@ -1,6 +1,6 @@
 {
   "analysis": {
-    "movetime": 4000,
+    "movetime": 3000,
     "nodes": 1250000,
     "depth": 19
   },
