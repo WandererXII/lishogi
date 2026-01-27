@@ -13,7 +13,7 @@ export async function writeIfChanged(filePath: string, data: string): Promise<bo
 }
 
 // todo - build prod somewhere else, don't overwrite dev
-export function getOutputDirectory() {
+export function getOutputDirectory(): string {
   const isProd = process.argv.includes('--prod');
   if (isProd) return 'public';
   else return 'public';
