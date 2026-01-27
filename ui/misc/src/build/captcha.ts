@@ -3,9 +3,9 @@ import { initOneWithState } from 'common/mini-board';
 import { reverse } from 'common/string';
 import type { Api as ShogigroundApi } from 'shogiground/api';
 import * as compat from 'shogiops/compat';
-import { parseSfen } from 'shogiops/sfen';
-import type { Role } from 'shogiops/types';
-import { toBW } from 'shogiops/util';
+import { Hand, Hands } from 'shogiops/hands';
+import { makeSfen, parseSfen } from 'shogiops/sfen';
+import type { Result, Role } from 'shogiops/types';
 import * as util from 'shogiops/variant/util';
 
 const readServerValue = (t: string): string => atob(reverse(t));
@@ -16,21 +16,28 @@ window.lishogi.ready.then(() => {
       const board = captchaEl.querySelector<HTMLElement>('.mini-board')!;
       const hint = readServerValue(board.dataset.x!) as Key;
       const orientation = readServerValue(board.dataset.y!) as Color;
-      const sfen = readServerValue(board.dataset.z!);
+
+      let sfen = readServerValue(board.dataset.z!);
+
+      const pos = parseSfen('minishogi', sfen, false);
+      if (pos.isOk) {
+        const senteHand = orientation === 'gote' ? pos.value.hands.color('sente') : Hand.empty();
+        const goteHand = orientation === 'sente' ? pos.value.hands.color('gote') : Hand.empty();
+        pos.value.hands = Hands.from(senteHand, goteHand);
+        sfen = makeSfen(pos.value);
+      }
+
       initOneWithState(board, {
         variant: 'minishogi',
         sfen,
         orientation,
         playable: true,
-        noHands: true,
       });
       const sg = domData.get<ShogigroundApi>(board, 'shogiground')!;
 
       const input = captchaEl.querySelector<HTMLInputElement>('input')!;
       input.value = '';
 
-      const fullSfen = `${sfen} ${toBW(orientation)}`;
-      const pos = parseSfen('minishogi', fullSfen, false);
       const dests = pos.isOk ? compat.shogigroundMoveDests(pos.value) : new Map();
 
       sg.set({
@@ -46,8 +53,12 @@ window.lishogi.ready.then(() => {
             },
           },
         },
+        droppable: {
+          free: false,
+        },
         hands: {
-          inlined: false,
+          inlined: true,
+          roles: util.handRoles('minishogi'),
         },
       });
 
@@ -65,7 +76,9 @@ window.lishogi.ready.then(() => {
               const piece = sg.state.pieces.get(key)!;
               const sfenStr = `${sg.getBoardSfen()} ${piece.color === 'sente' ? ' w' : ' b'}`;
               const pos = parseSfen('minishogi', sfenStr, false);
-              if (pos.isOk && !pos.value.isCheckmate()) {
+              const outcome = pos.isOk ? pos.value.outcome()?.result : undefined;
+              const winResult: Result[] = ['checkmate', 'stalemate'];
+              if (outcome && winResult.includes(outcome)) {
                 sg.setPieces(
                   new Map([
                     [

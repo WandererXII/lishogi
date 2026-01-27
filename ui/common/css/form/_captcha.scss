@@ -1,6 +1,7 @@
 @use 'pkg:breakpoint-sass' as breakpoint;
 @use '../abstract/extends';
 @use '../abstract/media-queries';
+@use '../abstract/uniboard';
 @use '../theme/generated/theme';
 
 .form3 .captcha {
@@ -24,11 +25,15 @@
     margin-left: 1em;
 
     .mini-board {
-      padding-bottom: calc(100% / 11 * 12);
+      padding-bottom: calc(100% / 11 * 12 / 5 * 7 + #{uniboard.$hands-gap});
 
       .sg-wrap {
-        grid-template-rows: 1fr;
-        grid-template-areas: 'sg-board';
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 5fr 1fr;
+        grid-template-areas:
+          'sg-hand-top'
+          'sg-board'
+          'sg-hand-bottom';
         padding: 0;
 
         sg-squares sq.help {
