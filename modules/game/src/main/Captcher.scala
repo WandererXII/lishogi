@@ -58,7 +58,7 @@ final private class Captcher(gameRepo: GameRepo)(implicit ec: scala.concurrent.E
       challenges.find(_.gameId == id)
 
     private def createFromDb: Fu[Option[Captcha]] =
-      findCheckmateInDb(10) flatMap {
+      findCheckmateInDb(100) flatMap {
         _.fold(findCheckmateInDb(1))(g => fuccess(g.some))
       } map { _ ?? makeCaptcha }
 
