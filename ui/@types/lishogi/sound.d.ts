@@ -26,6 +26,7 @@ declare global {
     clockSoundSet: (value?: ClockSoundSet) => ClockSoundSet;
     clockSoundJapanese: () => boolean;
     loadGameSounds: (clock?: boolean) => void;
+    loadSound: (name: string, categ: SoundCateg, set?: string) => void;
     say: (texts: { en?: string; ja?: string }, cut?: boolean, force?: boolean) => boolean;
   }
 

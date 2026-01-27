@@ -187,6 +187,7 @@ export function createSound(): SoundI {
     soundSet,
     clockSoundSet,
     clockSoundJapanese,
+    loadSound,
     loadGameSounds,
     say,
   };
