@@ -236,6 +236,22 @@ object header {
         },
     )
 
+  def times(
+      u: User,
+  )(implicit ctx: Context) =
+    div(cls := "profile-times")(
+      p(cls := "thin text")(
+        trans.memberSince(),
+        " ",
+        timeTag(showDate(u.createdAt)),
+      ),
+      u.seenAt.map { seen =>
+        p(cls := "thin text")(
+          trans.lastSeenActive(momentFromNow(seen)),
+        )
+      },
+    )
+
   def profileSide(
       u: User,
       info: lila.app.mashup.UserInfo,
@@ -277,18 +293,7 @@ object header {
                   )
                 },
               ),
-              div(cls := "profile-times")(
-                p(cls := "thin text")(
-                  trans.memberSince(),
-                  " ",
-                  timeTag(showDate(u.createdAt)),
-                ),
-                u.seenAt.map { seen =>
-                  p(cls := "thin text")(
-                    trans.lastSeenActive(momentFromNow(seen)),
-                  )
-                },
-              ),
+              times(u),
               p(cls := "bio")(
                 profile.nonEmptyBio.ifFalse(u.lameOrTroll || u.disabled) map { bio =>
                   richText(bio, nl2br = true)
@@ -314,18 +319,7 @@ object header {
               ),
             )
           else
-            div(cls := "profile-times")(
-              p(cls := "thin text")(
-                trans.memberSince(),
-                " ",
-                timeTag(showDate(u.createdAt)),
-              ),
-              u.seenAt.map { seen =>
-                p(cls := "thin text")(
-                  trans.lastSeenActive(momentFromNow(seen)),
-                )
-              },
-            ),
+            times(u),
         ),
       ),
     )
