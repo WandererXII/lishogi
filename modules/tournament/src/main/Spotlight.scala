@@ -19,7 +19,7 @@ object Spotlight {
 
   private def sort(tours: List[Tournament]) =
     tours.sortBy { t =>
-      -t.nbPlayers
+      -(if (t.schedule.isDefined) 100 else t.nbPlayers)
     }
 
   private def filter(tours: List[Tournament], user: Option[User]) =
@@ -37,7 +37,9 @@ object Spotlight {
     }
 
   private def automatically(tour: Tournament, isAnon: Boolean): Boolean =
-    tour.schedule.fold(!isAnon && tour.popular) { schedule =>
+    tour.schedule.fold(
+      !isAnon && (tour.popular || tour.isNowOrSoon) && (tour.notFull || tour.nearImportantMoment),
+    ) { schedule =>
       tour.startsAt isBefore DateTime.now.plusMinutes {
         schedule.freq match {
           case Unique           => 5 * 24 * 60
