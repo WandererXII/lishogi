@@ -90,6 +90,7 @@ export default class RoundController {
   loading = false;
   loadingTimeout: number;
   redirecting = false;
+  wasFocused = document.hasFocus();
   impasseHelp = false;
   postGameStudyOffer = false;
   transientMove: TransientMove;
@@ -153,6 +154,15 @@ export default class RoundController {
     this.transientMove = new TransientMove(this.socket);
 
     this.setKeyboardMove();
+
+    if (!this.wasFocused)
+      window.addEventListener(
+        'focus',
+        () => {
+          this.wasFocused = true;
+        },
+        { once: true },
+      );
 
     setTimeout(this.delayedInit, 200);
 
@@ -985,11 +995,17 @@ export default class RoundController {
     this.versionCheckTimeout = setTimeout(this.versionCheck, 10000);
   };
 
-  private delayedInit = () => {
+  private playInitSound = (first?: boolean) => {
     const d = this.data;
-    if (this.isPlaying() && game.nbMoves(d, d.player.color) === 0 && !this.isSimulHost()) {
-      li.sound.play('generic-notify');
+    if (this.isPlaying() && d.steps.length <= 2 && !this.isSimulHost()) {
+      if (first || !this.wasFocused) li.sound.play('generic-notify');
+      if (!this.wasFocused) setTimeout(this.playInitSound, 5000);
     }
+  };
+
+  private delayedInit = () => {
+    this.playInitSound(true);
+
     requestIdleCallbackWithFallback(() => {
       const d = this.data;
       if (this.isPlaying()) {

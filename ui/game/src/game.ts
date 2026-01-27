@@ -119,10 +119,6 @@ export function setGone(data: GameData, color: Color, gone: number | boolean): v
   if (player.gone === false && player.user) player.user.online = true;
 }
 
-export function nbMoves(data: GameData, color: Color): number {
-  return Math.floor((data.game.plies + (color == 'sente' ? 1 : 0)) / 2);
-}
-
 export function isSwitchable(data: GameData): boolean {
   return !hasAi(data) && (!!data.simul || !data.clock);
 }
