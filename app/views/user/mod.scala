@@ -420,6 +420,7 @@ object mod {
             th("Move Times", br, "(Avg ± SD)"),
             th(span(title := "The frequency of which the user leaves the game page.")("Blurs")),
             th(span(title := "Bot detection using grid click analysis.")("Bot")),
+            th("Date"),
             th(span(title := "Aggregate match")(raw("&Sigma;"))),
           ),
         ),
@@ -472,6 +473,15 @@ object mod {
                 td(
                   span(cls := s"sig sig_${Display.holdSig(result)}", dataIcon := Icons.circleFull),
                   if (result.hold) "Yes" else "No",
+                ),
+                td(
+                  span(
+                    pag
+                      .pov(result)
+                      .fold("?")(p =>
+                        s"${p.game.movedAt.getDayOfMonth}-${p.game.movedAt.getMonthOfYear}",
+                      ),
+                  ),
                 ),
                 td(
                   div(cls := "aggregate")(
