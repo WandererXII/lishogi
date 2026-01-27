@@ -1,8 +1,10 @@
 import { defined } from 'common/common';
-import { parseSfen } from 'shogiops/sfen';
-import type { DropMove } from 'shogiops/types';
-import { isDrop, makeUsi, parseUsi } from 'shogiops/util';
-import { promote } from 'shogiops/variant/util';
+import {
+  fromFairyDobutsuFormat,
+  fromFairyKyotoFormat,
+  toFairyDobutsuFormat,
+  toFairyKyotoFormat,
+} from './fairy';
 import type { Config, Work } from './types';
 
 const minDepth = 6;
@@ -101,8 +103,10 @@ export class Protocol {
           case 'pv':
             moves =
               this.work.variant === 'kyotoshogi'
-                ? this.fromFairyKyotoFormat(parts.slice(++i))
-                : parts.slice(++i);
+                ? fromFairyKyotoFormat(parts.slice(++i))
+                : this.work.variant === 'dobutsu'
+                  ? fromFairyDobutsuFormat(parts.slice(++i))
+                  : parts.slice(++i);
             // shouldn't happen
             if (['resign', 'win'].includes(moves[0])) {
               console.warn('Received', moves[0], 'for', this.work);
@@ -222,8 +226,10 @@ export class Protocol {
 
       const command =
         this.work.variant === 'kyotoshogi'
-          ? this.toFairyKyotoFormat(this.work.initialSfen, this.work.moves)
-          : ['position sfen', this.work.initialSfen, 'moves', ...this.work.moves].join(' ');
+          ? toFairyKyotoFormat(this.work.initialSfen, this.work.moves)
+          : this.work.variant === 'dobutsu'
+            ? toFairyDobutsuFormat(this.work.initialSfen, this.work.moves)
+            : ['position sfen', this.work.initialSfen, 'moves', ...this.work.moves].join(' ');
       this.send(command);
 
       this.send(
@@ -236,75 +242,6 @@ export class Protocol {
 
   isYaneuraOu(): boolean {
     return !!this.engineName?.startsWith('YaneuraOu');
-  }
-
-  toFairyKyotoFormat(sfen: Sfen, moves: string[]): string {
-    // fairy expects something like this: p+nks+l/5/5/L+S1N+P/+LSK+NP
-    // while we have this: pgkst/5/5/LB1NR/TSKGP
-    const mappingBoard: Record<string, string> = {
-      g: '+n',
-      G: '+N',
-      t: '+l',
-      T: '+L',
-      b: '+s',
-      B: '+S',
-      r: '+p',
-      R: '+P',
-    };
-    // fairy wants PNLS
-    // we have PGTS
-    const mappingHand: Record<string, string> = {
-      g: 'n',
-      G: 'N',
-      t: 'l',
-      T: 'L',
-    };
-    function transformString(sfen: string, mapping: Record<string, string>) {
-      return sfen
-        .split('')
-        .map(c => mapping[c] || c)
-        .join('');
-    }
-
-    const uMoves: string[] = [];
-    const pos = parseSfen('kyotoshogi', sfen, false).unwrap();
-    moves.forEach(usi => {
-      const move = parseUsi(usi)!;
-      // G*3b -> +N*3b
-      if (isDrop(move)) {
-        const roleChar = usi[0];
-        const uUsi = (mappingBoard[roleChar] || roleChar) + usi.slice(1);
-        uMoves.push(uUsi);
-      }
-      // 5e4d+ -> 5e4d-, if necessary
-      else if (move.promotion) {
-        const roleChar = pos.board.getRole(move.from)![0];
-        const fairyUsi = mappingBoard[roleChar]?.includes('+') ? `${usi.slice(0, -1)}-` : usi;
-
-        uMoves.push(fairyUsi);
-      } else uMoves.push(usi);
-      pos.play(move);
-    });
-
-    const splitSfen = sfen.split(' ');
-    return `position sfen ${transformString(splitSfen[0], mappingBoard)} ${splitSfen[1] || 'b'} ${transformString(
-      splitSfen[2] || '-',
-      mappingHand,
-    )} moves ${uMoves.join(' ')}`;
-  }
-
-  fromFairyKyotoFormat(moves: string[]): Usi[] {
-    return moves.map(usi => {
-      // +N*3b -> G*3b
-      if (usi[0] === '+') {
-        const dropUnpromoted = parseUsi(usi.slice(1)) as DropMove;
-        const promotedRole = promote('kyotoshogi')(dropUnpromoted.role)!;
-        return makeUsi({ role: promotedRole, to: dropUnpromoted.to });
-      }
-      // 5e4d- -> 5e4d+
-      else if (usi.includes('-')) return `${usi.slice(0, -1)}+`;
-      else return usi;
-    });
   }
 
   compute(nextWork: Work | undefined): void {

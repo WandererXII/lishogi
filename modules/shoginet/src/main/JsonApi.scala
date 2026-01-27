@@ -12,7 +12,7 @@ import shogi.variant.Variant
 import lila.common.IpAddress
 import lila.common.Json._
 import lila.common.Maths
-import lila.game.FairyConversion.Kyoto
+import lila.game.FairyConversion
 import lila.shoginet.{ Work => W }
 import lila.tree.Eval.Cp
 import lila.tree.Eval.JsonHandlers._
@@ -52,8 +52,9 @@ object JsonApi {
 
     case class MoveResult(bestmove: String) {
       def usi(variant: Variant): Option[Usi] = {
-        if (variant.kyotoshogi) Kyoto.readFairyUsi(bestmove)
-        else Usi(bestmove).orElse(UciToUsi(bestmove))
+        FairyConversion.readFairyUsi(variant, bestmove) orElse Usi(bestmove) orElse UciToUsi(
+          bestmove,
+        )
       }
     }
 
@@ -143,23 +144,17 @@ object JsonApi {
       moves: String,
   )
 
-  def fromGame(g: W.Game) =
-    if (g.variant.kyotoshogi) kyotoFromGame(g)
-    else
-      Game(
-        game_id = if (g.studyId.isDefined) "" else g.id,
-        position = g.initialSfen | g.variant.initialSfen,
-        variant = g.variant,
-        moves = g.moves,
-      )
-
-  private def kyotoFromGame(g: W.Game) =
+  def fromGame(g: W.Game) = {
+    val sfen = g.initialSfen | g.variant.initialSfen
     Game(
       game_id = if (g.studyId.isDefined) "" else g.id,
-      position = Kyoto.makeFairySfen(g.initialSfen | g.variant.initialSfen),
+      position = FairyConversion.makeFairySfen(g.variant, sfen) | sfen,
       variant = g.variant,
-      moves = Kyoto.makeFairyUsiList(g.usiList, g.initialSfen).mkString(" "),
+      moves = FairyConversion
+        .makeFairyUsiList(g.variant, g.usiList, g.initialSfen)
+        .map(_.mkString(" ")) | g.moves,
     )
+  }
 
   sealed trait WorkPayload {
     val id: String
@@ -227,7 +222,12 @@ object JsonApi {
     implicit val PostMoveReads: Reads[Request.PostMove]      = Json.reads[Request.PostMove]
     implicit val ScoreReads: Reads[Request.Evaluation.Score] = Json.reads[Request.Evaluation.Score]
     implicit val usiListReads: Reads[List[Usi]] = Reads.of[String] map { str =>
-      ~(Usi.readList(str).orElse(UciToUsi.readList(str)).orElse(Kyoto.readFairyUsiList(str)))
+      ~(
+        Usi.readList(str) orElse
+          UciToUsi.readList(str) orElse
+          FairyConversion.Kyoto.readFairyUsiList(str) orElse
+          FairyConversion.Dobutsu.readFairyUsiList(str)
+      )
     }
 
     implicit val EvaluationReads: Reads[Request.Evaluation] = (

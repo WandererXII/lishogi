@@ -7,7 +7,7 @@ import shogi.format.usi.UciToUsi
 import shogi.format.usi.Usi
 
 import lila.common.Bus
-import lila.game.FairyConversion.Kyoto
+import lila.game.FairyConversion
 import lila.game.Game
 import lila.game.Game.PlayerId
 import lila.game.GameRepo
@@ -38,7 +38,7 @@ final class BotPlayer(
     lila.common.Future.delay((!pov.game.hasHuman ?? 750) millis) {
       Usi(usiStr)
         .orElse(UciToUsi(usiStr))
-        .orElse(Kyoto.readFairyUsi(usiStr))
+        .orElse(FairyConversion.readFairyUsi(pov.game.variant, usiStr))
         .fold(clientError[Unit](s"Invalid USI: $usiStr")) { usi =>
           lila.mon.bot.moves(me.username).increment()
           if (!pov.isMyTurn) clientError("Not your turn, or game already over")
