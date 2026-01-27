@@ -54,4 +54,5 @@
 	<string name="myAndOpponentClock" comment="What clocks should make sound?">Benim ve rakibimin saati</string>
 	<string name="allClocks" comment="What clocks should make sound? All clocks (opponent, as watcher. etc)">Bütün saatler</string>
 	<string name="noFlags">Bütün bayrakları gizle</string>
+	<string name="noRanks">Hide all ranks</string>
 </resources>
