@@ -271,7 +271,7 @@
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Shogi\'nin modern varyantı, 5x5 tahtada alternatif benzersiz promosyonlarla birlikte.</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Standart shogi\'ye benzeyen varyant; ama taşlar, arkasındaki arkadaş taş gibi hareket eder.</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Standart shogi gibi, ama rakibe ilk şah çeken kazanır.</string>
-	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">A beginner-friendly shogi variant on a very small board</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">Çok küçük bir tahtada oynanan, yeni başlayanlar için uygun bir shogi varyantı</string>
 	<string name="unlimited">Sınırsız</string>
 	<string name="mode">Mod</string>
 	<string name="casual">Puansız</string>
