@@ -271,7 +271,7 @@
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante moderna do shogi con promocións alternas únicas, xogada nun taboleiro de 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante similar ó shogi estándar, onde as pezas se moven igual cás pezas do mesmo bando situadas detrás delas</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">O mesmo có shogi estándar, só que gaña o primeiro que dá xaque ó rei do adversario</string>
-	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">A beginner-friendly shogi variant on a very small board</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">Unha variante de shogi para principiantes nun taboleiro máis pequeno</string>
 	<string name="unlimited">Ilimitado</string>
 	<string name="mode">Modo</string>
 	<string name="casual">Amigable</string>
