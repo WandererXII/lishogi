@@ -12,7 +12,7 @@
   <string name="promotedlance">Terfi edilmiş mızrak</string>
   <string name="promotedknight">Terfi edilmiş at</string>
   <string name="promotedsilver">Terfi edilmiş gümüş general</string>
-  <string name="horse">Büyük at</string>
+  <string name="horse">Şövalye</string>
   <string name="dragon">Ejderha</string>
   <string comment="Chushogi piece - not tokin" name="promotedpawn">Terfi edilmiş piyon</string>
   <string comment="Chushogi piece, low priority for translation" name="leopard">Leopar</string>
@@ -36,7 +36,7 @@
   <string comment="Chushogi piece, low priority for translation" name="rookpromoted">Terfi edilmiş kale</string>
   <string comment="Chushogi piece, low priority for translation" name="prince">Prens</string>
   <string comment="Chushogi piece, low priority for translation" name="whale">Balina</string>
-  <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Terfi edilmiş büyük at</string>
+  <string comment="Chushogi piece, low priority for translation" name="horsepromoted">Terfi edilmiş şövalye</string>
   <string comment="Chushogi piece, low priority for translation" name="elephantpromoted">Terfi edilmiş fil (chushogi)</string>
   <string comment="Chushogi piece, low priority for translation" name="stag">Geyik</string>
   <string comment="Chushogi piece, low priority for translation" name="boar">Ayı</string>
