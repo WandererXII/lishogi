@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2048 2048">
+    <path fill="#5984bd" stroke="#000" stroke-width="75" d="M995.875 1492.61c-217.511 65.062-450.896 107.644-512 351.458h1084.746c-19.394-218.568-266.454-273.15-485.966-351.458"/>
+    <circle cx="1022.644" cy="1084.746" r="512" fill="#5984bd" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="75"/>
+    <ellipse cx="1552.678" cy="572.78" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="75" rx="69.424" ry="73.763"/>
+    <ellipse cx="1744.881" cy="1084.746" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="75" rx="69.424" ry="73.763"/>
+    <ellipse cx="300.407" cy="1084.746" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="75" rx="69.424" ry="73.763"/>
+    <ellipse cx="501.288" cy="572.78" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="75" rx="69.424" ry="73.763"/>
+    <ellipse cx="1022.644" cy="370.508" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="75" rx="69.424" ry="73.763"/>
+    <ellipse cx="1022.644" cy="1843.051" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="75" rx="69.424" ry="73.763"/>
+    <ellipse cx="1022.644" cy="1084.746" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-width="75" rx="69.424" ry="73.763"/>
+</svg>

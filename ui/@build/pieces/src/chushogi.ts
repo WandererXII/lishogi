@@ -145,6 +145,10 @@ function classes(color: string, role: string): string {
 
 // piece set name: [set classes]
 const pieceSetNameCls: Record<string, string> = {
+  dewitt_1kanji: 'background-size: contain !important;',
+  dewitt_2kanji: 'background-size: contain !important;',
+  dewitt_czech: 'background-size: contain !important;',
+  greenwade: 'background-size: contain !important;',
   mnemonic: 'background-size: contain !important;',
   better_8_bit:
     'image-rendering: pixelated !important; background-size: contain !important; background-repeat: no-repeat !important;',

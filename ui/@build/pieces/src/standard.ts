@@ -93,6 +93,10 @@ function classes(color: string, role: string): string {
 // piece set name: [set classes, class resets for other variants]
 const pieceSetNameCls: Record<string, [string, string]> = {
   pixel: ['image-rendering: pixelated;', 'image-rendering: unset;'],
+  dewitt_1kanji: ['background-size: contain;', 'background-size: cover;'],
+  dewitt_2kanji: ['background-size: contain;', 'background-size: cover;'],
+  dewitt_czech: ['background-size: contain;', 'background-size: cover;'],
+  mnemonic: ['background-size: contain;', 'background-size: cover;'],
   better_8_bit: [
     'image-rendering: pixelated; background-size: contain; background-repeat: no-repeat;',
     'image-rendering: unset; background-size: cover;',
