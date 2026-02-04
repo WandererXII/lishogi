@@ -21,13 +21,15 @@ export function special(variant: PieceSetVariant, sourceDir: string, destDir: st
   const blankUp = readImageAsBase64(path.join(sourceDir, 'special', '0_Blank.svg'));
   const blankUpCss = dedent`
                 ${selector} piece.sente,
-                ${selector} .sg-wrap.orientation-gote piece.gote {
+                ${selector} .sg-wrap.orientation-gote piece.gote,
+                .spare-bottom${selector} piece.gote {
                   background-image:url('data:image/${types.svg}${blankUp}')${important}
                 }`;
   const blankDown = readImageAsBase64(path.join(sourceDir, 'special', '1_Blank.svg'));
   const blankDownCss = dedent`
                 ${selector} piece.gote,
-                ${selector} .sg-wrap.orientation-gote piece.sente {
+                ${selector} .sg-wrap.orientation-gote piece.sente,
+                .spare-top${selector} piece.sente {
                   background-image:url('data:image/${types.svg}${blankDown}')${important}
                 }`;
 

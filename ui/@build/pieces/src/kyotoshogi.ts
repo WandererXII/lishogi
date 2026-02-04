@@ -64,7 +64,7 @@ function classes(color: string, role: string): string {
       .v-kyotoshogi .sg-wrap.orientation-sente piece.${role}.sente,
       .v-kyotoshogi .sg-wrap.orientation-gote piece.${role}.gote,
       .v-kyotoshogi .hand-bottom piece.${role}.gote,
-      .spare-bottom.v-kyotoshogi piece.${role}`;
+      .spare-bottom.v-kyotoshogi piece.${role}.gote`;
     }
   } else {
     // facing down
