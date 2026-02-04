@@ -17,6 +17,7 @@ case class Hook(
     sri: Sri,            // owner socket sri
     sid: Option[String], // owner cookie (used to prevent multiple hooks)
     variant: Int,
+    handicap: Option[String],
     clock: Clock.Config,
     mode: Int,
     color: String,
@@ -38,6 +39,7 @@ case class Hook(
     isAuth == h.isAuth &&
       mode == h.mode &&
       variant == h.variant &&
+      handicap == h.handicap &&
       clock == h.clock &&
       (realColor compatibleWith h.realColor) &&
       ratingRangeCompatibleWith(h) && h.ratingRangeCompatibleWith(this) &&
@@ -76,6 +78,7 @@ case class Hook(
       .add("u" -> user.map(_.username))
       .add("rating" -> rating)
       .add("variant" -> (!realVariant.standard).option(realVariant.key))
+      .add("handicap" -> handicap)
       .add("ra" -> realMode.rated.option(1))
       .add("rr" -> (ratingRange != RatingRange.default.toString).option(ratingRange))
       .add("c" -> shogi.Color.fromName(color).map(_.name))
@@ -90,6 +93,7 @@ object Hook {
   def make(
       sri: Sri,
       variant: shogi.variant.Variant,
+      handicap: Option[String],
       clock: Clock.Config,
       mode: Mode,
       color: String,
@@ -103,6 +107,7 @@ object Hook {
       id = lila.common.ThreadLocalRandom nextString idSize,
       sri = sri,
       variant = variant.id,
+      handicap = handicap,
       clock = clock,
       mode = mode.id,
       color = color,

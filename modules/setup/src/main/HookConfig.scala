@@ -1,6 +1,7 @@
 package lila.setup
 
 import shogi.Mode
+import shogi.format.forsyth.Sfen
 
 import lila.lobby.Color
 import lila.lobby.Hook
@@ -10,6 +11,7 @@ import lila.user.User
 
 case class HookConfig(
     variant: shogi.variant.Variant,
+    handicap: Option[Sfen],
     timeMode: TimeMode,
     time: Double,
     increment: Int,
@@ -40,6 +42,7 @@ case class HookConfig(
   def >> =
     (
       variant.id,
+      handicap.map(_.value),
       timeMode.id,
       time,
       increment,
@@ -72,6 +75,7 @@ case class HookConfig(
           Hook.make(
             sri = sri,
             variant = variant,
+            handicap = handicap.map(_.value),
             clock = clock,
             mode = if (lila.game.Game.allowRated(None, clock.some, variant)) mode else Mode.Casual,
             color = color.name,
@@ -85,6 +89,7 @@ case class HookConfig(
         Right(user map { u =>
           Seek.make(
             variant = variant,
+            handicap = handicap.map(_.value),
             daysPerTurn = makeDaysPerTurn,
             mode = mode,
             color = color.name,
@@ -116,6 +121,7 @@ object HookConfig extends BaseHumanConfig {
 
   def from(
       v: Int,
+      h: Option[String],
       tm: Int,
       t: Double,
       i: Int,
@@ -127,8 +133,12 @@ object HookConfig extends BaseHumanConfig {
       c: String,
   ) = {
     val realMode = m.fold(Mode.default)(Mode.orDefault)
+    val variant  = shogi.variant.Variant(v) err s"Invalid game variant $v"
     new HookConfig(
-      variant = shogi.variant.Variant(v) err s"Invalid game variant $v",
+      variant = variant,
+      handicap = h
+        .map(Sfen.apply)
+        .filter(sfen => sfen.toSituation(variant).exists(_.playable(strict = true))),
       timeMode = TimeMode(tm) err s"Invalid time mode $tm",
       time = t,
       increment = i,
@@ -143,6 +153,7 @@ object HookConfig extends BaseHumanConfig {
 
   val default = HookConfig(
     variant = variantDefault,
+    handicap = none,
     timeMode = TimeMode.RealTime,
     time = 5d,
     increment = 0,
@@ -162,6 +173,7 @@ object HookConfig extends BaseHumanConfig {
     def reads(r: BSON.Reader): HookConfig =
       HookConfig(
         variant = shogi.variant.Variant orDefault (r int "v"),
+        handicap = r.strO("h").map(Sfen.apply),
         timeMode = TimeMode orDefault (r int "tm"),
         time = r double "t",
         increment = r int "i",
@@ -176,6 +188,7 @@ object HookConfig extends BaseHumanConfig {
     def writes(w: BSON.Writer, o: HookConfig) =
       $doc(
         "v"  -> o.variant.id,
+        "h"  -> o.handicap.map(_.value),
         "tm" -> o.timeMode.id,
         "t"  -> o.time,
         "i"  -> o.increment,

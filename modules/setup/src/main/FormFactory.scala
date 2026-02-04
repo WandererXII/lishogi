@@ -81,6 +81,7 @@ final class FormFactory {
     Form(
       mapping(
         "variant"     -> variants,
+        "handicap"    -> sfenField,
         "timeMode"    -> timeMode,
         "time"        -> time,
         "increment"   -> increment,
@@ -104,12 +105,14 @@ final class FormFactory {
       "byoyomi"     -> byoyomi,
       "periods"     -> periods,
       "variant"     -> optional(boardApiVariantKeys),
+      "handicap"    -> sfenField,
       "rated"       -> optional(boolean),
       "color"       -> optional(color),
       "ratingRange" -> optional(ratingRange),
-    )((t, i, b, p, v, r, c, g) =>
+    )((t, i, b, p, v, h, r, c, g) =>
       HookConfig(
         variant = v.flatMap(Variant.apply) | Variant.default,
+        handicap = h.map(Sfen.apply),
         timeMode = TimeMode.RealTime,
         time = t,
         increment = i,

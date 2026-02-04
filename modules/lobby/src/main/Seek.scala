@@ -13,6 +13,7 @@ import lila.user.User
 case class Seek(
     _id: String,
     variant: Int,
+    handicap: Option[String],
     daysPerTurn: Option[Int],
     mode: Int,
     color: String,
@@ -64,6 +65,7 @@ case class Seek(
       .add("days", daysPerTurn)
       .add("rr" -> (ratingRange != RatingRange.default.toString).option(ratingRange))
       .add("variant" -> (!realVariant.standard).option(realVariant.key))
+      .add("handicap" -> handicap)
       .add("provisional" -> perf.provisional)
       .add("cc" -> user.countryCode)
 
@@ -76,6 +78,7 @@ object Seek {
 
   def make(
       variant: shogi.variant.Variant,
+      handicap: Option[String],
       daysPerTurn: Option[Int],
       mode: Mode,
       color: String,
@@ -86,6 +89,7 @@ object Seek {
     new Seek(
       _id = lila.common.ThreadLocalRandom nextString idSize,
       variant = variant.id,
+      handicap = handicap,
       daysPerTurn = daysPerTurn,
       mode = mode.id,
       color = color,
@@ -98,6 +102,7 @@ object Seek {
     new Seek(
       _id = lila.common.ThreadLocalRandom nextString idSize,
       variant = seek.variant,
+      handicap = seek.handicap,
       daysPerTurn = seek.daysPerTurn,
       mode = seek.mode,
       color = seek.color,
