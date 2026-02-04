@@ -2,6 +2,7 @@ import { icons } from 'common/icons';
 import { bind, onInsert } from 'common/snabbdom';
 import { i18n } from 'i18n';
 import { h, type VNode } from 'snabbdom';
+import type { TreeWrapper } from 'tree';
 import type AnalyseCtrl from '../ctrl';
 import patch from '../patch';
 import * as studyView from '../study/study-view';
@@ -55,6 +56,18 @@ function positionMenu(menu: HTMLElement, coords: Coords): void {
     windowHeight - coords.y < menuHeight ? `${windowHeight - menuHeight}px` : `${coords.y}px`;
 }
 
+function isNestedInsideNested(tree: TreeWrapper, path: Tree.Path): boolean {
+  let depth = 0;
+  const nodes = tree.getNodeList(path);
+  for (let i = 1; i < nodes.length; i++) {
+    const parent = nodes[i - 1];
+    if (parent.children[0]?.id !== nodes[i].id) depth++;
+
+    if (depth >= 2) return true;
+  }
+  return false;
+}
+
 function action(icon: string, text: string, handler: () => void): VNode {
   return h(
     'a',
@@ -88,7 +101,7 @@ function view(opts: Opts, coords: Coords): VNode {
     },
     [
       h('p.title.inlined', nodeFullName(node)),
-      onMainline
+      onMainline || !isNestedInsideNested(ctrl.tree, opts.path)
         ? null
         : action(icons.up, i18n('promoteVariation'), () => ctrl.promote(opts.path, false)),
       onMainline || cantChangeMainline
