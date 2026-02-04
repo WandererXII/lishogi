@@ -119,7 +119,12 @@ private object StudyFlatTree {
 
     private def rootVariations(root: Node.Root): Vector[(String, Bdoc)] =
       root.children.nodes.flatMap {
-        traverseVariations(_, Path.root, root.gameMainlinePath.getOrElse(root.mainlinePath))
+        traverseVariations(
+          _,
+          Path.root,
+          root.gameMainlinePath.getOrElse(root.mainlinePath),
+          root.ply,
+        )
       }
 
     private def traverse(node: Node, parentPath: Path): Vector[(String, Bdoc)] =
@@ -142,16 +147,17 @@ private object StudyFlatTree {
         node: Node,
         parentPath: Path,
         mainline: Path,
+        rootPly: Int,
     ): Vector[(String, Bdoc)] =
       (parentPath.depth < Node.MAX_PLIES) ?? {
         val path = parentPath + node.id
         val rest: Vector[(String, Bdoc)] = node.children.nodes.flatMap { node =>
-          traverseVariations(node, path, mainline)
+          traverseVariations(node, path, mainline, rootPly)
         }
         if (path.isOnPathOf(mainline)) rest
         else {
           val intersection = path.intersect(mainline)
-          rest appended (s"${intersection.depth}${Path.gameMainlineSep}${path.drop(intersection.depth)}" -> writeNode(
+          rest appended (s"${intersection.depth + rootPly}${Path.gameMainlineSep}${path.drop(intersection.depth)}" -> writeNode(
             node,
           ))
         }
