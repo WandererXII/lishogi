@@ -36,8 +36,6 @@ object home {
       shogiground = false,
       openGraph = lila.app.ui
         .OpenGraph(
-          image = staticUrl("logo/lishogi-tile-wide.png").some,
-          twitterImage = staticUrl("logo/lishogi-tile.png").some,
           title = trans.freeOnlineShogi.txt(),
           url = netBaseUrl,
           description = trans.siteDescription.txt(),

@@ -15,7 +15,8 @@ case class OpenGraph(
     more: List[(String, String)] = Nil,
 ) {
 
-  def frags(implicit lang: Lang): List[Frag] = og.frags ::: twitter.frags
+  def frags(staticUrl: String => String)(implicit lang: Lang): List[Frag] =
+    og.frags(staticUrl) ::: twitter.frags(staticUrl)
 
   object og {
 
@@ -29,7 +30,9 @@ case class OpenGraph(
 
     private val tupledTag = (tag _).tupled
 
-    def frags(implicit lang: Lang): List[Frag] =
+    private def defaultImage(staticUrl: String => String) = staticUrl("logo/lishogi-tile-wide.png")
+
+    def frags(staticUrl: String => String)(implicit lang: Lang): List[Frag] =
       List(
         "title"       -> title,
         "description" -> description,
@@ -37,8 +40,8 @@ case class OpenGraph(
         "type"        -> `type`,
         "locale"      -> lang.language,
         "site_name"   -> "lishogi.org",
+        "image"       -> image.getOrElse(defaultImage(staticUrl)),
       ).map(tupledTag) :::
-        image.map { tag("image", _) }.toList :::
         more.map(tupledTag)
   }
 
@@ -52,13 +55,15 @@ case class OpenGraph(
 
     private val tupledTag = (tag _).tupled
 
-    def frags: List[Frag] =
+    private def defaultImage(staticUrl: String => String) = staticUrl("logo/lishogi-tile.png")
+
+    def frags(staticUrl: String => String): List[Frag] =
       List(
         "card"        -> "summary",
         "title"       -> title,
         "description" -> description,
+        "image"       -> twitterImage.orElse(image).getOrElse(defaultImage(staticUrl)),
       ).map(tupledTag) :::
-        (twitterImage orElse image).map { tag("image", _) }.toList :::
         more.map(tupledTag)
   }
 }

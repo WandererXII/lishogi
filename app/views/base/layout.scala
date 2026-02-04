@@ -341,7 +341,7 @@ object layout {
           favicons,
           !robots option raw("""<meta content="noindex, nofollow" name="robots">"""),
           noTranslate,
-          openGraph.map(_.frags(ctx.lang)),
+          openGraph.map(_.frags(staticUrl)(ctx.lang)),
           iconsPreload,
           boardPreload,
           manifests,
