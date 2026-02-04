@@ -68,10 +68,10 @@ object Path {
   val root = Path("")
 
   // mongodb objects don't support empty keys
-  val rootDbKey = 255.toChar.toString
+  val rootDbKey = 255.toChar.toString // ÿ
 
-  val gameMainlineDbKey          = 254.toChar.toString
-  val gameMainlineExtensionDbKey = 253.toChar.toString
+  val gameMainlineDbKey          = 254.toChar.toString // þ
+  val gameMainlineExtensionDbKey = 253.toChar.toString // ý
   // $ply$gameMainlineSep$path
   val gameMainlineSep = gameMainlineDbKey
 

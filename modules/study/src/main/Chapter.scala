@@ -79,7 +79,6 @@ case class Chapter(
   def isGamebook = ~gamebook
   def isConceal  = conceal.isDefined
 
-  def isGameChapter          = root.isGameRoot
   def isFirstGameRootChapter = root.gameMainline.exists(_.part == 0)
   def gameMainlineLength     = root.gameMainline.map(_.usis.size)
 

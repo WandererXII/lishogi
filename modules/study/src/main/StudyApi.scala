@@ -365,7 +365,8 @@ final class StudyApi(
   private def doForceVariation(sc: Study.WithChapter, path: Path, force: Boolean, who: Who): Funit =
     sc.chapter.forceVariation(force, path) match {
       case Some(newChapter)
-          if (sc.chapter.root.gameMainlinePath.fold(true)(gmp => !path.isOnPathOf(gmp))) =>
+          if (sc.chapter.root.gameMainlinePath
+            .fold(true)(gmp => !path.isOnPathOf(gmp))) =>
         chapterRepo.forceVariation(force)(newChapter, path) >>-
           sendTo(sc.study.id)(_.forceVariation(Position(newChapter, path).ref, force, who))
       case _ =>
