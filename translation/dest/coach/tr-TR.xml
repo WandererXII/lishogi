@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="lishogiCoach">Lishogi antrenörü</string>
-	<string name="editMyCoachProfile">Koç profilimi düzenle</string>
+	<string name="lishogiCoach">Lishogi eğitmeni</string>
+	<string name="editMyCoachProfile">Eğitmen profilimi düzenle</string>
 	<string name="lishogiOnlyFeatures">Lishogi yalnızca bağımsız eğitmenlere yer vermektedir ve onların davranışlarından veya öğretim kalitelerinden sorumlu değildir.</string>
-	<string name="lishogiNoFees">Koçluk ücretleri tamamen koçlar ve öğrenciler arasındadır - Lishogi hiçbir ücret almaz.</string>
+	<string name="lishogiNoFees">Eğitmenlik ücretleri tamamen koçlar ve öğrenciler arasındadır - Lishogi hiçbir ücret almaz.</string>
 	<string name="becomeACoach">İyi ve tecrübeli shogi eğitmeni misin ve Lishogi\'de yer almak mı istiyorsun?</string>
 	<string name="sendApplication">%s adresine bir e-posta gönderin ve başvurunuzu onaylayalım.</string>
 	<string name="location">Konum</string>
