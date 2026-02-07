@@ -264,12 +264,14 @@
 	<string name="annanshogi">Annan-Shogi</string>
 	<string name="kyotoshogi">Kyoto-Shogi</string>
 	<string name="checkshogi">Shogi D\'échec</string>
+	<string name="dobutsu">Dobutsu</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Les règles standards du shogi</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">Les mêmes règles que le shogi, mais jouées sur un plateau plus petit de 5x5</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">La variante historique de shogi la plus populaire jouée sur un plateau de 12x12</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Une variante moderne du shogi avec des promotions uniques alternatives sur un plateau de 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Une variante similaire au shogi, où les pièces se déplacent comme les pièces amies derrière elles.</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Tout comme le shogi, mais le premier à mettre l\'adversaire en échec gagne.</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">A beginner-friendly shogi variant on a very small board</string>
 	<string name="unlimited">Illimité</string>
 	<string name="mode">Mode</string>
 	<string name="casual">Amical</string>

@@ -33,7 +33,7 @@
   </plurals>
   <plurals name="xMovesLeft">
     <item quantity="one">%s hamle kaldı</item>
-    <item quantity="other">%s moves left</item>
+    <item quantity="other">%s hamle kaldı</item>
   </plurals>
   <string name="puzzleSource">Kaynak: %s</string>
   <string name="continueTraining">Pratik yapmaya devam et</string>
@@ -47,19 +47,19 @@
   <string name="addAnotherTheme">Başka bir tema ekle</string>
   <string name="jumpToNextPuzzleImmediately">Hemen sonraki bulmacaya atla</string>
   <string name="puzzleDashboard">Bulmaca kontrol paneli</string>
-  <string name="puzzleDashboardSubtitle">Train, analyse, improve</string>
+  <string name="puzzleDashboardSubtitle">Egzersiz yapın, analiz edin, becerilerinizi geliştirin</string>
   <string name="improvementAreas">Gelişim alanları</string>
-  <string name="improvementAreasSubtitle">Train these to optimize your progress!</string>
+  <string name="improvementAreasSubtitle">Gelişiminizi optimize etmek için bunlara çalışın!</string>
   <string name="strengths">Güçlü yönler</string>
-  <string name="strengthsSubtitle">You perform the best in these themes</string>
+  <string name="strengthsSubtitle">Bu temalarda en iyi performansı sergiliyorsunuz.</string>
   <string name="history">Bulmaca geçmişi</string>
   <string name="solved">çözüldü</string>
   <string name="failed">başarısız</string>
-  <string name="fromMyGames">From my games</string>
-  <string name="lookupOfPlayer">Lookup puzzles from a player\'s games</string>
-  <string name="fromXGames">Puzzles from %s\' games</string>
-  <string name="submissions">Puzzle submissions</string>
-  <string name="submittedByX">Puzzles submitted by %s</string>
-  <string name="searchPuzzles">Search puzzles</string>
-  <string name="fromXGamesFound">%1$s puzzles found in %2$s games</string>
+  <string name="fromMyGames">Oyunlarımdan</string>
+  <string name="lookupOfPlayer">Bir oyuncunun oyunlarından bulmacalara bak</string>
+  <string name="fromXGames">%s\'in oyunlarından bulmacalar</string>
+  <string name="submissions">Bulmaca gönderimleri</string>
+  <string name="submittedByX">Bulmacalar, %s tarafından gönderildi</string>
+  <string name="searchPuzzles">Bulmacaları ara</string>
+  <string name="fromXGamesFound">%2$s oyunda %1$s bulmaca bulundu.</string>
 </resources>

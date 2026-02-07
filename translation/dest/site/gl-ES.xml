@@ -3,7 +3,7 @@
 	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Xogar cun amigo</string>
 	<string name="playWithTheMachine">Xogar coa máquina</string>
-	<string name="playOtherPlayers">Play other players</string>
+	<string name="playOtherPlayers">Enfróntate a outros xogadores</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Para invitar a alguén a xogar, dálle este URL</string>
 	<string name="gameOver">Partida rematada</string>
 	<string name="waitingForOpponent">Agardando un rival</string>
@@ -264,12 +264,14 @@
 	<string name="annanshogi">Annanshogi</string>
 	<string name="kyotoshogi">Kyotoshogi</string>
 	<string name="checkshogi">Xaqueshogi</string>
+	<string name="dobutsu">Dobutsu</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">Regras estándar do shogi</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">As mesmas regras do shogi estándar, pero xogado nun taboleiro máis pequeno de 5x5</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">A variante histórica do shogi máis popular, xogada nun taboleiro de 12x12</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante moderna do shogi con promocións alternas únicas, xogada nun taboleiro de 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante similar ó shogi estándar, onde as pezas se moven igual cás pezas do mesmo bando situadas detrás delas</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">O mesmo có shogi estándar, só que gaña o primeiro que dá xaque ó rei do adversario</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">Unha variante de shogi para principiantes nun taboleiro máis pequeno</string>
 	<string name="unlimited">Ilimitado</string>
 	<string name="mode">Modo</string>
 	<string name="casual">Amigable</string>
@@ -894,7 +896,7 @@
 	<string name="learnFromThisMistake">Aprende deste erro</string>
 	<string name="skipThisMove">Salta este movemento</string>
 	<string name="next">Seguinte</string>
-	<string name="prev">Previous</string>
+	<string name="prev">Anterior</string>
 	<string name="xWasPlayed">%s foi xogado</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Encontra un movemento mellor para %s</string>
 	<string name="resumeLearning">Retomar avaliación</string>
@@ -1080,13 +1082,13 @@
 	<string name="leavingLobbyAlert">Ó marchares desta páxina eliminas as túas solicitudes de emparellamento pendentes.</string>
 	<string name="oneUrlPerLine">Unha URL por liña.</string>
 	<string name="translate" comment="Button text used to translate forum posts for example">Traducir</string>
-	<string name="newPlayerIntro">Welcome to lishogi. If you\'re new here, this quick overview will help you get started and discover what the site offers.</string>
-	<string name="newPlayerRegisterCta">Create an account to unlock all features</string>
-	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
-	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
-	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
-	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
-	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
-	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
-	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="newPlayerIntro">Benvido a Lishogi. Se entras por primeira vez, esta guía axudarache a comezar e a descubrir o que este sitio web ofrece.</string>
+	<string name="newPlayerRegisterCta">Crea unha conta para desbloquear todas as funcións</string>
+	<string name="newPlayerPreferences">Personaliza a fasquía do sitio: pezas, taboleiros, notación, sons e máis.</string>
+	<string name="newPlayerLearn">Aprende a mover as pezas, a entender as regras básicas e practica con leccións guiadas.</string>
+	<string name="newPlayerPlayPeople">Xoga partidas puntuadas ou amigables con outros usuarios ou desafía ás túas amizades.</string>
+	<string name="newPlayerPlayAi">Practica coa computadora e elixe a dificultade que se axusta ó teu nivel.</string>
+	<string name="newPlayerTournaments">Participa en torneos de shogi con outros usuarios ou organiza os teus propios torneos.</string>
+	<string name="newPlayerPuzzles">Mellora as túas habilidades resolvendo crebacabezas de shogi.</string>
+	<string name="newPlayerStudies">Descubre os estudos e leccións realizados pola comunidade ou crea e comparte os teus propios.</string>
 </resources>
