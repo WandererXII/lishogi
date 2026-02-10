@@ -32,11 +32,11 @@ major_version=$(echo "$version" | awk -F. '{print $1}')
 
 echo Java "$version"
 
-if [ "$major_version" -lt 17 ]; then
-  echo "Error: Java version must be 17 or higher." >&2
+if [ "$major_version" -lt 21 ]; then
+  echo "Error: Java version must be 21 or higher." >&2
   exit 1
-elif [ "$major_version" -gt 17 ]; then
-  echo "Warning: production uses Java version 17."
+elif [ "$major_version" -gt 21 ]; then
+  echo "Warning: production uses Java version 21."
 fi
 
 command="sbt $@"
