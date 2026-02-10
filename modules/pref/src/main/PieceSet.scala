@@ -56,6 +56,7 @@ object PieceSet extends PieceSetBase {
     new PieceSet("valdivia", "Valdivia"),
     new PieceSet("vald_opt", "Valdivia 2"),
     new PieceSet("shogi_bnw", "Shogi - black and white"),
+    new PieceSet("glass", "Glass"),
     new PieceSet("simple_kanji", "Simple Kanji", pro = true),
     new PieceSet("pixel", "Pixel 8bit", pro = true),
     new PieceSet("better_8_bit", "8bit Pixel Alt", pro = true),
