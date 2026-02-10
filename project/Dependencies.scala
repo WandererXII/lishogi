@@ -17,12 +17,12 @@ object Dependencies {
   val maxmind   = "com.sanoma.cda"        %% "maxmind-geoip2-scala" % "1.3.1-THIB"
   val scrimage  = "com.sksamuel.scrimage"  % "scrimage-core"        % "4.3.5"
   val scaffeine = "com.github.blemale"    %% "scaffeine"            % "5.3.0" % "compile"
-  val googleOAuth = "com.google.auth"    % "google-auth-library-oauth2-http" % "1.41.0"
+  val googleOAuth = "com.google.auth"    % "google-auth-library-oauth2-http" % "1.42.1"
   val galimatias  = "io.mola.galimatias" % "galimatias"                      % "0.2.2-NF"
   val scalatags   = "com.lihaoyi"       %% "scalatags"                       % "0.13.1"
-  val lettuce     = "io.lettuce"         % "lettuce-core"                    % "6.8.2.RELEASE"
+  val lettuce     = "io.lettuce"         % "lettuce-core"                    % "7.4.0.RELEASE"
   val autoconfig  = "io.methvin.play"   %% "autoconfig-macros"               % "0.3.2" % "provided"
-  val uaparser    = "org.uaparser"      %% "uap-scala"                       % "0.20.0"
+  val uaparser    = "org.uaparser"      %% "uap-scala"                       % "0.21.0"
   val apacheText  = "org.apache.commons" % "commons-text"                    % "1.15.0"
 
   object play {
