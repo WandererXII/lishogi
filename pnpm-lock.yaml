@@ -155,6 +155,12 @@ importers:
         specifier: ^4.0.0
         version: 4.0.0
 
+  ui/@build/static:
+    dependencies:
+      '@build/helpers':
+        specifier: workspace:*
+        version: link:../helpers
+
   ui/@build/vendor:
     dependencies:
       '@build/helpers':

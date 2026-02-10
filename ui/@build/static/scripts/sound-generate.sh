@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-srcdir="../public/sound/sources"
-outbase="../public/sound"
-volumefile="../public/sound/volumes.json"
+srcdir="assets/sound/sources"
+outbase="assets/sound"
+volumefile="assets/sound/volumes.json"
 
 # jq is required
 if ! command -v jq >/dev/null 2>&1; then

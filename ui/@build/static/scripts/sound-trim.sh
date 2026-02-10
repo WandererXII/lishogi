@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-srcdir="../public/sound/sources/clock"
-outdir="../public/sound/trimmed-clock"
+srcdir="assets/sound/sources/clock"
+outdir="assets/sound/trimmed-clock"
 
 rm -rf "$outdir"
 mkdir -p "$outdir"
