@@ -9,7 +9,6 @@
   "scripts": {
     "logo:generate": "./scripts/logo.sh",
     "sound:generate": "./scripts/sound-generate.sh",
-    "sound:trim": "./scripts/sound-trim.sh",
     "build": "tsx ./src/main.ts",
     "build:watch": "tsx watch --clear-screen=false --include ../../../pnpm-lock.yaml --include assets ./src/main.ts"
   }

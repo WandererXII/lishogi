@@ -26,7 +26,7 @@ async function main() {
       recursive: entry.isDirectory(),
       force: true,
     });
-    console.log(`Copied assets/${entry.name}`);
+    console.log(`Copied static assets/${entry.name}`);
   }
 }
 
