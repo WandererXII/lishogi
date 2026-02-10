@@ -12,9 +12,8 @@ export async function writeIfChanged(filePath: string, data: string): Promise<bo
   return true;
 }
 
-// todo - build prod somewhere else, don't overwrite dev
 export function getOutputDirectory(): string {
   const isProd = process.argv.includes('--prod');
-  if (isProd) return 'public';
+  if (isProd) return 'public-prod';
   else return 'public';
 }
