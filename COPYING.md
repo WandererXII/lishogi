@@ -58,7 +58,7 @@ well as that of the covered work.
 
 | Files                                                                    | Author(s)                                     | License                                             |
 | ------------------------------------------------------------------------ | --------------------------------------------- | --------------------------------------------------- |
-| public/logo, public/favicon.ico, public/apple-touch-icon.png             | CouchTomato87                                 | Only use to refer to lishogi.org                    |
+| public/logo                                                              | CouchTomato87                                 | Only use to refer to lishogi.org                    |
 | ui/@build/pieces/assets/\*\*/dobutsu, public/images/boards/dobutsu\*.png | Ms. Maiko Fujita (https://x.com/pie_co)       | All rights reserved - permission granted to lishogi |
 | public/sound\*\*/chisei_mazawa                                           | [真澤千星](https://x.com/chisei_mazawa)       | All rights reserved - permission granted to lishogi |
 | public/sound\*\*/sakura_ajisai                                           | [紫陽花さくら](https://x.com/hydrangea_jisai) | All rights reserved - permission granted to lishogi |

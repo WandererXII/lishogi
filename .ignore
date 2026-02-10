@@ -1,14 +1,7 @@
 # search ignores
 pnpm-lock.yaml
-translation/dest
-public/js
-public/css
-public/i18n
-public/piece-css
-public/vendors
-public/font
-public/images
-public/sound/mp3
-public/sound/ogg
-generated
+translation/dest/
+public/
+public-prod/
+generated/
 !.vscode

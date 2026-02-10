@@ -1,22 +1,17 @@
 # scala
 conf/application.conf
-target
+target/
 project/.bloop/
-project/project
-project/target
+project/project/
+project/target/
 .sbtopts
 .bloop/
 .metals/
-.bsp
-.metals
+.bsp/
 
 # ui stuff
-/public/js
-/public/css
-/public/i18n
-/public/piece-css
-/public/icons
-/public/vendors
+/public/
+/public-prod/
 node_modules/
 tsconfig.tsbuildinfo
 .stylelintcache
@@ -26,9 +21,15 @@ logs
 hs_*.log
 
 # vscode
-.vscode
+.vscode/
 
 # Eclipse auto-generated files
 /modules/*/.classpath
 /modules/*/.project
 /modules/*/.settings/
+
+
+# renaming BS
+
+/bin/db/
+/ui/@build/**/_*

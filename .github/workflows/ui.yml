@@ -4,7 +4,6 @@ on:
   push:
     paths:
       - '.github/workflows/ui.yml'
-      - 'public/**'
       - 'ui/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
@@ -12,7 +11,6 @@ on:
   pull_request:
     paths:
       - '.github/workflows/ui.yml'
-      - 'public/**'
       - 'ui/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
