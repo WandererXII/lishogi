@@ -6,7 +6,7 @@
 [![X (formerly Twitter) Follow](https://img.shields.io/twitter/follow/lishogi)](https://twitter.com/lishogi)
 [![Discord](https://img.shields.io/discord/778633701541806081?style=social&logo=discord&label=Discord)](https://discord.gg/YFtpMGg3rR)
 
-![Lishogi comes with light and dark theme, this screenshot shows both.](public/images/preview.png)
+![Lishogi comes with light and dark theme, this screenshot shows both.](preview.png)
 
 Lila (li[shogi in sca]la) is a free online shogi game server.
 
