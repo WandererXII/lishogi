@@ -157,3 +157,11 @@ body {
     font-size: 1.1em;
   }
 }
+
+.lobby__leaderboard h2::before {
+  color: theme.$c-red;
+}
+
+.lobby__winners h2::before {
+  color: theme.$c-brag;
+}
