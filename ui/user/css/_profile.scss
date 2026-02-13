@@ -1,4 +1,6 @@
+@use 'pkg:breakpoint-sass' as breakpoint;
 @use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/media-queries';
 @use 'pkg:common/abstract/mixins';
 @use 'pkg:common/theme';
 @use 'rating-history';
@@ -140,6 +142,7 @@
 
 .stats {
   display: flex;
+  flex-direction: column;
   border-top: theme.$border;
 
   .stats_badge {
@@ -148,6 +151,7 @@
     align-items: center;
     padding: 1rem;
     text-align: center;
+    border-bottom: theme.$border;
 
     time {
       display: block;
@@ -158,7 +162,8 @@
   .insights {
     @extend %flex-center-nowrap;
 
-    padding: 0.5em 3em;
+    justify-content: center;
+    padding: 1rem 3em;
     color: theme.$c-link;
     border-left: theme.$border;
     text-align: center;
@@ -184,6 +189,14 @@
 
       background: theme.$c-primary;
       color: theme.$c-primary-over;
+    }
+  }
+
+  @include breakpoint.breakpoint(media-queries.$mq-x-small) {
+    flex-direction: row;
+
+    .stats_badge {
+      border-bottom: none;
     }
   }
 }
