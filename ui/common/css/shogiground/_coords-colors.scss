@@ -17,6 +17,7 @@
     'gray': #eee,
     'blue': #eee,
     'custom': var(--custom-grid-color, theme.$c-font),
+    'v-dobutsu': #c36e5f, // variant override,
   );
 
   @each $theme, $color in $coords-color {

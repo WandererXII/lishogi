@@ -446,7 +446,8 @@ sg-squares {
   }
 }
 
-.dobutsu {
+.dobutsu,
+.v-dobutsu {
   .orientation-gote sg-board {
     background-image: url('../images/boards/dobutsu_flip.png');
   }
@@ -495,6 +496,25 @@ sg-squares {
       &::before {
         background-color: #bb645c;
       }
+    }
+  }
+}
+
+.v-dobutsu {
+  sg-board {
+    background-image: url('../images/boards/v-dobutsu.png');
+
+    .orientation-gote & {
+      background-image: url('../images/boards/dobutsu_flip.png');
+    }
+  }
+
+  .coords-edge &.main-board .sg-wrap {
+    border: 2px solid transparent;
+
+    sg-board,
+    sg-hand {
+      outline: 2px solid #bb645c;
     }
   }
 }
