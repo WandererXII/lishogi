@@ -90,7 +90,7 @@ export default class RoundController {
   loading = false;
   loadingTimeout: number;
   redirecting = false;
-  wasFocused = document.hasFocus();
+  wasFocused: boolean = document.hasFocus();
   impasseHelp = false;
   postGameStudyOffer = false;
   transientMove: TransientMove;
