@@ -55,8 +55,9 @@ final class Env(
       sheet.fetchAll.logFailure(logger).unit
     }
 
-    scheduler.scheduleWithFixedDelay(config.youtubeDelay * 2, config.youtubeDelay) { () =>
-      youtube.updateAll.logFailure(logger).unit
-    }
+    if (config.youtubeApiKey.value.nonEmpty)
+      scheduler.scheduleWithFixedDelay(config.youtubeDelay * 2, config.youtubeDelay) { () =>
+        youtube.updateAll.logFailure(logger).unit
+      }
   }
 }

@@ -380,7 +380,7 @@ object layout {
             "mobile"                            -> ctx.isMobileBrowser,
             "playing"                           -> playing,
           ),
-          dataDev             := (!isProd).option("true"),
+          dataDev             := (!isProd && !isStage).option("true"),
           dataVapid           := vapidPublicKey,
           dataUser            := ctx.userId,
           dataSoundSet        := ctx.currentSoundSet.toString,
