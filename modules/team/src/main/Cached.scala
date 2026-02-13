@@ -47,7 +47,7 @@ final class Cached(
 
   val nbRequests = cacheApi[User.ID, Int](512, "team.nbRequests") {
     _.expireAfterAccess(25 minutes)
-      .maximumSize(8192)
+      .maximumSize(4096)
       .buildAsyncFuture[User.ID, Int] { userId =>
         teamIds(userId) flatMap { ids =>
           ids.value.nonEmpty ?? teamRepo.countRequestsOfLeader(userId, requestRepo.coll)

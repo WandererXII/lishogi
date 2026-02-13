@@ -80,7 +80,7 @@ final class RelationApi(
 
   private val countFollowingCache = cacheApi[ID, Int](1024, "relation.count.following") {
     _.expireAfterAccess(10 minutes)
-      .maximumSize(8192)
+      .maximumSize(4096)
       .buildAsyncFuture { userId =>
         coll.countSel($doc("u1" -> userId, "r" -> Follow))
       }

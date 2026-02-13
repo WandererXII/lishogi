@@ -13,7 +13,7 @@ final class FavoriteOpponents(
 
   private val userIdsCache = cacheApi[User.ID, List[(User.ID, Int)]](64, "favoriteOpponents") {
     _.expireAfterWrite(15 minutes)
-      .maximumSize(4096)
+      .maximumSize(1024)
       .buildAsyncFuture {
         gameRepo.favoriteOpponents(_, FavoriteOpponents.opponentLimit, FavoriteOpponents.gameLimit)
       }
