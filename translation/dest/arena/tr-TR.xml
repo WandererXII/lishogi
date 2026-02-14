@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="arena">Saha</string>
+  <string name="arena">Arena</string>
   <string name="arenaTournaments">Arena turnuvaları</string>
   <string name="isItRated">Bu turnuva puanlı mı?</string>
   <string name="willBeNotified">Turnuva başladığında sana haber vereceğiz, bu süre zarfında başka bir sekmede oynamanın bir sakıncası yok.</string>
@@ -46,9 +46,9 @@ Daha fazla oyun oynayıp daha çok puan kazanmak için hızlıca oynayın ve lob
     <item quantity="one">Ekipi görüntüle</item>
     <item quantity="other">Tüm %s takımları görüntüle</item>
   </plurals>
-  <string name="howManyPlayersCanJoin">How many players can join?</string>
-  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
-  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defender</string>
+  <string name="howManyPlayersCanJoin">Kaç oyuncu katılabilir?</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">Varsayılan olarak bu formattaki bir turnuva, %s oyuncu tarafından katılınabilir.</string>
+  <string name="howManyPlayersCanJoinAnswer">Bu turnuva %s oyuncu tarafından katılınabilir.</string>
+  <string name="howManyPlayersCanJoinDenied">Turnuva başladıktan sonra çıkarılan oyuncular, toplam oyuncu sınırına dahil edilmeye devam edilir.</string>
+  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Savunmacı</string>
 </resources>

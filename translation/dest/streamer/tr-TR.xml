@@ -34,7 +34,7 @@
   <string name="requestReview">moderatör incelemesi talep edin</string>
   <string name="twitchUsername">Twitch kullanıcı adınız veya kanal bağlantınız</string>
   <string name="optionalOrEmpty">İsteğe bağlı. Yoksa boş bırakın</string>
-  <string name="youtubeChannelId">Your YouTube channel ID</string>
+  <string name="youtubeChannelId">YouTube kanal ID\'niz</string>
   <string name="streamerName">Lishogi üzerindeki yayıncı isminiz</string>
   <plurals name="keepItShort">
     <item quantity="one">Kısa tutun: En fazla %s karakter</item>

@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">Insights</string>
-  <string name="moves">Moves</string>
-  <string name="drops">Drops</string>
-  <string name="movesAndDrops">Moves and drops</string>
-  <string name="total" comment="Usually in chart legend or tooltip summing other bars">Total</string>
-  <string name="count" comment="Example: Count: 11 moves">Count</string>
-  <string name="average">Average</string>
-  <string name="percentage">Percentage</string>
-  <string name="outcomes" comment="win/draw/loss">Outcomes</string>
-  <string name="color" comment="Meaning sente or gote">Color</string>
-  <string name="termination" comment="Checkmate, repetition, timeout, etc">Termination</string>
-  <string name="resign" comment="Game termination status">Resignation</string>
-  <string name="noStart" comment="Game termination status - game didn't start">No start</string>
-  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Speed</string>
-  <string name="game">Game</string>
-  <string name="opponents">Opponents</string>
-  <string name="averageOpponentRating">Average opponent rating</string>
-  <string name="averageOpponentRatingDiff">Average opponent rating difference</string>
-  <string name="mostPlayedOpponents">Most played opponents</string>
-  <string name="averageAccuracy">Average accuracy</string>
-  <string name="wins">Wins</string>
-  <string name="draws">Draws</string>
-  <string name="losses">Losses</string>
-  <string name="accuracyByMoveNumber">Accuracy by game turn</string>
-  <string name="accuracyByPiece">Accuracy by piece</string>
-  <string name="times" comment="Move and drop times">Times</string>
-  <string name="totalTimeSpentThinking">Total time spent on player\'s turn</string>
-  <string name="averageTimePerGame">Average time spent on player\'s turn per game</string>
-  <string name="averageTimePerMoveOrDrop">Average time per move or drop</string>
-  <string name="timeSpentThinkingByPiece">Time spent by piece</string>
-  <string name="movesAndDropsByPiece">Moves and drops by piece</string>
-  <string name="capturesByPiece">Captured pieces</string>
-  <string name="promotionsByPiece">Promoted pieces</string>
-  <string name="mostPlayedOpenings">Most played openings</string>
-  <string name="openingMoves">Opening moves</string>
-  <string name="insightsUpdate">Insights are refreshed every few hours.</string>
-  <string name="accuracy">Accuracy</string>
-  <string name="nbOfMovesAndDrops">Number of moves and drops made by player</string>
-  <string name="nbOfMovesAndDropsPerGame">Number of moves and drops made by player per game</string>
-  <string name="nbOfCaptures">Number of pieces captured</string>
-  <string name="nbOfPromotions">Number of promoted pieces</string>
-  <string name="opponentRating">Opponent rating</string>
-  <string name="opponentRatingDiff">Opponent rating difference</string>
-  <string name="totalTimeOfMovesAndDrops">Total time of moves and drops</string>
-  <string name="nbOfGames">Number of games</string>
-  <string name="weekday">Weekday</string>
-  <string name="timeOfDay" comment="Morning,afternoon, evening, night">Time of day</string>
-  <string name="earlyBishopExchange" comment="Were bishops exchanged by the players early in the game">Early bishop exchange</string>
+  <string name="insights" comment="Feel free to translate to something more natural (like statistics) in your language if insights seems awkward">İstatistikler</string>
+  <string name="moves">Hamleler</string>
+  <string name="drops">Bırakılanlar</string>
+  <string name="movesAndDrops">Hamleler ve bırakılanlar</string>
+  <string name="total" comment="Usually in chart legend or tooltip summing other bars">Toplam</string>
+  <string name="count" comment="Example: Count: 11 moves">Sayım</string>
+  <string name="average">Ortalama</string>
+  <string name="percentage">Yüzde</string>
+  <string name="outcomes" comment="win/draw/loss">Sonuçlar</string>
+  <string name="color" comment="Meaning sente or gote">Renk</string>
+  <string name="termination" comment="Checkmate, repetition, timeout, etc">Sonlandırma</string>
+  <string name="resign" comment="Game termination status">Terk</string>
+  <string name="noStart" comment="Game termination status - game didn't start">Başlamadı</string>
+  <string name="speed" comment="Bulltet, blitz, rapid, etc.">Süre ayarı</string>
+  <string name="game">Oyun</string>
+  <string name="opponents">Rakipler</string>
+  <string name="averageOpponentRating">Ortalama rakip ratingi</string>
+  <string name="averageOpponentRatingDiff">Ortalama rakip rating farkı</string>
+  <string name="mostPlayedOpponents">En çok oynanan rakipler</string>
+  <string name="averageAccuracy">Ortalama doğruluk</string>
+  <string name="wins">Galibiyetler</string>
+  <string name="draws">Beraberlikler</string>
+  <string name="losses">Mağlubiyetler</string>
+  <string name="accuracyByMoveNumber">Oyun sırasına göre doğruluk</string>
+  <string name="accuracyByPiece">Taşa göre doğruluk</string>
+  <string name="times" comment="Move and drop times">Kez</string>
+  <string name="totalTimeSpentThinking">Sıra oyuncudayken toplam geçirilen zaman</string>
+  <string name="averageTimePerGame">Oyun başı ortalama sıra oyuncudayken geçirilen zaman</string>
+  <string name="averageTimePerMoveOrDrop">Hamle veya bırakma başına ortalama zaman</string>
+  <string name="timeSpentThinkingByPiece">Taş düşünürken geçirilen zaman</string>
+  <string name="movesAndDropsByPiece">Taşdan hareket ve bırakılma</string>
+  <string name="capturesByPiece">Alınan taşlar</string>
+  <string name="promotionsByPiece">Terfi edilen taşlar</string>
+  <string name="mostPlayedOpenings">En çok oynanan açılışlar</string>
+  <string name="openingMoves">Açılış hamleleri</string>
+  <string name="insightsUpdate">İstatistikler, her birkaç saatte yenilenir.</string>
+  <string name="accuracy">Doğruluk</string>
+  <string name="nbOfMovesAndDrops">Oyuncu tarafından yapılan hamle ve bırakma sayısı</string>
+  <string name="nbOfMovesAndDropsPerGame">Oyun başı oyuncu tarafından yapılan hamle ve bırakma sayısı</string>
+  <string name="nbOfCaptures">Alınan taş sayısı</string>
+  <string name="nbOfPromotions">Terfi edilen taş sayısı</string>
+  <string name="opponentRating">Rakip ratingi</string>
+  <string name="opponentRatingDiff">Rakip rating farkı</string>
+  <string name="totalTimeOfMovesAndDrops">Toplam hamle ve bırakma sayısı</string>
+  <string name="nbOfGames">Oyun sayısı</string>
+  <string name="weekday">Haftaiçi</string>
+  <string name="timeOfDay" comment="Morning,afternoon, evening, night">Günün saati</string>
+  <string name="earlyBishopExchange" comment="Were bishops exchanged by the players early in the game">Erken fil değişimi</string>
 </resources>

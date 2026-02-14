@@ -9,7 +9,7 @@
   <string name="whatAreStudies">Çalışmalar ne işe yarar?</string>
   <string name="allStudies">Bütün çalışmalar</string>
   <string name="studiesCreatedByX">Çalışmalar %s tarafından oluşturulmuştur</string>
-  <string name="studyByX" comment="By username">A shogi study by %s</string>
+  <string name="studyByX" comment="By username">%s tarafından shogi çalışması</string>
   <string name="noneYet">Henüz yok.</string>
   <string name="hot">Revaçta</string>
   <string name="dateAddedNewest">Eklenme tarihi (yeniden eskiye)</string>
@@ -39,7 +39,7 @@
   <string name="leaveTheStudy">Çalışmadan ayrıl</string>
   <string name="youAreNowAContributor">Artık bir katılımcısınız</string>
   <string name="youAreNowASpectator">Artık bir izleyicisiniz</string>
-  <string name="tags">Tags</string>
+  <string name="tags">Etiketler</string>
   <string name="like">Beğen</string>
   <string name="newTag">Yeni etiket</string>
   <string name="commentThisPosition">Bu pozisyon için yorum yap</string>
@@ -60,9 +60,9 @@
   <string name="cloneStudy">Klonla</string>
   <string name="downloadAllGames">Bütün oyunları indir</string>
   <string name="downloadGame">Oyunu indir</string>
-  <string name="studyKif">Study KIF</string>
-  <string name="chapterKif">Chapter KIF</string>
-  <string name="chapterCsa">Chapter CSA</string>
+  <string name="studyKif">KIF çalış</string>
+  <string name="chapterKif">Bölüm KIF</string>
+  <string name="chapterCsa">Bölüm CSA</string>
   <string name="studyUrl">Çalışma Adresi</string>
   <string name="broadcastUrl">Yayın URL’si</string>
   <string name="currentChapterUrl">Mevcut Bölümün Adresi</string>
@@ -97,10 +97,10 @@
   <string name="editor">Editör</string>
   <string name="startFromCustomPosition">Özel bir pozisyondan başlasın</string>
   <string name="loadAGameByUrl">URL ile oyun yükle</string>
-  <string name="loadAPositionFromSfen">Load a position from SFEN</string>
+  <string name="loadAPositionFromSfen">SFEN kullanarak pozisyon yükle</string>
   <string name="automatic">Otomatik</string>
   <string name="urlOfTheGame">Oyunun bağlantısı</string>
-  <string name="loadAGameFromX">Load games from %1$s</string>
+  <string name="loadAGameFromX">%1$s kullanarak oyun yükle</string>
   <string name="createChapter">Bölüm oluştur</string>
   <string name="configureLiveBroadcast">Canlı yayını yapılandır</string>
   <string name="createStudy">Çalışma oluştur</string>
@@ -126,40 +126,40 @@
   <string name="deleteStudy">Çalışmayı sil</string>
   <string name="deleteTheEntireStudy">Tüm çalışma silinsin mi? Bunun geri dönüşü yok!</string>
   <string name="whereDoYouWantToStudyThat">Bu çalışmayı nerede sürdürmek istersiniz?</string>
-  <string name="studyTopics">Study topics</string>
-  <string name="topicsDescription">Topics to organize your studies with</string>
-  <string name="myTopics">My topics</string>
-  <string name="popularTopics">Popular topics</string>
-  <string name="manageTopics">Manage topics</string>
-  <string name="startTag" comment="Tags for kif and csa">Start</string>
-  <string name="endTag" comment="Tags for kif and csa">End</string>
+  <string name="studyTopics">Çalışma konuları</string>
+  <string name="topicsDescription">Çalışmalarınızı düzenlemek için konular</string>
+  <string name="myTopics">Konularım</string>
+  <string name="popularTopics">Popüler konular</string>
+  <string name="manageTopics">Konuları yönet</string>
+  <string name="startTag" comment="Tags for kif and csa">Başlangıç</string>
+  <string name="endTag" comment="Tags for kif and csa">Bitiş</string>
   <string name="siteTag" comment="Tags for kif and csa">Site</string>
-  <string name="eventTag" comment="Tags for kif and csa">Event</string>
-  <string name="timeControlTag" comment="Tags for kif and csa">Time control</string>
-  <string name="xEloTag" comment="Tags for kif and csa; Sente/Gote">%s Elo</string>
-  <string name="xTitleTag" comment="Tags for kif and csa; Sente/Gote">%s title</string>
-  <string name="xTeamTag" comment="Tags for kif and csa; Sente/Gote">%s team</string>
-  <string name="openingTag" comment="Tags for kif and csa">Opening</string>
-  <string name="resultTag" comment="Tags for kif and csa">Result</string>
-  <string name="problemNameTag" comment="Tags for kif and csa">Problem name</string>
-  <string name="problemIdTag" comment="Tags for kif and csa">Problem Id</string>
-  <string name="dateOfPublicationTag" comment="Tags for kif and csa">Date of publication</string>
-  <string name="composerTag" comment="Tags for kif and csa">Composer</string>
-  <string name="publicationTag" comment="Tags for kif and csa">Publication</string>
-  <string name="collectionTag" comment="Tags for kif and csa">Collection</string>
-  <string name="lengthTag" comment="Tags for kif and csa">Length</string>
-  <string name="prizeTag" comment="Tags for kif and csa">Prize</string>
-  <string name="initHelp" comment="Interactive study lesson">Help the player find the initial move, with a comment.</string>
-  <string name="introGamebook" comment="Interactive study lesson">Introduce the gamebook with a comment</string>
-  <string name="putFirstMove" comment="Interactive study lesson">Put the opponent\'s first move on the board.</string>
-  <string name="explainMove" comment="Interactive study lesson">Explain the opponent move, and help the player find the next move, with a comment.</string>
-  <string name="reflectOnMove" comment="Interactive study lesson">You may reflect on the player\'s correct move, with a comment; or leave empty to jump immediately to the next move.</string>
-  <string name="variationMoves" comment="Interactive study lesson">Add variation moves to explain why specific other moves are wrong.</string>
-  <string name="explainWrongMove" comment="Interactive study lesson">Explain why this move is wrong in a comment</string>
-  <string name="orPromote" comment="Interactive study lesson">Or promote it as the mainline if it is the right move.</string>
-  <string name="otherMove" comment="Interactive study lesson">When any other wrong move is played:</string>
-  <string name="explainAllWrong" comment="Interactive study lesson">Explain why all other moves are wrong</string>
-  <string name="hintOnDemand" comment="Interactive study lesson">Optional, on-demand hint for the player:</string>
-  <string name="playerTip" comment="Interactive study lesson">Give the player a tip so they can find the right move</string>
-  <string name="playQuestion" comment="Interactive study lesson">What would you play in this position?</string>
+  <string name="eventTag" comment="Tags for kif and csa">Olay</string>
+  <string name="timeControlTag" comment="Tags for kif and csa">Zaman kontrolü</string>
+  <string name="xEloTag" comment="Tags for kif and csa; Sente/Gote">%s Ukd</string>
+  <string name="xTitleTag" comment="Tags for kif and csa; Sente/Gote">%s rütbe</string>
+  <string name="xTeamTag" comment="Tags for kif and csa; Sente/Gote">%s takım</string>
+  <string name="openingTag" comment="Tags for kif and csa">Açılış</string>
+  <string name="resultTag" comment="Tags for kif and csa">Sonuç</string>
+  <string name="problemNameTag" comment="Tags for kif and csa">Problem adı</string>
+  <string name="problemIdTag" comment="Tags for kif and csa">Problem Kimliği</string>
+  <string name="dateOfPublicationTag" comment="Tags for kif and csa">Yayın Tarihi</string>
+  <string name="composerTag" comment="Tags for kif and csa">Oluşturucu</string>
+  <string name="publicationTag" comment="Tags for kif and csa">Yayınlama</string>
+  <string name="collectionTag" comment="Tags for kif and csa">Koleksiyon</string>
+  <string name="lengthTag" comment="Tags for kif and csa">Uzunluk</string>
+  <string name="prizeTag" comment="Tags for kif and csa">Ödül</string>
+  <string name="initHelp" comment="Interactive study lesson">Oyuncunun ilk hamlesini bulmasına bir yorumla yardımcı olun.</string>
+  <string name="introGamebook" comment="Interactive study lesson">Oyun kılavuzunu bir yorumla tanıtın</string>
+  <string name="putFirstMove" comment="Interactive study lesson">Rakibin ilk hamlesini tahtaya yerleştirin.</string>
+  <string name="explainMove" comment="Interactive study lesson">Rakibin hamlesini açıklayın ve yorum yaparak oyuncunun bir sonraki hamleyi bulmasına yardımcı olun.</string>
+  <string name="reflectOnMove" comment="Interactive study lesson">Oyuncunun doğru hamlesini bir yorumla değerlendirebilirsiniz; veya bir sonraki hamleye hemen geçmek için boş bırakabilirsiniz.</string>
+  <string name="variationMoves" comment="Interactive study lesson">Diğer bazı hamlelerin neden yanlış olduğunu açıklamak için varyasyon hamleleri ekleyin.</string>
+  <string name="explainWrongMove" comment="Interactive study lesson">Bu hamlenin neden yanlış olduğunu bir yorumda açıklayın.</string>
+  <string name="orPromote" comment="Interactive study lesson">Ya da doğru bir hamle ise ana ürün olarak tanıtın.</string>
+  <string name="otherMove" comment="Interactive study lesson">Başka herhangi bir yanlış hamle yapıldığında:</string>
+  <string name="explainAllWrong" comment="Interactive study lesson">Diğer tüm hamlelerin neden yanlış olduğunu açıklayın.</string>
+  <string name="hintOnDemand" comment="Interactive study lesson">Oyuncu için isteğe bağlı, anlık ipucu:</string>
+  <string name="playerTip" comment="Interactive study lesson">Oyuncuya doğru hamleyi bulabilmesi için bir ipucu verin.</string>
+  <string name="playQuestion" comment="Interactive study lesson">Burada hangi hamleyi yapardınız?</string>
 </resources>
