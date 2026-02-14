@@ -724,6 +724,7 @@ object Game {
     shogi.variant.Standard,
     shogi.variant.Minishogi,
     shogi.variant.Kyotoshogi,
+    shogi.variant.Dobutsu,
   )
 
   val drawableVariants: Set[Variant] = Set(
