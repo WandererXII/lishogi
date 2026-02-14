@@ -254,14 +254,14 @@
 	<string name="annanshogi">安南将棋</string>
 	<string name="kyotoshogi">京都将棋</string>
 	<string name="checkshogi">王手将棋</string>
-	<string name="dobutsu">Dobutsu</string>
+	<string name="dobutsu">どうぶつしょうぎ</string>
 	<string name="standardDescription" comment="No need to translate it literally, serves as short description of the variant">将棋の標準ルール</string>
 	<string name="minishogiDescription" comment="No need to translate it literally, serves as short description of the variant">標準将棋と同じルールですが、より小さな5×5の盤で行われます。</string>
 	<string name="chushogiDescription" comment="No need to translate it literally, serves as short description of the variant">12×12の盤で指される、最も人気のある歴史的な将棋の変種です。</string>
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">5×5の盤で交互に独特な成りを持つ現代的な将棋の変種です。</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">標準将棋に似た変種で、駒は後ろの味方駒と同じ動きをします。</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">標準将棋と同じルールですが、相手の王に最初に王手をかけた方が勝ちです。</string>
-	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">A beginner-friendly shogi variant on a very small board</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">小さな盤で遊ぶ、初心者向けの将棋の一種</string>
 	<string name="unlimited">無制限</string>
 	<string name="mode">モード</string>
 	<string name="casual">非レート戦</string>
