@@ -67,4 +67,8 @@
   <string name="noneOfTheAbove">Nessuno dei precedenti</string>
   <string name="sendEmailAt">Inviaci una email a %s.</string>
   <string name="explainYourRequest">Spiega la tua richiesta in modo chiaro e approfondito. Indica il tuo nome utente di Lishogi e tutte le informazioni che potrebbero aiutare.</string>
+  <string name="friendlySites" comment="Sites not associated with lishogi">Friendly Sites</string>
+  <string name="manyGreatShogiSites">There are many great shogi sites, clubs, and projects around the world. We humbly list some here.</string>
+  <string name="yourSiteHere">Would you like your site listed here?</string>
+  <string name="displayLishogiLogo">If you\'d like to use the Lishogi logo on your site, you can download the full set here.</string>
 </resources>
