@@ -21,6 +21,8 @@ import type { RoundData } from './interfaces';
 import { firstPly, plyStep } from './round';
 import * as util from './util';
 
+const noCheckHighlightVariants: VariantKey[] = ['chushogi', 'dobutsu'];
+
 export function makeConfig(ctrl: RoundController): Config {
   const data = ctrl.data;
   const variant = data.game.variant.key;
@@ -47,7 +49,10 @@ export function makeConfig(ctrl: RoundController): Config {
     },
     highlight: {
       lastDests: data.pref.highlightLastDests,
-      check: data.pref.highlightCheck && variant !== 'chushogi' && !data.game.isProMode,
+      check:
+        data.pref.highlightCheck &&
+        !noCheckHighlightVariants.includes(variant) &&
+        !data.game.isProMode,
     },
     events: {
       move: hooks.onMove,

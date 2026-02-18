@@ -34,6 +34,7 @@ export function renderBoard(ctrl: AnalyseCtrl): VNode {
   });
 }
 
+const noCheckHighlightVariants: VariantKey[] = ['chushogi', 'dobutsu'];
 export function makeConfig(ctrl: AnalyseCtrl): SgConfig {
   const d = ctrl.data;
   const variant = d.game.variant.key;
@@ -145,7 +146,7 @@ export function makeConfig(ctrl: AnalyseCtrl): SgConfig {
     },
     highlight: {
       lastDests: pref.highlightLastDests,
-      check: pref.highlightCheck && variant !== 'chushogi',
+      check: pref.highlightCheck && !noCheckHighlightVariants.includes(variant),
     },
     draggable: {
       enabled: pref.moveEvent !== prefs.moveEvent.CLICK,
