@@ -164,6 +164,12 @@ object help {
         },
         br,
         div(cls := "box box-pad developers body")(
+          a(href := assetUrl("logo/lishogi.zip"), cls := "text", dataIcon := Icons.download)(
+            trans.contact.displayLishogiLogo(),
+          ),
+        ),
+        br,
+        div(cls := "box box-pad developers body")(
           h2("HTTP API"),
           p(
             raw(
@@ -174,6 +180,38 @@ object help {
       ),
     )
   }
+
+  def friendlySites(
+      doc: lila.prismic.Document,
+      resolver: lila.prismic.DocumentLinkResolver,
+  )(implicit ctx: Context) =
+    layout(
+      title = trans.contact.friendlySites.txt(),
+      active = "friendly-sites",
+      moreCss = frag(
+        cssTag("misc.page"),
+        cssTag("misc.friendly-sites"),
+      ),
+      contentCls = "page box box-pad",
+    ) {
+      frag(
+        h1(trans.contact.friendlySites()),
+        div(cls := "body")(
+          p(trans.contact.manyGreatShogiSites()),
+          div(cls := "friendly-sites")(
+            raw(~doc.getHtml("doc.content", resolver)),
+          ),
+          p(
+            trans.contact.yourSiteHere(),
+            br,
+            trans.contact.sendEmailAt(contactEmail),
+          ),
+          a(href := assetUrl("logo/lishogi.zip"), cls := "text", dataIcon := Icons.download)(
+            trans.contact.displayLishogiLogo(),
+          ),
+        ),
+      )
+    }
 
   def layout(
       title: String,
@@ -197,8 +235,10 @@ object help {
           a(activeCls("resources"), href := routes.Prismic.resources)(trans.shogiResources()),
           a(activeCls("tos"), href := routes.Prismic.tos)(trans.termsOfService()),
           a(activeCls("privacy"), href := routes.Prismic.privacy)(trans.privacy()),
-          // a(activeCls("master"), href := routes.Prismic.master)("Title verification"),
           sep,
+          a(activeCls("friendly-sites"), href := routes.Prismic.friendlySites)(
+            trans.contact.friendlySites(),
+          ),
           a(activeCls("source"), href := routes.Prismic.source)(trans.sourceCode()),
           a(activeCls("help"), href := routes.Prismic.help)(trans.contribute()),
           a(activeCls("thanks"), href := routes.Prismic.thanks)(trans.thankYou()),

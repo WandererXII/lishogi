@@ -60,6 +60,14 @@ final class Prismic(
       }
     }
 
+  def friendlySites =
+    Open { implicit ctx =>
+      pageHit
+      OptionOk(getPage("doc", "friendly-sites")) { case (doc, resolver) =>
+        views.html.site.help.friendlySites(doc, resolver)
+      }
+    }
+
   def variantHome =
     Open { implicit ctx =>
       import play.api.libs.json._
