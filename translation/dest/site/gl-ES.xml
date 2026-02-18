@@ -27,6 +27,8 @@
 	<string name="perpetualCheck">Xaque perpetuo</string>
 	<string name="royalsLost" comment="Used in chushogi">Perdéronse todas as pezas reais</string>
 	<string name="bareKing" comment="Used in chushogi">Rei en coiros</string>
+	<string name="lionCaptured" comment="Used in dobutsu shogi">The lion was captured</string>
+	<string name="tryRule" comment="Used in dobutsu shogi">Try rule</string>
 	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Xogada ilegal</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s xogou contra %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s está a xogar contra %2$s</string>
