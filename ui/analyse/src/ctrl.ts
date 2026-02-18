@@ -22,6 +22,7 @@ import type { DrawShape } from 'shogiground/draw';
 import type * as sg from 'shogiground/types';
 import { eagleLionAttacks, falconLionAttacks } from 'shogiops/attacks';
 import {
+  checksSquareNames,
   shogigroundDropDests,
   shogigroundMoveDests,
   shogigroundSecondLionStep,
@@ -35,6 +36,7 @@ import {
   makeUsi,
   opposite,
   parseSquareName,
+  parseUsi,
   type Result,
   squareDist,
 } from 'shogiops/util';
@@ -505,6 +507,18 @@ export default class AnalyseCtrl {
     window.location.href = analysis(this.data.game.variant.key, sfen);
   }
 
+  // to show check immediately and not wait on addNode
+  highlighCheck(usi: Usi): void {
+    const pos = this.position(this.node);
+    const parsed = parseUsi(usi);
+    if (parsed && pos.isOk && pos.value.isLegal(parsed)) {
+      pos.value.play(parsed);
+      this.shogiground.set({
+        checks: checksSquareNames(pos.value),
+      });
+    }
+  }
+
   userDrop = (piece: Piece, key: Key, prom: boolean): void => {
     let role = piece.role;
     if (prom && promotableOnDrop(this.data.game.variant.key)(piece))
@@ -512,6 +526,7 @@ export default class AnalyseCtrl {
     const usi = makeUsi({ role: role, to: parseSquareName(key) });
     this.justPlayedUsi = usi;
     li.sound.move();
+    this.highlighCheck(usi);
     this.sendUsi(usi);
   };
 
@@ -524,6 +539,7 @@ export default class AnalyseCtrl {
     const usi = orig + dest + (prom ? '+' : '');
     this.justPlayedUsi = usi;
     li.sound.move(!!capture);
+    this.highlighCheck(usi);
     this.sendUsi(usi);
   };
 
@@ -949,6 +965,7 @@ export default class AnalyseCtrl {
 
   playUsi(usi: Usi, usiQueue?: Usi[]): void {
     this.pvUsiQueue = usiQueue ?? [];
+    this.highlighCheck(usi);
     this.sendUsi(usi);
   }
 
