@@ -67,4 +67,8 @@
   <string name="noneOfTheAbove">Intet av det ovenstående</string>
   <string name="sendEmailAt">Send oss en e-post på %s.</string>
   <string name="explainYourRequest">Forklar forespørselen din tydelig og grundig. Oppgi Lishogi-brukernavnet ditt og all annen informasjon som kan hjelpe oss med å hjelpe deg.</string>
+  <string name="friendlySites" comment="Sites not associated with lishogi">Friendly Sites</string>
+  <string name="manyGreatShogiSites">There are many great shogi sites, clubs, and projects around the world. We humbly list some here.</string>
+  <string name="yourSiteHere">Would you like your site listed here?</string>
+  <string name="displayLishogiLogo">If you\'d like to use the Lishogi logo on your site, you can download the full set here.</string>
 </resources>
