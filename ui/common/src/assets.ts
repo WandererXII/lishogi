@@ -48,18 +48,36 @@ const loadPieceSprite = (id: string, variant: VariantKey, defaultSet: string): v
   }
 };
 
-export const loadChushogiPieceSprite: () => void = () =>
+const loadChushogiPieceSprite: () => void = () =>
   loadPieceSprite(
     'chu-piece-sprite',
     'chushogi',
     document.body.dataset.chuPieceSet || 'ryoko_1kanji',
   );
-export const loadKyotoshogiPieceSprite: () => void = () =>
+const loadKyotoshogiPieceSprite: () => void = () =>
   loadPieceSprite(
     'kyo-piece-sprite',
     'kyotoshogi',
     document.body.dataset.kyoPieceSet || 'ryoko_1kanji',
   );
+const loadDobutsuPieceSprite: () => void = () =>
+  loadPieceSprite(
+    'dobutsu-piece-sprite',
+    'dobutsu',
+    document.body.dataset.dobutsuPieceSet || 'dobutsu',
+  );
+
+export const loadPieceSpriteByVariant = (variant: VariantKey) => {
+  if (variant === 'chushogi') loadChushogiPieceSprite();
+  else if (variant === 'kyotoshogi') loadKyotoshogiPieceSprite();
+  else if (variant === 'dobutsu') loadDobutsuPieceSprite();
+};
+
+export const loadPieceSpriteByVariants = (variants: VariantKey[]) => {
+  if (variants.includes('chushogi')) loadChushogiPieceSprite();
+  if (variants.includes('kyotoshogi')) loadKyotoshogiPieceSprite();
+  if (variants.includes('dobutsu')) loadDobutsuPieceSprite();
+};
 
 export const loadScript = (src: string): Promise<void> =>
   new Promise((resolve, reject) => {

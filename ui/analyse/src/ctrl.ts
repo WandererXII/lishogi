@@ -2,7 +2,7 @@ import cevalCtrl from 'ceval/ctrl';
 import { cevalRestarter } from 'ceval/restarter';
 import type { CevalCtrl, EvalMeta, NodeEvals } from 'ceval/types';
 import { isEvalBetter } from 'ceval/util';
-import { loadChushogiPieceSprite, loadKyotoshogiPieceSprite } from 'common/assets';
+import { loadPieceSpriteByVariant } from 'common/assets';
 import { defined, type Prop, prop, requestIdleCallbackWithFallback } from 'common/common';
 import { analysis } from 'common/links';
 import { getPerfIcon } from 'common/perf-icons';
@@ -220,8 +220,7 @@ export default class AnalyseCtrl {
     this.imported = game.imported(data);
     this.ongoing = !this.synthetic && game.playable(data);
 
-    if (this.data.game.variant.key === 'chushogi') loadChushogiPieceSprite();
-    else if (this.data.game.variant.key === 'kyotoshogi') loadKyotoshogiPieceSprite();
+    loadPieceSpriteByVariant(this.data.game.variant.key);
 
     const prevTree = merge && this.tree.root;
     this.tree = makeTree(treeOps.reconstruct(this.data.treeParts));
