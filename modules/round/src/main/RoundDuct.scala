@@ -32,6 +32,7 @@ import lila.hub.actorApi.round.RematchYes
 import lila.hub.actorApi.round.Resign
 import lila.hub.actorApi.round.ShoginetPlay
 import lila.hub.actorApi.round.ShoginetPlayFallback
+import lila.hub.actorApi.round.ShoginetResign
 import lila.room.RoomSocket.{ Protocol => RP, _ }
 import lila.round.actorApi._
 import lila.round.actorApi.round._
@@ -314,7 +315,7 @@ final private[round] class RoundDuct(
         pov.game.resignable ?? finisher.other(pov.game, _.Resign, winner = Some(!pov.color))
       }
 
-    case ResignAi =>
+    case ShoginetResign =>
       handleAi { pov =>
         pov.game.resignable ?? finisher.other(pov.game, _.Resign, winner = Some(!pov.color))
       }

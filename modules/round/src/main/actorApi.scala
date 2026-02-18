@@ -39,7 +39,6 @@ package round {
   )
 
   case object AbortForce
-  case object ResignAi
   case class ResignForce(playerId: PlayerId)
   case class DrawForce(playerId: PlayerId)
   case class DrawClaim(playerId: PlayerId)

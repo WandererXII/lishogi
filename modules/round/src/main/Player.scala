@@ -17,6 +17,7 @@ import lila.game.Pov
 import lila.game.Progress
 import lila.game.actorApi.MoveGameEvent
 import lila.game.actorApi.PauseGame
+import lila.hub.actorApi.round.ShoginetResign
 import lila.round.actorApi.round.DrawNo
 import lila.round.actorApi.round.ForecastPlay
 import lila.round.actorApi.round.HumanPlay
@@ -142,7 +143,7 @@ final private class Player(
   private[round] def requestShoginet(game: Game, round: RoundDuct): Funit =
     game.playableByAi ?? {
       if (game.playedPlies <= shoginetPlayer.maxPlies) shoginetPlayer(game)
-      else fuccess(round ! actorApi.round.ResignAi)
+      else fuccess(round ! ShoginetResign)
     }
 
   private val shoginetLag = LagMetrics(clientLag = Centis(5).some)

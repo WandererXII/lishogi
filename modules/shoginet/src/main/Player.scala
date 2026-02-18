@@ -13,6 +13,7 @@ import lila.common.Random.approximately
 import lila.game.Game
 import lila.hub.actorApi.map.Tell
 import lila.hub.actorApi.round.ShoginetPlay
+import lila.hub.actorApi.round.ShoginetResign
 
 final class Player(
     moveDb: MoveDB,
@@ -24,12 +25,12 @@ final class Player(
 
   def apply(game: Game): Funit =
     game.aiEngine ?? { engine =>
-      val obUsi =
+      val openingBookUsi =
         (engine.level <= maxLevelForOpeningBook && OpeningBook.valid(game)) ?? OpeningBook.find(
           game,
         )
-      obUsi.fold {
-        makeWork(game, engine) addEffect moveDb.add void
+      openingBookUsi.fold {
+        makeWork(game, engine).addEffect(moveDb.add).void
       } { usi =>
         lila.common.Future.delay(500.millis) {
           fuccess {
@@ -39,6 +40,7 @@ final class Player(
       }
     } recover { case e: Exception =>
       logger.info(e.getMessage)
+      Bus.publish(Tell(game.id, ShoginetResign), "roundSocket")
     }
 
   private val maxLevelForOpeningBook = 8
