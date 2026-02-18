@@ -165,7 +165,6 @@
     justify-content: center;
     padding: 1rem 3em;
     color: theme.$c-link;
-    border-left: theme.$border;
     text-align: center;
 
     strong {
@@ -197,6 +196,10 @@
 
     .stats_badge {
       border-bottom: none;
+    }
+
+    .insights {
+      border-left: theme.$border;
     }
   }
 }
