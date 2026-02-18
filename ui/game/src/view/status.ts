@@ -4,6 +4,7 @@ import type { Status, StatusId, StatusName } from '../interfaces';
 import { statusIdToName } from '../status';
 
 export default function status(
+  variant: VariantKey,
   status: Status | StatusName | StatusId,
   winner: Color | undefined,
   isHandicap: boolean,
@@ -69,7 +70,7 @@ export default function status(
     case 'unknownFinish':
       return i18n('finished');
     case 'royalsLost':
-      return i18n('royalsLost');
+      return variant === 'dobutsu' ? i18n('lionCaptured') : i18n('royalsLost');
     case 'bareKing':
       return i18n('bareKing');
     case 'specialVariantEnd':

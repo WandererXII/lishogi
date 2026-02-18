@@ -254,7 +254,7 @@ private object bits {
           form3.select(
             form("status"),
             Query.statuses.map(v =>
-              (v, statusName(shogi.Status(v).getOrElse(shogi.Status.UnknownFinish))),
+              (v, statusName(shogi.Status(v).getOrElse(shogi.Status.UnknownFinish), none)),
             ),
             "".some,
           ),

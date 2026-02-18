@@ -65,7 +65,12 @@ export function renderResult(ctrl: RoundController): VNode | undefined {
             hook: util.onInsert(ctrl.autoScroll),
           },
           [
-            viewStatus(ctrl.data.game.status, ctrl.data.game.winner, handicap),
+            viewStatus(
+              ctrl.data.game.variant.key,
+              ctrl.data.game.status,
+              ctrl.data.game.winner,
+              handicap,
+            ),
             winner
               ? ` - ${i18nFormatCapitalized('xIsVictorious', colorName(winner, handicap))}`
               : '',

@@ -46,10 +46,16 @@ function renderResult(ctrl: AnalyseCtrl): MaybeVNode {
       winner ? `, ${i18nFormatCapitalized('xIsVictorious', colorName(winner, handicap))}` : null,
     ]);
   if (finished(ctrl.data)) {
-    const status = statusView(ctrl.data.game.status, ctrl.data.game.winner, handicap);
+    const status = statusView(
+      ctrl.data.game.variant.key,
+      ctrl.data.game.status,
+      ctrl.data.game.winner,
+      handicap,
+    );
     return render(status, ctrl.data.game.winner);
   } else if (ctrl.study?.data.chapter.setup.endStatus) {
     const status = statusView(
+      ctrl.study.data.chapter.setup.variant.key,
       ctrl.study.data.chapter.setup.endStatus.status,
       ctrl.study.data.chapter.setup.endStatus.winner,
       handicap,
