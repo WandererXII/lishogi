@@ -11,7 +11,7 @@ object Dependencies {
     val commons = Seq(lilaMaven)
   }
 
-  val shogi     = "io.github.wandererxii" %% "scalashogi"           % "13.1.0"
+  val shogi     = "io.github.wandererxii" %% "scalashogi"           % "13.2.0"
   val hasher    = "com.roundeights"       %% "hasher"               % "1.2.1"
   val jodaTime  = "joda-time"              % "joda-time"            % "2.14.0"
   val maxmind   = "com.sanoma.cda"        %% "maxmind-geoip2-scala" % "1.3.1-THIB"
