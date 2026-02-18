@@ -16,8 +16,9 @@
         12 * 9
     );
 
-    &:has(.main-v-minishogi, .main-v-kyotoshogi) {
-      --main-max-width: calc(
+    .main-board.v-minishogi,
+    .main-board.v-kyotoshogi {
+      width: calc(
         (
             100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
               #{uniboard.$hands-gap}
@@ -26,13 +27,13 @@
       );
     }
 
-    &:has(.main-v-dobutsu) {
-      --main-max-width: calc(
+    .main-board.v-dobutsu {
+      width: calc(
         (
             100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
               #{uniboard.$hands-gap}
           ) /
-          5 * 3 / 12 * 11
+          6 * 3 / 12 * 11
       );
     }
 
@@ -71,6 +72,7 @@
 
   &__board,
   .intro {
+    margin: auto;
     grid-area: board;
   }
 

@@ -180,6 +180,11 @@ sg-square-over {
   width: calc(100% / 9);
   height: calc(100% / 9);
 
+  .d-3x4 & {
+    width: calc(100% / 3);
+    height: calc(100% / 4);
+  }
+
   .d-5x5 & {
     width: calc(100% / 5);
     height: calc(100% / 5);
@@ -214,6 +219,11 @@ sg-promotion {
     left: 0;
     width: calc(100% / 9);
     height: calc(100% / 9);
+
+    .d-3x4 & {
+      width: calc(100% / 3);
+      height: calc(100% / 4);
+    }
 
     .d-5x5 & {
       width: calc(100% / 5);

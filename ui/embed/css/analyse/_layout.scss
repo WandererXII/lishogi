@@ -43,6 +43,18 @@
     }
   }
 
+  &.main-v-dobutsu {
+    grid-template-rows:
+      auto calc(100vh - 6rem - (100vw / 4 * 6 / 11 * 12 + #{uniboard.$hands-gap}))
+      3rem 3rem;
+
+    .mini-board.v-dobutsu {
+      width: calc(100% / 3 * 2);
+      margin: auto;
+      padding-bottom: calc(100% / 11 * 12 / 3 * 6 / 3 * 2 + #{uniboard.$hands-gap});
+    }
+  }
+
   @media (min-aspect-ratio: 1 / 1) {
     grid-template-columns: calc((100vh - 3rem) / 12 * 11 / 9 * 11 + #{uniboard.$hands-gap}) 1fr;
     grid-template-rows: calc(100vh - 6rem) 3rem 3rem;
@@ -61,6 +73,16 @@
 
       .analyse__board {
         margin-top: unset;
+      }
+    }
+
+    &.main-v-dobutsu {
+      grid-template-columns: calc((100vh - 3rem) / 12 * 11 / 4 * 5 + 4vmin) 1fr;
+      grid-template-rows: calc(100vh - 6rem) 3rem 3rem;
+
+      .main-board.v-dobutsu {
+        width: 100%;
+        padding-bottom: calc((100% - #{uniboard.$hands-gap}) / 5 * 4 / 11 * 12);
       }
     }
 

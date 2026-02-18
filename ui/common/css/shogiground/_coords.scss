@@ -107,7 +107,7 @@ coords {
         background-origin: border-box;
       }
 
-      .sg-hand-wrap {
+      sg-hand-wrap {
         height: calc((100% - #{$edge-size}) / 9 * 7);
 
         sg-hand {
@@ -124,19 +124,30 @@ coords {
         }
       }
 
-      &.v-minishogi .sg-hand-wrap {
+      &.v-minishogi sg-hand-wrap {
+        height: calc(100% - #{$edge-size});
+
         sg-hand {
           padding: $edge-size calc(#{$edge-size} / 5);
         }
       }
 
-      &.v-kyotoshogi .sg-hand-wrap {
+      &.v-kyotoshogi sg-hand-wrap {
+        height: calc((100% - #{$edge-size}) / 5 * 4);
+
         sg-hand {
           padding-left: calc(#{$edge-size} / 5);
           padding-right: calc(#{$edge-size} / 5);
         }
+      }
 
-        height: calc((100% - #{$edge-size}) / 5 * 4);
+      &.v-dobutsu sg-hand-wrap {
+        height: calc((100% - #{$edge-size}) / 4 * 3);
+
+        sg-hand {
+          padding-left: calc(#{$edge-size} / 5);
+          padding-right: calc(#{$edge-size} / 5);
+        }
       }
     }
 
