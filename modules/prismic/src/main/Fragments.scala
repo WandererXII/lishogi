@@ -108,10 +108,11 @@ object Fragment {
 
   object Link {
     implicit val reader: Reads[Link] = Reads[Link] { jsvalue =>
+      val data = (jsvalue \ "value").asOpt[JsValue].getOrElse(jsvalue)
       (jsvalue \ "type").validate[String] flatMap {
-        case "Link.web"      => Fragment.WebLink.reader.reads(jsvalue)
-        case "Link.document" => Fragment.DocumentLink.reader.reads(jsvalue)
-        case "Link.file"     => Fragment.MediaLink.reader.reads(jsvalue)
+        case "Link.web"      => Fragment.WebLink.reader.reads(data)
+        case "Link.document" => Fragment.DocumentLink.reader.reads(data)
+        case "Link.file"     => Fragment.MediaLink.reader.reads(data)
       }
     }
   }
@@ -599,11 +600,15 @@ object Fragment {
               val linkbody = hyperlink match {
                 case Some(link: DocumentLink) =>
                   s"""<a href="${linkResolver(link)}">${view.asHtml}</a>"""
-                case Some(link: WebLink)   => s"""<a href="${link.url}">${view.asHtml}</a>"""
+                case Some(link: WebLink) =>
+                  s"""<a href="${link.url}"${link.targetHtml}>${view.asHtml}</a>"""
                 case Some(link: MediaLink) => s"""<a href="${link.url}">${view.asHtml}</a>"""
                 case _                     => view.asHtml
               }
-              s"""<p class="${(label.toSeq :+ "block-img").mkString(" ")}">$linkbody</p>"""
+              val dataAlt = view.alt.getOrElse("")
+              s"""<p class="${(label.toSeq :+ "block-img").mkString(
+                  " ",
+                )}" data-alt="$dataAlt">$linkbody</p>"""
             }
             case StructuredText.Block.Embed(obj, label) => obj.asHtml(label)
           }
