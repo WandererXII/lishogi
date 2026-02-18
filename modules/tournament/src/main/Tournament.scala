@@ -100,7 +100,10 @@ case class Tournament(
   def isDistant = startsAt.isAfter(DateTime.now plusDays 1)
 
   def nearImportantMoment =
-    secondsToStart < 60 * 60 || isRecentlyStarted || secondsToFinish < 2 * 60 * 60 || isRecentlyFinished
+    (isCreated && secondsToStart < 2 * 60 * 60) ||
+      isRecentlyStarted ||
+      (isStarted && secondsToFinish < 3 * 60 * 60) ||
+      isRecentlyFinished
 
   def duration = new Duration(minutes.toLong * 60 * 1000)
 
