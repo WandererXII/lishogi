@@ -5,7 +5,7 @@
   "type": "module",
   "dependencies": {
     "@build/helpers": "workspace:*",
-    "dedent": "^1.7.0"
+    "dedent": "^1.7.1"
   },
   "devDependencies": {
     "svgo": "^4.0.0"
