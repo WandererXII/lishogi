@@ -10,8 +10,7 @@ import lila.app.ui.ScalatagsTemplate._
 object variant {
 
   def show(
-      doc: lila.prismic.Document,
-      resolver: lila.prismic.DocumentLinkResolver,
+      docWithResolver: Option[(lila.prismic.Document, lila.prismic.DocumentLinkResolver)],
       shogiVariant: shogi.variant.Variant,
   )(implicit ctx: Context) =
     layout(
@@ -25,12 +24,13 @@ object variant {
           description = variantDescription(shogiVariant),
         )
         .some,
-      withHrefLangs =
-        doc.getText("variant.translated").isDefined option lila.i18n.LangList.EnglishJapanese,
+      withHrefLangs = lila.i18n.LangList.EnglishJapanese.some,
     )(
       h1(cls := "text", dataIcon := variantIcon(shogiVariant))(variantName(shogiVariant)),
       h2(cls := "headline")(variantDescription(shogiVariant)),
-      div(cls := "body")(raw(~doc.getHtml("variant.content", resolver))),
+      div(cls := "body")(raw(~(docWithResolver flatMap { case (doc, resolver) =>
+        doc.getHtml("variant.content", resolver)
+      }))),
     )
 
   def home(implicit ctx: Context) =

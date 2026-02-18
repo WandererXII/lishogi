@@ -75,16 +75,14 @@ final class Prismic(
       )
     }
 
-  def variant(key: String) =
-    Open { implicit ctx =>
-      (for {
-        variant <- shogi.variant.Variant.byKey get key
-      } yield OptionOk(
-        getPage("variant", variant.key, BlogLang.fromLangCode(ctx.lang.code)),
-      ) { case (doc, resolver) =>
-        views.html.site.variant.show(doc, resolver, variant)
-      }) | notFound
+  def variant(key: String) = Open { implicit ctx =>
+    shogi.variant.Variant.byKey.get(key).fold(notFound) { variant =>
+      val lang = BlogLang.fromLangCode(ctx.lang.code)
+      getPage("variant", variant.key, lang) map { docWithResolver =>
+        Ok(views.html.site.variant.show(docWithResolver, variant))
+      }
     }
+  }
 
   private def getDocumentByUID(customType: String, uid: String, lang: BlogLang) =
     prismic.get flatMap { api =>
@@ -97,7 +95,9 @@ final class Prismic(
       }
     }
 
-  def getPage(customType: String, uid: String, lang: BlogLang = BlogLang.default) =
+  def getPage(customType: String, uid: String, lang: BlogLang = BlogLang.default): Fu[Option[
+    (lila.prismic.Document, DocumentLinkResolver),
+  ]] =
     getDocumentByUID(customType, uid, lang) map2 { (doc: lila.prismic.Document) =>
       doc -> Prismic.documentLinkResolver
     } recover { case e: Exception =>
