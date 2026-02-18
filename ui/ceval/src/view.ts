@@ -24,7 +24,7 @@ const gaugeTicks: VNode[] = [...Array(7).keys()].map(i =>
 function localEvalInfo(ctrl: ParentCtrl, evs: NodeEvals): MaybeVNodes {
   const ceval = ctrl.getCeval();
   if (!evs.client) {
-    if (!ceval.analysable) return ['Engine cannot analyze this position'];
+    if (!ceval.analysable(ctrl.getNode().sfen)) return ['Cannot analyze this position'];
 
     const mb = ceval.downloadProgress() / 1024 / 1024;
     return [
@@ -170,6 +170,7 @@ export function renderCeval(ctrl: ParentCtrl): VNode | undefined {
   const threatMode = ctrl.threatMode();
   const threat = threatMode && ctrl.getNode().threat;
   const bestEv = threat || getBestEval(evs);
+  const analysable = instance.analysable(ctrl.getNode().sfen);
   const isImpasseOutcome = instance.enteringKingRule() && ctrl.isImpasse();
   let pearl: VNode | string;
   let percent: number;
@@ -183,7 +184,7 @@ export function renderCeval(ctrl: ParentCtrl): VNode | undefined {
   } else if (bestEv && defined(bestEv.mate)) {
     pearl = `#${bestEv.mate}`;
     percent = 100;
-  } else if (ctrl.outcome() || isImpasseOutcome) {
+  } else if (ctrl.outcome() || isImpasseOutcome || !analysable) {
     pearl = '-';
     percent = 0;
   } else {
@@ -237,11 +238,11 @@ export function renderCeval(ctrl: ParentCtrl): VNode | undefined {
           ...engineName(instance),
           h('span', [
             h('br'),
-            instance.analysable
+            analysable
               ? i18n('inLocalBrowser')
               : unsupportedVariants.includes(instance.variant.key)
                 ? i18n('variantNotSupported')
-                : 'Engine cannot analyse this game',
+                : 'Cannot analyse this position',
           ]),
         ]),
         pearl ? h('pearl', [pearl]) : null,
@@ -251,16 +252,18 @@ export function renderCeval(ctrl: ParentCtrl): VNode | undefined {
     'div.switch',
     {
       class: {
-        disabled: ctrl.mandatoryCeval?.() || !instance.analysable,
+        disabled: ctrl.mandatoryCeval?.() || !analysable,
       },
-      attrs: { title: !instance.analysable ? '' : `${i18n('toggleLocalEvaluation')} (l)` },
+      attrs: {
+        title: !analysable ? '' : `${i18n('toggleLocalEvaluation')} (l)`,
+      },
     },
     [
       h('input#analyse-toggle-ceval.cmn-toggle.cmn-toggle--subtle', {
         attrs: {
           type: 'checkbox',
-          checked: enabled,
-          disabled: !instance.analysable,
+          checked: enabled && analysable,
+          disabled: !analysable,
         },
         hook: {
           insert: vnode => (vnode.elm as HTMLElement).addEventListener('change', ctrl.toggleCeval),

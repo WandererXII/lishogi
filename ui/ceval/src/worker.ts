@@ -79,7 +79,7 @@ export class ThreadedWasmWorker extends AbstractWorker<ThreadedWasmWorkerOpts> {
             const [found, data] = await cache.get(wasmPath, version);
             if (found) wasmBinary = data;
           } catch (e) {
-            console.log('ceval: idb cache load failed:', e);
+            console.debug('ceval: idb cache load failed:', e);
           }
         }
 
@@ -101,7 +101,7 @@ export class ThreadedWasmWorker extends AbstractWorker<ThreadedWasmWorkerOpts> {
         try {
           await cache.set(wasmPath, version, wasmBinary);
         } catch (e) {
-          console.log('ceval: idb cache store failed:', e);
+          console.debug('ceval: idb cache store failed:', e);
         }
       }
 

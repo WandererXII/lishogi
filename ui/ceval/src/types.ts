@@ -73,7 +73,7 @@ export interface CevalCtrl {
   allowed: Prop<boolean>;
   enabled: Prop<boolean>;
   possible: boolean;
-  analysable: boolean;
+  analysable(sfen: string): boolean;
   cachable: boolean;
   isComputing(): boolean;
   engineName: string | undefined;
