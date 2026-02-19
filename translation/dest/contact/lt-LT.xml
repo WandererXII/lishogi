@@ -67,7 +67,7 @@
   <string name="noneOfTheAbove">Nė vienas iš šių</string>
   <string name="sendEmailAt">Išsiųskite mums el. laišką adresu %s.</string>
   <string name="explainYourRequest">Išdėstykite savo užklausą aiškiai ir iki galo. Paminėkite savo Lishogi vartotojo vardą, ir bet kokią informaciją, kuri padėtų mums padėti jums.</string>
-  <string name="friendlySites" comment="Sites not associated with lishogi">Friendly Sites</string>
+  <string name="friendlySites" comment="Sites not associated with lishogi">Friendly sites</string>
   <string name="manyGreatShogiSites">There are many great shogi sites, clubs, and projects around the world. We humbly list some here.</string>
   <string name="yourSiteHere">Would you like your site listed here?</string>
   <string name="displayLishogiLogo">If you\'d like to use the Lishogi logo on your site, you can download the full set here.</string>
