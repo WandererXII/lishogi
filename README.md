@@ -33,7 +33,7 @@ Lishogi is [Lichess](https://lichess.org) rewritten for shogi.
 Lishogi is written in [Scala 2.13](https://www.scala-lang.org/),
 and relies on the [Play](https://www.playframework.com/) framework.
 [scalatags](https://com-lihaoyi.github.io/scalatags/) is used for templating.
-Pure shogi logic is contained in the [shogi](modules/shogi) submodule.
+Pure shogi logic is contained in [scalashogi](https://github.com/WandererXII/scalashogi).
 The server is fully asynchronous, making heavy use of Scala Futures and [Akka streams](http://akka.io).
 WebSocket connections are handled by a [separate server](https://github.com/WandererXII/lila-ws) that communicates using [redis](https://redis.io/).
 It uses [MongoDB](https://mongodb.org) to store games.
