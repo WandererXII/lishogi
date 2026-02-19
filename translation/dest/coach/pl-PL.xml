@@ -40,8 +40,8 @@
 	<string name="otherExperiencesHelp">E.g. as shogi commentator, or teaching other domains</string>
 	<string name="bestSkillsHelp">Best skills in shogi and teaching</string>
 	<string name="teachingMethodHelp">How you prepare and run lessons. How you follow up with students.</string>
-	<string name="publicStudiesHelp">Up to 6 Lishogi study URLs, one per line</string>
-	<string name="youtubeChannelUrl">URL of your YouTube channel</string>
+	<string name="publicStudiesHelp">Do 6 adresów URL nauki Lishogi, jeden na linię</string>
+	<string name="youtubeChannelUrl">Adres URL Twojego kanału YouTube</string>
 	<string name="youtubeVideosHelp">Up to 6 YouTube video URLs, one per line</string>
 	<string name="basicsTab">Basics</string>
 	<string name="textsTab">Texts</string>
