@@ -48,32 +48,34 @@ const loadPieceSprite = (id: string, variant: VariantKey, defaultSet: string): v
   }
 };
 
-const loadChushogiPieceSprite: () => void = () =>
+const loadChushogiPieceSprite = () =>
   loadPieceSprite(
     'chu-piece-sprite',
     'chushogi',
     document.body.dataset.chuPieceSet || 'ryoko_1kanji',
   );
-const loadKyotoshogiPieceSprite: () => void = () =>
+const loadKyotoshogiPieceSprite = () =>
   loadPieceSprite(
     'kyo-piece-sprite',
     'kyotoshogi',
     document.body.dataset.kyoPieceSet || 'ryoko_1kanji',
   );
-const loadDobutsuPieceSprite: () => void = () =>
+const loadDobutsuPieceSprite = () =>
   loadPieceSprite(
     'dobutsu-piece-sprite',
     'dobutsu',
     document.body.dataset.dobutsuPieceSet || 'dobutsu',
   );
 
-export const loadPieceSpriteByVariant = (variant: VariantKey) => {
+export const loadPieceSpriteByVariant: (variant: VariantKey) => void = (variant: VariantKey) => {
   if (variant === 'chushogi') loadChushogiPieceSprite();
   else if (variant === 'kyotoshogi') loadKyotoshogiPieceSprite();
   else if (variant === 'dobutsu') loadDobutsuPieceSprite();
 };
 
-export const loadPieceSpriteByVariants = (variants: VariantKey[]) => {
+export const loadPieceSpriteByVariants: (variants: VariantKey[]) => void = (
+  variants: VariantKey[],
+) => {
   if (variants.includes('chushogi')) loadChushogiPieceSprite();
   if (variants.includes('kyotoshogi')) loadKyotoshogiPieceSprite();
   if (variants.includes('dobutsu')) loadDobutsuPieceSprite();
