@@ -176,6 +176,7 @@ object home {
           a(href := routes.Prismic.privacy)(trans.privacy()),
           a(href := routes.Plan.index)(trans.patron.donate()),
           a(href := routes.Prismic.source)(trans.sourceCode()),
+          a(href := routes.Prismic.friendlySites)(trans.contact.friendlySites()),
           a(href := "https://lichess.org", target := "_blank")("lichess.org"),
           views.html.base.bits.connectLinks,
         ),
