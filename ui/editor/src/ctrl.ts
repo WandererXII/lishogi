@@ -1,4 +1,4 @@
-import { loadChushogiPieceSprite, loadKyotoshogiPieceSprite } from 'common/assets';
+import { loadPieceSpriteByVariant } from 'common/assets';
 import { defined, type Prop, prop } from 'common/common';
 import { analysis, editor } from 'common/links';
 import { Shogiground } from 'shogiground';
@@ -393,8 +393,7 @@ export default class EditorCtrl {
       },
       true,
     );
-    if (rules === 'chushogi') loadChushogiPieceSprite();
-    else if (rules === 'kyotoshogi') loadKyotoshogiPieceSprite();
+    loadPieceSpriteByVariant(rules);
     this.onChange(false, true);
   }
 

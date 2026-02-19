@@ -21,7 +21,7 @@ $player-bar-height: 1.7rem;
 
   @include breakpoint.breakpoint(local.$mq-col1) {
     .analyse__board {
-      margin: $player-bar-height 0;
+      margin: $player-bar-height auto;
     }
   }
 }

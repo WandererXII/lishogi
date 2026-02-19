@@ -29,6 +29,8 @@ object I18nKeys {
   val `perpetualCheck` = new I18nKey("perpetualCheck")
   val `royalsLost` = new I18nKey("royalsLost")
   val `bareKing` = new I18nKey("bareKing")
+  val `lionCaptured` = new I18nKey("lionCaptured")
+  val `tryRule` = new I18nKey("tryRule")
   val `illegalMove` = new I18nKey("illegalMove")
   val `xPlayedY` = new I18nKey("xPlayedY")
   val `xIsPlayingY` = new I18nKey("xIsPlayingY")
@@ -1250,6 +1252,10 @@ object I18nKeys {
     val `noneOfTheAbove` = new I18nKey("contact:noneOfTheAbove")
     val `sendEmailAt` = new I18nKey("contact:sendEmailAt")
     val `explainYourRequest` = new I18nKey("contact:explainYourRequest")
+    val `friendlySites` = new I18nKey("contact:friendlySites")
+    val `manyGreatShogiSites` = new I18nKey("contact:manyGreatShogiSites")
+    val `yourSiteHere` = new I18nKey("contact:yourSiteHere")
+    val `displayLishogiLogo` = new I18nKey("contact:displayLishogiLogo")
 }
 
   object coordinates {

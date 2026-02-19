@@ -1,4 +1,4 @@
-import { loadChushogiPieceSprite, loadKyotoshogiPieceSprite } from 'common/assets';
+import { loadPieceSpriteByVariant } from 'common/assets';
 import * as data from 'common/data';
 import type { Api } from 'shogiground/api';
 import type { Config } from 'shogiground/config';
@@ -26,8 +26,7 @@ function parseSfen(el: HTMLElement): void {
     },
   };
 
-  if (variant === 'chushogi') loadChushogiPieceSprite();
-  else if (variant === 'kyotoshogi') loadKyotoshogiPieceSprite();
+  loadPieceSpriteByVariant(variant);
 
   const sg = data.get<Api>(el, 'shogiground');
   if (sg) sg.set(config);

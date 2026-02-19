@@ -19,10 +19,16 @@
 
     --main-max-width: calc((#{$vertical-total}) / 12 * 9);
 
-    &:has(.main-v-minishogi, .main-v-kyotoshogi) {
-      --main-max-width: calc((#{$vertical-total}) / 7 * 5 / 12 * 11);
+    .main-board.v-minishogi,
+    .main-board.v-kyotoshogi {
+      width: calc((#{$vertical-total}) / 7 * 5 / 12 * 11);
     }
 
+    .main-board.v-dobutsu {
+      width: calc((#{$vertical-total}) / 6 * 3 / 12 * 11);
+    }
+
+    // board with no hands can take more space
     &:has(.main-v-chushogi) {
       --main-max-width: calc((#{$vertical-total-no-hands}) / 12 * 11);
     }

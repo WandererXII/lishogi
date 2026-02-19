@@ -17,14 +17,14 @@
     "pnpm": ">=10.6"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.3.8",
+    "@biomejs/biome": "^2.3.15",
     "@config/tsconfig": "workspace:*",
     "@types/jquery": "^3.5.33",
     "@types/lishogi": "workspace:*",
-    "@types/node": "^22.19.2",
+    "@types/node": "^22.19.11",
     "@typescript/native-preview": "7.0.0-dev.20251210.1",
-    "knip": "^5.73.1",
-    "prettier": "^3.7.4",
+    "knip": "^5.83.1",
+    "prettier": "^3.8.1",
     "stylelint": "^16.26.1",
     "stylelint-config-standard-scss": "^16.0.0",
     "tsx": "^4.21.0",

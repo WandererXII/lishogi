@@ -23,7 +23,12 @@ export function status(ctrl: RoundController): void {
     rules: ctrl.data.game.variant.key,
     sfen: ctrl.data.game.initialSfen,
   });
-  const s = viewStatus(ctrl.data.game.status, ctrl.data.game.winner, handicap);
+  const s = viewStatus(
+    ctrl.data.game.variant.key,
+    ctrl.data.game.status,
+    ctrl.data.game.winner,
+    handicap,
+  );
   if (s === 'playingRightNow') notation(ctrl.stepAt(ctrl.ply)?.notation);
   else if (window.lishogi.modules.speech) {
     window.lishogi.sound.say({ en: s, ja: s }, false);

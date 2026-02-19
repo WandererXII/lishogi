@@ -37,9 +37,7 @@ const enGroups: PresetGroups = {
     'u2/You too!',
     'yoro/Yoroshiku onegaishimasu',
   ].map(splitIt),
-  end: ['gg/Good game', 'wp/Well played', 'ty/Thank you', 'ari/Arigatou gozaimasu', 'bye/Bye!'].map(
-    splitIt,
-  ),
+  end: ['gg/Good game', 'wp/Well played', 'ty/Thank you', 'bye/Bye!'].map(splitIt),
 };
 
 const jpGroups: PresetGroups = {

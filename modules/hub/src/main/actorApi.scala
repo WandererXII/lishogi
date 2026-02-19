@@ -272,6 +272,7 @@ package round {
   case class TourPlayerRemoved(tourId: String, userId: String)
   case class ShoginetPlay(usi: Usi, ply: Int)
   case class ShoginetPlayFallback(ply: Int)
+  case object ShoginetResign
   case class BotPlay(
       playerId: String,
       usi: Usi,

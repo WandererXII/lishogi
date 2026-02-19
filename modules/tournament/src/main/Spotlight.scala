@@ -19,21 +19,17 @@ object Spotlight {
 
   private def sort(tours: List[Tournament]) =
     tours.sortBy { t =>
-      -(if (t.schedule.isDefined) 100 else t.nbPlayers)
+      -(if (t.schedule.isDefined) 100 else t.nbPlayers) // ugly...
     }
 
   private def filter(tours: List[Tournament], user: Option[User]) =
     tours.filter { t =>
-      !t.isFinished && user.fold(true)(validVariant(t, _)) && t.spotlight.fold(
-        automatically(t, user.isEmpty),
-      )(
-        manually(t, _, user.isEmpty),
-      )
-    }
-
-  private def manually(tour: Tournament, spotlight: Spotlight, isAnon: Boolean): Boolean =
-    spotlight.homepageHours.fold(automatically(tour, isAnon)) { hours =>
-      tour.startsAt.minusHours(hours).isBeforeNow
+      !t.isFinished &&
+      user.fold(true)(validVariant(t, _)) &&
+      t.spotlight
+        .flatMap(_.homepageHours)
+        .map(hours => t.startsAt.minusHours(hours).isBeforeNow)
+        .getOrElse(automatically(t, user.isEmpty))
     }
 
   private def automatically(tour: Tournament, isAnon: Boolean): Boolean =

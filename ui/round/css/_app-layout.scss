@@ -295,10 +295,10 @@
     grid-area: board;
 
     @include breakpoint.breakpoint(local.$mq-col1) {
-      margin: 1vmin 0;
+      margin: 1vmin auto;
 
       .main-v-chushogi & {
-        margin: 0;
+        margin: 0 auto;
       }
     }
   }
@@ -327,6 +327,17 @@
       .sg-wrap {
         height: calc(100% / 9 * 5 / 7 * 11);
         top: calc(100% / 9 * 5 / 7);
+      }
+    }
+  }
+
+  .main-board.v-dobutsu &.compact-layout {
+    @include breakpoint.breakpoint(uniboard.$mq-col2-uniboard) {
+      padding-bottom: calc((100% - #{uniboard.$hands-gap}) / 11 * 9 / 11 * 12);
+
+      .sg-wrap {
+        height: calc(100% / 9 * 3 / 5 * 11);
+        top: calc(100% / 9 * 3 / 5);
       }
     }
   }

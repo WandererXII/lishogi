@@ -28,7 +28,7 @@
 
   &.v-minishogi,
   &.v-kyotoshogi {
-    padding-bottom: calc(100% / 11 * 12 / 5 * 7 + #{uniboard.$hands-gap});
+    // padding-bottom: calc(100% / 11 * 12 / 5 * 7 + #{uniboard.$hands-gap});
 
     .sg-wrap {
       grid-template-rows: 1fr 5fr 1fr;
@@ -36,7 +36,7 @@
   }
 
   &.v-dobutsu {
-    padding-bottom: calc(100% / 11 * 12 / 3 * 6 + #{uniboard.$hands-gap});
+    // padding-bottom: calc(100% / 11 * 12 / 3 * 6 + #{uniboard.$hands-gap});
 
     .sg-wrap {
       grid-template-rows: 1fr 4fr 1fr;
@@ -100,6 +100,15 @@
 }
 
 .mini-board {
+  &.v-minishogi,
+  &.v-kyotoshogi {
+    padding-bottom: calc(100% / 11 * 12 / 5 * 7 + #{uniboard.$hands-gap});
+  }
+
+  &.v-dobutsu {
+    padding-bottom: calc(100% / 11 * 12 / 3 * 6 + #{uniboard.$hands-gap});
+  }
+
   .sg-wrap {
     gap: 1vmin;
     padding-top: 1vmin;

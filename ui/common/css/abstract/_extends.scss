@@ -22,7 +22,6 @@
 
   @include mixins.has-bg-img {
     text-shadow: theme.$text-shadow;
-    font-weight: bold;
   }
 }
 

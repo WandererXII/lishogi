@@ -5,10 +5,10 @@
   "type": "module",
   "dependencies": {
     "@build/helpers": "workspace:*",
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.24",
     "cssnano": "^7.1.2",
     "postcss": "^8.5.6",
-    "sass-embedded": "^1.95.1",
+    "sass-embedded": "^1.97.3",
     "sass-graph-ts": "^5.1.0"
   },
   "scripts": {

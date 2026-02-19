@@ -16,7 +16,7 @@ import type {
   Step,
   Work,
 } from './types';
-import { unsupportedVariants } from './util';
+import { invalidPosition, unsupportedVariants } from './util';
 import { povChances } from './winning-chances';
 import { type AbstractWorker, ThreadedWasmWorker } from './worker';
 
@@ -68,6 +68,11 @@ function enabledAfterDisable() {
   return enabledAfter === disable;
 }
 
+function isAnalysable(variant: VariantKey, sfen: Sfen | undefined): boolean {
+  const pos = parseSfen(variant, sfen || initialSfen(variant), false);
+  return pos.isOk && !unsupportedVariants.includes(variant) && !invalidPosition(pos.value);
+}
+
 export default function (opts: CevalOpts): CevalCtrl {
   const storageKey = (k: string) => {
     return opts.storageKeyPrefix ? `${opts.storageKeyPrefix}.${k}` : k;
@@ -75,8 +80,7 @@ export default function (opts: CevalOpts): CevalCtrl {
   const enableNnue = storedProp('ceval.enable-nnue', true);
 
   // check root position
-  const pos = parseSfen(opts.variant.key, opts.initialSfen || initialSfen(opts.variant.key), false);
-  const analysable = pos.isOk && !unsupportedVariants.includes(opts.variant.key);
+  const analysable = isAnalysable(opts.variant.key, opts.initialSfen);
 
   // select nnue > hce > none
   const useYaneuraou =
@@ -192,7 +196,8 @@ export default function (opts: CevalOpts): CevalCtrl {
       !enabled() ||
       !opts.possible ||
       !enabledAfterDisable() ||
-      (impassePosition && enteringKingRule())
+      (impassePosition && enteringKingRule()) ||
+      !isAnalysable(opts.variant.key, step.sfen)
     )
       return;
 
@@ -386,6 +391,6 @@ export default function (opts: CevalOpts): CevalCtrl {
     redraw: opts.redraw,
     shouldUseYaneuraou: useYaneuraou,
     cachable: technology === 'nnue' || (!useYaneuraou && technology === 'hce'),
-    analysable,
+    analysable: (sfen: Sfen) => isAnalysable(opts.variant.key, sfen),
   };
 }

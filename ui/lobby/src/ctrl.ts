@@ -1,4 +1,4 @@
-import { loadChushogiPieceSprite, loadKyotoshogiPieceSprite } from 'common/assets';
+import { loadPieceSpriteByVariants } from 'common/assets';
 import { storedProp } from 'common/storage';
 import throttle from 'common/throttle';
 import { wsOnOpen } from 'common/ws';
@@ -254,9 +254,7 @@ export default class LobbyController {
   };
 
   private updatePieceThemes() {
-    if (this.data.nowPlaying.some(pov => pov.variant.key === 'chushogi')) loadChushogiPieceSprite();
-    if (this.data.nowPlaying.some(pov => pov.variant.key === 'kyotoshogi'))
-      loadKyotoshogiPieceSprite();
+    loadPieceSpriteByVariants(this.data.nowPlaying.map(pov => pov.variant.key));
   }
 
   private startWatching() {

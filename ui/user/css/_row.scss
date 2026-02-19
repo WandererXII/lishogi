@@ -43,6 +43,12 @@
         display: none;
       }
     }
+
+    &:has(.v-dobutsu) {
+      flex: 0 0 10rem;
+      margin-right: calc(1em + 3rem);
+      margin-left: 3rem;
+    }
   }
 
   &__infos {

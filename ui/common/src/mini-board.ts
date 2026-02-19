@@ -3,7 +3,7 @@ import type { Config } from 'shogiground/config';
 import { usiToSquareNames } from 'shogiops/compat';
 import { forsythToRole, roleToForsyth } from 'shogiops/sfen';
 import { handRoles } from 'shogiops/variant/util';
-import { loadChushogiPieceSprite, loadKyotoshogiPieceSprite } from './assets';
+import { loadPieceSpriteByVariant } from './assets';
 import * as domData from './data';
 import { wsSend } from './ws';
 
@@ -46,8 +46,7 @@ const innerInit = (node: HTMLElement): void => {
       node.appendChild(sgWrap);
     }
 
-    if (state.variant === 'chushogi') loadChushogiPieceSprite();
-    else if (state.variant === 'kyotoshogi') loadKyotoshogiPieceSprite();
+    loadPieceSpriteByVariant(state.variant);
 
     const splitSfen = state.sfen.split(' ');
     const config: Config = {

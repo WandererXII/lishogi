@@ -20,7 +20,7 @@ sealed trait PieceSetBase {
     p.key -> p
   } toMap
 
-  def apply(key: String) = allByKey.getOrElse(key.toLowerCase, PieceSetBase.default)
+  def apply(key: String) = allByKey.getOrElse(key.toLowerCase, default)
 
   def contains(key: String) = allByKey contains key.toLowerCase
 

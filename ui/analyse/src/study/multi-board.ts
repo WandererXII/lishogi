@@ -1,4 +1,4 @@
-import { loadChushogiPieceSprite, loadKyotoshogiPieceSprite } from 'common/assets';
+import { loadPieceSpriteByVariants } from 'common/assets';
 import { icons } from 'common/icons';
 import { bind, type MaybeVNodes } from 'common/snabbdom';
 import spinner from 'common/spinner';
@@ -77,9 +77,7 @@ export function view(ctrl: MultiBoardCtrl, study: StudyCtrl): VNode | undefined 
 
 function renderPager(pager: Paginator<ChapterPreview>, study: StudyCtrl): MaybeVNodes {
   const ctrl = study.multiBoard;
-  if (pager.currentPageResults.some(p => p.variant.key === 'chushogi')) loadChushogiPieceSprite();
-  if (pager.currentPageResults.some(p => p.variant.key === 'kyotoshogi'))
-    loadKyotoshogiPieceSprite();
+  loadPieceSpriteByVariants(pager.currentPageResults.map(p => p.variant.key));
   return [
     h('div.top', renderPagerNav(pager, ctrl)),
     h('div.now-playing', pager.currentPageResults.map(makePreview(study))),

@@ -56,6 +56,16 @@
         }
       }
     }
+
+    &.main-v-dobutsu {
+      .spare {
+        padding-bottom: calc(100% / 4 * 2 / 11 * 12);
+
+        .outer .inner .selectable-wrap {
+          width: calc(100% / 4);
+        }
+      }
+    }
   }
 
   @include breakpoint.breakpoint(uniboard.$mq-col2-uniboard) {
@@ -96,6 +106,16 @@
 
     &.main-v-chushogi .underboard .tools .piece-counter > div {
       height: 10rem;
+    }
+
+    &.main-v-dobutsu .spare {
+      .outer {
+        padding-bottom: calc(100% / 2 * 4 / 11 * 12);
+
+        .inner .selectable-wrap {
+          height: calc(100% / 4);
+        }
+      }
     }
   }
 

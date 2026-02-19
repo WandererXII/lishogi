@@ -16,7 +16,7 @@
     "shogi": "workspace:*",
     "shogiground": "catalog:",
     "shogiops": "catalog:",
-    "tablesort": "^5.6.0"
+    "tablesort": "^5.7.0"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0"

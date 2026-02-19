@@ -114,5 +114,13 @@ $board-width: calc(
         padding: 0 calc(#{uniboard.$hands-gap} / 7);
       }
     }
+
+    &.main-v-dobutsu {
+      grid-template-columns: 2fr 5fr 2fr;
+
+      .spare {
+        padding: 0 calc(#{uniboard.$hands-gap} / 4);
+      }
+    }
   }
 }

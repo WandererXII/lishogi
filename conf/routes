@@ -685,6 +685,7 @@ GET   /contribute                      controllers.Prismic.help
 GET   /ads                             controllers.Prismic.ads
 GET   /donations                       controllers.Prismic.donations
 GET   /resources                       controllers.Prismic.resources
+GET   /friendly-sites                  controllers.Prismic.friendlySites
 GET   /page/:uid                       controllers.Prismic.page(uid: String)
 GET   /explanation/:uid                controllers.Prismic.bcPage(uid: String)
 

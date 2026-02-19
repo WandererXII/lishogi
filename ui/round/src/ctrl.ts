@@ -31,9 +31,11 @@ import {
   opposite,
   parseSquareName,
   parseUsi,
+  type Result,
   squareDist,
 } from 'shogiops/util';
 import type { Chushogi } from 'shogiops/variant/chushogi';
+import type { PositionError, Position as ShogiPosition } from 'shogiops/variant/position';
 import { handRoles, promotableOnDrop, promote, unpromote } from 'shogiops/variant/util';
 import * as blur from './blur';
 import * as cevalSub from './ceval-sub';
@@ -208,6 +210,10 @@ export default class RoundController {
       this.data.steps[i].notation = movesNotation[i - 1];
   };
 
+  position(step: Step): Result<ShogiPosition, PositionError> {
+    return parseSfen(this.data.game.variant.key, step.sfen, false);
+  }
+
   private showExpiration = () => {
     if (!this.data.expiration) return;
     this.redraw();
@@ -259,6 +265,7 @@ export default class RoundController {
       });
     }
     const usi = orig + dest + (prom ? '+' : '');
+    this.highlighCheck(usi);
     this.sendUsi(usi, meta);
   };
 
@@ -267,11 +274,12 @@ export default class RoundController {
     if (prom && promotableOnDrop(this.data.game.variant.key)(piece))
       role = promote(this.data.game.variant.key)(role) || role;
     const usi = makeUsi({ role: role, to: parseSquareName(key) });
+    this.highlighCheck(usi);
     this.sendUsi(usi, meta);
   };
 
   private onChushogiMove = (orig: Key, dest: Key, prom: boolean, meta: sg.MoveMetadata) => {
-    const posRes = parseSfen(this.data.game.variant.key, this.stepAt(this.ply).sfen, false);
+    const posRes = this.position(this.stepAt(this.ply));
     const piece = posRes.isOk && posRes.value.board.get(parseSquareName(orig))!;
     if (
       piece &&
@@ -322,6 +330,18 @@ export default class RoundController {
     this.jump(this.ply);
   }
 
+  // to show check immediately and not wait on apiUsi
+  highlighCheck(usi: Usi): void {
+    const pos = this.position(this.stepAt(this.ply));
+    const parsed = parseUsi(usi);
+    if (parsed && pos.isOk && pos.value.isLegal(parsed)) {
+      pos.value.play(parsed);
+      this.shogiground.set({
+        checks: checksSquareNames(pos.value),
+      });
+    }
+  }
+
   private onMove = (_orig: Key, _dest: Key, _prom: boolean, captured?: Piece) => {
     if (status.prepaused(this.data)) return;
     li.sound.move(!!captured);
@@ -368,8 +388,7 @@ export default class RoundController {
     this.ply = ply;
     const s = this.stepAt(ply);
     const splitSfen = s.sfen.split(' ');
-    const variant = this.data.game.variant.key;
-    const posRes = this.isPlaying() ? parseSfen(variant, s.sfen, false) : undefined;
+    const posRes = this.isPlaying() ? this.position(s) : undefined;
     const illegalShape = this.getIllegalShape();
     const config: SgConfig = {
       sfen: { board: splitSfen[0], hands: splitSfen[2] },

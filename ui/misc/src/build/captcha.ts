@@ -5,7 +5,7 @@ import type { Api as ShogigroundApi } from 'shogiground/api';
 import * as compat from 'shogiops/compat';
 import { Hand, Hands } from 'shogiops/hands';
 import { makeSfen, parseSfen } from 'shogiops/sfen';
-import type { Result, Role } from 'shogiops/types';
+import type { Role } from 'shogiops/types';
 import * as util from 'shogiops/variant/util';
 
 const readServerValue = (t: string): string => atob(reverse(t));
@@ -77,8 +77,8 @@ window.lishogi.ready.then(() => {
               const sfenStr = `${sg.getBoardSfen()} ${piece.color === 'sente' ? ' w' : ' b'}`;
               const pos = parseSfen('minishogi', sfenStr, false);
               const outcome = pos.isOk ? pos.value.outcome()?.result : undefined;
-              const winResult: Result[] = ['checkmate', 'stalemate'];
-              if (outcome && winResult.includes(outcome)) {
+
+              if (!outcome || outcome === 'stalemate') {
                 sg.setPieces(
                   new Map([
                     [

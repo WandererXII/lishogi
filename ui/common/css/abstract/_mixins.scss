@@ -86,6 +86,10 @@
   .main-v-chushogi & {
     #{$prop}: 100%;
   }
+
+  .main-v-dobutsu & {
+    #{$prop}: calc((100% - #{uniboard.$hands-gap}) / 5 * 3);
+  }
 }
 
 @mixin hand-width($prop: width) {
@@ -98,6 +102,10 @@
 
   .main-v-chushogi & {
     #{$prop}: 0;
+  }
+
+  .main-v-dobutsu & {
+    #{$prop}: calc((100% - #{uniboard.$hands-gap}) / 5 + #{uniboard.$hand-gap});
   }
 }
 
