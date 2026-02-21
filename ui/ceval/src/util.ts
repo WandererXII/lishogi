@@ -1,5 +1,4 @@
-import { kingAttacks } from 'shogiops/attacks';
-import { defined } from 'shogiops/util';
+import { opposite } from 'shogiops/util';
 import type { Position } from 'shogiops/variant/position';
 
 export function isEvalBetter(a: Tree.ClientEval, b: Tree.ClientEval): boolean {
@@ -14,15 +13,12 @@ export function renderEval(e: number): string {
 export const unsupportedVariants: VariantKey[] = ['chushogi', 'annanshogi'];
 
 export function invalidPosition(pos: Position): boolean {
+  // Opposite check fails
   if (pos.rules === 'dobutsu') {
-    const kingSente = pos.kingsOf('sente').singleSquare();
-    const kingGote = pos.kingsOf('gote').singleSquare();
+    const oppositePos = pos.clone();
+    oppositePos.turn = opposite(pos.turn);
 
-    if (defined(kingSente) && defined(kingGote)) {
-      const kingsTouching =
-        kingAttacks(kingSente).has(kingGote) || kingAttacks(kingGote).has(kingSente);
-      if (kingsTouching) return true;
-    }
+    if (oppositePos.isCheck()) return true;
 
     return false;
   } else return false;
