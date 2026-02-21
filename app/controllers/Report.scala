@@ -65,6 +65,7 @@ final class Report(
       inquiry: Option[ReportModel],
       me: UserModel,
       goTo: Option[Suspect],
+      force: Boolean = false,
   )(implicit ctx: BodyContext[_]) = {
     goTo.ifTrue(HTTPRequest isXhr ctx.req) match {
       case Some(suspect) => userC.renderModZoneActions(suspect.user.username)
@@ -93,6 +94,7 @@ final class Report(
                   api.inquiries.toggleNext(AsMod(me), prev.room) map {
                     _.fold(redirectToList)(onInquiryStart)
                   }
+                else if (force) fuccess(redirectToList)
                 else
                   api.inquiries.toggle(AsMod(me), prev.id) map {
                     _.fold(redirectToList)(onInquiryStart)
@@ -105,7 +107,7 @@ final class Report(
   def process(id: String) =
     SecureBody(_.SeeReport) { implicit ctx => me =>
       api byId id flatMap { inquiry =>
-        api.process(AsMod(me), id) >> onInquiryClose(inquiry, me, none)
+        api.process(AsMod(me), id) >> onInquiryClose(inquiry, me, none, force = true)
       }
     }
 
