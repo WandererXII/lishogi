@@ -127,8 +127,9 @@ export function build(root: Tree.Node): TreeWrapper {
     const newPath = path + node.id;
     const existing = nodeAtPathOrNull(newPath);
     if (existing) {
-      (['dests', 'drops', 'clock'] as Array<keyof Tree.Node>).forEach(key => {
-        if (defined(node[key]) && !defined(existing[key])) existing[key] = node[key] as never;
+      const keysToUpdate: (keyof Tree.Node)[] = ['clock'];
+      keysToUpdate.forEach(key => {
+        if (defined(node[key]) && !defined(existing[key])) (existing[key] as any) = node[key];
       });
       return newPath;
     }

@@ -101,14 +101,14 @@ export function makeConfig(ctrl: AnalyseCtrl): SgConfig {
     premovable: {
       enabled: opts.premovable!.enabled,
       showDests: pref.destination,
-      generate: opts.premovable!.enabled ? premove(variant) : undefined,
+      generate: premove(variant),
       events: {
         set: ctrl.onPremoveSet,
       },
     },
     predroppable: {
       enabled: opts.predroppable!.enabled,
-      generate: opts.predroppable!.enabled ? predrop(variant) : undefined,
+      generate: predrop(variant),
       showDests: pref.dropDestination && pref.destination,
     },
     drawable: {

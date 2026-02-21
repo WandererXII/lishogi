@@ -22,14 +22,13 @@ import type { DrawShape } from 'shogiground/draw';
 import type * as sg from 'shogiground/types';
 import { eagleLionAttacks, falconLionAttacks } from 'shogiops/attacks';
 import {
-  checksSquareNames,
   shogigroundDropDests,
   shogigroundMoveDests,
   shogigroundSecondLionStep,
   usiToSquareNames,
 } from 'shogiops/compat';
 import { isHandicap as sgIsHandicap } from 'shogiops/handicaps';
-import { parseSfen } from 'shogiops/sfen';
+import { makeHandsSfen, parseSfen } from 'shogiops/sfen';
 import type { NormalMove, Outcome, Piece } from 'shogiops/types';
 import {
   makeSquareName,
@@ -507,14 +506,27 @@ export default class AnalyseCtrl {
     window.location.href = analysis(this.data.game.variant.key, sfen);
   }
 
-  // to show check immediately and not wait on addNode
-  highlighCheck(usi: Usi): void {
+  // // to show relevant stuff immediately and not wait on addNode
+  private prepareForAddNode(usi: Usi): void {
     const pos = this.position(this.node);
-    const parsed = parseUsi(usi);
-    if (parsed && pos.isOk && pos.value.isLegal(parsed)) {
-      pos.value.play(parsed);
+    const md = parseUsi(usi);
+    if (pos.isOk && md && pos.value.isLegal(md)) {
+      pos.value.play(md);
+
+      const handsSfen = makeHandsSfen(pos.value.rules, pos.value.hands);
       this.shogiground.set({
-        checks: checksSquareNames(pos.value),
+        turnColor: this.shogiground.state.activeColor as Color,
+        activeColor: opposite(this.shogiground.state.activeColor as Color),
+        sfen: {
+          hands: handsSfen,
+        },
+        checks: pos.value.isCheck(),
+        premovable: {
+          enabled: true,
+        },
+        predroppable: {
+          enabled: true,
+        },
       });
     }
   }
@@ -526,7 +538,6 @@ export default class AnalyseCtrl {
     const usi = makeUsi({ role: role, to: parseSquareName(key) });
     this.justPlayedUsi = usi;
     li.sound.move();
-    this.highlighCheck(usi);
     this.sendUsi(usi);
   };
 
@@ -539,7 +550,6 @@ export default class AnalyseCtrl {
     const usi = orig + dest + (prom ? '+' : '');
     this.justPlayedUsi = usi;
     li.sound.move(!!capture);
-    this.highlighCheck(usi);
     this.sendUsi(usi);
   };
 
@@ -551,8 +561,8 @@ export default class AnalyseCtrl {
       path: this.path,
     };
     if (this.practice) this.practice.onUserMove();
+    this.prepareForAddNode(usi);
     this.socket.sendAnaUsi(socUsi);
-    this.preparePreMD();
     this.redraw();
   };
 
@@ -608,19 +618,6 @@ export default class AnalyseCtrl {
     this.shogiground.selectSquare(null);
     this.shogiground.setSquareHighlights([]);
     this.showGround();
-  }
-
-  private preparePreMD(): void {
-    this.shogiground.set({
-      turnColor: this.shogiground.state.activeColor as Color,
-      activeColor: opposite(this.shogiground.state.activeColor as Color),
-      premovable: {
-        enabled: true,
-      },
-      predroppable: {
-        enabled: true,
-      },
-    });
   }
 
   onPremoveSet = (): void => {
@@ -965,7 +962,6 @@ export default class AnalyseCtrl {
 
   playUsi(usi: Usi, usiQueue?: Usi[]): void {
     this.pvUsiQueue = usiQueue ?? [];
-    this.highlighCheck(usi);
     this.sendUsi(usi);
   }
 
