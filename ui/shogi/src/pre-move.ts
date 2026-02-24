@@ -1,5 +1,5 @@
 import type { Pieces } from 'shogiground/types';
-import { attacks } from 'shogiops/attacks';
+import { attacks, kingAttacks } from 'shogiops/attacks';
 import { SquareSet } from 'shogiops/square-set';
 import type { Piece } from 'shogiops/types';
 import { makeSquareName, parseSquareName } from 'shogiops/util';
@@ -15,9 +15,12 @@ export function premove(variant: VariantKey): (key: Key, pieces: Pieces) => Key[
           ? ((pieces.get(makeSquareName(directlyBehind(piece.color, parseSquareName(key)))) ??
               piece) as Piece)
           : piece;
+      const keySquare = parseSquareName(key);
       return Array.from(
-        attacks(attackingPiece, parseSquareName(key), SquareSet.empty()).intersect(
-          fullSquareSet(variant),
+        attacks(attackingPiece, keySquare, SquareSet.empty()).intersect(
+          variant === 'dobutsu'
+            ? kingAttacks(keySquare).intersect(fullSquareSet(variant))
+            : fullSquareSet(variant),
         ),
         s => makeSquareName(s),
       );
