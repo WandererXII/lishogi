@@ -83,6 +83,9 @@ final class FairyConversionTest extends Specification {
       Dobutsu.makeFairySfen(shogi.variant.Dobutsu.initialSfen) must_== Sfen(
         "gle/1c1/1C1/ELG b -",
       )
+      Dobutsu.makeFairySfen(Sfen("1k1/1b1/r2/1KR w Pbp")) must_== Sfen(
+        "1l1/1e1/g2/1LG w Cec",
+      )
     }
 
     "drops" in {

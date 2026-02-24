@@ -24,12 +24,6 @@ export function toFairyKyotoFormat(sfen: Sfen, moves: string[]): string {
     t: 'l',
     T: 'L',
   };
-  function transformString(sfen: string, mapping: Record<string, string>) {
-    return sfen
-      .split('')
-      .map(c => mapping[c] || c)
-      .join('');
-  }
 
   const uMoves: string[] = [];
   const pos = parseSfen('kyotoshogi', sfen, false).unwrap();
@@ -84,20 +78,6 @@ export function toFairyDobutsuFormat(sfen: string, moves: string[]): string {
     P: 'C',
   };
 
-  function mapSfenBoard(board: string): string {
-    let out = '';
-    for (let i = 0; i < board.length; i++) {
-      const c = board[i];
-      if (c === '+' && i + 1 < board.length) {
-        const next = board[++i];
-        out += `+${mapping[next] || next}`;
-      } else {
-        out += mapping[c] || c;
-      }
-    }
-    return out;
-  }
-
   function mapMove(usi: string): string {
     // drops - P*2b -> C*2b
     if (usi[1] === '*') {
@@ -108,9 +88,9 @@ export function toFairyDobutsuFormat(sfen: string, moves: string[]): string {
   }
 
   const split = sfen.split(' ');
-  const board = mapSfenBoard(split[0]);
+  const board = transformString(split[0], mapping);
   const turn = split[1] || 'b';
-  const hands = split[2] || '-';
+  const hands = transformString(split[2] || '-', mapping);
 
   const uMoves = moves.map(mapMove);
 
@@ -138,4 +118,11 @@ export function fromFairyDobutsuFormat(moves: string[]): Usi[] {
 
     return usi;
   });
+}
+
+function transformString(sfen: string, mapping: Record<string, string>) {
+  return sfen
+    .split('')
+    .map(c => mapping[c] || c)
+    .join('');
 }

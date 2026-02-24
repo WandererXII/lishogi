@@ -105,7 +105,7 @@ object FairyConversion {
             _.flatMap(c => dobutsuBoardMap.getOrElse(c, c.toString))
           },
           sfen.color.map(_.letter.toString) | "b",
-          sfen.handsString | "-",
+          sfen.handsString.fold("-") { _.flatMap(c => dobutsuBoardMap.getOrElse(c, c.toString)) },
         ).mkString(" "),
       )
 
