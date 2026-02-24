@@ -56,6 +56,7 @@ object JsonApi {
           bestmove,
         )
       }
+      def resign: Boolean = bestmove == "resign"
     }
 
     case class PostAnalysis(

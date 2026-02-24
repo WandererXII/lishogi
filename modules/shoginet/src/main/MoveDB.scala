@@ -11,6 +11,7 @@ import lila.common.Bus
 import lila.hub.actorApi.map.Tell
 import lila.hub.actorApi.round.ShoginetPlay
 import lila.hub.actorApi.round.ShoginetPlayFallback
+import lila.hub.actorApi.round.ShoginetResign
 
 final class MoveDB(implicit system: ActorSystem) {
 
@@ -82,15 +83,21 @@ final class MoveDB(implicit system: ActorSystem) {
           case None =>
             Monitor.notFound(workId, "move", client).unit
           case Some(move) if move isAcquiredBy client =>
-            data.move.usi(move.game.variant) match {
-              case Some(usi) =>
-                coll -= move.id
-                Monitor.move(client).unit
-                Bus.publish(Tell(move.game.id, ShoginetPlay(usi, move.ply)), "roundSocket")
-              case _ =>
-                sender() ! None
-                updateOrGiveUp(move.invalid)
-                Monitor.failure(move, client, new Exception("Missing move")).unit
+            if (data.move.resign) {
+              coll -= move.id
+              Monitor.move(client).unit
+              Bus.publish(Tell(move.game.id, ShoginetResign), "roundSocket")
+            } else {
+              data.move.usi(move.game.variant) match {
+                case Some(usi) =>
+                  coll -= move.id
+                  Monitor.move(client).unit
+                  Bus.publish(Tell(move.game.id, ShoginetPlay(usi, move.ply)), "roundSocket")
+                case _ =>
+                  sender() ! None
+                  updateOrGiveUp(move.invalid)
+                  Monitor.failure(move, client, new Exception("Missing move")).unit
+              }
             }
           case Some(move) =>
             sender() ! None
