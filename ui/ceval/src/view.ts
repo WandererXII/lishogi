@@ -252,7 +252,7 @@ export function renderCeval(ctrl: ParentCtrl): VNode | undefined {
     'div.switch',
     {
       class: {
-        disabled: ctrl.mandatoryCeval?.() || !analysable,
+        disabled: ctrl.mandatoryCeval?.() || (!analysable && !enabled),
       },
       attrs: {
         title: !analysable ? '' : `${i18n('toggleLocalEvaluation')} (l)`,
@@ -262,8 +262,8 @@ export function renderCeval(ctrl: ParentCtrl): VNode | undefined {
       h('input#analyse-toggle-ceval.cmn-toggle.cmn-toggle--subtle', {
         attrs: {
           type: 'checkbox',
-          checked: enabled && analysable,
-          disabled: !analysable,
+          checked: enabled,
+          disabled: !analysable && !enabled,
         },
         hook: {
           insert: vnode => (vnode.elm as HTMLElement).addEventListener('change', ctrl.toggleCeval),
