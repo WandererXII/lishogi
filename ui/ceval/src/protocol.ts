@@ -1,4 +1,6 @@
 import { defined } from 'common/common';
+import { makeSfen, parseSfen } from 'shogiops/sfen';
+import { opposite, parseUsi } from 'shogiops/util';
 import {
   fromFairyDobutsuFormat,
   fromFairyKyotoFormat,
@@ -224,12 +226,13 @@ export class Protocol {
         return;
       }
 
+      const sanitized = this.sanitizeForEngine(this.work);
       const command =
         this.work.variant === 'kyotoshogi'
-          ? toFairyKyotoFormat(this.work.initialSfen, this.work.moves)
+          ? toFairyKyotoFormat(sanitized.initialSfen, sanitized.moves)
           : this.work.variant === 'dobutsu'
-            ? toFairyDobutsuFormat(this.work.initialSfen, this.work.moves)
-            : ['position sfen', this.work.initialSfen, 'moves', ...this.work.moves].join(' ');
+            ? toFairyDobutsuFormat(sanitized.initialSfen, sanitized.moves)
+            : ['position sfen', sanitized.initialSfen, 'moves', ...sanitized.moves].join(' ');
       this.send(command);
 
       this.send(
@@ -252,5 +255,35 @@ export class Protocol {
 
   isComputing(): boolean {
     return !!this.work && !this.work.stopRequested;
+  }
+
+  private sanitizeForEngine(work: Work): {
+    initialSfen: Sfen;
+    moves: Usi[];
+  } {
+    // fairy fails if opposite check occurs anywhere in the game
+    if (work.variant === 'dobutsu') {
+      const variant = work.variant;
+      const pos = parseSfen(variant, work.initialSfen, false);
+      if (!pos.isOk) return { initialSfen: work.initialSfen, moves: work.moves };
+
+      const wMoves = work.moves.filter(wm => !!wm);
+      let oppositeCheckOccurred = false;
+
+      for (const wMove of wMoves) {
+        const parsedWMove = parseUsi(wMove);
+        if (!parsedWMove) {
+          console.error('Failed to parse usi: ', wMove);
+          return { initialSfen: work.initialSfen, moves: work.moves };
+        }
+
+        pos.value.play(parsedWMove);
+        if (pos.value.isCheck(opposite(pos.value.turn))) oppositeCheckOccurred = true;
+      }
+
+      if (oppositeCheckOccurred) return { initialSfen: makeSfen(pos.value), moves: [] };
+
+      return { initialSfen: work.initialSfen, moves: work.moves };
+    } else return { initialSfen: work.initialSfen, moves: work.moves };
   }
 }
