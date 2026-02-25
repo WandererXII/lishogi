@@ -71,6 +71,6 @@ Cependant, les mécènes sont distingués au moyen d\'une nouvelle icône de pro
 	<string name="justBecamePatron">Vous venez de devenir un Mécène de lishogi.</string>
 	<string name="downgradeNextMonth">Dans un mois, vous NE serez PAS à nouveau débité, et votre compte Lishogi redeviendra un compte ordinaire.</string>
 	<string name="donationPolicy">Politique de don</string>
-	<string name="expired">Patron account expired</string>
-	<string name="considerRenewing">Please consider renewing it!</string>
+	<string name="expired">Statut de mécène expiré</string>
+	<string name="considerRenewing">Songez à le renouveler !</string>
 </resources>
