@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="xStreamsShogi">%s streame le shogi</string>
+  <string name="xStreamsShogi">%s diffuse une vidéo de shogi</string>
   <string name="lishogiStreamers">Streamers sur Lishogi</string>
   <string name="lishogiStreamer">Lishogi streamer</string>
   <string name="live">EN DIRECT !</string>
@@ -34,7 +34,7 @@
   <string name="requestReview">demander une revue par un modérateur</string>
   <string name="twitchUsername">Votre nom d\'utilisateur Twitch ou votre URL</string>
   <string name="optionalOrEmpty">Optionnel. Laisser vide si aucun</string>
-  <string name="youtubeChannelId">Your YouTube channel ID</string>
+  <string name="youtubeChannelId">ID de votre chaîne YouTube</string>
   <string name="streamerName">Votre nom de streamer sur Lishogi</string>
   <plurals name="keepItShort">
     <item quantity="one">Restez brief %s caractère max</item>
