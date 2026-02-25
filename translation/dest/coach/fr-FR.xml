@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="lishogiCoach">Coach sur Lishogi</string>
-	<string name="editMyCoachProfile">Edit my coach profile</string>
-	<string name="lishogiOnlyFeatures">Lishogi only features independent coaches and is not responsible for their conduct or the quality of their teaching.</string>
-	<string name="lishogiNoFees">Coaching fees are strictly between coaches and students - Lishogi takes nothing.</string>
+	<string name="editMyCoachProfile">Modifier mon profil de coach</string>
+	<string name="lishogiOnlyFeatures">Lishogi ne propose que des entraîneurs indépendants et n\'est pas responsable de leur conduite ou de la qualité de leur enseignement.</string>
+	<string name="lishogiNoFees">Les frais de coaching sont strictement entre les coachs et les étudiants - Lishogi ne prend rien.</string>
 	<string name="becomeACoach">Êtes-vous un expérimenté entraîneur de shogi ? Souhaitez-vous être recommandé par lishogi ?</string>
 	<string name="sendApplication">Envoyez-nous un courriel à %s et nous examinerons votre demande.</string>
 	<string name="location">Localisation</string>
@@ -24,27 +24,27 @@
 	<string name="teachingMethod">Méthode d\'enseignement</string>
 	<string name="publicStudies">Études publiques</string>
 	<string name="youtubeVideos">Vidéos YouTube</string>
-	<string name="headline">Short and inspiring headline</string>
-	<string name="publishOnList">Publish on the coaches list</string>
-	<string name="publishOnListHelp">Enable when your profile is ready</string>
-	<string name="availableForLessons">Currently available for lessons</string>
-	<string name="availableForLessonsHelp">Enable to get more students</string>
-	<string name="allLanguages" comment="List all languages">All languages</string>
-	<string name="languagesSpoken">Languages spoken</string>
-	<string name="languagesSpokenHelp">Which languages can you give lessons in?</string>
-	<string name="hourlyRateHelp">Indicative, non-contractual (3 to 140 chars)</string>
-	<string name="whoAreYou">Who are you?</string>
-	<string name="whoAreYouHelp">Age, profession, country... let your students know you</string>
-	<string name="playingExperienceHelp">Tournaments played, best wins, other achievements</string>
-	<string name="teachingExperienceHelp">Diplomas, years of practice, best student results</string>
-	<string name="otherExperiencesHelp">E.g. as shogi commentator, or teaching other domains</string>
-	<string name="bestSkillsHelp">Best skills in shogi and teaching</string>
-	<string name="teachingMethodHelp">How you prepare and run lessons. How you follow up with students.</string>
-	<string name="publicStudiesHelp">Up to 6 Lishogi study URLs, one per line</string>
-	<string name="youtubeChannelUrl">URL of your YouTube channel</string>
-	<string name="youtubeVideosHelp">Up to 6 YouTube video URLs, one per line</string>
-	<string name="basicsTab">Basics</string>
-	<string name="textsTab">Texts</string>
-	<string name="contentsTab">Contents</string>
-	<string name="profileSaved">Your changes have been saved.</string>
+	<string name="headline">Titre court et inspirant</string>
+	<string name="publishOnList">Publier sur la liste des coachs</string>
+	<string name="publishOnListHelp">Activer lorsque votre profil est prêt</string>
+	<string name="availableForLessons">Actuellement disponible pour des cours</string>
+	<string name="availableForLessonsHelp">Activer pour trouver plus d\'élèves</string>
+	<string name="allLanguages" comment="List all languages">Toutes les langues</string>
+	<string name="languagesSpoken">Langues parlées</string>
+	<string name="languagesSpokenHelp">Dans quelles langues pouvez-vous donner des cours ?</string>
+	<string name="hourlyRateHelp">Indicatif, non contractuel (3 à 140 caractères)</string>
+	<string name="whoAreYou">Qui êtes-vous ?</string>
+	<string name="whoAreYouHelp">Âge, profession, pays... faites-le savoir à vos étudiants</string>
+	<string name="playingExperienceHelp">Tournois joués, meilleures victoires, autres succès</string>
+	<string name="teachingExperienceHelp">Diplômes, années de pratique, meilleurs résultats pour les élèves</string>
+	<string name="otherExperiencesHelp">Par exemple, comme commentateur de shogi, ou enseignant d\'autres domaines</string>
+	<string name="bestSkillsHelp">Meilleures compétences en shogi et en enseignement</string>
+	<string name="teachingMethodHelp">Comment vous préparez et dirigez les cours, le suivi que vous proposez aux élèves.</string>
+	<string name="publicStudiesHelp">Jusqu\'à 6 URL d\'étude de Lishogi, une par ligne</string>
+	<string name="youtubeChannelUrl">URL de votre chaîne YouTube</string>
+	<string name="youtubeVideosHelp">Jusqu\'à 6 URL de vidéo YouTube, une par ligne</string>
+	<string name="basicsTab">Bases</string>
+	<string name="textsTab">Textes</string>
+	<string name="contentsTab">Contenus</string>
+	<string name="profileSaved">Vos changements ont été enregistrés.</string>
 </resources>
