@@ -124,12 +124,12 @@
       </rollingPolicy>
     </appender>
   </logger>
-  <logger name="fishnet" level="INFO">
+  <logger name="shoginet" level="INFO">
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-      <file>/var/log/lishogi/fishnet.log</file>
+      <file>/var/log/lishogi/shoginet.log</file>
       <encoder><pattern>%date %-5level %logger{30} %message%n%xException</pattern></encoder>
       <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-        <fileNamePattern>/var/log/lishogi/fishnet-log-%d{yyyy-MM-dd}.gz</fileNamePattern>
+        <fileNamePattern>/var/log/lishogi/shoginet-log-%d{yyyy-MM-dd}.gz</fileNamePattern>
         <maxHistory>7</maxHistory>
       </rollingPolicy>
     </appender>
