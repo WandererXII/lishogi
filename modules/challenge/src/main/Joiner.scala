@@ -37,7 +37,7 @@ final private class Joiner(
               gotePlayer =
                 Player.make(shogi.Gote, c.finalColor.fold(destUser, challengerUser), c.perfType),
               mode = if (c.initialSfen.isDefined) Mode.Casual else c.mode,
-              proMode = c.proMode,
+              proMode = ~c.proMode,
               source = if (c.tourInfo.isDefined) Source.Tournament else Source.Friend,
               daysPerTurn = c.daysPerTurn,
               notationImport = None,
