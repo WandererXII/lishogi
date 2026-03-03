@@ -49,7 +49,7 @@
   <string name="puzzleDashboard">Tableau de bord des problèmes</string>
   <string name="puzzleDashboardSubtitle">S\'entraîner, analyser, s\'améliorer</string>
   <string name="improvementAreas">Aspects à améliorer</string>
-  <string name="improvementAreasSubtitle">Train these to optimize your progress!</string>
+  <string name="improvementAreasSubtitle">Faites ces problèmes pour progresser !</string>
   <string name="strengths">Points forts</string>
   <string name="strengthsSubtitle">Vous réussissez mieux avec ces thèmes</string>
   <string name="history">Historique des problèmes</string>
@@ -57,9 +57,9 @@
   <string name="failed">échoué</string>
   <string name="fromMyGames">De vos parties</string>
   <string name="lookupOfPlayer">Regarder des puzzles à partir d\'un joueur</string>
-  <string name="fromXGames">Puzzles from %s\' games</string>
-  <string name="submissions">Puzzle submissions</string>
-  <string name="submittedByX">Puzzles submitted by %s</string>
+  <string name="fromXGames">Problèmes tirés des parties de %s\'</string>
+  <string name="submissions">Soumissions de problèmes</string>
+  <string name="submittedByX">Problèmes soumis par %s</string>
   <string name="searchPuzzles">Rechercher des problèmes</string>
   <string name="fromXGamesFound">%1$s Problèmes trouvés dans %2$s parties</string>
 </resources>

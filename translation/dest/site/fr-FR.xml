@@ -3,7 +3,7 @@
 	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Jouer avec un(e) ami(e)</string>
 	<string name="playWithTheMachine">Jouer contre l\'ordinateur</string>
-	<string name="playOtherPlayers">Play other players</string>
+	<string name="playOtherPlayers">Jouer contre d\'autres joueurs</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Pour inviter quelqu\'un à jouer, donnez-lui ce lien</string>
 	<string name="gameOver">Partie terminée</string>
 	<string name="waitingForOpponent">En attente d\'un adversaire</string>
@@ -20,16 +20,16 @@
 	<string name="resign">Abandonner</string>
 	<string name="checkmate">Échec et mat</string>
 	<string name="stalemate">Pat</string>
-	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Abandon</string>
 	<string name="check">Échec</string>
 	<string name="impasse">Impasse</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Répétition</string>
 	<string name="perpetualCheck">Échec perpétuel</string>
 	<string name="royalsLost" comment="Used in chushogi">Toutes les pièces royales perdues</string>
 	<string name="bareKing" comment="Used in chushogi">Roi seul</string>
-	<string name="lionCaptured" comment="Used in dobutsu shogi">The lion was captured</string>
-	<string name="tryRule" comment="Used in dobutsu shogi">Try rule</string>
-	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="lionCaptured" comment="Used in dobutsu shogi">Le lion a été capturé</string>
+	<string name="tryRule" comment="Used in dobutsu shogi">Essayez la règle</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Déplacement interdit</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s a joué contre %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s joue contre %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s de victoires !</string>
@@ -52,9 +52,9 @@
 	<string name="newOpponent">Nouvel adversaire</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Votre adversaire souhaite jouer une nouvelle partie avec vous</string>
 	<string name="joinTheGame">Rejoindre la partie</string>
-	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
-	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
-	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
+	<string name="registeredJoinTheGame">Seuls les utilisateurs enregistrés peuvent rejoindre les parties d\'autres utilisateurs enregistrés</string>
+	<string name="outsideYourRating">Votre classement est en dehors de la fourchette autorisée pour cette partie</string>
+	<string name="gamesOutsideYourRatingRange">Afficher les parties en dehors de votre intervalle de classement</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Trait à %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Votre adversaire a quitté la partie. Vous pourrez revendiquer la victoire dans %s seconde.</item>
@@ -69,7 +69,7 @@
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s abandonne</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s a quitté la partie</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s n\'a pas joué</string>
-	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s played an illegal move</string>
+	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s a joué un coup illégal</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Partagez ce lien pour permettre à des spectateurs de voir la partie</string>
 	<string name="theComputerAnalysisHasFailed">L\'analyse automatique a échoué</string>
 	<string name="viewTheComputerAnalysis">Voir l\'analyse automatique</string>
@@ -112,8 +112,8 @@
 	<string name="recentGames">Parties récentes</string>
 	<string name="topGames">Meilleures parties</string>
 	<string name="noGameFound">Aucune partie trouvée</string>
-	<string name="pageNotFound">Page not found</string>
-	<string name="returnToHomepage">Return to homepage</string>
+	<string name="pageNotFound">Page introuvable</string>
+	<string name="returnToHomepage">Retour à l\'accueil</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Peut-être inclure plus de parties depuis le menu préférences ?</string>
 	<string name="openingExplorer">Explorateur d\'ouvertures</string>
 	<string name="xOpeningExplorer">%s explorateur d\'ouvertures</string>
@@ -229,7 +229,7 @@
 	</plurals>
 	<string name="confirm">Vérifier</string>
 	<string name="cancel">Annuler</string>
-	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Débuter</string>
 	<string name="timeOut">Temps écoulé</string>
 	<string name="drawOfferSent">Proposition de nulle envoyée</string>
 	<string name="drawOfferDeclined">Proposition de nulle refusée</string>
@@ -273,7 +273,7 @@
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Une variante moderne du shogi avec des promotions uniques alternatives sur un plateau de 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Une variante similaire au shogi, où les pièces se déplacent comme les pièces amies derrière elles.</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Tout comme le shogi, mais le premier à mettre l\'adversaire en échec gagne.</string>
-	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">A beginner-friendly shogi variant on a very small board</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">Une variante de shogi adaptée aux débutants sur une très petite planche</string>
 	<string name="unlimited">Illimité</string>
 	<string name="mode">Mode</string>
 	<string name="casual">Amical</string>
@@ -352,7 +352,7 @@
 	<string name="tournament">Tournoi</string>
 	<string name="tournamentLeaderboard">Vainqueurs de tournois</string>
 	<string name="tournaments">Tournois</string>
-	<string name="myTournaments">My tournaments</string>
+	<string name="myTournaments">Mes tournois</string>
 	<string name="tournamentPoints">Score de tournoi</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s point en tournoi</item>
@@ -414,9 +414,9 @@
 	<string name="continueFromHere">Continuer depuis cette position</string>
 	<string name="toStudy">Étude</string>
 	<string name="importGame">Importer une partie</string>
-	<string name="importCategory" comment="Category name for games that were imported">Import</string>
+	<string name="importCategory" comment="Category name for games that were imported">Importer</string>
 	<string name="importedGame">La partie a été importée.</string>
-	<string name="importedByX">Imported by %s</string>
+	<string name="importedByX">Importé par %s</string>
 	<string name="importGameKifCsaExplanation">Quand vous collez une partie en KIF ou CSA vous pouvez la rejouer, consulter l\'analyse de l\'ordinateur, utiliser le tchat et partager le lien.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s partie importée</item>
@@ -438,15 +438,15 @@
 	<string name="favoriteOpponents">Adversaires préférés</string>
 	<string name="follow">Suivre</string>
 	<string name="following">Suivi</string>
-	<string name="followers">Followers</string>
+	<string name="followers">Abonné·e·s</string>
 	<string name="unfollow">Ne plus suivre</string>
 	<string name="block">Bloquer</string>
 	<string name="blocked">Bloqué</string>
 	<string name="unblock">Débloquer</string>
-	<string name="thanksForReport">Thanks for the report</string>
-	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
-	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
-	<string name="blockSuggestions">In the meantime, you can block this user:</string>
+	<string name="thanksForReport">Merci pour votre signalement</string>
+	<string name="reportedSomeoneBanned">Quelqu\'un que vous avez signalé a été banni</string>
+	<string name="moderatorsReportReview">Les modérateurs l’examineront très bientôt et prendront les mesures appropriées.</string>
+	<string name="blockSuggestions">En attendant, vous pouvez bloquer cet utilisateur :</string>
 	<string name="followsYou">Vous suit</string>
 	<string name="xStartedFollowingY">%1$s a suivi %2$s</string>
 	<plurals name="nbFollowers">
@@ -461,8 +461,8 @@
 	<string name="memberSince">Membre depuis</string>
 	<string name="lastSeenActive">Actif %s</string>
 	<string name="challengeToPlay">Défier ce joueur</string>
-	<string name="viewChallenge">View challenge</string>
-	<string name="noChallenges">No challenges</string>
+	<string name="viewChallenge">Voir le défi</string>
+	<string name="noChallenges">Aucun défi</string>
 	<string name="player">Joueur</string>
 	<string name="list">Liste</string>
 	<string name="graph">Graphique</string>
@@ -485,10 +485,10 @@
 	<string name="showAdvancedSettings">Afficher les paramètres avancés</string>
 	<string name="makePrivateTournament">Rendre le tournoi privé et en restreindre l\'accès avec un mot de passe</string>
 	<string name="join">Rejoindre</string>
-	<string name="askToJoin" comment="Tournament join request">Ask to join</string>
-	<string name="waitingForApproval" comment="Awaiting join request approval">Waiting for approval</string>
+	<string name="askToJoin" comment="Tournament join request">Demander à rejoindre</string>
+	<string name="waitingForApproval" comment="Awaiting join request approval">En attente d\'approbation</string>
 	<string name="pause">Pause</string>
-	<string name="denied" comment="Was rejected from joining tournament/simul...">Denied</string>
+	<string name="denied" comment="Was rejected from joining tournament/simul...">Refusé</string>
 	<string name="withdraw">Renoncer</string>
 	<string name="points">Points</string>
 	<string name="wins">Victoires</string>
@@ -498,7 +498,7 @@
 	<string name="tournamentIsStarting">Le tournoi commence</string>
 	<string name="tournamentPairingsAreNowClosed">Les appariements du tournoi sont maintenant terminés.</string>
 	<string name="standByX">Appariements des joueurs, tenez-vous prêt %s !</string>
-	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
+	<string name="waitingForPlayersToPair">En attente de plus de joueurs pour commencer l\'appairage...</string>
 	<string name="youArePlaying">Vous êtes en train de jouer !</string>
 	<string name="winRate">Taux de victoires</string>
 	<string name="berserkRate">Taux de berserk</string>
@@ -546,7 +546,7 @@
 	<string name="bewareTheGameIsRatedButHasNoClock">Attention, la partie est classée, mais sans limite de temps !</string>
 	<string name="toTrackYourProgress">Pour suivre votre progression :</string>
 	<string name="goodMove">Bon coup</string>
-	<string name="brilliantMove">Brilliant move</string>
+	<string name="brilliantMove">Excellent coup</string>
 	<string name="bestMove">Meilleur coup !</string>
 	<string name="success">Réussi</string>
 	<string name="thankYou">Merci !</string>
@@ -564,9 +564,9 @@
 	<string name="automaticallyProceedToNextGameAfterMoving">Aller automatiquement à la prochaine partie après chaque coup</string>
 	<string name="autoSwitch">Changement automatique</string>
 	<string name="puzzles">Problèmes</string>
-	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
-	<string name="reportPuzzle">Report puzzle</string>
-	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
+	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Tempête de problèmes</string>
+	<string name="reportPuzzle">Signaler le problème</string>
+	<string name="reportPuzzleReason">Pourquoi le problème devrait-il être supprimé ?</string>
 	<string name="latestUpdates">Dernières mises à jour</string>
 	<string name="tournamentWinners">Vainqueurs de tournois</string>
 	<string name="name">Nom</string>
@@ -584,7 +584,7 @@
 	<string name="replyToThisTopic">Répondre à ce sujet</string>
 	<string name="reply">Répondre</string>
 	<string name="message">Message</string>
-	<string name="xIsTyping" comment="Username is typing...">%s is typing...</string>
+	<string name="xIsTyping" comment="Username is typing...">%s est en train d\'écrire...</string>
 	<string name="createTheTopic">Créer un sujet</string>
 	<string name="reportAUser">Signaler un utilisateur</string>
 	<string name="user">Utilisateur</string>
@@ -648,7 +648,7 @@
 	<string name="drawVsYInZ">%1$s vs. %2$s en %3$s</string>
 	<string name="timeline">Activité</string>
 	<string name="starting" comment="Ex.: Starting: 50 minutes">Début :</string>
-	<string name="ending" comment="Ex.: Ending: 4th of July">Ending:</string>
+	<string name="ending" comment="Ex.: Ending: 4th of July">Fin :</string>
 	<string name="allInformationIsPublicAndOptional">Toutes les informations sont publiques et facultatives.</string>
 	<string name="yourCityRegionOrDepartment">Votre ville, région ou département.</string>
 	<string name="biographyDescription">Parlez de vous, de ce que vous aimez dans le shogi, vos ouvertures préférées, vos parties, vos joueurs préférés, ...</string>
@@ -715,14 +715,14 @@
 	<string name="termsOfService">Conditions d\'utilisation</string>
 	<string name="sourceCode">Code source</string>
 	<string name="simultaneousExhibitions">Parties simultanées</string>
-	<string name="xSimul" comment="Name simul">%s simul</string>
+	<string name="xSimul" comment="Name simul">%s Simultanées</string>
 	<string name="simulComplete">Simul complete</string>
-	<string name="backToSimul">Back to simul</string>
+	<string name="backToSimul">Retour à la simultanée</string>
 	<string name="host">Hôte</string>
 	<string name="hostColorX">Couleur de l’hôte : %s</string>
 	<string name="createdSimuls">Nouvelles simultanées</string>
 	<string name="hostANewSimul">Créer une nouvelle simultanée</string>
-	<string name="yourPendingSimuls">Your pending simuls</string>
+	<string name="yourPendingSimuls">Vos simultanées en attente</string>
 	<string name="noSimulFound">Simultanée introuvable</string>
 	<string name="noSimulExplanation">Cette simultanée n\'existe pas.</string>
 	<string name="returnToSimulHomepage">Retour aux parties simultanées</string>
@@ -762,7 +762,7 @@
 	<string name="tournamentMayHaveBeenCanceled">Il a peut-être été annulé, si tous les joueurs l\'ont quitté avant le début.</string>
 	<string name="returnToTournamentsHomepage">Retour à la page des tournois</string>
 	<string name="weeklyPerfTypeRatingDistribution">Distribution hebdomadaire des cotes en %s</string>
-	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
+	<string name="monthlyPerfTypeRatingDistribution">Répartition mensuelle des niveaux de %s</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">%1$s joueur de %2$s cette semaine.</item>
 		<item quantity="other">%1$s joueurs de %2$s cette semaine.</item>
@@ -834,13 +834,13 @@
 	<string name="lobby">Salon</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">Préréglages</string>
 	<string name="anonymous">Anonyme</string>
-	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonyme</string>
 	<string name="yourScore">Votre score : %s</string>
 	<string name="language">Langue</string>
 	<string name="background">Arrière-plan</string>
 	<string name="light">Lumineux</string>
 	<string name="dark">Sombre</string>
-	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">Système</string>
 	<string name="transparent">Transparent</string>
 	<string name="customTheme">Thème personnalisé</string>
 	<string name="backgroundImageUrl">URL de l\'image de fond :</string>
@@ -898,7 +898,7 @@
 	<string name="learnFromThisMistake">Apprendre de cette erreur</string>
 	<string name="skipThisMove">Passer ce coup</string>
 	<string name="next">Suivant</string>
-	<string name="prev">Previous</string>
+	<string name="prev">Précédent</string>
 	<string name="xWasPlayed">%s a été joué</string>
 	<string name="findBetterMoveForX" comment="%s - sente(black)/gote(white)">Trouvez un meilleur coup pour %s</string>
 	<string name="resumeLearning">Retour à l\'apprentissage</string>
@@ -960,11 +960,11 @@
 	<string name="agreeWithX">J\'accepte : %s</string>
 	<string name="searchOrStartNewDiscussion">Rechercher ou démarrer une nouvelle conversation</string>
 	<string name="edit">Éditer</string>
-	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">UltraBullet</string>
+	<string name="ultrabullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Ultrabullet</string>
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Blitz</string>
-	<string name="veryFastShogi">Very fast shogi</string>
-	<string name="fastShogi">Fast shogi</string>
+	<string name="veryFastShogi">Shogi très rapide</string>
+	<string name="fastShogi">Shogi rapide</string>
 	<string name="rapid">Rapide</string>
 	<string name="classical">Classique</string>
 	<string name="ultraBulletDesc">Parties éclairs : moins de 30 secondes</string>
@@ -1015,7 +1015,7 @@
 	<string name="challengeDeclined">Défi décliné</string>
 	<string name="challengeAccepted">Défi accepté</string>
 	<string name="challengeCanceled">Défi annulé</string>
-	<string name="challengeCorrespondenceDescription">Correspondence challenges stay active, even when you leave this page.</string>
+	<string name="challengeCorrespondenceDescription">Les défis de correspondance restent actifs, même lorsque vous quittez cette page.</string>
 	<string name="openChallenge" comment="A challenge that any 2 players can join">Défi ouvert</string>
 	<string name="challengeDescription">Accepter le défi ou regarder la partie</string>
 	<string name="challengeFromX" comment="From username">Défi de %s</string>
@@ -1028,69 +1028,69 @@
 	<string name="preview">Aperçu</string>
 	<string name="variantNotSupported" comment="Used in engine evaluation for variants like chushogi, annanshogi, etc.">La variante n\'est pas supportée</string>
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Prêt à jouer</string>
-	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
-	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
-	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
-	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="generalShogiDiscussionForum" comment="Forum category title">Discussion générale de Shogi</string>
+	<string name="gameAnalysisForum" comment="Forum category title">Analyse de la partie</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Vos avis sur Lishogi</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Discussion hors sujet</string>
 	<string name="teamXForum" comment="Forum category title">Forum de l\'équipe %s</string>
-	<string name="kickPlayer">Kick player</string>
-	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
-	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
-	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
-	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
-	<string name="tourRecent">Recently played</string>
+	<string name="kickPlayer">Exclure un joueur</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Gérer les joueurs</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Non réversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Partager l\'URL de la ligne principale</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Créé</string>
+	<string name="tourRecent">Joué récemment</string>
 	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Format</string>
-	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
-	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
-	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
-	<string name="dateStartedNewest">Date started (newest)</string>
-	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
-	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
-	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<string name="tourUpcoming" comment="Upcoming tournaments">À venir</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Meilleurs résultats</string>
+	<string name="stats" comment="Game, tournament or simul stats">Statistiques</string>
+	<string name="dateStartedNewest">Date de début (plus récente)</string>
+	<string name="timeAlmostUp" comment="Notification for correspondence games">Votre temps est presque écoulé !</string>
+	<string name="gameAgainstX" comment="Your game against playerX">Partie contre %s</string>
+	<string name="pageReload" comment="Confirmation warning">La page doit être rechargée</string>
 	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
-		<item quantity="one">%s candidate player</item>
-		<item quantity="other">%s candidate players</item>
+		<item quantity="one">%s participants en attente</item>
+		<item quantity="other">%s participants en attente</item>
 	</plurals>
 	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
-		<item quantity="one">%s accepted player</item>
-		<item quantity="other">%s accepted players</item>
+		<item quantity="one">%s joueurs validés</item>
+		<item quantity="other">%s joueurs validés</item>
 	</plurals>
-	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
-	<string name="acceptRandomCandidate">Accept random candidate</string>
-	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
-	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
-	<string name="startDate">Start date</string>
-	<string name="endDate">End date</string>
-	<string name="xJoinedTheGame">%s joined the game</string>
-	<string name="connectingToTheGame">Connecting to the game</string>
-	<string name="bestMoveWasX">Best move was %s</string>
-	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
-	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
-	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
+	<string name="acceptPlayersStartSimul">Une fois que vous aurez accepté au moins deux joueurs, vous pourrez démarrer la simultanée.</string>
+	<string name="acceptRandomCandidate">Accepter les participants aléatoires</string>
+	<string name="exploreSiteAndHaveFun">Explorez le site et amusez-vous :-)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Aidez le roi à s\'échapper grâce à une ouverture en bas du plateau en faisant glisser vos pièces.</string>
+	<string name="startDate">Date de début</string>
+	<string name="endDate">Date de fin</string>
+	<string name="xJoinedTheGame">%s a rejoint la partie</string>
+	<string name="connectingToTheGame">Connexion à la partie</string>
+	<string name="bestMoveWasX">Le meilleur coup était %s</string>
+	<string name="mateCreatedDescription">L\'échec et mat est désormais inévitable</string>
+	<string name="mateDelayedDescription" comment="Sequence of moves">Pas la meilleure séquence d\'échec et mat</string>
+	<string name="mateLostDescription" comment="Sequence of moves">Vous êtes passé à côté d\'un échec et mat</string>
 	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
 	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
-	<string name="tournamentCandidates">Tournament candidates</string>
-	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
-	<string name="noPlayersJoinedYet">No players joined yet</string>
-	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
-	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
-	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
-	<string name="icon">Icon</string>
-	<string name="online">Online</string>
-	<string name="offline">Offline</string>
-	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
-	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
-	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
-	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
-	<string name="oneUrlPerLine">One URL per line.</string>
-	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
-	<string name="newPlayerIntro">Welcome to lishogi. If you\'re new here, this quick overview will help you get started and discover what the site offers.</string>
-	<string name="newPlayerRegisterCta">Create an account to unlock all features</string>
-	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
-	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
-	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
-	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
-	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
-	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
-	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="tournamentCandidates">Participants au tournoi</string>
+	<string name="kickedAndDeniedPlayers">Joueurs expulsés et refusés</string>
+	<string name="noPlayersJoinedYet">Aucun joueur n\'a rejoint pour l\'instant</string>
+	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Inscription terminée</string>
+	<string name="proMode" comment="Mode where making illegal move loses the game">Mode professionnel</string>
+	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Les déplacements illégaux entraînent une défaite, les prémouvements sont désactivés, les vérifications ne sont pas surlignées et seuls certains ensembles de pièces sont autorisés</string>
+	<string name="icon">Icône</string>
+	<string name="online">En ligne</string>
+	<string name="offline">Hors ligne</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Niveaux</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">Vous avez monté de niveau !</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Les rangs ne sont attribués qu\'une fois un classement stable atteint.</string>
+	<string name="leavingLobbyAlert">Quitter cette page supprimera votre recherche de partie en temps réel.</string>
+	<string name="oneUrlPerLine">Une URL par ligne.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Traduire</string>
+	<string name="newPlayerIntro">Bienvenue sur lishogi. Si vous êtes nouveau ici, cet aperçu rapide vous aidera à commencer et à découvrir ce que le site offre.</string>
+	<string name="newPlayerRegisterCta">Créez un compte pour débloquer toutes les fonctionnalités</string>
+	<string name="newPlayerPreferences">Personnalisez l\'apparence du site - ensembles de pièces, tableaux, notations, sons et plus encore.</string>
+	<string name="newPlayerLearn">Apprenez comment chaque pièce se déplace, comprenez les règles de base et pratiquez avec des leçons guidées.</string>
+	<string name="newPlayerPlayPeople">Jouez à des parties classées ou décontractées contre d\'autres joueurs ou défiez vos amis.</string>
+	<string name="newPlayerPlayAi">Entraînez-vous contre l\'ordinateur et choisissez une difficulté qui correspond à votre niveau.</string>
+	<string name="newPlayerTournaments">Jouez à des tournois de shogi contre d\'autres joueurs ou organisez vos propres tournois.</string>
+	<string name="newPlayerPuzzles">Améliorez vos compétences en résolvant des problèmes de shogi.</string>
+	<string name="newPlayerStudies">Études et leçons créées par la communauté - ou créez et partagez les vôtres.</string>
 </resources>

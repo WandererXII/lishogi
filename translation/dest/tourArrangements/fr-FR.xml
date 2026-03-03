@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="roundRobin" comment="https://en.wikipedia.org/wiki/Round-robin_tournament">Round-robin</string>
-	<string name="startGameNow">Start game now</string>
-	<string name="goToGame">Go to game</string>
-	<string name="gameScheduling">Game scheduling</string>
-	<string name="suggestTime" comment="Time that you suggest to your opponent to start a game">Suggest time</string>
-	<string name="suggestDifferentTime" comment="Time to start a game that you want to suggest, if some time was already suggested">Suggest different time</string>
-	<string name="acceptSuggestedTime" comment="Accept time opponent suggested to start a game">Accept suggested time</string>
-	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s accepted your suggested time</string>
-	<string name="suggestedTime" comment="Currently suggested time to start a game">Suggested time</string>
-	<string name="scheduledAt" comment="Date/time when game is scheduled for">Scheduled at</string>
-	<string name="startedAt" comment="Date/time when game started">Started at</string>
-	<string name="upcomingGameWithX" comment="Upcoming game with username">Upcoming game with %s</string>
-	<string name="yourUpcomingGames">Your upcoming games</string>
-	<string name="allUpcomingAndOngoingGames">All upcoming and ongoing games</string>
-	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">My arranged games</string>
-	<string name="gameWillNotStart">Game will not start automatically!</string>
-	<string name="organized" comment="Tournament format - organized, players can only play games created by the organizer">Organized</string>
-	<string name="existingGamesBetweenPlayers" comment="For tour organizers, title for a list of upcoming games between two selected players">Existing games between players</string>
-	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">Points (W/D/L)</string>
-	<string name="gameName" comment="Name of arranged game">Game name</string>
-	<string name="howDoesRoundRobinWork">How does round-robin work?</string>
-	<string name="howDoesRoundRobinWorkAnswerNew">In a round-robin tournament, each player can play one game against every other player.</string>
-	<string name="howToPlayGames">How do I play a game?</string>
-	<string name="howToPlayGamesAnswerNew">To play, click the cell in the table where you and the opponent you want to play against meet. You can schedule a date and time of the game or start the game right away by sending a challenge to your opponent.</string>
-	<string name="roundRobinScoring">How are points given?</string>
-	<string name="roundRobinScoringAnswer">You get 3 points for a win, 2 for a draw, and 1 for a loss. Every match counts toward your total score.</string>
-	<string name="roundRobinWinner">How is the winner decided?</string>
-	<string name="roundRobinWinnerAnswer">The player with the most points at the end wins. If players have the same number of points, the one who joined the tournament earlier is ranked higher.</string>
-	<string name="howDoOrganizedTournamentsWork">How do organized tournaments work?</string>
-	<string name="howDoOrganizedTournamentsWorkAnswerNew">In organized tournaments, only the tournament organizer can create matches between players.</string>
-	<string name="whoStartsMatches">Who starts the match?</string>
-	<string name="whoStartsMatchesAnswerNew">The match starts once a challenge is issued and accepted. Organizer cannot start a game.</string>
-	<string name="organizedScoring">How are points given?</string>
-	<string name="organizedScoringAnswer">The organizer decides how many points are awarded for a win, draw, or loss.</string>
-	<string name="howManyGames">How many games can be played?</string>
-	<string name="howManyGamesAnswer">The organizer can create at most %s games.</string>
-	<string name="annulResults">Annul results</string>
-	<string name="annulledGames">Annulled games</string>
+	<string name="roundRobin" comment="https://en.wikipedia.org/wiki/Round-robin_tournament">Round-Robin</string>
+	<string name="startGameNow">Commencer la partie maintenant</string>
+	<string name="goToGame">Aller à la partie</string>
+	<string name="gameScheduling">Planification de partie</string>
+	<string name="suggestTime" comment="Time that you suggest to your opponent to start a game">Proposer l\'heure</string>
+	<string name="suggestDifferentTime" comment="Time to start a game that you want to suggest, if some time was already suggested">Proposer une heure différente</string>
+	<string name="acceptSuggestedTime" comment="Accept time opponent suggested to start a game">Accepter l\'heure proposée</string>
+	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s a accepté l\'heure proposée</string>
+	<string name="suggestedTime" comment="Currently suggested time to start a game">Horaire proposé</string>
+	<string name="scheduledAt" comment="Date/time when game is scheduled for">Prévu pour</string>
+	<string name="startedAt" comment="Date/time when game started">Démarré à</string>
+	<string name="upcomingGameWithX" comment="Upcoming game with username">Partie à venir avec %s</string>
+	<string name="yourUpcomingGames">Vos parties à venir</string>
+	<string name="allUpcomingAndOngoingGames">Toutes les parties à venir et en cours</string>
+	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">Mes parties arrangées</string>
+	<string name="gameWillNotStart">La partie ne commencera pas automatiquement !</string>
+	<string name="organized" comment="Tournament format - organized, players can only play games created by the organizer">Organisé</string>
+	<string name="existingGamesBetweenPlayers" comment="For tour organizers, title for a list of upcoming games between two selected players">Parties existantes entre les joueurs</string>
+	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">Points (V/N/D)</string>
+	<string name="gameName" comment="Name of arranged game">Nom de la partie</string>
+	<string name="howDoesRoundRobinWork">Comment fonctionne le round-robin ?</string>
+	<string name="howDoesRoundRobinWorkAnswerNew">Dans un tournoi round-robin, chaque joueur peut jouer une partie contre chaque autre joueur.</string>
+	<string name="howToPlayGames">Comment jouer une partie ?</string>
+	<string name="howToPlayGamesAnswerNew">Pour jouer, cliquez sur la cellule du tableau où vous et l\'adversaire jouerez votre partie. Vous pouvez planifier une date et une heure du jeu ou commencer le jeu immédiatement en envoyant un défi à votre adversaire.</string>
+	<string name="roundRobinScoring">Comment les points sont-ils attribués ?</string>
+	<string name="roundRobinScoringAnswer">Vous obtenez 3 points pour une victoire, 2 pour un match nul et 1 pour une défaite. Chaque match compte pour votre score total.</string>
+	<string name="roundRobinWinner">Comment le gagnant est-il déterminé ?</string>
+	<string name="roundRobinWinnerAnswer">Le joueur ayant le plus de points à la fin gagne. Si les joueurs ont le même nombre de points, celui qui a rejoint le tournoi plus tôt est classé plus haut.</string>
+	<string name="howDoOrganizedTournamentsWork">Comment fonctionnent les tournois organisés ?</string>
+	<string name="howDoOrganizedTournamentsWorkAnswerNew">Dans les tournois organisés, seul l\'organisateur du tournoi peut créer des matchs entre joueurs.</string>
+	<string name="whoStartsMatches">Qui commence la partie ?</string>
+	<string name="whoStartsMatchesAnswerNew">Le match commence une fois qu\'un défi est publié et accepté. L\'organisateur ne peut pas commencer une partie.</string>
+	<string name="organizedScoring">Comment les points sont-ils attribués ?</string>
+	<string name="organizedScoringAnswer">L\'organisateur décide combien de points sont attribués pour une victoire, un match nul ou une défaite.</string>
+	<string name="howManyGames">Combien de parties peuvent être jouées ?</string>
+	<string name="howManyGamesAnswer">L\'organisateur peut créer au plus %s parties.</string>
+	<string name="annulResults">Annuler les résultats.</string>
+	<string name="annulledGames">Parties annulées</string>
 </resources>

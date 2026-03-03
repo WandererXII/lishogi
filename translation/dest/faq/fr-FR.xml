@@ -83,7 +83,7 @@ Fondamentalement, les notations Glicko utilisent des \"intervalles de confiance\
 Fondamentalement, le système est sûr à 90 % que votre note se situe entre 800 et 2200. Il est incroyablement incertain. C\'est pourquoi, lorsqu\'un joueur débute, sa cote change de façon très importante, potentiellement de plusieurs centaines de points à la fois. Mais après quelques matchs contre des joueurs établis, l\'intervalle de confiance se réduit et le nombre de points gagnés/perdus après chaque match diminue.
 
 Il faut également noter que l\'intervalle de confiance augmente avec le temps. Cela vous permet de gagner/perdre des points plus rapidement pour correspondre à tout changement de votre niveau de compétence au cours de cette période.</string>
-	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Les parties nulles n\'affectent pas le classement.</string>
 	<string name="whatIsProvisionalRating">Pourquoi y a-t-il un point d\'interrogation (?) à côté d\'un de mes classements ?</string>
 	<string name="provisionalRatingExplanation">Le point d\'interrogation indique que le classement est provisoire. Les raisons comprennent :</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">Le joueur n\'a pas encore terminé suffisamment de parties notées contre des %1$s dans la catégorie de notation.</string>
@@ -94,10 +94,10 @@ Il faut également noter que l\'intervalle de confiance augmente avec le temps. 
 	<string name="inOrderToAppearsYouMust">Pour être sur la %1$s vous devez:</string>
 	<string name="ratingLeaderboards">classement des leaders</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">avoir joué à au moins 30 parties classées dans un jeu donné,</string>
-	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">Avoir joué une partie classée au cours du mois précédent pour ce classement</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">avoir un écart de classement inférieur à %1$s, en shogi standard, et inférieur à %2$s dans les variantes,</string>
 	<string name="beInTopTen">être dans le top 10 de ce classement.</string>
-	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
+	<string name="clickHereRatingRanks">Cliquez ici pour voir comment les classements sont liés aux niveaux.</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">La deuxième exigence est pour que les joueurs qui n\'utilisent plus leur compte cessent de remplir les classements.</string>
 	<string name="whyAreRatingHigher">Pourquoi les notes sont-elles plus élevées que celles d\'autres sites et organisations tels que la FIDE, l\'USCF et la CPI ?</string>
 	<string name="whyAreRatingHigherExplanation">Il est préférable de ne pas considérer les notations comme des chiffres absolus, ni de les comparer à d\'autres organisations. Les différentes organisations ont différents niveaux d\'acteurs, différents systèmes de notation (Elo, Glicko, Glicko-2, ou une version modifiée de ce qui précède). Ces facteurs peuvent avoir une incidence considérable sur les chiffres absolus (notations).

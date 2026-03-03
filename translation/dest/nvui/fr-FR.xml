@@ -8,7 +8,7 @@
   <string name="none" comment="No pieces in hand">Aucun</string>
   <string name="moves" comment="Followed by list of moves">Coups</string>
   <string name="currentPosition">Position actuelle</string>
-  <string name="moveForm">Move form</string>
+  <string name="moveForm">Déplacement de pièces</string>
   <string name="commandInput">Entrée de commande</string>
   <string name="commands">Les commandes</string>
   <string name="useArrowKeys">Utilisez les touches fléchées pour naviguer dans la partie</string>

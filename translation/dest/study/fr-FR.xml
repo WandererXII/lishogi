@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="private">Étude(s) privée(s)</string>
+  <string name="private">Privé</string>
   <string name="myStudies">Mes études</string>
   <string name="studiesIContributeTo">Études auxquelles je participe</string>
   <string name="myPublicStudies">Mes études publiques</string>
@@ -153,10 +153,10 @@
   <string name="introGamebook" comment="Interactive study lesson">Introduisez cette leçon par un commentaire.</string>
   <string name="putFirstMove" comment="Interactive study lesson">Placez le premier coup de l\'adversaire sur le plateau.</string>
   <string name="explainMove" comment="Interactive study lesson">Expliquer le coup de l\'adversaire et aider le joueur à trouver le coup suivant, avec un commentaire.</string>
-  <string name="reflectOnMove" comment="Interactive study lesson">You may reflect on the player\'s correct move, with a comment; or leave empty to jump immediately to the next move.</string>
-  <string name="variationMoves" comment="Interactive study lesson">Add variation moves to explain why specific other moves are wrong.</string>
-  <string name="explainWrongMove" comment="Interactive study lesson">Explain why this move is wrong in a comment</string>
-  <string name="orPromote" comment="Interactive study lesson">Or promote it as the mainline if it is the right move.</string>
+  <string name="reflectOnMove" comment="Interactive study lesson">Vous pouvez réfléchir au bon coup du joueur, avec un commentaire, ou laisser un espace vide pour passer immédiatement au coup suivant.</string>
+  <string name="variationMoves" comment="Interactive study lesson">Ajoutez des variations pour expliquer pourquoi certains autres coups sont erronés.</string>
+  <string name="explainWrongMove" comment="Interactive study lesson">Expliquez pourquoi ce coup est erroné avec un commentaire.</string>
+  <string name="orPromote" comment="Interactive study lesson">Ou faites-en la variation principale, s\'il s\'agit du coup adéquat.</string>
   <string name="otherMove" comment="Interactive study lesson">Lorsque tout autre coup incorrect est joué :</string>
   <string name="explainAllWrong" comment="Interactive study lesson">Expliquer pourquoi tous les autres coups sont erronés</string>
   <string name="hintOnDemand" comment="Interactive study lesson">Indice facultatif, à la demande, pour le lecteur :</string>

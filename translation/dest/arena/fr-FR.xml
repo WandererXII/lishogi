@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="arena">Arena</string>
+  <string name="arena">Arène</string>
   <string name="arenaTournaments">Tournois Arène</string>
   <string name="isItRated">Est-ce classé ?</string>
   <string name="willBeNotified">Vous serez notifié lorsque le tournoi commencera, vous pouvez donc jouer dans un autre onglet en attendant.</string>
@@ -44,11 +44,11 @@ Jouez vite et retournez à la page d\'accueil du tournoi pour jouer plus de part
   <string name="averageScore">Score moyen</string>
   <plurals name="viewAllXTeams" comment="viewAllXTeams [one] [other]&#10;&#10;%s is the number of teams that can be viewed">
     <item quantity="one">Voir l\'équipe</item>
-    <item quantity="other">View all %s teams</item>
+    <item quantity="other">Voir les %s équipes</item>
   </plurals>
-  <string name="howManyPlayersCanJoin">How many players can join?</string>
-  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
-  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defender</string>
+  <string name="howManyPlayersCanJoin">Combien de joueurs peuvent rejoindre ?</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">Par défaut, un tournoi de ce format peut être rejoint par %s joueurs.</string>
+  <string name="howManyPlayersCanJoinAnswer">Ce tournoi peut être rejoint par %s joueurs.</string>
+  <string name="howManyPlayersCanJoinDenied">Après le début du tournoi, les joueurs qui sont expulsés comptent toujours dans la limite du nombre de participants.</string>
+  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Défenseur</string>
 </resources>

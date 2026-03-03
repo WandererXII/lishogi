@@ -9,8 +9,8 @@
   <string name="xShieldArena">Arène du Bouclier %s</string>
   <string name="xShield">Bouclier %s</string>
   <string name="xTeamBattle">Match en équipe %s</string>
-  <string name="weekendX">Weekend %s</string>
+  <string name="weekendX">Week-end %s</string>
   <string name="eliteX">%s d\'Élite</string>
   <string name="xArena">Arène de %s</string>
-  <string name="xRobin">%s Round-robin</string>
+  <string name="xRobin">%s Round-Robin</string>
 </resources>
