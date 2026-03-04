@@ -49,7 +49,7 @@ object Activity {
 
   type ID = String
 
-  val expireAfterDays = 15
+  val expireAfterDays = 31
 
   def make(userId: User.ID) =
     Activity(
