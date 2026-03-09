@@ -138,7 +138,7 @@ export function view(ctrl: StudyShareCtrl): VNode {
               readonly: true,
               disabled: isPrivate,
               value: !isPrivate
-                ? `<iframe width=600 height=371 src="${embedUrl}" frameborder=0></iframe>`
+                ? `<iframe width="600" height="371" src="${embedUrl}" frameborder="0"></iframe>`
                 : i18n('study:onlyPublicStudiesCanBeEmbedded'),
             },
           }),

@@ -122,7 +122,7 @@ export default function (element: HTMLElement, ctrl: AnalyseCtrl): void {
 
   $panels.on('click', '.embed-howto', function (this: HTMLElement) {
     const url = `${baseUrl()}/embed/${data.game.id}${location.hash}`;
-    const iframe = `<iframe src="${url}?theme=auto&bg=auto"\nwidth=600 height=371 frameborder=0></iframe>`;
+    const iframe = `<iframe src="${url}?theme=auto&bg=auto"\nwidth="600" height="371" frameborder="0"></iframe>`;
     modalJs({
       class: 'modal-embed',
       content: `<strong style="font-size:1.5em">${$(this).html()}</strong>
