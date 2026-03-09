@@ -233,7 +233,7 @@ export class StrongSocket implements IStrongSocket {
 
     if (this.heartbeat.wasSuspended) return;
     this.options.debug = true;
-    this.debug(`error: ${JSON.stringify(e)}`);
+    this.debug(`error: ${e}`);
   };
 
   private onClose = (e: CloseEvent): void => {
@@ -356,20 +356,52 @@ class Ackable {
   };
 }
 
-function updateNetworkStatusElement(status: 'online' | 'reconnected' | 'offline'): void {
-  const onlineish = status === 'online' || status === 'reconnected';
-  const cls = document.body.classList;
-  cls.toggle('online', onlineish);
-  cls.toggle('offline', !onlineish);
-  if (status === 'reconnected') cls.add('reconnected');
+let offlineTimer: Timeout | undefined;
+let isShowingOffline = false;
 
+function updateNetworkStatusElement(status: 'online' | 'reconnected' | 'offline'): void {
+  const cls = document.body.classList;
   const el = document.getElementById('reconnecting');
-  if (el) {
-    const statusText = onlineish
-      ? i18n('online')
-      : isOnline()
-        ? i18n('reconnecting')
-        : i18n('offline');
-    el.textContent = statusText;
+
+  const applyDOMChanges = (visibleStatus: 'online' | 'reconnected' | 'offline') => {
+    const onlineish = visibleStatus === 'online' || visibleStatus === 'reconnected';
+
+    cls.toggle('online', onlineish);
+    cls.toggle('offline', !onlineish);
+
+    if (visibleStatus === 'reconnected') cls.add('reconnected');
+    else cls.remove('reconnected');
+
+    if (el) {
+      el.textContent = onlineish
+        ? i18n('online')
+        : isOnline()
+          ? i18n('reconnecting')
+          : i18n('offline');
+    }
+  };
+
+  if (status === 'offline') {
+    if (!offlineTimer && !isShowingOffline) {
+      offlineTimer = setTimeout(() => {
+        isShowingOffline = true;
+        applyDOMChanges('offline');
+      }, 1500);
+    }
+  } else if (status === 'reconnected') {
+    clearTimeout(offlineTimer);
+    offlineTimer = undefined;
+
+    if (isShowingOffline) {
+      applyDOMChanges('reconnected');
+      isShowingOffline = false;
+    } else {
+      applyDOMChanges('online');
+    }
+  } else if (status === 'online') {
+    clearTimeout(offlineTimer);
+    offlineTimer = undefined;
+    isShowingOffline = false;
+    applyDOMChanges('online');
   }
 }
