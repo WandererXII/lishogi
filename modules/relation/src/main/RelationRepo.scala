@@ -54,7 +54,7 @@ final private class RelationRepo(coll: Coll, userRepo: lila.user.UserRepo)(impli
       .map(~_.flatMap(_.getAsOpt[List[User.ID]]("ids")))
 
   def followingLike(userId: ID, term: String): Fu[List[ID]] =
-    User.couldBeUsername(term) ?? {
+    User.couldBeStartOfUsername(term) ?? {
       coll.secondaryPreferred.distinctEasy[ID, List](
         "u2",
         $doc(

@@ -11,6 +11,7 @@ class UserTest extends Specification {
 
   "username regex" in {
     import User.couldBeUsername
+    import User.couldBeStartOfUsername
     "bad prefix: can login" in {
       couldBeUsername("000") must beTrue
       couldBeUsername("0foo") must beTrue
@@ -34,6 +35,10 @@ class UserTest extends Specification {
       couldBeUsername("g-foo") must beTrue
       couldBeUsername("G_FOo") must beTrue
       couldBeUsername("g-foo") must beTrue
+    }
+
+    "start of username" in {
+      couldBeStartOfUsername("a_") must beTrue
     }
   }
 

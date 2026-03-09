@@ -519,7 +519,7 @@ final class User(
 
   def autocomplete =
     Open { implicit ctx =>
-      get("term", ctx.req).filter(_.nonEmpty).filter(lila.user.User.couldBeUsername) match {
+      get("term", ctx.req).filter(_.nonEmpty).filter(lila.user.User.couldBeStartOfUsername) match {
         case None => BadRequest("No search term provided").fuccess
         case Some(term) if getBool("exists") =>
           env.user.repo nameExists term map { r =>

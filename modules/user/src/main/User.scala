@@ -234,6 +234,12 @@ object User {
 
   def couldBeUsername(str: User.ID) = historicalUsernameRegex.matches(str)
 
+  private val startOfUsernameRegex = """(?i)[a-z0-9][\w-]{0,29}""".r
+  def couldBeStartOfUsername(str: User.ID) = {
+    val sanitized = str.trim.takeWhile(_ != ' ')
+    sanitized.nonEmpty && startOfUsernameRegex.matches(sanitized)
+  }
+
   def normalize(username: String) = username.toLowerCase
 
   object BSONFields {

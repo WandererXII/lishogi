@@ -355,7 +355,7 @@ final class PlayerRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCo
       .result
 
   def searchPlayers(tourId: Tournament.ID, term: String, nb: Int): Fu[List[User.ID]] =
-    User.couldBeUsername(term) ?? {
+    User.couldBeStartOfUsername(term) ?? {
       coll.primitive[User.ID](
         selector = $doc(
           "tid" -> tourId,
