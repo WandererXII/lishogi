@@ -32,7 +32,7 @@ final class Player(
       openingBookUsi.fold {
         makeWork(game, engine).addEffect(moveDb.add).void
       } { usi =>
-        lila.common.Future.delay(500.millis) {
+        lila.common.Future.delay(if (game.onePlayerHasMoved) 500.millis else 1000.millis) {
           fuccess {
             Bus.publish(Tell(game.id, ShoginetPlay(usi, game.plies)), "roundSocket")
           }
