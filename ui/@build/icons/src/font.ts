@@ -47,7 +47,7 @@ export async function font(rootDir: string, outDir: string): Promise<void> {
     inputDir: iconsDir,
     outputDir: outDir,
     name: 'lishogi',
-    fontTypes: [FontAssetType.WOFF, FontAssetType.WOFF2],
+    fontTypes: [FontAssetType.WOFF2],
     assetTypes: [],
     codepoints,
     round: 0,
