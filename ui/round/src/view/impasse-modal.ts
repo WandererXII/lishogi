@@ -4,7 +4,12 @@ import type { MaybeVNode } from 'common/snabbdom';
 import type { Player } from 'game/interfaces';
 import { i18n } from 'i18n';
 import { engineNameFromCode } from 'shogi/engine-name';
-import { impasseInfo } from 'shogi/impasse';
+import {
+  impasseInfo,
+  impasseNecessaryEnteredPieces,
+  impasseNecessaryGoteScore,
+  impasseNecessarySenteScore,
+} from 'shogi/impasse';
 import { h } from 'snabbdom';
 import type RoundController from '../ctrl';
 
@@ -47,11 +52,17 @@ export function impasseModal(ctrl: RoundController): MaybeVNode {
               ]),
               h('li', [
                 `${i18n('invadingPieces')}: `,
-                h(`span${i.sente.nbOfPieces >= 10 ? '.good' : ''}`, `${i.sente.nbOfPieces}/10`),
+                h(
+                  `span${i.sente.nbOfPieces >= impasseNecessaryEnteredPieces ? '.good' : ''}`,
+                  `${i.sente.nbOfPieces}/${impasseNecessaryEnteredPieces}`,
+                ),
               ]),
               h('li', [
                 `${i18n('totalImpasseValue')}: `,
-                h(`span${i.sente.pieceValue >= 28 ? '.good' : ''}`, `${i.sente.pieceValue}/28`),
+                h(
+                  `span${i.sente.pieceValue >= impasseNecessarySenteScore ? '.good' : ''}`,
+                  `${i.sente.pieceValue}/${impasseNecessarySenteScore}`,
+                ),
               ]),
             ]),
           ]),
@@ -66,11 +77,17 @@ export function impasseModal(ctrl: RoundController): MaybeVNode {
               ]),
               h('li', [
                 `${i18n('invadingPieces')}: `,
-                h(`span${i.gote.nbOfPieces >= 10 ? '.good' : ''}`, `${i.gote.nbOfPieces}/10`),
+                h(
+                  `span${i.gote.nbOfPieces >= impasseNecessaryEnteredPieces ? '.good' : ''}`,
+                  `${i.gote.nbOfPieces}/${impasseNecessaryEnteredPieces}`,
+                ),
               ]),
               h('li', [
                 `${i18n('totalImpasseValue')}: `,
-                h(`span${i.gote.pieceValue >= 27 ? '.good' : ''}`, `${i.gote.pieceValue}/27`),
+                h(
+                  `span${i.gote.pieceValue >= impasseNecessaryGoteScore ? '.good' : ''}`,
+                  `${i.gote.pieceValue}/${impasseNecessaryGoteScore}`,
+                ),
               ]),
             ]),
           ]),
