@@ -21,6 +21,12 @@ export class AnalyseCtrl {
     this.tree = makeTree(treeOps.reconstruct(this.data.treeParts));
     this.initialPath = treePath.root;
 
+    const hashPly = Number.parseInt(location.hash.slice(1), 10);
+    if (hashPly) {
+      const mainline = treeOps.mainlineNodeList(this.tree.root);
+      this.initialPath = treeOps.takePathWhile(mainline, n => n.ply <= hashPly);
+    }
+
     this.jump(this.initialPath);
 
     this.initNotation();
