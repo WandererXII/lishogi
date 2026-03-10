@@ -298,7 +298,7 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
     userIdsLikeFilter(text, $doc(F.roles -> role), max)
 
   private[user] def userIdsLikeFilter(text: String, filter: Bdoc, max: Int): Fu[List[User.ID]] =
-    User.couldBeUsername(text) ?? {
+    User.couldBeStartOfUsername(text) ?? {
       coll
         .find(
           $doc(F.id $startsWith normalize(text)) ++ enabledSelect ++ filter,

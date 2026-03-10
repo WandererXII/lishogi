@@ -38,7 +38,17 @@ class UserTest extends Specification {
     }
 
     "start of username" in {
-      couldBeStartOfUsername("a_") must beTrue
+      couldBeStartOfUsername("ab") must beTrue
+      couldBeStartOfUsername("abc_") must beTrue
+      couldBeStartOfUsername("abc_abc") must beTrue
+      couldBeStartOfUsername("abc-") must beTrue
+      couldBeStartOfUsername("") must beFalse
+      couldBeStartOfUsername("a") must beFalse // too short
+      couldBeStartOfUsername("_") must beFalse
+      couldBeStartOfUsername("-a") must beFalse
+      couldBeStartOfUsername("--") must beFalse
+      couldBeStartOfUsername("_abc") must beFalse
+      couldBeStartOfUsername("a']bc") must beFalse
     }
   }
 

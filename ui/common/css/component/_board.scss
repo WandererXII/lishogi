@@ -8,6 +8,7 @@
 
   align-self: center;
   padding-bottom: calc(100% / 11 * 12 / 9 * 11 + #{uniboard.$hands-gap}); // 100% / 11 * 12 / 9 * 11
+
   .sg-wrap {
     display: grid;
     grid-template-rows: 1fr 9fr 1fr;
