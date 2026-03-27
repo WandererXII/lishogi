@@ -3,7 +3,7 @@
 	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Zagraj ze znajomym</string>
 	<string name="playWithTheMachine">Zagraj z komputerem</string>
-	<string name="playOtherPlayers">Play other players</string>
+	<string name="playOtherPlayers">Graj z innymi graczami</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Przekaż ten adres, by zaprosić kogoś do wspólnej gry</string>
 	<string name="gameOver">Partia zakończona</string>
 	<string name="waitingForOpponent">Oczekiwanie na przeciwnika</string>
@@ -20,7 +20,7 @@
 	<string name="resign">Poddaj się</string>
 	<string name="checkmate">Mat</string>
 	<string name="stalemate">Pat</string>
-	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Poddanie się</string>
 	<string name="check">Szach</string>
 	<string name="impasse">Impas</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Powtórzenie</string>
@@ -29,7 +29,7 @@
 	<string name="bareKing" comment="Used in chushogi">Ogołocony król</string>
 	<string name="lionCaptured" comment="Used in dobutsu shogi">The lion was captured</string>
 	<string name="tryRule" comment="Used in dobutsu shogi">Try rule</string>
-	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Niedozwolony ruch</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s grał przeciwko %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s gra przeciwko %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s wygrywa!</string>
@@ -460,9 +460,9 @@
 	<string name="continueFromHere">Kontynuuj z tej pozycji</string>
 	<string name="toStudy">Opracowanie</string>
 	<string name="importGame">Importuj partię</string>
-	<string name="importCategory" comment="Category name for games that were imported">Import</string>
+	<string name="importCategory" comment="Category name for games that were imported">Importowane</string>
 	<string name="importedGame">Gra została zaimportowana.</string>
-	<string name="importedByX">Imported by %s</string>
+	<string name="importedByX">Zaimportowana przez %s</string>
 	<string name="importGameKifCsaExplanation">Wklejenie zapisu partii w formacie KIF lub CSA daje możliwość jej odtworzenia, analizy komputerowej, rozmowy i udostępniania.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s zaimportowana partia</item>
@@ -488,12 +488,12 @@
 	<string name="favoriteOpponents">Ulubieni przeciwnicy</string>
 	<string name="follow">Obserwuj</string>
 	<string name="following">Obserwowany</string>
-	<string name="followers">Followers</string>
+	<string name="followers">Obserwujący</string>
 	<string name="unfollow">Przestań obserwować</string>
 	<string name="block">Zablokuj</string>
 	<string name="blocked">Zablokowany</string>
 	<string name="unblock">Odblokuj</string>
-	<string name="thanksForReport">Thanks for the report</string>
+	<string name="thanksForReport">Dziękujemy za zgłoszenie</string>
 	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
@@ -906,13 +906,13 @@
 	<string name="lobby">Poczekalnia</string>
 	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
 	<string name="anonymous">Anonimowy</string>
-	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonim</string>
 	<string name="yourScore">Twój wynik: %s</string>
 	<string name="language">Język</string>
 	<string name="background">Tło</string>
 	<string name="light">Jasne</string>
 	<string name="dark">Ciemne</string>
-	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">Systemowe</string>
 	<string name="transparent">Przezroczyste</string>
 	<string name="customTheme">Własny motyw</string>
 	<string name="backgroundImageUrl">Adres do obrazu tła:</string>
