@@ -26,7 +26,8 @@ function movetime(
   const moveCentis = data.game.moveCentis;
   const byoEntry = data.game.byoEntry;
 
-  if (!moveCentis) return; // imported games
+  // Nothing for imported games or games with too little moves
+  if (!moveCentis || moveCentis.length <= 3) return;
   type PlotSeries = { sente: MovePoint[]; gote: MovePoint[] };
   const moveSeriesPlot: PlotSeries = {
     sente: [],

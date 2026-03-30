@@ -108,7 +108,7 @@ object replay {
                       cls       := "computer-analysis",
                       dataPanel := "computer-analysis",
                     )(trans.computerAnalysis()),
-                  (!game.isNotationImport && !game.isCorrespondence && game.plies > 1) option
+                  (!game.isNotationImport && !game.isCorrespondence && game.plies > 3) option
                     span(dataPanel := "move-times")(
                       trans.moveTimes(),
                     ),
