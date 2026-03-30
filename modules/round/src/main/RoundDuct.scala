@@ -189,11 +189,11 @@ final private[round] class RoundDuct(
         }
       }
 
-    case lila.chat.actorApi.RoundLine(line, watcher) =>
+    case lila.chat.actorApi.RoundLine(line) =>
       fuccess {
         publish(List(line match {
-          case l: lila.chat.UserLine   => Event.UserMessage(l, watcher)
-          case l: lila.chat.PlayerLine => Event.PlayerMessage(l)
+          case l: lila.chat.UserLine => Event.UserMessage(l)
+          case l: lila.chat.AnonLine => Event.AnonMessage(l)
         }))
       }
 

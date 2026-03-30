@@ -10,8 +10,6 @@ import * as spam from './spam';
 import { userLink } from './util';
 import { flag } from './xhr';
 
-const whisperRegex = /^\/w(?:hisper)?\s/;
-
 export default function (ctrl: ChatCtrl): Array<VNode | undefined> {
   if (!ctrl.vm.enabled) return [];
   const scrollCb = (vnode: VNode) => {
@@ -113,21 +111,18 @@ const setupHooks = (ctrl: ChatCtrl, chatEl: HTMLInputElement) => {
     setTimeout(() => {
       const el = e.target as HTMLInputElement;
       const txt = el.value;
-      const pub = ctrl.opts.public;
       storage.set(el.value);
       if (e.which == 10 || e.which == 13) {
         if (txt === '') $('.keyboard-move input').focus();
         else {
           spam.report(txt);
-          if (pub && spam.hasTeamUrl(txt)) alert("Please don't advertise teams in the chat.");
+          if (spam.hasTeamUrl(txt)) alert("Please don't advertise teams in the chat.");
           else ctrl.post(txt);
           el.value = '';
           storage.remove();
-          if (!pub) el.classList.remove('whisper');
         }
       } else {
         el.removeAttribute('placeholder');
-        if (!pub) el.classList.toggle('whisper', !!txt.match(whisperRegex));
       }
     }),
   );
@@ -295,20 +290,27 @@ function renderLine(ctrl: ChatCtrl, line: Line) {
   if (line.c) return h('li', [h('span.color', `[${line.c}]`), textNode]);
 
   const userNode = thunk('a', line.u, userLink, [line.u]);
+  const lineUsersId = line.u?.toLowerCase();
 
   return h(
     'li',
     ctrl.opts.withColorTags
       ? {
           attrs: {
-            style: `border-color:${userIdToHexColor(line.u)}`,
+            style: `border-color:${userIdToHexColor(lineUsersId)}`,
           },
         }
-      : {},
+      : {
+          class: {
+            me: ctrl.opts.data.userId === lineUsersId,
+            sente: ctrl.opts.players?.sente === lineUsersId,
+            gote: ctrl.opts.players?.gote === lineUsersId,
+          },
+        },
     ctrl.moderation()
-      ? [line.u ? modLineAction() : null, userNode, textNode]
+      ? [lineUsersId ? modLineAction() : null, userNode, textNode]
       : [
-          ctrl.data.userId && line.u && ctrl.data.userId != line.u
+          ctrl.data.userId && lineUsersId && ctrl.data.userId != lineUsersId
             ? h('i.flag', {
                 attrs: {
                   'data-icon': icons.warning,

@@ -109,6 +109,14 @@ export function boot(
       chatOpts.parseMoves = true;
     }
     if (chatOpts.noteId && (chatOpts.noteAge || 0) < 10) chatOpts.noteText = '';
+
+    const sentePlayer = data.player.color === 'sente' ? data.player : data.opponent;
+    const gotePlayer = data.player.color === 'gote' ? data.player : data.opponent;
+    (chatOpts as ChatOpts).players = {
+      sente: sentePlayer.user?.id,
+      gote: gotePlayer.user?.id,
+    };
+
     chat = makeChat(chatOpts as ChatOpts);
   }
   startTournamentClock();

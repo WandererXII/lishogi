@@ -74,7 +74,7 @@ object RoomSocket {
   )(implicit ec: ExecutionContext): Handler =
     ({
       case Protocol.In.ChatSay(roomId, userId, msg) =>
-        chat.userChat
+        chat
           .write(
             Chat.Id(roomId.value),
             userId,
@@ -87,7 +87,7 @@ object RoomSocket {
         lila.chat.ChatTimeout.Reason(reason) foreach { r =>
           localTimeout.?? { _(roomId, modId, suspect) } foreach { local =>
             val scope = if (local) ChatTimeout.Scope.Local else ChatTimeout.Scope.Global
-            chat.userChat.timeout(
+            chat.timeout(
               Chat.Id(roomId.value),
               modId,
               suspect,

@@ -12,7 +12,7 @@ object communication {
 
   def apply(
       u: lila.user.User,
-      players: List[(lila.game.Pov, lila.chat.MixedChat)],
+      players: List[(lila.game.Pov, lila.chat.Chat)],
       convos: List[lila.msg.MsgConvo],
       publicLines: List[lila.shutup.PublicLine],
       notes: List[lila.user.Note],

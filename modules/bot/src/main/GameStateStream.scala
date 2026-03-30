@@ -74,8 +74,7 @@ final class GameStateStream(
         "abortGame",
         uniqChan(game pov as),
         Chat chanOf Chat.Id(id),
-      ) :::
-        user.isBot.option(Chat chanOf Chat.Id(s"$id/w")).toList
+      )
 
       override def preStart(): Unit = {
         super.preStart()

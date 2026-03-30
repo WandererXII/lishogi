@@ -153,13 +153,13 @@ final class RoundSocket(
     case Protocol.In.Flag(gameId, color, fromPlayerId) =>
       tellRound(gameId, ClientFlag(color, fromPlayerId))
     case Protocol.In.PlayerChatSay(id, Right(color), msg) =>
-      messenger.owner(id, color, msg).unit
+      messenger.anon(id, color, msg).unit
     case Protocol.In.PlayerChatSay(id, Left(userId), msg) =>
-      messenger.owner(id, userId, msg).unit
+      messenger.user(id, userId, msg).unit
     case Protocol.In.WatcherChatSay(id, userId, msg) =>
-      messenger.watcher(id, userId, msg).unit
+      messenger.user(id, userId, msg).unit
     case RP.In.ChatTimeout(roomId, modId, suspect, reason, text) =>
-      messenger.timeout(Chat.Id(s"$roomId/w"), modId, suspect, reason, text).unit
+      messenger.timeout(Chat.Id(roomId.value), modId, suspect, reason, text).unit
     case Protocol.In.Berserk(gameId, userId) => tournamentActor ! Berserk(gameId.value, userId)
     case Protocol.In.PlayerOnlines(onlines) =>
       onlines foreach {
@@ -224,8 +224,7 @@ final class RoundSocket(
     import lila.chat.actorApi._
     Bus.subscribeFun(BusChan.Round.chan, BusChan.Global.chan) {
       case ChatLine(Chat.Id(id), l) =>
-        val line = RoundLine(l, id endsWith "/w")
-        rounds.tellIfPresent(if (line.watcher) id take Game.gameIdSize else id, line)
+        rounds.tellIfPresent(id, RoundLine(l))
       case OnTimeout(Chat.Id(id), userId) =>
         send(RP.Out.tellRoom(RoomId(id take Game.gameIdSize), makeMessage("chat_timeout", userId)))
       case OnReinstate(Chat.Id(id), userId) =>
@@ -374,8 +373,7 @@ object RoundSocket {
 
       def tellVersion(roomId: RoomId, version: SocketVersion, e: Event) = {
         val flags = new StringBuilder(2)
-        if (e.watcher) flags += 's'
-        else if (e.owner) flags += 'p'
+        if (e.owner) flags += 'p'
         else
           e.only.map(_.fold('b', 'w')).orElse {
             e.moveBy.map(_.fold('B', 'W'))

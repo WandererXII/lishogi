@@ -17,6 +17,15 @@
       line-height: 1.2em;
       overflow-y: hidden;
       user-select: text;
+      border-left: 3px solid transparent;
+
+      &.sente {
+        border-color: theme.$c-sente;
+      }
+
+      &.gote {
+        border-color: theme.$c-gote;
+      }
     }
 
     .deleted {
@@ -81,11 +90,5 @@
     border-radius: 0;
     padding: 3px 20px 3px 4px;
     background: unset;
-
-    &.whisper {
-      color: theme.$c-good;
-      font-weight: bold;
-      font-style: italic;
-    }
   }
 }

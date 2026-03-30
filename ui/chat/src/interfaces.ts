@@ -9,7 +9,6 @@ export interface ChatOpts {
   blind: boolean;
   timeout: boolean;
   parseMoves: boolean;
-  public: boolean;
   permissions: Permissions;
   timeoutReasons?: ModerationReason[];
   preset?: string;
@@ -18,6 +17,10 @@ export interface ChatOpts {
   plugin?: ChatPlugin;
   alwaysEnabled: boolean;
   withColorTags?: boolean;
+  players?: {
+    sente?: string;
+    gote?: string;
+  }; // if defined we allow filtering by players
 }
 
 export interface ChatPlugin {

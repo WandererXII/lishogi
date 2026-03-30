@@ -77,7 +77,7 @@ final private class Finisher(
       playban.noStart(Pov(game, culprit))
       if (game.isMandatory) apply(game, _.NoStart, winner = Some(!culprit.color))
       else apply(game, _.Aborted, winner = none)
-    } >>- messenger.system(game, trans.gameAborted)
+    } >>- messenger.systemTrans(game, trans.gameAborted)
 
   def illegal(game: Game)(implicit proxy: GameProxy): Fu[Events] = {
     val winner = !game.player.color
@@ -85,7 +85,7 @@ final private class Finisher(
       game,
       _.IllegalMove,
       winner = winner.some,
-    ) >>- messenger.system(game, trans.xPlayedIllegalMove, (!winner, game.isHandicap).some)
+    ) >>- messenger.systemTrans(game, trans.xPlayedIllegalMove, (!winner, game.isHandicap).some)
   }
 
   def other(

@@ -20,18 +20,15 @@ object watcher {
       simul: Option[lila.simul.Simul],
       cross: Option[lila.game.Crosstable.WithMatchup],
       userTv: Option[lila.user.User] = None,
-      chatOption: Option[lila.chat.UserChat.Mine],
+      chatOption: Option[lila.chat.Chat.Game],
       bookmarked: Boolean,
   )(implicit ctx: Context) = {
 
     val chatJson = chatOption map { c =>
-      chat.json(
-        c.chat,
-        name = trans.spectatorRoom.txt(),
-        timeout = c.timeout,
+      chat.gameJson(
+        c,
+        name = trans.chatRoom.txt(),
         withNoteAge = ctx.isAuth option pov.game.secondsSinceCreation,
-        public = true,
-        resourceId = lila.chat.Chat.ResourceId(s"game/${c.chat.id}"),
         palantir = ctx.me.exists(_.canPalantir),
       )
     }

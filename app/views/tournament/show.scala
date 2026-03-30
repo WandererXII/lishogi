@@ -17,7 +17,7 @@ object show {
       tour: Tournament,
       verdicts: lila.tournament.Condition.All.WithVerdicts,
       data: play.api.libs.json.JsObject,
-      chatOption: Option[lila.chat.UserChat.Mine],
+      chatOption: Option[lila.chat.Chat.Mine],
       challengesDataOption: Option[play.api.libs.json.JsObject],
       streamers: List[User.ID],
       shieldOwner: Option[lila.tournament.TournamentShield.OwnerId],
@@ -35,7 +35,6 @@ object show {
                 c.chat,
                 name = trans.chatRoom.txt(),
                 timeout = c.timeout,
-                public = true,
                 resourceId = lila.chat.Chat.ResourceId(s"tournament/${c.chat.id}"),
               )
             },

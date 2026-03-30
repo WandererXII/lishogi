@@ -2,7 +2,7 @@ package lila.chat
 package actorApi
 
 case class ChatLine(chatId: Chat.Id, line: Line)
-case class RoundLine(line: Line, watcher: Boolean)
+case class RoundLine(line: Line)
 case class Timeout(
     chatId: Chat.Id,
     mod: String,

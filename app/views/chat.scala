@@ -17,39 +17,37 @@ object chat {
 
   import lila.chat.JsonView.writers.chatIdWrites
 
-  def restrictedJson(
-      chat: lila.chat.Chat.Restricted,
+  def gameJson(
+      gameChat: lila.chat.Chat.Game,
       name: String,
-      timeout: Boolean,
-      public: Boolean, // game players chat is not public
-      resourceId: lila.chat.Chat.ResourceId,
       withNoteAge: Option[Int] = None,
       writeable: Boolean = true,
+      loginRequired: Boolean = true,
       localMod: Boolean = false,
       palantir: Boolean = false,
   )(implicit ctx: Context) =
     json(
-      chat.chat,
+      gameChat.chat,
       name = name,
-      timeout = timeout,
+      timeout = gameChat.timeout,
       withNoteAge = withNoteAge,
       writeable = writeable,
-      public = public,
-      resourceId = resourceId,
-      restricted = chat.restricted,
+      resourceId = lila.chat.Chat.ResourceId(s"game/${gameChat.chat.id}"),
+      restricted = gameChat.restricted,
+      loginRequired = loginRequired,
       localMod = localMod,
       palantir = palantir,
     )
 
   def json(
-      chat: lila.chat.AnyChat,
+      chat: lila.chat.Chat,
       name: String,
       timeout: Boolean,
-      public: Boolean, // game players chat is not public
       resourceId: lila.chat.Chat.ResourceId,
       withNoteAge: Option[Int] = None,
       writeable: Boolean = true,
       restricted: Boolean = false,
+      loginRequired: Boolean = true,
       localMod: Boolean = false,
       palantir: Boolean = false,
   )(implicit ctx: Context) =
@@ -63,11 +61,10 @@ object chat {
             "userId"     -> ctx.userId,
             "resourceId" -> resourceId.value,
           )
-          .add("loginRequired" -> chat.loginRequired)
+          .add("loginRequired" -> loginRequired)
           .add("restricted" -> restricted)
           .add("palantir" -> (palantir && ctx.isAuth)),
         "writeable" -> writeable,
-        "public"    -> public,
         "permissions" -> Json
           .obj("local" -> localMod)
           .add("timeout" -> isGranted(_.ChatTimeout))

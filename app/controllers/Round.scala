@@ -12,7 +12,6 @@ import lila.game.NotationDump
 import lila.game.Pov
 import lila.game.{ Game => GameModel }
 import lila.socket.Socket.SocketVersion
-import lila.tournament.{ Tournament => Tour }
 import lila.user.{ User => UserModel }
 
 final class Round(
@@ -20,7 +19,6 @@ final class Round(
     gameC: => Game,
     challengeC: => Challenge,
     analyseC: => Analyse,
-    tournamentC: => Tournament,
 ) extends LilaController(env)
     with TheftPrevention {
 
@@ -38,7 +36,7 @@ final class Round(
             env.tournament.api.gameView.player(pov) flatMap { tour =>
               gameC.preloadUsers(pov.game) zip
                 (pov.game.simulId ?? env.simul.repo.find) zip
-                getPlayerChat(pov.game, tour.map(_.tour)) zip
+                getGameChat(pov.game) zip
                 (ctx.noBlind ?? env.game.crosstableApi
                   .withMatchup(pov.game)) zip
                 (pov.game.isSwitchable ?? otherPovs(pov.game)) zip
@@ -69,9 +67,9 @@ final class Round(
             pov.game.playableByAi ?? env.shoginet.player(pov.game)
             gameC.preloadUsers(pov.game) zip
               env.api.roundApi.player(pov, tour) zip
-              getPlayerChat(pov.game, none) map { case ((_, data), chat) =>
+              getGameChat(pov.game) map { case ((_, data), chat) =>
                 Ok(
-                  data.add("chat", chat.flatMap(_.game).map(c => lila.chat.JsonView(c.chat))),
+                  data.add("chat", chat.map(c => lila.chat.JsonView(c.chat))),
                 ).noCache
               }
           }
@@ -175,7 +173,7 @@ final class Round(
             else if (HTTPRequest.isHuman(ctx.req))
               env.tournament.api.gameView.watcher(pov.game) zip
                 (pov.game.simulId ?? env.simul.repo.find) zip
-                getWatcherChat(pov.game) zip
+                getGameChat(pov.game) zip
                 (ctx.noBlind ?? env.game.crosstableApi.withMatchup(pov.game)) zip
                 env.bookmark.api.exists(pov.game, ctx.me) flatMap {
                   case ((((tour, simul), chat), crosstable), bookmarked) =>
@@ -210,7 +208,7 @@ final class Round(
           json = for {
             data     <- env.api.roundApi.watcher(pov, none, tv = none)
             analysis <- analyser get pov.game
-            chat     <- getWatcherChat(pov.game)
+            chat     <- getGameChat(pov.game)
           } yield Ok {
             data
               .add("chat" -> chat.map(c => lila.chat.JsonView(c.chat)))
@@ -219,60 +217,18 @@ final class Round(
         ) dmap (_.noCache)
     }
 
-  private[controllers] def getWatcherChat(
-      game: GameModel,
-  )(implicit ctx: Context): Fu[Option[lila.chat.UserChat.Mine]] = {
-    ctx.noKid && ctx.me.fold(HTTPRequest isHuman ctx.req)(env.chat.panic.allowed) && {
-      game.finishedOrAborted || !ctx.userId.exists(game.userIds.contains)
-    }
-  } ?? {
-    val id = Chat.Id(s"${game.id}/w")
-    env.chat.api.userChat.findMineIf(id, ctx.me, !game.justCreated) flatMap { chat =>
-      env.user.lightUserApi.preloadMany(chat.chat.userIds) inject chat.some
-    }
-  }
-
-  private[controllers] def getPlayerChat(game: GameModel, tour: Option[Tour])(implicit
+  private[controllers] def getGameChat(game: GameModel)(implicit
       ctx: Context,
-  ): Fu[Option[Chat.GameOrEvent]] =
-    ctx.noKid ?? {
-      def toEventChat(resource: String)(c: lila.chat.UserChat.Mine) =
-        Chat
-          .GameOrEvent(
-            Right(
-              (
-                c truncate 100,
-                lila.chat.Chat.ResourceId(resource),
-              ),
-            ),
+  ): Fu[Option[Chat.Game]] =
+    (ctx.noKid && ctx.me.fold(HTTPRequest isHuman ctx.req)(env.chat.panic.allowed)) ?? {
+      env.chat.api.findMineIf(Chat.Id(game.id), ctx.me, !game.justCreated) flatMap { mine =>
+        env.user.lightUserApi.preloadMany(mine.chat.userIds) inject Chat
+          .Game(
+            mine.chat,
+            timeout = mine.timeout,
+            restricted = game.fromLobby && ctx.isAnon,
           )
           .some
-      (game.tournamentId, game.simulId) match {
-        case (Some(tid), _) =>
-          {
-            ctx.isAuth && tour.fold(true)(tournamentC.canHaveChat(_, none))
-          } ?? env.chat.api.userChat.cached
-            .findMine(Chat.Id(tid), ctx.me)
-            .dmap(toEventChat(s"tournament/$tid"))
-        case (_, Some(sid)) =>
-          env.chat.api.userChat.cached
-            .findMine(Chat.Id(sid), ctx.me)
-            .dmap(toEventChat(s"simul/$sid"))
-        case _ =>
-          game.hasChat ?? {
-            env.chat.api.playerChat.findIf(Chat.Id(game.id), !game.justCreated) map { chat =>
-              Chat
-                .GameOrEvent(
-                  Left(
-                    Chat.Restricted(
-                      chat,
-                      restricted = game.fromLobby && ctx.isAnon,
-                    ),
-                  ),
-                )
-                .some
-            }
-          }
       }
     }
 

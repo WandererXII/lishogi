@@ -47,7 +47,7 @@ final class Analyse(
         (env.analyse.analyser get pov.game) zip
           (!pov.game.metadata.analysed ?? env.shoginet.api.userAnalysisExists(pov.gameId)) zip
           (pov.game.simulId ?? env.simul.repo.find) zip
-          roundC.getWatcherChat(pov.game) zip
+          roundC.getGameChat(pov.game) zip
           env.bookmark.api.exists(pov.game, ctx.me) zip
           env.api.notationDump(
             pov.game,

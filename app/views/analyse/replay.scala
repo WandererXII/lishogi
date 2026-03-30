@@ -26,20 +26,17 @@ object replay {
       analysisStarted: Boolean,
       simul: Option[lila.simul.Simul],
       userTv: Option[lila.user.User],
-      chatOption: Option[lila.chat.UserChat.Mine],
+      chatOption: Option[lila.chat.Chat.Game],
       bookmarked: Boolean,
   )(implicit ctx: Context) = {
 
     import pov._
 
     val chatJson = chatOption map { c =>
-      views.html.chat.json(
-        c.chat,
-        name = trans.spectatorRoom.txt(),
-        timeout = c.timeout,
+      views.html.chat.gameJson(
+        c,
+        name = trans.chatRoom.txt(),
         withNoteAge = ctx.isAuth option game.secondsSinceCreation,
-        public = true,
-        resourceId = lila.chat.Chat.ResourceId(s"game/${c.chat.id}"),
         palantir = ctx.me.exists(_.canPalantir),
       )
     }

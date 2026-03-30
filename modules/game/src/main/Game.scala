@@ -109,8 +109,6 @@ case class Game(
   def isStandalone  = !isTourOrSimul
   def isMandatory   = (isTournament && !isArrangement) || isSimul
 
-  def hasChat = !isTournament && !isSimul && nonAi
-
   // Only for defined handicaps in shogi/Handicap.scala
   lazy val isHandicap: Boolean = initialSfen.fold(false)(sfen => Handicap.isHandicap(sfen, variant))
 

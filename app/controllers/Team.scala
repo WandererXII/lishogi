@@ -61,7 +61,7 @@ final class Team(
       members <- paginator.teamMembers(team, page)
       hasChat = canHaveChat(team, info)
       chat <-
-        hasChat ?? env.chat.api.userChat.cached
+        hasChat ?? env.chat.api.cached
           .findMine(lila.chat.Chat.Id(team.id), ctx.me)
           .map(some)
       _ <- env.user.lightUserApi preloadMany {

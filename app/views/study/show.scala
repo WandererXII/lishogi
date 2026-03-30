@@ -12,7 +12,7 @@ object show {
   def apply(
       sc: lila.study.Study.WithChapter,
       data: lila.study.JsonView.JsData,
-      chatOption: Option[lila.chat.UserChat.Mine],
+      chatOption: Option[lila.chat.Chat.Mine],
       socketVersion: lila.socket.Socket.SocketVersion,
       streams: List[lila.streamer.Stream],
   )(implicit ctx: Context) =
@@ -35,7 +35,6 @@ object show {
                 name = trans.chatRoom.txt(),
                 timeout = c.timeout,
                 writeable = ctx.userId exists sc.study.canChat,
-                public = true,
                 resourceId = lila.chat.Chat.ResourceId(s"study/${c.chat.id}"),
                 palantir = ctx.userId exists sc.study.isMember,
                 localMod = ctx.userId exists sc.study.canContribute,

@@ -37,7 +37,7 @@ final private class Takebacker(
           double(game) >>- publishTakeback(pov) dmap (_ -> situation)
         case Pov(game, color) if (game playerCanProposeTakeback color) && situation.offerable =>
           {
-            messenger.system(game, trans.takebackPropositionSent)
+            messenger.systemTrans(game, trans.takebackPropositionSent)
             val progress = Progress(game) map { g =>
               g.updatePlayer(color, _ proposeTakeback g.plies)
             }
@@ -54,7 +54,7 @@ final private class Takebacker(
     pov match {
       case Pov(game, color) if pov.player.isProposingTakeback =>
         proxy.save {
-          messenger.system(game, trans.takebackPropositionCanceled)
+          messenger.systemTrans(game, trans.takebackPropositionCanceled)
           Progress(game) map { g =>
             g.updatePlayer(color, _.removeTakebackProposition)
           }
@@ -63,7 +63,7 @@ final private class Takebacker(
         }
       case Pov(game, color) if pov.opponent.isProposingTakeback =>
         proxy.save {
-          messenger.system(game, trans.takebackPropositionDeclined)
+          messenger.systemTrans(game, trans.takebackPropositionDeclined)
           Progress(game) map { g =>
             g.updatePlayer(!color, _.removeTakebackProposition)
           }
@@ -121,7 +121,7 @@ final private class Takebacker(
 
   private def saveAndNotify(p1: Progress)(implicit proxy: GameProxy): Fu[Events] = {
     val p2 = p1 + Event.Reload
-    messenger.system(p2.game, trans.takebackPropositionAccepted)
+    messenger.systemTrans(p2.game, trans.takebackPropositionAccepted)
     proxy.save(p2) inject p2.events
   }
 

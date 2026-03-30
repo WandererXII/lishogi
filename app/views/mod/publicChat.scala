@@ -10,8 +10,8 @@ import lila.common.String.html.richText
 object publicChat {
 
   def apply(
-      tourChats: List[(lila.tournament.Tournament, lila.chat.UserChat)],
-      simulChats: List[(lila.simul.Simul, lila.chat.UserChat)],
+      tourChats: List[(lila.tournament.Tournament, lila.chat.Chat)],
+      simulChats: List[(lila.simul.Simul, lila.chat.Chat)],
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = "Public Chats",

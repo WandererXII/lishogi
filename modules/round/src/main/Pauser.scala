@@ -77,7 +77,7 @@ final private[round] class Pauser(
       case Pov(g, color) if g.paused =>
         if (isOfferingResume(g.id, !color)) {
           resumeOffers invalidate g.id
-          messenger.system(g, trans.gameResumed)
+          messenger.systemTrans(g, trans.gameResumed)
           val prog = Progress(g, g.resume, List(Event.Reload))
           proxy.save(prog) >>
             gameRepo.resume(
@@ -101,7 +101,7 @@ final private[round] class Pauser(
             )
         } else if (!isOfferingResume(g.id, color)) {
           resumeOffers.put(g.id, Pauser.ResumeOffers(sente = color.sente, gote = color.gote))
-          messenger.system(g, trans.xOffersResumption, (color, g.isHandicap).some)
+          messenger.systemTrans(g, trans.xOffersResumption, (color, g.isHandicap).some)
           fuccess(Left(List(Event.ResumeOffer(by = color.some))))
         } else fuccess(Left(List(Event.ReloadOwner)))
       case _ => fuccess(Left(List(Event.ReloadOwner)))
@@ -110,9 +110,13 @@ final private[round] class Pauser(
   def resumeNo(pov: Pov): Fu[Events] =
     if (pov.game.paused) {
       if (isOfferingResumeFromPov(pov)) {
-        messenger.system(pov.game, trans.resumptionOfferCanceled)
+        messenger.systemTrans(pov.game, trans.resumptionOfferCanceled)
       } else if (isOfferingResumeFromPov(!pov)) {
-        messenger.system(pov.game, trans.xDeclinesResumption, (pov.color, pov.game.isHandicap).some)
+        messenger.systemTrans(
+          pov.game,
+          trans.xDeclinesResumption,
+          (pov.color, pov.game.isHandicap).some,
+        )
       }
       resumeOffers invalidate pov.gameId
       fuccess(List(Event.ResumeOffer(by = none)))

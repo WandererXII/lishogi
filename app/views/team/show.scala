@@ -19,7 +19,7 @@ object show {
       t: Team,
       members: Paginator[lila.common.LightUser],
       info: TeamInfo,
-      chatOption: Option[lila.chat.UserChat.Mine],
+      chatOption: Option[lila.chat.Chat.Mine],
       socketVersion: Option[lila.socket.Socket.SocketVersion],
   )(implicit
       ctx: Context,
@@ -47,7 +47,6 @@ object show {
                 chat.chat,
                 name = if (t.isChatFor(_.LEADERS)) leadersChat.txt() else trans.chatRoom.txt(),
                 timeout = chat.timeout,
-                public = true,
                 resourceId = lila.chat.Chat.ResourceId(s"team/${chat.chat.id}"),
                 localMod = ctx.userId exists t.leaders.contains,
               ),

@@ -120,7 +120,7 @@ final class Tournament(
                   partial = false,
                 )
                 chat <-
-                  canHaveChat(tour, json.some) ?? env.chat.api.userChat.cached
+                  canHaveChat(tour, json.some) ?? env.chat.api.cached
                     .findMine(Chat.Id(tour.id), ctx.me)
                     .dmap(some)
                 challenges <- ctx.me.ifTrue(tour.hasArrangements) ?? { me =>

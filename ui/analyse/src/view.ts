@@ -516,6 +516,16 @@ export default function (ctrl: AnalyseCtrl): VNode {
                       hook: onInsert(_ => {
                         if (ctrl.opts.chat.instance) ctrl.opts.chat.instance.destroy();
                         ctrl.opts.chat.parseMoves = true;
+
+                        const data = ctrl.opts.data;
+                        const sentePlayer =
+                          data.player.color === 'sente' ? data.player : data.opponent;
+                        const gotePlayer =
+                          data.player.color === 'gote' ? data.player : data.opponent;
+                        ctrl.opts.chat.players = {
+                          sente: sentePlayer.user?.id,
+                          gote: gotePlayer.user?.id,
+                        };
                         ctrl.opts.chat.instance = makeChat(ctrl.opts.chat);
                       }),
                     })

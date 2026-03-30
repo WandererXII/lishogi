@@ -10,7 +10,7 @@ import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
 import shogi.{ Clock => ShogiClock }
 
-import lila.chat.PlayerLine
+import lila.chat.AnonLine
 import lila.chat.UserLine
 import lila.common.Json._
 import lila.game.JsonView._
@@ -20,7 +20,6 @@ sealed trait Event {
   def data: JsValue
   def only: Option[Color]   = None
   def owner: Boolean        = false
-  def watcher: Boolean      = false
   def troll: Boolean        = false
   def moveBy: Option[Color] = None
 }
@@ -89,19 +88,16 @@ object Event {
     override def only = Some(color)
   }
 
-  case class PlayerMessage(line: PlayerLine) extends Event {
+  case class AnonMessage(line: AnonLine) extends Event {
     def typ            = "message"
     def data           = lila.chat.JsonView(line)
-    override def owner = true
     override def troll = false
   }
 
-  case class UserMessage(line: UserLine, w: Boolean) extends Event {
-    def typ              = "message"
-    def data             = lila.chat.JsonView(line)
-    override def troll   = line.troll
-    override def watcher = w
-    override def owner   = !w
+  case class UserMessage(line: UserLine) extends Event {
+    def typ            = "message"
+    def data           = lila.chat.JsonView(line)
+    override def troll = line.troll
   }
 
   case class EndData(game: Game, afterPerfsData: Option[(RatingDiffs, Provisionals)])

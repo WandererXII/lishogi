@@ -1,7 +1,6 @@
 package lila.mod
 
 import lila.chat.Chat
-import lila.chat.UserChat
 import lila.report.Suspect
 import lila.simul.Simul
 import lila.tournament.Tournament
@@ -12,33 +11,33 @@ final class PublicChat(
     simulEnv: lila.simul.Env,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  def all: Fu[(List[(Tournament, UserChat)], List[(Simul, UserChat)])] =
+  def all: Fu[(List[(Tournament, Chat)], List[(Simul, Chat)])] =
     tournamentChats zip simulChats
 
   def delete(suspect: Suspect): Funit =
     all.flatMap { case (tours, simuls) =>
       (tours.map(_._2) ::: simuls.map(_._2))
         .filter(_ hasLinesOf suspect.user)
-        .map(chatApi.userChat.delete(_, suspect.user, _.Global))
+        .map(chatApi.delete(_, suspect.user, _.Global))
         .sequenceFu
         .void
     }
 
   // only auto scheduled
-  private def tournamentChats: Fu[List[(Tournament, UserChat)]] =
+  private def tournamentChats: Fu[List[(Tournament, Chat)]] =
     tournamentApi.startedScheduled.flatMap { tours =>
       val ids = tours.map(_.id) map Chat.Id.apply
-      chatApi.userChat.findAll(ids).map { chats =>
+      chatApi.findAll(ids).map { chats =>
         chats.map { chat =>
           tours.find(_.id == chat.id.value).map(tour => (tour, chat))
         }.flatten
       } map sortTournamentsByRelevance
     }
 
-  private def simulChats: Fu[List[(Simul, UserChat)]] =
+  private def simulChats: Fu[List[(Simul, Chat)]] =
     fetchVisibleSimuls.flatMap { simuls =>
       val ids = simuls.map(_.id) map Chat.Id.apply
-      chatApi.userChat.findAll(ids).map { chats =>
+      chatApi.findAll(ids).map { chats =>
         chats.map { chat =>
           simuls.find(_.id == chat.id.value).map(simul => (simul, chat))
         }.flatten
@@ -55,6 +54,6 @@ final class PublicChat(
 
   /** Sort the tournaments by the tournaments most likely to require moderation attention
     */
-  private def sortTournamentsByRelevance(tournaments: List[(Tournament, UserChat)]) =
+  private def sortTournamentsByRelevance(tournaments: List[(Tournament, Chat)]) =
     tournaments.sortBy(-_._1.nbPlayers)
 }

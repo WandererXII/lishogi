@@ -67,7 +67,7 @@ final class Simul(
                 )
               },
             )
-            chat <- canHaveChat ?? env.chat.api.userChat.cached
+            chat <- canHaveChat ?? env.chat.api.cached
               .findMine(Chat.Id(sim.id), ctx.me)
               .map(some)
             _ <- chat ?? { c =>

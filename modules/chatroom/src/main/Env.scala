@@ -22,14 +22,14 @@ final class Env(
 
   private val chatroomSocket = wire[ChatroomSocket]
 
-  def get(me: Option[User]) = chatApi.userChat.cached
+  def get(me: Option[User]) = chatApi.cached
     .findMine(lila.chat.Chat.Id(lishogiChatroomId), me)
 
   def version(id: lila.chat.Chat.Id) =
     chatroomSocket.rooms.ask[SocketVersion](id.value)(GetVersion)
 
   system.scheduler.scheduleWithFixedDelay(80 seconds, 10 minutes) { () =>
-    chatApi.userChat.clearInactive(lila.chat.Chat.Id(lishogiChatroomId), _.Chatroom).unit
+    chatApi.clearInactive(lila.chat.Chat.Id(lishogiChatroomId), _.Chatroom).unit
   }
 
 }

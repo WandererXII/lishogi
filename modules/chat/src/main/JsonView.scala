@@ -11,11 +11,7 @@ object JsonView {
 
   lazy val timeoutReasons = Json toJson ChatTimeout.Reason.all
 
-  def apply(chat: AnyChat): JsValue =
-    chat match {
-      case c: MixedChat => mixedChatWriter writes c
-      case c: UserChat  => userChatWriter writes c
-    }
+  def apply(chat: Chat): JsValue = chatWriter writes chat
 
   def apply(line: Line): JsObject = lineWriter writes line
 
@@ -24,13 +20,13 @@ object JsonView {
       "history" -> u.history,
     )
 
-  def mobile(chat: AnyChat, writeable: Boolean = true) =
+  def mobile(chat: Chat, writeable: Boolean = true) =
     Json.obj(
       "lines"     -> apply(chat),
       "writeable" -> writeable,
     )
 
-  def boardApi(chat: UserChat) = JsArray {
+  def boardApi(chat: Chat) = JsArray {
     chat.lines collect {
       case UserLine(name, _, text, troll, del) if !troll && !del =>
         Json.obj("text" -> text, "user" -> name)
@@ -57,17 +53,13 @@ object JsonView {
         )
       }
 
-    implicit val mixedChatWriter: Writes[MixedChat] = Writes[MixedChat] { c =>
+    implicit val chatWriter: Writes[Chat] = Writes[Chat] { c =>
       JsArray(c.lines map lineWriter.writes)
     }
 
-    implicit val userChatWriter: Writes[UserChat] = Writes[UserChat] { c =>
-      JsArray(c.lines map userLineWriter.writes)
-    }
-
     implicit private[chat] val lineWriter: OWrites[Line] = OWrites[Line] {
-      case l: UserLine   => userLineWriter writes l
-      case l: PlayerLine => playerLineWriter writes l
+      case l: UserLine => userLineWriter writes l
+      case l: AnonLine => anonLineWriter writes l
     }
 
     implicit private val userLineWriter: OWrites[UserLine] = OWrites[UserLine] { l =>
@@ -81,7 +73,7 @@ object JsonView {
         .add("title" -> l.title)
     }
 
-    implicit private val playerLineWriter: OWrites[PlayerLine] = OWrites[PlayerLine] { l =>
+    implicit private val anonLineWriter: OWrites[AnonLine] = OWrites[AnonLine] { l =>
       Json.obj(
         "c" -> l.color.name,
         "t" -> l.text,

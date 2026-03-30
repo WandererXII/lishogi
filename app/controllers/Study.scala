@@ -288,7 +288,7 @@ final class Study(
     ctx.me.fold(true) { // anon can see public chats
       env.chat.panic.allowed
     }
-  } ?? env.chat.api.userChat
+  } ?? env.chat.api
     .findMine(Chat.Id(study.id.value), ctx.me)
     .dmap(some)
     .mon(_.chat.fetch("study"))

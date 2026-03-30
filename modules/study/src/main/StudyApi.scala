@@ -151,7 +151,7 @@ final class StudyApi(
         .flatMap { (first: Chapter) =>
           val study = study1 rewindTo first
           studyRepo.insert(study) >>
-            chatApi.userChat.system(
+            chatApi.system(
               Chat.Id(study.id.value),
               s"Cloned from lishogi.org/study/${prev.id}",
               _.Study,
@@ -186,13 +186,13 @@ final class StudyApi(
     byId(studyId) foreach {
       _ foreach { study =>
         (study canChat userId) ?? {
-          chatApi.userChat.write(
+          chatApi.write(
             Chat.Id(studyId.value),
             userId = userId,
             text = text,
             publicSource = lila.hub.actorApi.shutup.PublicSource.Study(studyId.value).some,
             busChan = _.Study,
-            permanent = true,
+            permanentChat = true,
           )
         }
       }

@@ -9,7 +9,7 @@ import lila.app.ui.ScalatagsTemplate._
 object chatroom {
 
   def show(
-      chat: lila.chat.UserChat.Mine,
+      chat: lila.chat.Chat.Mine,
       socketVersion: lila.socket.Socket.SocketVersion,
   )(implicit
       ctx: Context,
@@ -26,7 +26,6 @@ object chatroom {
             name = trans.chatRoom.txt(),
             timeout = chat.timeout,
             resourceId = lila.chat.Chat.ResourceId(s"chatroom/${chat.chat.id}"),
-            public = true,
             palantir = false,
           ),
         ),

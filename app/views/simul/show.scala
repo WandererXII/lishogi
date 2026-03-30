@@ -13,7 +13,7 @@ object show {
       sim: lila.simul.Simul,
       socketVersion: lila.socket.Socket.SocketVersion,
       data: play.api.libs.json.JsObject,
-      chatOption: Option[lila.chat.UserChat.Mine],
+      chatOption: Option[lila.chat.Chat.Mine],
       stream: Option[lila.streamer.Stream],
       team: Option[lila.team.Team],
   )(implicit ctx: Context) =
@@ -32,7 +32,6 @@ object show {
                 c.chat,
                 name = trans.chatRoom.txt(),
                 timeout = c.timeout,
-                public = true,
                 resourceId = lila.chat.Chat.ResourceId(s"simul/${c.chat.id}"),
                 localMod = ctx.userId has sim.hostId,
               )

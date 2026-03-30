@@ -62,10 +62,10 @@ final private class Rematcher(
       pov.opponent.userId foreach { forId =>
         Bus.publish(lila.hub.actorApi.round.RematchCancel(pov.gameId), s"rematchFor:$forId")
       }
-      messenger.system(pov.game, trans.rematchOfferCanceled)
+      messenger.systemTrans(pov.game, trans.rematchOfferCanceled)
     } else if (isOfferingFromPov(!pov)) {
       declined put pov.fullId
-      messenger.system(pov.game, trans.rematchOfferDeclined)
+      messenger.systemTrans(pov.game, trans.rematchOfferDeclined)
     }
     rematches.drop(pov.gameId)
     Bus.publish(
@@ -105,7 +105,7 @@ final private class Rematcher(
             lila.hub.actorApi.round.RematchChallengeDelete(pov.gameId),
             "rematchChallengeDelete",
           )
-        messenger.system(pov.game, trans.rematchOfferAccepted)
+        messenger.systemTrans(pov.game, trans.rematchOfferAccepted)
         onStart(nextGame.id)
         redirectEvents(nextGame)
       }
@@ -119,7 +119,7 @@ final private class Rematcher(
 
   private def rematchCreate(pov: Pov): Fu[Events] =
     rematches.offer(pov.ref) map { _ =>
-      messenger.system(pov.game, trans.rematchOfferSent)
+      messenger.systemTrans(pov.game, trans.rematchOfferSent)
       pov.opponent.userId foreach { forId =>
         Bus.publish(lila.hub.actorApi.round.RematchOffer(pov.gameId), s"rematchFor:$forId")
       }

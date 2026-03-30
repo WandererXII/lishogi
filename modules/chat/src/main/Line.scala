@@ -12,6 +12,7 @@ sealed trait Line {
   def isHuman     = !isSystem
   def humanAuthor = isHuman option author
   def troll: Boolean
+  def isVisible = !troll && !deleted
 }
 
 case class UserLine(
@@ -28,9 +29,9 @@ case class UserLine(
 
   def delete = copy(deleted = true)
 
-  def isVisible = !troll && !deleted
 }
-case class PlayerLine(
+
+case class AnonLine(
     color: Color,
     text: String,
 ) extends Line {
@@ -43,6 +44,9 @@ object Line {
 
   val textMaxSize = 140
   val titleSep    = '~'
+
+  val trollSep   = "!"
+  val deletedSep = "?"
 
   import reactivemongo.api.bson._
 
@@ -63,8 +67,8 @@ object Line {
   private def strToUserLine(str: String): Option[UserLine] =
     str match {
       case UserLineRegex(username, sep, text) =>
-        val troll   = sep == "!"
-        val deleted = sep == "?"
+        val troll   = sep == trollSep
+        val deleted = sep == deletedSep
         username split titleSep match {
           case Array(title, name) =>
             UserLine(name, Some(title), text, troll = troll, deleted = deleted).some
@@ -74,8 +78,8 @@ object Line {
     }
   def userLineToStr(x: UserLine): String = {
     val sep =
-      if (x.troll) "!"
-      else if (x.deleted) "?"
+      if (x.troll) trollSep
+      else if (x.deleted) deletedSep
       else " "
     val tit = x.title.??(_ + titleSep)
     s"$tit${x.username}$sep${x.text}"
@@ -84,12 +88,12 @@ object Line {
   def strToLine(str: String): Option[Line] =
     strToUserLine(str) orElse {
       str.headOption flatMap Color.apply map { color =>
-        PlayerLine(color, str drop 2)
+        AnonLine(color, str drop 2)
       }
     }
   def lineToStr(x: Line) =
     x match {
-      case u: UserLine   => userLineToStr(u)
-      case p: PlayerLine => s"${p.color.letter} ${p.text}"
+      case u: UserLine => userLineToStr(u)
+      case p: AnonLine => s"${p.color.letter} ${p.text}"
     }
 }

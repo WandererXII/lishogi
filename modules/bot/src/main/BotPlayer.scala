@@ -55,13 +55,11 @@ final class BotPlayer(
   def chat(gameId: Game.ID, me: User, d: BotForm.ChatData) =
     fuccess {
       lila.mon.bot.chats(me.username).increment()
-      val chatId = lila.chat.Chat.Id {
-        if (d.room == "player") gameId else s"$gameId/w"
-      }
+      val chatId = lila.chat.Chat.Id(gameId)
       val source = d.room == "spectator" option {
         lila.hub.actorApi.shutup.PublicSource.Watcher(gameId)
       }
-      chatApi.userChat.write(chatId, me.id, d.text, publicSource = source, _.Round)
+      chatApi.write(chatId, me.id, d.text, publicSource = source, _.Round)
     }
 
   def rematchAccept(id: Game.ID, me: User): Fu[Boolean] = rematch(id, me, true)

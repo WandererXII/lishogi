@@ -19,29 +19,18 @@ object player {
       simul: Option[lila.simul.Simul],
       cross: Option[lila.game.Crosstable.WithMatchup],
       playing: List[Pov],
-      chatOption: Option[lila.chat.Chat.GameOrEvent],
+      chatOption: Option[lila.chat.Chat.Game],
       bookmarked: Boolean,
   )(implicit ctx: Context) = {
 
-    val chatJson = chatOption.map(_.either).map {
-      case Left(c) =>
-        chat.restrictedJson(
-          c,
-          name = trans.chatRoom.txt(),
-          timeout = false,
-          withNoteAge = ctx.isAuth option pov.game.secondsSinceCreation,
-          public = false,
-          resourceId = lila.chat.Chat.ResourceId(s"game/${c.chat.id}"),
-          palantir = ctx.me.exists(_.canPalantir),
-        )
-      case Right((c, res)) =>
-        chat.json(
-          c.chat,
-          name = trans.chatRoom.txt(),
-          timeout = c.timeout,
-          public = true,
-          resourceId = res,
-        )
+    val chatJson = chatOption.map { c =>
+      chat.gameJson(
+        c,
+        name = trans.chatRoom.txt(),
+        withNoteAge = ctx.isAuth option pov.game.secondsSinceCreation,
+        loginRequired = false,
+        palantir = ctx.me.exists(_.canPalantir),
+      )
     }
 
     bits.layout(
