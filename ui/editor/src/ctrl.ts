@@ -117,6 +117,34 @@ export default class EditorCtrl {
     }
   }
 
+  lastClick: number | undefined;
+  doubleClickPieceUpdate(key: Key): void {
+    if (this.selected() !== 'pointer') return;
+
+    const now = Date.now();
+    const doubleClickSpeed = 350;
+
+    if (this.lastClick && now - this.lastClick < doubleClickSpeed) {
+      const piece = this.shogiground.state.pieces.get(key);
+      if (piece) {
+        const promoted = promote(this.rules)(piece.role as Role);
+        if (promoted) piece.role = promoted;
+        else {
+          const unpromoted = unpromote(this.rules)(piece.role as Role);
+          piece.role = unpromoted || piece.role;
+          piece.color = opposite(piece.color);
+        }
+
+        this.shogiground.state.dom.redraw();
+        this.onChange();
+      }
+
+      this.lastClick = undefined;
+    } else {
+      this.lastClick = now;
+    }
+  }
+
   onChange(history = false, pushState = false): void {
     const sfen = this.getSfen();
     this.data.sfen = sfen;

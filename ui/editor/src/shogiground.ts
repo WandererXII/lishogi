@@ -76,6 +76,7 @@ export function makeConfig(ctrl: EditorCtrl): SgConfig {
     },
     events: {
       change: ctrl.onChange.bind(ctrl),
+      select: ctrl.doubleClickPieceUpdate.bind(ctrl),
       insert(boardEls?: BoardElements, _handEls?: HandElements) {
         if (!ctrl.data.embed && boardEls)
           resizeHandle(boardEls, ctrl.data.pref.resizeHandle, { visible: () => true });
