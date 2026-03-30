@@ -25,7 +25,7 @@ case class Crosstable(
 
 object Crosstable {
 
-  val maxGames = 15
+  val maxGames = 12
 
   def empty(u1: lila.user.User.ID, u2: lila.user.User.ID) =
     Crosstable(
