@@ -36,9 +36,9 @@ export function boot(
       });
   }
   function getPresetGroup(d: RoundData) {
-    if (d.player.spectator) return;
-    if (d.steps.length < 4) return 'start';
-    else if (finished(d)) return 'end';
+    if (d.player.spectator || d.opponent.ai) return;
+    if (finished(d)) return 'end';
+    else if (d.steps.length < 4) return 'start';
     return;
   }
 
