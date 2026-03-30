@@ -130,6 +130,7 @@ export function view(ctrl: StudyFormCtrl): VNode {
             const obj: FormData = {};
             [
               'name',
+              'lang',
               'visibility',
               'computer',
               'cloneable',

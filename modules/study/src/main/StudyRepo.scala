@@ -101,6 +101,7 @@ final class StudyRepo(private[study] val coll: AsyncColl)(implicit
             "description" -> ~s.description,
             "updatedAt"   -> DateTime.now,
             "icon"        -> s.icon,
+            "lang"        -> s.lang,
           ),
         )
     }.void

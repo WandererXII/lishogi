@@ -90,6 +90,7 @@ final class JsonView(
         "members"   -> s.study.members.members.values.take(4),
       )
       .add("icon" -> s.study.icon)
+      .add("lang" -> s.study.lang)
 
   def embed(study: Study, currentChapter: Chapter, chapters: List[Chapter.IdName]) =
     Json.obj(
@@ -165,6 +166,7 @@ final class JsonView(
       .add("isNew" -> s.isNew)
       .add("postGameStudy" -> s.postGameStudy)
       .add("icon" -> s.icon)
+      .add("lang" -> s.lang)
   }
 }
 
