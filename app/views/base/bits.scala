@@ -42,7 +42,7 @@ z-index: 99;
     div(cls := "connect-links")(
       a(href := "https://discord.gg/YFtpMGg3rR", target := "_blank", rel := "nofollow")("Discord"),
       a(href := "https://github.com/WandererXII/lishogi", target := "_blank", rel := "nofollow")(
-        "GtiHub",
+        "GitHub",
       ),
       a(href := "https://twitter.com/lishogi", target := "_blank", rel := "nofollow")("Twitter"),
     )
