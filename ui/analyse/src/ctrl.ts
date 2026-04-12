@@ -13,6 +13,7 @@ import * as game from 'game';
 import { i18n, i18nPluralSame } from 'i18n';
 import { i18nVariant } from 'i18n/variant';
 import { flipMetaPlayers, plyColor, usiToRole } from 'shogi/common';
+import { baseGlyphs } from 'shogi/glyphs';
 import { isImpasse as impasse } from 'shogi/impasse';
 import { makeNotation } from 'shogi/notation';
 import { Shogiground } from 'shogiground';
@@ -274,6 +275,8 @@ export default class AnalyseCtrl {
     });
     if (this.practice) this.restartPractice();
     flipMetaPlayers(this.bottomColor());
+    if (this.opts.mode === 'replay')
+      history.replaceState(null, '', `/${this.data.game.id}/${this.bottomColor()}`);
     this.redraw();
   };
 
@@ -640,7 +643,7 @@ export default class AnalyseCtrl {
     this.jump(newPath);
     this.redraw();
     const queuedUsi = this.pvUsiQueue.shift();
-    if (queuedUsi) this.playUsi(queuedUsi, this.pvUsiQueue);
+    if (queuedUsi) setTimeout(() => this.playUsi(queuedUsi, this.pvUsiQueue), 100);
     else this.shogiground.playPremove();
   }
 
@@ -699,6 +702,20 @@ export default class AnalyseCtrl {
 
   setShapes = (shapes?: DrawShape[]): void => {
     if (shapes) this.shogiground.setShapes(shapes);
+  };
+
+  setGlyph = (path: string, glyph: Tree.Glyph): void => {
+    const node = this.tree.nodeAtPath(path);
+    if (!node) return;
+
+    const glyphs = node.glyphs || [];
+
+    // unset glyph or add one unique base glyph
+    node.glyphs = glyphs.some(g => g.id === glyph.id)
+      ? glyphs.filter(g => g.id !== glyph.id)
+      : [...glyphs.filter(g => !baseGlyphs.some(bg => bg.id === g.id)), glyph];
+
+    this.redraw();
   };
 
   private initNotation = (): void => {

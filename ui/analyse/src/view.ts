@@ -373,7 +373,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
   const needsInnerCoords = !!playerBars;
 
   return h(
-    `main.sb-insert.analyse.main-v-${ctrl.data.game.variant.key}`, // sb-insert - to force snabbdom to call insert
+    `main.sb-insert.analyse.main-v-${ctrl.data.game.variant.key}.mode-${ctrl.opts.mode}`, // sb-insert - to force snabbdom to call insert
     {
       hook: {
         insert: () => {
@@ -501,6 +501,15 @@ export default function (ctrl: AnalyseCtrl): VNode {
                   ? h('div.meta', {
                       hook: onInsert(el => {
                         $(el).replaceWith(ctrl.opts.$meta!);
+
+                        const rematchButton = document.querySelector(
+                          '.game__links .button.rematch',
+                        );
+                        rematchButton?.addEventListener('click', () => {
+
+                          ctrl.socket.send('rematch-yes');
+                          rematchButton.classList.toggle('sent');
+                        });
                       }),
                     })
                   : null,
@@ -516,6 +525,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
                       hook: onInsert(_ => {
                         if (ctrl.opts.chat.instance) ctrl.opts.chat.instance.destroy();
                         ctrl.opts.chat.parseMoves = true;
+                        ctrl.opts.chat.playerFilter = !finished(ctrl.data);
 
                         const data = ctrl.opts.data;
                         const sentePlayer =
@@ -532,7 +542,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
                   : null,
               ),
             ),
-      ctrl.embed ? null : chatMembers(),
+      ctrl.embed ? null : ctrl.opts.mode === 'replay' ? chatGameMembers() : chatMembers(),
     ],
   );
 }

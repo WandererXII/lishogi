@@ -1,6 +1,7 @@
 import { icons } from 'common/icons';
 import { bind, onInsert } from 'common/snabbdom';
 import { i18n } from 'i18n';
+import { baseGlyphs } from 'shogi/glyphs';
 import { h, type VNode } from 'snabbdom';
 import type { TreeWrapper } from 'tree';
 import type AnalyseCtrl from '../ctrl';
@@ -101,6 +102,22 @@ function view(opts: Opts, coords: Coords): VNode {
     },
     [
       h('p.title.inlined', nodeFullName(node)),
+      ctrl.study
+        ? h(
+            'div.glyphs',
+            baseGlyphs.map(glyph => {
+              const active = (node.glyphs || []).map(g => g.id).includes(glyph.id);
+              return h('a', {
+                class: { active },
+                attrs: { 'data-symbol': glyph.symbol, type: 'button', title: glyph.name },
+                hook: bind('click', () => {
+                  if (ctrl.study) ctrl.study.glyphForm.toggleGlyph(glyph.id);
+                  else ctrl.setGlyph(opts.path, glyph);
+                }),
+              });
+            }),
+          )
+        : null,
       onMainline || !isNestedInsideNested(ctrl.tree, opts.path)
         ? null
         : action(icons.up, i18n('promoteVariation'), () => ctrl.promote(opts.path, false)),

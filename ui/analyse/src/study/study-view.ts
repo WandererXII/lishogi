@@ -153,7 +153,7 @@ function postGameButtons(ctrl: StudyCtrl): MaybeVNode {
       {
         attrs: {
           title: i18n('backToGame'),
-          href: `/${ctrl.data.postGameStudy.gameId}${me?.playerId || ''}`,
+          href: `/${ctrl.data.postGameStudy.gameId}`,
           ...dataIcon(icons.back),
         },
       },
@@ -179,17 +179,13 @@ function postGameButtons(ctrl: StudyCtrl): MaybeVNode {
                 : myOpponent.userId
                   ? `${i18n('rematch')} ${myOpponent.userId}`
                   : 'Cannot rematch anonymous player in study',
+              ...dataIcon(icons.challenge),
             },
             hook: bind('click', () => {
               ctrl.rematch(!ctrl.data.postGameStudy?.rematches[myColor]);
             }),
           },
           offering ? h('span', { attrs: dataIcon(icons.cancel) }) : i18n('rematch'),
-        ),
-        h(
-          'a.button.button-empty',
-          { attrs: { href: `/?hook_like=${ctrl.data.postGameStudy.gameId}` } },
-          i18n('newOpponent'),
         ),
       ]);
     } else return h('div.game_info', gameBackButton);

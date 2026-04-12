@@ -56,7 +56,6 @@ export interface AnalyseOpts {
   data: AnalyseData;
   initialPly?: number | string;
   userId: string | null;
-  hunter: boolean;
   mode: 'replay' | 'study' | 'analyse' | 'practice';
   embed: boolean;
   socketSend: Socket.Send;
@@ -69,6 +68,7 @@ export interface AnalyseOpts {
   $underboard?: JQuery;
   chat: any;
   socketVersion: number;
+  playerId?: string;
 }
 
 export type Conceal = boolean | 'conceal' | 'hide' | null;

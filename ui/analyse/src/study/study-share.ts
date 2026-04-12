@@ -196,6 +196,19 @@ export function view(ctrl: StudyShareCtrl): VNode {
             i18n('study:chapterCsa'),
           )
         : null,
+      'standard' === chapter.variant
+        ? h(
+            'a.button.text',
+            {
+              attrs: {
+                'data-icon': icons.share,
+                href: `/study/${studyId}/${chapter.id}.gif`,
+                download: true,
+              },
+            },
+            'GIF',
+          )
+        : null,
       ctrl.cloneable
         ? h(
             'a.button.text',
@@ -206,19 +219,6 @@ export function view(ctrl: StudyShareCtrl): VNode {
               },
             },
             i18n('study:cloneStudy'),
-          )
-        : null,
-      'standard' === chapter.variant
-        ? h(
-            'a.button.text',
-            {
-              attrs: {
-                'data-icon': icons.download,
-                href: `/study/${studyId}/${chapter.id}.gif`,
-                download: true,
-              },
-            },
-            'GIF',
           )
         : null,
     ]),

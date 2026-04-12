@@ -1,4 +1,3 @@
-import { isCol1 } from 'common/mobile';
 import { type StoredProp, storedProp } from 'common/storage';
 import type { VNode } from 'snabbdom';
 import type AnalyseCtrl from '../ctrl';
@@ -35,7 +34,5 @@ export function ctrl(initialValue: TreeViewKey = 'column'): TreeView {
 
 // entry point, dispatching to selected view
 export function render(ctrl: AnalyseCtrl, concealOf?: ConcealOf): VNode {
-  return (ctrl.treeView.inline() || isCol1()) && !concealOf
-    ? inline(ctrl)
-    : column(ctrl, concealOf);
+  return ctrl.treeView.inline() && !concealOf ? inline(ctrl) : column(ctrl, concealOf);
 }

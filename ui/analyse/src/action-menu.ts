@@ -204,7 +204,7 @@ export function view(ctrl: AnalyseCtrl): VNode {
               attrs: {
                 href: d.userAnalysis
                   ? editor(d.game.variant.key, ctrl.node.sfen, ctrl.shogiground.state.orientation)
-                  : `/${d.game.id}/edit?sfen=${encodeSfen(ctrl.node.sfen, true)}`,
+                  : `/${d.game.id}/edit?sfen=${encodeSfen(ctrl.node.sfen, true)}&orientation=${ctrl.bottomColor()}`,
                 rel: 'nofollow',
                 target: ctrl.embed ? '_blank' : '',
                 'data-icon': icons.pencil,
