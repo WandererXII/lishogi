@@ -1,3 +1,4 @@
+import { randomNumber } from 'common/common';
 import { wsSend } from 'common/ws';
 
 export default function (serverKey: string): Promise<string> {
@@ -18,7 +19,6 @@ function xor(a: string, b: string) {
 function randomAscii(length: number) {
   const result = [];
   // start after '!' which is used as delimiter
-  for (let i = 0; i < length; i++)
-    result.push(String.fromCharCode(34 + Math.floor(Math.random() * 92)));
+  for (let i = 0; i < length; i++) result.push(String.fromCharCode(34 + randomNumber(92)));
   return result.join('');
 }

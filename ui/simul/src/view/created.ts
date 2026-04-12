@@ -1,3 +1,4 @@
+import { randomNumber } from 'common/common';
 import { icons } from 'common/icons';
 import { modal } from 'common/modal';
 import { getPerfIcon } from 'common/perf-icons';
@@ -264,7 +265,7 @@ const randomButton = (ctrl: SimulCtrl) =>
       },
       hook: bind('click', () => {
         const candidates = ctrl.candidates();
-        const randomCandidate = candidates[Math.floor(Math.random() * candidates.length)];
+        const randomCandidate = candidates[randomNumber(candidates.length)];
         xhr.accept(randomCandidate.player.id)(ctrl.data.id);
       }),
     },

@@ -1,3 +1,4 @@
+import { randomNumber } from 'common/common';
 import { i18n } from 'i18n';
 
 const list = [
@@ -14,5 +15,5 @@ const list = [
 ];
 
 export default function (): string {
-  return list[Math.floor(Math.random() * list.length)];
+  return list[randomNumber(list.length)];
 }

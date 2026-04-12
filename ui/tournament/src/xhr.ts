@@ -1,9 +1,10 @@
+import { randomNumber } from 'common/common';
 import throttle from 'common/throttle';
 import type TournamentController from './ctrl';
 import type { Arrangement } from './interfaces';
 
 function onFail() {
-  setTimeout(window.lishogi.reload, Math.floor(Math.random() * 9000));
+  setTimeout(window.lishogi.reload, randomNumber(9000));
 }
 
 function join(ctrl: TournamentController, password?: string, team?: string) {

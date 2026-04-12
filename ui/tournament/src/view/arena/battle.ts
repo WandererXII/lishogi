@@ -1,3 +1,4 @@
+import { randomNumber } from 'common/common';
 import { icons } from 'common/icons';
 import { bind, type MaybeVNode, onInsert } from 'common/snabbdom';
 import { i18nPluralSame } from 'i18n';
@@ -174,7 +175,7 @@ function teamTr(ctrl: TournamentController, battle: TeamBattle, team: RankedTeam
 /* Randomize array element order in-place. Using Durstenfeld shuffle algorithm. */
 function shuffleArray<A>(array: A[]) {
   for (let i = array.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+    const j = randomNumber(i + 1);
     [array[i], array[j]] = [array[j], array[i]];
   }
   return array;

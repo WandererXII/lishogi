@@ -1,3 +1,4 @@
+import { randomNumber } from 'common/common';
 import type { DropDests, MoveDests } from 'shogiground/types';
 import { SquareSet } from 'shogiops/square-set';
 import type { NormalMove, PieceName, Square } from 'shogiops/types';
@@ -52,9 +53,9 @@ export function illegalShogigroundDropDests(pos: Position): DropDests {
 export function findRandomMove(pos: Position): Usi | undefined {
   const moveDests = pos.allMoveDests();
   const origs: Square[] = Array.from(moveDests.keys()).filter(sq => moveDests.get(sq)?.nonEmpty());
-  const randomOrig: Square | undefined = origs[Math.floor(Math.random() * origs.length)];
+  const randomOrig: Square | undefined = origs[randomNumber(origs.length)];
   const dests: Square[] = Array.from(moveDests.get(randomOrig)!);
-  const randomDest: Square | undefined = dests[Math.floor(Math.random() * dests.length)];
+  const randomDest: Square | undefined = dests[randomNumber(dests.length)];
 
   if (randomOrig !== undefined && randomDest !== undefined)
     return makeUsi({ from: randomOrig, to: randomDest });

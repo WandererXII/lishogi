@@ -40,3 +40,7 @@ export const memoize = <A>(compute: () => A): (() => A) => {
 export const useJapanese: () => boolean = memoize(() => document.documentElement.lang === 'ja');
 
 export const isOnline: () => boolean = () => !('onLine' in navigator) || navigator.onLine;
+
+export const randomNumber = (max: number): number => {
+  return Math.floor(Math.random() * max);
+};

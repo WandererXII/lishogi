@@ -1,4 +1,4 @@
-import { requestIdleCallbackWithFallback } from 'common/common';
+import { randomNumber, requestIdleCallbackWithFallback } from 'common/common';
 import { icons } from 'common/icons';
 import { modalJs } from 'common/modal';
 import notify from 'common/notification';
@@ -757,7 +757,7 @@ export default class RoundController {
       i18n('learn:outstanding'),
       i18n('learn:wayToGo'),
     ];
-    const congrats = congratsList[Math.floor(Math.random() * congratsList.length)];
+    const congrats = congratsList[randomNumber(congratsList.length)];
 
     modalJs({
       content: `

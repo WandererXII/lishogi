@@ -1,4 +1,5 @@
 import type { Challenge, ChallengeData } from 'challenge/interfaces';
+import { randomNumber } from 'common/common';
 import { type StoredJsonProp, type StoredProp, storedJsonProp, storedProp } from 'common/storage';
 import { ids } from 'game/status';
 import type {
@@ -132,11 +133,11 @@ export default class TournamentController {
 
   askReload = (): void => {
     if (this.joinSpinner || this.isCreator()) xhr.reloadNow(this);
-    else setTimeout(() => xhr.reloadSoon(this), Math.floor(Math.random() * 5000));
+    else setTimeout(() => xhr.reloadSoon(this), randomNumber(5000));
   };
 
   askFullReload = (): void => {
-    setTimeout(() => xhr.reloadSoon(this, false), Math.floor(Math.random() * 5000));
+    setTimeout(() => xhr.reloadSoon(this, false), randomNumber(5000));
   };
 
   reload = (data: TournamentDataBase): void => {
