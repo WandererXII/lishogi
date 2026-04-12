@@ -3,6 +3,7 @@
 @use '../abstract/media-queries';
 @use '../abstract/mixins';
 @use '../abstract/z-index' as z;
+@use '../abstract/variables';
 @use '../theme/generated/theme';
 
 .subnav {
@@ -28,12 +29,12 @@
       background: theme.$c-bg-high;
 
       &:hover {
-        color: theme.$c-link;
+        color: theme.$c-font-clearer;
       }
 
       &.active {
-        background: theme.$c-primary;
-        color: theme.$c-primary-over;
+        background: theme.$c-accent;
+        color: theme.$c-accent-over;
       }
     }
 
@@ -43,41 +44,29 @@
   }
 
   @include breakpoint.breakpoint(media-queries.$mq-subnav-side) {
-    margin-top: 5px;
+    margin-right: 10px;
     z-index: z.get('subnav-side'); /* active border must go over the page content */
+
     a {
-      display: block;
+      display: flex;
+      border-radius: variables.$box-radius-size;
+      align-items: center;
       color: theme.$c-font-page;
+      gap: 1ch;
+      overflow: hidden;
       padding: 0.7rem 2vw 0.7rem 0.8rem;
       position: relative;
 
-      @include mixins.transition;
-
-      &::after {
-        content: '';
-        background: theme.$m-accent_alpha_neg40;
-        width: 3px;
-        position: absolute;
-        height: 98%;
-        top: 1%;
-        right: -1px;
-
-        @include mixins.transition(all, 0.25s);
-
-        transform: scale(0);
-      }
-
       &.active,
       &:hover {
-        color: theme.$c-font-page;
-
-        &::after {
-          transform: scale(1);
-        }
+        color: theme.$c-font-clear;
+        background: rgba(128, 128, 128, 0.07);
       }
 
       &.active {
-        color: theme.$c-accent;
+        @include mixins.box-shadow;
+
+        background: theme.$c-bg-box;
       }
     }
 

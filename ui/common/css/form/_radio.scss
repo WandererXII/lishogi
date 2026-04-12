@@ -6,6 +6,7 @@ group.radio {
   @extend %box-radius, %flex-wrap;
 
   border: theme.$border;
+  border-bottom: none;
   overflow: hidden;
 
   div {
@@ -28,6 +29,7 @@ group.radio {
     height: 100%;
     cursor: pointer;
     border-right: theme.$border;
+    border-bottom: theme.$border;
     user-select: none;
 
     &:hover {

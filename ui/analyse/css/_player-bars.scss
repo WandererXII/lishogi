@@ -1,3 +1,4 @@
+@use 'sass:math';
 @use 'pkg:breakpoint-sass' as breakpoint;
 @use 'pkg:common/abstract/extends';
 @use 'pkg:common/abstract/mixins';
@@ -5,8 +6,6 @@
 @use 'pkg:common/abstract/uniboard';
 @use 'pkg:common/theme';
 @use './local';
-
-$player-bar-height: 1.7rem;
 
 .analyse.has-player-bars {
   sg-board {
@@ -21,7 +20,7 @@ $player-bar-height: 1.7rem;
 
   @include breakpoint.breakpoint(local.$mq-col1) {
     .analyse__board {
-      margin: $player-bar-height auto;
+      margin: local.$player-bar-height auto;
     }
   }
 }
@@ -31,7 +30,7 @@ $player-bar-height: 1.7rem;
   position: absolute;
   left: 0;
   right: 0;
-  height: $player-bar-height;
+  height: local.$player-bar-height;
   font-size: 1.1em;
   white-space: nowrap;
 
@@ -41,7 +40,7 @@ $player-bar-height: 1.7rem;
   }
 
   &-top {
-    top: #{-$player-bar-height};
+    top: -#{local.$player-bar-height};
 
     .analyse__clock {
       @extend %box-radius-top;
@@ -49,7 +48,7 @@ $player-bar-height: 1.7rem;
   }
 
   &-bot {
-    bottom: #{-$player-bar-height};
+    bottom: -#{local.$player-bar-height};
 
     .analyse__clock {
       @extend %box-radius-bottom;
@@ -102,8 +101,9 @@ $player-bar-height: 1.7rem;
       background: none;
       box-shadow: none;
 
-      .analyse__clock {
+      .clock-wrap .analyse__clock {
         border-radius: variables.$box-radius-size;
+        box-shadow: none;
       }
     }
   }

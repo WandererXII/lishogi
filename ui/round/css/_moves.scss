@@ -18,17 +18,25 @@
     background: theme.$c-bg-zebra;
     font-size: 0.9em;
     order: 2;
+    border-top: theme.$border;
 
     @include breakpoint.breakpoint(local.$mq-col2) {
       order: 0;
     }
   }
 
-  .fbt,
-  .noop {
+  .fbt {
     padding: 9px 0;
-    flex: 0 0 calc(100% / 6);
     text-align: center;
+    flex: 1;
+
+    &:first-child {
+      flex: 0 0 calc(100% / 6);
+    }
+
+    &:not(.disabled):hover {
+      background: theme.$m-primary_bg-box_mix_30;
+    }
   }
 
   .fbt[disabled] {

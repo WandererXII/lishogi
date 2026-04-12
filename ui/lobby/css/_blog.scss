@@ -10,6 +10,7 @@
   .lobby__box__content {
     display: flex;
     flex-direction: column;
+    height: 100%;
 
     &:empty {
       border-top: theme.$border;
@@ -31,6 +32,14 @@
 
       .text {
         flex: 1 1 100%;
+
+        span {
+          font-size: 0.9em;
+
+          @include breakpoint.breakpoint(local.$mq-col2) {
+            font-size: 1em;
+          }
+        }
       }
 
       strong {

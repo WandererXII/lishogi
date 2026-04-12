@@ -51,6 +51,7 @@ html.transp {
   .coord-trainer__table,
   .crosstable,
   .game__meta,
+  .subnav > a,
   #powerTip {
     backdrop-filter: blur(10px);
   }
@@ -60,6 +61,10 @@ html.transp {
     .rcontrols,
     .rmoves {
       backdrop-filter: blur(10px);
+    }
+
+    .subnav > a:not(.active) {
+      backdrop-filter: unset;
     }
   }
 

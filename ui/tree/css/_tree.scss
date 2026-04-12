@@ -28,7 +28,7 @@
 
   move {
     @extend %move;
-    @include move-hover(theme.$c-primary, theme.$c-primary-over);
+    @include move-hover(theme.$m-primary_bg-box_mix_80, theme.$c-primary-over);
 
     &.inaccuracy {
       @include move-hover(theme.$c-inaccuracy, white);

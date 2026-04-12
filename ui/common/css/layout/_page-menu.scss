@@ -39,6 +39,8 @@
   }
 
   &__content.box {
+    @extend %box-shadow;
+
     /* ensure the content is as high as the menu */
     min-height: 100%;
   }

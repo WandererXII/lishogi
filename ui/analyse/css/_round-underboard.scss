@@ -26,14 +26,14 @@ $col2-panel-height: 240px;
     > span {
       @extend %roboto;
 
-      font-size: 0.9em;
+      font-size: 1.15em;
       flex: 1;
       height: var(--panel-tab-height);
     }
   }
 
   &__panels {
-    @extend %box-radius-bottom;
+    @extend %box-neat;
 
     min-height: var(--panel-height);
     background: theme.$c-bg-box;

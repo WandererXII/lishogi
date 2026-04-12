@@ -58,9 +58,9 @@
       'board'
       'expi-bot'
       'user-bot'
+      'controls'
       'moves'
-      'kb-move'
-      'controls';
+      'kb-move';
 
     // Put clocks and players in the same grid cell.
     // This allows having a single cell column, instead of
@@ -92,7 +92,7 @@
     }
 
     .rmoves {
-      margin-top: 1vmin;
+      margin-top: 2vmin;
     }
 
     &.move-confirm {
@@ -132,8 +132,6 @@
     }
 
     .rmoves {
-      margin-bottom: 1px;
-
       .moves {
         display: none;
         background: none;

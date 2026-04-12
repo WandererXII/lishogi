@@ -31,12 +31,10 @@ html {
   --m-bg-zebra2_red_mix_80: color-mix(in srgb, var(--c-bg-zebra2) 80%, var(--c-red) 20%);
   --m-bg-zebra_clas_mix_20: color-mix(in srgb, var(--c-bg-zebra) 20%, var(--c-clas) 80%);
   --m-bg-zebra_red_mix_80: color-mix(in srgb, var(--c-bg-zebra) 80%, var(--c-red) 20%);
-  --m-black_accent_mix_30: color-mix(in srgb, black 30%, var(--c-accent) 70%);
   --m-border_lightness_20: oklch(from var(--c-border) calc(l + 0.2) c h);
   --m-brag_alpha_neg50: oklch(from var(--c-brag) l c h / 0.5);
   --m-brag_bg-box_mix_15: color-mix(in srgb, var(--c-brag) 15%, var(--c-bg-box) 85%);
   --m-brag_bg-box_mix_20: color-mix(in srgb, var(--c-brag) 20%, var(--c-bg-box) 80%);
-  --m-brag_bg-page_mix_60: color-mix(in srgb, var(--c-brag) 60%, var(--c-bg-page) 40%);
   --m-brag_darken_mix_85: color-mix(in srgb, var(--c-brag) 85%, var(--c-darken) 15%);
   --m-brilliant_bg-box_mix_30: color-mix(in srgb, var(--c-brilliant) 30%, var(--c-bg-box) 70%);
   --m-clas_bg-box_mix_10: color-mix(in srgb, var(--c-clas) 10%, var(--c-bg-box) 90%);
@@ -98,7 +96,7 @@ html {
   --m-secondary_alpha_neg50: oklch(from var(--c-secondary) l c h / 0.5);
   --m-secondary_alpha_neg60: oklch(from var(--c-secondary) l c h / 0.4);
   --m-secondary_alpha_neg80: oklch(from var(--c-secondary) l c h / 0.2);
-  --m-secondary_alpha_neg85: oklch(from var(--c-secondary) l c h / 0.15);
+  --m-secondary_alpha_neg90: oklch(from var(--c-secondary) l c h / 0.1);
   --m-secondary_bg-box_mix_10: color-mix(in srgb, var(--c-secondary) 10%, var(--c-bg-box) 90%);
   --m-secondary_bg-box_mix_15: color-mix(in srgb, var(--c-secondary) 15%, var(--c-bg-box) 85%);
   --m-secondary_bg-box_mix_20: color-mix(in srgb, var(--c-secondary) 20%, var(--c-bg-box) 80%);

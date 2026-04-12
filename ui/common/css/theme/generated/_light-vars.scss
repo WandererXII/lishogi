@@ -90,7 +90,6 @@ html.light {
   --m-brag_alpha_neg50: #{color.adjust($c-brag,$alpha:-0.5)};
   --m-brag_bg-box_mix_15: #{color.mix($c-brag,$c-bg-box,15%)};
   --m-brag_bg-box_mix_20: #{color.mix($c-brag,$c-bg-box,20%)};
-  --m-brag_bg-page_mix_60: #{color.mix($c-brag,$c-bg-page,60%)};
   --m-brag_darken_mix_85: #{color.mix($c-brag,$c-darken,85%)};
   --m-brilliant_bg-box_mix_30: #{color.mix($c-brilliant,$c-bg-box,30%)};
   --m-clas_bg-box_mix_10: #{color.mix($c-clas,$c-bg-box,10%)};
@@ -241,7 +240,6 @@ html.light {
   --m-brag_alpha_neg50: #{color.adjust($c-brag,$alpha:-0.5)};
   --m-brag_bg-box_mix_15: #{color.mix($c-brag,$c-bg-box,15%)};
   --m-brag_bg-box_mix_20: #{color.mix($c-brag,$c-bg-box,20%)};
-  --m-brag_bg-page_mix_60: #{color.mix($c-brag,$c-bg-page,60%)};
   --m-brag_darken_mix_85: #{color.mix($c-brag,$c-darken,85%)};
   --m-brilliant_bg-box_mix_30: #{color.mix($c-brilliant,$c-bg-box,30%)};
   --m-clas_bg-box_mix_10: #{color.mix($c-clas,$c-bg-box,10%)};

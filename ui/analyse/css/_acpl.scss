@@ -11,7 +11,6 @@
   font-size: 0.9em;
   align-items: flex-start;
   line-height: 1.15em;
-  min-height: var(--panel-height); // from round-underboard
   justify-content: center;
 
   thead tr {
@@ -64,16 +63,9 @@
     }
   }
 
-  .button {
-    margin: 0.6em 0;
-  }
-
   @include breakpoint.breakpoint(local.$mq-col1) {
     flex-flow: row wrap;
-    justify-content: center;
-    padding-bottom: variables.$block-gap;
-    border-bottom: theme.$border;
-    margin: 0;
+    margin-top: 0.5rem;
 
     table {
       flex: 0 0 calc(50% - #{variables.$block-gap});
@@ -82,10 +74,17 @@
 
     > a {
       order: 1;
+      width: 100%;
+      margin-top: 0.5rem;
     }
   }
 
   @include breakpoint.breakpoint(local.$mq-col2) {
     margin-top: var(--panel-tab-height);
+    min-height: var(--panel-height); // from round-underboard
+
+    .button {
+      margin: 0.6em 0;
+    }
   }
 }

@@ -3,7 +3,7 @@
 @use 'pkg:common/theme';
 
 %study-list {
-  @extend %box-neat-bottom;
+  @extend %box-neat;
 
   max-height: 18em;
   background: theme.$c-bg-box;

@@ -40,7 +40,6 @@
   grid-gap: variables.$block-gap;
   grid-template-areas:
     'app'
-    'under'
     'side'
     'uchat';
 
@@ -55,6 +54,7 @@
   &__underboard {
     @extend %zen;
 
+    display: none;
     grid-area: under;
   }
 
@@ -82,6 +82,7 @@
     }
 
     &__underboard {
+      display: block;
       width: var(--col2-uniboard-main-size);
     }
 
@@ -100,9 +101,12 @@
       'uchat . under under';
     grid-gap: 0;
 
-    &__underboard,
-    &__underchat {
+    &__underboard {
       margin-top: 3vmin;
+    }
+
+    &__underchat {
+      margin-top: 2vmin;
     }
 
     &__underboard {

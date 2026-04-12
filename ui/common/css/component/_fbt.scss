@@ -8,18 +8,22 @@
   text-transform: uppercase;
   line-height: 1.5;
 
-  @include mixins.transition;
+  @include mixins.transition(background);
 
   @media (hover: hover) {
     &:hover:not(.disabled):not([disabled]) {
       background: theme.$c-secondary;
       color: theme.$c-secondary-over;
+
+      &::before {
+        color: theme.$c-secondary-over !important;
+      }
     }
   }
 
   &.active {
     background: theme.$c-secondary !important;
-    color: theme.$c-secondary-over;
+    color: theme.$c-secondary-over !important;
   }
 
   &.disabled,

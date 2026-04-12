@@ -7,19 +7,24 @@
   font-size: 0.9em;
   height: 100%;
   overflow: hidden;
+  margin-bottom: 1rem; // phone corners
 
-  &__inner {
+  .line {
     display: flex;
     align-items: flex-start;
+
+    &.none {
+      display: none;
+    }
 
     .number {
       display: flex;
       align-items: center;
-      margin-right: 1ch;
+      margin-right: 1.2ch;
 
       &::before {
         font-size: 1em;
-        color: var(--c-font-dim);
+        color: theme.$c-font-dim;
         margin-right: 0.3ch;
       }
     }

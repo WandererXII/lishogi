@@ -1,6 +1,4 @@
 @use 'pkg:breakpoint-sass' as breakpoint;
-@use '../abstract/extends';
-@use '../abstract/icons';
 @use '../abstract/media-queries';
 @use '../abstract/variables';
 @use '../abstract/z-index' as z;
@@ -25,23 +23,9 @@
     --dropdown-top: 60px;
   }
 }
-
-#topnav a[href='/patron'] {
-  @extend %flex-center;
-
-  &::after {
-    @extend %data-icon;
-
-    content: icons.$patron;
-    font-size: 1.3em;
-    color: theme.$c-brag;
-    margin: 0 0 0.08ch auto;
-    transform: scaleX(-1);
-  }
-
-  &:hover {
-    background: theme.$c-brag;
-  }
+#topnav a[href='/patron']::after {
+  color: theme.$c-brag;
+  margin-left: 5px;
 }
 
 .site-title-nav {

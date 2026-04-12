@@ -10,6 +10,8 @@
   flex-flow: column;
   overflow: auto;
   padding: variables.$block-gap;
+  border-top: 3px solid theme.$c-secondary;
+  border-bottom: 3px solid theme.$c-secondary;
 
   h2 {
     font-size: 1em;
@@ -119,11 +121,5 @@
       display: block;
       text-align: right;
     }
-  }
-
-  @include breakpoint.breakpoint(local.$mq-col1) {
-    .abset-inline {
-      display: none;
-    } // force inline on mobile
   }
 }

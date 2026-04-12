@@ -1,7 +1,9 @@
+@use 'pkg:breakpoint-sass' as breakpoint;
 @use 'pkg:common/abstract/extends';
 @use 'pkg:common/abstract/uniboard';
 @use 'pkg:common/abstract/icons';
 @use 'pkg:common/theme';
+@use '../local';
 
 $c-study-button: theme.$c-accent;
 
@@ -9,7 +11,7 @@ $c-study-button: theme.$c-accent;
   @extend %flex-between;
 
   align-items: stretch;
-  height: calc(#{uniboard.$col2-uniboard-controls} - 2px);
+  height: calc(#{uniboard.$col3-uniboard-controls} - 2px);
 
   span {
     font-size: 1.15em;
@@ -58,22 +60,15 @@ $c-study-button: theme.$c-accent;
     align-self: stretch;
     padding: 0 0.4em;
     opacity: 0.8;
+    font-weight: bold;
+    color: theme.$c-bad;
 
-    i::before {
-      font-size: 1.4em;
-      content: icons.$cancel;
-      color: theme.$c-bad;
-      margin-right: 0.2rem;
-    }
-
-    &.on i::before {
-      content: icons.$correct;
+    &.on {
       color: theme.$c-good;
     }
 
     &:hover {
-      background: theme.$c-bg-zebra;
-      opacity: 1;
+      filter: brightness(1.05);
     }
   }
 }

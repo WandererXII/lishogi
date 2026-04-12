@@ -2,7 +2,6 @@
 @use 'pkg:common/base/form';
 @use 'ui/analyse/css/tools';
 @use 'ui/analyse/css/action-menu';
-@use 'ui/analyse/css/controls';
 @use 'pkg:common/theme';
 @use 'layout';
 @use 'footer';
@@ -64,12 +63,18 @@ body {
   overflow: hidden;
   background: theme.$c-bg-box;
   border: theme.$border;
+  padding-top: 0;
 
-  .jumps .fbt {
-    border-right: theme.$border;
+  .jumps {
+    display: flex;
+    width: 100%;
+    height: 100%;
 
-    &:last-child {
-      border-right: none;
+    .fbt {
+      flex: 1;
+      &:not(.disabled):hover {
+        background: theme.$m-primary_bg-box_mix_30;
+      }
     }
   }
 }

@@ -1,4 +1,5 @@
 @use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/mixins';
 @use 'pkg:common/abstract/z-index' as z;
 @use 'pkg:common/theme';
 
@@ -11,6 +12,7 @@
   z-index: z.get('context-menu');
   cursor: default;
   user-select: none;
+  overflow: hidden;
 
   &.visible {
     display: block;
@@ -39,6 +41,31 @@
 
     &:hover {
       background: theme.$m-accent_bg-box_mix_10;
+    }
+  }
+
+  .glyphs {
+    display: flex;
+
+    a {
+      flex: 1;
+
+      &.active {
+        background: theme.$c-accent;
+        color: theme.$c-accent-over;
+      }
+
+      &::before {
+        @extend %flex-center;
+
+        justify-content: center;
+        content: attr(data-symbol);
+        font-size: 1.2em;
+        font-weight: bold;
+        width: 2em;
+
+        @include mixins.transition;
+      }
     }
   }
 }

@@ -11,7 +11,7 @@
     --main-max-width: calc(
       (
           100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
-            #{uniboard.$hands-gap}
+            #{uniboard.$hands-gap} - #{2 * local.$player-bar-height}
         ) /
         12 * 9
     );
@@ -20,7 +20,7 @@
       --main-max-width: calc(
         (
             100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
-              #{uniboard.$hands-gap}
+              #{uniboard.$hands-gap} - #{2 * local.$player-bar-height}
           ) /
           7 * 5 / 12 * 11
       );
@@ -30,7 +30,7 @@
       --main-max-width: calc(
         (
             100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
-              #{uniboard.$hands-gap}
+              #{uniboard.$hands-gap} - #{2 * local.$player-bar-height}
           ) /
           6 * 3 / 12 * 11
       );
@@ -40,7 +40,7 @@
       --main-max-width: calc(
         (
             100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
-              #{uniboard.$hands-gap}
+              #{uniboard.$hands-gap} - #{2 * local.$player-bar-height}
           ) /
           12 * 11
       );
@@ -56,9 +56,9 @@
     'board'
     'controls'
     'tools'
-    'side'
-    'acpl'
     'under'
+    'acpl'
+    'side'
     'uchat';
 
   --meta-height: auto;
@@ -85,10 +85,9 @@
 
   &__underboard {
     grid-area: under;
-    margin-top: 2vmin;
 
     @include breakpoint.breakpoint(local.$mq-col1) {
-      margin-top: 2em;
+      margin-top: 1em;
       overflow: hidden; // helps truncating long study names
     }
   }
@@ -123,11 +122,15 @@
       'under      .     acpl'
       'under      .     side'
       '.          .     side'
-      'uchat      uchat uchat';
+      '.          .     uchat';
     grid-row-gap: 0;
 
     &__underboard {
       margin-top: #{variables.$block-gap + 1};
+    }
+
+    &__side {
+      margin-top: 0;
     }
 
     .eval-gauge {
@@ -145,10 +148,6 @@
       'side    . board gauge tools'
       'uchat   . under .     controls'
       'uchat   . under .     acpl';
-
-    &__side {
-      margin-top: 0;
-    }
 
     .mchat {
       min-height: 10em;

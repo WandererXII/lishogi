@@ -29,8 +29,7 @@
       }
 
       &:not(.disabled):hover {
-        background: theme.$c-accent;
-        color: theme.$c-accent-over;
+        background: theme.$c-bg-zebra;
         opacity: 1;
       }
 

@@ -62,12 +62,13 @@
     flex-direction: row-reverse;
     align-items: center;
     font-size: 1.2rem;
-    padding: 0 0.35rem;
+    padding: 0 variables.$block-gap;
     opacity: 0.8;
 
     @include breakpoint.breakpoint(local.$mq-col2) {
       font-size: 1.5rem;
       flex-direction: row;
+      padding: 0 0.35rem;
     }
   }
 
@@ -78,7 +79,6 @@
     font-size: 2.5em;
     font-weight: normal;
     line-height: local.$col1-player-clock-height;
-    padding: 0 variables.$block-gap;
     padding-top: 3px;
     white-space: nowrap;
     display: flex;
@@ -88,19 +88,17 @@
     }
 
     @include breakpoint.breakpoint(local.$mq-col1) {
-      border-radius: 0;
+      border-radius: variables.$box-radius-size;
       box-shadow: none;
       background: none;
-      padding-top: 0;
+      padding: 0 6px;
     }
 
     @include breakpoint.breakpoint(local.$mq-col2) {
       align-items: flex-end;
-    }
-
-    @include breakpoint.breakpoint(local.$mq-col2) {
       font-size: 2.8em;
       letter-spacing: 0.1em;
+      padding: 0 variables.$block-gap;
 
       &.hour {
         font-size: 2.7em;

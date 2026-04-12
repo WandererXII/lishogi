@@ -15,7 +15,8 @@
 
     &::before {
       order: 2;
-      color: theme.$m-brag_bg-page_mix_60;
+      color: theme.$c-brag;
+      opacity: 0.5;
       font-size: 2.5em;
       margin-left: 0.8rem;
     }
@@ -37,7 +38,7 @@
   }
 
   &.active > span::before {
-    color: theme.$c-accent;
+    opacity: 1;
   }
 }
 

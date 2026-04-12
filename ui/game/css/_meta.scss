@@ -21,7 +21,10 @@
       display: flex;
       padding: 0;
 
-      a {
+      a,
+      button {
+        font-weight: normal;
+        color: theme.$c-font;
         border-radius: 0;
 
         &:last-child {

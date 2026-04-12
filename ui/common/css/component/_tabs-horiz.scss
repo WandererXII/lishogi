@@ -23,7 +23,6 @@ $c-tabs-active: theme.$c-accent !default;
     padding: 0.5em 0.2em;
     cursor: pointer;
     position: relative;
-    border-bottom: 2px solid transparent;
     transition:
       color 0.25s,
       border-color 0.25s;
@@ -43,6 +42,17 @@ $c-tabs-active: theme.$c-accent !default;
     &.active {
       font-weight: bold;
       color: $c-tabs-active;
+    }
+
+    &.active::after {
+      content: '';
+      position: absolute;
+      height: 6px;
+      bottom: -4px;
+      border-radius: 3px;
+      left: 5%;
+      width: 90%;
+      background-color: $c-tabs-active;
     }
   }
 

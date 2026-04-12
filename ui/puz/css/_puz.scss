@@ -8,11 +8,8 @@
 
 #main-wrap {
   --main-max-width: calc(
-    (
-        100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
-          #{uniboard.$hands-gap}
-      ) /
-      12 * 9
+    (100vh - #{variables.$site-header-outer-height} - #{uniboard.$hands-gap}) / 12 * 9 -
+      #{uniboard.$col1-uniboard-controls}
   );
 
   user-select: none;

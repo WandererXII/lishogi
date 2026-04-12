@@ -1,12 +1,18 @@
 @use 'pkg:breakpoint-sass' as breakpoint;
+@use 'pkg:common/abstract/extends';
 @use 'pkg:common/abstract/mixins';
 @use 'pkg:common/theme';
 @use 'local';
 
 .rmoves {
+  .col1-moves {
+    .fbt {
+      @extend %box-radius;
+    }
+  }
+
   @include breakpoint.breakpoint(local.$mq-col1) {
     overflow: hidden;
-    margin-bottom: 1vmin;
 
     .col1-moves {
       flex: 0 0 local.$col1-moves-height;
@@ -34,6 +40,7 @@
       white-space: nowrap;
       overflow-x: scroll;
       color: theme.$c-font-page;
+      background: theme.$c-bg-box;
       box-shadow: 0 4px 12px #000 inset;
 
       @include mixins.light-theme {
@@ -67,7 +74,20 @@
 
       &.active,
       &:hover {
-        background: theme.$c-bg-zebra;
+        background: linear-gradient(
+          to bottom,
+          rgba(0, 0, 0, 0.5),
+          theme.$m-primary_bg-box_mix_20 10px,
+          rgba(0, 0, 0, 0.5) 70px
+        );
+
+        @include mixins.light-theme {
+          background: linear-gradient(
+            to bottom,
+            theme.$m-bg-page_c-lightness_78,
+            theme.$m-primary_bg-box_mix_20 8px
+          );
+        }
       }
 
       &.active {

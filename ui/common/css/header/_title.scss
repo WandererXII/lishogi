@@ -9,6 +9,7 @@
   @extend %base-font;
 
   font-size: 25px;
+  font-weight: 400;
   line-height: #{variables.$site-header-short-height - 3};
   text-shadow: theme.$text-shadow;
   white-space: nowrap;

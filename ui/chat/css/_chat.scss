@@ -10,7 +10,7 @@
 
   grid-area: chat;
   justify-content: stretch;
-  min-height: 10em;
+  min-height: 15em;
 
   &__content {
     @extend %flex-column;
@@ -19,14 +19,22 @@
     flex: 1 1 auto;
     overflow: hidden;
 
-    &.note textarea {
-      font-size: 0.9em;
-      flex-grow: 1;
-      border: none;
-      background-color: transparent;
-      line-height: 1.7em;
-      outline: none;
-      resize: none;
+    &.note {
+      .spinner {
+        width: 32px;
+        height: 40px;
+        margin-top: 10%;
+      }
+
+      textarea {
+        font-size: 0.9em;
+        flex-grow: 1;
+        border: none;
+        background-color: transparent;
+        line-height: 1.7em;
+        outline: none;
+        resize: none;
+      }
     }
   }
 }

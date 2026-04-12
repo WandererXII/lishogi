@@ -96,12 +96,10 @@ html.light-new {
   --m-bg-zebra2_red_mix_80: #{color.mix($c-bg-zebra2,$c-red,80%)};
   --m-bg-zebra_clas_mix_20: #{color.mix($c-bg-zebra,$c-clas,20%)};
   --m-bg-zebra_red_mix_80: #{color.mix($c-bg-zebra,$c-red,80%)};
-  --m-black_accent_mix_30: #{color.mix(black,$c-accent,30%)};
   --m-border_lightness_20: #{color.adjust($c-border,$lightness:20%)};
   --m-brag_alpha_neg50: #{color.adjust($c-brag,$alpha:-0.5)};
   --m-brag_bg-box_mix_15: #{color.mix($c-brag,$c-bg-box,15%)};
   --m-brag_bg-box_mix_20: #{color.mix($c-brag,$c-bg-box,20%)};
-  --m-brag_bg-page_mix_60: #{color.mix($c-brag,$c-bg-page,60%)};
   --m-brag_darken_mix_85: #{color.mix($c-brag,$c-darken,85%)};
   --m-brilliant_bg-box_mix_30: #{color.mix($c-brilliant,$c-bg-box,30%)};
   --m-clas_bg-box_mix_10: #{color.mix($c-clas,$c-bg-box,10%)};
@@ -158,7 +156,7 @@ html.light-new {
   --m-secondary_alpha_neg50: #{color.adjust($c-secondary,$alpha:-0.5)};
   --m-secondary_alpha_neg60: #{color.adjust($c-secondary,$alpha:-0.6)};
   --m-secondary_alpha_neg80: #{color.adjust($c-secondary,$alpha:-0.8)};
-  --m-secondary_alpha_neg85: #{color.adjust($c-secondary,$alpha:-0.85)};
+  --m-secondary_alpha_neg90: #{color.adjust($c-secondary,$alpha:-0.9)};
   --m-secondary_bg-box_mix_10: #{color.mix($c-secondary,$c-bg-box,10%)};
   --m-secondary_bg-box_mix_15: #{color.mix($c-secondary,$c-bg-box,15%)};
   --m-secondary_bg-box_mix_20: #{color.mix($c-secondary,$c-bg-box,20%)};

@@ -84,7 +84,8 @@
     @extend %flex-center-nowrap;
 
     animation: flash-once 1s ease-in;
-    padding: 1px;
+    padding: 0;
+    border-top: theme.$border;
 
     p {
       flex: 3 1 auto;
@@ -92,7 +93,7 @@
     }
 
     a {
-      flex: 1 0 3rem;
+      flex: 1 0 3.75rem;
       font-size: 1.5em;
       line-height: 3em;
       background: theme.$c-bg-box;
@@ -100,7 +101,6 @@
 
     .accept {
       color: theme.$c-good;
-      margin-right: 1px;
     }
 
     .decline {
@@ -120,10 +120,10 @@
       a {
         line-height: 1.6em;
         flex: 0 0 2.5rem;
-        padding: 0 1.2em;
+        padding: 0.2em 1.2em;
       }
 
-      padding: 3px;
+      border: none;
     }
   }
 
@@ -131,11 +131,28 @@
     @extend %flex-column;
 
     position: relative; /* for rematch-decline */
+    border-bottom: theme.$border;
+    background: theme.$c-bg-zebra;
+
     .fbt {
       padding: 12px 0;
+
+      &.analysis-button {
+        border-top: theme.$border;
+
+        &:active {
+          color: unset;
+        }
+
+        &:focus {
+          background: theme.$c-secondary-dim;
+          color: theme.$c-secondary-over;
+        }
+      }
     }
 
     > .fbt:first-child {
+      border-top: theme.$border;
       margin-top: 0;
     }
 
@@ -167,7 +184,18 @@
     }
 
     @include breakpoint.breakpoint(local.$mq-col1) {
+      @include mixins.box-shadow;
+
+      background: theme.$c-bg-box;
       margin-top: variables.$block-gap;
+      border-radius: variables.$box-radius-size;
+      border-top: none;
+      border-bottom: none;
+      overflow: hidden;
+
+      > .fbt:first-child {
+        border-top: none;
+      }
     }
   }
 
@@ -195,7 +223,6 @@
   .rematch,
   .resume {
     &.fbt {
-      background: theme.$c-bg-zebra;
       font-size: 1.2em;
       color: theme.$c-font-clear;
       height: 5.5rem;
@@ -203,6 +230,10 @@
 
     &.me {
       background: theme.$m-primary_bg-box_mix_80;
+
+      &::before {
+        display: none;
+      }
     }
 
     &.fbt:not(.disabled):hover,
