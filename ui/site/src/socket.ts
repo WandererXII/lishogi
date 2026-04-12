@@ -1,4 +1,4 @@
-import { isOnline } from 'common/common';
+import { isOnline, randomNumber } from 'common/common';
 import { browserTaskQueueMonitor, idleTimer } from 'common/timings';
 import { i18n } from 'i18n';
 import { reload } from './navigation';
@@ -22,6 +22,8 @@ export class StrongSocket implements IStrongSocket {
   private pongCount = 0;
   private ready = false;
   private wasInitiated = false;
+  private connectionAttempt = 0;
+  private networkElementStatus: 'online' | 'reconnected' | 'offline';
 
   private ackable: Ackable = new Ackable((t, d, o) => this.send(t, d, o));
 
@@ -118,7 +120,12 @@ export class StrongSocket implements IStrongSocket {
     clearTimeout(this.connectSchedule);
 
     this.connectSchedule = setTimeout(() => {
-      updateNetworkStatusElement('offline');
+      // do not notify about first attempt
+      if (this.connectionAttempt > 0) {
+        this.networkElementStatus = 'offline';
+        this.updateNetworkStatusElement();
+      }
+      this.connectionAttempt++;
       this.tryOtherUrl = true;
       this.connect();
     }, delay);
@@ -261,7 +268,10 @@ export class StrongSocket implements IStrongSocket {
   private onOpen = () => {
     this.debug('WS opened');
 
-    updateNetworkStatusElement(this.wasInitiated ? 'reconnected' : 'online');
+    this.connectionAttempt = 0;
+    this.networkElementStatus =
+      this.wasInitiated && this.networkElementStatus === 'offline' ? 'reconnected' : 'online';
+    this.updateNetworkStatusElement();
 
     this.pingNow();
 
@@ -307,7 +317,7 @@ export class StrongSocket implements IStrongSocket {
     let url = this.storage.get();
 
     if (!url || !this.baseUrls.includes(url)) {
-      url = this.baseUrls[Math.floor(Math.random() * this.baseUrls.length)];
+      url = this.baseUrls[randomNumber(this.baseUrls.length)];
       this.storage.set(url);
     } else if (this.tryOtherUrl && this.baseUrls.length > 1) {
       const i = this.baseUrls.indexOf(url);
@@ -317,6 +327,25 @@ export class StrongSocket implements IStrongSocket {
 
     this.tryOtherUrl = false;
     return url;
+  };
+
+  private updateNetworkStatusElement = (): void => {
+    const status = this.networkElementStatus;
+    const onlineish = status === 'online' || status === 'reconnected';
+    const cls = document.body.classList;
+    cls.toggle('online', onlineish);
+    cls.toggle('offline', !onlineish);
+    if (status === 'reconnected') cls.add('reconnected');
+
+    const el = document.getElementById('reconnecting');
+    if (el) {
+      const statusText = onlineish
+        ? i18n('online')
+        : isOnline()
+          ? i18n('reconnecting')
+          : i18n('offline');
+      el.textContent = statusText;
+    }
   };
 
   isReady = (): boolean => this.ready;
@@ -354,54 +383,4 @@ class Ackable {
   onServerAck = (id: number): void => {
     this.messages = this.messages.filter(m => m.d.a !== id);
   };
-}
-
-let offlineTimer: Timeout | undefined;
-let isShowingOffline = false;
-
-function updateNetworkStatusElement(status: 'online' | 'reconnected' | 'offline'): void {
-  const cls = document.body.classList;
-  const el = document.getElementById('reconnecting');
-
-  const applyDOMChanges = (visibleStatus: 'online' | 'reconnected' | 'offline') => {
-    const onlineish = visibleStatus === 'online' || visibleStatus === 'reconnected';
-
-    cls.toggle('online', onlineish);
-    cls.toggle('offline', !onlineish);
-
-    if (visibleStatus === 'reconnected') cls.add('reconnected');
-    else cls.remove('reconnected');
-
-    if (el) {
-      el.textContent = onlineish
-        ? i18n('online')
-        : isOnline()
-          ? i18n('reconnecting')
-          : i18n('offline');
-    }
-  };
-
-  if (status === 'offline') {
-    if (!offlineTimer && !isShowingOffline) {
-      offlineTimer = setTimeout(() => {
-        isShowingOffline = true;
-        applyDOMChanges('offline');
-      }, 1500);
-    }
-  } else if (status === 'reconnected') {
-    clearTimeout(offlineTimer);
-    offlineTimer = undefined;
-
-    if (isShowingOffline) {
-      applyDOMChanges('reconnected');
-      isShowingOffline = false;
-    } else {
-      applyDOMChanges('online');
-    }
-  } else if (status === 'online') {
-    clearTimeout(offlineTimer);
-    offlineTimer = undefined;
-    isShowingOffline = false;
-    applyDOMChanges('online');
-  }
 }
