@@ -39,33 +39,61 @@ interface WatchersData {
 }
 
 export function initWidgets(): void {
-  let watchersData: WatchersData;
   const anonHtml = `<span class="anon">${i18n('anonymousUser')}</span>`;
+
   widget('watchers', {
     _create: function () {
-      this.list = this.element.find('.list');
-      this.number = this.element.find('.number');
-      window.lishogi.pubsub.on('socket.in.crowd', data => this.set(data.watchers || data));
-      watchersData && this.set(watchersData);
+      this.lines = {
+        game: this.element.find('.line.game'),
+        analysis: this.element.find('.line.analysis'),
+        default: this.element.find('.line.default'),
+      };
+
+      window.lishogi.pubsub.on('socket.in.crowd', data => {
+        if (data.game || data.analysis) {
+          this.lines.default.addClass('none');
+          this.renderLine(this.lines.game, data.game);
+          this.renderLine(this.lines.analysis, data.analysis);
+        } else {
+          this.lines.game.addClass('none');
+          this.lines.analysis.addClass('none');
+          this.renderLine(this.lines.default, data.watchers || data);
+        }
+
+        const hasContent = this.element.find('.line:not(.none)').length > 0;
+        this.element.toggleClass('none', !hasContent);
+      });
     },
-    set: function (data: WatchersData) {
-      watchersData = data;
-      if (!data || !data.nb) return this.element.addClass('none');
-      if (this.number.length) this.number.text(data.nb);
-      if (data.users) {
-        const tags = data.users.map(u => {
+
+    renderLine: ($line: JQuery, data: WatchersData | undefined) => {
+      if (!data || !data.nb) {
+        $line.addClass('none');
+        return;
+      }
+
+      const $number = $line.find('.number');
+      const $list = $line.find('.list');
+
+      if ($number.length) $number.text(data.nb);
+
+      if (data.users || data.anons) {
+        const tags = (data.users || []).map(u => {
           const username = u?.includes(' ') ? u.split(' ')[1] : u;
           return username
             ? `<a class="user-link ulpt" href="/@/${username.toLowerCase()}">${username}</a>`
             : anonHtml;
         });
+
         if (data.anons === 1) tags.push(anonHtml);
-        else if (data.anons)
+        else if (data.anons) {
           tags.push(`<span class="anon">${i18n('anonymousUser')} (${data.anons})</span>`);
-        this.list.html(tags.join(', '));
-      } else if (!this.number.length)
-        this.list.html(`<span data-icon="${icons.person}">${data.nb}</span>`);
-      this.element.removeClass('none');
+        }
+        $list.html(tags.join(', '));
+      } else if (!$number.length) {
+        $list.html(`<span data-icon="${icons.person}">${data.nb}</span>`);
+      }
+
+      $line.removeClass('none');
     },
   });
 
