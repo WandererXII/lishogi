@@ -3,7 +3,6 @@ import { isCol1 } from 'common/mobile';
 import type { MaybeVNodes } from 'common/snabbdom';
 import throttle from 'common/throttle';
 import * as game from 'game';
-import { game as gameRoute } from 'game/router';
 import * as status from 'game/status';
 import viewStatus from 'game/view/status';
 import { i18n, i18nFormatCapitalized } from 'i18n';
@@ -110,33 +109,6 @@ function renderMoves(ctrl: RoundController): MaybeVNodes {
   return els;
 }
 
-export function analysisButton(ctrl: RoundController): VNode {
-  const forecastCount = ctrl.data.forecastCount;
-  const disabled =
-    !game.userAnalysable(ctrl.data) || (game.hasAi(ctrl.data) && !status.finished(ctrl.data));
-  const isForecast =
-    !ctrl.data.player.spectator &&
-    game.conditionallyPremovable(ctrl.data) &&
-    !game.hasAi(ctrl.data);
-
-  return h(
-    'a.fbt.analysis',
-    {
-      class: {
-        text: !!forecastCount,
-        disabled: disabled,
-      },
-      attrs: {
-        disabled: disabled,
-        title: isForecast ? i18n('conditionalPremoves') : i18n('analysis'),
-        href: `${gameRoute(ctrl.data, ctrl.data.player.color)}/analysis#${ctrl.ply}`,
-        'data-icon': isForecast ? icons.pencil : icons.microscope,
-      },
-    },
-    forecastCount ? [`${forecastCount}`] : [],
-  );
-}
-
 function renderButtons(ctrl: RoundController) {
   const d = ctrl.data;
   const firstPly = round.firstPly(d);
@@ -186,7 +158,6 @@ function renderButtons(ctrl: RoundController) {
           },
         });
       }),
-      analysisButton(ctrl) || h('div.noop'),
     ],
   );
 }

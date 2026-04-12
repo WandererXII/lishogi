@@ -57,7 +57,7 @@ export function boot(
 
   opts.socketSend = wsConnect(socketUrl, opts.socketVersion, {
     options: { reloadOnResume: true },
-    params: { userTv: data.userTv?.id },
+    params: { userTv: data.userTv?.id, flag: 'game' },
     receive(t: string, d: any) {
       ctrl?.socket.receive(t, d);
     },
@@ -129,8 +129,12 @@ export function boot(
     });
   if (location.pathname.lastIndexOf('/round-next/', 0) === 0)
     history.replaceState(null, '', `/${data.game.id}`);
-  if (location.pathname.length === 9 && data.player.id && data.player.user)
-    history.replaceState(null, '', `/${data.game.id}${data.player.id}`);
+
+  if (location.pathname.length === 9 && data.player.user)
+    history.replaceState(null, '', `/${data.game.id}/${data.player.color}`);
+  else if (location.pathname.length === 13 && data.player.user)
+    history.replaceState(null, '', `/${data.game.id}/${data.player.color}`);
+
   $('#zentog').on('click', () => li.pubsub.emit('zen'));
   li.storage.make('reload-round-tabs').listen(li.reload);
 

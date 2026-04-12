@@ -105,7 +105,7 @@ export function make(send: Socket.Send, ctrl: RoundController): RoundSocket {
       ctrl.redraw();
     },
     endData: ctrl.endWithData,
-    rematchOffer(by: Color) {
+    rematchOffer(by: Color | null) {
       ctrl.data.player.offeringRematch = by === ctrl.data.player.color;
       ctrl.data.opponent.offeringRematch = by === ctrl.data.opponent.color;
       if (ctrl.data.opponent.offeringRematch)
@@ -117,13 +117,13 @@ export function make(send: Socket.Send, ctrl: RoundController): RoundSocket {
       if (!ctrl.data.player.spectator) ctrl.setLoading(true);
       else ctrl.redraw();
     },
-    drawOffer(by) {
+    drawOffer(by: Color | null) {
       ctrl.data.player.offeringDraw = by === ctrl.data.player.color;
       ctrl.data.opponent.offeringDraw = by === ctrl.data.opponent.color;
       if (ctrl.data.opponent.offeringDraw) notify(i18n('yourOpponentOffersADraw'));
       ctrl.redraw();
     },
-    pauseOffer(by) {
+    pauseOffer(by: Color | null) {
       if (by) {
         const fromOp = by === ctrl.data.opponent.color;
         if (fromOp) ctrl.data.opponent.offeringPause = true;
@@ -133,7 +133,7 @@ export function make(send: Socket.Send, ctrl: RoundController): RoundSocket {
       } else ctrl.data.player.offeringPause = ctrl.data.opponent.offeringPause = !!by;
       ctrl.redraw();
     },
-    resumeOffer(by) {
+    resumeOffer(by: Color | null) {
       ctrl.data.player.offeringPause = ctrl.data.opponent.offeringPause = false;
       ctrl.data.player.offeringResume = by === ctrl.data.player.color;
       ctrl.data.opponent.offeringResume = by === ctrl.data.opponent.color;

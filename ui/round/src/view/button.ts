@@ -11,10 +11,6 @@ import type RoundController from '../ctrl';
 import type { RoundData } from '../interfaces';
 import * as util from '../util';
 
-function analysisBoardOrientation(data: RoundData) {
-  return data.player.color;
-}
-
 function studyAdvancedButton(ctrl: RoundController): VNode | null {
   const d = ctrl.data;
   return game.replayable(d) && !!ctrl.data.player.user
@@ -121,16 +117,17 @@ function studyButton(ctrl: RoundController): VNode | null {
 
 function analysisButton(ctrl: RoundController): VNode | null {
   const d = ctrl.data;
-  const url = `${gameRoute(d, analysisBoardOrientation(d))}#${ctrl.ply}`;
   return game.replayable(d)
     ? h(
-        'a.fbt',
+        'a.fbt.text.analysis-button',
         {
-          attrs: { href: url },
-          hook: util.bind('click', _ => {
-            // force page load in case the URL is the same
-            if (location.pathname === url.split('#')[0]) location.reload();
+          hook: util.bind('click', (e: MouseEvent) => {
+            if (!e.ctrlKey) location.reload();
           }),
+          attrs: {
+            href: `/${d.game.id}/${d.player.color}`,
+            'data-icon': icons.microscope,
+          },
         },
         i18n('analysis'),
       )
@@ -158,7 +155,7 @@ function rematchButtons(ctrl: RoundController): MaybeVNodes {
         )
       : null,
     h(
-      'button.fbt.rematch',
+      'button.fbt.rematch.text',
       {
         class: {
           me,
@@ -167,6 +164,7 @@ function rematchButtons(ctrl: RoundController): MaybeVNodes {
           disabled: !me && !(d.opponent.onGame || (!d.clock && d.player.user && d.opponent.user)),
         },
         attrs: {
+          'data-icon': icons.challenge,
           title: them
             ? i18n('yourOpponentWantsToPlayANewGameWithYou')
             : me
@@ -308,6 +306,35 @@ export function impasse(ctrl: RoundController): MaybeVNode {
   );
 }
 
+export function forecast(ctrl: RoundController): MaybeVNode {
+  const isForecast =
+    !ctrl.data.player.spectator &&
+    game.conditionallyPremovable(ctrl.data) &&
+    !game.hasAi(ctrl.data);
+
+  if (!isForecast) return;
+
+  const forecastCount = ctrl.data.forecastCount;
+  const disabled =
+    !game.userAnalysable(ctrl.data) || (game.hasAi(ctrl.data) && !status.finished(ctrl.data));
+  return h(
+    'a.fbt.forecast',
+    {
+      class: {
+        text: !!forecastCount,
+        disabled: disabled,
+      },
+      attrs: {
+        disabled: disabled,
+        title: isForecast ? i18n('conditionalPremoves') : i18n('analysis'),
+        href: `${ctrl.data.game.id}/forecasts#${ctrl.ply}`,
+        'data-icon': icons.pencil,
+      },
+    },
+    forecastCount ? [`${forecastCount}`] : [],
+  );
+}
+
 export function opponentGone(ctrl: RoundController): MaybeVNode {
   const gone = ctrl.opponentGone();
   return gone === true
@@ -337,39 +364,36 @@ export function opponentGone(ctrl: RoundController): MaybeVNode {
 
 function actConfirm(
   f: (v: boolean) => void,
-  transKey: string,
-  title: string,
+  transKey: I18nKeyBasic,
   icon: string,
   klass?: string,
 ): VNode {
   return h(`div.act-confirm.${transKey}`, [
-    h(`button.fbt.yes.${klass || ''}`, {
-      attrs: { title: title, 'data-icon': icon },
-      hook: util.bind('click', () => f(true)),
-    }),
     h('button.fbt.no', {
       attrs: { title: i18n('cancel'), 'data-icon': icons.cancel },
       hook: util.bind('click', () => f(false)),
     }),
+    h(
+      `button.text.fbt.yes.${klass || ''}`,
+      {
+        attrs: { title: i18n(transKey), 'data-icon': icon },
+        hook: util.bind('click', () => f(true)),
+      },
+      i18n(transKey),
+    ),
   ]);
 }
 
 export function resignConfirm(ctrl: RoundController): VNode {
-  return actConfirm(ctrl.resign, 'resign', i18n('resign'), icons.surrender);
+  return actConfirm(ctrl.resign, 'resign', icons.surrender, 'fbt-red');
 }
 
 export function drawConfirm(ctrl: RoundController): VNode {
-  return actConfirm(ctrl.offerDraw, 'offerDraw', i18n('offerDraw'), icons.draw, 'draw-yes');
+  return actConfirm(ctrl.offerDraw, 'offerDraw', icons.draw, 'draw-yes');
 }
 
 export function pauseConfirm(ctrl: RoundController): VNode {
-  return actConfirm(
-    ctrl.offerPause,
-    'offerAdjournment',
-    i18n('offerAdjournment'),
-    icons.pause,
-    'pause-yes',
-  );
+  return actConfirm(ctrl.offerPause, 'offerAdjournment', icons.pause, 'pause-yes');
 }
 
 export function cancelDrawOffer(ctrl: RoundController): MaybeVNode {
@@ -404,9 +428,9 @@ export function answerOpponentDrawOffer(ctrl: RoundController): MaybeVNode {
           hook: util.onInsert(ctrl.autoScroll),
         },
         [
+          declineButton(ctrl, () => ctrl.socket.sendLoading('draw-no')),
           h('p', i18n('yourOpponentOffersADraw')),
           acceptButton(ctrl, 'draw-yes', () => ctrl.socket.sendLoading('draw-yes')),
-          declineButton(ctrl, () => ctrl.socket.sendLoading('draw-no')),
         ],
       )
     : null;
@@ -420,9 +444,9 @@ export function answerOpponentPauseOffer(ctrl: RoundController): MaybeVNode {
           hook: util.onInsert(ctrl.autoScroll),
         },
         [
+          declineButton(ctrl, () => ctrl.socket.sendLoading('pause-no')),
           h('p', i18n('yourOpponentOffersAnAdjournment')),
           acceptButton(ctrl, 'pause-yes', () => ctrl.socket.sendLoading('pause-yes')),
-          declineButton(ctrl, () => ctrl.socket.sendLoading('pause-no')),
         ],
       )
     : null;
@@ -498,9 +522,9 @@ export function answerOpponentTakebackProposition(ctrl: RoundController): MaybeV
           hook: util.onInsert(ctrl.autoScroll),
         },
         [
+          declineButton(ctrl, () => ctrl.socket.sendLoading('takeback-no')),
           h('p', i18n('yourOpponentProposesATakeback')),
           acceptButton(ctrl, 'takeback-yes', ctrl.takebackYes),
-          declineButton(ctrl, () => ctrl.socket.sendLoading('takeback-no')),
         ],
       )
     : null;

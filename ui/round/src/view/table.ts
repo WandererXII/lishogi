@@ -55,7 +55,7 @@ export const renderTablePlay = (ctrl: RoundController): MaybeVNodes => {
   const submit = button.submitUsi(ctrl) || button.sealedUsi(ctrl);
   const ricons = loading
     ? loaderIcon
-    : submit || paused
+    : paused
       ? []
       : [
           game.abortable(d)
@@ -93,6 +93,7 @@ export const renderTablePlay = (ctrl: RoundController): MaybeVNodes => {
                   () => ctrl.offerPause(true),
                 )
             : null,
+          button.forecast(ctrl),
           ctrl.resignConfirm
             ? button.resignConfirm(ctrl)
             : button.standard(
@@ -100,10 +101,9 @@ export const renderTablePlay = (ctrl: RoundController): MaybeVNodes => {
                 game.resignable,
                 icons.surrender,
                 i18n('resign'),
-                'resign-confirm',
+                'resign-confirm.fbt-red',
                 () => ctrl.resign(true),
               ),
-          replay.analysisButton(ctrl),
         ];
   const buttons: MaybeVNodes = loading
     ? []
