@@ -65,10 +65,10 @@ final class Editor(env: Env) extends LilaController(env) {
     Open { implicit ctx =>
       OptionResult(env.game.gameRepo game id) { game =>
         Redirect {
-          if (game.playableEvenPaused) routes.Round.watcher(game.id, "sente")
+          if (game.playableEvenPaused) routes.Round.gameOrChallengeDefault(game.id)
           else
             routes.Editor.parseArg(
-              s"${game.variant.key}/${get("sfen") | (game.shogi.toSfen).value}",
+              s"${game.variant.key}/${get("sfen") | (game.shogi.toSfen).value}?orientation=${get("orientation") | "sente"}",
             )
         }
       }

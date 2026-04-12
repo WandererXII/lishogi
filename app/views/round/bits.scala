@@ -30,10 +30,10 @@ object bits {
       title = title,
       openGraph = openGraph,
       moreJs = moreJs,
+      variant = variant.some,
       moreCss = frag(
         cssTag("round"),
         ctx.blind option cssTag("round.nvui"),
-        variantPieceSprite(variant),
         moreCss,
       ),
       shogiground = shogiground,
@@ -50,25 +50,6 @@ object bits {
     cross map { c =>
       views.html.game.crosstable(ctx.userId.fold(c)(c.fromPov), game.id.some)
     }
-
-  def underchat(game: Game)(implicit ctx: Context) =
-    frag(
-      views.html.chat.members,
-      isGranted(_.ViewBlurs) option div(cls := "round__mod")(
-        game.players.filter(p => game.playerBlurPercent(p.color) > 30) map { p =>
-          div(cls := s"is color-icon ${p.color.name}")(
-            showPlayer(
-              p,
-              withOnline = false,
-              withModLink = true,
-              withFlag = false,
-            ),
-            s" ${p.blurs.nb}/${game.playerMoves(p.color)} blurs ",
-            strong(game.playerBlurPercent(p.color), "%"),
-          )
-        },
-      ),
-    )
 
   def others(playing: List[Pov], simul: Option[lila.simul.Simul])(implicit ctx: Context) =
     frag(
@@ -99,8 +80,11 @@ object bits {
       div(cls := "now-playing")(
         playing.partition(_.isMyTurn) pipe { case (myTurn, otherTurn) =>
           (myTurn ++ otherTurn.take(6 - myTurn.size)) take 9 map { pov =>
-            a(href := routes.Round.player(pov.fullId), cls := pov.isMyTurn.option("my_turn"))(
-              gameSfen(pov, ctx.me, withLink = false, withTitle = false, withLive = false),
+            a(
+              href := routes.Round.gameOrChallenge(pov.gameId, pov.color.name),
+              cls  := pov.isMyTurn.option("my_turn"),
+            )(
+              gameSfen(pov, withLink = false, withTitle = false, withLive = false),
               span(cls := "meta")(
                 showBasePlayer(pov.opponent),
                 span(cls := "indicator")(
@@ -120,7 +104,7 @@ object bits {
       tour: Option[lila.tournament.TourAndTeamVs],
       simul: Option[lila.simul.Simul],
       userTv: Option[lila.user.User] = None,
-      backToGame: Option[lila.game.Player] = None,
+      analysis: Boolean,
       bookmarked: Boolean,
   )(implicit ctx: Context) =
     views.html.game.side(
@@ -128,7 +112,7 @@ object bits {
       tour,
       simul = simul,
       userTv = userTv,
-      backToGame = backToGame,
+      analysis = analysis,
       bookmarked = bookmarked,
     )
 

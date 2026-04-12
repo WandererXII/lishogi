@@ -73,7 +73,7 @@ object theirs {
                     p(
                       a(
                         cls := "button",
-                        href := s"${routes.Auth.login}?referrer=${routes.Round.watcher(c.id, "sente")}",
+                        href := s"${routes.Auth.login}?referrer=${routes.Round.gameOrChallengeDefault(c.id)}",
                       )(trans.signIn()),
                     ),
                   ),
@@ -91,7 +91,7 @@ object theirs {
               bits.details(c, false),
               a(
                 id   := "challenge-redirect",
-                href := routes.Round.watcher(c.id, "sente"),
+                href := routes.Round.gameOrChallengeDefault(c.id),
                 cls  := "button button-fat",
               )(
                 trans.joinTheGame(),

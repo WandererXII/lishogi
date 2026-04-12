@@ -44,7 +44,7 @@ final class User(
       OptionFuResult(env.user.repo named username) { user =>
         currentlyPlaying(user) orElse lastPlayed(user) flatMap {
           _.fold(fuccess(Redirect(routes.User.show(username)))) { case (pov, version) =>
-            roundC.watch(pov, version, userTv = user.some)
+            roundC.renderWatcher(pov, version, userTv = user.some)
           }
         }
       }

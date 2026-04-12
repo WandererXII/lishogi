@@ -1,34 +1,16 @@
 package controllers
 
-import play.api.mvc._
-
 import lila.api.Context
 import lila.app._
 import lila.game.AnonCookie
-import lila.game.Pov
 import lila.game.{ Game => GameModel }
 
 private[controllers] trait TheftPrevention { self: LilaController =>
 
-  protected def PreventTheft(pov: Pov)(ok: => Fu[Result])(implicit ctx: Context): Fu[Result] =
-    if (isTheft(pov)) {
-      fuccess(Redirect(routes.Round.watcher(pov.gameId, pov.color.name)))
-    } else ok
-
-  protected def isTheft(pov: Pov)(implicit ctx: Context) =
-    pov.game.isNotationImport || pov.player.isAi || {
-      (pov.player.userId, ctx.userId) match {
-        case (Some(_), None)                    => true
-        case (Some(playerUserId), Some(userId)) => playerUserId != userId
-        case (None, Some(_))                    => true
-        case (None, _) => !ctx.req.cookies.get(AnonCookie.name).exists(_.value == pov.playerId)
-      }
-    }
-
-  protected def isMyPov(pov: Pov)(implicit ctx: Context) = !isTheft(pov)
-
-  protected def playablePovForReq(game: GameModel)(implicit ctx: Context) =
-    (!game.isNotationImport && game.playableEvenPaused) ?? {
+  protected def myGameColor(game: GameModel, cond: Boolean = true)(implicit
+      ctx: Context,
+  ): Option[shogi.Color] =
+    (!game.isNotationImport && cond) ?? {
       ctx.userId
         .fold(
           ctx.req.cookies
@@ -38,7 +20,7 @@ private[controllers] trait TheftPrevention { self: LilaController =>
             .filterNot(_.hasUser),
         )(game.playerByUserId)
         .filterNot(_.isAi)
-        .map { Pov(game, _) }
+        .map(_.color)
     }
 
   protected lazy val theftResponse = Unauthorized(

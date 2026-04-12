@@ -24,7 +24,7 @@ object mine {
       moreJs = bits.js(c, json, true),
       moreCss = cssTag("challenge.page"),
     ) {
-      val challengeLink = s"$netBaseUrl${routes.Round.watcher(c.id, "sente")}"
+      val challengeLink = s"$netBaseUrl${routes.Round.gameOrChallengeDefault(c.id)}"
       main(cls := "page-small challenge-page box box-pad")(
         c.status match {
           case Status.Created | Status.Offline =>
@@ -105,7 +105,7 @@ object mine {
               bits.details(c, true),
               a(
                 id   := "challenge-redirect",
-                href := routes.Round.watcher(c.id, "sente"),
+                href := routes.Round.gameOrChallengeDefault(c.id),
                 cls  := "button-fat",
               )(
                 trans.joinTheGame(),

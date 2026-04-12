@@ -86,7 +86,9 @@ object timeline {
               case None        => trans.drawVsYInZ
             })(
               a(
-                href     := routes.Round.player(playerId),
+                href := routes.Round.gameOrChallengeDefault(
+                  playerId.take(lila.game.Game.gameIdSize),
+                ),
                 dataIcon := perf.icon,
                 cls      := "text glpt",
               )(win match {

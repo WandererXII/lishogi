@@ -25,11 +25,9 @@ object player {
 
     val chatJson = chatOption.map { c =>
       chat.gameJson(
-        c,
-        name = trans.chatRoom.txt(),
-        withNoteAge = ctx.isAuth option pov.game.secondsSinceCreation,
+        gameChat = c,
+        game = pov.game,
         loginRequired = false,
-        palantir = ctx.me.exists(_.canPalantir),
       )
     }
 
@@ -63,7 +61,7 @@ object player {
             pov,
             tour.map(_.tourAndTeamVs),
             simul,
-            backToGame = none,
+            analysis = false,
             bookmarked = bookmarked,
           ),
           chatOption.map(_ => chat.frag),
@@ -78,7 +76,7 @@ object player {
               ),
             )(bits.others(playing, simul)),
         ),
-        div(cls := "round__underchat")(bits underchat pov.game),
+        div(cls := "round__underchat")(views.html.chat.membersGame),
       ),
     )
   }

@@ -431,7 +431,7 @@ object mod {
             .map { result =>
               tr(
                 td(
-                  a(href := routes.Round.watcher(result.gameId, result.color.name))(
+                  a(href := routes.Round.gameOrChallenge(result.gameId, result.color.name))(
                     pag.pov(result) match {
                       case None    => result.gameId
                       case Some(p) => span(showPlayer(p.opponent, withOnline = false))
@@ -440,7 +440,7 @@ object mod {
                 ),
                 td(
                   pag.pov(result).map { p =>
-                    a(href := routes.Round.watcher(p.gameId, p.color.name))(
+                    a(href := routes.Round.gameOrChallenge(p.gameId, p.color.name))(
                       p.game.isTournament option iconTag(Icons.trophy),
                       iconTag(p.game.perfType.icon),
                       shortClockName(p.game.clock.map(_.config)),

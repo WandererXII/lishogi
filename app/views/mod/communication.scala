@@ -100,7 +100,7 @@ object communication {
                   case PublicSource.Team(id)       => views.html.team.bits.link(id)
                   case PublicSource.Chatroom(id)   => div(s"Chatroom: $id")
                   case PublicSource.Watcher(id) =>
-                    a(href := routes.Round.watcher(id, "sente"))("Game #", id)
+                    a(href := routes.Round.gameOrChallengeDefault(id))("Game #", id)
                   case PublicSource.Study(id) => a(href := routes.Study.show(id))("Study #", id)
                   case PublicSource.Unknown(source) => div(s"Unknown: $source")
                 },
@@ -115,7 +115,7 @@ object communication {
             players.map { case (pov, chat) =>
               div(cls := "game")(
                 a(
-                  href := routes.Round.player(pov.fullId),
+                  href := routes.Round.gameOrChallenge(pov.gameId, pov.color.name),
                   cls := List(
                     "title"        -> true,
                     "friend_title" -> pov.game.fromFriend,

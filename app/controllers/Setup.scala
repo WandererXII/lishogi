@@ -6,11 +6,9 @@ import play.api.libs.json.Json
 import play.api.mvc.Results
 import views._
 
-import lila.api.Context
 import lila.app._
 import lila.common.HTTPRequest
 import lila.common.IpAddress
-import lila.game.AnonCookie
 import lila.game.Pov
 import lila.setup.Processor.HookResult
 import lila.socket.Socket.Sri
@@ -19,8 +17,7 @@ final class Setup(
     env: Env,
     challengeC: => Challenge,
     apiC: => Api,
-) extends LilaController(env)
-    with TheftPrevention {
+) extends LilaController(env) {
 
   private def forms     = env.setup.forms
   private def processor = env.setup.processor
@@ -133,7 +130,7 @@ final class Setup(
                                   Ok(
                                     Json.obj(
                                       "id"  -> challenge.id,
-                                      "url" -> routes.Round.watcher(challenge.id, "sente").url,
+                                      "url" -> routes.Round.gameOrChallengeDefault(challenge.id).url,
                                     ),
                                   ),
                                 )
@@ -274,15 +271,4 @@ final class Setup(
       }(rateLimitedFu)
     }
 
-  private[controllers] def redirectPov(pov: Pov)(implicit ctx: Context) = {
-    val redir = Redirect(routes.Round.watcher(pov.gameId, "sente"))
-    if (ctx.isAuth) redir
-    else
-      redir withCookies env.lilaCookie.cookie(
-        AnonCookie.name,
-        pov.playerId,
-        maxAge = AnonCookie.maxAge.some,
-        httpOnly = false.some,
-      )
-  }
 }

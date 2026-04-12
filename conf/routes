@@ -205,21 +205,23 @@ GET   /streamer/:username              controllers.Streamer.show(username: Strin
 GET   /streamer/:username/redirect     controllers.Streamer.redirect(username: String)
 
 # Round
-GET   /$gameId<\w{8}>                            controllers.Round.watcher(gameId: String, color: String = "sente")
-GET   /$gameId<\w{8}>/$color<sente|gote>         controllers.Round.watcher(gameId: String, color: String)
-GET   /$fullId<\w{12}>                           controllers.Round.player(fullId: String)
+GET   /$gameId<\w{8}>                             controllers.Round.gameOrChallengeDefault(gameId: String)
+GET   /$gameId<\w{8}>/$color<sente|gote>          controllers.Round.gameOrChallenge(gameId: String, color: String)
 GET   /$gameId<\w{8}>/$color<sente|gote>/sides   controllers.Round.sides(gameId: String, color: String)
 GET   /$gameId<\w{8}>/continue/:mode             controllers.Round.continue(gameId: String, mode: String)
 GET   /$gameId<\w{8}>/note                       controllers.Round.readNote(gameId: String)
 POST  /$gameId<\w{8}>/note                       controllers.Round.writeNote(gameId: String)
-GET   /$gameId<\w{8}>/mini                       controllers.Round.mini(gameId: String, color: String = "sente")
+GET   /$gameId<\w{8}>/mini                       controllers.Round.miniDefault(gameId: String)
 GET   /$gameId<\w{8}>/$color<sente|gote>/mini    controllers.Round.mini(gameId: String, color: String)
-GET   /$fullId<\w{12}>/mini                      controllers.Round.miniFullId(fullId: String)
 GET   /$gameId<\w{8}>/edit                       controllers.Editor.game(gameId: String)
-GET   /$gameId<\w{8}>/$color<sente|gote>/analysis controllers.UserAnalysis.game(gameId: String, color: String)
-POST  /$fullId<\w{12}>/forecasts                  controllers.UserAnalysis.forecasts(fullId: String)
-POST  /$fullId<\w{12}>/forecasts/:usi            controllers.UserAnalysis.forecastsOnMyTurn(fullId: String, usi: String)
-POST  /$fullId<\w{12}>/resign                    controllers.Round.resign(fullId: String)
+GET   /$gameId<\w{8}>/forecasts                  controllers.UserAnalysis.forecastsBoard(gameId: String)
+POST  /$gameId<\w{8}>/forecasts                  controllers.UserAnalysis.forecasts(gameId: String)
+POST  /$gameId<\w{8}>/forecasts/:usi             controllers.UserAnalysis.forecastsOnMyTurn(gameId: String, usi: String)
+POST  /$gameId<\w{8}>/resign                    controllers.Round.resignPost(gameId: String)
+
+# Round  - BC
+GET   /$fullId<\w{12}>                           controllers.Round.gameFullId(fullId: String)
+GET   /$fullId<\w{12}>/mini                      controllers.Round.miniFullId(fullId: String)
 
 GET   /embed/$gameId<\w{8}>                      controllers.Analyse.embed(gameId: String, color: String = "sente")
 GET   /embed/$gameId<\w{8}>/$color<sente|gote>   controllers.Analyse.embed(gameId: String, color: String)
@@ -227,7 +229,7 @@ GET   /embed/$gameId<\w{8}>/$color<sente|gote>   controllers.Analyse.embed(gameI
 POST  /$gameId<\w{8}>/delete                     controllers.Game.delete(gameId: String)
 
 GET   /round-next/$gameId<\w{8}>                 controllers.Round.next(gameId: String)
-GET   /whats-next/$fullId<\w{12}>                controllers.Round.whatsNext(fullId: String)
+GET   /whats-next/$gameId<\w{8}>                 controllers.Round.whatsNext(gameId: String)
 
 # Tournament
 GET   /tournament                             controllers.Tournament.homeDefault(page: Int ?= 1)

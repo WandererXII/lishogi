@@ -196,7 +196,7 @@ object bits {
       a(
         cls      := "text button button-fat",
         dataIcon := Icons.play,
-        href     := routes.Round.player(current.pov.fullId),
+        href     := routes.Round.gameOrChallenge(current.pov.gameId, current.pov.color.name),
       )(
         trans.joinTheGame(),
       ),
@@ -205,7 +205,7 @@ object bits {
       trans.or(),
       br,
       br,
-      postForm(action := routes.Round.resign(current.pov.fullId))(
+      postForm(action := routes.Round.resignPost(current.pov.fullId))(
         button(cls := "text button button-red", dataIcon := Icons.cancel)(
           if (current.pov.game.abortable) trans.abortGame() else trans.resign(),
         ),

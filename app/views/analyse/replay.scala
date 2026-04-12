@@ -28,27 +28,24 @@ object replay {
       userTv: Option[lila.user.User],
       chatOption: Option[lila.chat.Chat.Game],
       bookmarked: Boolean,
+      userPlayer: Option[lila.game.Player],
   )(implicit ctx: Context) = {
 
     import pov._
 
     val chatJson = chatOption map { c =>
       views.html.chat.gameJson(
-        c,
-        name = trans.chatRoom.txt(),
-        withNoteAge = ctx.isAuth option game.secondsSinceCreation,
-        palantir = ctx.me.exists(_.canPalantir),
+        gameChat = c,
+        game = game,
       )
     }
 
-    val backToGame = ctx.me.flatMap(pov.game.player)
-
     bits.layout(
       title = titleOf(pov),
+      variant = pov.game.variant.some,
       moreCss = frag(
         cssTag("analyse.round"),
         ctx.blind option cssTag("round.nvui"),
-        variantPieceSprite(pov.game.variant),
       ),
       moreJs = frag(
         ctx.blind option analyseNvuiTag,
@@ -59,9 +56,8 @@ object replay {
             "data"          -> data,
             "socketVersion" -> socketVersion.value,
             "userId"        -> ctx.userId,
-            "playerId" -> ctx.userId.flatMap(userId => pov.game.playerByUserId(userId).map(_.id)),
-            "chat"     -> chatJson,
-            "hunter"   -> isGranted(_.Hunter),
+            "playerId"      -> userPlayer.map(_.id),
+            "chat"          -> chatJson,
           ),
         ),
       ),
@@ -69,7 +65,7 @@ object replay {
     )(
       frag(
         main(
-          cls := s"analyse ${mainVariantClass(pov.game.variant)} ${(pov.game.hasClock || pov.game.players
+          cls := s"analyse mode-replay ${mainVariantClass(pov.game.variant)} ${(pov.game.hasClock || pov.game.players
               .exists(p => p.isAi || p.hasUser || p.name.exists(_ != "?"))) ?? " has-player-bars"}",
         )(
           st.aside(cls := "analyse__side")(
@@ -79,7 +75,7 @@ object replay {
                 tour = none,
                 simul = simul,
                 userTv = userTv,
-                backToGame = backToGame,
+                analysis = true,
                 bookmarked = bookmarked,
               ),
             chatOption.map(_ => views.html.chat.frag),
@@ -212,7 +208,7 @@ object replay {
                 ),
               ),
               div(cls := "analyse__acpl"),
-              views.html.chat.members,
+              views.html.chat.membersGame,
             ),
         ),
       ),

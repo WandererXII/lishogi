@@ -19,7 +19,7 @@ object replayBot {
     ) {
       main(cls := s"analyse ${mainVariantClass(pov.game.variant)}")(
         st.aside(cls := "analyse__side")(
-          views.html.game.side(pov, none, simul = simul, backToGame = none, bookmarked = false),
+          views.html.game.side(pov, none, simul = simul, analysis = false, bookmarked = false),
         ),
         div(cls := s"analyse__board main-board ${variantClass(pov.game.variant)}")(
           shogigroundEmpty(pov.game.variant, pov.color),

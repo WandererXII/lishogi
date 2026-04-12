@@ -20,9 +20,9 @@ object widgets {
       val fromPlayer  = user flatMap g.player
       val firstPlayer = fromPlayer | g.firstPlayer
       st.article(cls := "game-row paginated")(
-        a(cls := "game-row__overlay", href := gameLink(g, firstPlayer.color, ctx.me)),
+        a(cls := "game-row__overlay", href := gameLink(g, firstPlayer.color)),
         div(cls := "game-row__board")(
-          gameSfen(Pov(g, firstPlayer), ctx.me, withLink = false, withTitle = false),
+          gameSfen(Pov(g, firstPlayer), withLink = false, withTitle = false),
         ),
         div(cls := "game-row__infos")(
           div(cls := "header", dataIcon := bits.gameIcon(g))(

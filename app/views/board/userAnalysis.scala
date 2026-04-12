@@ -15,11 +15,11 @@ object userAnalysis {
   ) =
     views.html.base.layout(
       title = trans.analysis.txt(),
+      variant = pov.game.variant.some,
       moreCss = frag(
         cssTag("analyse.free"),
         withForecast option cssTag("analyse.forecast"),
         ctx.blind option cssTag("round.nvui"),
-        variantPieceSprite(pov.game.variant),
       ),
       moreJs = frag(
         ctx.blind option analyseNvuiTag,

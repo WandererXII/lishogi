@@ -18,11 +18,11 @@ object side {
       tour: Option[lila.tournament.TourAndTeamVs],
       simul: Option[lila.simul.Simul],
       userTv: Option[lila.user.User] = None,
-      backToGame: Option[lila.game.Player] = None,
+      analysis: Boolean,
       bookmarked: Boolean,
   )(implicit ctx: Context): Option[Frag] =
     ctx.noBlind option frag(
-      meta(pov, tour, simul, userTv, backToGame, bookmarked),
+      meta(pov, tour, simul, userTv, analysis, bookmarked),
       views.html.streamer.bits.contextualWrap(pov.game.userIds.filter(isStreaming)),
     )
 
@@ -31,7 +31,7 @@ object side {
       tour: Option[lila.tournament.TourAndTeamVs],
       simul: Option[lila.simul.Simul],
       userTv: Option[lila.user.User] = None,
-      backToGame: Option[lila.game.Player] = None,
+      analysis: Boolean,
       bookmarked: Boolean,
   )(implicit ctx: Context): Option[Frag] =
     ctx.noBlind option {
@@ -139,19 +139,21 @@ object side {
               ),
             )
         },
-        (backToGame.isDefined || tourOrSimulLink.isDefined) option
+        (analysis || tourOrSimulLink.isDefined) option
           st.section(cls := "game__links")(
             frag(
-              backToGame.flatMap(game.fullIdOf) map { fullId =>
-                a(
-                  cls      := s"button button-empty${tourOrSimulLink.isEmpty ?? " text"}",
-                  dataIcon := Icons.back,
-                  href     := routes.Round.player(fullId),
-                  title    := trans.backToGame.txt(),
-                )(
-                  tourOrSimulLink.isEmpty option trans.backToGame(),
-                )
-              },
+              analysis option frag(
+                game.fromLobby option a(
+                  cls      := "button button-empty",
+                  dataIcon := Icons.createNew,
+                  href     := s"/?hook_like=${game.id}",
+                  title    := trans.newOpponent.txt(),
+                ),
+                button(
+                  cls      := "button button-empty rematch text",
+                  dataIcon := Icons.challenge,
+                )(trans.rematch()),
+              ),
               tourOrSimulLink,
             ),
           ),

@@ -21,7 +21,7 @@ object captcha {
       if (ctx.blind) form3.hidden(form("move"), captcha.solutions.head.some)
       else {
         val url =
-          netBaseUrl + routes.Round.watcher(captcha.gameId, if (captcha.sente) "sente" else "gote")
+          netBaseUrl + routes.Round.gameOrChallengeDefault(captcha.gameId)
         div(
           cls := List(
             "captcha form-group" -> true,

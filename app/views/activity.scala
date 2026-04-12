@@ -141,14 +141,17 @@ object activity {
         subTag(
           povs.map { pov =>
             frag(
-              a(cls := "glpt", href := routes.Round.watcher(pov.gameId, pov.color.name))(
+              a(
+                cls  := "glpt",
+                href := routes.Round.gameOrChallenge(pov.gameId, pov.color.name),
+              )(
                 trans.gameAgainstX(
                   showPlayer(
                     pov.opponent,
                     withRating = false,
                     withDiff = false,
                     withOnline = false,
-                    withLink = true,
+                    withLink = false,
                   ),
                 ),
               ),
@@ -171,7 +174,7 @@ object activity {
         subTag(
           povs.map { pov =>
             frag(
-              a(cls := "glpt", href := routes.Round.watcher(pov.gameId, pov.color.name))(
+              a(cls := "glpt", href := routes.Round.gameOrChallenge(pov.gameId, pov.color.name))(
                 pov.game.wonBy(pov.color) match {
                   case Some(true)  => trans.victory()
                   case Some(false) => trans.defeat()
@@ -184,7 +187,7 @@ object activity {
                     withRating = false,
                     withDiff = false,
                     withOnline = false,
-                    withLink = true,
+                    withLink = false,
                   ),
                 ),
               ),

@@ -19,25 +19,29 @@ object chat {
 
   def gameJson(
       gameChat: lila.chat.Chat.Game,
-      name: String,
-      withNoteAge: Option[Int] = None,
-      writeable: Boolean = true,
+      game: lila.game.Game,
       loginRequired: Boolean = true,
-      localMod: Boolean = false,
-      palantir: Boolean = false,
   )(implicit ctx: Context) =
     json(
       gameChat.chat,
-      name = name,
+      name = trans.chatRoom.txt(),
       timeout = gameChat.timeout,
-      withNoteAge = withNoteAge,
-      writeable = writeable,
+      withNoteAge = ctx.isAuth option game.secondsSinceCreation,
+      writeable = true,
       resourceId = lila.chat.Chat.ResourceId(s"game/${gameChat.chat.id}"),
       restricted = gameChat.restricted,
       loginRequired = loginRequired,
-      localMod = localMod,
-      palantir = palantir,
-    )
+      localMod = false,
+      palantir = ctx.me.exists(_.canPalantir),
+    ) ++ Json
+      .obj(
+        "players" ->
+          Json
+            .obj()
+            .add("sente" -> game.player(shogi.Sente).userId)
+            .add("sente" -> game.player(shogi.Gote).userId),
+      )
+      .add("finished" -> game.finished)
 
   def json(
       chat: lila.chat.Chat,
@@ -82,8 +86,25 @@ object chat {
       cls       := "chat__members none",
       aria.live := "off",
     )(
-      div(cls := "chat__members__inner")(
+      div(cls := "line default none")(
         span(cls := "number", dataIcon := Icons.person)("0"),
+        " ",
+        span(cls := "list"),
+      ),
+    )
+
+  def membersGame =
+    div(
+      cls       := "chat__members none",
+      aria.live := "off",
+    )(
+      div(cls := "line game none")(
+        span(cls := "number", dataIcon := Icons.randomColor)("0"),
+        " ",
+        span(cls := "list"),
+      ),
+      div(cls := "line analysis none")(
+        span(cls := "number", dataIcon := Icons.microscope)("0"),
         " ",
         span(cls := "list"),
       ),

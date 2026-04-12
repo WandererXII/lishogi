@@ -153,7 +153,7 @@ object home {
         featured map { g =>
           val pov = Pov first g
           a(cls := "lobby__tv", href := routes.Tv.index)(
-            views.html.game.bits.miniWrap(pov, gameSfen(pov, ctx.me, withLink = false, tv = true)),
+            views.html.game.bits.miniWrap(pov, gameSfen(pov, withLink = false, tv = true)),
           )
         },
         puzzle map { p =>

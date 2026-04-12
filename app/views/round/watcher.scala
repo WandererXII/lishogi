@@ -26,10 +26,8 @@ object watcher {
 
     val chatJson = chatOption map { c =>
       chat.gameJson(
-        c,
-        name = trans.chatRoom.txt(),
-        withNoteAge = ctx.isAuth option pov.game.secondsSinceCreation,
-        palantir = ctx.me.exists(_.canPalantir),
+        gameChat = c,
+        game = pov.game,
       )
     }
 
@@ -52,12 +50,12 @@ object watcher {
     )(
       main(cls := s"round ${mainVariantClass(pov.game.variant)}")(
         st.aside(cls := "round__side")(
-          bits.side(pov, tour, simul, userTv, backToGame = none, bookmarked),
+          bits.side(pov, tour, simul, userTv, analysis = false, bookmarked),
           chatOption.map(_ => chat.frag),
         ),
         bits.roundAppPreload(pov, false),
         div(cls := "round__underboard")(bits.crosstable(cross, pov.game)),
-        div(cls := "round__underchat")(bits underchat pov.game),
+        div(cls := "round__underchat")(views.html.chat.membersGame),
       ),
     )
   }
@@ -75,7 +73,7 @@ object watcher {
         main(cls := s"round ${mainVariantClass(pov.game.variant)}")(
           st.aside(cls := "round__side")(
             game
-              .side(pov, none, simul = none, userTv = none, backToGame = none, bookmarked = false),
+              .side(pov, none, simul = none, userTv = none, analysis = false, bookmarked = false),
             div(cls := "for-crawler")(
               h1(titleGame(pov.game)),
               p(describePov(pov)),

@@ -20,7 +20,6 @@ import lila.game.Pov
 import lila.game.Source
 import lila.i18n.defaultLang
 import lila.i18n.{ I18nKeys => trans }
-import lila.user.User
 
 trait GameHelper {
   self: I18nHelper
@@ -38,7 +37,7 @@ trait GameHelper {
     lila.app.ui.OpenGraph(
       image = gameThumbnail(pov),
       title = titleGame(pov.game),
-      url = s"$netBaseUrl${routes.Round.watcher(pov.gameId, pov.color.name).url}",
+      url = s"$netBaseUrl${routes.Round.gameOrChallenge(pov.gameId, pov.color.name).url}",
       description = describePov(pov),
     )
 
@@ -218,28 +217,19 @@ trait GameHelper {
   def gameLink(
       game: Game,
       color: Color,
-      me: Option[User],
       tv: Boolean = false,
   ): String = {
     if (tv) routes.Tv.index
-    else
-      me.ifTrue(game.playableEvenPaused || game.aborted)
-        .flatMap(game.fullIdOf)
-        .fold(
-          routes.Round.watcher(game.id, color.name),
-        ) { fullId =>
-          routes.Round.player(fullId)
-        }
+    else routes.Round.gameOrChallenge(game.id, color.name)
   }.toString
 
-  def gameLink(pov: Pov, me: Option[User]): String = gameLink(pov.game, pov.color, me)
+  def gameLink(pov: Pov): String = gameLink(pov.game, pov.color)
 
   private def miniBoardCls(gameId: String, variant: Variant, isLive: Boolean): String =
     s"mini-board mini-board-${gameId} parse-sfen ${variantClass(variant)}${isLive ?? " live"}"
 
   def gameSfen(
       pov: Pov,
-      me: Option[User],
       tv: Boolean = false,
       withTitle: Boolean = true,
       withLink: Boolean = true,
@@ -250,7 +240,7 @@ trait GameHelper {
     val variant = game.variant
     val tag     = if (withLink) a else span
     tag(
-      href        := withLink.option(gameLink(game, pov.color, me, tv)),
+      href        := withLink.option(gameLink(game, pov.color, tv)),
       title       := withTitle.option(gameTitle(game, pov.color)),
       cls         := miniBoardCls(game.id, variant, isLive),
       dataLive    := isLive.option(game.id),
@@ -265,12 +255,13 @@ trait GameHelper {
     val isLive  = pov.game.isBeingPlayed
     val variant = pov.game.variant
     a(
-      href      := (if (tv) routes.Tv.index else routes.Round.watcher(pov.gameId, pov.color.name)),
-      title     := gameTitle(pov.game, pov.color)(defaultLang),
-      cls       := miniBoardCls(pov.gameId, variant, isLive),
-      dataLive  := isLive.option(pov.gameId),
-      dataColor := pov.color.name,
-      dataSfen  := pov.game.situation.toSfen.value,
+      href := (if (tv) routes.Tv.index
+               else routes.Round.gameOrChallenge(pov.gameId, pov.color.name)),
+      title       := gameTitle(pov.game, pov.color)(defaultLang),
+      cls         := miniBoardCls(pov.gameId, variant, isLive),
+      dataLive    := isLive.option(pov.gameId),
+      dataColor   := pov.color.name,
+      dataSfen    := pov.game.situation.toSfen.value,
       dataLastUsi := ~pov.game.lastUsiStr,
       dataVariant := variant.key,
       target      := blank.option("_blank"),
@@ -297,7 +288,7 @@ trait GameHelper {
   def challengeOpenGraph(c: lila.challenge.Challenge)(implicit lang: Lang) =
     lila.app.ui.OpenGraph(
       title = challengeTitle(c),
-      url = s"$netBaseUrl${routes.Round.watcher(c.id, shogi.Sente.name).url}",
+      url = s"$netBaseUrl${routes.Round.gameOrChallengeDefault(c.id).url}",
       description = trans.challengeDescription.txt(),
     )
 }

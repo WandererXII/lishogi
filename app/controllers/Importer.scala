@@ -42,7 +42,7 @@ final class Importer(env: Env) extends LilaController(env) {
                       system = false,
                     ),
                   )
-                } inject Redirect(routes.Round.watcher(game.id, "sente"))
+                } inject Redirect(routes.Round.gameOrChallengeDefault(game.id))
             } recover { case e =>
               lila
                 .log("importer")

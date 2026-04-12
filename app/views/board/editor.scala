@@ -15,10 +15,8 @@ object editor {
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.boardEditor.txt(),
-      moreCss = frag(
-        cssTag("editor"),
-        variantPieceSprite(sit.variant),
-      ),
+      variant = sit.variant.some,
+      moreCss = cssTag("editor"),
       moreJs = moduleJsTag("editor", jsData(sit, orientation)),
       shogiground = false,
       zoomable = true,

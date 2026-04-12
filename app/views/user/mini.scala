@@ -80,7 +80,7 @@ object mini {
       ),
       playing map { pov =>
         frag(
-          gameSfen(pov, ctx.me),
+          gameSfen(pov),
           div(cls := "upt__game-legend")(
             i(dataIcon := pov.game.perfType.icon, cls := "text")(
               pov.game.clock.map(_.config.show),

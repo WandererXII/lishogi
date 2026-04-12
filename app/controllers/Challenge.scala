@@ -101,12 +101,12 @@ final class Challenge(
           .flatMap {
             case Some(pov) =>
               negotiate(
-                html = Redirect(routes.Round.watcher(pov.gameId, cc.fold("sente")(_.name))).fuccess,
+                html = Redirect(routes.Round.gameOrChallengeDefault(pov.gameId)).fuccess,
                 json = env.api.roundApi.player(pov, none) map { Ok(_) },
               ) flatMap withChallengeAnonCookie(ctx.isAnon, c, false)
             case None =>
               negotiate(
-                html = Redirect(routes.Round.watcher(c.id, cc.fold("sente")(_.name))).fuccess,
+                html = Redirect(routes.Round.gameOrChallengeDefault(c.id)).fuccess,
                 json = notFoundJson("Someone else accepted the challenge"),
               )
           }

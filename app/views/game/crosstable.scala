@@ -34,7 +34,7 @@ object crosstable {
             case _                    => "glpt loss" -> iconTag(Icons.circleFull)
           }
           a(
-            href := s"""${routes.Round.watcher(r.gameId, "sente")}?pov=${u.id}""",
+            href := routes.Round.gameOrChallengeDefault(r.gameId),
             cls  := linkClass,
           )(text)
         })

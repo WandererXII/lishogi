@@ -30,7 +30,7 @@ final class Game(
             Redirect(routes.User.show(me.username))
         } else
           fuccess {
-            Redirect(routes.Round.watcher(game.id, game.firstColor.name))
+            Redirect(routes.Round.gameOrChallengeDefault(game.id))
           }
       }
     }

@@ -79,9 +79,12 @@ object layout {
     fontPreload(assetUrl("font/roboto-latin.woff2")),
   )
 
-  private def boardPreload(implicit ctx: Context) =
+  private def boardPreload(file: String) =
+    preload(assetUrl(s"images/boards/$file"), "image", crossorigin = false)
+
+  private def defaultBoardPreload(implicit ctx: Context) =
     ctx.currentTheme.file map { file =>
-      preload(assetUrl(s"images/boards/$file"), "image", crossorigin = false)
+      boardPreload(file)
     }
 
   private val manifests = raw(
@@ -293,18 +296,19 @@ object layout {
 
   def apply(
       title: String,
-      fullTitle: Option[String] = None,
+      fullTitle: Option[String] = none,
       robots: Boolean = isGloballyCrawlable,
       moreCss: Frag = emptyFrag,
       moreJs: Frag = emptyFrag,
       playing: Boolean = false,
-      openGraph: Option[lila.app.ui.OpenGraph] = None,
+      openGraph: Option[lila.app.ui.OpenGraph] = none,
       shogiground: Boolean = true,
+      variant: Option[shogi.variant.Variant] = none,
       zoomable: Boolean = false,
-      csp: Option[ContentSecurityPolicy] = None,
+      csp: Option[ContentSecurityPolicy] = none,
       wrapClass: String = "",
-      canonicalPath: Option[CanonicalPath] = None,
-      withHrefLangs: Option[lila.i18n.LangList.AlternativeLangs] = None,
+      canonicalPath: Option[CanonicalPath] = none,
+      withHrefLangs: Option[lila.i18n.LangList.AlternativeLangs] = none,
   )(body: Frag)(implicit ctx: Context): Frag =
     frag(
       doctype,
@@ -337,6 +341,7 @@ object layout {
           ctx.userContext.impersonatedBy.isDefined option cssTag("user.mod.impersonate"),
           ctx.blind option cssTag("misc.blind"),
           defaultPieceSprite,
+          variant.flatMap(variantPieceSprite),
           moreCss,
           meta(
             content := openGraph.fold(trans.siteDescription.txt())(o => o.description),
@@ -348,7 +353,8 @@ object layout {
           noTranslate,
           openGraph.map(_.frags(staticUrl)(ctx.lang)),
           fontsPreload,
-          boardPreload,
+          defaultBoardPreload,
+          variant.exists(_.dobutsu) option boardPreload("dobutsu.png"),
           manifests,
           jsLicense,
           canonicalPath.ifTrue(robots).map(canonical),

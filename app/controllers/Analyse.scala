@@ -1,9 +1,6 @@
 package controllers
 
-import play.api.mvc._
 import views._
-
-import shogi.format.forsyth.Sfen
 
 import lila.api.Context
 import lila.app._
@@ -17,7 +14,8 @@ final class Analyse(
     env: Env,
     gameC: => Game,
     roundC: => Round,
-) extends LilaController(env) {
+) extends LilaController(env)
+    with TheftPrevention {
 
   def requestAnalysis(id: String) =
     Auth { implicit ctx => me =>
@@ -43,7 +41,7 @@ final class Analyse(
   ) =
     if (HTTPRequest isCrawler ctx.req) replayBot(pov)
     else
-      gameC.preloadUsers(pov.game) >> RedirectAtSfen(pov) {
+      gameC.preloadUsers(pov.game) >> {
         (env.analyse.analyser get pov.game) zip
           (!pov.game.metadata.analysed ?? env.shoginet.api.userAnalysisExists(pov.gameId)) zip
           (pov.game.simulId ?? env.simul.repo.find) zip
@@ -82,6 +80,7 @@ final class Analyse(
                     userTv,
                     chat,
                     bookmarked = bookmarked,
+                    myGameColor(pov.game).map(pov.game.player),
                   ),
                 ).enableSharedArrayBuffer
               }
@@ -100,22 +99,6 @@ final class Analyse(
             Ok(html.analyse.embed(pov, data)).enableSharedArrayBuffer
           }
         case _ => fuccess(NotFound(html.analyse.embed.notFound))
-      }
-    }
-
-  private def RedirectAtSfen(pov: Pov)(or: => Fu[Result])(implicit ctx: Context) =
-    get("sfen").map(Sfen.clean).fold(or) { atSfen =>
-      val url = routes.Round.watcher(pov.gameId, pov.color.name)
-      fuccess {
-        shogi.Replay
-          .plyAtSfen(pov.game.usis, pov.game.initialSfen, pov.game.variant, atSfen)
-          .fold(
-            err => {
-              lila.log("analyse").info(s"RedirectAtSfen: ${pov.gameId} $atSfen $err")
-              Redirect(url)
-            },
-            ply => Redirect(s"$url#$ply"),
-          )
       }
     }
 

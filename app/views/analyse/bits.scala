@@ -21,13 +21,15 @@ object bits {
       title: String,
       moreCss: Frag = emptyFrag,
       moreJs: Frag = emptyFrag,
-      openGraph: Option[lila.app.ui.OpenGraph] = None,
+      openGraph: Option[lila.app.ui.OpenGraph] = none,
+      variant: Option[shogi.variant.Variant] = none,
   )(body: Frag)(implicit ctx: Context): Frag =
     views.html.base.layout(
       title = title,
       moreCss = moreCss,
       moreJs = moreJs,
       openGraph = openGraph,
+      variant = variant,
       shogiground = false,
       robots = false,
       zoomable = true,

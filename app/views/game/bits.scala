@@ -20,8 +20,8 @@ object bits {
     )
 
   def mini(pov: Pov)(implicit ctx: Context): Frag =
-    a(href := gameLink(pov, ctx.me))(
-      miniWrap(pov, gameSfen(pov, ctx.me, withLink = false)),
+    a(href := gameLink(pov))(
+      miniWrap(pov, gameSfen(pov, withLink = false)),
     )
 
   def miniBoard(
@@ -51,7 +51,7 @@ object bits {
       bookmarked: Boolean,
   )(implicit ctx: Context) =
     div(
-      side.meta(pov, tour, simul, userTv, bookmarked = bookmarked),
+      side.meta(pov, tour, simul, userTv, analysis = false, bookmarked = bookmarked),
       cross.map { c =>
         div(cls := "crosstable")(crosstable(ctx.userId.fold(c)(c.fromPov), pov.gameId.some))
       },
