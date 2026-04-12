@@ -35,11 +35,13 @@ export default function (opts: ChatOpts, redraw: Redraw): ChatCtrl {
   const tabStorage = li.storage.make('chat.tab');
   const storedTab = tabStorage.get();
 
+  const chatEnabledKey = 'nochat';
+
   let moderation: ModerationCtrl | undefined;
 
   const vm: ViewModel = {
     tab: allTabs.find(tab => tab === storedTab) || allTabs[0],
-    enabled: opts.alwaysEnabled || !li.storage.get('nochat'),
+    enabled: opts.alwaysEnabled || !li.storage.get(chatEnabledKey),
     loading: false,
     timeout: opts.timeout,
     writeable: opts.writeable,
@@ -173,8 +175,8 @@ export default function (opts: ChatOpts, redraw: Redraw): ChatCtrl {
     setEnabled(v: boolean) {
       vm.enabled = v;
       emitEnabled();
-      if (!v) li.storage.set('nochat', '1');
-      else li.storage.remove('nochat');
+      if (!v) li.storage.set(chatEnabledKey, '1');
+      else li.storage.remove(chatEnabledKey);
       redraw();
     },
     redraw,

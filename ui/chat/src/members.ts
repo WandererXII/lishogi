@@ -2,19 +2,31 @@ import { icons } from 'common/icons';
 import { dataIcon, onInsert } from 'common/snabbdom';
 import { h, type VNode } from 'snabbdom';
 
+export function gameMembers(): VNode {
+  return h(
+    'div.chat__members.none',
+    {
+      hook: onInsert(el => $(el).watchers()),
+      attrs: { 'aria-live': 'off' },
+    },
+    [line('game', icons.randomColor), line('analysis', icons.microscope)],
+  );
+}
+
 export function members(): VNode {
   return h(
     'div.chat__members.none',
     {
       hook: onInsert(el => $(el).watchers()),
-      attrs: {
-        'aria-live': 'off',
-      },
+      attrs: { 'aria-live': 'off' },
     },
-    h('div.chat__members__inner', [
-      h('span.number', { attrs: dataIcon(icons.person) }, '0'),
-      ' ',
-      h('span.list'),
-    ]),
+    [line('default', icons.person)],
   );
 }
+
+const line = (cls: string, icon: string) =>
+  h(`div.line.${cls}.none`, [
+    h('span.number', { attrs: dataIcon(icon) }, '0'),
+    ' ',
+    h('span.list'),
+  ]);

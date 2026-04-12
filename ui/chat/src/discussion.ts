@@ -132,8 +132,6 @@ const setupHooks = (ctrl: ChatCtrl, chatEl: HTMLInputElement) => {
     return false;
   });
 
-  // window.lishogi.mousetrap(chatEl).bind('esc', () => chatEl.blur());
-
   // Ensure clicks remove chat focus.
   // See lichess-org/chessground#109
 
@@ -287,7 +285,8 @@ function renderLine(ctrl: ChatCtrl, line: Line) {
 
   if (system) return h('li.system', textNode);
 
-  if (line.c) return h('li', [h('span.color', `[${line.c}]`), textNode]);
+  if (line.c)
+    return h('li.player', [h('span.color', colorName(line.c, !!ctrl.opts.handicap)), textNode]);
 
   const userNode = thunk('a', line.u, userLink, [line.u]);
   const lineUsersId = line.u?.toLowerCase();
@@ -302,6 +301,7 @@ function renderLine(ctrl: ChatCtrl, line: Line) {
         }
       : {
           class: {
+            'color-icon': true,
             me: ctrl.opts.data.userId === lineUsersId,
             sente: ctrl.opts.players?.sente === lineUsersId,
             gote: ctrl.opts.players?.gote === lineUsersId,

@@ -17,10 +17,12 @@ export interface ChatOpts {
   plugin?: ChatPlugin;
   alwaysEnabled: boolean;
   withColorTags?: boolean;
+  handicap?: boolean;
   players?: {
     sente?: string;
     gote?: string;
-  }; // if defined we allow filtering by players
+  };
+  playerFilter?: boolean;
 }
 
 export interface ChatPlugin {
@@ -48,7 +50,7 @@ export interface Line {
   u?: string; // username
   t: string; // text
   d: boolean; // deleted
-  c?: string; // color
+  c?: Color;
   r?: boolean; // troll
   title?: string;
 }

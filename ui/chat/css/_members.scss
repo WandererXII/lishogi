@@ -29,6 +29,14 @@
       }
     }
 
+    &.game,
+    &.analysis {
+      .number::before {
+        font-size: 1.1em;
+        margin-right: 0.4ch;
+      }
+    }
+
     .user-link {
       color: theme.$c-font-dim;
     }
