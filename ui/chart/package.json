@@ -13,7 +13,7 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "chartjs-plugin-zoom": "^2.2.0",
     "common": "workspace:*",
-    "dayjs": "^1.11.19",
+    "dayjs": "^1.11.20",
     "game": "workspace:*",
     "i18n": "workspace:*"
   }

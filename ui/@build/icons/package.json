@@ -7,7 +7,7 @@
     "@build/helpers": "workspace:*",
     "@twbs/fantasticon": "^3.1.0",
     "svg-sprite": "^2.0.4",
-    "svgo": "^4.0.0"
+    "svgo": "^4.0.1"
   },
   "devDependencies": {
     "@types/svg-sprite": "^0.0.39"

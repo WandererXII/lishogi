@@ -13,6 +13,7 @@ minimumReleaseAgeExclude:
   - shogiops
   - shogiground
   - breakpoint-sass
+  - '@typescript/native-preview*'
 
 onlyBuiltDependencies:
   - esbuild
