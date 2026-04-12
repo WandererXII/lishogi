@@ -46,14 +46,20 @@ object topnav {
         )
       },
       st.section {
-        val learnUrl = langHref(routes.Learn.index)
+        val shouldSeeStudy = ctx.me.exists(_.createdSinceDays(7))
+        val learnUrl       = langHref(routes.Learn.index)
+        val studyUrl       = langHref(routes.Study.allDefault(1))
+        val mainLink =
+          if (shouldSeeStudy) linkTitle(studyUrl, trans.studyMenu())
+          else linkTitle(learnUrl, trans.learnMenu())
+        val studyGroupLink = a(href := studyUrl)(trans.studyMenu())
+        val learnGroupLink = a(href := learnUrl)(trans.shogiBasics())
         frag(
-          linkTitle(learnUrl, trans.learnMenu()),
+          mainLink,
           div(role := "group")(
-            a(href := learnUrl)(trans.shogiBasics()),
-            // a(href := langHref(routes.Practice.index))(trans.practice()),
+            if (shouldSeeStudy) studyGroupLink else learnGroupLink,
+            if (shouldSeeStudy) learnGroupLink else studyGroupLink,
             a(href := langHref(routes.Coordinate.home))(trans.coordinates.coordinates()),
-            a(href := langHref(routes.Study.allDefault(1)))(trans.studyMenu()),
             ctx.noKid option a(href := routes.Coach.all(1))(trans.coaches()),
             canSeeClasMenu option a(href := routes.Clas.index)(trans.clas.lishogiClasses()),
             a(href := routes.Prismic.variantHome)(trans.variants()),
@@ -84,7 +90,11 @@ object topnav {
             ctx.noKid option a(href := routes.ForumCateg.index)(trans.forum()),
             a(href := langHrefJP(routes.Blog.index()))(trans.blog()),
             ctx.me
-              .exists(!_.kid) option a(href := langHref(routes.Plan.index))(trans.patron.donate()),
+              .exists(!_.kid) option a(href := langHref(routes.Plan.index))(
+              trans.patron.donate(),
+              cls      := "is-after",
+              dataIcon := Icons.patron,
+            ),
           ),
         )
       },
