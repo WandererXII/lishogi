@@ -190,7 +190,7 @@ final class Auth(
                         .make(env.lilaCookie, user, email)(ctx.req)
                   }
                 case Signup.AllSet(user, email) =>
-                  welcome(user, email, sendWelcomeEmail = true) >> redirectNewUser(user)
+                  welcome(user, email, sendWelcomeEmail = false) >> redirectNewUser(user)
               },
             json = env.security.signup.mobile
               .flatMap {
@@ -198,7 +198,7 @@ final class Auth(
                 case Signup.Bad(err)           => jsonFormError(err)
                 case Signup.ConfirmEmail(_, _) => Ok(Json.obj("email_confirm" -> true)).fuccess
                 case Signup.AllSet(user, email) =>
-                  welcome(user, email, sendWelcomeEmail = true) >> authenticateUser(user)
+                  welcome(user, email, sendWelcomeEmail = false) >> authenticateUser(user)
               },
           )
         }
