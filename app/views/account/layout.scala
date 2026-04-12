@@ -22,6 +22,13 @@ object layout {
       def activeCls(c: String) = cls := active.activeO(c)
       main(cls := "account page-menu")(
         st.nav(cls := "page-menu__menu subnav")(
+          a(activeCls("editProfile"), href := routes.Account.profile)(
+            trans.editProfile(),
+          ),
+          isGranted(_.Coach) option a(activeCls("coach"), href := routes.Coach.edit)(
+            trans.coach.lishogiCoach(),
+          ),
+          div(cls := "sep"),
           lila.pref.PrefCateg.all.map { categ =>
             a(activeCls(categ.slug), href := routes.Pref.form(categ.slug))(
               bits.categName(categ),
@@ -31,21 +38,14 @@ object layout {
             trans.kidMode(),
           ),
           div(cls := "sep"),
-          a(activeCls("editProfile"), href := routes.Account.profile)(
-            trans.editProfile(),
+          a(activeCls("username"), href := routes.Account.username)(
+            trans.changeUsername(),
           ),
-          isGranted(_.Coach) option a(activeCls("coach"), href := routes.Coach.edit)(
-            trans.coach.lishogiCoach(),
-          ),
-          div(cls := "sep"),
           a(activeCls("password"), href := routes.Account.passwd)(
             trans.changePassword(),
           ),
           a(activeCls("email"), href := routes.Account.email)(
             trans.changeEmail(),
-          ),
-          a(activeCls("username"), href := routes.Account.username)(
-            trans.changeUsername(),
           ),
           a(activeCls("twofactor"), href := routes.Account.twoFactor)(
             trans.tfa.twoFactorAuth(),
