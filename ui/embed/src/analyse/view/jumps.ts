@@ -8,7 +8,7 @@ export function renderJumps(ctrl: AnalyseCtrl): VNode {
   const canJumpPrev = ctrl.path !== '';
   const canJumpNext = !!ctrl.node.children[0];
   return h(
-    'div.analyse__controls.analyse-controls',
+    'div.analyse__controls',
     h(
       'div.jumps',
       {

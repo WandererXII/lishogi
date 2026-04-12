@@ -159,8 +159,11 @@ function movetime(
   if (labels.length > 8) {
     datasets.push(...moveSeriesSet);
   }
-  datasets.push(...lineBuilder(totalSeriesPlot, false));
-  datasets.push(...lineBuilder(totalSeriesPlot, true));
+
+  if (!data.clock || data.clock.initial !== 0) {
+    datasets.push(...lineBuilder(totalSeriesPlot, false));
+    datasets.push(...lineBuilder(totalSeriesPlot, true));
+  }
   datasets.push(plyLine(ply || firstPly), ...divisionLines);
 
   if (byoEntry?.sente)

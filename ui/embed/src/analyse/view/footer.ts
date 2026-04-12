@@ -25,7 +25,6 @@ function renderStudyFooter(study: StudyData) {
 
   return h('div.analyse__footer', [
     h('div.left', [
-      h('a', { attrs: { target: '_blank', href: url } }, [h('h1', study.name)]),
       h(
         'select',
         {
@@ -48,6 +47,7 @@ function renderStudyFooter(study: StudyData) {
           ),
         ),
       ),
+      h('a', { attrs: { target: '_blank', href: url } }, [h('h1', study.name)]),
     ]),
     h('a', {
       attrs: {
