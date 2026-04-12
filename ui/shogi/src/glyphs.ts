@@ -6,28 +6,32 @@ interface AllGlyphs {
   position: Tree.Glyph[];
 }
 
+export const baseGlyphs: Tree.Glyph[] = [
+  {
+    id: 1,
+    symbol: '!',
+    name: i18n('goodMove'),
+  },
+  {
+    id: 2,
+    symbol: '?',
+    name: i18n('mistake'),
+  },
+  {
+    id: 4,
+    symbol: '??',
+    name: i18n('blunder'),
+  },
+  {
+    id: 3,
+    symbol: '!!',
+    name: i18n('brilliantMove'),
+  },
+];
+
 export const allGlyphs: AllGlyphs = {
   move: [
-    {
-      id: 1,
-      symbol: '!',
-      name: i18n('goodMove'),
-    },
-    {
-      id: 2,
-      symbol: '?',
-      name: i18n('mistake'),
-    },
-    {
-      id: 3,
-      symbol: '!!',
-      name: i18n('brilliantMove'),
-    },
-    {
-      id: 4,
-      symbol: '??',
-      name: i18n('blunder'),
-    },
+    ...baseGlyphs,
     {
       id: 5,
       symbol: '!?',
