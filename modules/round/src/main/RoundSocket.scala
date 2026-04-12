@@ -373,11 +373,10 @@ object RoundSocket {
 
       def tellVersion(roomId: RoomId, version: SocketVersion, e: Event) = {
         val flags = new StringBuilder(2)
+
         if (e.owner) flags += 'p'
-        else
-          e.only.map(_.fold('b', 'w')).orElse {
-            e.moveBy.map(_.fold('B', 'W'))
-          } foreach flags.+=
+        else e.only.map(_.fold('b', 'w')) foreach flags.+=
+
         if (e.troll) flags += 't'
         if (flags.isEmpty) flags += '-'
         s"r/ver $roomId $version $flags ${e.typ} ${e.data}"

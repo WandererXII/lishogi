@@ -143,24 +143,20 @@ object Event {
     override def owner = true
   }
 
-  private def reloadOr[A: Writes](typ: String, data: A) = Json.obj("t" -> typ, "d" -> data)
-
-  // use t:reload for mobile app BC,
-  // but send extra data for the web to avoid reloading
   case class RematchOffer(by: Option[Color]) extends Event {
-    def typ            = "reload"
-    def data           = reloadOr("rematchOffer", by)
+    def typ  = "rematchOffer"
+    def data = Json.toJson(by)
     override def owner = true
   }
 
   case class RematchTaken(nextId: Game.ID) extends Event {
-    def typ  = "reload"
-    def data = reloadOr("rematchTaken", nextId)
+    def typ  = "rematchTaken"
+    def data = Json.toJson(nextId)
   }
 
   case class DrawOffer(by: Option[Color]) extends Event {
-    def typ            = "reload"
-    def data           = reloadOr("drawOffer", by)
+    def typ            = "drawOffer"
+    def data           = Json.toJson(by)
     override def owner = true
   }
 
@@ -252,14 +248,14 @@ object Event {
   }
 
   case class PauseOffer(by: Option[Color]) extends Event {
-    def typ            = "reload"
-    def data           = reloadOr("pauseOffer", by)
+    def typ            = "pauseOffer"
+    def data           = Json.toJson(by)
     override def owner = true
   }
 
   case class ResumeOffer(by: Option[Color]) extends Event {
-    def typ            = "reload"
-    def data           = reloadOr("resumeOffer", by)
+    def typ            = "resumeOffer"
+    def data           = Json.toJson(by)
     override def owner = true
   }
 
