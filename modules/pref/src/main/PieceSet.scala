@@ -65,6 +65,7 @@ object PieceSet extends PieceSetBase {
     new PieceSet("intl_shadowed", "International Shadowed"),
     new PieceSet("intl_monochrome_2d", "International Monochrome 2D"),
     new PieceSet("intl_wooden_3d", "International Wooden 3D"),
+    new PieceSet("intl_bnw", "International - black and white"),
     new PieceSet("intl_portella", "International Portella"),
     new PieceSet("international", "International Variant"),
     new PieceSet("alfaerie", "Alfaerie"),

@@ -56,7 +56,7 @@ export function categorizePieceSets(directoryPath: string): CategorizedPieceSets
       (pngFiles.length > 0 && svgFiles.length > 0) ||
       (pngFiles.length === 0 && svgFiles.length === 0)
     ) {
-      throw new Error(`Provide either 'png' or 'svg' pieces: ${dir}`);
+      console.error(`Provide either 'png' or 'svg' pieces: ${dir}`);
     }
 
     const ext: Ext = pngFiles.length > 0 ? 'png' : 'svg';

@@ -5,10 +5,12 @@
   "type": "module",
   "dependencies": {
     "@build/helpers": "workspace:*",
-    "dedent": "^1.7.1"
+    "dedent": "^1.7.2"
   },
   "devDependencies": {
-    "svgo": "^4.0.0"
+    "svgo": "^4.0.1",
+    "jsdom": "^29.0.1",
+    "svg-path-bbox": "^2.1.0"
   },
   "scripts": {
     "svgo": "svgo --config svgo.config.js --pretty -f assets -r",

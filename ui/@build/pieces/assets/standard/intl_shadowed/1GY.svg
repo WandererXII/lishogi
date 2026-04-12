@@ -1,13 +1,13 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60">
     <defs>
-        <filter id="1GY_svg__a">
+        <filter id="1GY_svg__a" width="1.289" height="1.238" x="-.119" y="-.098">
             <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2"/>
             <feOffset dx="2" dy="2" result="offsetBlur"/>
             <feBlend in="SourceGraphic" in2="offsetBlur"/>
         </filter>
     </defs>
     <g fill="#fecb00" filter="url(#1GY_svg__a)" transform="translate(-102.587 -25.906)scale(1.03094)">
-        <path fill="#fdeb98" d="m128.456 78.636 13.408-4.26 6.837-44.558h-40.19l6.535 44.862 13.138 3.935a.9.9 0 0 0 .271.021z"/>
+        <path fill="#fdeb98" stroke="#333" stroke-width=".97" d="m141.864 74.376 6.837-44.558h-40.19l6.535 44.862 13.562 3.946c.089.02 13.256-4.25 13.256-4.25z"/>
     </g>
     <path stroke="#000" stroke-linejoin="round" stroke-width=".453" d="M41.364 42.419v8.086h5.242l.837 2.478h-6.079v9.13H51.43l.836 2.869H27.964l.836-2.87h9.952v-9.13h-6.237l.836-2.477h5.401v-8.086h-7.136l-.836-2.87h18.597l-.836 2.87z" opacity=".99" transform="matrix(-1.19582 0 0 -1.07583 77.97 84.194)"/>
 </svg>
