@@ -48,7 +48,10 @@ final private class Rematcher(
       case Pov(game, color) if game.playerCouldRematch =>
         if (isOfferingFromPov(!pov) || game.opponent(color).isAi)
           rematches.getAcceptedId(game.id).fold(rematchJoin(pov))(rematchExists(pov))
-        else if (!declined.get(pov.flip.fullId) && rateLimit(pov.fullId)(true)(false))
+        else if (
+          !isOfferingFromPov(pov) && !declined
+            .get(pov.flip.fullId) && rateLimit(pov.fullId)(true)(false)
+        )
           rematchCreate(pov)
         else fuccess(List(Event.RematchOffer(by = none)))
       case _ => fuccess(List(Event.ReloadOwner))
