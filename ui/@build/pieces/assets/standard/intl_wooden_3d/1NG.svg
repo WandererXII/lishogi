@@ -14,32 +14,33 @@
             <stop offset="1" stop-color="#e1b663"/>
         </linearGradient>
         <linearGradient xlink:href="#1NG_svg__a" id="1NG_svg__c" x1="148.368" x2="129.504" y1="49.819" y2="49.819" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#1NG_svg__b" id="1NG_svg__f" x1="-34.461" x2="230.344" y1="223.715" y2="223.715" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#1NG_svg__a" id="1NG_svg__g" x1="277.179" x2="291.253" y1="142.935" y2="142.935" gradientUnits="userSpaceOnUse"/>
-        <linearGradient xlink:href="#1NG_svg__b" id="1NG_svg__h" x1="305.241" x2="327.624" y1="90.705" y2="90.705" gradientUnits="userSpaceOnUse"/>
-        <linearGradient xlink:href="#1NG_svg__b" id="1NG_svg__i" x1="303.244" x2="332.257" y1="93.368" y2="93.368" gradientUnits="userSpaceOnUse"/>
-        <linearGradient xlink:href="#1NG_svg__b" id="1NG_svg__j" x1="304.947" x2="326.339" y1="93.29" y2="93.29" gradientUnits="userSpaceOnUse"/>
-        <linearGradient xlink:href="#1NG_svg__b" id="1NG_svg__k" x1="9.1" x2="22.307" y1="23.825" y2="23.825" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#1NG_svg__a" id="1NG_svg__l" x1="8.13" x2="22.351" y1="42.128" y2="42.128" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#1NG_svg__a" id="1NG_svg__m" x1="7.714" x2="19.853" y1="45.248" y2="45.248" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient id="1NG_svg__b">
-            <stop offset="0" stop-color="#e5c37b"/>
-            <stop offset=".042" stop-color="#e4bd76"/>
-            <stop offset=".093" stop-color="#e7c781"/>
-            <stop offset=".165" stop-color="#e2b86e"/>
-            <stop offset=".305" stop-color="#e6c686"/>
-            <stop offset=".539" stop-color="#dfb96f"/>
-            <stop offset=".586" stop-color="#ddbb73"/>
-            <stop offset=".84" stop-color="#e7ce8f"/>
-            <stop offset=".924" stop-color="#e1bd73"/>
-            <stop offset=".962" stop-color="#e0bf78"/>
-            <stop offset="1" stop-color="#e7c685"/>
-        </linearGradient>
         <linearGradient xlink:href="#1NG_svg__b" id="1NG_svg__e" x1="148.368" x2="129.504" y1="49.819" y2="49.819" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <filter id="1NG_svg__d">
+        <linearGradient id="1NG_svg__b">
+            <stop offset="0" stop-color="#dfb459"/>
+            <stop offset=".042" stop-color="#dead54"/>
+            <stop offset=".093" stop-color="#e1b85f"/>
+            <stop offset=".165" stop-color="#dba84d"/>
+            <stop offset=".305" stop-color="#dfb765"/>
+            <stop offset=".539" stop-color="#d8a94e"/>
+            <stop offset=".586" stop-color="#d5ab53"/>
+            <stop offset=".84" stop-color="#e0bf6e"/>
+            <stop offset=".924" stop-color="#daae52"/>
+            <stop offset=".962" stop-color="#d9af57"/>
+            <stop offset="1" stop-color="#e1b663"/>
+        </linearGradient>
+        <filter id="1NG_svg__d" width="1.28" height="1.232" x="-.116" y="-.096">
             <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2"/>
             <feOffset dx="2" dy="2" result="offsetBlur"/>
             <feBlend in="SourceGraphic" in2="offsetBlur"/>
+        </filter>
+        <filter id="1NG_svg__f" width="1.052" height="1.043" x="-.026" y="-.021" color-interpolation-filters="sRGB">
+            <feColorMatrix in="SourceGraphic" result="color" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.85 0"/>
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation=".32"/>
+            <feSpecularLighting in="blur" lighting-color="#fff" result="specular" specularConstant="2.019" specularExponent="25" surfaceScale="5">
+                <feDistantLight azimuth="245" elevation="25"/>
+            </feSpecularLighting>
+            <feComposite in="specular" in2="SourceGraphic" k2="1" k3="1" operator="arithmetic" result="composite1"/>
+            <feComposite in="composite1" in2="color" operator="atop" result="composite2"/>
         </filter>
     </defs>
     <g fill="url(#1NG_svg__c)" filter="url(#1NG_svg__d)" transform="translate(-88.746 -20.034)scale(.92309)">
@@ -47,21 +48,5 @@
         <path fill="url(#1NG_svg__e)" d="m-37.3-31.01-13.408 4.26-6.837 44.558h40.743L-23.89-26.75l-13.138-4.239a.9.9 0 0 0-.271-.021z" transform="rotate(180 45.578 23.813)"/>
     </g>
     <path fill="#a57a1b" d="m29.58 52.534.823 1.099L42.78 49.7l-.572-1.08z"/>
-    <g transform="rotate(180 27.912 29.995)">
-        <g stroke="#000">
-            <path fill="#c80000" stroke="#c80000" d="M282.83 136.555c.204-5.885-.282-11.142-3.009-13.33 2.021-.873 3.212-2.979 4.365-4.578 1.154 1.6 2.344 3.705 4.365 4.579-2.727 2.187-3.213 7.444-3.009 13.33a4.5 4.5 0 0 1-1.356.232 4.4 4.4 0 0 1-1.356-.233z" transform="matrix(.74656 0 0 .75296 -186.074 -75.268)"/>
-            <path fill="url(#1NG_svg__f)" stroke="#c80000" stroke-width="10.736" d="M97.159 111.627c-2.764 121.39 19.614 224.192 177.984 219.075 158.37 5.117 180.748-97.685 177.985-219.075-11.066 132.287-51.513 167.404-177.985 175.038-126.471-7.634-166.92-42.75-177.984-175.038z" transform="matrix(.05802 0 0 .06853 10.21 8.017)"/>
-            <path fill="#c80000" stroke="#c80000" stroke-width="13.427" d="m166.796 305.119-54.464 95.975-8.754-6.962-40.051 58.52-7.822-6.797-35.583 44.11c14.216 20.561 41.843 41.307 69.675 47.014 13.293-25.846 76.279-177.737 95.178-219.282m195.235-12.578 54.464 95.975 8.754-6.962 40.05 58.52 7.823-6.797 35.583 44.11c-14.216 20.561-41.844 41.307-69.676 47.014-13.292-25.846-76.278-177.737-95.178-219.282" transform="matrix(.05802 0 0 .06853 10.21 8.017)"/>
-            <path fill="#c80000" stroke="#c80000" stroke-width=".834" d="M17.12 39.641c6.239 2.539 12.27 2.62 18.071 0l-3.408-9.673c-3.409 1.355-7.785 1.637-11.2-.077z"/>
-            <path fill="none" stroke="url(#1NG_svg__g)" d="M277.406 142.092c4.274 2.182 9.44 2.242 13.608-.03" transform="translate(-214.516 -88.152)scale(.84664)"/>
-        </g>
-        <path fill="none" stroke="url(#1NG_svg__h)" d="M305.46 89.714c.226.11.292.193.382.255l2.24 1.784m19.326-2.021c-1.58.755-1.927 1.009-2.89 1.514" transform="translate(-241.83 -41.53)scale(.84664)"/>
-        <path fill="none" stroke="url(#1NG_svg__i)" d="m303.399 91.871 4.424 2.847m24.28-2.847-4.425 2.847" transform="translate(-242.91 -39.885)scale(.84664)"/>
-        <path fill="none" stroke="url(#1NG_svg__j)" d="m305.415 99.305 4.528-12.106m11.673-.042 4.25 12.266" transform="translate(-241.157 -43.85)scale(.84664)"/>
-        <path fill="#c80000" stroke="#c80000" stroke-width=".847" d="M20.564 25.91c4.972-4.431 6.805-4.063 11.531.072-2.425.99-2.608.875-5.67 1.424-2.831-.576-2.342-.102-5.86-1.496z"/>
-        <ellipse cx="26.079" cy="23.825" fill="url(#1NG_svg__k)" stroke="#c80000" stroke-linecap="square" stroke-width=".596" rx="3.618" ry="3.713"/>
-        <path fill="#c80000" stroke="#c80000" stroke-width=".929" d="m22 41.527-1.288 4.415-.534-.123-.862 2.67c4.315 1.813 9.907 1.713 13.47 0l-.863-2.67-.534.123-1.273-4.353"/>
-        <path fill="none" stroke="url(#1NG_svg__l)" stroke-width=".847" d="M21.328 41.86c2.656.636 6.873.66 9.44.09"/>
-        <path fill="none" stroke="url(#1NG_svg__m)" stroke-width=".847" d="M20.461 45.033c2.797.617 8.608.546 11.175-.024"/>
-    </g>
+    <path fill="#9a0000" d="m29.993 45.677.302-.421c.881-1.232 1.746-2.733 3.104-3.325l.568-.246-.482-.392c-.688-.556-1.182-1.442-1.522-2.57a4.01 4.01 0 0 0 1.936-3.436l-.002-.074.004-.059q-.001-.1-.008-.197.622-.46 1.215-.992.358.174.627.379l.064.046c.154.127.306.287.459.467q.15.176.299.381l.033.045c.518.734 1.013 1.711 1.434 2.73v.002q.157.383.3.768v.002q.144.385.27.764v.002l.017.054c.418 1.21.717 2.45 1 3.696l.004.021v.002l1.485 1.012s.043-2.037.049-3.322a45 45 0 0 0-.041-2.397c-.003-.075-.002-.14-.006-.215-.064-1.35-.172-2.79-.424-4.109a15 15 0 0 0-.133-.621q-.031-.133-.065-.264-.088-.341-.195-.664c-.199-.602-.444-1.154-.756-1.619a6 6 0 0 0-.734-.896 7 7 0 0 0-.537-.5l-.051-.043-.201-.16-.143-.11-.125-.09a10 10 0 0 0-.584-.387l-.056-.037.07.026c2.324-4.953 5.476-3.353 7.36-5.96l.195-.267-.17-.29c-2.277-3.891-4.572-6.332-5.54-3.634l-.007-.004-3.426 9.364-.072-.03a16 16 0 0 0-.727-.285c-.048-.018-.096-.04-.144-.056l.513-1.64c-.342-.121-.9-.318-1.71-.558-1.157-.344-2.565-.68-3.44-.68-.877 0-2.292.336-3.451.68q-.867.255-1.717.559l.515 1.646-.054.022q-.423.153-.848.334l-.04.015-3.48-9.53c-.902-2.515-3.204-.081-5.476 3.796l-.172.289.196.268c1.882 2.606 5.032 1.003 7.355 5.953v.002l.106-.037-.038.023a10 10 0 0 0-.904.62q-.087.067-.172.136l-.125.107-.18.156-.095.092a7 7 0 0 0-.211.205l-.004.004-.014.014a7 7 0 0 0-.24.262l-.008.008-.035.043a6 6 0 0 0-.436.57v.002a5 5 0 0 0-.21.34v.002q-.1.177-.19.367v.002q-.09.189-.17.389v.002q-.082.2-.154.41v.002l-.008.023q-.136.4-.244.828l-.006.024v.002l-.006.027q-.106.43-.188.88l-.006.024v.002a20 20 0 0 0-.148.973v.002q-.065.494-.11.992v.002q-.045.5-.078.998v.002q-.032.498-.055.983v.008c-.03.644-.045 1.264-.05 1.834v.006c-.018 1.718.05 4.086.05 4.086l1.485-1.012v-.004l.002.002s.35-1.755 1.021-3.773q.126-.379.268-.764l.002-.002q.142-.386.299-.768.091-.215.185-.425.071-.166.145-.329v-.002q.17-.37.351-.716v-.002q.18-.349.37-.664v-.002q.188-.317.382-.592l.002-.002q.181-.255.365-.467l.028-.033v-.002a4 4 0 0 1 .197-.21q.1-.096.2-.179.031-.025.064-.049a4.4 4.4 0 0 1 .597-.388q.607.547 1.246 1.02-.005.09-.006.18l.002.02-.004.114c0 1.448.773 2.729 1.922 3.425-.34 1.134-.833 2.023-1.523 2.58l-.485.393.569.246c1.358.592 2.224 2.092 3.105 3.324zm9.542-7.794c-.665-1.778-1.491-3.584-2.78-4.649-1.955-1.613-5.251-2.252-6.94-2.252s-4.656.674-6.569 2.252c-1.29 1.065-2.115 2.871-2.78 4.649.156-2.352.56-4.886 1.253-5.92.854-1.275 2.556-2.233 4.256-2.823s3.421-.822 4.025-.822 2.325.232 4.026.822 3.402 1.548 4.256 2.823c.692 1.034 1.097 3.568 1.253 5.92M30 37.767c-1.322 0-2.398-1.09-2.398-2.48s1.076-2.483 2.398-2.483 2.399 1.093 2.399 2.483-1.076 2.48-2.399 2.48m5.39-12.406 2.19-6.982c-2.074-.887-5.395-2.16-7.58-2.164-2.177-.003-5.486 1.24-7.607 2.134l2.2 7.012a32 32 0 0 1 1.728-.562c1.188-.352 2.61-.711 3.68-.711 1.064 0 2.482.36 3.667.713.8.237 1.36.431 1.723.56m-.778-9.332.941-4.469c-3.406-2.651-7.663-2.368-11.105 0l.998 4.469c1.467-.823 2.921-.996 4.603-1.047 1.382.021 3.27.299 4.563 1.047" filter="url(#1NG_svg__f)"/>
 </svg>

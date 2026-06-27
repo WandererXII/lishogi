@@ -1,45 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60">
     <defs>
-        <linearGradient id="0KA_svg__a">
-            <stop offset="0" stop-color="#dfb459"/>
-            <stop offset=".041" stop-color="#dead54"/>
-            <stop offset=".082" stop-color="#e1b85f"/>
-            <stop offset=".165" stop-color="#dba84d"/>
-            <stop offset=".305" stop-color="#dfb765"/>
-            <stop offset=".539" stop-color="#d8a94e"/>
-            <stop offset=".586" stop-color="#d5ab53"/>
-            <stop offset=".84" stop-color="#e0bf6e"/>
-            <stop offset=".924" stop-color="#daae52"/>
-            <stop offset=".962" stop-color="#d9af57"/>
-            <stop offset="1" stop-color="#e1b663"/>
-        </linearGradient>
         <linearGradient xlink:href="#0KA_svg__a" id="0KA_svg__c" x1="-30.849" x2="-15.094" y1="30.267" y2="30.267" gradientTransform="translate(40.882 -.267)" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#0KA_svg__a" id="0KA_svg__f" x1="177.827" x2="197.093" y1="92.855" y2="92.855" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#0KA_svg__a" id="0KA_svg__e" x1="132.561" x2="148.24" y1="231.857" y2="231.857" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#0KA_svg__a" id="0KA_svg__g" x1="176.859" x2="196.381" y1="80.264" y2="80.264" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#0KA_svg__a" id="0KA_svg__d" x1="1125.366" x2="1167.429" y1="159.01" y2="159.01" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <filter id="0KA_svg__b">
+        <linearGradient id="0KA_svg__a">
+            <stop offset="0" stop-color="#e5c37b"/>
+            <stop offset=".042" stop-color="#e4bd76"/>
+            <stop offset=".093" stop-color="#e7c781"/>
+            <stop offset=".165" stop-color="#e2b86e"/>
+            <stop offset=".305" stop-color="#e6c686"/>
+            <stop offset=".539" stop-color="#dfb96f"/>
+            <stop offset=".586" stop-color="#ddbb73"/>
+            <stop offset=".84" stop-color="#e7ce8f"/>
+            <stop offset=".924" stop-color="#e1bd73"/>
+            <stop offset=".962" stop-color="#e0bf78"/>
+            <stop offset="1" stop-color="#e7c685"/>
+        </linearGradient>
+        <filter id="0KA_svg__b" width="1.289" height="1.241" x="-.119" y="-.1">
             <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2"/>
             <feOffset dx="2" dy="2" result="offsetBlur"/>
             <feBlend in="SourceGraphic" in2="offsetBlur"/>
         </filter>
+        <filter id="0KA_svg__d" width="1.051" height="1.046" x="-.025" y="-.023" color-interpolation-filters="sRGB">
+            <feColorMatrix in="SourceGraphic" result="color" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.85 0"/>
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation=".32"/>
+            <feSpecularLighting in="blur" lighting-color="#fff" result="specular" specularConstant="2.019" specularExponent="25" surfaceScale="5">
+                <feDistantLight azimuth="245" elevation="25"/>
+            </feSpecularLighting>
+            <feComposite in="specular" in2="SourceGraphic" k2="1" k3="1" operator="arithmetic" result="composite1"/>
+            <feComposite in="composite1" in2="color" operator="atop" result="composite2"/>
+        </filter>
     </defs>
     <g fill="#75581b" filter="url(#0KA_svg__b)" transform="translate(41.197 .902)">
-        <path fill="#84631f" d="m-10.96 6.237-12.84 3.61-6.865 43.278-.814.002.629 1.168H9.084C6.781 39.41 5.01 23.745 2.295 10.133l-.629-1.17.203 1.045z"/>
+        <path fill="#84631f" d="m-10.96 6.237-12.84 3.61-6.865 43.278-.419.025.234 1.145H9.084L1.999 9.082l-.333-.119.203 1.045Z"/>
     </g>
-    <path fill="url(#0KA_svg__c)" d="M29.922 5.97 17.084 9.578l-7.051 44.45h39.934c-2.303-14.885-4.076-30.55-6.79-44.163z"/>
-    <path fill="#654b13" d="m9.719 54.03.628 1.167h39.934l-.628-1.168z"/>
-    <g stroke-width=".6">
-        <path fill="none" stroke="#000" stroke-width="1" d="m41.785 27.713-2.775.278"/>
-        <path stroke="#000" stroke-width=".623" d="M46.44 41.074c-6.962-.49-13.487-.07-22.966 0m.715-5.078c4.095-6.716 10.39-4.523 14.778-4.464 3.667 2.174 4.206 2.35 5.55 3.988 1.42 1.908 1.782 3.234 1.896 5.577-7.084 2.553-14.164 3.077-22.64.488-.13-2.08.18-3.846.416-5.59z"/>
-        <g stroke="#000" stroke-width="1.554">
-            <path fill="url(#0KA_svg__d)" d="M1134.293 141.964c2.547 12.294 3.186 23.557 4.198 35.944 1.943 9.213 14.401 18.842 21.54 16.842-2.932-16.412-2.031-40.457-11.142-69.998-5.61-.793-11.376-1.122-17.492-1.757-2.038.106-3.543.516-4.955 1.456-1.895 2.68-6.003 11.52-7.692 15.867l.805 9.044c3.986 1.631 6.221 3.263 9.188 4.894z" transform="matrix(-.40052 0 0 .40052 478.562 -28.51)"/>
-            <path fill="none" stroke-width=".622" d="M26.571 33.085c-1.477-3.188-1.91-4.756-3.768-7.781-.752-.928-1.517-1.837-2.387-2.588-.99-.32-1.235-.715-2.224-.38"/>
-        </g>
-        <path stroke="#000" stroke-width=".623" d="m38.645 31.536 1.656-12.758c.597-3.453-.196-5.31-3.072-4.775-2.65.754-4.33 3.278-5.685 6.396L30.2 31.337c4.627-.44 6.155-.12 8.447.199z"/>
-        <path fill="none" stroke="url(#0KA_svg__e)" stroke-width=".964" d="M114.546 230.804c.192-.076.282-.063.668.062 4.966 1.6 9.507 3.317 20.202.889.1-.023.345-.097.522-.078" transform="translate(164.86 276.848)scale(1.03765)"/>
-        <path fill="none" stroke="#000" stroke-width="1" d="m33.79 28.423-5.886.344"/>
-    </g>
-    <path fill="none" stroke="url(#0KA_svg__f)" stroke-width="1.285" d="M151.095 93.551c.279.024.88-.147 1.001-.177 8.975-2.21 17.802-2.648 27.993.597.253.08.757.09 1.026.112" transform="matrix(-.77824 0 0 .77824 164.292 -31.996)"/>
-    <path fill="none" stroke="url(#0KA_svg__g)" stroke-width="1.285" d="M160.883 80.539c4.815-.641 7.67-.68 11.119-.268.44.052.574.106.702.091" transform="matrix(-.77824 0 0 .77824 164.292 -31.996)"/>
+    <path fill="url(#0KA_svg__c)" d="M29.922 5.97 17.084 9.578l-7.051 44.45h39.934l-6.79-44.163Z"/>
+    <path fill="#654b13" d="m10.044 54.007.303 1.19h39.934l-.316-1.135z"/>
+    <path d="M37.687 14.734a4.2 4.2 0 0 0-.93.076v.065h-.063c-2.443.69-4.28 2.798-5.029 5.566 0 0-.031.09-.031.13-.22 1.109-.43 2.608-.61 4.098a50 50 0 0 0-2.27-3.591l-.074-.15-.15-.074c-.65-.43-1.442-.62-2.274-.66h-.146c-2.191.23-4.23.37-6.31.66l-.59.074-.151.51C15.713 32.286 16.054 41.13 15.023 46.9l-.15.81.73.22c1.773.5 3.688-.39 5.357-1.687 1.669-1.3 3.106-3.158 3.522-5.137h.073v-.075c.01-.18.031-.34.042-.52 7.42 2.253 13.679 1.756 19.89-.44.062-.025.15.023.21 0l.43-.14v-.17c-.063-.018-.13-.032-.18-.046a3 3 0 0 1-.29-.075c-6.248-1.539-12.38-1.81-19.446.44a1.7 1.7 0 0 1-.57.075c.031-.41.073-.82.11-1.23.052-.006.19-.024.18-.021 7.287-2.323 13.643-2.017 20.033-.44l.083.021a8.5 8.5 0 0 0-.38-1.788c-.052.002-.1.01-.15.005-.18-.018-.32-.086-.51-.15-4.68-1.508-8.694-3.066-18.639-.81-.041.01-.15.044-.31.067.042-.42.1-.84.15-1.253 9.85-2.226 14.315-.68 18.832.78-.2-.33-.41-.67-.68-1.03a8.1 8.1 0 0 0-1.846-1.703c-.7-.48-1.145-.97-2.745-1.916l-.14-.072-.14-.072c-1.13-.016-2.783-.19-4.335-.26-.23-.002-.47 0-.71 0-.27-.002-.54-.006-.82-.001-.17.002-.35.01-.531.016q-.838.017-1.722.054c-.26.08-.52.16-.82.24-.65.19-1.198.42-1.745.62-1.032-2.295-1.554-3.777-2.942-6.105l-.01-.024v.004c-.074-.13-.14-.24-.221-.37l-.073-.074v-.073c-.71-.87-1.494-1.607-2.29-2.297 1.251-.12 2.542-.21 3.904-.34.54.028.86.12 1.173.29a57 57 0 0 1 2.263 3.612l-1.235.057.073 2.349 2.156-.1c-.063.58-.063.66-.11 1.038.2-.025.41-.043.61-.06h.002a24 24 0 0 1 1.811-.099c1.608-.027 3.328.1 5.712.37l.21-1.631 2.224-.1-.15-2.349-1.776.085.76-5.986v-.066c.241-1.447.241-2.68-.27-3.555-.26-.45-.63-.77-1.139-.94q-.375-.125-.81-.14zm-17.256 8.6c.14.053.36.14.61.24.76.65 1.491 1.343 2.129 2.128.48.79.84 1.464 1.164 2.107-.92 4.46-1.173 8.534-1.53 12.936-.29 1.358-1.451 3.01-2.862 4.109-.83.65-1.62.91-2.327 1.025-.24.039-.46.063-.68.075.87-5.745.86-13.277 3.5-22.624zm5.23 7.802h.002l.65 1.483c-.35.33-.69.7-1.013 1.131q.165-1.303.36-2.614z" color="#000" enable-background="accumulate" filter="url(#0KA_svg__d)" opacity=".99" overflow="visible" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"/>
 </svg>

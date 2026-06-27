@@ -1,53 +1,38 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60">
     <defs>
-        <linearGradient id="0KI_svg__a">
-            <stop offset="0" stop-color="#dfb459"/>
-            <stop offset=".033" stop-color="#dead54"/>
-            <stop offset=".093" stop-color="#e1b85f"/>
-            <stop offset=".165" stop-color="#dba84d"/>
-            <stop offset=".305" stop-color="#dfb765"/>
-            <stop offset=".539" stop-color="#d8a94e"/>
-            <stop offset=".586" stop-color="#d5ab53"/>
-            <stop offset=".84" stop-color="#e0bf6e"/>
-            <stop offset=".924" stop-color="#daae52"/>
-            <stop offset=".962" stop-color="#d9af57"/>
-            <stop offset="1" stop-color="#e1b663"/>
-        </linearGradient>
         <linearGradient xlink:href="#0KI_svg__a" id="0KI_svg__c" x1="-30.849" x2="-14.721" y1="30.267" y2="30.267" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#0KI_svg__a" id="0KI_svg__i" x1="223.004" x2="242.046" y1="79.253" y2="79.253" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#0KI_svg__a" id="0KI_svg__d" x1="-37.193" x2="238.302" y1="216.519" y2="216.519" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#0KI_svg__a" id="0KI_svg__k" x1="238.298" x2="250.496" y1="104.713" y2="104.713" gradientUnits="userSpaceOnUse"/>
-        <linearGradient xlink:href="#0KI_svg__a" id="0KI_svg__j" x1="239.247" x2="249.558" y1="100.537" y2="100.537" gradientUnits="userSpaceOnUse"/>
-        <linearGradient xlink:href="#0KI_svg__a" id="0KI_svg__e" x1="276.992" x2="291.233" y1="142.974" y2="142.974" gradientUnits="userSpaceOnUse"/>
-        <linearGradient xlink:href="#0KI_svg__a" id="0KI_svg__g" x1="305.234" x2="326.101" y1="93.216" y2="93.216" gradientUnits="userSpaceOnUse"/>
-        <linearGradient xlink:href="#0KI_svg__a" id="0KI_svg__f" x1="304.71" x2="326.65" y1="91.813" y2="91.813" gradientUnits="userSpaceOnUse"/>
-        <linearGradient xlink:href="#0KI_svg__a" id="0KI_svg__h" x1="294.98" x2="313.791" y1="91.465" y2="91.465" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <filter id="0KI_svg__b">
+        <linearGradient id="0KI_svg__a">
+            <stop offset="0" stop-color="#e5c37b"/>
+            <stop offset=".042" stop-color="#e4bd76"/>
+            <stop offset=".093" stop-color="#e7c781"/>
+            <stop offset=".165" stop-color="#e2b86e"/>
+            <stop offset=".305" stop-color="#e6c686"/>
+            <stop offset=".539" stop-color="#dfb96f"/>
+            <stop offset=".586" stop-color="#ddbb73"/>
+            <stop offset=".84" stop-color="#e7ce8f"/>
+            <stop offset=".924" stop-color="#e1bd73"/>
+            <stop offset=".962" stop-color="#e0bf78"/>
+            <stop offset="1" stop-color="#e7c685"/>
+        </linearGradient>
+        <filter id="0KI_svg__b" width="1.286" height="1.236" x="-.118" y="-.097">
             <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2"/>
             <feOffset dx="2" dy="2" result="offsetBlur"/>
             <feBlend in="SourceGraphic" in2="offsetBlur"/>
+        </filter>
+        <filter id="0KI_svg__d" width="1.053" height="1.043" x="-.026" y="-.022" color-interpolation-filters="sRGB">
+            <feColorMatrix in="SourceGraphic" result="color" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.85 0"/>
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation=".32"/>
+            <feSpecularLighting in="blur" lighting-color="#fff" result="specular" specularConstant="2.019" specularExponent="25" surfaceScale="5">
+                <feDistantLight azimuth="245" elevation="25"/>
+            </feSpecularLighting>
+            <feComposite in="specular" in2="SourceGraphic" k2="1" k3="1" operator="arithmetic" result="composite1"/>
+            <feComposite in="composite1" in2="color" operator="atop" result="composite2"/>
         </filter>
     </defs>
     <g fill="#fecb00" filter="url(#0KI_svg__b)" transform="translate(39.935 1.558)scale(.93934)">
         <path fill="#83611c" d="m-10.348 7.413-12.84 3.608-7.05 44.45H9.696L2.907 11.31l-.611-1.177.164 1.046z"/>
         <path fill="url(#0KI_svg__c)" d="m-10.96 6.237-12.838 3.608-7.051 44.45H9.085l-6.79-44.163z"/>
     </g>
-    <g transform="matrix(.8358 0 0 .8254 -174.398 -41.13)">
-        <g stroke="#000" stroke-width="1.2">
-            <path fill="url(#0KI_svg__d)" stroke-width="8.056" d="M89.878 104.459c71.228 71.229 31.757 135.82 52.51 165.378 28.87 49.947 71.082 59.605 129.342 59.37a66 66 0 0 0 3.413-.105q1.714.098 3.413.104c58.26.236 100.472-9.422 129.342-59.369 20.753-29.557-18.718-94.15 52.51-165.378-11.605-5.015-42.725 25.605-62.898 25.525-25.612-15.171-47.031 3.08-52.25 16.777 37.838-11.301 70.078 121.468-45.539 137.914-7.067 1.97-16.164 2.514-24.578 2.72-8.414-.206-17.511-.75-24.578-2.72-115.617-16.446-83.377-149.215-45.538-137.914-5.22-13.698-26.64-31.948-52.251-16.777-20.173.08-51.293-30.54-62.898-25.525z" transform="matrix(.06853 0 0 .08094 225.709 60.013)"/>
-            <path stroke-width="16.112" d="M141.488 275.714c-28.03-24.447-35.67-22.506-73.48-17.843l-35.66 52.997c60.802-7.142 122.974 2.29 115.3 107.58 7.77-26.63 28.133-63.418 39.832-101.833m220.385-40.901c28.03-24.447 35.67-22.506 73.479-17.843l35.66 52.997c-60.801-7.142-122.974 2.29-115.3 107.58-7.77-26.63-28.132-63.418-39.83-101.833" transform="matrix(.06853 0 0 .08094 225.73 59.991)"/>
-            <path stroke-width="16.112" d="m128.121 339.223-29.443 64.098c-3.406-2.033 6.609 9.49-6.592 1.008-14.055 23.338-19.002 29.833-33.969 54.715 21.968 17.086 24.659 18.31 46.106 25.56 13.293-25.846 25.739-42.373 44.639-83.918m270.022-61.463 29.443 64.098c3.407-2.033-6.608 9.49 6.593 1.008 14.054 23.338 19.002 29.833 33.968 54.715-21.968 17.086-24.658 18.31-46.106 25.56-13.292-25.846-25.738-42.373-44.638-83.918" transform="matrix(.06853 0 0 .08094 225.709 60.013)"/>
-            <path d="M233.88 97.288c7.362 3.092 14.48 3.19 21.327 0l-4.023-11.781c-5.552 2.376-8.767 2.099-13.5.437z"/>
-            <path fill="none" stroke="url(#0KI_svg__e)" d="M277.188 142.28c4.81 1.655 8.506 2.056 13.826-.031" transform="translate(-39.725 -53.576)"/>
-        </g>
-        <path fill="none" stroke="url(#0KI_svg__f)" stroke-width=".7" d="M304.855 89.188c.302.137.414.39.467.478 1.928 3.26 1.51 3.297 1.895 4.828m19.295-5.088c-.305.131-.422.381-.476.469-1.994 3.22-1.576 3.266-1.992 4.79" transform="translate(-71.19 -1.25)"/>
-        <path fill="none" stroke="url(#0KI_svg__g)" d="m305.71 99.48 4.06-12.61m11.288.253 4.574 12.42" transform="translate(-71.19 -1.25)"/>
-        <path fill="none" stroke="url(#0KI_svg__h)" stroke-width=".998" d="M304.034 89.76c.18.09.406.383.61.575l3.094 2.918m22.05-3.494c-.18.09-.406.384-.61.576l-3.093 2.918" transform="translate(-72.44 2.488)"/>
-        <path stroke="#000" d="M239.024 80.489c3.438-2.881 8.3-2.42 11.037.134-2.365 3.351-9.494 2.307-11.037-.134z"/>
-        <ellipse cx="244.601" cy="79.253" fill="url(#0KI_svg__i)" stroke="#000" stroke-width=".604" rx="3.947" ry="3.818"/>
-        <path stroke="#000" d="m240.019 99.645-1.37 5.82-.911-.363-.997 3.086c4.988 2.097 11.13 1.98 15.249 0l-.997-3.086-.854.363-1.37-5.82"/>
-        <path fill="none" stroke="url(#0KI_svg__j)" stroke-width=".998" d="M239.37 100.175c.152.039.143.036.229.06 3.05.835 6.735.845 9.675.113.05-.013.015-.002.171-.039"/>
-        <path fill="none" stroke="url(#0KI_svg__k)" stroke-width=".998" d="M238.41 104.291c.156.037.124.045.187.066 3.28 1.12 8.768.875 11.584-.009.08-.024.052-.026.198-.06"/>
-    </g>
     <path fill="#654b13" d="m11.531 53.665-.574-1.105h37.511l.575 1.105z"/>
+    <path fill-opacity=".992" d="M19.847 14.274c-.437.131-1.874.41-1.023.972.356.337.982.83 1.353 1.45 1.685 2.805 1.193 6.162 1.314 8.254-1.03-.088-3.358-.242-3.72.63l-2.292 3.972c1.95-.283 4.401-.671 5.795 1.062.946.514 1.589 3.061 2.213 2.935l1.345-4.008c1.285.193 1.138.9.693 1.818.827.945 3.15 1.019 4.62 1.072 1.385-.157 3.698-.215 4.4-1.142-.41-.87-.608-1.576.648-1.75l1.467 4.187c.968-1.467 1.625-3.328 3.338-4.08 1.45-.568 3.027-.304 4.523-.096l-2.612-4.527c-1.056-.463-3.03.039-3.459-.085.143-2.523-.19-5.241 1.166-7.515.508-.961 1.234-1.776 1.94-2.594-.792-.525-1.797-.804-2.565-.021-1.044.997-2.18 1.233-3.5.845-1.418.176-2.12 1.548-2.432 2.792 1.204-.021 1.783 1.202 1.89 2.258.151 1.009.107 3.891-1.185 3.35.302-2.477-2.316-4.681-4.708-3.966-1.76.42-3.032 2.237-2.816 4.035-1.251.435-1.329-2.392-1.167-3.419.106-1.058.686-2.277 1.89-2.258-.316-1.334-1.168-2.818-2.72-2.81-1.812.952-2.757-.994-4.396-1.36zm1.839 2.74c1.024 1.13 2.231-.217 3.25.395-.223.855-1.27 2.174-1.2 3.426-.4 2.845 1.331 5.931 4.198 6.657 3.128 1.081 7.146-.512 8.082-3.834.596-2.022.385-4.493-1.093-6.092.937-1.058 2.194.673 3.247-.452-.214.914-1.077 3.173-.954 4.734-.03 1.602.246 3.386-.898 4.704-1.313 2.144-4.023 2.603-6.339 2.492-2.297.107-4.976-.37-6.276-2.492-1.144-1.318-.866-3.102-.896-4.704-.033-1.666-.385-3.334-1.121-4.835M30 21.327c1.932-.1 3.139 2.465 1.834 3.891-1.144 1.545-3.872.866-4.162-1.034-.332-1.425.864-2.895 2.328-2.857m9.087 10.298c-.54 1.283-1.916 2.4-1.819 3.834.242.31.238 1.613.706 1.004.733-.694 1.492-1.36 2.2-2.08zm-18.072.168-1.03 2.611c.788.795 1.629 1.534 2.44 2.303.163-.67.677-1.338.268-2.022-.447-1.021-1.142-1.917-1.678-2.892m4.078.816-2.491 7.206c4.784 1.534 10.079 1.532 14.85-.057l-2.447-7.13c-3.2 1.144-6.729 1.237-9.912-.02zm15.757 2.526c-.909.89-1.856 1.74-2.781 2.611.38 1.118.74 2.17 1.269 3.213 1.319-.423 2.477-1.196 3.442-2.185-.62-1.225-1.292-2.423-1.93-3.639m-21.541.018c-.636 1.21-1.304 2.403-1.923 3.621.97.983 2.12 1.768 3.443 2.185.522-1.04.893-2.092 1.246-3.207-.92-.868-1.864-1.713-2.766-2.599m6.593 6.84-.39 1.677c2.88.715 5.97.778 8.857.066l-.379-1.732c-2.644.637-5.441.58-8.088-.011M24.69 44.66l-1.083 3.531c3.922 2.096 8.822 1.872 12.786 0l-1.15-3.531c-1.69.65-3.362.787-5.298.827-1.591-.017-3.768-.236-5.255-.827" color="#000" enable-background="accumulate" filter="url(#0KI_svg__d)" opacity=".99" overflow="visible" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"/>
 </svg>

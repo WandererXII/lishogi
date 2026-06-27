@@ -1,10 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60">
     <defs>
-        <linearGradient xlink:href="#1KA_svg__a" id="1KA_svg__b" x1="148.578" x2="130.323" y1="49.826" y2="49.826" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#1KA_svg__a" id="1KA_svg__e" x1="1112.353" x2="1167.429" y1="159.01" y2="159.01" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#1KA_svg__a" id="1KA_svg__f" x1="132.561" x2="148.24" y1="231.857" y2="231.857" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#1KA_svg__a" id="1KA_svg__g" x1="177.827" x2="197.093" y1="92.855" y2="92.855" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <linearGradient xlink:href="#1KA_svg__a" id="1KA_svg__h" x1="176.859" x2="196.381" y1="80.264" y2="80.264" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
+        <linearGradient xlink:href="#1KA_svg__a" id="1KA_svg__c" x1="148.578" x2="130.323" y1="49.826" y2="49.826" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
         <linearGradient id="1KA_svg__a">
             <stop offset="0" stop-color="#e5c37b"/>
             <stop offset=".042" stop-color="#e4bd76"/>
@@ -18,29 +14,39 @@
             <stop offset=".962" stop-color="#e0bf78"/>
             <stop offset="1" stop-color="#e7c685"/>
         </linearGradient>
-        <linearGradient xlink:href="#1KA_svg__a" id="1KA_svg__d" x1="148.578" x2="130.323" y1="49.826" y2="49.826" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <filter id="1KA_svg__c">
+        <linearGradient xlink:href="#1KA_svg__b" id="1KA_svg__e" x1="148.578" x2="130.323" y1="49.826" y2="49.826" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
+        <linearGradient id="1KA_svg__b">
+            <stop offset="0" stop-color="#dfb459"/>
+            <stop offset=".042" stop-color="#dead54"/>
+            <stop offset=".093" stop-color="#e1b85f"/>
+            <stop offset=".165" stop-color="#dba84d"/>
+            <stop offset=".305" stop-color="#dfb765"/>
+            <stop offset=".539" stop-color="#d8a94e"/>
+            <stop offset=".586" stop-color="#d5ab53"/>
+            <stop offset=".84" stop-color="#e0bf6e"/>
+            <stop offset=".924" stop-color="#daae52"/>
+            <stop offset=".962" stop-color="#d9af57"/>
+            <stop offset="1" stop-color="#e1b663"/>
+        </linearGradient>
+        <filter id="1KA_svg__d" width="1.285" height="1.233" x="-.118" y="-.096">
             <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2"/>
             <feOffset dx="2" dy="2" result="offsetBlur"/>
             <feBlend in="SourceGraphic" in2="offsetBlur"/>
         </filter>
+        <filter id="1KA_svg__f" width="1.048" height="1.044" x="-.024" y="-.022" color-interpolation-filters="sRGB">
+            <feColorMatrix in="SourceGraphic" result="color" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.85 0"/>
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation=".32"/>
+            <feSpecularLighting in="blur" lighting-color="#fff" result="specular" specularConstant="2.019" specularExponent="25" surfaceScale="5">
+                <feDistantLight azimuth="245" elevation="25"/>
+            </feSpecularLighting>
+            <feComposite in="specular" in2="SourceGraphic" k2="1" k3="1" operator="arithmetic" result="composite1"/>
+            <feComposite in="composite1" in2="color" operator="atop" result="composite2"/>
+        </filter>
     </defs>
-    <g fill="url(#1KA_svg__b)" filter="url(#1KA_svg__c)" transform="translate(-96.558 -23.219)scale(.98185)">
-        <path fill="#876419" d="m148.702 29.817-.139.972.718.01zm.58.982H109.09l6.41 44.002-.454-.121.578.98 13.14 3.935a.9.9 0 0 0 .27.022l13.41-4.26 6.836-44.558z"/>
-        <path fill="url(#1KA_svg__d)" d="m128.456 78.635 13.41-4.26 6.836-44.558h-40.19l6.535 44.862 13.138 3.935c.09.017.18.032.271.021"/>
+    <g fill="url(#1KA_svg__c)" filter="url(#1KA_svg__d)" transform="translate(-96.558 -23.219)scale(.98185)">
+        <path fill="#876419" d="m148.702 29.817-.18 1.02.759-.038zm.58.982H109.09l6.41 44.002-.454-.121.578.98 13.14 3.935a.9.9 0 0 0 .27.022l13.41-4.26 6.836-44.558z"/>
+        <path fill="url(#1KA_svg__e)" d="m128.456 78.635 13.41-4.26 6.836-44.558h-40.19l6.535 44.862 13.138 3.935c.09.017.18.032.271.021"/>
     </g>
     <path fill="#ac812a" d="m29.566 53.989.303.943L43.3 50.77l-.568-.964z"/>
-    <g stroke-width=".6">
-        <path fill="none" stroke="#000" stroke-width="1" d="m18.198 31.618 2.776-.278"/>
-        <path stroke="#000" stroke-width=".623" d="M13.545 18.257c6.961.49 13.485.07 22.964 0m-.715 5.078c-4.094 6.716-10.39 4.523-14.778 4.464-3.667-2.174-4.206-2.35-5.55-3.988-1.42-1.908-1.78-3.234-1.895-5.577 7.084-2.553 14.164-3.077 22.64-.488.13 2.08-.18 3.846-.417 5.589z"/>
-        <g stroke="#000" stroke-width="1.554">
-            <path fill="url(#1KA_svg__e)" d="M1134.293 141.964c2.547 12.294 3.186 23.557 4.198 35.944 1.943 9.213 14.401 18.842 21.54 16.842-2.932-16.412-2.031-40.457-11.142-69.998-5.61-.793-11.376-1.122-17.492-1.757-2.038.106-3.543.516-4.955 1.456-1.895 2.68-6.003 11.52-7.692 15.867l.805 9.044c3.986 1.631 6.221 3.263 9.188 4.894z" transform="matrix(.40052 0 0 -.40052 -418.578 87.841)"/>
-            <path fill="none" stroke-width=".622" d="M33.413 26.246c1.476 3.188 1.91 4.756 3.767 7.781.753.928 1.518 1.837 2.388 2.588.99.32 1.235.715 2.224.38"/>
-        </g>
-        <path stroke="#000" stroke-width=".623" d="m21.34 27.795-1.658 12.759c-.596 3.452.196 5.31 3.073 4.774 2.65-.753 4.33-3.278 5.684-6.396l1.347-10.938c-4.628.44-6.156.121-8.447-.199z"/>
-        <path fill="none" stroke="url(#1KA_svg__f)" stroke-width=".964" d="M114.546 230.804c.192-.076.282-.063.668.062 4.966 1.6 9.507 3.317 20.202.889.1-.023.345-.097.522-.078" transform="translate(-104.876 -217.517)scale(1.03765)"/>
-        <path fill="none" stroke="#000" stroke-width="1" d="m26.193 30.908 5.886-.344"/>
-    </g>
-    <path fill="none" stroke="url(#1KA_svg__g)" stroke-width="1.285" d="M151.095 93.551c.279.024.88-.147 1.001-.177 8.975-2.21 17.802-2.648 27.993.597.253.08.757.09 1.026.112" transform="matrix(.77824 0 0 -.77824 -104.308 91.327)"/>
-    <path fill="none" stroke="url(#1KA_svg__h)" stroke-width="1.285" d="M160.883 80.539c4.815-.641 7.67-.68 11.119-.268.44.052.574.106.702.091" transform="matrix(.77824 0 0 -.77824 -104.308 91.327)"/>
+    <path d="M21.946 45.579a4.4 4.4 0 0 0 .974-.079v-.069h.066c2.56-.723 4.484-2.931 5.27-5.832 0 0 .032-.093.032-.136.23-1.162.45-2.732.64-4.294a53 53 0 0 0 2.378 3.763l.077.158.157.076c.681.451 1.51.65 2.383.692h.153c2.296-.24 4.432-.388 6.612-.692l.619-.076.157-.535c3.505-11.367 3.148-20.634 4.229-26.68l.157-.85-.765-.23c-1.858-.524-3.864.41-5.613 1.769-1.749 1.362-3.254 3.308-3.69 5.382h-.077v.079c-.01.188-.033.356-.044.545-7.775-2.361-14.332-1.841-20.84.461-.066.025-.157-.025-.22 0l-.451.147v.178c.066.018.136.033.189.047.167.037.304.076.304.079 6.546 1.612 12.972 1.896 20.375-.461a1.7 1.7 0 0 1 .597-.079c-.033.43-.076.86-.115 1.289l-.189.023c-7.635 2.433-14.295 2.112-20.99.46l-.088-.022c.077.67.2 1.287.399 1.873.055-.001.105-.01.157-.005.189.02.336.09.535.158 4.903 1.58 9.109 3.212 19.53.849.043-.01.156-.047.324-.071-.044.44-.105.88-.157 1.313-10.321 2.333-15 .713-19.732-.817.21.345.43.702.713 1.078a8.5 8.5 0 0 0 1.934 1.786c.734.503 1.2 1.016 2.875 2.007l.147.076.147.075c1.184.017 2.916.2 4.542.273.242.002.493-.001.745 0 .283 0 .566.005.86 0 .178-.002.366-.01.555-.017a76 76 0 0 0 1.804-.056c.273-.084.545-.168.86-.251.681-.2 1.255-.44 1.828-.65 1.08 2.404 1.628 3.957 3.082 6.396l.011.026v-.004c.077.136.148.251.231.388l.077.076v.077c.744.912 1.565 1.684 2.4 2.407-1.312.126-2.664.22-4.09.356-.567-.03-.902-.126-1.23-.304a60 60 0 0 1-2.372-3.784l1.295-.06-.077-2.46-2.259.104c.066-.608.066-.692.115-1.088-.21.026-.43.045-.64.063h-.001a25 25 0 0 1-1.898.103c-1.684.029-3.486-.105-5.984-.388l-.22 1.71-2.331.105.157 2.46 1.861-.088-.797 6.272v.069c-.251 1.516-.251 2.807.283 3.725.273.471.66.807 1.194.985q.393.13.85.147zm18.08-9.01a46 46 0 0 1-.64-.252c-.796-.681-1.561-1.407-2.23-2.23a31 31 0 0 1-1.22-2.208c.965-4.672 1.23-8.942 1.604-13.553.304-1.424 1.52-3.155 2.999-4.306a5.17 5.17 0 0 1 2.438-1.074 7 7 0 0 1 .713-.08c-.912 6.02-.902 13.913-3.668 23.707zm-5.48-8.175h-.001l-.682-1.555a9 9 0 0 0 1.061-1.185c-.115.912-.241 1.822-.377 2.74z" color="#000" enable-background="accumulate" filter="url(#1KA_svg__f)" opacity=".99" overflow="visible" style="line-height:normal;font-variant-ligatures:normal;font-variant-position:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-alternates:normal;font-variant-east-asian:normal;font-feature-settings:normal;font-variation-settings:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;text-orientation:mixed;white-space:normal;shape-padding:0;shape-margin:0;inline-size:0;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1"/>
 </svg>

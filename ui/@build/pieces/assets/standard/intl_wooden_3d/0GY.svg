@@ -1,23 +1,32 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 60 60">
     <defs>
-        <linearGradient id="0GY_svg__a">
-            <stop offset="0" stop-color="#dfb459"/>
-            <stop offset=".041" stop-color="#dead54"/>
-            <stop offset=".082" stop-color="#e1b85f"/>
-            <stop offset=".165" stop-color="#dba84d"/>
-            <stop offset=".305" stop-color="#dfb765"/>
-            <stop offset=".539" stop-color="#d8a94e"/>
-            <stop offset=".586" stop-color="#d5ab53"/>
-            <stop offset=".84" stop-color="#e0bf6e"/>
-            <stop offset=".924" stop-color="#daae52"/>
-            <stop offset=".962" stop-color="#d9af57"/>
-            <stop offset="1" stop-color="#e1b663"/>
-        </linearGradient>
         <linearGradient xlink:href="#0GY_svg__a" id="0GY_svg__c" x1="-30.849" x2="-15.094" y1="30.267" y2="30.267" gradientUnits="userSpaceOnUse" spreadMethod="repeat"/>
-        <filter id="0GY_svg__b">
+        <linearGradient id="0GY_svg__a">
+            <stop offset="0" stop-color="#e5c37b"/>
+            <stop offset=".042" stop-color="#e4bd76"/>
+            <stop offset=".093" stop-color="#e7c781"/>
+            <stop offset=".165" stop-color="#e2b86e"/>
+            <stop offset=".305" stop-color="#e6c686"/>
+            <stop offset=".539" stop-color="#dfb96f"/>
+            <stop offset=".586" stop-color="#ddbb73"/>
+            <stop offset=".84" stop-color="#e7ce8f"/>
+            <stop offset=".924" stop-color="#e1bd73"/>
+            <stop offset=".962" stop-color="#e0bf78"/>
+            <stop offset="1" stop-color="#e7c685"/>
+        </linearGradient>
+        <filter id="0GY_svg__b" width="1.286" height="1.241" x="-.118" y="-.1">
             <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation="2"/>
             <feOffset dx="2" dy="2" result="offsetBlur"/>
             <feBlend in="SourceGraphic" in2="offsetBlur"/>
+        </filter>
+        <filter id="0GY_svg__d" width="1.101" height="1.096" x="-.05" y="-.048" color-interpolation-filters="sRGB">
+            <feColorMatrix in="SourceGraphic" result="color" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 0.85 0"/>
+            <feGaussianBlur in="SourceAlpha" result="blur" stdDeviation=".417"/>
+            <feSpecularLighting in="blur" lighting-color="#fff" result="specular" specularConstant="2.081" specularExponent="25" surfaceScale="5">
+                <feDistantLight azimuth="230" elevation="37"/>
+            </feSpecularLighting>
+            <feComposite in="specular" in2="SourceGraphic" k2="1" k3="1" operator="arithmetic" result="composite1"/>
+            <feComposite in="composite1" in2="color" operator="atop" result="composite2"/>
         </filter>
     </defs>
     <g fill="#75581b" filter="url(#0GY_svg__b)">
@@ -25,5 +34,5 @@
     </g>
     <path fill="url(#0GY_svg__c)" d="m-10.96 6.237-12.838 3.608-7.051 44.45H9.085c-2.303-14.885-4.076-30.55-6.79-44.163z" transform="translate(40.568 -.267)"/>
     <path fill="#654b13" d="m9.719 54.029.629 1.168H50.28l-.628-1.168z"/>
-    <path stroke="#000" stroke-linejoin="round" stroke-width=".453" d="M41.364 42.419v8.086h5.242l.837 2.478h-6.079v9.13H51.43l.836 2.869H27.964l.836-2.87h9.952v-9.13h-6.237l.836-2.477h5.401v-8.086h-7.136l-.836-2.87h18.597l-.836 2.87z" opacity=".99" transform="matrix(1.19582 0 0 1.07583 -18.285 -24.036)"/>
+    <path stroke="#000" stroke-linejoin="round" stroke-width=".453" d="M41.364 42.419v8.086h5.242l.837 2.478h-6.079v9.13H51.43l.836 2.869H27.964l.836-2.87h9.952v-9.13h-6.237l.836-2.477h5.401v-8.086h-7.136l-.836-2.87h18.597l-.836 2.87z" filter="url(#0GY_svg__d)" opacity=".99" transform="matrix(1.19582 0 0 1.07583 -18.285 -24.036)"/>
 </svg>
