@@ -23,11 +23,11 @@
     }
 
     a {
-      /* GM wikipedia */
-      color: theme.$m-link_font_mix_35;
+      /* Animal wikipedia */
+      color: theme.$m-primary_font_mix_35;
 
       &:hover {
-        color: theme.$c-link;
+        color: theme.$c-primary;
       }
     }
   }

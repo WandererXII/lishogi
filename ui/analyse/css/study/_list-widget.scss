@@ -11,6 +11,7 @@ $c-study: theme.$c-primary;
 .studies {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(variables.$viewport-min-width, 1fr));
+  grid-auto-rows: 1fr;
 
   @include breakpoint.breakpoint(media-queries.$mq-medium) {
     grid-template-columns: repeat(auto-fill, minmax(45ch, 1fr));
@@ -64,6 +65,7 @@ $c-study: theme.$c-primary;
         color: $c-study;
         height: 4rem;
         width: 4rem;
+        min-width: 4rem;
       }
 
       .study-name {
@@ -87,7 +89,7 @@ $c-study: theme.$c-primary;
       }
 
       &::before {
-        color: theme.$m-link_bg-box_mix_80;
+        color: theme.$m-primary_bg-box_mix_80;
         font-size: 4em;
         margin-right: 0.2em;
 
@@ -107,7 +109,7 @@ $c-study: theme.$c-primary;
       background: theme.$m-primary_bg-box_mix_10;
 
       .top::before {
-        color: theme.$c-link;
+        color: theme.$c-primary;
       }
     }
   }

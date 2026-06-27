@@ -2,9 +2,10 @@
 @use 'pkg:common/theme';
 
 .gamebook-edit {
-  @extend %flex-column;
+  @extend %flex-column, %box-radius-top;
 
   background: theme.$c-bg-low;
+  overflow: hidden;
 
   .deviation,
   .hint {

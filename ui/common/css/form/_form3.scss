@@ -52,7 +52,7 @@ textarea.form-control {
 
 .form-control:invalid,
 .form-group.is-invalid .form-control {
-  border-color: theme.$c-error;
+  border-color: theme.$c-bad;
 }
 
 .form3 .error,
@@ -62,7 +62,7 @@ textarea.form-control {
 }
 
 .form3 .error {
-  color: theme.$c-error;
+  color: theme.$c-bad;
   font-weight: bold;
 }
 
@@ -86,8 +86,7 @@ textarea.form-control {
 .form-actions {
   @extend %flex-between;
 
-  margin: 1.5rem 0;
-  padding-top: 1.5rem;
+  padding: 1.5rem 0;
   border-top: theme.$border;
 }
 

@@ -4,7 +4,6 @@
 
 .slist {
   width: 100%;
-  border-bottom: theme.$border;
 
   thead {
     @extend %metal, %roboto;

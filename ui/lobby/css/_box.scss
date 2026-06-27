@@ -14,12 +14,6 @@
       flex: 0 0 auto;
       padding: 0.3em 0.5em;
 
-      .more {
-        @include mixins.transition;
-
-        color: theme.$c-font-dim;
-      }
-
       .title {
         @extend %base-font;
 
@@ -30,7 +24,7 @@
       }
 
       &:hover .more {
-        color: theme.$c-link;
+        color: theme.$c-primary;
       }
     }
 
@@ -65,7 +59,7 @@
         @include mixins.transition;
 
         &:hover {
-          color: theme.$c-link;
+          color: theme.$c-primary;
         }
       }
     }
@@ -84,10 +78,10 @@
     td:last-child {
       text-align: right;
       padding-right: 0.7em;
-      color: theme.$c-link;
+      color: theme.$c-primary;
 
       a {
-        color: theme.$c-link;
+        color: theme.$c-primary;
       }
     }
   }
@@ -115,7 +109,7 @@
   //   color: theme.$c-brag;
   // }
 
-  // &__blog h2::before {
+  // &__article h2::before {
   //   color: theme.$c-secondary;
   // }
 

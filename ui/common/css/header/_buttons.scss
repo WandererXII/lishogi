@@ -101,29 +101,29 @@
     margin: 0 0.5em;
 
     .signup {
-      color: theme.$c-link-over;
-      background: theme.$c-link;
+      color: theme.$c-primary-over;
+      background: theme.$c-primary;
       margin-right: 0.5em;
     }
 
     .signin {
       padding-right: 0.75em;
       padding-left: 0.75em;
-      color: theme.$c-link;
+      color: theme.$c-primary;
       background: none;
       box-shadow: none;
-      outline: 2px solid theme.$c-link;
+      outline: 2px solid theme.$c-primary;
       outline-offset: -2px;
 
       &:hover {
-        outline-color: theme.$c-link-hover;
+        outline-color: theme.$c-primary-hover;
       }
     }
 
     @include mixins.has-bg-img {
       .button {
-        background: theme.$c-link;
-        color: theme.$c-link-over;
+        background: theme.$c-primary;
+        color: theme.$c-primary-over;
       }
     }
   }

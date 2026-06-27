@@ -54,25 +54,24 @@
     background: theme.$c-bg-popup;
     transform: scale(1, 0);
     transform-origin: top;
+    border: theme.$border;
 
     @include mixins.transition(transform);
 
     a {
+      @include mixins.transition;
+
       white-space: nowrap;
       display: block;
       padding: 0.45rem calc(1rem - 6px);
-
-      &.current {
-        color: theme.$c-primary-over;
-        background: theme.$c-primary;
-      }
-
-      @include mixins.transition;
-
-      color: theme.$c-primary;
+      color: theme.$c-font;
       background: theme.$c-bg-popup;
 
       &:hover {
+        @extend %metal-hover;
+      }
+
+      &.current {
         color: theme.$c-primary-over;
         background: theme.$c-primary;
       }

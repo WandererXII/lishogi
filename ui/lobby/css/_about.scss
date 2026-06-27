@@ -19,7 +19,7 @@
     @include mixins.transition(color);
 
     &:hover {
-      color: theme.$c-link;
+      color: theme.$c-primary;
     }
   }
 }

@@ -11,16 +11,16 @@ $c-study-button: theme.$c-accent;
   @extend %flex-between;
 
   align-items: stretch;
-  height: calc(#{uniboard.$col3-uniboard-controls} - 2px);
 
   span {
-    font-size: 1.15em;
+    font-size: 1.3rem;
     min-width: 0;
   }
 
   .left-buttons {
     flex: 1 1 auto;
     border-bottom: 0;
+    height: uniboard.$col3-uniboard-controls;
   }
 
   .right {
@@ -29,6 +29,7 @@ $c-study-button: theme.$c-accent;
     align-items: stretch;
     justify-content: flex-end;
     margin-left: auto;
+    height: uniboard.$col3-uniboard-controls;
 
     .preview {
       @extend %flex-center-nowrap, %box-radius-top;
@@ -62,6 +63,7 @@ $c-study-button: theme.$c-accent;
     opacity: 0.8;
     font-weight: bold;
     color: theme.$c-bad;
+    font-family: monospace;
 
     &.on {
       color: theme.$c-good;
@@ -84,7 +86,7 @@ $c-study-button: theme.$c-accent;
 
     &:hover {
       border-bottom-color: transparent;
-      color: theme.$c-link;
+      color: theme.$c-primary;
     }
   }
 }

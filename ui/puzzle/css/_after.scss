@@ -53,7 +53,7 @@
       padding: 0 0.2em;
 
       &:hover {
-        color: theme.$c-link;
+        color: theme.$c-primary;
       }
 
       &:not(:first-child) {
@@ -140,6 +140,10 @@
     &.vote-down.active {
       background: theme.$c-bad;
     }
+  }
+
+  @include breakpoint.breakpoint(local.$mq-col1) {
+    display: none;
   }
 }
 

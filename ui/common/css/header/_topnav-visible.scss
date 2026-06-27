@@ -56,7 +56,6 @@
       border-radius: 0 variables.$box-radius-size variables.$box-radius-size
         variables.$box-radius-size;
       border-left: 2px solid theme.$c-primary;
-      border-bottom: 2px solid theme.$c-primary;
 
       a {
         display: block;
@@ -101,20 +100,21 @@
         max-height: none;
       }
     }
-  }
 
-  .new-feature {
-    position: relative;
+    .donate-button {
+      height: var(--nav-section);
+      line-height: variables.$site-header-height;
+      color: theme.$c-brag;
+      text-transform: uppercase;
+      margin-left: 1rem;
 
-    &::after {
-      content: 'NEW';
-      font-size: 0.7rem;
-      transform: rotate(37deg);
-      position: absolute;
-      color: #d64f00;
-      font-weight: bold;
-      top: 5px;
-      right: 5px;
+      span {
+        padding: 0.6em 0.6em;
+
+        &:before {
+          margin-right: 0.4em;
+        }
+      }
     }
   }
 }

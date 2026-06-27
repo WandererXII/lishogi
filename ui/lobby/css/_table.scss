@@ -18,6 +18,7 @@
     justify-content: stretch;
     flex: 1 1 auto;
     margin: 0 1em 0 1em;
+    gap: 0.3em;
 
     @include breakpoint.breakpoint(local.$mq-col2) {
       margin: 2em 0 0 0;
@@ -28,7 +29,6 @@
       background: theme.$c-bg-action;
       font-size: 1.1em;
       text-align: center;
-      margin: 0.15em 0;
       padding: 0.65em;
       position: relative;
 
@@ -83,7 +83,7 @@
       @include mixins.transition(color);
 
       &:hover {
-        color: theme.$c-link;
+        color: theme.$c-primary;
       }
     }
   }

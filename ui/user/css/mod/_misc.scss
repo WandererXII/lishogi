@@ -65,11 +65,11 @@
 #modlog_table {
   tr {
     &.alert {
-      background: theme.$m-bg-zebra_red_mix_80;
+      background: theme.$m-bg-zebra_bad_mix_80;
     }
 
     &:nth-child(odd).alert {
-      background: theme.$m-bg-zebra2_red_mix_80;
+      background: theme.$m-bg-zebra2_bad_mix_80;
     }
   }
 }

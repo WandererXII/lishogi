@@ -5,27 +5,17 @@
 @use 'pkg:common/theme';
 
 #challenge-app {
+  @extend %box-radius-left;
+
   width: 20rem;
   right: 0;
   text-align: center;
 
   .empty {
-    @extend %dropdown-shadow;
-
-    background: theme.$c-bg-header-dropdown;
     padding: 2rem 0;
   }
 
-  &.rendered {
-    background: transparent !important;
-    box-shadow: none !important;
-    border: 0 !important;
-  }
-
   .challenge {
-    @extend %box-radius-force, %dropdown-shadow;
-
-    background: theme.$c-bg-header-dropdown;
     margin-bottom: 5px;
 
     @include mixins.transition(height);
@@ -178,23 +168,5 @@
         }
       }
     }
-  }
-
-  .create {
-    @extend %box-radius-bottom;
-
-    display: inline-block;
-    padding: 0 28px 3px 28px;
-    margin: auto;
-    background: rgba(56, 147, 232, 0.5);
-    color: rgba(255, 255, 255, 0.6);
-
-    @include mixins.transition;
-  }
-
-  .create:hover {
-    background: rgba(56, 147, 232, 0.9);
-    color: rgba(255, 255, 255, 0.6);
-    padding-top: 4px;
   }
 }

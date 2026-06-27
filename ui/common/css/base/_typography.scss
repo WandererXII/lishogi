@@ -25,10 +25,10 @@ h1 {
   @include fluid-size('font-size', 20px, 40px);
 
   a {
-    color: theme.$c-link-dim;
+    color: theme.$c-primary-dim;
 
     &:hover {
-      color: theme.$c-link;
+      color: theme.$c-primary;
     }
   }
 }

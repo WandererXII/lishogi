@@ -13,28 +13,42 @@
 
   @include breakpoint.breakpoint(media-queries.$mq-subnav-top) {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(21ch, 1fr));
-    grid-gap: 3px;
-    margin-bottom: 3px;
+    grid-auto-flow: column;
+    grid-auto-columns: max-content;
+    gap: 3px;
+    overflow-x: auto;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
 
     a {
-      @include mixins.box-neat;
-
+      position: relative;
       font-family: Roboto;
       display: flex;
       align-items: center;
+      justify-content: center;
       color: theme.$c-font;
-      padding: 0.6rem 0 0.6rem 0.5rem;
-      letter-spacing: -0.06em;
-      background: theme.$c-bg-high;
+      padding: 0.75rem 1.25rem;
 
       &:hover {
         color: theme.$c-font-clearer;
       }
 
       &.active {
-        background: theme.$c-accent;
-        color: theme.$c-accent-over;
+        color: theme.$c-font-clear;
+
+        &::after {
+          content: '';
+          position: absolute;
+          height: 7px;
+          bottom: -4px;
+          border-radius: 3px;
+          left: 5%;
+          width: 100%;
+          background: theme.$c-accent;
+        }
       }
     }
 

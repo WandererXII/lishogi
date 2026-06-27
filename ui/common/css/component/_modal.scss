@@ -29,6 +29,7 @@
     .close {
       @extend %box-radius;
 
+      background: theme.$c-bg-box;
       color: theme.$c-font;
       position: absolute;
       font-size: 16px;
@@ -38,7 +39,6 @@
       cursor: pointer;
       top: 0;
       right: 0;
-      background: none;
       z-index: 100;
 
       @include breakpoint.breakpoint(media-queries.$mq-small) {
@@ -58,8 +58,6 @@
     }
 
     .close:hover {
-      @extend %box-shadow;
-
       background: theme.$c-bad;
       color: theme.$c-bad-over;
     }

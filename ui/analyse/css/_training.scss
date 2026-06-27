@@ -34,26 +34,14 @@
     margin-left: 10px;
   }
 
-  .no-square {
-    width: 64px;
-    height: 64px;
-    margin-right: 10px;
-  }
-
-  piece {
-    position: inherit;
-    display: block;
-    width: 100% !important;
-    height: 100% !important;
-  }
-
   .icon {
-    display: block;
+    display: flex;
+    font-size: 40px;
     width: 64px;
     height: 64px;
     margin-right: 10px;
-    font-size: 40px;
-    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 
   .instruction > * {

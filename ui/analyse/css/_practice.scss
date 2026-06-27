@@ -8,7 +8,7 @@
   .comment {
     flex: 0 0 30px;
     display: flex;
-    align-items: stretch;
+    align-items: center;
     background: theme.$c-bg-zebra;
     border-top: theme.$border;
     white-space: nowrap;
@@ -104,7 +104,7 @@
   .comment move {
     cursor: pointer;
     margin-left: 5px;
-    color: theme.$c-link;
+    color: theme.$c-primary;
     transition: 0.3s;
   }
 }

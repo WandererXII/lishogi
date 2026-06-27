@@ -42,13 +42,13 @@ body::-webkit-scrollbar-thumb:active {
 }
 
 a {
-  color: theme.$c-link;
+  color: theme.$c-primary;
   text-decoration: none;
 
   &:hover,
   &:active,
   &:focus {
-    color: theme.$c-link-hover;
+    color: theme.$c-primary-hover;
   }
 }
 

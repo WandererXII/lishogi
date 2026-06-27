@@ -35,8 +35,8 @@
   &-red {
     @media (hover: hover) {
       &:hover:not(.disabled):not([disabled]) {
-        background: theme.$c-error;
-        color: theme.$c-error-over;
+        background: theme.$c-bad;
+        color: theme.$c-bad-over;
       }
     }
   }

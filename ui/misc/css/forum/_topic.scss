@@ -10,15 +10,15 @@
 
       border-radius: 20px;
       padding: 1rem;
-      background: theme.$m-error_bg-box_mix_15;
-      border: 1px solid theme.$c-error;
+      background: theme.$m-bad_bg-box_mix_15;
+      border: 1px solid theme.$c-bad;
       text-align: center;
       font-size: 1.3em;
       margin-bottom: 2rem;
 
       h2 {
         font-weight: bold;
-        color: theme.$c-error;
+        color: theme.$c-bad;
       }
 
       h2,

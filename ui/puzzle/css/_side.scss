@@ -47,8 +47,6 @@
       margin: 0;
     }
 
-    padding: 2vmin;
-
     .hidden {
       color: theme.$c-font-dimmer;
     }
@@ -57,8 +55,15 @@
       @extend %flex-center-nowrap;
 
       overflow: hidden;
+      padding: 2vmin;
 
-      // white-space: nowrap;
+      &:first-child {
+        padding-bottom: 0;
+      }
+
+      &:last-child {
+        padding-top: 0;
+      }
 
       &::before {
         font-size: 3rem;
@@ -229,7 +234,7 @@
       }
 
       &:hover {
-        background: theme.$m-link_bg-box_mix_10;
+        background: theme.$m-primary_bg-box_mix_10;
       }
 
       &.strike a {

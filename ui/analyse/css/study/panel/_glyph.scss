@@ -3,7 +3,7 @@
 @use 'pkg:common/theme';
 
 .study__glyphs {
-  @extend %box-neat, %flex-center;
+  @extend %box-neat-force, %flex-center;
 
   background: theme.$c-bg-box;
   white-space: nowrap;
@@ -42,16 +42,70 @@
     &:hover,
     &.active {
       background: theme.$c-bg-zebra;
-      color: theme.$c-secondary;
+      color: theme.$c-font-clearer;
     }
 
     &:hover::before {
-      background: theme.$c-bg-zebra;
+      background: theme.$c-bg-zebra2;
     }
 
     &.active::before {
       background: theme.$c-secondary;
       color: theme.$c-secondary-over;
+    }
+
+    &.g-inaccuracy {
+      color: theme.$c-inaccuracy;
+
+      &.active::before {
+        background-color: theme.$c-inaccuracy;
+        color: white;
+      }
+    }
+
+    &.g-mistake {
+      color: theme.$c-mistake;
+
+      &.active::before {
+        background-color: theme.$c-mistake;
+        color: black;
+      }
+    }
+
+    &.g-blunder {
+      color: theme.$c-blunder;
+
+      &.active::before {
+        background-color: theme.$c-blunder;
+        color: theme.$c-bad-over;
+      }
+    }
+
+    &.g-good-move {
+      color: theme.$c-good-move;
+
+      &.active::before {
+        background-color: theme.$c-good-move;
+        color: black;
+      }
+    }
+
+    &.g-brilliant {
+      color: theme.$c-brilliant;
+
+      &.active::before {
+        background-color: theme.$c-brilliant;
+        color: black;
+      }
+    }
+
+    &.g-interesting {
+      color: theme.$c-interesting;
+
+      &.active::before {
+        background-color: theme.$c-interesting;
+        color: black;
+      }
     }
   }
 }

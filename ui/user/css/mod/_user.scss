@@ -222,7 +222,7 @@
 
     &.spy_filter {
       tbody tr:hover {
-        background: theme.$m-brag_bg-box_mix_20;
+        background: theme.$m-brag_bg-box_mix_15;
       }
     }
   }
@@ -296,7 +296,7 @@
   cursor: pointer;
 
   &:hover {
-    color: theme.$c-link;
+    color: theme.$c-primary;
   }
 }
 

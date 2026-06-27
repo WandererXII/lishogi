@@ -38,16 +38,11 @@ html.custom-dark {
   --c-good: var(--c-green);
   --c-good-over: #fff; // fallback
   --c-bad: var(--c-red);
-  --c-error: var(--c-red);
-  --c-error-over: #fff; // fallback
-  --c-warn: color-mix(in srgb, var(--c-error) 70%, yellow);
+  --c-bad: var(--c-red);
+  --c-bad-over: #fff; // fallback
+  --c-warn: color-mix(in srgb, var(--c-bad) 70%, yellow);
   --c-warn-over: #fff; // fallback
   --c-bad-over: #fff; // fallback
-  --c-link: var(--c-primary);
-  --c-link-clear: var(--c-primary-clear);
-  --c-link-dim: var(--c-primary-dim);
-  --c-link-hover: oklch(from var(--c-primary) l calc(c + 0.075) h);
-  --c-link-over: var(--c-primary-over);
   --c-font-metal-hover: var(--c-font-clear);
   --c-font-metal: inherit;
   --metal-shadow: none;
@@ -65,7 +60,7 @@ html.custom-dark {
     --c-brag-over: oklch(from var(--c-brag) calc(1 - round(l, 1)) 0 0);
     --c-good-over: oklch(from var(--c-good) calc(1 - round(l, 1)) 0 0);
     --c-warn-over: oklch(from var(--c-warn) calc(1 - round(l, 1)) 0 0);
-    --c-error-over: oklch(from var(--c-error) calc(1 - round(l, 1)) 0 0);
+    --c-bad-over: oklch(from var(--c-bad) calc(1 - round(l, 1)) 0 0);
     --c-bad-over: oklch(from var(--c-bad) calc(1 - round(l, 1)) 0 0);
   }
 }

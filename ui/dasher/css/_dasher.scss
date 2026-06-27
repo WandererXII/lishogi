@@ -91,13 +91,13 @@
     }
 
     .help {
-      color: theme.$c-link;
+      color: theme.$c-primary;
       display: block;
       padding: 0.7rem 0.7rem 0.7rem 1rem;
 
       &:hover {
-        background: theme.$c-link;
-        color: theme.$c-link-over;
+        background: theme.$c-primary;
+        color: theme.$c-primary-over;
       }
     }
   }

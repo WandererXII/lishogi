@@ -344,7 +344,7 @@ sg-squares {
       }
 
       &.check::before {
-        background-color: theme.$m-red_alpha_neg50;
+        background-color: theme.$m-bad_alpha_neg50;
       }
 
       &.selected::before {
@@ -723,7 +723,7 @@ body.custom {
   }
 }
 
-body:not(.hands-background),
+body:not(.hands-background):not(:has(.trad-layout)),
 .mini-board {
   .sg-wrap sg-hand {
     background-image: none;

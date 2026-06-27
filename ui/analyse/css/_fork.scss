@@ -4,9 +4,11 @@
 @use 'local';
 
 .analyse__fork {
-  @extend %flex-center;
+  @extend %flex-center, %box-radius;
 
   flex: 0 0 auto;
+  overflow: hidden;
+  gap: 1px;
 
   @include breakpoint.breakpoint(local.$mq-col1) {
     display: none;
@@ -17,14 +19,9 @@
 
     background: theme.$m-primary_bg-box_mix_25;
     color: theme.$c-font-clear;
-    flex: 0 0 50%;
+    flex: 1 1 calc(50% - 1px);
     cursor: pointer;
-    padding: 0.2em 1em;
-    border-bottom: 1px solid theme.$c-bg-box;
-
-    &:nth-child(odd) {
-      border-right: 1px solid theme.$c-bg-box;
-    }
+    padding: 0.3em 1em;
 
     index {
       padding-right: 0.5em;

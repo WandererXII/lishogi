@@ -189,17 +189,4 @@
      * has no width, and that menu is mainly for mobile. */
     // padding-right: 15px;
   }
-
-  .new-feature {
-    position: relative;
-
-    &::after {
-      content: 'NEW';
-      font-size: 0.7rem;
-      transform: rotate(37deg);
-      position: absolute;
-      color: #d64f00;
-      font-weight: bold;
-    }
-  }
 }

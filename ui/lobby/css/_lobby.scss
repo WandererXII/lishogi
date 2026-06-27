@@ -13,7 +13,7 @@
 @use 'timeline';
 @use 'box';
 @use 'forum';
-@use 'blog';
+@use 'article';
 @use 'support';
 @use 'about';
 @use 'setup';
@@ -108,12 +108,11 @@ body {
 .lobby__description {
   .lobby__box__content {
     display: flex;
-    align-items: center;
     height: 100%;
 
     p {
       line-height: 1.5;
-      margin: 0.5rem 0.75rem;
+      margin: 0.75rem 1rem;
     }
   }
 }

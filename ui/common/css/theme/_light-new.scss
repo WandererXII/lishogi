@@ -26,6 +26,7 @@ $c-primary: #266b79;
 $c-primary-dim: c-whiter($c-primary, 17%);
 $c-primary-clear: c-blacker($c-primary, 17%);
 $c-primary-over: #fff;
+$c-primary-hover: c-blacker(color.adjust($c-primary, $saturation: 100%), 35%);
 
 $c-secondary: #72761e;
 $c-secondary-dim: c-whiter($c-secondary, 17%);
@@ -40,9 +41,11 @@ $c-brag: #b4730e;
 $c-brag-over: #fff;
 
 $c-red: #af2528;
-$c-error: $c-red;
+$c-bad: $c-red;
 
 $c-warn: $c-brag;
+
+$c-good: $c-secondary;
 
 $c-fancy: #924f79;
 
@@ -51,11 +54,6 @@ $c-mistake: hsl(41deg, 100%, 35%);
 $c-blunder: hsl(0deg, 68%, 50%);
 
 $c-good-move: hsl(130deg, 67%, 40%);
-
-$c-link: $c-primary;
-$c-link-dim: $c-primary-dim;
-$c-link-clear: $c-primary-clear;
-$c-link-hover: c-blacker(color.adjust($c-primary, $saturation: 100%), 35%);
 
 $c-bg-box: $c-bg-high;
 $c-bg-box-opaque: $c-bg-box;

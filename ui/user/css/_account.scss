@@ -154,17 +154,6 @@
     }
   }
 
-  .saved {
-    @extend %box-radius;
-
-    width: 100%;
-    text-align: center;
-    color: theme.$c-good;
-    border: 1px solid theme.$c-good;
-    background: theme.$m-good_bg-box_mix_10;
-    padding: 2rem;
-  }
-
   @include breakpoint.breakpoint(media-queries.$mq-not-xx-small) {
     td.icon {
       display: none;

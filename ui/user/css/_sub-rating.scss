@@ -6,11 +6,14 @@
 @use 'pkg:common/theme';
 
 .sub-ratings {
+  margin-right: 10px;
+
   .perf-item {
-    @extend %box-radius-left, %flex-center-nowrap, %page-text;
+    @extend %box-radius, %flex-center-nowrap, %page-text;
 
     padding: 0.7em variables.$block-gap 0.7em 0.4em;
     white-space: nowrap;
+    margin-bottom: 0.25rem;
 
     @include mixins.transition;
 
@@ -30,7 +33,7 @@
       background: theme.$m-bg-box_bg-page_mix_50;
 
       &::before {
-        color: theme.$c-link;
+        color: theme.$c-primary;
         opacity: 0.7;
       }
     }
@@ -72,7 +75,7 @@
     }
 
     &:hover i {
-      color: theme.$c-link;
+      color: theme.$c-primary;
       opacity: 0.7;
     }
 

@@ -23,6 +23,7 @@ $c-primary: hsl(209deg, 79%, 56%);
 $c-primary-dim: c-blacker($c-primary, 15%);
 $c-primary-clear: c-whiter($c-primary, 20%);
 $c-primary-over: #fff;
+$c-primary-hover: c-whiter(color.adjust($c-primary, $saturation: 100%), 25%);
 
 $c-secondary: hsl(88deg, 62%, 37%);
 $c-secondary-dim: c-blacker($c-secondary, 20%);
@@ -39,17 +40,14 @@ $c-brag: hsl(37deg, 74%, 43%);
 $c-brag-over: #fff;
 
 $c-red: hsl(0deg, 60%, 50%);
-$c-error: $c-red;
-$c-error-over: #fff;
-
-$c-good: $c-secondary;
-$c-good-over: $c-secondary-over;
+$c-bad: $c-red;
+$c-bad-over: #fff;
 
 $c-warn: $c-brag;
 $c-warn-over: $c-brag-over;
 
-$c-bad: $c-error;
-$c-bad-over: $c-error-over;
+$c-good: $c-secondary;
+$c-good-over: $c-secondary-over;
 
 $c-fancy: hsl(294deg, 62%, 48%);
 $c-fancy-over: white;
@@ -72,12 +70,6 @@ $c-blunder-clear: hsl(0deg, 100%, 62%);
 $c-good-move: hsl(130deg, 67%, 62%);
 $c-brilliant: hsl(129deg, 71%, 45%);
 $c-interesting: hsl(307deg, 80%, 60%);
-
-$c-link: $c-primary;
-$c-link-dim: $c-primary-dim;
-$c-link-clear: $c-primary-clear;
-$c-link-hover: c-whiter(color.adjust($c-primary, $saturation: 100%), 25%);
-$c-link-over: $c-primary-over;
 
 $c-bg-box: $c-bg-high;
 $c-bg-box-opaque: $c-bg-box;

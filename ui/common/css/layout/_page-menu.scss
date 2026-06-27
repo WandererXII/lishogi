@@ -32,14 +32,14 @@
   }
 
   &__content {
-    @extend %box-radius-force;
+    @extend %box-radius;
 
     grid-area: content;
     height: 100%;
   }
 
   &__content.box {
-    @extend %box-shadow;
+    @extend %box-neat-force;
 
     /* ensure the content is as high as the menu */
     min-height: 100%;

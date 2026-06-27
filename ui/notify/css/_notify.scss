@@ -95,7 +95,7 @@
 
     &:not(.disabled) {
       cursor: pointer;
-      color: theme.$c-link;
+      color: theme.$c-primary;
 
       @include mixins.transition;
     }

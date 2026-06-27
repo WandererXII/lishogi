@@ -20,7 +20,7 @@
     font-size: 0.9em;
 
     &:hover {
-      color: theme.$c-link;
+      color: theme.$c-primary;
     }
   }
 
@@ -45,7 +45,7 @@
     }
 
     &:hover {
-      background: theme.$m-link_bg-box_mix_10;
+      background: theme.$m-primary_bg-box_mix_10;
       color: theme.$c-font-clear;
     }
 

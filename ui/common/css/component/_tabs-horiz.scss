@@ -10,13 +10,10 @@ $c-tabs-active: theme.$c-accent !default;
 
   justify-content: center;
   align-items: flex-end;
-
-  @include breakpoint.breakpoint(media-queries.$mq-not-xx-small) {
-    font-size: 0.9em;
-  }
+  overflow: hidden;
 
   & > span {
-    @extend %roboto, %nowrap-hidden;
+    @extend %roboto;
 
     flex: 1 1 auto;
     text-align: center;

@@ -4,8 +4,7 @@
 @use 'pkg:common/abstract/uniboard';
 @use 'pkg:common/theme';
 
-.board-editor .underboard {
-  grid-area: underboard;
+.board-editor-wrap .underboard {
   display: flex;
   flex-direction: column-reverse;
 
@@ -118,9 +117,11 @@
 
         & > div {
           display: flex;
-          flex-direction: column;
           flex-wrap: wrap;
-          height: 5rem;
+
+          & > span {
+            margin-left: 0.5rem;
+          }
         }
       }
     }

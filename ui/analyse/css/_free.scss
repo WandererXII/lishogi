@@ -13,7 +13,6 @@
     position: relative;
 
     .name {
-      min-width: 4rem;
       font-weight: bold;
       text-align: center;
       color: theme.$c-font-dim;
@@ -22,7 +21,6 @@
 
     .copyable {
       flex-grow: 1;
-      margin-right: variables.$block-gap;
     }
 
     .action {
@@ -47,6 +45,7 @@
       .name {
         @include mixins.hand-width(width);
 
+        min-width: 4rem;
         margin-left: 0;
       }
 
@@ -55,17 +54,6 @@
 
         flex-grow: 0;
         margin-right: 0;
-      }
-
-      .main-v-chushogi & {
-        .name {
-          min-width: 4rem;
-        }
-
-        .copyable {
-          width: unset;
-          flex: 1;
-        }
       }
     }
   }

@@ -65,11 +65,11 @@
   }
 
   &-red {
-    background: theme.$c-error;
-    color: theme.$c-error-over;
+    background: theme.$c-bad;
+    color: theme.$c-bad-over;
 
     &:not(.disabled):hover {
-      background: theme.$m-error_lightness_11;
+      background: theme.$m-bad_lightness_11;
     }
   }
 
@@ -97,7 +97,7 @@
 
     &.button-red,
     &.button-red:hover {
-      color: theme.$c-error;
+      color: theme.$c-bad;
     }
 
     &.button-green,

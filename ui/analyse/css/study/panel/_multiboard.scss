@@ -16,9 +16,10 @@
   }
 
   .top {
-    @extend %flex-between;
+    @extend %flex-center;
 
     padding: 0.4em 1.5em;
+    justify-content: center;
   }
 
   .pager {
@@ -46,7 +47,9 @@
 
   .now-playing {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    padding: 0 0.5rem 0.5rem 0.5rem;
+    gap: 0.5rem;
 
     a {
       @extend %box-radius;
@@ -61,16 +64,13 @@
 
       background: theme.$m-bg-box_alpha_neg50;
       overflow: hidden;
+      border: 1px solid transparent;
 
-      &:hover {
-        background: theme.$m-link_alpha_neg60;
-        color: theme.$c-font-clear;
-      }
-
+      &:hover,
       &.active,
       &:active {
-        background: theme.$c-secondary;
-        color: theme.$c-secondary-over;
+        border-color: theme.$c-primary;
+        background-color: theme.$m-primary_alpha_neg80;
       }
 
       sg-board {
@@ -78,22 +78,11 @@
       }
     }
 
-    .player {
-      @extend %flex-between-nowrap;
-
-      height: 1.5em;
-      white-space: nowrap;
-
-      span {
-        margin-left: 0.5em;
-      }
-    }
-
     .name {
-      @extend %flex-center;
+      @extend %nowrap-ellipsis;
 
-      justify-content: center;
-      height: 3em;
+      margin: 0.25rem;
+      font-weight: 600;
     }
   }
 }

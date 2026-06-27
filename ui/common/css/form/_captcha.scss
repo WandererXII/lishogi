@@ -16,8 +16,8 @@
   &.is-invalid:not(.success) {
     @extend %box-radius;
 
-    outline: 1px solid theme.$c-error;
-    background: theme.$m-error_bg-high_mix_10;
+    outline: 1px solid theme.$c-bad;
+    background: theme.$m-bad_bg-high_mix_10;
   }
 
   .challenge {
@@ -64,7 +64,7 @@
   }
 
   .failure {
-    color: theme.$c-error;
+    color: theme.$c-bad;
   }
 
   &.success .success,

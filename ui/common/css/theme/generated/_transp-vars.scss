@@ -31,10 +31,11 @@ html.transp {
   --m-accent_bg-box_mix_25: #{color.mix($c-accent,$c-bg-box,25%)};
   --m-accent_bg-popup_mix_10: #{color.mix($c-accent,$c-bg-popup,10%)};
   --m-bad_bg-box_mix_10: #{color.mix($c-bad,$c-bg-box,10%)};
+  --m-bad_bg-box_mix_15: #{color.mix($c-bad,$c-bg-box,15%)};
   --m-bad_bg-box_mix_30: #{color.mix($c-bad,$c-bg-box,30%)};
   --m-bad_bg-box_mix_50: #{color.mix($c-bad,$c-bg-box,50%)};
+  --m-bad_bg-high_mix_10: #{color.mix($c-bad,$c-bg-high,10%)};
   --m-bad_font_mix_80: #{color.mix($c-bad,$c-font,80%)};
-  --m-bg-box_alpha_neg20: #{color.adjust($c-bg-box,$alpha:-0.2)};
   --m-bg-box_alpha_neg50: #{color.adjust($c-bg-box,$alpha:-0.5)};
   --m-bg-box_bg-page_mix_50: #{color.mix($c-bg-box,$c-bg-page,50%)};
   --m-bg-box_c-alpha_100: #{color.change($c-bg-box,$alpha:1)};
@@ -44,24 +45,19 @@ html.transp {
   --m-bg-box_good_mix_80: #{color.mix($c-bg-box,$c-good,80%)};
   --m-bg-input_lightness_neg3: #{color.adjust($c-bg-input,$lightness:-3%)};
   --m-bg-low_c-alpha_8: #{color.change($c-bg-low,$alpha:0.08)};
+  --m-bg-zebra_bad_mix_80: #{color.mix($c-bg-zebra,$c-bad,80%)};
   --m-bg-zebra_clas_mix_20: #{color.mix($c-bg-zebra,$c-clas,20%)};
-  --m-bg-zebra_red_mix_80: #{color.mix($c-bg-zebra,$c-red,80%)};
   --m-brag_bg-box_mix_15: #{color.mix($c-brag,$c-bg-box,15%)};
-  --m-brag_bg-box_mix_20: #{color.mix($c-brag,$c-bg-box,20%)};
   --m-brilliant_bg-box_mix_30: #{color.mix($c-brilliant,$c-bg-box,30%)};
   --m-clas_bg-box_mix_10: #{color.mix($c-clas,$c-bg-box,10%)};
   --m-clas_bg-box_mix_80: #{color.mix($c-clas,$c-bg-box,80%)};
-  --m-error_bg-box_mix_15: #{color.mix($c-error,$c-bg-box,15%)};
-  --m-error_bg-high_mix_10: #{color.mix($c-error,$c-bg-high,10%)};
   --m-fancy_bg-box_mix_15: #{color.mix($c-fancy,$c-bg-box,15%)};
   --m-font-clear_clas_mix_30: #{color.mix($c-font-clear,$c-clas,30%)};
-  --m-font-clear_primary_mix_10: #{color.mix($c-font-clear,$c-primary,10%)};
   --m-font-clearer_c-alpha_15: #{color.change($c-font-clearer,$alpha:0.15)};
   --m-font-clearer_c-alpha_30: #{color.change($c-font-clearer,$alpha:0.3)};
   --m-font-clearer_c-alpha_50: #{color.change($c-font-clearer,$alpha:0.5)};
   --m-font-clearer_c-alpha_60: #{color.change($c-font-clearer,$alpha:0.6)};
   --m-font-clearer_c-alpha_95: #{color.change($c-font-clearer,$alpha:0.95)};
-  --m-font-clearer_primary_mix_25: #{color.mix($c-font-clearer,$c-primary,25%)};
   --m-font-dim_c-alpha_20: #{color.change($c-font-dim,$alpha:0.2)};
   --m-font-dim_c-alpha_5: #{color.change($c-font-dim,$alpha:0.05)};
   --m-good-move_bg-box_mix_30: #{color.mix($c-good-move,$c-bg-box,30%)};
@@ -70,11 +66,6 @@ html.transp {
   --m-good_font_mix_80: #{color.mix($c-good,$c-font,80%)};
   --m-inaccuracy_bg-box_mix_30: #{color.mix($c-inaccuracy,$c-bg-box,30%)};
   --m-interesting_bg-box_mix_30: #{color.mix($c-interesting,$c-bg-box,30%)};
-  --m-link_bg-box_mix_10: #{color.mix($c-link,$c-bg-box,10%)};
-  --m-link_bg-box_mix_15: #{color.mix($c-link,$c-bg-box,15%)};
-  --m-link_bg-box_mix_20: #{color.mix($c-link,$c-bg-box,20%)};
-  --m-link_bg-box_mix_80: #{color.mix($c-link,$c-bg-box,80%)};
-  --m-link_font_mix_35: #{color.mix($c-link,$c-font,35%)};
   --m-mistake_bg-box_mix_30: #{color.mix($c-mistake,$c-bg-box,30%)};
   --m-primary_bg-box_mix_10: #{color.mix($c-primary,$c-bg-box,10%)};
   --m-primary_bg-box_mix_12: #{color.mix($c-primary,$c-bg-box,12%)};
@@ -87,7 +78,7 @@ html.transp {
   --m-primary_bg-box_mix_70: #{color.mix($c-primary,$c-bg-box,70%)};
   --m-primary_bg-box_mix_80: #{color.mix($c-primary,$c-bg-box,80%)};
   --m-primary_bg-box_mix_90: #{color.mix($c-primary,$c-bg-box,90%)};
-  --m-primary_bg-zebra_mix_10: #{color.mix($c-primary,$c-bg-zebra,10%)};
+  --m-primary_font_mix_35: #{color.mix($c-primary,$c-font,35%)};
   --m-secondary_bg-box_mix_10: #{color.mix($c-secondary,$c-bg-box,10%)};
   --m-secondary_bg-box_mix_15: #{color.mix($c-secondary,$c-bg-box,15%)};
   --m-secondary_bg-box_mix_20: #{color.mix($c-secondary,$c-bg-box,20%)};
@@ -97,6 +88,5 @@ html.transp {
   --m-secondary_bg-header-dropdown_mix_15: #{color.mix($c-secondary,$c-bg-header-dropdown,15%)};
   --m-secondary_bg-header-dropdown_mix_27: #{color.mix($c-secondary,$c-bg-header-dropdown,27%)};
   --m-secondary_bg-header-dropdown_mix_36: #{color.mix($c-secondary,$c-bg-header-dropdown,36%)};
-  --m-secondary_bg-popup_mix_10: #{color.mix($c-secondary,$c-bg-popup,10%)};
   --m-secondary_bg-zebra_mix_10: #{color.mix($c-secondary,$c-bg-zebra,10%)};
 }

@@ -39,9 +39,13 @@ $col2-panel-height: 240px;
     background: theme.$c-bg-box;
 
     > div {
-      height: var(--panel-height);
+      max-height: var(--panel-height);
       display: none;
       text-align: left;
+
+      @include breakpoint.breakpoint(local.$mq-col2) {
+        height: var(--panel-height);
+      }
 
       &.active {
         display: block;
@@ -104,14 +108,23 @@ $col2-panel-height: 240px;
           margin-top: 0.5rem;
 
           label {
+            cursor: pointer;
             display: inline-flex;
             align-items: center;
             margin-left: 1rem;
+            user-select: none;
+            padding: 0.3rem;
+            padding-top: 0.1rem;
 
             .regular-checkbox {
               @extend %checkbox;
 
               margin-right: 0.3em;
+            }
+
+            &:has(input[disabled]) {
+              cursor: default;
+              opacity: 0.7;
             }
           }
         }

@@ -149,10 +149,10 @@ body.no-inquiry {
     padding-bottom: 0.8em;
 
     .translator-container .translate-btn {
-      color: theme.$c-link;
+      color: theme.$c-primary;
 
       &:hover {
-        color: theme.$c-link-hover;
+        color: theme.$c-primary-hover;
       }
     }
   }
@@ -254,7 +254,7 @@ body.no-inquiry {
 
   .links a:hover,
   .report a:hover {
-    color: theme.$c-link;
+    color: theme.$c-primary;
   }
 
   .process button {

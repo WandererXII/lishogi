@@ -119,6 +119,10 @@
     font-size: 1.6em;
     letter-spacing: inherit;
 
+    &.long {
+      letter-spacing: -1.5px;
+    }
+
     @include breakpoint.breakpoint(local.$mq-col2) {
       line-height: 1.5em;
     }

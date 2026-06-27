@@ -2,8 +2,9 @@
 @use 'pkg:common/theme';
 @use 'rating-history';
 
-.perf-stat {
+.perf-stat.page-menu__content {
   padding-bottom: 2em;
+  overflow: visible;
 
   .box__top div {
     @extend %flex-center;
@@ -55,7 +56,7 @@
   }
 
   &__content [title] {
-    border-bottom: 1px dashed theme.$c-link;
+    border-bottom: 1px dashed theme.$c-primary;
     cursor: help;
   }
 

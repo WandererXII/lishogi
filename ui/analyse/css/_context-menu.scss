@@ -49,6 +49,7 @@
 
     a {
       flex: 1;
+      justify-content: center;
 
       &.active {
         background: theme.$c-accent;

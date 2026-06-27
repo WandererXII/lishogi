@@ -29,12 +29,12 @@
 
       .post_topic {
         font-weight: bold;
-        color: theme.$c-link;
+        color: theme.$c-primary;
         padding-right: 0.5rem;
       }
 
       span[data-icon] {
-        color: theme.$c-link;
+        color: theme.$c-primary;
       }
 
       .post_text {

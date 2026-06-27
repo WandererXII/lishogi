@@ -19,7 +19,7 @@
       @extend %base-font, %page-font;
 
       &:hover {
-        color: theme.$c-link;
+        color: theme.$c-primary;
       }
     }
 

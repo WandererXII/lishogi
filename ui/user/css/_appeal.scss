@@ -52,4 +52,24 @@
       margin-right: 1em;
     }
   }
+
+  .translator-container {
+    margin: 0.5rem 0 1rem 0;
+
+    .translate-btn {
+      font-size: 0.85em;
+      padding: 0.1em;
+    }
+
+    small {
+      font-size: 0.9em;
+      color: theme.$c-font-dim;
+      margin-left: 0.25em;
+    }
+
+    .translated-text {
+      color: theme.$c-font-dim;
+      font-style: italic;
+    }
+  }
 }
