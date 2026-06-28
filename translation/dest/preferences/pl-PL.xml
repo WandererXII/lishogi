@@ -48,6 +48,7 @@
 	<string name="yorozuyaNotation">Notacja Yorozuya</string>
 	<string name="yourPreferencesHaveBeenSaved">Twoje ustawienia zostały zapisane.</string>
 	<string name="smallMoves">Mała lista ruchów</string>
+	<string name="traditional" comment="Traditional board layout - komadai">Traditional</string>
 	<string name="audibleClocks">Zegary, które mogą wydawać dźwięk</string>
 	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">Systemowe</string>
 	<string name="myClock" comment="What clocks should make sound?">Mój zegar</string>
