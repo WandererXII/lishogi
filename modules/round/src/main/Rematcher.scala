@@ -166,18 +166,17 @@ final private class Rematcher(
     }
 
   def redirectEvents(game: Game): Events = {
-    val senteId = game fullIdOf Sente
-    val goteId  = game fullIdOf Gote
+    val senteColor = ShogiColor.fromSente(game.isHandicap)
     List(
       Event.RedirectOwner(
-        if (game.isHandicap) Gote else Sente,
-        goteId,
-        AnonCookie.json(game pov Gote),
+        Sente,
+        game.id,
+        AnonCookie.json(game.pov(senteColor)),
       ),
       Event.RedirectOwner(
-        if (game.isHandicap) Sente else Gote,
-        senteId,
-        AnonCookie.json(game pov Sente),
+        Gote,
+        game.id,
+        AnonCookie.json(game.pov(!senteColor)),
       ),
       // tell spectators about the rematch
       Event.RematchTaken(game.id),

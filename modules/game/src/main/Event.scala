@@ -146,7 +146,6 @@ object Event {
   case class RematchOffer(by: Option[Color]) extends Event {
     def typ  = "rematchOffer"
     def data = Json.toJson(by)
-    override def owner = true
   }
 
   case class RematchTaken(nextId: Game.ID) extends Event {

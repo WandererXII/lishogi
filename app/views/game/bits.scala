@@ -51,7 +51,8 @@ object bits {
       bookmarked: Boolean,
   )(implicit ctx: Context) =
     div(
-      side.meta(pov, tour, simul, userTv, analysis = false, bookmarked = bookmarked),
+      side.meta(pov, tour, userTv, bookmarked = bookmarked),
+      side.gameButtons(pov, tour, simul, analysis = false),
       cross.map { c =>
         div(cls := "crosstable")(crosstable(ctx.userId.fold(c)(c.fromPov), pov.gameId.some))
       },

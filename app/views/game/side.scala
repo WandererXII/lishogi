@@ -22,42 +22,19 @@ object side {
       bookmarked: Boolean,
   )(implicit ctx: Context): Option[Frag] =
     ctx.noBlind option frag(
-      meta(pov, tour, simul, userTv, analysis, bookmarked),
+      meta(pov, tour, userTv, bookmarked),
       views.html.streamer.bits.contextualWrap(pov.game.userIds.filter(isStreaming)),
+      gameButtons(pov, tour, simul, analysis),
     )
 
   def meta(
       pov: lila.game.Pov,
       tour: Option[lila.tournament.TourAndTeamVs],
-      simul: Option[lila.simul.Simul],
       userTv: Option[lila.user.User] = None,
-      analysis: Boolean,
       bookmarked: Boolean,
   )(implicit ctx: Context): Option[Frag] =
     ctx.noBlind option {
       import pov.game
-
-      val tourOrSimulLink = tour map { t =>
-        a(
-          dataIcon := Icons.trophy,
-          cls      := "text button button-empty",
-          href     := routes.Tournament.show(t.tour.id).url,
-        )(t.tour.trans)
-      } orElse game.tournamentId.map { tourId =>
-        a(
-          dataIcon := Icons.trophy,
-          cls      := "text button button-empty",
-          href     := routes.Tournament.show(tourId).url,
-        )(tournamentIdToName(tourId))
-      } orElse simul.map { sim =>
-        a(
-          dataIcon := Icons.person,
-          cls      := "text button button-empty",
-          href     := routes.Simul.show(sim.id),
-        )(
-          sim.name,
-        )
-      }
 
       div(cls := "game__meta")(
         st.section(
@@ -139,24 +116,54 @@ object side {
               ),
             )
         },
-        (analysis || tourOrSimulLink.isDefined) option
-          st.section(cls := "game__links")(
-            frag(
-              analysis option frag(
-                game.fromLobby option a(
-                  cls      := "button button-empty",
-                  dataIcon := Icons.createNew,
-                  href     := s"/?hook_like=${game.id}",
-                  title    := trans.newOpponent.txt(),
-                ),
-                button(
-                  cls      := "button button-empty rematch text",
-                  dataIcon := Icons.challenge,
-                )(trans.rematch()),
-              ),
-              tourOrSimulLink,
-            ),
-          ),
       )
     }
+
+  def gameButtons(
+      pov: lila.game.Pov,
+      tour: Option[lila.tournament.TourAndTeamVs],
+      simul: Option[lila.simul.Simul],
+      analysis: Boolean,
+  )(implicit ctx: Context): Option[Frag] = {
+    val tourOrSimulLink = tour map { t =>
+      a(
+        dataIcon := Icons.trophy,
+        cls      := "text button button-empty",
+        href     := routes.Tournament.show(t.tour.id).url,
+      )(!analysis option t.tour.trans)
+    } orElse pov.game.tournamentId.map { tourId =>
+      a(
+        dataIcon := Icons.trophy,
+        cls      := "text button button-empty",
+        href     := routes.Tournament.show(tourId).url,
+      )(!analysis option tournamentIdToName(tourId))
+    } orElse simul.map { sim =>
+      a(
+        dataIcon := Icons.person,
+        cls      := "text button button-empty",
+        href     := routes.Simul.show(sim.id),
+      )(
+        !analysis option sim.name,
+      )
+    }
+
+    (analysis || tourOrSimulLink.isDefined) option
+      st.section(cls := "game__buttons")(
+        frag(
+          analysis option frag(
+            pov.game.fromLobby option a(
+              cls      := "button button-empty",
+              dataIcon := Icons.createNew,
+              href     := s"/?hook_like=${pov.game.id}",
+              title    := trans.newOpponent.txt(),
+            ),
+            button(
+              cls      := "button button-empty rematch text",
+              dataIcon := Icons.challenge,
+            )(trans.rematch()),
+          ),
+          tourOrSimulLink,
+        ),
+      )
+  }
 }

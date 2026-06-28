@@ -105,12 +105,20 @@ object replay {
                     span(
                       cls       := "computer-analysis",
                       dataPanel := "computer-analysis",
-                    )(trans.computerAnalysis()),
-                  (!game.isNotationImport && !game.isCorrespondence && game.plies > 3) option
-                    span(dataPanel := "move-times")(
-                      trans.moveTimes(),
+                      title     := trans.computerAnalysis.txt(),
+                      dataIcon  := Icons.barChart,
                     ),
-                  span(dataPanel := "game-export")(trans.export()),
+                  (!game.isNotationImport && !game.isCorrespondence && game.plies > 3) option
+                    span(
+                      dataPanel := "move-times",
+                      title     := trans.moveTimes.txt(),
+                      dataIcon  := Icons.clock,
+                    ),
+                  span(
+                    dataPanel := "game-export",
+                    title     := trans.export.txt(),
+                    dataIcon  := Icons.share,
+                  ),
                 ),
                 div(cls := "analyse__underboard__panels")(
                   game.analysable option div(cls := "computer-analysis")(
