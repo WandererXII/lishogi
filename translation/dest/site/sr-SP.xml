@@ -66,6 +66,7 @@
 	<string name="forceResignation">Прогласи се победником</string>
 	<string name="forceDraw">Приморај на реми</string>
 	<string name="talkInChat">Буди љубазан у ћаскању!</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Прва особа која кликне на овај линк ће играти са тобом.</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
@@ -464,6 +465,7 @@
 	<string name="follow">Прати</string>
 	<string name="following">Праћен</string>
 	<string name="followers">Followers</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">Не прати</string>
 	<string name="block">Блокирај</string>
 	<string name="blocked">Блокиран</string>
@@ -629,7 +631,6 @@
 	<string name="by">од %s</string>
 	<string name="thisTopicIsNowClosed">Ова тема је сада затворена</string>
 	<string name="theming">Изглед</string>
-	<string name="blog">Блог</string>
 	<string name="questionsAndAnswers">Питања &amp; Одговори</string>
 	<string name="notes">Белешке</string>
 	<string name="typePrivateNotesHere">Овде напишите приватне белешке</string>
@@ -1028,11 +1029,6 @@
 	<string name="subscribe">Претплати се</string>
 	<string name="unsubscribe">Одјавите претплату</string>
 	<string name="notationSystem">Notation</string>
-	<string name="officialBlog">Lishogi Official Blog</string>
-	<string name="blogPostsFromYear">Blog posts from %1$s</string>
-	<string name="previousBlogPosts">Previous blog posts</string>
-	<string name="continueReadingThis"> Continue reading this post</string>
-	<string name="discussBlogForum">Discuss this blog post in the forum</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
@@ -1135,4 +1131,9 @@
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>
