@@ -10,7 +10,7 @@ export function reload(ctrl: RoundController): Promise<RoundData> {
 }
 
 export function whatsNext(ctrl: RoundController): Promise<{ next: string }> {
-  return window.lishogi.xhr.json('GET', `/whats-next/${ctrl.data.game.id}${ctrl.data.player.id}`);
+  return window.lishogi.xhr.json('GET', `/whats-next/${ctrl.data.game.id}`);
 }
 
 export function challengeRematch(gameId: string): Promise<void> {

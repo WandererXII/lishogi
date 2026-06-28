@@ -45,7 +45,9 @@ export default function (
 ): VNode {
   const millis = ctrl.millisOf(color);
   const update = (el: HTMLElement) => {
-    el.innerHTML = formatClockTime(millis);
+    const str = formatClockTime(millis);
+    el.innerHTML = str;
+    el.classList.toggle('long', str.length >= 10);
   };
   const isPlayer = ctrl.root.data.player.color === color;
   return h(

@@ -327,7 +327,7 @@ export function forecast(ctrl: RoundController): MaybeVNode {
       attrs: {
         disabled: disabled,
         title: isForecast ? i18n('conditionalPremoves') : i18n('analysis'),
-        href: `${ctrl.data.game.id}/forecasts#${ctrl.ply}`,
+        href: `/${ctrl.data.game.id}/forecasts#${ctrl.ply}`,
         'data-icon': icons.pencil,
       },
     },

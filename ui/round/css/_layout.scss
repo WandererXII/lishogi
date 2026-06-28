@@ -47,7 +47,8 @@
   grid-template-areas:
     'app'
     'side'
-    'uchat';
+    'uchat'
+    'under';
 
   &__app {
     grid-area: app;
@@ -60,7 +61,6 @@
   &__underboard {
     @extend %zen;
 
-    display: none;
     grid-area: under;
   }
 
