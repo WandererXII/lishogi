@@ -17,8 +17,8 @@
     padding-right: 16px;
 
     &.pv--nowrap {
-      display: block; // "flex" doesn't support ellipsis so switch back to "block"
-      flex-wrap: initial;
+      display: flex;
+      flex-wrap: wrap;
       min-height: 2em;
       height: 2em;
 
@@ -78,7 +78,7 @@
   }
 
   .pv-board {
-    @extend %popup-shadow;
+    @extend %popup-shadow, %box-radius;
 
     position: absolute;
     width: 80%;
