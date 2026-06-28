@@ -45,10 +45,6 @@
   <string name="headline">Otsikko</string>
   <string name="tellUsAboutTheStream">Kerro striimistäsi yhdellä lauseella</string>
   <string name="longDescription">Pitkä kuvaus</string>
-  <string name="xStreamerPicture">%s striimaajakuva</string>
-  <string name="changePicture">Vaihda/poista kuva</string>
-  <string name="uploadPicture">Lataa kuva</string>
-  <string name="deletePicture">Poista kuva</string>
   <string name="maxSize">Enimmäiskoko: %s</string>
   <string name="installBlocker">Asenna virustorjuntaohjelma!</string>
   <string name="beSafe">Välty mainoksilta ja seurantaohjelmilta
