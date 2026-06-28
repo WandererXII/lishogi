@@ -81,6 +81,8 @@ function renderInput(ctrl: ChatCtrl): VNode | undefined {
   let placeholder: string;
   if (ctrl.vm.timeout) placeholder = i18n('youHaveBeenTimedOut');
   else if (ctrl.opts.blind) placeholder = 'Chat';
+  else if (ctrl.opts.playerFilter /*&& ctrl.isPlayer()*/)
+    placeholder = `Players can't see your messages during game.`;
   else placeholder = i18n('talkInChat');
   return h('input.mchat__say', {
     attrs: {
@@ -160,6 +162,15 @@ const setupHooks = (ctrl: ChatCtrl, chatEl: HTMLInputElement) => {
     });
 };
 
+function lineFromNonPlayer(ctrl: ChatCtrl, line: Line): boolean {
+  const lineUsersId = line.u?.toLowerCase();
+  return (
+    line.u !== 'lishogi' &&
+    ctrl.opts.players?.sente !== lineUsersId &&
+    ctrl.opts.players?.gote !== lineUsersId
+  );
+}
+
 function sameLines(l1: Line, l2: Line) {
   return l1.d && l2.d && l1.u === l2.u;
 }
@@ -172,7 +183,8 @@ function selectLines(ctrl: ChatCtrl): Array<Line> {
       !line.d &&
       (!prev || !sameLines(prev, line)) &&
       (!line.r || (line.u || '').toLowerCase() == ctrl.data.userId) &&
-      !spam.skip(line.t)
+      !spam.skip(line.t) &&
+      (!ctrl.opts.playerFilter || !lineFromNonPlayer(ctrl, line))
     )
       ls.push(line);
     prev = line;

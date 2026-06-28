@@ -1,34 +1,33 @@
 @use 'sass:math';
 @use '../abstract/extends';
+@use '../abstract/variables';
 @use '../theme/generated/theme';
 
 /* stylelint-disable */
 
 :root {
-  // should be same as "$tags-focus-border-color"
   --tagify-dd-color-primary: #{theme.$c-primary};
   --tagify-dd-bg-color: #{theme.$c-bg-box};
 }
 
 .tagify {
-  // SCSS "default" allows overriding variables BEFORE they are set in the below lines of code
   $self: &;
   $tags-border-color: theme.$c-border !default;
   $tags-hover-border-color: theme.$m-border_lightness_20 !default;
   $tags-focus-border-color: theme.$c-primary !default;
 
-  $tagMargin: 5px !default;
-  $tag-pad: 0.3em 0.5em !default;
+  $tagMargin: 0.2em !default;
+  $tag-pad: 0.6em !default;
 
   $tag-min-width: 1ch !default;
   $tag-max-width: auto !default;
 
   $tag-text-color: theme.$c-font-clearer !default;
   $tag-text-color--edit: theme.$c-font-clearer !default;
-  $tag-bg: theme.$c-bg-zebra2 !default;
-  $tag-hover: theme.$m-primary_bg-zebra2_mix_20 !default;
+  $tag-bg: theme.$m-primary_alpha_neg80 !default;
+  $tag-hover: theme.$m-primary_alpha_neg75 !default;
   $tag-remove: theme.$m-bad_bg-zebra2_mix_60 !default;
-  $tag-remove-btn-color: theme.$c-bad-over !default;
+  $tag-remove-btn-color: theme.$c-font-clear !default;
   $tag-remove-btn-bg: none !default;
   $tag-remove-btn-bg--hover: theme.$c-bad !default;
   $tag-invalid-color: $tag-remove !default;
@@ -93,6 +92,7 @@
   flex-wrap: wrap;
   border: 1px solid $tags-border-color;
   border: 1px solid var(--tags-border-color);
+  border-radius: variables.$box-radius-size;
   padding: 0;
   margin: 1em 0;
   line-height: normal;
@@ -156,7 +156,6 @@
     border-color: var(--tags-focus-border-color);
   }
 
-  // Global "read-only" mode (no input button)
   &[readonly] {
     &:not(.tagify--mix) {
       cursor: default;
@@ -206,8 +205,6 @@
     }
   }
 
-  ///////////////////////////////////////////
-  // Hides originals
   + input,
   + textarea {
     position: absolute !important;
@@ -218,7 +215,7 @@
   &__tag {
     display: inline-flex;
     align-items: center;
-    margin: $tagMargin 0 $tagMargin $tagMargin;
+    margin: $tagMargin;
     position: relative;
     z-index: 1;
     outline: none;
@@ -233,8 +230,10 @@
       padding: var(--tag-pad, $tag-pad);
       color: $tag-text-color;
       color: var(--tag-text-color, $tag-text-color);
+      font-size: 1.1em;
+      font-weight: bold;
       line-height: inherit;
-      border-radius: 3px;
+      border-radius: variables.$box-radius-size;
       white-space: nowrap;
       transition: 0.13s ease-out;
 
@@ -255,8 +254,6 @@
           outline: none;
           user-select: text;
           cursor: text;
-
-          // fix: sometimes the caret after the last character wasn't visible (when setting {backspace:"edit"})
           margin: -2px;
           padding: 2px;
           max-width: 350px;
@@ -284,13 +281,6 @@
     &:hover:not([readonly]) {
       div {
         &::before {
-          $size: math.div(-$tagMargin, 2);
-          $size: -2px;
-          top: $size;
-          left: $size;
-          bottom: $size;
-          right: $size;
-          box-shadow: 0 0 0 $tag-inset-shadow-size $tag-hover inset;
           box-shadow: 0 0 0 var(--tag-inset-shadow-size, $tag-inset-shadow-size)
             var(--tag-hover, $tag-hover) inset;
         }
@@ -363,7 +353,6 @@
       }
 
       > div {
-        // padding: $tag-pad;
         &::before {
           @include tagReadonlyBG;
         }
@@ -401,18 +390,16 @@
     }
 
     &__removeBtn {
-      $size: 14px;
+      $size: 20px;
 
       order: 5;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      border-radius: 50px;
+      border-radius: 50%;
       cursor: pointer;
       font: #{$size} Serif;
-      background: $tag-remove-btn-bg;
       background: var(--tag-remove-btn-bg, $tag-remove-btn-bg);
-      color: $tag-remove-btn-color;
       color: var(--tag-remove-btn-color, $tag-remove-btn-color);
 
       width: $size;
@@ -450,7 +437,6 @@
 
   &:not(#{$self}--mix) {
     #{$self}__input {
-      // https://stackoverflow.com/a/13470210/104380
       br {
         display: none;
       }
@@ -462,8 +448,6 @@
     }
   }
 
-  ///////////////////////////////////////////
-  // Holds the placeholder & the tags input
   &__input {
     $placeholder-width: 110px;
 
@@ -475,25 +459,19 @@
     padding: var(--tag-pad, $tag-pad);
     line-height: inherit;
     position: relative;
-
-    // #160 Line break (\n) as delimiter
     white-space: pre-wrap;
-
     color: $input-color;
     color: var(--input-color, $input-color);
     box-sizing: inherit;
 
     &:empty {
       @include firefox {
-        // clicking twice on the input (not fast) disallows typing (bug) only when the input has "display:flex".
-        // https://bugzilla.mozilla.org/show_bug.cgi?id=904846#c45
         display: flex;
       }
 
       &::before {
         @include placeholder;
         display: inline-block;
-
         width: auto;
 
         #{ $self }--mix & {
@@ -508,12 +486,9 @@
       &::before {
         @include placeholder(false);
 
-        /* ALL MS BROWSERS: hide placeholder (on focus) otherwise the caret is places after it, which is weird */
-        /* IE10+ CSS styles go here */
         @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
           display: none;
         }
-        /* IE Edge 12+ CSS styles go here */
         @supports (-ms-ime-align: auto) {
           display: none;
         }
@@ -527,7 +502,6 @@
           @include placeholder(true);
 
           @include firefox {
-            // remove ":after" pseudo element: https://bugzilla.mozilla.org/show_bug.cgi?id=904846#c45
             content: unset;
             display: inline-block;
           }
@@ -568,12 +542,9 @@
       }
     }
 
-    // tries to suggest the rest of the value from the first item in the whitelist which matches it
     &::after {
       content: attr(data-suggest);
       display: inline-block;
-
-      /* allows spaces at the beginning */
       white-space: pre;
       color: $tag-text-color;
       opacity: 0.3;
@@ -581,12 +552,7 @@
       max-width: 100px;
     }
 
-    /*
-        in "mix mode" the tags are inside the input element
-    */
     #{$self}__tag {
-      // a developer can choose to have automatic horizontal margin ("1ch" advised) between tags or use manual keyboard spaces
-      // line-height: 1.1;
       margin: 0;
 
       > div {
@@ -597,7 +563,6 @@
   }
 
   &--mix {
-    // display:flex makes Chrome generates <div><br></div> when pressing ENTER key
     display: block;
 
     #{$self}__input {
@@ -606,15 +571,12 @@
       width: 100%;
       height: 100%;
       line-height: 1.5;
-
-      // needed to resolve this bug: https://bugs.chromium.org/p/chromium/issues/detail?id=1182621
       display: block;
 
       &::before {
         height: auto;
       }
 
-      // no suggested-complete are shown in mix-mode while highlighting dropdown options
       &::after {
         content: none;
       }
@@ -664,8 +626,6 @@
     --tags-border-color: #{$tag-invalid-color};
   }
 
-  // Since the dropdown is an external element, which is positioned directly on the body element
-  // it cannot ingerit the CSS variables applied on the ".Tagify" element
   &__dropdown {
     $dropdown: &;
     $trans: 0.25s cubic-bezier(0, 1, 0.5, 1);
@@ -685,7 +645,6 @@
       }
     }
 
-    // when the dropdown shows next to the caret while typing
     &[position='text'] {
       box-shadow: 0 0 0 3px rgba(var(--tagify-dd-color-primary), 0.1);
       font-size: 0.9em;
@@ -702,8 +661,6 @@
       overflow: hidden;
       background: theme.$c-bg-popup;
       border: 1px solid $tags-focus-border-color;
-
-      // fixes - https://bugs.chromium.org/p/chromium/issues/detail?id=1147523
       border-width: 1.1px;
       border-top-width: 0;
       box-shadow: 0 2px 4px -2px rgba(black, 0.2);
@@ -714,7 +671,6 @@
       }
     }
 
-    // initial state, pre-rendered
     &--initial {
       #{$dropdown}__wrapper {
         max-height: 20px;
@@ -733,7 +689,7 @@
       padding: $tag-pad;
       margin: 1px;
       cursor: pointer;
-      border-radius: 2px;
+      border-radius: variables.$box-radius-size;
       position: relative;
       outline: none;
 

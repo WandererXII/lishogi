@@ -23,15 +23,16 @@
   grid-template-areas:
     'board'
     'controls'
-    'tools'
-    'session'
     'kb-move'
-    'side';
+    'tools'
+    'side'
+    'session';
 
   &__side {
     @extend %zen;
 
     grid-area: side;
+    margin-top: variables.$block-gap;
   }
 
   &__board {
@@ -69,7 +70,7 @@
   }
 
   @include breakpoint.breakpoint(local.$mq-col2) {
-    grid-template-rows: fit-content(0);
+    grid-template-rows: fit-content(0) uniboard.$col2-uniboard-controls;
     grid-template-columns:
       var(--col2-uniboard-main-size)
       variables.$block-gap uniboard.$col2-uniboard-table;
@@ -79,13 +80,17 @@
       'kb-move .     .'
       'side    side  side';
 
+    &__side {
+      margin-top: 0;
+    }
+
     &__moves {
       display: block;
     }
   }
 
   @include breakpoint.breakpoint(local.$mq-col3) {
-    grid-template-rows: fit-content(0);
+    grid-template-rows: fit-content(0) uniboard.$col3-uniboard-controls;
     grid-template-columns:
       uniboard.$col3-uniboard-side variables.$block-gap var(--col3-uniboard-main-size)
       variables.$block-gap uniboard.$col3-uniboard-table;

@@ -23,10 +23,6 @@
     --dropdown-top: 60px;
   }
 }
-#topnav a[href='/patron']::after {
-  color: theme.$c-brag;
-  margin-left: 5px;
-}
 
 .site-title-nav {
   display: flex;

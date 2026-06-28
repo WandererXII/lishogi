@@ -38,7 +38,7 @@
 .puzzle__moves {
   flex: 2 1 0;
   overflow: auto;
-  border: theme.$border;
+  border-top: theme.$border;
   border-width: 1px 0;
   position: relative;
 
@@ -129,6 +129,7 @@
   flex: 1 0 8rem;
   background: theme.$c-bg-high;
   justify-content: center;
+  border-top: theme.$border;
 
   @include breakpoint.breakpoint(local.$mq-col2) {
     @include breakpoint.breakpoint(media-queries.$mq-tall) {
@@ -174,6 +175,7 @@
   }
 
   .view_solution {
+    display: none;
     margin-top: 1.5em;
     text-align: center;
     visibility: hidden;
@@ -190,21 +192,46 @@
       visibility: visible;
       opacity: 0.8;
     }
+
+    @include breakpoint.breakpoint(local.$mq-col2) {
+      display: block;
+    }
   }
 }
 
 .puzzle__controls {
-  @extend %flex-center;
+  .col1-controls-scrollable {
+    .fbt {
+      flex: 1;
+      border-radius: 0;
 
-  .jumps {
-    flex: 1 1 auto;
+      &.vote-up {
+        background-color: theme.$c-good;
+        color: theme.$c-good-over;
+        text-shadow: none;
+
+        &:hover::before {
+          color: theme.$c-good-over !important;
+        }
+      }
+
+      &.vote-down {
+        background-color: theme.$c-bad;
+        color: theme.$c-bad-over;
+        text-shadow: none;
+
+        &:hover::before {
+          color: theme.$c-bad-over !important;
+        }
+
+        &::before {
+          transform: rotate(0.5turn);
+        }
+      }
+    }
   }
 
-  .fbt {
-    @extend %page-text;
-  }
-
-  .glowing {
+  .fbt.glowing {
     color: theme.$c-font-clearer;
   }
 }
