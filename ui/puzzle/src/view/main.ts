@@ -1,8 +1,9 @@
 import * as cevalView from 'ceval/view';
+import { boardControls } from 'common/board-controls';
 import { icons } from 'common/icons';
-import { bindMobileMousedown } from 'common/mobile';
-import { bindNonPassive, onInsert } from 'common/snabbdom';
+import { bindNonPassive } from 'common/snabbdom';
 import stepwiseScroll from 'common/wheel';
+import { i18n } from 'i18n';
 import { render as renderKeyboardMove } from 'keyboard-move';
 import { h, type VNode } from 'snabbdom';
 import * as control from '../control';
@@ -17,52 +18,114 @@ function renderAnalyse(ctrl: Controller): VNode {
   return h('div.puzzle__moves.areplay', [treeView(ctrl)]);
 }
 
-function dataAct(e: Event): string | null {
-  const target = e.target as HTMLElement;
-  return (
-    target.getAttribute('data-act') || (target.parentNode as HTMLElement).getAttribute('data-act')
-  );
-}
-
-function jumpButton(icon: string, effect: string, disabled: boolean, glowing = false): VNode {
-  return h('button.fbt', {
-    class: { disabled, glowing },
-    attrs: {
-      'data-act': effect,
-      'data-icon': icon,
-    },
-  });
-}
+// to prevent accidental double clicks
+let loading: Timeout | undefined;
 
 function controls(ctrl: Controller): VNode {
   const node = ctrl.vm.node;
   const nextNode = node.children[0];
-  const goNext = ctrl.vm.mode == 'play' && nextNode && nextNode.puzzle != 'fail';
+  const goNext =
+    ctrl.vm.mode == 'play' && nextNode && nextNode.puzzle != 'fail' && ctrl.vm.canViewSolution;
+
+  function setLoading(): void {
+    clearTimeout(loading);
+    loading = setTimeout(() => {
+      loading = undefined;
+      ctrl.redraw();
+    }, 500);
+  }
+
   return h(
-    'div.puzzle__controls.analyse-controls',
-    {
-      hook: onInsert(el => {
-        bindMobileMousedown(
-          el,
-          e => {
-            const action = dataAct(e);
-            if (action === 'prev') control.prev(ctrl);
-            else if (action === 'next') control.next(ctrl);
-            else if (action === 'first') control.first(ctrl);
-            else if (action === 'last') control.last(ctrl);
+    'div.puzzle__controls',
+    boardControls({
+      col1: [
+        ...(loading
+          ? [
+              {
+                act: 'noop',
+                icon: icons.ellipsis,
+                cls: { disabled: true },
+              },
+            ]
+          : ctrl.vm.mode !== 'view'
+            ? [
+                {
+                  act: 'solution',
+                  text: i18n('viewTheSolution'),
+                },
+              ]
+            : [
+                {
+                  act: 'vote-up',
+                  icon: icons.thumbsUp,
+                  cls: { 'vote-up': true },
+                },
+                {
+                  act: 'vote-down',
+                  icon: icons.thumbsUp,
+                  cls: { 'vote-down': true },
+                },
+              ]),
+      ],
+      col2: {
+        left: {
+          title: i18n('practiceWithComputer'),
+          act: 'practice',
+          icon: icons.bullseye,
+          href: `/analysis/${ctrl.vm.node.sfen.replace(/ /g, '_')}?color=${ctrl.vm.pov}#practice`,
+          cls: {
+            disabled: ctrl.vm.mode !== 'view',
           },
-          ctrl.redraw,
-        );
-      }),
-    },
-    [
-      h('div.jumps', [
-        jumpButton(icons.first, 'first', !node.ply),
-        jumpButton(icons.prev, 'prev', !node.ply),
-        jumpButton(icons.next, 'next', !nextNode),
-        jumpButton(icons.last, 'last', !nextNode, goNext),
-      ]),
-    ],
+        },
+        right: {
+          act: 'menu',
+          title: i18n('menu'),
+          cls: { active: false, disabled: true },
+          icon: icons.menu,
+        },
+      },
+      onClick(act) {
+        if (act === 'solution') {
+          setLoading();
+          ctrl.viewSolution();
+        } else if (act === 'vote-up') {
+          setLoading();
+          ctrl.vote(true);
+        } else if (act === 'vote-down') {
+          setLoading();
+          ctrl.vote(false);
+        }
+      },
+      jumps: {
+        first: {
+          click: () => {
+            control.first(ctrl);
+          },
+          disabled: !node.ply,
+        },
+        prev: {
+          click: () => {
+            control.prev(ctrl);
+          },
+          disabled: !node.ply,
+        },
+        next: {
+          click: () => {
+            control.next(ctrl);
+          },
+          disabled: !nextNode,
+          glowing: goNext,
+        },
+        last: {
+          click: () => {
+            control.last(ctrl);
+          },
+          disabled: !nextNode,
+          glowing: goNext,
+        },
+        redraw: ctrl.redraw,
+      },
+    }),
   );
 }
 

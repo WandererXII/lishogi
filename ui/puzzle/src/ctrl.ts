@@ -166,7 +166,11 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
   }
 
   function playUsiList(usiList: Usi[]): void {
-    usiList.forEach(playUsi);
+    const delay = 300;
+
+    usiList.forEach((usi, i) => {
+      setTimeout(() => playUsi(usi), i * delay);
+    });
   }
 
   function playUserMove(orig: Key, dest: Key, promotion: boolean): void {

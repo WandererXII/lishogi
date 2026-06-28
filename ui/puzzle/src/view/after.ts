@@ -56,13 +56,6 @@ export default function (ctrl: Controller): VNode {
     data.user ? renderVote(ctrl) : renderContinue(ctrl),
     h('div.puzzle__more', [
       h('div', [
-        h('a', {
-          attrs: {
-            'data-icon': icons.bullseye,
-            href: `/analysis/${ctrl.vm.node.sfen.replace(/ /g, '_')}?color=${ctrl.vm.pov}#practice`,
-            title: i18n('playWithTheMachine'),
-          },
-        }),
         ctrl.getData().user
           ? h('a.puzzle-report', {
               hook: bind('click', () => {
