@@ -125,6 +125,9 @@ object appeal2 {
         cssTag("misc.form3"),
         cssTag("user.appeal"),
       ),
+      moreJs = frag(
+        jsTag("user.appeal"),
+      ),
       title = title,
     )(body)
 
