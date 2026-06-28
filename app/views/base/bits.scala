@@ -44,7 +44,7 @@ z-index: 99;
       a(href := "https://github.com/WandererXII/lishogi", target := "_blank", rel := "nofollow")(
         "GitHub",
       ),
-      a(href := "https://twitter.com/lishogi", target := "_blank", rel := "nofollow")("Twitter"),
+      a(href := "https://twitter.com/lishogi", target := "_blank", rel := "nofollow")("X (Twitter)"),
     )
 
   def sfenAnalysisLink(variant: Variant, sfen: Sfen)(implicit lang: Lang) =

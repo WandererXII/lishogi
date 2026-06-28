@@ -36,7 +36,6 @@ object bits {
       div(cls := "lobby__leaderboard lobby__box")(
         a(cls := "lobby__box__top", href := langHref(routes.User.list))(
           h2(cls := "title text", dataIcon := Icons.toriGate)(trans.leaderboard()),
-          span(cls := "more")(trans.more(), " »"),
         ),
         div(cls := "lobby__box__content")(
           table(
@@ -57,7 +56,6 @@ object bits {
       div(cls := "lobby__winners lobby__box")(
         a(cls := "lobby__box__top", href := langHref(routes.Tournament.leaderboard))(
           h2(cls := "title text", dataIcon := Icons.trophy)(trans.tournamentWinners()),
-          span(cls := "more")(trans.more(), " »"),
         ),
         div(cls := "lobby__box__content")(
           table(
@@ -89,7 +87,6 @@ object bits {
     div(cls := "lobby__tournaments lobby__box")(
       a(cls := "lobby__box__top", href := langHref(routes.Tournament.homeDefault(1)))(
         h2(cls := "title text", dataIcon := Icons.trophy)(trans.openTournaments()),
-        span(cls := "more")(trans.more(), " »"),
       ),
       div(id := "enterable_tournaments", cls := "enterable_list lobby__box__content")(
         views.html.tournament.bits.enterable(tours),
@@ -102,7 +99,6 @@ object bits {
     div(cls := "lobby__studies lobby__box")(
       a(cls := "lobby__box__top", href := langHref(routes.Study.allDefault(1)))(
         h2(cls := "title text", dataIcon := Icons.study)(trans.studyMenu()),
-        span(cls := "more")(trans.more(), " »"),
       ),
       div(cls := "lobby__box__content")(
         views.html.study.bits.home(studies),
@@ -113,7 +109,6 @@ object bits {
     div(cls := "lobby__description lobby__box")(
       a(cls := "lobby__box__top", href := langHref(routes.Learn.index))(
         h2(cls := "title text", dataIcon := Icons.shogiFull)(trans.shogi()),
-        span(cls := "more")(trans.more(), " »"),
       ),
       div(cls := "lobby__box__content")(
         p(
@@ -132,7 +127,6 @@ object bits {
     div(cls := "lobby__forum lobby__box")(
       a(cls := "lobby__box__top", href := routes.ForumCateg.index)(
         h2(cls := "title text", dataIcon := Icons.talkAlt)(trans.latestForumPosts()),
-        span(cls := "more")(trans.more(), " »"),
       ),
       ctx.noKid option div(cls := "lobby__box__content")(
         views.html.forum.post.recent(posts),

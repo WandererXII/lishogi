@@ -40,9 +40,6 @@ object Environment
 
   val Icons = lila.common.Icons
 
-  lazy val insightsEndpoint = env.insightsEndpoint
-  lazy val insightsSecret   = env.insightsSecret
-
   def contactEmail = env.net.email.value
 
   def contactEmailLink = a(href := s"mailto:$contactEmail")(contactEmail)

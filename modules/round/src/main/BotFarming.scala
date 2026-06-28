@@ -9,13 +9,14 @@ final private class BotFarming(
     crosstableApi: CrosstableApi,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  val SAME_PLIES = 20
-  val PREV_GAMES = 2
+  val SAME_PLIES       = 20
+  val SHORT_GAME_PLIES = 10
+  val PREV_GAMES       = 2
 
   /* true if
    * - at least one bot
    * - rated
-   * - recent game in same matchup has same first SAME_PLIES and same winner
+   * - recent game in same matchup (has same first SAME_PLIES or games is shorter than SHORT_GAME_PLIES) and same winner
    */
   def apply(g: Game): Fu[Boolean] =
     g.twoUserIds match {
@@ -24,7 +25,9 @@ final private class BotFarming(
           gameRepo.gamesFromSecondary(ct.results.reverse.take(PREV_GAMES).map(_.gameId)) map {
             _ exists { prev =>
               g.winnerUserId == prev.winnerUserId &&
-              g.usis.take(SAME_PLIES) == prev.usis.take(SAME_PLIES)
+              (g.usis.size < SHORT_GAME_PLIES || g.usis.take(SAME_PLIES) == prev.usis.take(
+                SAME_PLIES,
+              ))
             }
           }
         }

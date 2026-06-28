@@ -32,3 +32,8 @@
   display: flex;
   justify-content: flex-start;
 }
+
+// icon looks too bright otherwise
+#friends-toggle {
+  opacity: 0.9;
+}

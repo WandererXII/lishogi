@@ -25,13 +25,13 @@ object insights {
             "usernameHash" -> MessageDigest
               .getInstance("MD5")
               .digest(
-                (insightsSecret + user.id).getBytes(UTF_8),
+                (env.insightsSecret + user.id).getBytes(UTF_8),
               )
               .map("%02x".format(_))
               .mkString,
             "isBot"    -> user.isBot,
             "path"     -> path,
-            "endpoint" -> insightsEndpoint,
+            "endpoint" -> env.insightsEndpoint,
           ),
         ),
       ),

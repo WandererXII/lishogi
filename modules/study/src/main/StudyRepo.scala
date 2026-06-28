@@ -208,9 +208,7 @@ final class StudyRepo(private[study] val coll: AsyncColl)(implicit
       _.find(selectPublic ++ postGameStudy(false), miniStudyProjection.some)
         .sort($sort desc "rank")
         .cursor[Study.MiniStudy](readPref)
-        .list(nb) map {
-        _.filter(_.likes.value > 1)
-      }
+        .list(nb)
     }
 
   def isContributor(studyId: Study.Id, userId: User.ID) =

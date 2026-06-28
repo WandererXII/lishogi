@@ -45,7 +45,7 @@ final class PostApi(
           val post = Post.make(
             topicId = topic.id,
             author = none,
-            userId = ctx.me.map(_.id),
+            userId = ctx.userId,
             ip = ctx.req.remoteAddress.some,
             text = spam.replace(data.text),
             number = number + 1,

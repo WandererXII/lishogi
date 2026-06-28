@@ -1,5 +1,5 @@
 import { initImageUpload } from 'common/image-upload';
-import { debounce } from 'common/timings';
+import { i18n } from 'i18n';
 
 window.lishogi.ready.then(() => {
   const $editor = $('.coach-edit');
@@ -9,12 +9,6 @@ window.lishogi.ready.then(() => {
     $(this).addClass('active');
     $editor.find('.panel').removeClass('active');
     $editor.find(`.panel.${$(this).data('tab')}`).addClass('active');
-    $editor.find('div.status').removeClass('saved');
-  });
-
-  $('.coach_picture form.upload input[type=file]').on('change', function () {
-    $('.picture_wrap').html(spinnerHtml);
-    $(this).parents('form').trigger('submit');
   });
 
   const langInput = document.getElementById('form3-languages') as HTMLInputElement;
@@ -37,21 +31,22 @@ window.lishogi.ready.then(() => {
     });
   }
 
-  const submit = debounce(() => {
-    const form = document.querySelector('form.async') as HTMLFormElement;
-    if (!form) return;
-    window.lishogi.xhr.formToXhr(form).then(() => {
-      $editor.find('div.status').addClass('saved');
-    });
-  }, 1200);
-
+  let modified = false;
   setTimeout(() => {
     $editor.find('input, textarea, select').on('input paste change keyup', () => {
-      const $statusDiv = $editor.find('div.status');
-      $statusDiv.removeClass('saved');
-      submit();
+      modified = true;
     });
   }, 0);
+  setTimeout(() => {
+    $editor.find('form').on('submit', () => {
+      modified = false;
+    });
+  }, 0);
+
+  window.addEventListener('beforeunload', e => {
+    if (!modified) return;
+    e.preventDefault();
+  });
 
   initImageUpload({
     selector: '#image-editor',

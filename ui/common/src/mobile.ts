@@ -52,7 +52,7 @@ export function bindMobileMousedown(
   f: (e: Event) => unknown,
   redraw?: () => void,
 ): void {
-  for (const mousedownEvent of ['touchstart', 'mousedown']) {
+  for (const mousedownEvent of ['pointerdown']) {
     el.addEventListener(
       mousedownEvent,
       e => {

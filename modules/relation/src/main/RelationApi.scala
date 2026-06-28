@@ -43,7 +43,7 @@ final class RelationApi(
 
   def fetchBlocking = repo blocking _
 
-  def fetchFriends(userId: ID) =
+  def fetchMutuals(userId: ID) =
     coll
       .aggregateWith[Bdoc](
         readPreference = ReadPreference.secondaryPreferred,
@@ -148,7 +148,7 @@ final class RelationApi(
             repo.follow(u1, u2) >> limitFollow(u1) >>- {
               countFollowersCache.update(u2, 1 +)
               countFollowingCache.update(u1, prev => (prev + 1) atMost config.maxFollow.value)
-              timeline ! Propagate(FollowUser(u1, u2)).toFriendsOf(u1).toUsers(List(u2))
+              timeline ! Propagate(FollowUser(u1, u2)).toMutualsOf(u1).toUsers(List(u2))
               Bus.publish(lila.hub.actorApi.relation.Follow(u1, u2), "relation")
               lila.mon.relation.follow.increment().unit
             }

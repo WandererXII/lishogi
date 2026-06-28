@@ -192,7 +192,6 @@ object pref {
               radios(form("insightsShare"), booleanChoices),
             ),
           ),
-          p(cls := "saved text none", dataIcon := Icons.correct)(yourPreferencesHaveBeenSaved()),
         ),
       )
     }

@@ -13,7 +13,7 @@ import lila.common.NormalizedEmailAddress
 import lila.rating.PerfType
 
 case class User(
-    id: String,
+    id: User.ID,
     username: String,
     perfs: Perfs,
     count: Count,

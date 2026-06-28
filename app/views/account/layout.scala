@@ -13,11 +13,13 @@ object layout {
       active: String,
       evenMoreCss: Frag = emptyFrag,
       evenMoreJs: Frag = emptyFrag,
+      cspOverride: Option[lila.common.ContentSecurityPolicy] = none,
   )(body: Frag)(implicit ctx: Context): Frag =
     views.html.base.layout(
       title = title,
       moreCss = frag(cssTag("user.account"), evenMoreCss),
       moreJs = frag(jsTag("user.account"), evenMoreJs),
+      csp = cspOverride,
     ) {
       def activeCls(c: String) = cls := active.activeO(c)
       main(cls := "account page-menu")(

@@ -374,11 +374,6 @@ abstract private[controllers] class LilaController(val env: Env)
       _.fold(notFoundJson())(a => fuccess(Ok(Json toJson a) as JSON))
     }
 
-  protected def JsOk(fua: Fu[String], headers: (String, String)*) =
-    fua map { a =>
-      Ok(a) as JAVASCRIPT withHeaders (headers: _*)
-    }
-
   protected def FormResult[A](
       form: Form[A],
   )(op: A => Fu[Result])(implicit req: Request[_]): Fu[Result] =

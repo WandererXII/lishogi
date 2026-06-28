@@ -2,7 +2,6 @@
 @use '../abstract/extends';
 @use '../abstract/media-queries';
 @use '../abstract/variables';
-@use '../component/flash';
 @use '../theme/generated/theme';
 @use 'cmn-toggle';
 
@@ -15,6 +14,10 @@
 
   align-items: inherit;
   justify-content: space-between;
+}
+
+.form-full {
+  flex: 1;
 }
 
 .form-half {

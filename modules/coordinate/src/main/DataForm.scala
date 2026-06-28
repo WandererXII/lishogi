@@ -5,12 +5,6 @@ import play.api.data._
 
 object DataForm {
 
-  val color = Form(
-    single(
-      "color" -> number(min = 1, max = 3),
-    ),
-  )
-
   val score = Form(
     mapping(
       "color" -> text.verifying(Set("sente", "gote") contains _),

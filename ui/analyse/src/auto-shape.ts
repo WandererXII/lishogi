@@ -82,8 +82,7 @@ export function compute(ctrl: AnalyseCtrl): DrawShape[] {
         );
       if (
         instance.enabled() &&
-        nCeval &&
-        nCeval.pvs[1] &&
+        nCeval?.pvs[1] &&
         !(ctrl.threatMode() && nThreat && nThreat.pvs.length > 2)
       ) {
         nCeval.pvs.forEach((pv, i) => {

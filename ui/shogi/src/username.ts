@@ -11,6 +11,7 @@ export interface UsernameData {
   title?: string;
   engineLvl?: number;
   countryCode?: string;
+  patron?: boolean;
 }
 
 export function usernameVNodes(data: UsernameData): MaybeVNodes {
