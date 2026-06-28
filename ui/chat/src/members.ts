@@ -2,6 +2,17 @@ import { icons } from 'common/icons';
 import { dataIcon, onInsert } from 'common/snabbdom';
 import { h, type VNode } from 'snabbdom';
 
+export function studyMembers(): VNode {
+  return h(
+    'div.chat__members.none',
+    {
+      hook: onInsert(el => $(el).watchers()),
+      attrs: { 'aria-live': 'off' },
+    },
+    [line('contributors', icons.person), line('viewer', icons.view)],
+  );
+}
+
 export function gameMembers(): VNode {
   return h(
     'div.chat__members.none',

@@ -1,0 +1,70 @@
+@use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/uniboard';
+@use 'pkg:common/theme';
+
+.study__actions {
+  @extend %box-neat-force, %flex-center;
+
+  background: theme.$c-bg-box;
+  margin-top: 2vmin;
+  height: uniboard.$col2-uniboard-controls;
+
+  & > div {
+    @extend %flex-center;
+
+    cursor: pointer;
+    padding: 0.5rem;
+    flex: 1;
+    font-weight: bold;
+    color: theme.$c-bad;
+    height: 100%;
+    justify-content: center;
+
+    &.on {
+      color: theme.$c-good;
+    }
+
+    &:hover {
+      background-color: theme.$c-bg-zebra;
+    }
+  }
+}
+
+.study__actions2 {
+  @extend %box-neat-force, %flex-center;
+
+  background: theme.$c-bg-box;
+  margin-top: 2vmin;
+
+  .mode2 {
+    @extend %flex-center;
+
+    padding: 0.5rem;
+    flex: 1;
+    height: 100%;
+
+    .switch-wrap {
+      flex: 1;
+      display: flex;
+      flex-wrap: nowrap;
+      padding: 0.5rem;
+      padding-right: 0.75rem;
+      justify-content: space-between;
+
+      label {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+
+    .desc {
+      color: theme.$c-font-dim;
+      padding: 0 0.5rem 0.5rem 0.5rem;
+      font-size: 0.8rem;
+    }
+
+    &:last-child {
+      border-left: theme.$border;
+    }
+  }
+}

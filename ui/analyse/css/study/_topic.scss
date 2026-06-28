@@ -1,0 +1,32 @@
+@use 'pkg:common/abstract/extends';
+@use 'pkg:common/theme';
+
+.topic {
+  @extend %box-neat-force;
+
+  padding: 0.75rem;
+  background: theme.$c-bg-zebra;
+  color: theme.$c-font-clearer;
+  font-weight: 500;
+  margin: 0 0.3rem;
+  min-width: 4rem;
+  text-align: center;
+  cursor: pointer;
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  &:hover {
+    color: theme.$c-font-clearer;
+  }
+
+  &.selected {
+    color: theme.$c-bg-zebra;
+    background: theme.$c-font-clearer;
+  }
+}

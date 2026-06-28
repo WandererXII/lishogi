@@ -1,8 +1,8 @@
 import { svgSprite } from 'common/icon-selector';
 import { icons } from 'common/icons';
+import { allLangs } from 'common/langs';
 import { bind, dataIcon, type MaybeVNode, type MaybeVNodes } from 'common/snabbdom';
 import { i18n, i18nPluralSame } from 'i18n';
-import { opposite } from 'shogiground/util';
 import { h, type VNode } from 'snabbdom';
 import type AnalyseCtrl from '../ctrl';
 import { iconTag } from '../util';
@@ -14,7 +14,7 @@ import {
   overrideButton as gbOverrideButton,
   playButtons as gbPlayButtons,
 } from './gamebook/gamebook-buttons';
-import type { StudyCtrl, Tab, ToolTab } from './interfaces';
+import type { StudyCtrl, ToolTab } from './interfaces';
 import { view as inviteFormView } from './invite-form';
 import { view as multiBoardView } from './multi-board';
 import { view as notifView } from './notif';
@@ -58,33 +58,20 @@ function toolButton(opts: ToolButtonOpts): VNode {
 function buttons(root: AnalyseCtrl): VNode {
   const ctrl: StudyCtrl = root.study!;
   const canContribute = ctrl.members.canContribute();
-  const showSticky =
-    ctrl.data.features.sticky && (canContribute || (ctrl.vm.behind && ctrl.isUpdatedRecently()));
   return h('div.study__buttons', [
     h('div.left-buttons.tabs-horiz', [
-      // distinct classes (sync, write) allow snabbdom to differentiate buttons
-      showSticky
-        ? h(
-            'a.mode.sync',
-            {
-              attrs: { title: i18n('study:allSyncMembersRemainOnTheSamePosition') },
-              class: { on: ctrl.vm.mode.sticky },
-              hook: bind('click', ctrl.toggleSticky),
-            },
-            [ctrl.vm.behind ? h('span.behind', `${ctrl.vm.behind}`) : h('i.is'), 'SYNC'],
-          )
-        : null,
-      canContribute
-        ? h(
-            'a.mode.write',
-            {
-              attrs: { title: i18n('study:shareChanges') },
-              class: { on: ctrl.vm.mode.write },
-              hook: bind('click', ctrl.toggleWrite),
-            },
-            [h('i.is'), 'REC'],
-          )
-        : null,
+      toolButton({
+        ctrl,
+        tab: 'study',
+        hint: '',
+        icon: iconTag(icons.study),
+      }),
+      toolButton({
+        ctrl,
+        tab: 'members',
+        hint: '',
+        icon: iconTag(icons.people),
+      }),
       toolButton({
         ctrl,
         tab: 'tags',
@@ -131,137 +118,152 @@ function buttons(root: AnalyseCtrl): VNode {
         icon: iconTag(icons.share),
       }),
     ]),
-    h('div.right', [gbOverrideButton(ctrl)]),
+    h('div.right', gbOverrideButton(ctrl)),
   ]);
 }
 
-function postGameButtons(ctrl: StudyCtrl): MaybeVNode {
-  if (ctrl.data.postGameStudy) {
-    const usersGameColor = (userId: string): Color | undefined => {
-      return ctrl.data.postGameStudy?.players.sente.userId === userId
-        ? 'sente'
-        : ctrl.data.postGameStudy?.players.gote.userId === userId
-          ? 'gote'
-          : undefined;
-    };
-    const userId = document.body.dataset.user;
-    const myColor = userId ? usersGameColor(userId) : undefined;
-    const me = myColor && ctrl.data.postGameStudy.players[myColor];
-    const gameBackButton = h(
-      `a.button.button-empty${!me ? '.text' : ''}`,
-      {
-        attrs: {
-          title: i18n('backToGame'),
-          href: `/${ctrl.data.postGameStudy.gameId}`,
-          ...dataIcon(icons.back),
-        },
-      },
-      !me ? i18n('backToGame') : null,
-    );
-    if (me) {
-      const myOpponent = ctrl.data.postGameStudy.players[opposite(myColor)];
-      const isOnline = myOpponent.userId && ctrl.members.isOnline(myOpponent.userId);
-      const offering = !!ctrl.data.postGameStudy.rematches[myColor];
-      const offered = !!ctrl.data.postGameStudy.rematches[opposite(myColor)];
-      return h('div.game_info', [
-        gameBackButton,
-        h(
-          `button.button.button-empty${!isOnline || !myOpponent.userId ? '.disabled' : ''}`,
-          {
-            class: {
-              offering: offering,
-              glowing: offered,
-            },
-            attrs: {
-              title: offering
-                ? i18n('cancel')
-                : myOpponent.userId
-                  ? `${i18n('rematch')} ${myOpponent.userId}`
-                  : 'Cannot rematch anonymous player in study',
-              ...dataIcon(icons.challenge),
-            },
-            hook: bind('click', () => {
-              ctrl.rematch(!ctrl.data.postGameStudy?.rematches[myColor]);
-            }),
-          },
-          offering ? h('span', { attrs: dataIcon(icons.cancel) }) : i18n('rematch'),
-        ),
-      ]);
-    } else return h('div.game_info', gameBackButton);
-  } else return null;
+function tags(ctrl: StudyCtrl): VNode {
+  return h('div.study__tags', [tagsView(ctrl)]);
 }
 
-function metadata(ctrl: StudyCtrl): VNode {
-  const d = ctrl.data;
-  const title = `${d.name}: ${ctrl.currentChapter().name}`;
-  return h('div.study__metadata', [
-    h('h2', [
-      h('div.name', [
-        h('span.icon', {
-          key: d.icon,
-          hook: {
-            insert: vnode => {
-              (vnode.elm as HTMLElement).innerHTML = d.icon ? svgSprite('study', d.icon) : '';
-            },
+function info(ctrl: StudyCtrl): VNode {
+  const icon = ctrl.data.icon || 'study';
+  const owner = ctrl.members.owner()?.user || { name: 'lishogi' };
+
+  return h('div.study__info', [
+    h('div.study__title', { attrs: { title: ctrl.data.name } }, [
+      h('span.icon', {
+        key: icon,
+        hook: {
+          insert: vnode => {
+            (vnode.elm as HTMLElement).innerHTML = svgSprite('study', icon);
           },
-        }),
-        h('span', { attrs: { title } }, title),
-      ]),
-      h(
-        'span.liking.text',
-        {
-          class: { liked: d.liked },
-          attrs: {
-            'data-icon': d.liked ? icons.heartFull : icons.heartOutline,
-            title: i18n('study:like'),
-          },
-          hook: bind('click', ctrl.toggleLike),
         },
-        `${d.likes}`,
-      ),
+      }),
+      h('h1', ctrl.data.name),
+      h('div.actions', [
+        ctrl.members.isOwner()
+          ? h(
+              'span.action.more',
+              {
+                hook: bind('click', () => ctrl.form.open(!ctrl.form.open()), ctrl.redraw),
+              },
+              iconTag(icons.gear),
+            )
+          : undefined,
+        h(
+          'span.action.like.text',
+          {
+            class: { liked: ctrl.data.liked },
+            attrs: {
+              'data-icon': ctrl.data.liked ? icons.heartFull : icons.heartOutline,
+              title: `${i18n('study:like')} (${ctrl.data.likes})`,
+            },
+            hook: bind('click', ctrl.toggleLike),
+          },
+          h('strong', ctrl.data.likes),
+        ),
+      ]),
+    ]),
+    chapterView(ctrl),
+    h('div.study__meta', [
+      h('ul.study__meta-info', [
+        h(
+          'li',
+          h(
+            'a.user-link.ulpt',
+            {
+              attrs: { href: `/@/${owner.name.toLowerCase()}` },
+            },
+            [owner.patron ? h('i.line.patron') : undefined, owner.name],
+          ),
+        ),
+        h('li', i18nPluralSame('study:nbChapters', ctrl.data.chapters.length)),
+        ctrl.data.lang ? h('li', allLangs[ctrl.data.lang] || ctrl.data.lang) : undefined,
+        h(
+          'li',
+          h(
+            'span.timeago',
+            {
+              attrs: {
+                datetime: ctrl.data.createdAt,
+                title: new Date(ctrl.data.createdAt).toLocaleString(),
+              },
+            },
+            window.lishogi.timeago.format(ctrl.data.createdAt),
+          ),
+        ),
+        ctrl.data.postGameStudy?.gameId
+          ? h(
+              'li',
+              h(
+                'a',
+                {
+                  attrs: {
+                    target: '_blank',
+                    href: `/${ctrl.data.postGameStudy.gameId}`,
+                  },
+                },
+                ctrl.data.postGameStudy.gameId,
+              ),
+            )
+          : undefined,
+      ]),
+      ctrl.data.description
+        ? h('div.study__meta-desc', [h('p', ctrl.data.description)])
+        : undefined,
     ]),
     topicsView(ctrl),
-    tagsView(ctrl),
   ]);
 }
 
 export function side(ctrl: StudyCtrl): VNode {
-  const activeTab = ctrl.vm.tab();
+  return h('div.study__side', [h('div.chapter__side', chapterView(ctrl)), modes(ctrl)]);
+}
 
-  const makeTab = (key: Tab, name: string) =>
-    h(
-      `span.${key}`,
-      {
-        class: { active: activeTab === key },
-        hook: bind(
-          'mousedown',
-          () => {
-            ctrl.vm.tab(key);
-          },
-          ctrl.redraw,
-        ),
-      },
-      name,
-    );
+function showModeRec(ctrl: StudyCtrl): boolean {
+  return ctrl.members.canContribute();
+}
 
-  const tabs = h('div.tabs-horiz', [
-    makeTab('chapters', i18nPluralSame('study:nbChapters', ctrl.chapters.size())),
-    makeTab('members', i18nPluralSame('study:nbMembers', ctrl.members.size())),
-    ctrl.members.isOwner()
+function showSyncRec(ctrl: StudyCtrl): boolean {
+  return ctrl.data.features.sticky && (ctrl.members.canContribute() || ctrl.isUpdatedRecently());
+}
+
+function modes(ctrl: StudyCtrl): MaybeVNode {
+  const canContribute = ctrl.members.canContribute();
+
+  const showRecord = showModeRec(ctrl);
+  const showSticky = showSyncRec(ctrl);
+
+  if (!showRecord && !showSticky) return;
+
+  return h('div.study__actions', [
+    showSticky
       ? h(
-          'span.more',
-          {
-            hook: bind('click', () => ctrl.form.open(!ctrl.form.open()), ctrl.redraw),
-          },
-          [iconTag(icons.gear)],
-        )
-      : null,
-  ]);
+          'div.mode',
 
-  return h('div.study__side', [
-    tabs,
-    (activeTab === 'members' ? memberView : chapterView)(ctrl),
-    postGameButtons(ctrl),
+          {
+            attrs: {
+              title: i18n('study:allSyncMembersRemainOnTheSamePosition'),
+              'data-count': ctrl.vm.behind ? ctrl.vm.behind : false,
+            },
+            class: { on: ctrl.vm.mode.sticky },
+            hook: bind('click', ctrl.toggleSticky),
+          },
+          'SYNC',
+        )
+      : undefined,
+    canContribute
+      ? h(
+          'div.mode',
+          {
+            attrs: { title: i18n('study:shareChanges') },
+            class: { on: ctrl.vm.mode.write },
+            hook: bind('click', ctrl.toggleWrite),
+          },
+          'REC',
+        )
+      : undefined,
   ]);
 }
 
@@ -306,12 +308,17 @@ export function underboard(ctrl: AnalyseCtrl): MaybeVNodes {
   if (ctrl.embed) return [];
   const study = ctrl.study!;
   const toolTab = study.vm.toolTab();
-  if (study.gamebookPlay())
-    return [descView(study, true), descView(study, false), gbPlayButtons(ctrl), metadata(study)];
+  if (study.gamebookPlay()) return [descView(study), gbPlayButtons(ctrl), info(study)];
   let panel: VNode | undefined;
   switch (toolTab) {
+    case 'study':
+      panel = info(study);
+      break;
+    case 'members':
+      panel = memberView(study);
+      break;
     case 'tags':
-      panel = metadata(study);
+      panel = tags(study);
       break;
     case 'comments':
       panel = study.vm.mode.write

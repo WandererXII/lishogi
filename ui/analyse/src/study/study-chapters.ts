@@ -32,13 +32,12 @@ export interface StudyChaptersCtrl {
 export function ctrl(
   initChapters: StudyChapterMeta[],
   send: Socket.Send,
-  setTab: () => void,
   chapterConfig: (id: string) => Promise<StudyChapterConfig>,
   root: AnalyseCtrl,
 ): StudyChaptersCtrl {
   const list: Prop<StudyChapterMeta[]> = prop(initChapters);
 
-  const newForm = chapterNewForm(send, list, setTab, root);
+  const newForm = chapterNewForm(send, list, root);
   const editForm = chapterEditForm(send, chapterConfig, root.redraw);
 
   const localPaths: LocalPaths = {};
@@ -145,8 +144,8 @@ export function view(ctrl: StudyCtrl): VNode {
             class: { active, editing, loading, draggable: canContribute },
           },
           [
-            h('span', loading ? h('span.ddloader') : [`${i + 1}`]),
-            h('h3', chapter.name),
+            h('span', `${i + 1}`),
+            h('h3', loading ? h('span.ddloader') : chapter.name),
             canContribute ? h('act', { attrs: dataIcon(icons.gear) }) : null,
           ],
         );

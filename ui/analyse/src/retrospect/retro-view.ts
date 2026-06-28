@@ -61,7 +61,7 @@ const feedback = {
   find(ctrl: RetroCtrl): VNode[] {
     return [
       h('div.player', [
-        h('div.no-square', h(`piece.king.${ctrl.color}`)),
+        h(`div.icon.color-icon.${ctrl.color}`),
         h('div.instruction', [
           h(
             'strong.inlined',
@@ -204,7 +204,7 @@ const feedback = {
     const handicap = isHandicap({ rules: ctrl.variant, sfen: ctrl.initialSfen });
     return [
       h('div.player', [
-        h('div.no-square', h(`piece.king.${ctrl.color}`)),
+        h(`div.icon.color-icon.${ctrl.color}`),
         h('div.instruction', [
           h(
             'em',

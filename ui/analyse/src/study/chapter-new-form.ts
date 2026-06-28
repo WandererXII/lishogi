@@ -48,7 +48,6 @@ export interface StudyChapterNewFormCtrl {
 export function ctrl(
   send: Socket.Send,
   chapters: Prop<StudyChapterMeta[]>,
-  setTab: () => void,
   root: AnalyseCtrl,
 ): StudyChapterNewFormCtrl {
   const vm = {
@@ -89,7 +88,6 @@ export function ctrl(
       if (!d.notation) send('addChapter', d);
       else importNotation(study.data.id, d);
       close();
-      setTab();
     },
     chapters,
     redraw: root.redraw,

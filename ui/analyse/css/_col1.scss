@@ -1,0 +1,46 @@
+@use 'pkg:breakpoint-sass' as breakpoint;
+@use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/uniboard';
+@use 'pkg:common/theme';
+
+@include breakpoint.breakpoint(uniboard.$mq-col1-uniboard) {
+  .analyse__side .mselect__label {
+    display: none;
+  }
+
+  .analyse__controls {
+    .col1-controls-scrollable .fbt {
+      flex: 0 0 28%;
+
+      &.variant-selector {
+        flex: 1;
+        padding: 0 1.5rem;
+
+        & ~ .fbt {
+          flex: 0 1 5rem;
+        }
+      }
+    }
+  }
+
+  .mode-analyse {
+    .copyables .pair {
+      label {
+        margin-left: 0.1rem;
+        min-width: unset;
+        margin-bottom: 0.5rem;
+        color: theme.$c-font;
+      }
+
+      input,
+      textarea {
+        margin-left: 0;
+        width: 100%;
+      }
+
+      button {
+        right: 4vmin;
+      }
+    }
+  }
+}

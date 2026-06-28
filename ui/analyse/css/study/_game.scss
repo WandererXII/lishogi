@@ -1,20 +1,16 @@
 @use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/uniboard';
 @use 'pkg:common/theme';
 
 .post-game {
   .study__side {
-    .study__members,
-    .study__chapters {
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .game_info {
-      @extend %box-neat-bottom;
+    .game__info {
+      @extend %box-neat-force;
 
       background-color: theme.$c-bg-box;
       display: flex;
-      border-top: theme.$border;
+      margin-top: 2vmin;
+      height: uniboard.$col2-uniboard-controls;
 
       a,
       button {
@@ -22,6 +18,7 @@
         flex: 5;
         box-shadow: none;
         border-radius: 0;
+        color: theme.$c-font;
 
         &:focus,
         &:hover,

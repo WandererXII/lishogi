@@ -1,0 +1,156 @@
+@use 'pkg:common/abstract/extends';
+@use 'pkg:common/theme';
+
+.study__members {
+  @extend %box-neat-force;
+
+  background: theme.$c-bg-box;
+
+  .member {
+    @extend %box-radius;
+
+    display: flex;
+
+    margin: 0.5rem;
+    height: 3.5rem;
+    border: theme.$border;
+
+    &:hover {
+      color: theme.$c-font-clear;
+      background: theme.$m-primary_bg-box_mix_10;
+    }
+  }
+
+  .editable {
+    cursor: pointer;
+  }
+
+  .left {
+    @extend %flex-center-nowrap;
+
+    align-items: stretch;
+    flex: 0 1 auto;
+    overflow: hidden;
+  }
+
+  .user-link {
+    @extend %flex-center;
+
+    font-size: 1.1em;
+  }
+
+  .status {
+    @extend %flex-center;
+
+    font-size: 1.2rem;
+    justify-content: center;
+    width: 2.4em;
+    margin-right: 0.25em;
+    transition: 2.5s;
+  }
+
+  i {
+    opacity: 0.5;
+  }
+
+  .contrib i {
+    opacity: 0.7;
+  }
+
+  .online i {
+    opacity: 0.8;
+    color: theme.$c-good;
+  }
+
+  .online.contrib i {
+    opacity: 1;
+  }
+
+  > div:nth-child(4n-3) .status.active i {
+    color: #42a5f5;
+  }
+
+  > div:nth-child(4n-2) .status.active i {
+    color: #f44336;
+  }
+
+  > div:nth-child(4n-1) .status.active i {
+    color: #fdd835;
+  }
+
+  > div:nth-child(4n-0) .status.active i {
+    color: #4caf50;
+  }
+
+  > div:hover .leave:hover {
+    background-color: theme.$c-bad;
+  }
+
+  .add {
+    display: flex;
+    margin: 1rem 0.5rem 0.5rem 0.5rem;
+
+    button {
+      width: 100%;
+    }
+  }
+
+  .admin {
+    text-align: center;
+
+    button {
+      margin-bottom: 0.5em;
+    }
+  }
+
+  m-config {
+    @extend %flex-between;
+
+    margin-left: auto;
+    height: 100%;
+
+    .role {
+      @extend %flex-center;
+
+      label {
+        cursor: pointer;
+      }
+    }
+
+    .kick {
+      height: 100%;
+
+      a {
+        @extend %box-radius-right, %flex-center;
+
+        background: transparent;
+        margin-left: 0.5em;
+        height: 100%;
+        color: theme.$c-bad;
+
+        &:hover {
+          background-color: theme.$c-bad;
+          color: theme.$c-bad-over;
+        }
+      }
+    }
+
+    .leave {
+      @extend %box-radius-right, %flex-center;
+
+      cursor: pointer;
+      color: theme.$c-bad;
+      height: 100%;
+      padding: 1rem;
+
+      &:hover {
+        background-color: theme.$c-bad;
+        color: theme.$c-bad-over;
+      }
+    }
+
+    .switch {
+      margin-left: 0.5em;
+    }
+  }
+}

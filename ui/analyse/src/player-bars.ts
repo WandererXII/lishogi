@@ -47,8 +47,16 @@ function renderPlayer(
           attrs: {
             title: colorName(color, ctrl.isHandicap()),
           },
+          class: {
+            online: !!usernameData.username && !!ctrl.onlineUsers?.includes(usernameData.username),
+          },
         },
-        usernameVNodes(usernameData),
+        [
+          ctrl.opts.mode === 'replay' && !ctrl.imported
+            ? h(`i.line${usernameData.patron ? '.patron' : ''}`)
+            : undefined,
+          ...usernameVNodes(usernameData),
+        ],
       ),
     ),
     h(
@@ -72,6 +80,7 @@ function findPlayer(ctrl: AnalyseCtrl, color: Color): UsernameData {
         username: player.user.username,
         rank: rank,
         title: player.user.title,
+        patron: player.user.patron,
       };
     else if (player.ai)
       return {

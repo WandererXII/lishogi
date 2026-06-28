@@ -11,14 +11,7 @@ $top-height: 3.2rem;
   .box__top {
     @extend %flex-center;
 
-    /* flex gutters, waiting for row-gap to be implemented for flexbox.  https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Mastering_Wrapping_of_Flex_Items#Creating_gutters_between_items */
-    margin: 0 0 -1em -1em;
-
-    > * {
-      margin: 0 0 1em 1em;
-    }
-
-    /* end of flex gutter hack */
+    gap: 1rem;
 
     h1 {
       flex: 3 1 auto;
@@ -50,7 +43,7 @@ $top-height: 3.2rem;
     }
 
     .mselect {
-      flex: 1 1 auto;
+      flex: 1 1 5rem;
       font-size: 1.2em;
 
       &__label::after {
@@ -58,10 +51,17 @@ $top-height: 3.2rem;
       }
     }
 
+    .new-study {
+      flex: 1;
+
+      button {
+        width: 100%;
+      }
+    }
+
     .new-study,
     .mselect {
       height: $top-height;
-      margin-left: 1rem;
       white-space: nowrap;
     }
 

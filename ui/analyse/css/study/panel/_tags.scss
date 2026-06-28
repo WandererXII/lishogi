@@ -1,7 +1,8 @@
 @use 'pkg:common/abstract/extends';
 @use 'pkg:common/theme';
+@use '../topic';
 
-.study__metadata {
+.study__tags {
   @extend %box-neat-force;
 
   background: theme.$c-bg-box;
@@ -48,67 +49,54 @@
       color: theme.$c-red;
     }
   }
-}
 
-.study__tags {
-  border: none;
-
-  th {
-    font-weight: bold;
-    color: theme.$c-font-dim;
-    width: 1px;
-    padding: 0 0.3em 0 1em !important;
-    word-break: keep-all;
-  }
-
-  td {
-    padding: 0;
-  }
-
-  input,
-  span {
-    display: block;
-    padding: 0.6em 1em 0.6em 0.7em;
-    line-height: 1.7;
-  }
-
-  input {
+  table {
     border: none;
-    background: none;
-    width: 100%;
+
+    th {
+      font-weight: bold;
+      color: theme.$c-font-dim;
+      width: 1px;
+      padding: 0 0.3em 0 1em !important;
+      word-break: keep-all;
+    }
+
+    td {
+      padding: 0;
+    }
+
+    input,
+    span {
+      display: block;
+      padding: 0.6em 1em 0.6em 0.7em;
+      line-height: 1.7;
+    }
+
+    input {
+      border: none;
+      background: none;
+      width: 100%;
+      border-radius: 0;
+    }
+
+    input:hover,
+    input:focus {
+      background: theme.$m-primary_bg-box_mix_10;
+    }
+
+    th:has(select) {
+      background-color: theme.$c-primary;
+
+      select {
+        color: theme.$c-primary-over;
+      }
+    }
+
+    select {
+      cursor: pointer;
+      border: none;
+      background: none;
+      padding: 0;
+    }
   }
-
-  input:hover,
-  input:focus {
-    background: theme.$m-primary_bg-box_mix_10;
-  }
-
-  select {
-    cursor: pointer;
-    border: none;
-    background: none;
-    padding: 0;
-  }
-}
-
-.study__topics {
-  @extend %flex-center, %roboto;
-
-  margin: 0.75em;
-
-  .topic {
-    @extend %box-radius;
-
-    background: theme.$m-primary_bg-box_mix_15;
-    padding: 0.2em 0.6em;
-    margin: 0.2em;
-  }
-
-  .manage {
-    margin: 0.2em;
-  }
-}
-
-.study-topics form {
-  max-width: 600px;
 }

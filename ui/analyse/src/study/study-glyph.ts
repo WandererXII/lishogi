@@ -10,10 +10,29 @@ export interface GlyphCtrl {
   redraw(): void;
 }
 
+function glyphClass(id: number) {
+  switch (id) {
+    case 6:
+      return 'inaccuracy';
+    case 5:
+      return 'interesting';
+    case 4:
+      return 'blunder';
+    case 3:
+      return 'brilliant';
+    case 2:
+      return 'mistake';
+    case 1:
+      return 'good-move';
+    default:
+      return 'other';
+  }
+}
+
 function renderGlyph(ctrl: GlyphCtrl, node: Tree.Node) {
   return (glyph: Tree.Glyph) =>
     h(
-      'button',
+      `button.g-${glyphClass(glyph.id)}`,
       {
         hook: bind('click', _ => ctrl.toggleGlyph(glyph.id), ctrl.redraw),
         attrs: { 'data-symbol': glyph.symbol, type: 'button' },

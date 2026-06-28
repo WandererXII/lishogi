@@ -1,8 +1,10 @@
 import * as cevalView from 'ceval/view';
-import { chatMembers, makeChat } from 'chat';
+import { chatGameMembers, chatMembers, makeChat } from 'chat';
+import { boardControls } from 'common/board-controls';
 import { defined } from 'common/common';
 import { icons } from 'common/icons';
-import { bindMobileMousedown, hasTouchEvents } from 'common/mobile';
+import { hasTouchEvents } from 'common/mobile';
+import { getPerfIcon } from 'common/perf-icons';
 import { prefs } from 'common/prefs';
 import { bind, bindNonPassive, dataIcon, type MaybeVNode, onInsert } from 'common/snabbdom';
 import spinner from 'common/spinner';
@@ -13,6 +15,7 @@ import { finished } from 'game/status';
 import { studyModal } from 'game/view/post-game-study';
 import statusView from 'game/view/status';
 import { i18n, i18nFormatCapitalized, i18nPluralSame } from 'i18n';
+import { i18nVariant } from 'i18n/variant';
 import { colorName } from 'shogi/color-name';
 import { parseSfen } from 'shogiops/sfen';
 import { h, type VNode } from 'snabbdom';
@@ -244,108 +247,133 @@ function inputs(ctrl: AnalyseCtrl): VNode | undefined {
   ]);
 }
 
-function jumpButton(icon: string, effect: string, enabled: boolean): VNode {
-  return h('button.fbt', {
-    class: { disabled: !enabled },
-    attrs: { 'data-act': effect, 'data-icon': icon },
-  });
-}
-
-function dataAct(e: Event): string | null {
-  const target = e.target as HTMLElement;
-  return (
-    target.getAttribute('data-act') || (target.parentNode as HTMLElement).getAttribute('data-act')
-  );
-}
-
-function repeater(ctrl: AnalyseCtrl, action: 'prev' | 'next', e: Event) {
-  const repeat = () => {
-    if (action === 'prev') control.prev(ctrl);
-    else control.next(ctrl);
-    ctrl.redraw();
-    delay = Math.max(100, delay - delay / 15);
-    timeout = setTimeout(repeat, delay);
-  };
-  let delay = 350;
-  let timeout = setTimeout(repeat, 500);
-  if (action === 'prev') control.prev(ctrl);
-  else control.next(ctrl);
-  const eventName = e.type == 'touchstart' ? 'touchend' : 'mouseup';
-  document.addEventListener(eventName, () => clearTimeout(timeout), {
-    once: true,
-  });
-}
-
 function controls(ctrl: AnalyseCtrl) {
+  return h('div.analyse__controls', [allControls(ctrl)]);
+}
+
+function allControls(ctrl: AnalyseCtrl) {
+  const menuIsOpen = ctrl.actionMenu.open;
   const canJumpPrev = ctrl.path !== '';
   const canJumpNext = !!ctrl.node.children[0];
-  const menuIsOpen = ctrl.actionMenu.open;
 
-  return h(
-    'div.analyse__controls.analyse-controls',
-    {
-      hook: onInsert(el => {
-        bindMobileMousedown(
-          el,
-          e => {
-            const action = dataAct(e);
-            if (action === 'prev' || action === 'next') repeater(ctrl, action, e);
-            else if (action === 'first') control.first(ctrl);
-            else if (action === 'last') control.last(ctrl);
-            else if (action === 'practice') ctrl.togglePractice();
-            else if (action === 'menu') ctrl.actionMenu.toggle();
-          },
-          ctrl.redraw,
-        );
-      }),
-    },
-    [
-      ctrl.embed || ctrl.forecast
-        ? null
-        : h(
-            'div.features',
-            ctrl.studyPractice
-              ? h('a.fbt', {
-                  attrs: {
-                    title: i18n('analysis'),
-                    target: '_blank',
-                    href: ctrl.studyPractice.analysisUrl(),
-                    'data-icon': icons.microscope,
-                  },
-                })
-              : h('button.fbt', {
-                  attrs: {
-                    title: i18n('practiceWithComputer'),
-                    'data-act': 'practice',
-                    'data-icon': icons.bullseye,
-                    hidden: !!ctrl.retro,
-                    disabled:
-                      menuIsOpen ||
-                      !(ctrl.ceval.possible && ctrl.ceval.allowed() && !ctrl.isGamebook()),
-                  },
-                  class: {
-                    active: !!ctrl.practice,
-                  },
-                }),
-          ),
-      h('div.jumps', [
-        !ctrl.embed ? jumpButton(icons.first, 'first', canJumpPrev) : undefined,
-        jumpButton(icons.prev, 'prev', canJumpPrev),
-        jumpButton(icons.next, 'next', canJumpNext),
-        !ctrl.embed ? jumpButton(icons.last, 'last', canJumpNext) : undefined,
-      ]),
-      ctrl.studyPractice
-        ? h('div.noop')
-        : h('button.fbt', {
-            class: { active: menuIsOpen },
-            attrs: {
-              title: i18n('menu'),
-              'data-act': 'menu',
-              'data-icon': icons.menu,
+  return boardControls({
+    col1:
+      ctrl.opts.mode === 'analyse'
+        ? [
+            {
+              act: 'variant-selector',
+              icon: getPerfIcon(ctrl.data.game.variant.key),
+              text: i18nVariant(ctrl.data.game.variant.key),
+              cls: { 'variant-selector': true, text: true },
             },
-          }),
-    ],
-  );
+            {
+              act: 'practice',
+              icon: icons.bullseye,
+            },
+            {
+              act: 'menu',
+              icon: icons.menu,
+              cls: {
+                active: menuIsOpen,
+              },
+            },
+          ]
+        : [
+            {
+              text: 'Shared',
+              icon: icons.people,
+              act: 'shared',
+            },
+            ctrl.opts.mode === 'replay'
+              ? {
+                  icon: icons.challenge,
+                  act: 'rematch',
+                }
+              : undefined,
+            {
+              icon: icons.talk,
+              act: 'chat',
+            },
+            ctrl.study
+              ? {
+                  icon: ctrl.study.data.liked ? icons.heartFull : icons.heartOutline,
+                  act: 'like',
+                }
+              : undefined,
+            ctrl.study
+              ? {
+                  icon: icons.gear,
+                  act: 'settings',
+                }
+              : undefined,
+            {
+              act: 'menu',
+              icon: icons.menu,
+              cls: {
+                active: menuIsOpen,
+              },
+            },
+          ],
+    col2: {
+      left:
+        ctrl.embed || ctrl.forecast
+          ? undefined
+          : {
+              title: i18n('practiceWithComputer'),
+              act: 'practice',
+              icon: icons.bullseye,
+              cls: {
+                active: !!ctrl.practice,
+                disabled:
+                  menuIsOpen ||
+                  !(ctrl.ceval.possible && ctrl.ceval.allowed() && !ctrl.isGamebook()),
+              },
+            },
+      right: {
+        act: 'menu',
+        title: i18n('menu'),
+        cls: { active: menuIsOpen },
+        icon: icons.menu,
+      },
+    },
+    onClick(act) {
+      if (act === 'menu') {
+        ctrl.actionMenu.toggle();
+        ctrl.redraw();
+      } else if (act === 'practice') {
+        ctrl.togglePractice();
+      } else if (act === 'variant-selector') {
+        document.querySelector<HTMLElement>('.mselect__label')?.click();
+      }
+    },
+    jumps: {
+      first: {
+        click: () => {
+          control.first(ctrl);
+        },
+        disabled: !canJumpPrev,
+      },
+      prev: {
+        click: () => {
+          control.prev(ctrl);
+        },
+        disabled: !canJumpPrev,
+      },
+      next: {
+        click: () => {
+          control.next(ctrl);
+        },
+        disabled: !canJumpNext,
+      },
+      last: {
+        click: () => {
+          control.last(ctrl);
+        },
+        disabled: !canJumpNext,
+      },
+      redraw: ctrl.redraw,
+    },
+  });
 }
 
 function forceInnerCoords(ctrl: AnalyseCtrl, v: boolean) {

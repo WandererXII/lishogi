@@ -71,6 +71,10 @@ export function make(send: Socket.Send, ctrl: AnalyseCtrl): Socket {
     },
     crowd(d: any) {
       ctrl.evalCache.upgradable(d.nb > 2);
+      if (d.analysis) {
+        ctrl.onlineUsers = d.analysis.users || [];
+        ctrl.redraw();
+      }
     },
   };
 

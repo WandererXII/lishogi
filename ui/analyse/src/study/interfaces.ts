@@ -1,5 +1,5 @@
 import type { Prop } from 'common/common';
-import type { StoredProp, StoredSet } from 'common/storage';
+import type { StoredSet } from 'common/storage';
 import type { Status } from 'game/interfaces';
 import type { AnalyseData } from '../interfaces';
 import type { CommentForm } from './comment-form';
@@ -8,7 +8,6 @@ import type GamebookPlayCtrl from './gamebook/gamebook-play-ctrl';
 import type { GamebookOverride } from './gamebook/interfaces';
 import type { MultiBoardCtrl } from './multi-board';
 import type { NotifCtrl } from './notif';
-import type { StudyPracticeCtrl } from './practice/interfaces';
 import type { ServerEval } from './server-eval';
 import type { StudyChaptersCtrl } from './study-chapters';
 import type { GlyphCtrl } from './study-glyph';
@@ -30,7 +29,6 @@ export interface StudyCtrl {
   serverEval: ServerEval;
   share: any;
   tags: any;
-  studyDesc: DescriptionCtrl;
   chapterDesc: DescriptionCtrl;
   toggleLike(): void;
   rematch(yes: boolean): void;
@@ -50,7 +48,6 @@ export interface StudyCtrl {
   makeChange(t: string, d: any): boolean;
   userJump(path: Tree.Path): void;
   currentNode(): Tree.Node;
-  practice?: StudyPracticeCtrl;
   gamebookPlay(): GamebookPlayCtrl | undefined;
   nextChapter(): StudyChapterMeta | undefined;
   mutateSgConfig(config: any): void;
@@ -60,15 +57,22 @@ export interface StudyCtrl {
   redraw: Redraw;
 }
 
-export type Tab = 'intro' | 'members' | 'chapters';
-export type ToolTab = 'tags' | 'comments' | 'glyphs' | 'serverEval' | 'share' | 'multiBoard';
+export type Tab = '' | 'members' | 'chapters';
+export type ToolTab =
+  | 'study'
+  | 'members'
+  | 'tags'
+  | 'comments'
+  | 'glyphs'
+  | 'serverEval'
+  | 'share'
+  | 'multiBoard';
 
 export interface StudyVm {
   loading: boolean;
   nextChapterId?: string;
   justSetChapterId?: string;
-  tab: Prop<Tab>;
-  toolTab: StoredProp<ToolTab>;
+  toolTab: Prop<ToolTab>;
   chapterId: string;
   mode: {
     sticky: boolean;
@@ -83,6 +87,7 @@ export interface StudyData {
   id: string;
   name: string;
   icon?: string;
+  lang?: string;
   members: StudyMemberMap;
   position: Position;
   ownerId: string;
@@ -200,6 +205,7 @@ export type StudyMember = {
   user: {
     id: string;
     name: string;
+    patron?: boolean;
     countryCode?: string;
   };
   role: string;
@@ -211,7 +217,6 @@ export interface StudyMemberMap {
 
 export interface StudyMembersCtrl {
   dict: Prop<StudyMemberMap>;
-  confing: Prop<string | undefined>;
   myId: string | null;
   inviteForm: StudyInviteFormCtrl;
   update: (members: StudyMemberMap) => void;
@@ -220,6 +225,7 @@ export interface StudyMembersCtrl {
   owner: () => StudyMember;
   myMember: () => StudyMember | null;
   isOwner: () => boolean;
+  isOwnerOrAdmin: () => boolean;
   canContribute: () => boolean;
   max: number;
   setRole: (id: string, role: any) => void;

@@ -1,7 +1,8 @@
 import { loadCssPath, loadVendorScript } from 'common/assets';
 import { type Prop, prop } from 'common/common';
+import { icons } from 'common/icons';
 import { modal } from 'common/modal';
-import { bind, bindSubmit, onInsert } from 'common/snabbdom';
+import { bind, bindSubmit, dataIcon, onInsert } from 'common/snabbdom';
 import { i18n } from 'i18n';
 import { h, type VNode } from 'snabbdom';
 import type { StudyCtrl, Topic } from './interfaces';
@@ -32,10 +33,10 @@ export function ctrl(
 }
 
 export function view(ctrl: StudyCtrl): VNode {
-  return h('div.study__topics', [
+  return h('div.study__topics.chip-list', [
     ...ctrl.topics.getTopics().map(topic =>
       h(
-        'a.topic',
+        'a.chip',
         {
           attrs: { href: `/study/topic/${encodeURIComponent(topic)}/hot` },
         },
@@ -44,8 +45,9 @@ export function view(ctrl: StudyCtrl): VNode {
     ),
     ctrl.members.canContribute()
       ? h(
-          'a.manage',
+          'a.chip.text',
           {
+            attrs: dataIcon(icons.gear),
             hook: bind('click', () => ctrl.topics.open(true), ctrl.redraw),
           },
           i18n('study:manageTopics'),
@@ -64,7 +66,7 @@ export function formView(ctrl: TopicsCtrl, userId?: string): VNode {
       ctrl.redraw();
     },
     content: [
-      h('h2', 'Study topics'),
+      h('h2', i18n('study:studyTopics')),
       h(
         'form',
         {

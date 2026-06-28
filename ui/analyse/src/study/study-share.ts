@@ -13,14 +13,15 @@ interface StudyShareCtrl {
   isPrivate(): boolean;
   currentNode: () => Tree.Node;
   onMainline: () => boolean;
-  withPly: Prop<boolean>;
+  withPlyUrl: Prop<boolean>;
+  withPlyEmbed: Prop<boolean>;
   cloneable: boolean;
   offset: number;
   gameId?: string;
   redraw: () => void;
 }
 
-function fromPly(ctrl: StudyShareCtrl): VNode {
+function fromPly(ctrl: StudyShareCtrl, prop: Prop<boolean>): VNode {
   const renderedMove = renderIndexAndMove(
     {
       variant: ctrl.chapter().variant,
@@ -35,11 +36,11 @@ function fromPly(ctrl: StudyShareCtrl): VNode {
     ctrl.onMainline()
       ? h('label.ply.inlined', [
           h('input', {
-            attrs: { type: 'checkbox', checked: ctrl.withPly() },
+            attrs: { type: 'checkbox', checked: prop() },
             hook: bind(
               'change',
               e => {
-                ctrl.withPly((e.target as HTMLInputElement).checked);
+                prop((e.target as HTMLInputElement).checked);
               },
               ctrl.redraw,
             ),
@@ -60,7 +61,8 @@ export function ctrl(
   redraw: () => void,
   offset: number,
 ): StudyShareCtrl {
-  const withPly = prop(false);
+  const withPlyUrl = prop(false);
+  const withPlyEmbed = prop(false);
   return {
     studyId: data.id,
     chapter: currentChapter,
@@ -69,7 +71,8 @@ export function ctrl(
     },
     currentNode,
     onMainline,
-    withPly,
+    withPlyUrl,
+    withPlyEmbed,
     cloneable: data.features.cloneable,
     redraw,
     offset,
@@ -83,10 +86,10 @@ export function view(ctrl: StudyShareCtrl): VNode {
   let fullUrl = `${baseUrl()}/study/${studyId}/${chapter.id}`;
   let embedUrl = `${baseUrl()}/study/embed/${studyId}/${chapter.id}`;
   const isPrivate = ctrl.isPrivate();
-  if (ctrl.withPly() && ctrl.onMainline()) {
+  if (ctrl.onMainline()) {
     const p = ctrl.currentNode().ply;
-    fullUrl += `#${p}`;
-    embedUrl += `#${p}`;
+    if (ctrl.withPlyUrl()) fullUrl += `#${p}`;
+    if (ctrl.withPlyEmbed()) embedUrl += `#${p}`;
   }
   return h('div.study__share', [
     h('form.form3', [
@@ -107,7 +110,7 @@ export function view(ctrl: StudyShareCtrl): VNode {
             value: fullUrl,
           },
         }),
-        fromPly(ctrl),
+        fromPly(ctrl, ctrl.withPlyUrl),
         !isPrivate
           ? h(
               'p.form-help.text',
@@ -145,7 +148,7 @@ export function view(ctrl: StudyShareCtrl): VNode {
         ].concat(
           !isPrivate
             ? [
-                fromPly(ctrl),
+                fromPly(ctrl, ctrl.withPlyEmbed),
                 h(
                   'a.form-help.text',
                   {

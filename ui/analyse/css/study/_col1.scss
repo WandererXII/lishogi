@@ -1,0 +1,35 @@
+@use 'pkg:breakpoint-sass' as breakpoint;
+@use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/uniboard';
+@use 'pkg:common/theme';
+
+@include breakpoint.breakpoint(uniboard.$mq-col1-uniboard) {
+  .study__side {
+    display: none;
+  }
+
+  .study__buttons {
+    .multiBoard {
+      display: none;
+    }
+  }
+
+  .study__info {
+    .study__title .actions {
+      display: none !important;
+    }
+
+    .study__chapters {
+      display: block !important;
+
+      h3 {
+        margin: 0.5em 0;
+      }
+    }
+
+    .study__meta {
+      border-top: theme.$border;
+      padding-top: 1rem !important;
+    }
+  }
+}

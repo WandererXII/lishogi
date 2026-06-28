@@ -783,7 +783,14 @@ final class StudyApi(
             visibility = data.vis,
             description = data.description.map(_.take(2500)),
             icon = data.icon.flatMap(lila.common.String.iconSanityCheck),
-            lang = data.lang,
+            lang = data.lang
+              .filter(_.nonEmpty)
+              .flatMap(dl =>
+                lila.i18n.LangList.allWithMissing.collectFirst {
+                  case (l, _) if l.code == dl => l
+                },
+              )
+              .map(lila.i18n.languageCode),
           )
           (newStudy != study) ?? {
             studyRepo.updateSomeFields(newStudy) >>-

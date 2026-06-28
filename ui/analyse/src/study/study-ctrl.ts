@@ -1,5 +1,4 @@
 import { prop } from 'common/common';
-import { storedProp } from 'common/storage';
 import throttle from 'common/throttle';
 import { debounce } from 'common/timings';
 import { makeNotation } from 'shogi/notation';
@@ -15,7 +14,6 @@ import type {
   StudyCtrl,
   StudyData,
   StudyVm,
-  Tab,
   TagTypes,
   ToolTab,
 } from './interfaces';
@@ -35,22 +33,16 @@ const li = window.lishogi;
 
 // data.position.path represents the server state
 // ctrl.path is the client state
-export default function (
-  data: StudyData,
-  ctrl: AnalyseCtrl,
-  tagTypes: TagTypes,
-  practiceData?: StudyPracticeData,
-): StudyCtrl {
+export default function (data: StudyData, ctrl: AnalyseCtrl, tagTypes: TagTypes): StudyCtrl {
   const send = ctrl.socket.send;
   const redraw = ctrl.redraw;
 
   const vm: StudyVm = (() => {
     const isManualChapter = data.chapter.id !== data.position.chapterId;
-    const sticked = data.features.sticky && !ctrl.initialPath && !isManualChapter && !practiceData;
+    const sticked = data.features.sticky && !ctrl.initialPath && !isManualChapter;
     return {
       loading: false,
-      tab: prop<Tab>(data.chapters.length > 1 ? 'chapters' : 'members'),
-      toolTab: storedProp<ToolTab>('study.toolTab', 'tags'),
+      toolTab: prop<ToolTab>('study'),
       chapterId: sticked ? data.position.chapterId : data.chapter.id,
       // path is at ctrl.path
       mode: {
@@ -69,10 +61,10 @@ export default function (
 
   const members = memberCtrl({
     initDict: data.members,
-    myId: practiceData ? null : ctrl.opts.userId,
+    myId: ctrl.opts.userId,
     ownerId: data.ownerId,
     send,
-    tab: vm.tab,
+    tab: vm.toolTab,
     notif,
     onBecomingContributor() {
       vm.mode.write = true;
@@ -86,7 +78,6 @@ export default function (
   const chapters = chapterCtrl(
     data.chapters,
     send,
-    () => vm.tab('chapters'),
     (chapterId: string) => xhr.chapterConfig(data.id, chapterId),
     ctrl,
   );
@@ -184,9 +175,7 @@ export default function (
   configureAnalysis();
 
   function configurePractice() {
-    if (!data.chapter.practice && ctrl.practice) ctrl.togglePractice();
     if (data.chapter.practice) ctrl.restartPractice();
-    if (practice) practice.onLoad();
   }
 
   function onReload(d: ReloadData) {
@@ -201,6 +190,7 @@ export default function (
       'position',
       'name',
       'icon',
+      'lang',
       'visibility',
       'features',
       'settings',
@@ -255,11 +245,7 @@ export default function (
   const xhrReload = throttle(700, () => {
     vm.loading = true;
     return xhr
-      .reload(
-        practice ? 'practice/load' : 'study',
-        data.id,
-        vm.mode.sticky ? undefined : vm.chapterId,
-      )
+      .reload('study', data.id, vm.mode.sticky ? undefined : vm.chapterId)
       .then(onReload, li.reload);
   });
 
@@ -280,11 +266,8 @@ export default function (
 
   const share = shareCtrl(data, currentChapter, currentNode, onMainline, redraw, ctrl.plyOffset());
 
-  const practice: StudyPracticeCtrl | undefined =
-    practiceData && practiceCtrl(ctrl, data, practiceData);
-
   function updateUrl(chapterId: string) {
-    if (!practice) window.history.replaceState(null, '', `/study/${data.id}/${chapterId}`);
+    window.history.replaceState(null, '', `/study/${data.id}/${chapterId}`);
   }
   updateUrl(data.chapter.id);
 
@@ -598,7 +581,6 @@ export default function (
     onJump() {
       if (gamebookPlay) gamebookPlay.onJump();
       else chapters.localPaths[vm.chapterId] = ctrl.path; // don't remember position on gamebook
-      if (practice) practice.onJump();
     },
     withPosition,
     setPath(path, node) {
@@ -658,7 +640,6 @@ export default function (
     makeChange,
     userJump: ctrl.userJump,
     currentNode,
-    practice,
     gamebookPlay: () => gamebookPlay,
     nextChapter(): StudyChapterMeta | undefined {
       const chapters = data.chapters;

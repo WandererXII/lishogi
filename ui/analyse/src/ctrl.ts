@@ -128,6 +128,7 @@ export default class AnalyseCtrl {
 
   // misc
   nvui?: NvuiPlugin;
+  onlineUsers?: string[]; // from crowd
 
   pvUsiQueue: Usi[] = [];
 
@@ -1029,8 +1030,10 @@ export default class AnalyseCtrl {
   };
 
   togglePractice = (): void => {
-    if (this.practice || !this.ceval.possible) this.practice = undefined;
-    else {
+    if (this.practice || !this.ceval.possible) {
+      this.practice = undefined;
+      if (this.ceval.enabled()) this.toggleCeval();
+    } else {
       if (this.retro) this.toggleRetro();
       this.practice = makePractice(this, 16);
     }

@@ -84,7 +84,7 @@ function renderTags(chapter: StudyChapter, submit: any, types: string[]): VNode 
   }
 
   return h(
-    'table.study__tags.slist',
+    'table.slist',
     h(
       'tbody',
       rows.map(r => {

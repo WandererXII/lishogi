@@ -1,6 +1,6 @@
 import menuSlowdown from 'common/menu-slowdown';
 import { Shogiground } from 'shogiground';
-import { analysis, practice, replay, study } from '../boot';
+import { analysis, replay, study } from '../boot';
 import type AnalyseCtrl from '../ctrl';
 import makeCtrl from '../ctrl';
 import type { AnalyseOpts } from '../interfaces';

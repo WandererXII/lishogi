@@ -1,0 +1,121 @@
+@use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/uniboard';
+@use 'pkg:common/theme';
+
+.study__info {
+  @extend %box-neat-force, %flex-column;
+
+  background: theme.$c-bg-box;
+
+  .study__title {
+    @extend %flex-center, %roboto;
+
+    position: relative;
+    flex-wrap: nowrap;
+    background: theme.$c-bg-zebra;
+    border-bottom: theme.$border;
+    height: calc(#{uniboard.$col2-uniboard-controls} + 0.5rem);
+
+    .icon {
+      width: 24px;
+      height: 24px;
+      margin: 0 0 0 0.5rem;
+    }
+
+    h1 {
+      @extend %nowrap-ellipsis;
+
+      font-size: 1.3em;
+      font-weight: 400;
+      margin: 0 2rem 0 0.5rem;
+    }
+
+    .actions {
+      @extend %flex-center;
+
+      flex-wrap: nowrap;
+      gap: 0.75rem;
+      margin-left: auto;
+      margin-right: 1rem;
+      font-size: 1.3rem;
+
+      span.action {
+        cursor: pointer;
+        border-radius: 50%;
+        padding: 0.75em;
+        opacity: 0.3;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.more {
+          height: 2rem;
+          width: 2rem;
+        }
+      }
+    }
+
+    &:hover .actions .action {
+      opacity: 0.8;
+
+      &:hover {
+        opacity: 1;
+      }
+
+      &.more:hover {
+        border-radius: 50%;
+        background: theme.$c-primary;
+        color: theme.$c-primary-over;
+      }
+
+      &.like:hover {
+        color: theme.$c-red;
+      }
+    }
+  }
+
+  .study__chapters {
+    display: none;
+  }
+
+  .study__meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 1rem;
+
+    &-info {
+      display: flex;
+      flex-wrap: wrap;
+      font-weight: 600;
+      font-size: 1.05rem;
+
+      li {
+        list-style: disc;
+        margin-left: 2rem;
+
+        &:first-child {
+          list-style: none;
+          margin-left: 0;
+        }
+      }
+    }
+
+    &-desc {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .study__topics {
+    display: flex;
+    margin: 1rem;
+    margin-top: 0;
+  }
+}
+
+.study-topics form {
+  max-width: 600px;
+}

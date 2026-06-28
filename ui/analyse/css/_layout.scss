@@ -112,9 +112,12 @@
   }
 
   &__side,
-  .chat__members,
   .mchat {
     margin: variables.$block-gap 0 0 0;
+  }
+
+  .chat__members {
+    margin-top: variables.$block-gap;
   }
 
   @include breakpoint.breakpoint(local.$mq-col2) {

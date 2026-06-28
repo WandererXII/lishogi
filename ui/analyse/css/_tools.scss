@@ -13,7 +13,8 @@
 
 .analyse {
   &__tools {
-    @extend %box-neat-force, %flex-column;
+    // no force, because of ceval pv hover
+    @extend %box-neat, %flex-column;
 
     max-height: 100vh; /* magically fixes fit-content on safari 10 */
     background: theme.$c-bg-box;
@@ -57,31 +58,6 @@
       font-size: 1em;
       font-style: italic;
       padding: 12px 3px;
-    }
-  }
-
-  &__controls {
-    height: uniboard.$col3-uniboard-controls;
-    align-items: stretch;
-
-    div {
-      display: flex;
-      flex: 0 1 32px;
-      align-items: stretch;
-    }
-
-    .jumps {
-      flex: 3 1 auto;
-    }
-
-    .fbt {
-      @extend %page-text;
-
-      flex: 0 0 2.5rem;
-    }
-
-    ::before {
-      vertical-align: middle;
     }
   }
 }

@@ -1,4 +1,5 @@
 @use 'layout';
+@use 'col1';
 @use 'tools';
 @use 'action-menu';
 @use 'training';
@@ -6,5 +7,4 @@
 @use 'fork';
 @use 'side';
 @use 'context-menu';
-@use 'controls';
 @use 'player-bars';

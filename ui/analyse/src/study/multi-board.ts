@@ -4,12 +4,11 @@ import { bind, type MaybeVNodes } from 'common/snabbdom';
 import spinner from 'common/spinner';
 import { i18n } from 'i18n';
 import { Shogiground } from 'shogiground';
-import { opposite } from 'shogiground/util';
 import { usiToSquareNames } from 'shogiops/compat';
 import { forsythToRole, roleToForsyth } from 'shogiops/sfen';
 import { handRoles } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
-import type { ChapterPreview, ChapterPreviewPlayer, Position, StudyCtrl } from './interfaces';
+import type { ChapterPreview, Position, StudyCtrl } from './interfaces';
 import { multiBoard as xhrLoad } from './study-xhr';
 
 export class MultiBoardCtrl {
@@ -116,13 +115,7 @@ function pagerButton(
 
 function makePreview(study: StudyCtrl) {
   return (preview: ChapterPreview) => {
-    const contents = preview.players
-      ? [
-          makePlayer(preview.players[opposite(preview.orientation)]),
-          makeSg(preview),
-          makePlayer(preview.players[preview.orientation]),
-        ]
-      : [h('div.name', preview.name), makeSg(preview), h('div.name')]; // empty name to keep board centered
+    const contents = [h('div.name', preview.name), makeSg(preview)];
     return h(
       `a.${preview.id}`,
       {
@@ -135,10 +128,6 @@ function makePreview(study: StudyCtrl) {
       contents,
     );
   };
-}
-
-function makePlayer(player: ChapterPreviewPlayer): VNode {
-  return h('div.player', [player.name, player.rating && h('span', `${player.rating}`)]);
 }
 
 function usiToLastMove(lm?: string): Key[] | undefined {

@@ -51,7 +51,7 @@ function renderEnd(root: AnalyseCtrl, end: Outcome): VNode {
   const color = end.winner || root.turnColor();
   return h('div.player', [
     color
-      ? h('div.no-square', h(`piece.king.${color}`))
+      ? h(`div.icon.color-icon.${color}`)
       : h('div.icon.off', { attrs: { 'data-icon': icons.warning } }),
     h('div.instruction', [
       h('strong', end.winner ? i18n('checkmate') : i18n('draw')),
@@ -88,7 +88,7 @@ function renderEvalProgress(node: Tree.Node, maxDepth: number): VNode {
 function renderRunning(root: AnalyseCtrl, ctrl: PracticeCtrl): VNode {
   const hint = ctrl.hinting();
   return h('div.player.running', [
-    h('div.no-square', h(`piece.king.${root.turnColor()}`)),
+    h(`div.icon.color-icon.${root.turnColor()}`),
     h(
       'div.instruction',
       (ctrl.isMyTurn()

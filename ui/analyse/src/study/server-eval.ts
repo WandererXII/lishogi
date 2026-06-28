@@ -77,7 +77,7 @@ function requested(): VNode {
 function requestButton(ctrl: ServerEval) {
   const root = ctrl.root;
   return h(
-    'div.study__message',
+    'div.study__message.study__eval-req',
     root.mainline.length < 5
       ? h('p', i18n('study:theChapterIsTooShortToBeAnalysed'))
       : !root.study!.members.canContribute()
