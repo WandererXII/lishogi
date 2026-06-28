@@ -3,105 +3,34 @@
 @use 'pkg:common/theme';
 @use 'local';
 
-.coach-edit,
-.coach-picture {
+.coach-edit {
   .top {
     display: flex;
     background: theme.$c-bg-zebra;
-    border-bottom: 3px solid theme.$c-primary;
+    border-bottom: theme.$border;
     padding: 1rem;
+    margin-bottom: 1rem;
 
     h1 {
       @extend %roboto;
 
       margin: 0;
-      padding: 0 !important;
-      font-size: 2rem;
-      line-height: 2;
-      text-transform: uppercase;
-      letter-spacing: 3px;
-    }
-
-    .picture_wrap img {
-      margin-right: 10px;
-      width: 100px !important;
-      height: 100px !important;
-
-      @include breakpoint.breakpoint(local.$mq-picture) {
-        margin-right: 30px;
-        width: 250px !important;
-        height: 250px !important;
-      }
+      margin-left: 1rem;
     }
   }
-}
 
-.coach-edit {
   form {
     padding-bottom: 1rem;
   }
 
   .overview {
     width: 100%;
-    height: 250px;
     display: flex;
-    flex-flow: column;
-  }
-
-  .tabs {
-    display: flex;
-    cursor: pointer;
-    margin: 20px 0 40px 0;
-    text-transform: uppercase;
-
-    > div {
-      flex: 1 1 100%;
-      padding: 10px 0;
-      text-align: center;
-      position: relative;
-    }
-
-    > div.data-count::after {
-      padding: 2px 6px;
-      font-size: 1.2em;
-      height: auto;
-      line-height: 1.2em;
-      top: 6px;
-    }
-
-    > div:hover {
-      color: theme.$c-primary;
-    }
-
-    > .active {
-      color: theme.$c-primary;
-      border-bottom: 3px solid theme.$c-primary;
-    }
-  }
-
-  .panel {
-    display: none;
-  }
-
-  .panel.active {
-    display: block;
+    align-items: center;
+    justify-content: space-between;
   }
 
   .tagify {
     margin: 0;
-  }
-
-  .status {
-    opacity: 0;
-    transition: 0.5s;
-    text-align: center;
-    color: theme.$c-good;
-    margin-bottom: 2rem;
-    padding: 2rem;
-    border: 1px solid theme.$c-good;
-  }
-
-  .status.saved {
-    opacity: 1;
   }
 }

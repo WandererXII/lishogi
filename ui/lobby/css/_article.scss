@@ -1,0 +1,68 @@
+@use 'pkg:common/abstract/extends';
+@use 'pkg:common/component/article';
+@use 'pkg:breakpoint-sass' as breakpoint;
+@use 'pkg:common/abstract/media-queries';
+@use 'pkg:common/theme';
+@use 'local';
+
+.lobby__article {
+  background: none;
+  box-shadow: none;
+  overflow: visible;
+  max-width: 100vw;
+
+  .lobby__box__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    gap: 1rem;
+    overflow: visible;
+
+    @include breakpoint.breakpoint(local.$mq-col2) {
+      flex-direction: row;
+    }
+
+    .article-widget {
+      @extend %box-neat;
+
+      min-width: 100%;
+      max-width: 90vw;
+      background: theme.$c-bg-box;
+      padding: 0;
+
+      @include breakpoint.breakpoint(local.$mq-col2) {
+        display: block;
+        width: calc((100% - 2rem) / 3);
+        min-width: unset;
+      }
+
+      a {
+        height: 100%;
+
+        &:hover {
+          background: theme.$c-bg-zebra;
+        }
+
+        img,
+        .gradient {
+          @extend %box-radius-top;
+        }
+
+        .title {
+          color: theme.$c-font;
+          font-size: 1.1rem;
+        }
+
+        .content {
+          padding: 1rem;
+          padding-top: 0;
+          font-size: 1rem;
+
+          time {
+            font-size: 90%;
+          }
+        }
+      }
+    }
+  }
+}

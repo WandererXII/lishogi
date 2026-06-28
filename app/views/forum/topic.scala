@@ -99,7 +99,7 @@ object topic {
 
       main(cls := "forum forum-topic box box-pad")(
         div(cls := "title-wrap")(
-          h1(
+          categ.id != "articles" option h1(
             a(
               href     := routes.ForumCateg.show(categ.slug),
               dataIcon := Icons.left,

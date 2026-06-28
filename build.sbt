@@ -41,7 +41,6 @@ lazy val setupM = module("setup", Seq(lobbyM))
 lazy val simulM = module("simul", Seq(roundM))
 lazy val hubM = module("hub", Seq(commonM))
 lazy val apiM = module("api", Seq(bookmarkM, botM, challengeM, coachM, forumSearchM, lobbyM, planM, streamerM, studySearchM, teamSearchM, timelineM))
-lazy val blogM = module("blog", Seq(prismicM, timelineM))
 lazy val pushM = module("push", Seq(challengeM))
 lazy val roomM = module("room", Seq(chatM))
 lazy val memoM = module("memo", Seq(dbM))
@@ -55,7 +54,6 @@ lazy val coordinateM = module("coordinate", Seq(userM))
 lazy val lobbyM = module("lobby", Seq(roundM))
 lazy val userM = module("user", Seq(ratingM, socketM))
 lazy val planM = module("plan", Seq(notifyM))
-lazy val prismicM = module("prismic", Seq(memoM))
 lazy val teamM = module("team", Seq(modM))
 lazy val shoginetM = module("shoginet", Seq(analyseM, evalCacheM, puzzleM))
 lazy val dbM = module("db", Seq(commonM))
@@ -70,6 +68,7 @@ lazy val shutupM = module("shutup", Seq(gameM, relationM))
 lazy val stormM = module("storm", Seq(puzzleM))
 lazy val chatM = module("chat", Seq(securityM))
 lazy val msgM = module("msg", Seq(notifyM, shutupM))
+lazy val articleM = module("article", Seq(notifyM))
 lazy val appealM = module("appeal", Seq(userM))
 lazy val ratingM = module("rating", Seq(i18nM, memoM))
 lazy val socketM = module("socket", Seq(hubM, memoM))
@@ -81,7 +80,7 @@ lazy val i18nM = module("i18n", Seq(commonM)).settings(
     MessageCompiler(
       sourceDir = new File("translation/source"),
       destDir = new File("translation/dest"),
-      dbs = Seq("faq", "insights", "tourArrangements", "tourname", "streamer", "puzzleTheme", "broadcast", "coach", "patron", "perfStat", "search", "preferences", "pieces", "contact", "tfa", "team", "settings", "arena", "study", "emails", "nvui", "storm", "site", "coordinates", "puzzle", "lag", "activity", "class", "learn"),
+      dbs = Seq("faq", "insights", "tourArrangements", "tourname", "article", "streamer", "puzzleTheme", "broadcast", "coach", "patron", "perfStat", "search", "preferences", "pieces", "contact", "tfa", "team", "settings", "arena", "study", "emails", "nvui", "storm", "site", "coordinates", "puzzle", "lag", "activity", "class", "learn"),
       compileTo = (Compile / sourceManaged).value
     )
   }.taskValue

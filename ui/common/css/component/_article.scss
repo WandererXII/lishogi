@@ -1,0 +1,93 @@
+@use '../theme/generated/theme';
+@use '../abstract/extends';
+@use '../abstract/icons';
+
+.article-widget {
+  @extend %box-radius;
+
+  padding: 1rem;
+  pointer-events: none;
+  transition: background-color 150ms;
+
+  &:hover {
+    background-color: theme.$m-primary_bg-box_mix_20;
+
+    .content .desc {
+      color: theme.$c-font-clear;
+    }
+  }
+
+  a {
+    @extend %flex-column, %box-radius-force;
+
+    position: relative;
+    pointer-events: auto;
+
+    img,
+    .gradient {
+      @extend %box-radius;
+
+      position: relative;
+      aspect-ratio: 16/9;
+      object-fit: cover;
+      margin-bottom: 0.5rem;
+    }
+
+    .gradient {
+      container-type: inline-size;
+
+      &::before {
+        @extend %abs-100, %flex-center;
+
+        content: icons.$article;
+        font-family: lishogi;
+        font-size: 1rem;
+        font-size: 25cqw;
+        width: 100%;
+        justify-content: center;
+        color: white;
+        filter: drop-shadow(2px 4px 6px black);
+      }
+    }
+
+    &.official {
+      .gradient::before {
+        content: icons.$logo;
+      }
+    }
+
+    .content {
+      color: theme.$c-font-clear;
+
+      .title {
+        display: block;
+        font-weight: bold;
+        font-size: 1.2rem;
+      }
+
+      .desc {
+        color: theme.$c-font-dim;
+        font-size: 1.05rem;
+        word-break: keep-all;
+
+        time {
+          display: block;
+          font-size: 1rem;
+        }
+      }
+    }
+
+    .ribbon {
+      @extend %box-shadow, %box-radius-bottom-left;
+
+      position: absolute;
+      right: 0;
+      top: 0;
+      font-weight: bold;
+      padding: 0.5rem;
+      background: theme.$c-accent;
+      color: theme.$c-accent-over;
+      text-transform: uppercase;
+    }
+  }
+}

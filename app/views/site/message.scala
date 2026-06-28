@@ -92,4 +92,9 @@ object message {
     apply("Temporarily disabled")(
       "Sorry, his feature is temporarily disabled while we figure out a way to bring it back.",
     )
+
+  def tooManyDrafts(nb: Int)(implicit ctx: Context) =
+    apply("Too many drafts")(
+      s"At most you might have ${nb} unpublished drafts at the same time.",
+    )
 }

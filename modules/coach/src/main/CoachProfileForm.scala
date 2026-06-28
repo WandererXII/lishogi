@@ -32,12 +32,14 @@ object CoachProfileForm {
           "youtubeChannel"     -> optional(nonEmptyText),
           "publicStudies"      -> optional(nonEmptyText),
         )(CoachProfile.apply)(CoachProfile.unapply),
+        "picturePath" -> optional(nonEmptyText),
       )(Data.apply)(Data.unapply),
     ) fill Data(
       listed = coach.listed.value,
       available = coach.available.value,
       languages = "",
       profile = coach.profile,
+      picturePath = coach.picturePath.map(_.value),
     )
 
   private case class TagifyLang(code: String)
@@ -48,6 +50,7 @@ object CoachProfileForm {
       available: Boolean,
       languages: String,
       profile: CoachProfile,
+      picturePath: Option[String],
   ) {
 
     def apply(coach: Coach) =
@@ -55,6 +58,7 @@ object CoachProfileForm {
         listed = Coach.Listed(listed),
         available = Coach.Available(available),
         profile = profile,
+        picturePath = picturePath.map(Coach.PicturePath),
         languages = Json.parse(languages).validate[List[TagifyLang]] match {
           case JsSuccess(langs, _) =>
             langs.take(10).toList.map(_.code).flatMap(Lang.get).map(_.code).distinct

@@ -1,4 +1,4 @@
-import { spinnerHtml } from 'common/spinner';
+import { initImageUpload } from 'common/image-upload';
 import { debounce } from 'common/timings';
 
 window.lishogi.ready.then(() => {
@@ -52,4 +52,10 @@ window.lishogi.ready.then(() => {
       submit();
     });
   }, 0);
+
+  initImageUpload({
+    selector: '#image-editor',
+    inputSelector: '#form3-picturePath',
+    label: i18n('chooseFileOrDrag'),
+  });
 });

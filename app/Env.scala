@@ -23,8 +23,6 @@ import lila.memo.SettingStore.Strings._
 final class Env(
     val config: Configuration,
     val common: lila.common.Env,
-    val prismic: lila.prismic.Env,
-    val imageRepo: lila.db.ImageRepo,
     val api: lila.api.Env,
     val user: lila.user.Env,
     val security: lila.security.Env,
@@ -59,7 +57,7 @@ final class Env(
     val puzzle: lila.puzzle.Env,
     val coordinate: lila.coordinate.Env,
     val tv: lila.tv.Env,
-    val blog: lila.blog.Env,
+    val article: lila.article.Env,
     val history: lila.history.Env,
     val playban: lila.playban.Env,
     val shutup: lila.shutup.Env,
@@ -97,6 +95,15 @@ final class Env(
 
   val insightsEndpoint = config.get[String]("insights.endpoint")
   val insightsSecret   = config.get[String]("insights.secret")
+
+  val imgDomain = config.get[String]("img.domain")
+
+  val imgUploadUrl = config.get[String]("img.upload.url")
+  val imgUploadKey = config.get[String]("img.upload.key")
+
+  val imgProxyUrl  = config.get[String]("img.proxy.url")
+  val imgProxyKey  = config.get[String]("img.proxy.key")
+  val imgProxySalt = config.get[String]("img.proxy.salt")
 
   lazy val apiTimelineSetting = memo.settingStore[Int](
     "apiTimelineEntries",
@@ -189,13 +196,11 @@ final class EnvBoot(
   implicit def idGenerator: IdGenerator = game.idGenerator
 
   lazy val mainDb: lila.db.Db = mongo.blockingDb("main", config.get[String]("mongodb.uri"))
-  lazy val imageRepo          = new lila.db.ImageRepo(mainDb(CollName("image")))
 
   // wire all the lila modules
   lazy val common: lila.common.Env           = wire[lila.common.Env]
   lazy val memo: lila.memo.Env               = wire[lila.memo.Env]
   lazy val mongo: lila.db.Env                = wire[lila.db.Env]
-  lazy val prismic: lila.prismic.Env         = wire[lila.prismic.Env]
   lazy val user: lila.user.Env               = wire[lila.user.Env]
   lazy val security: lila.security.Env       = wire[lila.security.Env]
   lazy val hub: lila.hub.Env                 = wire[lila.hub.Env]
@@ -228,7 +233,7 @@ final class EnvBoot(
   lazy val puzzle: lila.puzzle.Env           = wire[lila.puzzle.Env]
   lazy val coordinate: lila.coordinate.Env   = wire[lila.coordinate.Env]
   lazy val tv: lila.tv.Env                   = wire[lila.tv.Env]
-  lazy val blog: lila.blog.Env               = wire[lila.blog.Env]
+  lazy val article: lila.article.Env         = wire[lila.article.Env]
   lazy val history: lila.history.Env         = wire[lila.history.Env]
   lazy val playban: lila.playban.Env         = wire[lila.playban.Env]
   lazy val shutup: lila.shutup.Env           = wire[lila.shutup.Env]

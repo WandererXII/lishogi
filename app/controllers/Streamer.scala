@@ -158,39 +158,11 @@ final class Streamer(
       api.approval.request(me) inject Redirect(routes.Streamer.edit)
     }
 
-  def picture =
-    Auth { implicit ctx => _ =>
-      AsStreamer { s =>
-        Ok(html.streamer.picture(s)).noCache.fuccess
-      }
-    }
-
-  def pictureApply =
-    AuthBody(parse.multipartFormData) { implicit ctx => me =>
-      AsStreamer { s =>
-        ctx.body.body.file("picture") match {
-          case Some(pic) =>
-            (api.uploadPicture(s.streamer, pic, me) inject Redirect(routes.Streamer.edit)) recover {
-              case e: Exception =>
-                BadRequest(html.streamer.picture(s, e.getMessage.some))
-            }
-          case None => fuccess(Redirect(routes.Streamer.edit))
-        }
-      }
-    }
-
-  def pictureDelete =
-    Auth { implicit ctx => _ =>
-      AsStreamer { s =>
-        api.deletePicture(s.streamer) inject Redirect(routes.Streamer.edit)
-      }
-    }
-
   private def AsStreamer(f: StreamerModel.WithUser => Fu[Result])(implicit ctx: Context) =
     ctx.me.fold(notFound) { me =>
       if (StreamerModel.canApply(me) || isGranted(_.Streamers))
         api.find(get("u").ifTrue(isGranted(_.Streamers)) | me.id) flatMap {
-          _.fold(Ok(html.streamer.bits.create).fuccess)(f)
+          _.fold(Ok(html.streamer.edit.create).fuccess)(f)
         }
       else
         Ok(

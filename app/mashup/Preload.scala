@@ -26,7 +26,7 @@ final class Preload(
     gameRepo: lila.game.GameRepo,
     userCached: lila.user.Cached,
     tourWinners: lila.tournament.WinnersApi,
-    timelineApi: lila.timeline.EntryApi,
+    entryApi: lila.timeline.EntryApi,
     liveStreamApi: lila.streamer.LiveStreamApi,
     dailyPuzzle: lila.puzzle.DailyPuzzle.Try,
     lobbyApi: lila.api.LobbyApi,
@@ -35,7 +35,7 @@ final class Preload(
     lightUserApi: LightUserApi,
     roundProxy: lila.round.GameProxyRepo,
     simulIsFeaturable: SimulIsFeaturable,
-    lastPostCache: lila.blog.LastPostCache,
+    articleApi: lila.article.ArticleApi,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   import Preload._
@@ -55,7 +55,7 @@ final class Preload(
       simuls.mon(_.lobby segment "simuls") zip
       studies.mon(_.lobby segment "studies") zip
       tv.getBestGame.mon(_.lobby segment "tvBestGame") zip
-      (ctx.userId ?? timelineApi.userEntries).mon(_.lobby segment "timeline") zip
+      (ctx.userId ?? entryApi.userEntries).mon(_.lobby segment "timeline") zip
       userCached.topMonth.mon(_.lobby segment "userTopMonth") zip
       tourWinners.all.dmap(_.top).mon(_.lobby segment "tourWinners") zip
       (ctx.noBot ?? dailyPuzzle()).mon(_.lobby segment "puzzle") zip
@@ -88,7 +88,7 @@ final class Preload(
                 tWinners,
                 puzzle,
                 streams,
-                lastPostCache.apply(ctx.lang),
+                articleApi.lobby(ctx.lang),
                 playban,
                 currentGame,
                 simulIsFeaturable,
@@ -140,7 +140,7 @@ object Preload {
       tournamentWinners: List[Winner],
       puzzle: Option[lila.puzzle.DailyPuzzle.WithHtml],
       streams: LiveStreams,
-      lastPost: List[lila.blog.MiniPost],
+      articles: List[lila.article.Article.Preview],
       playban: Option[TempBan],
       currentGame: Option[Preload.CurrentGame],
       isFeaturable: Simul => Boolean,

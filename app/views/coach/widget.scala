@@ -21,24 +21,29 @@ object widget {
       c.user.realNameOrUsername,
     )
 
-  def pic(c: lila.coach.Coach.WithUser, size: Int)(implicit lang: Lang) =
+  def pic(c: lila.coach.Coach.WithUser)(implicit lang: Lang) =
     c.coach.picturePath
       .map { path =>
         img(
-          width  := size,
-          height := size,
-          cls    := "picture",
-          src    := dbImageUrl(path.value),
-          alt    := s"${c.user.titleUsername} - ${lishogiCoach()}",
+          cls             := "picture",
+          attr("loading") := "lazy",
+          src := urlOrImageStorageUrl(
+            path.value,
+            lila.common.ImageStorage.Imgproxy
+              .opts(
+                width = 600,
+                height = 600,
+              )
+              .some,
+          ),
+          alt := s"${c.user.titleUsername} - ${lishogiCoach.txt()}",
         )
       }
       .getOrElse {
         img(
-          width  := size,
-          height := size,
-          cls    := "default picture",
-          src    := staticUrl("images/placeholder.png"),
-          alt    := "Default Lishogi coach picture",
+          cls := "default picture",
+          src := staticUrl("images/placeholder.png"),
+          alt := "Default Lishogi coach picture",
         )
       }
 
@@ -46,7 +51,7 @@ object widget {
     val profile = c.user.profileOrDefault
     frag(
       link option a(cls := "overlay", href := routes.Coach.show(c.user.username)),
-      pic(c, if (link) 300 else 350),
+      pic(c),
       div(cls := "overview")(
         (if (link) h2 else h1) (cls := "coach-name")(titleName(c)),
         c.coach.profile.headline

@@ -37,7 +37,7 @@ object features {
               trans.correspondenceShogi(),
             ),
             tr(check)(
-              a(href := routes.Prismic.variantHome)(trans.variants()),
+              a(href := routes.Article.documentation("minishogi"))(trans.variants()),
             ),
             tr(check)(
               s"${trans.localAnalysis.txt()} - YaneuraOu & Fairy-Stockfish",
@@ -51,9 +51,7 @@ object features {
               ),
             ),
             tr(check)(
-              a(href := "https://lishogi.org/blog/post/ZBxnNBAAACIA599h")(
-                trans.postGameStudies(),
-              ),
+              trans.postGameStudies(),
             ),
             tr(check)(
               a(href := routes.Learn.index)(trans.shogiBasics()),

@@ -42,10 +42,9 @@ case class Entry(
     case "study-create"        => studyCreateHandler.readTry(data).get
     case "study-like"          => studyLikeHandler.readTry(data).get
     case "plan-start"          => planStartHandler.readTry(data).get
-    case "blog-post"           => blogPostHandler.readTry(data).get
     case "stream-start"        => streamStartHandler.readTry(data).get
     case "system-notification" => systemNotificationHandler.readTry(data).get
-    case "note-create"         => throw Deprecated
+    case "blog-post"           => throw Deprecated
     case _                     => sys error s"Unhandled atom type: $typ"
   }) match {
     case Success(atom)       => Some(atom)
@@ -80,9 +79,9 @@ object Entry {
       case d: StudyCreate        => "study-create"        -> toBson(d)(studyCreateHandler)
       case d: StudyLike          => "study-like"          -> toBson(d)(studyLikeHandler)
       case d: PlanStart          => "plan-start"          -> toBson(d)(planStartHandler)
-      case d: BlogPost           => "blog-post"           -> toBson(d)(blogPostHandler)
       case d: StreamStart        => "stream-start"        -> toBson(d)(streamStartHandler)
       case d: SystemNotification => "system-notification" -> toBson(d)
+      case d: ArticlePublished   => "article-published"   -> toBson(d)
     }
   } match {
     case (typ, bson) =>
@@ -101,10 +100,11 @@ object Entry {
     implicit val studyCreateHandler: BSONDocumentHandler[StudyCreate] = Macros.handler[StudyCreate]
     implicit val studyLikeHandler: BSONDocumentHandler[StudyLike]     = Macros.handler[StudyLike]
     implicit val planStartHandler: BSONDocumentHandler[PlanStart]     = Macros.handler[PlanStart]
-    implicit val blogPostHandler: BSONDocumentHandler[BlogPost]       = Macros.handler[BlogPost]
     implicit val streamStartHandler: BSONDocumentHandler[StreamStart] = Macros.handler[StreamStart]
     implicit val systemNotificationHandler: BSONDocumentHandler[SystemNotification] =
       Macros.handler[SystemNotification]
+    implicit val articlePublishedHandler: BSONDocumentHandler[ArticlePublished] =
+      Macros.handler[ArticlePublished]
   }
 
   object atomJsonWrite {
@@ -119,10 +119,11 @@ object Entry {
     implicit val studyCreateWrite: OWrites[StudyCreate] = Json.writes[StudyCreate]
     implicit val studyLikeWrite: OWrites[StudyLike]     = Json.writes[StudyLike]
     implicit val planStartWrite: OWrites[PlanStart]     = Json.writes[PlanStart]
-    implicit val blogPostWrite: OWrites[BlogPost]       = Json.writes[BlogPost]
     implicit val streamStartWrite: OWrites[StreamStart] = Json.writes[StreamStart]
     implicit val systemNotificationWrite: OWrites[SystemNotification] =
       Json.writes[SystemNotification]
+    implicit val articlePublishedWrite: OWrites[ArticlePublished] =
+      Json.writes[ArticlePublished]
     implicit val atomWrite: Writes[Atom] = Writes[Atom] {
       case d: Follow             => followWrite writes d
       case d: TeamJoin           => teamJoinWrite writes d
@@ -135,9 +136,9 @@ object Entry {
       case d: StudyCreate        => studyCreateWrite writes d
       case d: StudyLike          => studyLikeWrite writes d
       case d: PlanStart          => planStartWrite writes d
-      case d: BlogPost           => blogPostWrite writes d
       case d: StreamStart        => streamStartWrite writes d
       case d: SystemNotification => systemNotificationWrite writes d
+      case d: ArticlePublished   => articlePublishedWrite writes d
     }
   }
 

@@ -1,8 +1,10 @@
-import { spinnerHtml } from 'common/spinner';
+import { initImageUpload } from 'common/image-upload';
+import { i18n } from 'i18n';
 
 window.lishogi.ready.then(() => {
-  $('.streamer_picture form.upload input[type=file]').on('change', function () {
-    $('.picture_wrap').html(spinnerHtml);
-    $(this).parents('form').trigger('submit');
+  initImageUpload({
+    selector: '#image-editor',
+    inputSelector: '#form3-picturePath',
+    label: i18n('chooseFileOrDrag'),
   });
 });

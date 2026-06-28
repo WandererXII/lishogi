@@ -113,7 +113,7 @@ object faq {
     ),
     h3(trans.tourArrangements.howToPlayGames()),
     p(trans.tourArrangements.howToPlayGamesAnswerNew()),
-    a(href := routes.Prismic.page("tournament-arrangements"))(
+    a(href := routes.Article.page("tournament-arrangements"))(
       trans.tourArrangements.howToPlayGames(),
     ),
     h3(trans.tourArrangements.roundRobinScoring()),
@@ -133,7 +133,7 @@ object faq {
     ),
     h3(trans.tourArrangements.whoStartsMatches()),
     p(trans.tourArrangements.whoStartsMatchesAnswerNew()),
-    a(href := routes.Prismic.page("tournament-arrangements"))(
+    a(href := routes.Article.page("tournament-arrangements"))(
       trans.tourArrangements.howToPlayGames(),
     ),
     h3(trans.tourArrangements.organizedScoring()),

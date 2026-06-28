@@ -6,7 +6,6 @@
   "dependencies": {
     "@build/helpers": "workspace:*",
     "@yaireo/tagify": "^4.36.0",
-    "balloon-css": "^1.2.0",
     "fairy-stockfish-nnue.wasm": "1.1.10",
     "howler": "^2.2.4",
     "infinite-scroll": "^4.0.1",

@@ -178,14 +178,14 @@ object appeal2 {
     div(cls := "appeal__help")(
       p(
         "If your account has been restricted for violation of ",
-        a(href := routes.Prismic.tos)("the Lishogi rules"),
+        a(href := routes.Article.tos)("the Lishogi rules"),
         ", and you are absolutely certain that you did not break ",
-        a(href := routes.Prismic.tos)("said rules"),
+        a(href := routes.Article.tos)("said rules"),
         ", then you may file an appeal here.",
       ),
       p(
         "If you did break ",
-        a(href := routes.Prismic.tos)("the Lishogi rules"),
+        a(href := routes.Article.tos)("the Lishogi rules"),
         ", even once, then your account is lost. We don't have the luxury of being forgiving.",
       ),
       p(

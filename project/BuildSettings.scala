@@ -39,7 +39,7 @@ object BuildSettings {
     macwire.macros,
     macwire.util,
     jodaTime,
-    apacheText,
+    commonsText,
     shogi,
     scaffeine,
     autoconfig,
@@ -48,16 +48,16 @@ object BuildSettings {
   def extraLibs(name: String) =
     name match {
       case "api"      => Seq(hasher, galimatias)
-      case "common"   => Seq(play.jodaForms, scalatags, kamon.core)
-      case "db"       => Seq(hasher, scrimage)
+      case "common"   => Seq(hasher, play.jodaForms, scalatags, kamon.core)
       case "i18n"     => Seq(scalatags)
       case "memo"     => Seq(akka.testkit)
       case "oauth"    => Seq(galimatias, hasher)
-      case "prismic"  => Seq(play.jsonJoda, galimatias)
       case "push"     => Seq(googleOAuth)
-      case "security" => Seq(hasher, maxmind, uaparser, scalatags)
+      case "security" => Seq(hasher, geoip, uaparser, scalatags)
       case "socket"   => Seq(lettuce)
+      case "storm"    => Seq(hasher)
       case "user"     => Seq(hasher)
+      case "article"  => flexmark.bundle
       case _          => Seq.empty
     }
 

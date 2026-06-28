@@ -87,6 +87,10 @@ final class JSONHandlers(getLightUser: LightUser.GetterSync) {
             "text"  -> text,
             "icon"  -> icon,
           )
+        case ArticlePublished(id) =>
+          Json.obj(
+            "id" -> id,
+          )
       }
     }
 

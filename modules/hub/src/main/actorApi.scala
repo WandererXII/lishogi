@@ -165,21 +165,21 @@ package timeline {
   case class PlanStart(userId: String) extends Atom("planStart", true) {
     def userIds = List(userId)
   }
-  case class BlogPost(id: String) extends Atom("blogPost", true) {
-    def userIds = Nil
-  }
   case class StreamStart(id: String, name: String) extends Atom("streamStart", true) {
     def userIds = List(id)
   }
   case class SystemNotification(msg: String) extends Atom("systemNotification", true) {
     def userIds = Nil
   }
+  case class ArticlePublished(author: String, id: String) extends Atom("articlePublished", true) {
+    def userIds = List(author)
+  }
 
   object propagation {
     sealed trait Propagation
     case class Users(users: List[String]) extends Propagation
     case class Followers(user: String)    extends Propagation
-    case class Friends(user: String)      extends Propagation
+    case class Mutuals(user: String)      extends Propagation
     case class ExceptUser(user: String)   extends Propagation
     case class ModsOnly(value: Boolean)   extends Propagation
   }
@@ -190,7 +190,7 @@ package timeline {
     def toUsers(ids: List[String])  = add(Users(ids))
     def toUser(id: String)          = add(Users(List(id)))
     def toFollowersOf(id: String)   = add(Followers(id))
-    def toFriendsOf(id: String)     = add(Friends(id))
+    def toMutualsOf(id: String)     = add(Mutuals(id))
     def exceptUser(id: String)      = add(ExceptUser(id))
     def modsOnly(value: Boolean)    = add(ModsOnly(value))
     private def add(p: Propagation) = copy(propagations = p :: propagations)

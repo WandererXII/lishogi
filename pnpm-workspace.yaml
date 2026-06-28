@@ -17,5 +17,7 @@ minimumReleaseAgeExclude:
 
 onlyBuiltDependencies:
   - esbuild
+patchedDependencies:
+  '@toast-ui/editor': patches/@toast-ui__editor.patch
 
 savePrefix: ''

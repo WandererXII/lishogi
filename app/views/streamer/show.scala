@@ -26,7 +26,17 @@ object show {
             152,
           ),
           url = s"$netBaseUrl${routes.Streamer.show(s.user.username)}",
-          image = s.streamer.picturePath.map(p => dbImageUrl(p.value)),
+          image = s.streamer.picturePath.map(p =>
+            urlOrImageStorageUrl(
+              p.value,
+              lila.common.ImageStorage.Imgproxy
+                .opts(
+                  width = 600,
+                  height = 600,
+                )
+                .some,
+            ),
+          ),
         )
         .some,
     )(

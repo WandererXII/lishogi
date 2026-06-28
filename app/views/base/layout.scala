@@ -251,17 +251,15 @@ object layout {
     raw {
       val path = ctx.req.path
       altLangs match {
-        case lila.i18n.LangList.EnglishJapanese =>
-          defaultWithEnHrefLang(path) + hrefLang("ja", s"$path?lang=ja")
         case lila.i18n.LangList.All =>
           defaultWithEnHrefLang(path) + (lila.i18n.LangList.alternativeHrefLangCodes.map {
             langCode =>
               hrefLang(langCode, s"$path?lang=$langCode")
           }).mkString
-        case lila.i18n.LangList.Custom(langPathMap) =>
-          (langPathMap.map { case (langCode, path) =>
-            if (langCode == "en") defaultWithEnHrefLang(path)
-            else hrefLang(langCode, path)
+        case lila.i18n.LangList.Only(langCodes) =>
+          (langCodes map { langCode =>
+            if (langCode == "en") hrefLang("en", path)
+            else hrefLang(langCode, s"$path?lang=$langCode")
           }).mkString
       }
     }

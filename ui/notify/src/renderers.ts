@@ -209,6 +209,14 @@ export const renderers: Renderers = {
       ]),
     text: _ => i18n('timeAlmostUp'),
   },
+  articlePublished: {
+    html: n =>
+      generic(n, `/article/${n.content.id}`, icons.article, [
+        h('span', [h('strong', i18n('article:article'))]),
+        h('span', i18n('article:articlePublished')),
+      ]),
+    text: _ => i18n('article:articlePublished'),
+  },
 };
 
 function generic(n: Notification, url: string | undefined, icon: string, content: VNode[]): VNode {

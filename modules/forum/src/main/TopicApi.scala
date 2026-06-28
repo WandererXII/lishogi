@@ -96,7 +96,7 @@ final private[forum] class TopicApi(
           } inject topic
     }
 
-  def makeBlogDiscuss(categ: Categ, slug: String, name: String, url: String): Funit = {
+  def makeArticleDiscuss(categ: Categ, slug: String, name: String, url: String): Funit = {
     val topic = Topic.make(
       categId = categ.slug,
       slug = slug,

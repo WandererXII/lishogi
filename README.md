@@ -39,7 +39,6 @@ WebSocket connections are handled by a [separate server](https://github.com/Wand
 It uses [MongoDB](https://mongodb.org) to store games.
 HTTP requests and WebSocket connections can be proxied by [nginx](http://nginx.org).
 The web client is written in [TypeScript](https://www.typescriptlang.org/) and [snabbdom](https://github.com/snabbdom/snabbdom), using [Sass](https://sass-lang.com/) to generate CSS.
-The [blog](https://lishogi.org/blog) uses a free open content plan from [prismic.io](https://prismic.io).
 
 Use [GitHub issues](https://github.com/WandererXII/lishogi/issues) for bug reports and feature requests.
 

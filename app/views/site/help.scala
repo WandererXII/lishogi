@@ -5,53 +5,30 @@ import controllers.routes
 import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
+import lila.article.Article
 
 object help {
 
-  def page(active: String, doc: lila.prismic.Document, resolver: lila.prismic.DocumentLinkResolver)(
-      implicit ctx: Context,
+  def article(
+      active: String,
+      article: Article,
+      renderedBody: String,
+      langCode: Article.Lang.Code,
+  )(implicit
+      ctx: Context,
   ) = {
-    val title = ~doc.getText("doc.title")
     layout(
-      title = title,
+      title = article.title(langCode),
       active = active,
       contentCls = "page box box-pad",
       moreCss = cssTag("misc.page"),
+      withHrefLangs = lila.i18n.LangList.Only(article.langCodes.toList).some,
     )(
       frag(
-        h1(title),
-        div(cls := "body")(raw(~doc.getHtml("doc.content", resolver))),
-      ),
-    )
-  }
-
-  def source(doc: lila.prismic.Document, resolver: lila.prismic.DocumentLinkResolver)(implicit
-      ctx: Context,
-  ) = {
-    val title = ~doc.getText("doc.title")
-    layout(
-      title = title,
-      active = "source",
-      moreCss = cssTag("misc.source"),
-      contentCls = "page",
-    )(
-      frag(
-        st.section(cls := "box box-pad body")(
-          h1(title),
-          raw(~doc.getHtml("doc.content", resolver)),
-        ),
-        br,
-        st.section(cls := "box")(
-          div(cls := "box__top")(
-            h2("lila version"),
-          ),
-          table(cls := "slist slist-pad")(
-            tr(
-              td("Boot"),
-              td(momentFromNow(lila.common.Uptime.startedAt)),
-            ),
-          ),
-        ),
+        views.html.article.bits.internalArticleButtons(article, langCode),
+        h1(article.title(langCode)),
+        div(cls := "intro")(article.intro(langCode)),
+        div(cls := "body")(raw(renderedBody)),
       ),
     )
   }
@@ -182,8 +159,7 @@ object help {
   }
 
   def friendlySites(
-      doc: lila.prismic.Document,
-      resolver: lila.prismic.DocumentLinkResolver,
+      renderedBody: String,
   )(implicit ctx: Context) =
     layout(
       title = trans.contact.friendlySites.txt(),
@@ -199,7 +175,7 @@ object help {
         div(cls := "body")(
           p(trans.contact.manyGreatShogiSites()),
           div(cls := "friendly-sites")(
-            raw(~doc.getHtml("doc.content", resolver)),
+            raw(renderedBody),
           ),
           p(
             trans.contact.yourSiteHere(),
@@ -219,33 +195,40 @@ object help {
       contentCls: String = "",
       moreCss: Frag = emptyFrag,
       moreJs: Frag = emptyFrag,
+      withHrefLangs: Option[lila.i18n.LangList.AlternativeLangs] = none,
   )(body: Frag)(implicit ctx: Context) =
     views.html.base.layout(
       title = title,
       moreCss = moreCss,
       moreJs = moreJs,
+      withHrefLangs = withHrefLangs,
     ) {
       val sep                  = div(cls := "sep")
       def activeCls(c: String) = cls := active.activeO(c)
       main(cls := "page-menu")(
         st.nav(cls := "page-menu__menu subnav")(
-          a(activeCls("about"), href := routes.Prismic.about)(trans.aboutX("lishogi.org")),
+          a(activeCls("about"), href := routes.Article.about)(trans.aboutX("lishogi.org")),
           a(activeCls("faq"), href := routes.Main.faq)(trans.faq.faqAbbreviation()),
           a(activeCls("contact"), href := routes.Main.contact)(trans.contact.contact()),
-          a(activeCls("resources"), href := routes.Prismic.resources)(trans.shogiResources()),
-          a(activeCls("tos"), href := routes.Prismic.tos)(trans.termsOfService()),
-          a(activeCls("privacy"), href := routes.Prismic.privacy)(trans.privacy()),
+          a(activeCls("tos"), href := routes.Article.tos)(trans.termsOfService()),
+          a(activeCls("privacy"), href := routes.Article.privacy)(trans.privacy()),
           sep,
-          a(activeCls("friendly-sites"), href := routes.Prismic.friendlySites)(
+          a(activeCls("friendly-sites"), href := routes.Article.friendlySites)(
             trans.contact.friendlySites(),
           ),
-          a(activeCls("source"), href := routes.Prismic.source)(trans.sourceCode()),
-          a(activeCls("help"), href := routes.Prismic.help)(trans.contribute()),
-          a(activeCls("thanks"), href := routes.Prismic.thanks)(trans.thankYou()),
+          a(
+            activeCls("source"),
+            dataIcon := Icons.link,
+            href     := "https://github.com/WandererXII/lishogi",
+            target   := "_blank",
+          )(trans.sourceCode()),
+          a(activeCls("help"), href := routes.Article.contribute)(trans.contribute()),
+          a(activeCls("thanks"), href := routes.Article.thanks)(trans.thankYou()),
           sep,
           a(activeCls("webmasters"), href := routes.Main.webmasters)(trans.webmasters()),
-          // a(activeCls("database"), href := "https://database.lishogi.org")(trans.database(), external),
-          a(activeCls("api"), href := routes.Api.index, target := "_blank")("API"),
+          a(activeCls("api"), dataIcon := Icons.link, href := routes.Api.index, target := "_blank")(
+            "API",
+          ),
           sep,
           a(activeCls("lag"), href := routes.Main.lag)(trans.lag.isLishogiLagging()),
         ),

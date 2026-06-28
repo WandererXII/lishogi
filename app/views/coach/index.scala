@@ -27,7 +27,7 @@ object index {
       moreCss = cssTag("misc.coach"),
       moreJs = infiniteScrollTag,
     ) {
-      val langSelections = ("all", allLanguages.txt()) :: lila.i18n.I18nLangPicker
+      val langSelections = ("all", trans.allLanguages.txt()) :: lila.i18n.I18nLangPicker
         .sortFor(LangList.popular.filter(l => langCodes(l.code)), ctx.req)
         .map { l =>
           l.code -> LangList.name(l)
@@ -51,7 +51,7 @@ object index {
             div(cls := "box__top__actions")(
               views.html.base.bits.mselect(
                 "coach-lang",
-                lang.fold(allLanguages.txt())(LangList.name),
+                lang.fold(trans.allLanguages.txt())(LangList.name),
                 langSelections
                   .map { case (code, name) =>
                     a(

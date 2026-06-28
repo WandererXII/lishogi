@@ -9,6 +9,7 @@ import lila.api.Context
 import lila.app.ui.ScalatagsTemplate._
 import lila.common.AssetVersion
 import lila.common.ContentSecurityPolicy
+import lila.common.ImageStorage.Imgproxy
 import lila.common.Nonce
 import lila.common.String.html.safeJsonValue
 
@@ -36,7 +37,17 @@ trait AssetHelper { self: I18nHelper with SecurityHelper =>
   def cdnUrl(path: String)    = s"$assetBaseUrl$path"
   def staticUrl(path: String) = s"$assetBaseUrl/assets/$path"
 
-  def dbImageUrl(path: String) = s"$assetBaseUrl/image/$path"
+  def urlOrImageStorageUrl(path: String, processingOptions: Option[String]) =
+    if (path.startsWith("https://")) path
+    else imageStorageUrl(path, processingOptions)
+
+  def imageStorageUrl(path: String, processingOptions: Option[String]) =
+    s"$assetBaseUrl/image/${Imgproxy.generateSignedPath(
+        env.imgProxyKey,
+        env.imgProxySalt,
+        processingOptions,
+        path,
+      )}"
 
   private def cssAt(path: String): Frag =
     link(href := assetUrl(path), tpe := "text/css", rel := "stylesheet")

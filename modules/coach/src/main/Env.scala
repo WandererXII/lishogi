@@ -10,17 +10,13 @@ final class Env(
     userRepo: lila.user.UserRepo,
     cacheApi: lila.memo.CacheApi,
     db: lila.db.Db,
-    imageRepo: lila.db.ImageRepo,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private lazy val coachColl = db(CollName("coach"))
 
-  private lazy val photographer = new lila.db.Photographer(imageRepo, "coach")
-
   lazy val api = new CoachApi(
     coachColl = coachColl,
     userRepo = userRepo,
-    photographer = photographer,
     cacheApi = cacheApi,
   )
 

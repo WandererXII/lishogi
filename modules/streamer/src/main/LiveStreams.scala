@@ -69,7 +69,7 @@ final class LiveStreamApi(
   //           chatEnabled = true,
   //           lastGrantedAt = DateTime.now.some,
   //         ),
-  //         picturePath = none,
+  //         picturePath = Streamer.PicturePath("test/c288da66-bbda-4c24-8be9-62b4872ccbc5").some,
   //         name = Streamer.Name("Mr. Streamer"),
   //         headline = Streamer.Headline("Streaming shogi for fun").some,
   //         description = Streamer.Description("Very long description for a very good streamer").some,

@@ -255,5 +255,23 @@ trait FormHelper { self: I18nHelper =>
           accept  := ".kif, .kifu, .csa",
         )
     }
+
+    def imageUploader(
+        field: Field,
+        secret: String,
+    ): Frag =
+      frag(
+        div(
+          st.id                     := "image-editor",
+          attr("data-image-url")    := env.imgUploadUrl,
+          attr("data-image-secret") := secret,
+        ),
+        st.input(
+          st.id    := id(field),
+          st.name  := field.name,
+          st.value := field.value,
+          tpe      := "hidden",
+        ),
+      )
   }
 }

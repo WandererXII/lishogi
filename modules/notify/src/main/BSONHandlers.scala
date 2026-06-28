@@ -82,6 +82,9 @@ private object BSONHandlers {
   implicit val CorresAlarmHandler: BSONDocumentHandler[CorresAlarm]   = Macros.handler[CorresAlarm]
   implicit val GenericLinkHandler: BSONDocumentHandler[GenericLink]   = Macros.handler[GenericLink]
 
+  implicit val ArticlePublishedHandler: BSONDocumentHandler[ArticlePublished] =
+    Macros.handler[ArticlePublished]
+
   implicit val ColorBSONHandler: BSONHandler[Color] =
     BSONBooleanHandler.as[Color](Color.fromSente, _.sente)
 
@@ -114,6 +117,7 @@ private object BSONHandlers {
           case ReportedBanned                => $empty
           case x: CorresAlarm                => CorresAlarmHandler.writeTry(x).get
           case x: GenericLink                => GenericLinkHandler.writeTry(x).get
+          case x: ArticlePublished           => ArticlePublishedHandler.writeTry(x).get
         }
       } ++ $doc("type" -> notificationContent.key)
 
@@ -153,6 +157,7 @@ private object BSONHandlers {
           case "reportedBanned"          => ReportedBanned
           case "corresAlarm"             => CorresAlarmHandler.readTry(reader.doc).get
           case "genericLink"             => GenericLinkHandler.readTry(reader.doc).get
+          case "articlePublished"        => ArticlePublishedHandler.readTry(reader.doc).get
         }
 
       def writes(writer: Writer, n: NotificationContent): dsl.Bdoc = writeNotificationContent(n)

@@ -1,0 +1,36 @@
+@use '../theme/generated/theme';
+@use '../abstract/extends';
+
+.chip-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: max-content;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin: 0 1rem;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.chip {
+  @extend %box-neat-force;
+
+  padding: 0.75rem;
+  background: theme.$c-bg-zebra;
+  color: theme.$c-font-clearer;
+  font-weight: 500;
+  margin: 0.3rem;
+  min-width: 4rem;
+  text-align: center;
+
+  &:hover {
+    color: theme.$c-font-clearer;
+  }
+
+  &.selected {
+    color: theme.$c-font-shadow;
+    background: theme.$c-font-clearer;
+  }
+}

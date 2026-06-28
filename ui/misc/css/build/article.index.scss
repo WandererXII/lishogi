@@ -1,0 +1,53 @@
+@use 'pkg:breakpoint-sass' as breakpoint;
+@use 'pkg:common/abstract/icons';
+@use 'pkg:common/component/article';
+@use 'pkg:common/component/chip';
+@use 'pkg:common/component/mselect';
+@use 'pkg:common/component/slist';
+@use 'pkg:common/theme';
+
+.noarticles {
+  display: flex;
+  padding: 5rem;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+
+  i {
+    font-size: 2rem;
+  }
+
+  p {
+    margin: 0;
+  }
+}
+
+.articles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 1fr;
+  gap: 1rem;
+  margin: 1rem;
+}
+
+.mselect {
+  height: 3.2rem;
+  font-size: 1.2em;
+  min-width: 12rem;
+
+  .mselect__label {
+    height: 100%;
+  }
+}
+
+.box__top {
+  gap: 1rem;
+}
+
+.box__top > h1 {
+  margin-right: auto;
+}
+
+.box__top > a {
+  margin-top: 1rem;
+}

@@ -5,7 +5,6 @@ import scala.concurrent.duration._
 import org.joda.time.DateTime
 import reactivemongo.api.ReadPreference
 
-import lila.db.Photographer
 import lila.db.dsl._
 import lila.memo.CacheApi._
 import lila.user.User
@@ -15,7 +14,6 @@ final class StreamerApi(
     coll: Coll,
     userRepo: UserRepo,
     cacheApi: lila.memo.CacheApi,
-    photographer: Photographer,
     notifyApi: lila.notify.NotifyApi,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
@@ -120,14 +118,6 @@ final class StreamerApi(
 
   def isActualStreamer(user: User): Fu[Boolean] =
     isPotentialStreamer(user) >>& !hasNeverStreamed(user)
-
-  def uploadPicture(s: Streamer, picture: Photographer.Uploaded, by: User): Funit =
-    photographer(s.id.value, picture, createdBy = by.id).flatMap { pic =>
-      coll.update.one($id(s.id), $set("picturePath" -> pic.path)).void
-    }
-
-  def deletePicture(s: Streamer): Funit =
-    coll.update.one($id(s.id), $unset("picturePath")).void
 
   object approval {
 

@@ -151,3 +151,5 @@ case class GenericLink(
     text: Option[String],
     icon: String,
 ) extends NotificationContent("genericLink")
+
+case class ArticlePublished(id: String) extends NotificationContent("articlePublished")

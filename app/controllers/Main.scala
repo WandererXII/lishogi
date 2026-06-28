@@ -77,7 +77,7 @@ final class Main(
     Open { implicit ctx =>
       pageHit
       fuccess {
-        html.site.ranks()
+        html.site.documentation.ranks
       }
     }
 
@@ -102,7 +102,7 @@ final class Main(
     Open { implicit ctx =>
       JsMonRateLimitPerIp(HTTPRequest lastRemoteAddress ctx.req) {
         lila.mon.http.jsmon(event).increment()
-        env.report.jsEventsApi.update(event, ctx.me.map(_.id), get("v"))
+        env.report.jsEventsApi.update(event, ctx.userId, get("v"))
         NoContent.fuccess
       }(rateLimitedFu)
     }
@@ -112,18 +112,26 @@ final class Main(
       env.report.jsEventsApi.getRecent dmap { JsonOk(_) }
     }
 
-  def image(id: String, @nowarn("cat=unused") hash: String, @nowarn("cat=unused") name: String) =
-    Action.async {
-      env.imageRepo
-        .fetch(id)
-        .map {
-          case None => NotFound
-          case Some(image) =>
-            lila.mon.http.imageBytes.record(image.size.toLong)
-            Ok(image.data).withHeaders(
-              CONTENT_DISPOSITION -> image.name,
-            ) as image.contentType.getOrElse("image/jpeg")
-        }
+  // for dev use only
+  def imageProxyRedirect(path: String) =
+    Action {
+      Redirect(s"${env.imgProxyUrl}/$path")
+    }
+
+  def signedImage(path: String) =
+    Auth { implicit ctx => _ =>
+      val url = s"${env.imgProxyUrl}/${lila.common.ImageStorage.Imgproxy.generateSignedPath(
+          env.imgProxyKey,
+          env.imgProxySalt,
+          none,
+          path,
+        )}"
+      negotiate(
+        html = Redirect(
+          url,
+        ).fuccess,
+        json = Ok(Json.obj("url" -> url)).fuccess,
+      )
     }
 
   val robots = Action { req =>

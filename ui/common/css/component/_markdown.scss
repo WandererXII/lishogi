@@ -1,0 +1,134 @@
+@use '../abstract/extends';
+@use '../abstract/fluid-size';
+@use '../abstract/uniboard';
+@use '../abstract/variables';
+@use '../theme/generated/theme';
+
+.body {
+  font-size: 1.2em;
+  cursor: initial;
+  line-height: 1.8;
+
+  strong {
+    font-weight: bold;
+  }
+
+  em {
+    font-style: italic;
+    margin-right: 0.2ch;
+  }
+
+  .block-img {
+    text-align: center;
+  }
+
+  ol,
+  ul {
+    margin: 0 25px;
+
+    & + p {
+      margin-top: 2rem;
+    }
+
+    li p {
+      margin: 0;
+    }
+  }
+
+  ul li {
+    list-style: disc outside;
+  }
+
+  ol li {
+    list-style: decimal outside;
+  }
+
+  h2 {
+    border-bottom: 2px solid theme.$c-brag;
+    margin: 1.5em 0 1em 0;
+
+    @include fluid-size.fluid-size('font-size', 20px, 32px);
+  }
+
+  h3 {
+    margin: 1.2em 0 0.6em 0;
+    border-bottom: theme.$border;
+
+    @include fluid-size.fluid-size('font-size', 16px, 28px);
+  }
+
+  h4 {
+    @include fluid-size.fluid-size('font-size', 14px, 26px);
+  }
+
+  img {
+    @extend %box-radius;
+
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    height: auto;
+    max-height: 80vh;
+  }
+
+  p > code {
+    @extend %box-radius;
+
+    border: theme.$border;
+    padding: 2px;
+  }
+
+  pre {
+    @extend %box-radius;
+
+    white-space: pre-wrap;
+    font-size: 0.9em;
+    line-height: 1.2;
+    border: theme.$border;
+    background: theme.$c-bg-zebra;
+    padding: 1em;
+    margin-bottom: 2rem;
+  }
+
+  blockquote {
+    margin: 1rem 0;
+    padding: 0.75rem 1rem;
+    border-left: theme.$border;
+    border-left-width: 3px;
+    font-style: italic;
+  }
+
+  table {
+    margin-bottom: 2rem;
+  }
+
+  .embed {
+    @extend %embed;
+
+    margin: variables.$block-gap auto;
+
+    &--game {
+      @extend %game-embed;
+    }
+  }
+
+  .mini-board-wrap {
+    $space-around: 8rem;
+
+    max-width: calc(100vh / 11 * 9 / 12 * 11 - #{uniboard.$hand-gap} - #{$space-around});
+    margin: auto;
+
+    &:has(.v-minishogi),
+    &:has(.v-kyotoshogi) {
+      max-width: calc(100vh / 7 * 5 / 12 * 11 - #{uniboard.$hand-gap} - #{$space-around});
+    }
+
+    &:has(.v-chushogi) {
+      max-width: calc(100vh / 12 * 11 - #{uniboard.$hand-gap} - #{$space-around});
+    }
+
+    &:has(.v-dobutsu) {
+      max-width: calc(100vh / 6 * 3 / 12 * 11 - #{uniboard.$hand-gap} - #{$space-around});
+    }
+  }
+}

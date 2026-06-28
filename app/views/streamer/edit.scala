@@ -202,6 +202,13 @@ object edit extends Context.ToLang {
                     half = true,
                   )(form3.input(_)),
                 ),
+                form3.group(form("picturePath"), trans.profilePicture()) { f =>
+                  form3.imageUploader(
+                    f,
+                    lila.common.ImageStorage
+                      .uploadSecret(~ctx.userId, env.imgUploadKey),
+                  )
+                },
                 form3.split(
                   form3.group(
                     form("name"),
@@ -234,4 +241,27 @@ object edit extends Context.ToLang {
       )
     }
   }
+
+  def create(implicit ctx: Context) =
+    views.html.base.layout(
+      title = becomeStreamer.txt(),
+      moreCss = cssTag("misc.streamer.form").some,
+    )(
+      main(cls := "page-menu")(
+        bits.menu("create", none),
+        div(cls := "page-menu__content box streamer-edit")(
+          postForm(cls := "streamer-new", action := routes.Streamer.create)(
+            h2(doYouHaveStream()),
+            br,
+            br,
+            bits.rules,
+            br,
+            br,
+            p(style := "text-align: center")(
+              submitButton(cls := "button button-fat text", dataIcon := Icons.mic)(hereWeGo()),
+            ),
+          ),
+        ),
+      ),
+    )
 }

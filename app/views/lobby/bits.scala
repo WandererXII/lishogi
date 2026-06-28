@@ -139,21 +139,15 @@ object bits {
       ),
     )
 
-  def lastPosts(posts: List[lila.blog.MiniPost])(implicit ctx: Context): Frag =
-    div(cls := "lobby__blog lobby__box")(
-      a(cls := "lobby__box__top", href := langHrefJP(routes.Blog.index()))(
-        h2(cls := "title text", dataIcon := Icons.inkPen)(trans.latestUpdates()),
-        span(cls := "more")(trans.more(), " »"),
-      ),
+  def articles(previews: List[lila.article.Article.Preview])(implicit ctx: Context): Frag =
+    div(cls := "lobby__article")(
       div(cls := "lobby__box__content")(
-        posts map { post =>
-          a(cls := "post", href := routes.Blog.show(post.id))(
-            img(src := post.image),
-            span(cls := "text")(
-              strong(post.title),
-              span(post.shortlede),
+        previews map { preview =>
+          div(cls := "article-widget")(
+            views.html.article.bits.widget(
+              preview,
+              none,
             ),
-            semanticDate(post.date),
           )
         },
       ),

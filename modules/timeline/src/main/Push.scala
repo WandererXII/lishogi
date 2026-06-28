@@ -38,7 +38,7 @@ final private[timeline] class Push(
     scala.concurrent.Future.traverse(propagations) {
       case Users(ids)    => fuccess(ids)
       case Followers(id) => relationApi.freshFollowersFromSecondary(id)
-      case Friends(id)   => relationApi.fetchFriends(id)
+      case Mutuals(id)   => relationApi.fetchMutuals(id)
       case ExceptUser(_) => fuccess(Nil)
       case ModsOnly(_)   => fuccess(Nil)
     } flatMap { users =>

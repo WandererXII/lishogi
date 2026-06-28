@@ -60,16 +60,35 @@ GET   /new-player                      controllers.User.newPlayer
 
 GET   /dasher                          controllers.Dasher.get
 
-# Blog
-GET   /blog                            controllers.Blog.index(page: Int ?= 1)
-GET   /blog/all                        controllers.Blog.all
-GET   /blog/:year                      controllers.Blog.year(year: Int)
-GET   /blog/discuss/:uid/:id           controllers.Blog.discuss(uid: String, id: String)
-GET   /blog/post/latest                controllers.Blog.latest
-GET   /blog/post/uid/:uid              controllers.Blog.showUid(uid: String)
-GET   /blog/post/:id                   controllers.Blog.show(id: String)
-GET   /blog.atom                       controllers.Blog.atom
-GET   /blog.txt                        controllers.Blog.sitemapTxt
+# Article
+GET   /article                         controllers.Article.default(page: Int ?= 1)
+GET   /article/recent/:lang            controllers.Article.recent(lang: String, page: Int ?= 1)
+GET   /article/best                    controllers.Article.bestDefault(page: Int ?= 1)
+GET   /article/best/:lang              controllers.Article.best(lang: String, page: Int ?= 1)
+GET   /article/likes                   controllers.Article.mineLikes(page: Int ?= 1)
+GET   /article/author/:username        controllers.Article.author(username: String, page: Int ?= 1)
+GET   /article/submitted               controllers.Article.submitted(page: Int ?= 1)
+GET   /article/system                  controllers.Article.system(page: Int ?= 1)
+GET   /article/new                     controllers.Article.form
+POST  /article/new                     controllers.Article.create
+GET   /article/translate/:id/:lang     controllers.Article.translate(id: String, lang: String)
+POST  /article/translate/:id/:lang     controllers.Article.translateApply(id: String, lang: String)
+GET   /article/edit/:id/:lang          controllers.Article.edit(id: String, lang: String)
+POST  /article/edit/:id/:lang          controllers.Article.editApply(id: String, lang: String)
+POST  /article/delete/:id              controllers.Article.deleteArticle(id: String)
+POST  /article/delete/:id/:lang        controllers.Article.deleteLang(id: String, lang: String)
+POST  /article/state/:id               controllers.Article.setState(id: String)
+POST  /article/categories/:id          controllers.Article.setCategories(id: String)
+POST  /article/system-key/:key         controllers.Article.setSystemKey(key: String)
+POST  /article/like/:id                controllers.Article.like(id: String)
+GET   /article/discuss/:id             controllers.Article.discuss(id: String)
+GET   /article/:id                     controllers.Article.showRedirect(id: String)
+GET   /article/:id/:lang               controllers.Article.show(id: String, lang: String, slug: String = "")
+GET   /article/:id/:lang/:slug         controllers.Article.show(id: String, lang: String, slug: String)
+
+GET   /blog                        controllers.Main.movedPermanently(to: String = "/article")
+GET   /blog/post/:id               controllers.Article.blogBc(id: String)
+GET   /blog/uid/:uid                controllers.Article.blogBc(uid: String)
 
 # Training - Coordinate
 GET   /training/coordinate             controllers.Coordinate.home
@@ -457,9 +476,6 @@ POST  /inbox/:username                 controllers.Msg.apiPost(username: String)
 GET   /coach                           controllers.Coach.all(page: Int ?= 1)
 GET   /coach/edit                      controllers.Coach.edit
 POST  /coach/edit                      controllers.Coach.editApply
-GET   /coach/picture/edit              controllers.Coach.picture
-POST  /coach/picture/upload            controllers.Coach.pictureApply
-POST  /coach/picture/delete            controllers.Coach.pictureDelete
 GET   /coach/:username                 controllers.Coach.show(username: String)
 GET   /coach/:lang/:order              controllers.Coach.search(lang: String, order: String, page: Int ?= 1)
 
@@ -496,7 +512,8 @@ POST  /class/$id<\w{8}>/student/:username/release controllers.Clas.studentReleas
 POST  /class/$id<\w{8}>/invitation/revoke controllers.Clas.invitationRevoke(id: String)
 
 # DB image
-GET   /image/:id/:hash/:name           controllers.Main.image(id: String, hash: String, name: String)
+GET   /image/*path                    controllers.Main.imageProxyRedirect(path: String)
+GET   /image-sign/*path            controllers.Main.signedImage(path)
 
 # Paste
 GET   /paste                           controllers.Importer.importGame
@@ -642,7 +659,6 @@ POST  /event/manager                   controllers.Event.create
 GET   /captcha/$id<\w{8}>              controllers.Main.captchaCheck(id: String)
 GET   /developers                      controllers.Main.webmasters
 GET   /lag                             controllers.Main.lag
-GET   /rating-ranks                    controllers.Main.ranks
 
 
 # Dev
@@ -657,27 +673,23 @@ POST  /mobile/register/:platform/:deviceId controllers.Push.mobileRegister(platf
 POST  /mobile/unregister               controllers.Push.mobileUnregister
 POST  /push/subscribe                  controllers.Push.webSubscribe
 
-# Pages
+# Help pages
 GET   /contact                         controllers.Main.contact
 GET   /faq                             controllers.Main.faq
-GET   /thanks                          controllers.Prismic.thanks
-GET   /terms-of-service                controllers.Prismic.tos
-GET   /privacy                         controllers.Prismic.privacy
-GET   /about                           controllers.Prismic.about
-GET   /source                          controllers.Prismic.source
-GET   /contribute                      controllers.Prismic.help
-GET   /ads                             controllers.Prismic.ads
-GET   /donations                       controllers.Prismic.donations
-GET   /resources                       controllers.Prismic.resources
-GET   /friendly-sites                  controllers.Prismic.friendlySites
-GET   /page/:uid                       controllers.Prismic.page(uid: String)
-GET   /explanation/:uid                controllers.Prismic.bcPage(uid: String)
+GET   /thanks                          controllers.Article.thanks
+GET   /terms-of-service                controllers.Article.tos
+GET   /privacy                         controllers.Article.privacy
+GET   /about                           controllers.Article.about
+GET   /contribute                      controllers.Article.contribute
+GET   /donations                       controllers.Article.donations
+GET   /friendly-sites                  controllers.Article.friendlySites
+GET   /page/:key                       controllers.Article.page(key: String)
 
-# Variants
-GET   /variant                         controllers.Prismic.variantHome
-GET   /variant/:key                    controllers.Prismic.variant(key)
+# Docs
+GET   /docs/rating-ranks               controllers.Main.ranks
+GET   /docs/:key                       controllers.Article.documentation(key)
 
-# Help
+# Monitoring
 POST  /jslog/$id<\w{12}>               controllers.Main.jslog(id: String)
 POST  /jsmon/:event                    controllers.Main.jsmon(event: String)
 GET   /jsmon                           controllers.Main.getJsmon

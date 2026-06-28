@@ -29,7 +29,6 @@
 	<string name="publishOnListHelp">Enable when your profile is ready</string>
 	<string name="availableForLessons">Currently available for lessons</string>
 	<string name="availableForLessonsHelp">Enable to get more students</string>
-	<string name="allLanguages" comment="List all languages">All languages</string>
 	<string name="languagesSpoken">Languages spoken</string>
 	<string name="languagesSpokenHelp">Which languages can you give lessons in?</string>
 	<string name="hourlyRateHelp">Indicative, non-contractual (3 to 140 chars)</string>

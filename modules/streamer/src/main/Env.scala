@@ -35,7 +35,6 @@ final class Env(
     userRepo: lila.user.UserRepo,
     timeline: lila.hub.actors.Timeline,
     db: lila.db.Db,
-    imageRepo: lila.db.ImageRepo,
 )(implicit
     ec: scala.concurrent.ExecutionContext,
     system: ActorSystem,
@@ -46,8 +45,6 @@ final class Env(
   private val config = appConfig.get[StreamerConfig]("streamer")(AutoConfig.loader)
 
   private lazy val streamerColl = db(config.streamerColl)
-
-  private lazy val photographer = new lila.db.Photographer(imageRepo, "streamer")
 
   lazy val alwaysFeaturedSetting = {
     import lila.memo.SettingStore.Strings._

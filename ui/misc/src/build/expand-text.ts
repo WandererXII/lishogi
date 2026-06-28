@@ -1,7 +1,16 @@
-import { loadScript } from 'common/assets';
+import { loadPieceSpriteByVariant, loadScript } from 'common/assets';
+import { defined } from 'common/common';
 import { icons } from 'common/icons';
 import { camelToKebab } from 'common/string';
 import { isLight } from 'common/styles';
+import { notationFiles, notationRanks } from 'shogi/notation';
+import type { DrawShape, DrawShapePiece } from 'shogiground/draw';
+import { usiToSquareNames } from 'shogiops/compat';
+import { RULES } from 'shogiops/constants';
+import { forsythToRole, initialSfen, roleToForsyth } from 'shogiops/sfen';
+import type { Rules } from 'shogiops/types';
+import { isDrop, makeSquareName, parseSquareName, parseUsi } from 'shogiops/util';
+import { handRoles } from 'shogiops/variant/util';
 
 type LinkType = 'youtube' | 'twitter' | 'game' | 'study';
 
@@ -224,6 +233,139 @@ const expandGames = (games: Candidate[]): void => {
   });
 };
 
+function getPieceDetails(char: string, variant: VariantKey): DrawShapePiece | undefined {
+  const isSente = char === char.toUpperCase();
+  const role = forsythToRole(variant)(char.toLowerCase());
+
+  if (!role) return;
+
+  return {
+    role,
+    color: isSente ? 'sente' : 'gote',
+  };
+}
+
+export function parseShape(s: string, variant: VariantKey): DrawShape | undefined {
+  const token = s.trim();
+  if (!token) return undefined;
+
+  const defaultBrush = 'green';
+
+  // p*1a, P*1a
+  if (token.includes('*')) {
+    const originalPieceChar = token.split('*')[0];
+    const drop = parseUsi(`${originalPieceChar.toUpperCase()}*${token.slice(2)}`);
+
+    if (drop && isDrop(drop)) {
+      const piece = getPieceDetails(originalPieceChar, variant);
+
+      if (piece) {
+        return {
+          orig: piece,
+          dest: makeSquareName(drop.to),
+          brush: defaultBrush,
+        };
+      }
+    }
+    return undefined;
+  }
+
+  // 1a1b, 2a3b+
+  const usiMove = parseUsi(token);
+  if (usiMove && 'from' in usiMove && usiMove.to) {
+    return {
+      orig: makeSquareName(usiMove.from),
+      dest: makeSquareName(usiMove.to),
+      description: usiMove.promotion ? '+' : undefined,
+      brush: defaultBrush,
+    };
+  }
+
+  // 1a, 9b
+  const singleSquare = parseSquareName(token);
+  if (defined(singleSquare)) {
+    return {
+      orig: makeSquareName(singleSquare),
+      dest: makeSquareName(singleSquare),
+      brush: defaultBrush,
+    };
+  }
+
+  // 'p', 'P'
+  if (token.length === 1) {
+    const piece = getPieceDetails(token, variant);
+    if (piece) {
+      return {
+        orig: piece,
+        dest: piece,
+        brush: defaultBrush,
+      };
+    }
+  }
+
+  return undefined;
+}
+
+function expandShogiLanguage() {
+  document.querySelectorAll<HTMLPreElement>('pre > code.language-shogi').forEach(code => {
+    const pre = code.parentElement as HTMLPreElement;
+
+    const text = code.textContent ?? '';
+
+    const variant = (text.match(/variant:\s*(.+)/)?.[1]?.trim() || 'standard') as Rules;
+    if (!RULES.includes(variant)) return;
+
+    const sfen = text.match(/sfen:\s*(.+)/)?.[1]?.trim() || initialSfen(variant);
+    const orientation = (text.match(/orientation:\s*(.+)/)?.[1]?.trim() || 'sente') as Color;
+    const lastMove = text.match(/lastMove:\s*(.+)/)?.[1]?.trim() as Usi;
+    const shapes = text
+      .match(/shapes:\s*(.+)/)?.[1]
+      ?.trim()
+      ?.split(',');
+
+    loadPieceSpriteByVariant(variant);
+
+    const miniBoardWrap = document.createElement('div');
+    miniBoardWrap.className = 'mini-board-wrap';
+    const miniBoard = document.createElement('div');
+    miniBoard.className = `mini-board v-${variant}`;
+    miniBoardWrap.appendChild(miniBoard);
+    const wrap = document.createElement('div');
+    wrap.className = 'sg-wrap';
+    miniBoard.appendChild(wrap);
+
+    pre.replaceWith(miniBoardWrap);
+
+    const sgApi = window.Shogiground(
+      {
+        sfen: {
+          board: sfen.split(' ')[0],
+          hands: sfen.split(' ')[2],
+        },
+        hands: {
+          roles: handRoles(variant),
+          inlined: variant !== 'chushogi',
+        },
+        forsyth: {
+          fromForsyth: forsythToRole(variant),
+          toForsyth: roleToForsyth(variant),
+        },
+        lastDests: usiToSquareNames(lastMove),
+        orientation,
+        coordinates: { enabled: true, files: notationFiles(), ranks: notationRanks() },
+        viewOnly: true,
+        drawable: {
+          enabled: false,
+          visible: true,
+        },
+      },
+      { board: wrap },
+    );
+
+    if (shapes) sgApi.setAutoShapes(shapes.map(s => parseShape(s, variant)).filter(s => !!s));
+  });
+}
+
 function configureSrc(url: string) {
   if (url.includes('://')) return url; // youtube, img, etc
   const parsed = new URL(url, window.location.href);
@@ -307,6 +449,12 @@ function main() {
   expandStudies(as.filter(a => a.type === 'study'));
 
   expandGames(as.filter(a => a.type === 'game'));
+
+  try {
+    expandShogiLanguage();
+  } catch (err) {
+    console.error(`Failed to parse shogi board - ${err}`);
+  }
 }
 
 window.lishogi.registerModule(__bundlename__, main);

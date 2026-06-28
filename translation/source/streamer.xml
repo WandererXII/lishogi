@@ -45,10 +45,6 @@
   <string name="headline">Headline</string>
   <string name="tellUsAboutTheStream">Tell us about your stream in one sentence</string>
   <string name="longDescription">Long description</string>
-  <string name="xStreamerPicture">%s streamer picture</string>
-  <string name="changePicture">Change/delete your picture</string>
-  <string name="uploadPicture">Upload a picture</string>
-  <string name="deletePicture">Delete picture</string>
   <string name="maxSize">Max size: %s</string>
   <string name="installBlocker">Install a malware blocker!</string>
   <string name="beSafe">Be safe from ads and trackers

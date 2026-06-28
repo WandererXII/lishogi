@@ -116,15 +116,17 @@ object timeline {
               showUsernameById(userId.some, withOnline = true, withFlag = false),
             ),
           )
-        case BlogPost(_) =>
-          a(cls := "text", dataIcon := Icons.inkPen, href := routes.Blog.latest)(
-            trans.officialBlog(),
-          )
         case StreamStart(id, name) =>
           views.html.streamer.bits
             .redirectLink(id)(cls := "text", dataIcon := Icons.mic)(trans.xStartedStreaming(name))
         case SystemNotification(text) =>
           div(cls := "text system-notification", dataIcon := Icons.cogs)(text)
+        case ArticlePublished(author, id) =>
+          a(cls := "text", href := routes.Article.showRedirect(id), dataIcon := Icons.article)(
+            trans.article.newArticleByX(
+              showUsernameById(author.some, withOnline = false, withFlag = false),
+            ),
+          )
       },
       " ",
       momentFromNow(e.date),

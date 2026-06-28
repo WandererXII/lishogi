@@ -16,12 +16,14 @@ object StreamerForm {
   import Streamer.Headline
   import Streamer.Listed
   import Streamer.Name
+  import Streamer.PicturePath
   import Streamer.Twitch
   import Streamer.YouTube
 
   lazy val emptyUserForm = Form(
     mapping(
       "name"        -> nameField,
+      "picturePath" -> optional(picturePathField),
       "headline"    -> optional(headlineField),
       "description" -> optional(descriptionField),
       "twitch" -> optional(
@@ -55,6 +57,7 @@ object StreamerForm {
   def userForm(streamer: Streamer) =
     emptyUserForm fill UserData(
       name = streamer.name,
+      picturePath = streamer.picturePath,
       headline = streamer.headline,
       description = streamer.description,
       twitch = streamer.twitch.map(_.userId),
@@ -71,6 +74,7 @@ object StreamerForm {
 
   case class UserData(
       name: Name,
+      picturePath: Option[PicturePath],
       headline: Option[Headline],
       description: Option[Description],
       twitch: Option[String],
@@ -82,6 +86,7 @@ object StreamerForm {
     def apply(streamer: Streamer, asMod: Boolean) = {
       val newStreamer = streamer.copy(
         name = name,
+        picturePath = picturePath,
         headline = headline,
         description = description,
         twitch = twitch.flatMap(Twitch.parseUserId).map(Twitch.apply),
@@ -124,6 +129,10 @@ object StreamerForm {
       }
   }
 
+  implicit private val picturePathFormat: Formatter[PicturePath] =
+    formatter.stringFormatter[PicturePath](_.value, PicturePath.apply)
+  private def picturePathField =
+    of[PicturePath].verifying(constraint.maxLength[PicturePath](_.value)(300))
   implicit private val headlineFormat: Formatter[Headline] =
     formatter.stringFormatter[Headline](_.value, Headline.apply)
   private def headlineField = of[Headline].verifying(constraint.maxLength[Headline](_.value)(300))

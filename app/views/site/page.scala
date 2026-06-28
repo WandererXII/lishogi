@@ -3,24 +3,27 @@ package views.html.site
 import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
+import lila.article.Article
 
 object page {
 
   def apply(
-      doc: lila.prismic.Document,
-      resolver: lila.prismic.DocumentLinkResolver,
-      withHrefLangs: Option[lila.i18n.LangList.AlternativeLangs] = None,
-  )(implicit ctx: Context) =
+      key: String,
+      article: Article,
+      renderedBody: String,
+      langCode: Article.Lang.Code,
+  )(implicit
+      ctx: Context,
+  ) =
     views.html.base.layout(
       moreCss = cssTag("misc.page"),
-      title = ~doc.getText("doc.title"),
-      withHrefLangs = withHrefLangs,
+      title = article.title(langCode),
+      withHrefLangs = lila.i18n.LangList.Only(article.langCodes.toList).some,
     ) {
-      main(cls := "page-small box box-pad page")(
-        h1(doc.getText("doc.title")),
-        div(cls := "body")(
-          raw(~doc.getHtml("doc.content", resolver)),
-        ),
+      main(cls := s"page box box-pad page-${key}")(
+        h1(article.title(langCode)),
+        div(cls := "intro")(article.intro(langCode)),
+        div(cls := "body")(raw(renderedBody)),
       )
     }
 }

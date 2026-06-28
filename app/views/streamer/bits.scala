@@ -12,42 +12,23 @@ object bits extends Context.ToLang {
 
   import trans.streamer._
 
-  def create(implicit ctx: Context) =
-    views.html.site.message(
-      title = becomeStreamer.txt(),
-      icon = Some(Icons.mic),
-      moreCss = cssTag("misc.streamer.form").some,
-    )(
-      postForm(cls := "streamer-new", action := routes.Streamer.create)(
-        h2(doYouHaveStream()),
-        br,
-        br,
-        bits.rules,
-        br,
-        br,
-        p(style := "text-align: center")(
-          submitButton(cls := "button button-fat text", dataIcon := Icons.mic)(hereWeGo()),
-        ),
-      ),
-    )
-
-  def pic(s: lila.streamer.Streamer, u: User, size: Int = 300) =
-    s.picturePath match {
+  def pic(s: lila.streamer.Streamer.WithUserAndStream)(implicit lang: Lang) =
+    s.streamer.picturePath match {
       case Some(path) =>
         img(
-          width  := size,
-          height := size,
-          cls    := "picture",
-          src    := dbImageUrl(path.value),
-          alt    := s"${u.titleUsername} Lishogi streamer picture",
+          cls             := "picture",
+          attr("loading") := "lazy",
+          src := urlOrImageStorageUrl(
+            path.value,
+            lila.common.ImageStorage.Imgproxy.opts(width = 600, height = 600).some,
+          ),
+          alt := s"${s.user.titleUsername} - ${trans.streamer.lishogiStreamer.txt()}",
         )
       case _ =>
         img(
-          width  := size,
-          height := size,
-          cls    := "default picture",
-          src    := staticUrl("images/placeholder.png"),
-          alt    := "Default Lishogi streamer picture",
+          cls := "default picture",
+          src := staticUrl("images/placeholder.png"),
+          alt := "Default Lishogi streamer picture",
         )
     }
 

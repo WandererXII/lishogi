@@ -37,7 +37,7 @@ object faq {
             a(href := routes.Plan.index)(beingAPatron()),
           ),
           p(
-            a(href := routes.Prismic.help)(otherWaysToContribute()),
+            a(href := routes.Article.contribute)(otherWaysToContribute()),
           ),
         ),
         h2(fairPlay()),

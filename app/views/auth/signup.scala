@@ -37,7 +37,7 @@ object signup {
             br,
             small(
               trans.byRegisteringYouAgreeToBeBoundByOur(
-                a(href := routes.Prismic.tos)(trans.termsOfService()),
+                a(href := routes.Article.tos)(trans.termsOfService()),
               ),
             ),
           ),

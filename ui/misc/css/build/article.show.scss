@@ -1,0 +1,187 @@
+@use 'pkg:breakpoint-sass' as breakpoint;
+@use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/fluid-size';
+@use 'pkg:common/abstract/media-queries';
+@use 'pkg:common/abstract/mixins';
+@use 'pkg:common/abstract/uniboard';
+@use 'pkg:common/abstract/variables';
+@use 'pkg:common/component/chip';
+@use 'pkg:common/component/slist';
+@use 'pkg:common/component/markdown';
+@use 'pkg:common/theme';
+@use 'pkg:common/shogiground/coords';
+
+.article {
+  position: relative;
+
+  .state-line {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: theme.$c-bad;
+    color: theme.$c-bad-over;
+    text-align: center;
+    font-size: 1.1rem;
+
+    p {
+      margin: 0 auto 0 1rem;
+      font-weight: bold;
+    }
+
+    .edit-link {
+      &::before {
+        line-height: 1rem;
+      }
+    }
+
+    &.state-topublish {
+      background: theme.$c-warn;
+      color: theme.$c-warn-over;
+
+      input {
+        width: 5rem;
+      }
+    }
+
+    &.state-published {
+      background: theme.$c-good;
+      color: theme.$c-good-over;
+
+      form {
+        margin-left: auto;
+      }
+    }
+  }
+
+  .chip-list {
+    margin-top: 1rem;
+    justify-content: center;
+  }
+
+  &.editable {
+    .chip-list {
+      .chip {
+        opacity: 0.5;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.75;
+        }
+
+        &.selected {
+          opacity: 1;
+        }
+      }
+
+      &.full .chip {
+        &:not(.selected) {
+          cursor: default;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  &.no-likes {
+    .like-button {
+      pointer-events: none;
+
+      &.button {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  & > img {
+    @extend %box-radius;
+
+    display: block;
+    aspect-ratio: 16 / 9;
+    width: 70%;
+    object-fit: cover;
+    margin: 3rem auto 0 auto;
+  }
+
+  & > h1 {
+    text-align: center;
+  }
+
+  .meta-headline {
+    @extend %box-shadow, %flex-center;
+
+    gap: 1rem;
+    background: theme.$c-bg-zebra;
+    padding: 0.75rem 0;
+    padding: 1.4rem var(--box-padding) 1.4rem var(--box-padding);
+    text-align: center;
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 1.5rem;
+      width: 100%;
+
+      .like-button {
+        color: inherit;
+
+        &:hover {
+          color: theme.$c-bad;
+        }
+      }
+
+      .langs {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+
+        a {
+          padding: 0.15rem 0.4rem;
+        }
+
+        .lang-alt {
+          color: inherit;
+
+          &:hover {
+            color: theme.$c-primary-hover;
+          }
+        }
+      }
+    }
+  }
+
+  .intro {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 2rem var(--box-padding);
+  }
+
+  .body {
+    margin: 0 var(--box-padding);
+  }
+
+  .footer {
+    padding-bottom: 2rem;
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      margin: 2rem;
+      gap: 1rem;
+
+      & > * {
+        flex: 1;
+      }
+    }
+
+    & > a {
+      display: block;
+      width: 80%;
+      padding: 1rem;
+      margin: auto;
+      text-align: center;
+    }
+  }
+}

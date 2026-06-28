@@ -62,7 +62,7 @@ object topnav {
             a(href := langHref(routes.Coordinate.home))(trans.coordinates.coordinates()),
             ctx.noKid option a(href := routes.Coach.all(1))(trans.coaches()),
             canSeeClasMenu option a(href := routes.Clas.index)(trans.clas.lishogiClasses()),
-            a(href := routes.Prismic.variantHome)(trans.variants()),
+            a(href := routes.Article.documentation("kif"))(trans.documentation()),
           ),
         )
       },
@@ -74,7 +74,6 @@ object topnav {
             a(href := tvUrl)("Lishogi TV"),
             a(href := langHref(routes.Tv.games))(trans.currentGames()),
             ctx.noKid option a(href := routes.Streamer.index())(trans.streamersMenu()),
-            // ctx.noBot option a(href := routes.Video.index)(trans.videoLibrary())
           ),
         )
       },

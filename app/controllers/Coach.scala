@@ -61,36 +61,9 @@ final class Coach(env: Env) extends LilaController(env) {
           .bindFromRequest()
           .fold(
             _ => fuccess(BadRequest),
-            data => api.update(c, data) inject Ok,
+            data => api.update(c, data) inject Redirect(routes.Coach.show(c.coach.id.value)),
           )
       }
     }
 
-  def picture =
-    Secure(_.Coach) { implicit ctx => me =>
-      OptionResult(api findOrInit me) { c =>
-        Ok(html.coach.picture(c)).noCache
-      }
-    }
-
-  def pictureApply =
-    AuthBody(parse.multipartFormData) { implicit ctx => me =>
-      OptionFuResult(api findOrInit me) { c =>
-        ctx.body.body.file("picture") match {
-          case Some(pic) =>
-            (api.uploadPicture(c, pic, me) inject Redirect(routes.Coach.edit)) recover {
-              case e: lila.base.LilaException =>
-                BadRequest(html.coach.picture(c, e.message.some))
-            }
-          case None => fuccess(Redirect(routes.Coach.edit))
-        }
-      }
-    }
-
-  def pictureDelete =
-    Secure(_.Coach) { implicit ctx => me =>
-      OptionFuResult(api findOrInit me) { c =>
-        api.deletePicture(c) inject Redirect(routes.Coach.edit)
-      }
-    }
 }

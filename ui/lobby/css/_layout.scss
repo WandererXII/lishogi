@@ -11,7 +11,7 @@
     'app'
     'table'
     'side'
-    'blog'
+    'article'
     'tv'
     'puzzle'
     'leader'
@@ -36,7 +36,7 @@
       'app    app'
       'side   side'
       'tv     puzzle'
-      'blog   blog'
+      'article   article'
       'desc   desc'
       'leader winner'
       'tours  tours'
@@ -47,16 +47,17 @@
 
   @include breakpoint.breakpoint(local.$mq-col3) {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 14em repeat(5, fit-content(0)) min-content 1fr;
+    grid-template-rows: 14em repeat(3, fit-content(0)) min-content 1fr;
     grid-template-areas:
       'table   app     app'
       'side    app     app'
       'tv      leader  winner'
+      'puzzle  article    article'
       'puzzle  tours   tours'
-      'puzzle  studies  studies'
-      'desc   blog    blog'
+      'desc   studies  studies'
       'desc   forum forum'
-      'about forum forum ';
+      'about forum forum '
+      '. forum forum ';
 
     &__start {
       flex-flow: column;
@@ -75,25 +76,22 @@
 
   @include breakpoint.breakpoint(local.$mq-col4) {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows:
-      fit-content(0)
-      fit-content(0)
-      min-content // desc blog
-      fit-content(0) // tours blog
+    grid-template-rows: fit-content(0) // app
+      fit-content(0) // leader winner
+      min-content // desc article
       fit-content(0) // tours forum
-      max-content; // studies forum
+      fit-content(0); // studies forum
 
     grid-template-areas:
       'side   app     app    table'
       'tv     leader  winner puzzle'
-      'desc desc    blog  blog'
-      'tours tours    blog  blog'
+      'desc desc    article  article'
       'tours tours    forum forum'
       'studies studies    forum forum'
       'about about about about';
 
     &__forum {
-      height: 26.5em;
+      height: 30.1em;
     }
 
     &__side {
@@ -152,8 +150,8 @@
     grid-area: forum;
   }
 
-  &__blog {
-    grid-area: blog;
+  &__article {
+    grid-area: article;
   }
 
   &__about {
