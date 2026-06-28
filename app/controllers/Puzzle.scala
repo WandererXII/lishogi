@@ -129,7 +129,7 @@ final class Puzzle(
           {
             ctx.me match {
               case Some(me) =>
-                env.puzzle.finisher(id, theme.key, me, data.result) flatMap {
+                env.puzzle.finisher(id, theme.key, me, data.result, data.noRating) flatMap {
                   _ ?? { case (round, perf) =>
                     val newUser = me.copy(perfs = me.perfs.copy(puzzle = perf))
                     for {

@@ -43,7 +43,13 @@ final private[puzzle] class PuzzleFinisher(
   ): Fu[List[(PuzzleRound, IntRatingDiff)]] =
     solutions.foldM((user.perfs.puzzle, List.empty[(PuzzleRound, IntRatingDiff)])) {
       case ((perf, rounds), sol) =>
-        apply(Puzzle.Id(sol.id), PuzzleTheme.findOrAny(sol.theme).key, user, Result(sol.win)) map {
+        apply(
+          Puzzle.Id(sol.id),
+          PuzzleTheme.findOrAny(sol.theme).key,
+          user,
+          Result(sol.win),
+          false,
+        ) map {
           case Some((round, newPerf)) => {
             val rDiff = IntRatingDiff(newPerf.intRating - perf.intRating)
             (newPerf, (round, rDiff) :: rounds)
@@ -57,6 +63,7 @@ final private[puzzle] class PuzzleFinisher(
       theme: PuzzleTheme.Key,
       user: User,
       result: Result,
+      noRating: Boolean,
   ): Fu[Option[(PuzzleRound, Perf)]] =
     if (api.casual(user, id)) fuccess {
       PuzzleRound(
@@ -78,6 +85,19 @@ final private[puzzle] class PuzzleFinisher(
                 case Some(prev) =>
                   (
                     prev.updateWithWin(result.win),
+                    none,
+                    user.perfs.puzzle,
+                  )
+                case None if noRating =>
+                  val round =
+                    PuzzleRound(
+                      id = PuzzleRound.Id(user.id, puzzle.id),
+                      win = result.win,
+                      fixedAt = none,
+                      date = DateTime.now,
+                    )
+                  (
+                    round,
                     none,
                     user.perfs.puzzle,
                   )
