@@ -21,13 +21,13 @@ export function loaded(ctrl: Ctrl): VNode {
 }
 
 export function loading(): VNode {
-  return h('div#challenge-app.links.dropdown.rendered', [h('div.empty.loading', '-'), create()]);
+  return h('div#challenge-app.links.dropdown.rendered', [h('div.empty.loading', '-')]);
 }
 
 function renderContent(ctrl: Ctrl): VNode[] {
   const d = ctrl.data();
   const nb = d.in.length + d.out.length;
-  return nb ? [allChallenges(ctrl, d, nb)] : [empty(), create()];
+  return nb ? [allChallenges(ctrl, d, nb)] : [empty()];
 }
 
 function userPowertips(vnode: VNode) {
@@ -182,16 +182,6 @@ function renderUser(u?: ChallengeUser): VNode {
       ),
     ],
   );
-}
-
-function create(): VNode {
-  return h('a.create', {
-    attrs: {
-      href: '/?any#friend',
-      'data-icon': icons.createNew,
-      title: 'Challenge someone',
-    },
-  });
 }
 
 function empty(): VNode {
