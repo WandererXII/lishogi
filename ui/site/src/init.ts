@@ -6,6 +6,7 @@ import { wsConnect, wsConnected } from 'common/ws';
 import { i18n } from 'i18n';
 import { announce } from './announce';
 import { challengeApp } from './challenge';
+import { initFollowingApp } from './following';
 import { loadInfiniteScroll } from './infinite-scroll';
 import { fillJquery } from './jquery';
 import { mousetrap } from './mousetrap';
@@ -72,7 +73,6 @@ export function init(): void {
     announce($('body').data('announce')); // server announcment
     pubsub.on('socket.in.announce', announce);
 
-    $('#friend_box').friends();
     $('.chat__members').watchers();
 
     $('#main-wrap').on('pointerdown', '.autoselect', function (e) {
@@ -149,6 +149,8 @@ export function init(): void {
     pubsub.on('socket.in.notifications', (d: any) => {
       window.lishogi.notifyApp?.update(d, true);
     });
+
+    initFollowingApp();
 
     // dasher
     {
@@ -319,30 +321,6 @@ export function init(): void {
   pubsub.on('socket.in.new_notification', (e: any) => {
     $('#notify-toggle').attr('data-count', e.unread || 0);
     window.lishogi.sound.playOnce('new-pm');
-  });
-
-  const $friendsBox = $('#friend_box');
-  pubsub.on('socket.in.following_onlines', (_, d) => {
-    d.users = d.d;
-    $friendsBox.friends('set', d);
-  });
-  pubsub.on('socket.in.following_enters', (_, d) => {
-    $friendsBox.friends('enters', d);
-  });
-  pubsub.on('socket.in.following_leaves', name => {
-    $friendsBox.friends('leaves', name);
-  });
-  pubsub.on('socket.in.following_playing', name => {
-    $friendsBox.friends('playing', name);
-  });
-  pubsub.on('socket.in.following_stopped_playing', name => {
-    $friendsBox.friends('stopped_playing', name);
-  });
-  pubsub.on('socket.in.following_joined_study', name => {
-    $friendsBox.friends('study_join', name);
-  });
-  pubsub.on('socket.in.following_left_study', name => {
-    $friendsBox.friends('study_leave', name);
   });
 
   if ('serviceWorker' in navigator && 'Notification' in window && 'PushManager' in window) {

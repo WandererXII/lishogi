@@ -1,0 +1,62 @@
+@use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/mixins';
+@use 'pkg:common/theme';
+
+#following-app {
+  @extend %box-radius-left;
+
+  overflow: hidden;
+  width: 20rem;
+  max-width: 100vw;
+  right: 0;
+
+  .empty {
+    text-align: center;
+    padding: 2rem 0;
+  }
+
+  .spinner {
+    margin: 50px auto;
+  }
+
+  .following-wrap {
+    @include mixins.transition(opacity);
+  }
+
+  .following-wrap {
+    display: flex;
+    flex-direction: column;
+    border-bottom: theme.$border;
+    position: relative;
+
+    a.following-user {
+      @extend %nowrap-hidden;
+
+      padding: 0.75rem;
+      flex: 0 1 100%;
+      border-bottom: theme.$border;
+
+      &:hover {
+        color: theme.$c-font-clear;
+        background-color: theme.$c-bg-zebra2;
+      }
+    }
+
+    .no-online {
+      padding: 2rem;
+      text-align: center;
+      border-bottom: theme.$border;
+    }
+
+    .more {
+      padding: 0.35rem;
+      color: theme.$c-primary;
+      text-align: center;
+
+      &:hover {
+        color: theme.$c-primary-over;
+        background-color: theme.$c-primary;
+      }
+    }
+  }
+}

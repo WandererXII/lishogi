@@ -144,6 +144,21 @@ object layout {
     frag(
       div(
         a(
+          id  := "following-toggle",
+          cls := "toggle link",
+        )(
+          span(
+            title    := trans.following.txt(),
+            dataIcon := Icons.people,
+          ),
+        ),
+        div(
+          id  := "following-app",
+          cls := "dropdown",
+        ),
+      ),
+      div(
+        a(
           id  := "challenge-toggle",
           cls := "toggle link",
         )(
