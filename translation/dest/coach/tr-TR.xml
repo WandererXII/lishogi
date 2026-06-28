@@ -29,7 +29,6 @@
 	<string name="publishOnListHelp">Profiliniz hazır olduğunda etkinleştirin.</string>
 	<string name="availableForLessons">Şu anda dersler için mevcut</string>
 	<string name="availableForLessonsHelp">Daha fazla öğrenci edinmeyi etkinleştir</string>
-	<string name="allLanguages" comment="List all languages">Bütün diller</string>
 	<string name="languagesSpoken">Konuşulan diller</string>
 	<string name="languagesSpokenHelp">Hangi dillerde ders verebilirsiniz?</string>
 	<string name="hourlyRateHelp">Bildirici, bağlayıcı olmayan (3 ila 140 karakter)</string>
@@ -43,8 +42,4 @@
 	<string name="publicStudiesHelp">Lishogi çalışmasına ait en fazla 6 URL, her satıra bir tane.</string>
 	<string name="youtubeChannelUrl">YouTube kanalınızın URL\'si</string>
 	<string name="youtubeVideosHelp">Her satıra bir tane olmak üzere en fazla 6 YouTube video URL\'si ekleyebilirsiniz.</string>
-	<string name="basicsTab">Temel Bilgiler</string>
-	<string name="textsTab">Metinler</string>
-	<string name="contentsTab">İçerikler</string>
-	<string name="profileSaved">Değişiklikleriniz kaydedildi.</string>
 </resources>
