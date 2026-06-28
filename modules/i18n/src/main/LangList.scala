@@ -4,8 +4,11 @@ import play.api.i18n.Lang
 
 object LangList {
 
+  val english  = enLang -> "English"
+  val japanese = jaLang -> "日本語"
+
   val all = Map(
-    Lang("en", "GB") -> "English",
+    english,
     Lang("af", "ZA") -> "Afrikaans",
     Lang("ar", "SA") -> "العربية",
     Lang("be", "BY") -> "Беларуская",
@@ -25,7 +28,7 @@ object LangList {
     Lang("hu", "HU") -> "Magyar",
     Lang("id", "ID") -> "Bahasa Indonesia",
     Lang("it", "IT") -> "Italiano",
-    Lang("ja", "JP") -> "日本語",
+    japanese,
     Lang("ko", "KR") -> "한국어",
     Lang("lt", "LT") -> "lietuvių kalba",
     Lang("nb", "NO") -> "Norsk bokmål",
@@ -107,6 +110,20 @@ object LangList {
   lazy val allWithMissing =
     (all ++ missing).toList.sortBy(_._1.code)
 
+  // English and Japanese on top
+  // Instead of "en-GB" and "en-US" we get only "en"
+  lazy val allByLangCodesSorted: List[(String, String)] =
+    List(
+      (languageCode(english._1)  -> english._2),
+      (languageCode(japanese._1) -> japanese._2),
+    ) ++ ((all ++ missing).toSeq
+      .foldLeft(Map.empty[String, String]) { case (acc, (k, v)) =>
+        val nk = languageCode(k)
+        if (acc.contains(nk)) acc else acc + (nk -> v)
+      })
+      .toList
+      .sortBy(_._1)
+
   lazy val popular: List[Lang] = {
     // 01/06/2023 based on db.user4.aggregate({$sortByCount:'$lang'}).toArray()
     // GB should be third, but let's have en together
@@ -180,9 +197,8 @@ object LangList {
     )
 
   sealed trait AlternativeLangs
-  case object EnglishJapanese                      extends AlternativeLangs
-  case object All                                  extends AlternativeLangs
-  case class Custom(langPath: Map[String, String]) extends AlternativeLangs
+  case object All                     extends AlternativeLangs
+  case class Only(langs: Seq[String]) extends AlternativeLangs
 
   // no english, sorted by popularity
   lazy val alternativeHrefLangCodes: List[String] =
