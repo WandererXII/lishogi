@@ -456,7 +456,7 @@ object layout {
           cls       := "link data-count link-center",
           href      := routes.Team.requests,
           dataCount := ctx.teamNbRequests,
-          dataIcon  := Icons.people,
+          dataIcon  := Icons.banner,
           title     := trans.team.teams.txt(),
         )
 

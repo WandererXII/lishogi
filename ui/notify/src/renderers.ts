@@ -39,7 +39,7 @@ export const renderers: Renderers = {
   },
   teamJoined: {
     html: n =>
-      generic(n, `/team/${n.content.id}`, icons.people, [
+      generic(n, `/team/${n.content.id}`, icons.banner, [
         h('span', [h('strong', n.content.name), drawTime(n)]),
         h('span', 'You are now part of the team.'),
       ]),

@@ -54,7 +54,7 @@ object show {
           div(cls := "simul__meta")(
             div(cls := "game-infos")(
               div(cls := "header")(
-                iconTag(Icons.people),
+                iconTag(Icons.simul),
                 div(
                   span(cls := "clock")(sim.clock.config.show),
                   div(cls := "setup")(

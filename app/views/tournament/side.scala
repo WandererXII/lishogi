@@ -56,7 +56,7 @@ object side {
         ),
         tour.teamBattle map { battle =>
           st.section(cls := "team-battle")(
-            p(cls := "team-battle__title text", dataIcon := Icons.people)(
+            p(cls := "team-battle__title text", dataIcon := Icons.banner)(
               s"Battle of ${battle.teams.size} teams and ${battle.nbLeaders} leaders",
             ),
           )

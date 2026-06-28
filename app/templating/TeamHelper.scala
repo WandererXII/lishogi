@@ -22,7 +22,7 @@ trait TeamHelper { self: HasEnv =>
   def teamLink(id: String, name: Frag, withIcon: Boolean): Tag =
     a(
       href     := routes.Team.show(id),
-      dataIcon := withIcon.option(Icons.people),
+      dataIcon := withIcon.option(Icons.banner),
       cls      := withIcon option "text",
     )(name)
 

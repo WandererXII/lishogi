@@ -194,7 +194,7 @@ object activity {
 
   private def renderSimuls(u: User)(simuls: List[lila.simul.Simul])(implicit ctx: Context) =
     entryTag(
-      iconTag(Icons.people),
+      iconTag(Icons.simul),
       div(
         simuls.groupBy(_.isHost(u.some)).toSeq.map { case (isHost, simuls) =>
           frag(
@@ -234,7 +234,7 @@ object activity {
 
   private def renderTeams(teams: Teams)(implicit ctx: Context) =
     ctx.noKid option entryTag(
-      iconTag(Icons.people),
+      iconTag(Icons.banner),
       div(
         trans.activity.joinedNbTeams.pluralSame(teams.value.size),
         subTag(fragList(teams.value.map(id => teamLink(id)))),

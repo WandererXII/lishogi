@@ -22,7 +22,7 @@ object post {
           )(
             p.isTeam option span(
               cls      := "text",
-              dataIcon := Icons.people,
+              dataIcon := Icons.banner,
             ),
             span(cls := "post_topic")(shorten(p.topicName, 30)),
             ctx.isAuth option span(cls := "post_text")(shorten(p.text, 70)),

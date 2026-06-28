@@ -171,7 +171,7 @@ export function make(send: Socket.Send, ctrl: RoundController): RoundSocket {
           <div class="title">
             ${i18n('simulComplete')}
           </div>
-          <div data-icon="${icons.people}"></div>
+          <div data-icon="${icons.simul}"></div>
           <a class="button" href="/simul/${simul.id}">
             ${i18n('backToSimul')}
           </a>

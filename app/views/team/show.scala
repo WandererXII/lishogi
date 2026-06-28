@@ -63,7 +63,7 @@ object show {
         },
       )(
         div(cls := "box__top")(
-          h1(cls := "text", dataIcon := Icons.people)(t.name),
+          h1(cls := "text", dataIcon := Icons.banner)(t.name),
           div(
             if (t.disabled) span(cls := "staff")("CLOSED")
             else nbMembers.plural(t.nbMembers, strong(t.nbMembers.localize)),
