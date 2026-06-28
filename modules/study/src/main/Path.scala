@@ -6,8 +6,6 @@ case class Path(ids: Vector[UsiCharPair]) extends AnyVal {
 
   def head: Option[UsiCharPair] = ids.headOption
 
-  // def tail: Path = Path(ids drop 1)
-
   def parent: Path = Path(ids dropRight 1)
 
   def take(i: Int) = Path(ids take i)

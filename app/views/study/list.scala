@@ -8,123 +8,150 @@ import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
 import lila.common.paginator.Paginator
-import lila.study.Order
 import lila.study.Study.WithChaptersAndLiked
+import lila.study.StudyPager.Lang
+import lila.study.StudyPager.Order
 import lila.study.StudyTopic
 import lila.study.StudyTopics
 import lila.user.User
 
 object list {
 
-  def all(pag: Paginator[WithChaptersAndLiked], order: Order)(implicit ctx: Context) =
+  def all(pag: Paginator[WithChaptersAndLiked], langCode: String, order: Order)(implicit
+      ctx: Context,
+  ) =
     layout(
       title = trans.study.allStudies.txt(),
       active = "all",
+      langCode = langCode,
       order = order,
       pag = pag,
-      url = o => routes.Study.all(o),
+      url = (l, o) => routes.Study.all(l, o),
       canonicalPath = lila.common.CanonicalPath(routes.Study.allDefault(1)).some,
     )
 
-  def byOwner(pag: Paginator[WithChaptersAndLiked], order: Order, owner: User)(implicit
-      ctx: Context,
+  def byOwner(pag: Paginator[WithChaptersAndLiked], langCode: String, order: Order, owner: User)(
+      implicit ctx: Context,
   ) =
     layout(
       title = trans.study.studiesCreatedByX.txt(owner.titleUsername),
       active = "owner",
+      langCode = langCode,
       order = order,
       pag = pag,
       searchFilter = s"owner:${owner.username}".some,
-      url = o => routes.Study.byOwner(owner.username, o),
+      url = (l, o) => routes.Study.byOwner(owner.username, l, o),
       canonicalPath = lila.common.CanonicalPath(routes.Study.byOwnerDefault(owner.username)).some,
     )
 
-  def mine(pag: Paginator[WithChaptersAndLiked], order: Order, me: User, topics: StudyTopics)(
-      implicit ctx: Context,
+  def mine(
+      pag: Paginator[WithChaptersAndLiked],
+      langCode: String,
+      order: Order,
+      me: User,
+      topics: StudyTopics,
+  )(implicit
+      ctx: Context,
   ) =
     layout(
       title = trans.study.myStudies.txt(),
       active = "mine",
+      langCode = langCode,
       order = order,
       pag = pag,
       searchFilter = s"owner:${me.username}".some,
-      url = o => routes.Study.mine(o),
+      url = (l, o) => routes.Study.mine(l, o),
       topics = topics.some,
     )
 
   def mineLikes(
       pag: Paginator[WithChaptersAndLiked],
+      langCode: String,
       order: Order,
   )(implicit ctx: Context) =
     layout(
       title = trans.study.myFavoriteStudies.txt(),
       active = "mineLikes",
+      langCode = langCode,
       order = order,
       pag = pag,
-      url = o => routes.Study.mineLikes(o),
+      url = (l, o) => routes.Study.mineLikes(l, o),
     )
 
   def minePostGameStudies(
       pag: Paginator[WithChaptersAndLiked],
+      langCode: String,
       order: Order,
   )(implicit ctx: Context) =
     layout(
       title = trans.postGameStudies.txt(),
       active = "postGameStudies",
+      langCode = langCode,
       order = order,
       pag = pag,
-      url = o => routes.Study.minePostGameStudies(o),
+      url = (l, o) => routes.Study.minePostGameStudies(l, o),
     )
 
   def postGameStudiesOf(
       gameId: String,
       pag: Paginator[WithChaptersAndLiked],
+      langCode: String,
       order: Order,
   )(implicit ctx: Context) =
     layout(
       title = trans.postGameStudies.txt(),
       active = "postGameStudies",
+      langCode = langCode,
       order = order,
       pag = pag,
-      url = o => routes.Study.postGameStudiesOf(gameId, o),
+      url = (l, o) => routes.Study.postGameStudiesOf(gameId, l, o),
       canonicalPath = lila.common.CanonicalPath(routes.Study.postGameStudiesOfDefault(gameId)).some,
     )
 
-  def mineMember(pag: Paginator[WithChaptersAndLiked], order: Order, me: User, topics: StudyTopics)(
-      implicit ctx: Context,
+  def mineMember(
+      pag: Paginator[WithChaptersAndLiked],
+      langCode: String,
+      order: Order,
+      me: User,
+      topics: StudyTopics,
+  )(implicit
+      ctx: Context,
   ) =
     layout(
       title = trans.study.studiesIContributeTo.txt(),
       active = "mineMember",
+      langCode = langCode,
       order = order,
       pag = pag,
       searchFilter = s"member:${me.username}".some,
-      url = o => routes.Study.mineMember(o),
+      url = (l, o) => routes.Study.mineMember(l, o),
       topics = topics.some,
     )
 
-  def minePublic(pag: Paginator[WithChaptersAndLiked], order: Order, me: User)(implicit
-      ctx: Context,
+  def minePublic(pag: Paginator[WithChaptersAndLiked], langCode: String, order: Order, me: User)(
+      implicit ctx: Context,
   ) =
     layout(
       title = trans.study.myPublicStudies.txt(),
       active = "minePublic",
+      langCode = langCode,
       order = order,
       pag = pag,
       searchFilter = s"owner:${me.username}".some,
-      url = o => routes.Study.minePublic(o),
+      url = (l, o) => routes.Study.minePublic(l, o),
     )
 
-  def minePrivate(pag: Paginator[WithChaptersAndLiked], order: Order, me: User)(implicit
-      ctx: Context,
+  def minePrivate(pag: Paginator[WithChaptersAndLiked], langCode: String, order: Order, me: User)(
+      implicit ctx: Context,
   ) =
     layout(
       title = trans.study.myPrivateStudies.txt(),
       active = "minePrivate",
+      langCode = langCode,
       order = order,
       pag = pag,
       searchFilter = s"owner:${me.username}".some,
-      url = o => routes.Study.minePrivate(o),
+      url = (l, o) => routes.Study.minePrivate(l, o),
     )
 
   def search(pag: Paginator[WithChaptersAndLiked], text: String)(implicit ctx: Context) =
@@ -135,7 +162,7 @@ object list {
       moreJs = infiniteScrollTag,
     ) {
       main(cls := "page-menu")(
-        menu("search", Order.default),
+        menu("search", Lang.default, Order.default),
         main(cls := "page-menu__content study-index box")(
           div(cls := "box__top")(
             searchForm(trans.search.search.txt(), text),
@@ -162,20 +189,31 @@ object list {
         pagerNext(pager, np => addQueryParameter(url.url, "page", np)),
       )
 
-  private[study] def menu(active: String, order: Order, topics: List[StudyTopic] = Nil)(implicit
+  private[study] def menu(
+      active: String,
+      langCode: String,
+      order: Order,
+      topics: List[StudyTopic] = Nil,
+  )(implicit
       ctx: Context,
   ) = {
     val nonMineOrder = if (order == Order.Mine) Order.Hot else order
     st.aside(cls := "page-menu__menu subnav")(
-      a(cls := active.active("all"), href := routes.Study.all(nonMineOrder.key))(
+      a(cls := active.active("all"), href := routes.Study.all(langCode, nonMineOrder.key))(
         trans.study.allStudies(),
       ),
-      ctx.isAuth option bits.authLinks(active, nonMineOrder),
-      a(cls := List("active" -> active.startsWith("topic")), href := routes.Study.topics)("Topics"),
+      ctx.isAuth option bits.authLinks(active, langCode, nonMineOrder),
+      div(cls := "sep"),
+      a(
+        cls  := List("active" -> active.startsWith("topic"), "topic-menu" -> true),
+        href := routes.Study.topics(langCode),
+      )(
+        trans.topics(),
+      ),
       topics.map { topic =>
         a(
           cls  := active.active(s"topic:$topic"),
-          href := routes.Study.byTopic(topic.value, order.key),
+          href := routes.Study.byTopic(topic.value, langCode, order.key),
         )(
           topic.value,
         )
@@ -192,9 +230,10 @@ object list {
   private def layout(
       title: String,
       active: String,
+      langCode: String,
       order: Order,
       pag: Paginator[WithChaptersAndLiked],
-      url: String => Call,
+      url: (String, String) => Call,
       searchFilter: Option[String] = None,
       topics: Option[StudyTopics] = None,
       canonicalPath: Option[lila.common.CanonicalPath] = None,
@@ -207,19 +246,20 @@ object list {
       canonicalPath = canonicalPath,
     ) {
       main(cls := "page-menu")(
-        menu(active, order, topics.??(_.value)),
+        menu(active, langCode, order, topics.??(_.value)),
         main(cls := "page-menu__content study-index box")(
           div(cls := "box__top")(
             searchForm(searchFilter.isDefined ?? title, searchFilter.fold("") { sf => s"$sf " }),
-            bits.orderSelect(order, active, url),
+            bits.orderSelect(langCode, order, active, url),
+            bits.langSelect(langCode, order, url),
             bits.newForm(),
           ),
           topics map { ts =>
             div(cls := "box__pad")(
-              views.html.study.topic.topicsList(ts, Order.Mine),
+              views.html.study.topic.topicsList(ts, langCode, Order.Mine),
             )
           },
-          paginate(pag, url(order.key)),
+          paginate(pag, url(langCode, order.key)),
         ),
       )
     }

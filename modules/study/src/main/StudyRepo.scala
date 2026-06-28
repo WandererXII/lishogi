@@ -23,6 +23,7 @@ final class StudyRepo(private[study] val coll: AsyncColl)(implicit
     val likes     = "likes"
     val topics    = "topics"
     val createdAt = "createdAt"
+    val lang      = "lang"
   }
 
   private[study] val projection = $doc(
@@ -66,6 +67,8 @@ final class StudyRepo(private[study] val coll: AsyncColl)(implicit
       $doc(s"members.$userId.role" -> "w")
   private[study] def selectTopic(topic: StudyTopic) = $doc(F.topics -> topic)
   private[study] def postGameStudy(exists: Boolean) = $doc("postGameStudy" $exists exists)
+  private[study] def selectLangByCode(code: Option[String]) =
+    code ?? { c => $doc(F.lang -> c) }
 
   def countByOwner(ownerId: User.ID) = coll(_.countSel(selectOwnerId(ownerId)))
 

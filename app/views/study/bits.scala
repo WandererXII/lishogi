@@ -7,11 +7,13 @@ import play.api.mvc.Call
 import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
-import lila.study.Order
+import lila.study.StudyPager.Order
 
 object bits {
 
-  def orderSelect(order: Order, active: String, url: String => Call)(implicit ctx: Context) = {
+  def orderSelect(langCode: String, order: Order, active: String, url: (String, String) => Call)(
+      implicit ctx: Context,
+  ) = {
     val orders =
       if (active == "all") Order.allButOldest
       else if (active startsWith "topic") Order.allWithMine
@@ -20,7 +22,23 @@ object bits {
       "orders",
       span(order.name()),
       orders map { o =>
-        a(href := url(o.key), cls := (order == o).option("current"))(o.name())
+        a(href := url(langCode, o.key), cls := (order == o).option("current"))(o.name())
+      },
+    )
+  }
+
+  def langSelect(langCode: String, order: Order, url: (String, String) => Call)(implicit
+      ctx: Context,
+  ) = {
+    views.html.base.bits.mselect(
+      "langs",
+      if (langCode == "all") trans.allLanguages.txt()
+      else span(lila.i18n.LangList.nameByStr(langCode)),
+      (("all", trans.allLanguages.txt()) :: lila.i18n.LangList.allByLangCodesSorted.toList) map {
+        case (code, name) =>
+          a(href := url(code, order.key), cls := (langCode == code).option("current"))(
+            name,
+          )
       },
     )
   }
@@ -34,23 +52,26 @@ object bits {
       ),
     )
 
-  def authLinks(active: String, order: lila.study.Order)(implicit ctx: Context) = {
+  def authLinks(active: String, langCode: String, order: Order)(implicit ctx: Context) = {
     def activeCls(c: String) = cls := (c == active).option("active")
     frag(
-      a(activeCls("mine"), href := routes.Study.mine(order.key))(trans.study.myStudies()),
-      a(activeCls("mineMember"), href := routes.Study.mineMember(order.key))(
+      a(activeCls("mine"), href := routes.Study.mine(langCode, order.key))(trans.study.myStudies()),
+      a(activeCls("mineMember"), href := routes.Study.mineMember(langCode, order.key))(
         trans.study.studiesIContributeTo(),
       ),
-      a(activeCls("minePublic"), href := routes.Study.minePublic(order.key))(
+      a(activeCls("minePublic"), href := routes.Study.minePublic(langCode, order.key))(
         trans.study.myPublicStudies(),
       ),
-      a(activeCls("minePrivate"), href := routes.Study.minePrivate(order.key))(
+      a(activeCls("minePrivate"), href := routes.Study.minePrivate(langCode, order.key))(
         trans.study.myPrivateStudies(),
       ),
-      a(activeCls("mineLikes"), href := routes.Study.mineLikes(order.key))(
+      a(activeCls("mineLikes"), href := routes.Study.mineLikes(langCode, order.key))(
         trans.study.myFavoriteStudies(),
       ),
-      a(activeCls("postGameStudies"), href := routes.Study.minePostGameStudies(order.key))(
+      a(
+        activeCls("postGameStudies"),
+        href := routes.Study.minePostGameStudies(langCode, order.key),
+      )(
         trans.postGameStudies(),
       ),
     )
@@ -80,6 +101,7 @@ object bits {
             " - ",
             usernameOrId(s.study.ownerId),
             " - ",
+            s.study.lang.map(l => s"${lila.i18n.LangList.nameByStr(l)} - "),
             momentFromNow(s.study.createdAt),
           ),
         ),

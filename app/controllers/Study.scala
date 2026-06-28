@@ -17,8 +17,9 @@ import lila.common.paginator.Paginator
 import lila.common.paginator.PaginatorJson
 import lila.study.Chapter
 import lila.study.JsonView.JsData
-import lila.study.Order
 import lila.study.Study.WithChapter
+import lila.study.StudyPager.Lang
+import lila.study.StudyPager.Order
 import lila.study.actorApi.Who
 import lila.study.{ Study => StudyModel }
 
@@ -31,9 +32,9 @@ final class Study(
     OpenBody { implicit ctx =>
       Reasonable(page) {
         if (text.trim.isEmpty)
-          env.study.pager.all(ctx.me, Order.default, page) flatMap { pag =>
+          env.study.pager.all(ctx.me, Lang.default, Order.default, page) flatMap { pag =>
             negotiate(
-              html = Ok(html.study.list.all(pag, Order.default)).fuccess,
+              html = Ok(html.study.list.all(pag, Lang.default, Order.default)).fuccess,
               json = apiStudies(pag),
             )
           }
@@ -47,17 +48,17 @@ final class Study(
       }
     }
 
-  def allDefault(page: Int) = all(Order.Hot.key, page)
+  def allDefault(page: Int) = all(Lang.default, Order.Hot.key, page)
 
-  def all(o: String, page: Int) =
+  def all(lang: String, order: String, page: Int) =
     Open { implicit ctx =>
       Reasonable(page) {
-        Order(o) match {
+        Order(order) match {
           case Order.Oldest => Redirect(routes.Study.allDefault(page)).fuccess
           case order =>
-            env.study.pager.all(ctx.me, order, page) flatMap { pag =>
+            env.study.pager.all(ctx.me, lang, order, page) flatMap { pag =>
               negotiate(
-                html = Ok(html.study.list.all(pag, order)).fuccess,
+                html = Ok(html.study.list.all(pag, lang, order)).fuccess,
                 json = apiStudies(pag),
               )
             }
@@ -65,15 +66,16 @@ final class Study(
       }
     }
 
-  def byOwnerDefault(username: String, page: Int) = byOwner(username, Order.default.key, page)
+  def byOwnerDefault(username: String, page: Int) =
+    byOwner(username, Lang.default, Order.default.key, page)
 
-  def byOwner(username: String, order: String, page: Int) =
+  def byOwner(username: String, lang: String, order: String, page: Int) =
     Open { implicit ctx =>
       env.user.repo.named(username).flatMap {
         _.fold(notFound(ctx)) { owner =>
-          env.study.pager.byOwner(owner, ctx.me, Order(order), page) flatMap { pag =>
+          env.study.pager.byOwner(owner, ctx.me, lang, Order(order), page) flatMap { pag =>
             negotiate(
-              html = Ok(html.study.list.byOwner(pag, Order(order), owner)).fuccess,
+              html = Ok(html.study.list.byOwner(pag, lang, Order(order), owner)).fuccess,
               json = apiStudies(pag),
             )
           }
@@ -81,92 +83,95 @@ final class Study(
       }
     }
 
-  def mine(order: String, page: Int) =
+  def mine(lang: String, order: String, page: Int) =
     Auth { implicit ctx => me =>
-      env.study.pager.mine(me, Order(order), page) flatMap { pag =>
+      env.study.pager.mine(me, lang, Order(order), page) flatMap { pag =>
         negotiate(
           html = env.study.topicApi.userTopics(me.id) map { topics =>
-            Ok(html.study.list.mine(pag, Order(order), me, topics))
+            Ok(html.study.list.mine(pag, lang, Order(order), me, topics))
           },
           json = apiStudies(pag),
         )
       }
     }
 
-  def minePublic(order: String, page: Int) =
+  def minePublic(lang: String, order: String, page: Int) =
     Auth { implicit ctx => me =>
-      env.study.pager.minePublic(me, Order(order), page) flatMap { pag =>
+      env.study.pager.minePublic(me, lang, Order(order), page) flatMap { pag =>
         negotiate(
-          html = Ok(html.study.list.minePublic(pag, Order(order), me)).fuccess,
+          html = Ok(html.study.list.minePublic(pag, lang, Order(order), me)).fuccess,
           json = apiStudies(pag),
         )
       }
     }
 
-  def minePrivate(order: String, page: Int) =
+  def minePrivate(lang: String, order: String, page: Int) =
     Auth { implicit ctx => me =>
-      env.study.pager.minePrivate(me, Order(order), page) flatMap { pag =>
+      env.study.pager.minePrivate(me, lang, Order(order), page) flatMap { pag =>
         negotiate(
-          html = Ok(html.study.list.minePrivate(pag, Order(order), me)).fuccess,
+          html = Ok(html.study.list.minePrivate(pag, lang, Order(order), me)).fuccess,
           json = apiStudies(pag),
         )
       }
     }
 
-  def mineMember(order: String, page: Int) =
+  def mineMember(lang: String, order: String, page: Int) =
     Auth { implicit ctx => me =>
-      env.study.pager.mineMember(me, Order(order), page) flatMap { pag =>
+      env.study.pager.mineMember(me, lang, Order(order), page) flatMap { pag =>
         negotiate(
           html = env.study.topicApi.userTopics(me.id) map { topics =>
-            Ok(html.study.list.mineMember(pag, Order(order), me, topics))
+            Ok(html.study.list.mineMember(pag, lang, Order(order), me, topics))
           },
           json = apiStudies(pag),
         )
       }
     }
 
-  def mineLikes(order: String, page: Int) =
+  def mineLikes(lang: String, order: String, page: Int) =
     Auth { implicit ctx => me =>
-      env.study.pager.mineLikes(me, Order(order), page) flatMap { pag =>
+      env.study.pager.mineLikes(me, lang, Order(order), page) flatMap { pag =>
         negotiate(
-          html = Ok(html.study.list.mineLikes(pag, Order(order))).fuccess,
+          html = Ok(html.study.list.mineLikes(pag, lang, Order(order))).fuccess,
           json = apiStudies(pag),
         )
       }
     }
 
-  def minePostGameStudies(order: String, page: Int) =
+  def minePostGameStudies(lang: String, order: String, page: Int) =
     Auth { implicit ctx => me =>
-      env.study.pager.minePostGameStudies(me, Order(order), page) flatMap { pag =>
+      env.study.pager.minePostGameStudies(me, lang, Order(order), page) flatMap { pag =>
         negotiate(
-          html = Ok(html.study.list.minePostGameStudies(pag, Order(order))).fuccess,
+          html = Ok(html.study.list.minePostGameStudies(pag, lang, Order(order))).fuccess,
           json = apiStudies(pag),
         )
       }
     }
 
   def postGameStudiesOfDefault(gameId: String, page: Int) =
-    postGameStudiesOf(gameId, Order.default.key, page)
+    postGameStudiesOf(gameId, Lang.default, Order.default.key, page)
 
-  def postGameStudiesOf(gameId: String, order: String, page: Int) =
+  def postGameStudiesOf(gameId: String, lang: String, order: String, page: Int) =
     Open { implicit ctx =>
-      env.study.pager.postGameStudiesOf(gameId.take(8), ctx.me, Order(order), page) flatMap { pag =>
-        negotiate(
-          html = Ok(html.study.list.postGameStudiesOf(gameId.take(8), pag, Order(order))).fuccess,
-          json = apiStudies(pag),
-        )
+      env.study.pager.postGameStudiesOf(gameId.take(8), ctx.me, lang, Order(order), page) flatMap {
+        pag =>
+          negotiate(
+            html = Ok(
+              html.study.list.postGameStudiesOf(gameId.take(8), pag, lang, Order(order)),
+            ).fuccess,
+            json = apiStudies(pag),
+          )
       }
     }
 
-  def byTopic(name: String, order: String, page: Int) =
+  def byTopic(name: String, lang: String, order: String, page: Int) =
     Open { implicit ctx =>
       lila.study.StudyTopic fromStr name match {
         case None => notFound
         case Some(topic) =>
-          env.study.pager.byTopic(topic, ctx.me, Order(order), page) zip
+          env.study.pager.byTopic(topic, ctx.me, lang, Order(order), page) zip
             ctx.me.??(u => env.study.topicApi.userTopics(u.id) dmap some) map {
               case (pag, topics) =>
-                Ok(html.study.topic.show(topic, pag, Order(order), topics))
+                Ok(html.study.topic.show(topic, pag, lang, Order(order), topics))
             }
       }
     }
@@ -386,7 +391,7 @@ final class Study(
     Auth { _ => me =>
       env.study.api.byIdAndOwner(id, me) flatMap {
         _ ?? env.study.api.delete
-      } inject Redirect(routes.Study.mine("hot"))
+      } inject Redirect(routes.Study.mine(Lang.default, Order.Hot.key))
     }
 
   def clearChat(id: String) =
@@ -596,12 +601,12 @@ final class Study(
       }
     }
 
-  def topics =
+  def topics(lang: String) =
     Open { implicit ctx =>
       env.study.topicApi.popular(50) zip
         ctx.me.??(u => env.study.topicApi.userTopics(u.id) dmap some) map { case (popular, mine) =>
           val form = mine map lila.study.StudyForm.topicsForm
-          Ok(html.study.topic.index(popular, mine, form))
+          Ok(html.study.topic.index(popular, mine, form, lang))
         }
     }
 
@@ -611,10 +616,10 @@ final class Study(
       lila.study.StudyForm.topicsForm
         .bindFromRequest()
         .fold(
-          _ => Redirect(routes.Study.topics).fuccess,
+          _ => Ok(Json.obj("reload" -> true)).fuccess,
           topics =>
             env.study.topicApi.userTopics(me, topics) inject
-              Redirect(routes.Study.topics),
+              Ok(Json.obj("reload" -> true)),
         )
     }
 

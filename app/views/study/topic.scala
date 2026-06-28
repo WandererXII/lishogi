@@ -7,14 +7,19 @@ import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
 import lila.common.paginator.Paginator
-import lila.study.Order
 import lila.study.Study.WithChaptersAndLiked
+import lila.study.StudyPager.Order
 import lila.study.StudyTopic
 import lila.study.StudyTopics
 
 object topic {
 
-  def index(popular: StudyTopics, mine: Option[StudyTopics], myForm: Option[Form[_]])(implicit
+  def index(
+      popular: StudyTopics,
+      mine: Option[StudyTopics],
+      myForm: Option[Form[_]],
+      langCode: String,
+  )(implicit
       ctx: Context,
   ) =
     views.html.base.layout(
@@ -24,11 +29,11 @@ object topic {
       wrapClass = "full-screen-force",
     ) {
       main(cls := "page-menu")(
-        views.html.study.list.menu("topic", Order.Mine, mine.??(_.value)),
+        views.html.study.list.menu("topic", langCode, Order.Mine, mine.??(_.value)),
         main(cls := "page-menu__content study-topics box box-pad")(
           h1(trans.study.studyTopics()),
           myForm.map { form =>
-            postForm(cls := "form3", action := routes.Study.topics)(
+            postForm(cls := "form3", action := routes.Study.topics(langCode))(
               form3.group(form("topics"), trans.study.topicsDescription())(
                 form3.textarea(_)(rows := 10),
               ),
@@ -38,11 +43,11 @@ object topic {
           mine.filter(_.value.nonEmpty) map { topics =>
             frag(
               h2(trans.study.myTopics()),
-              topicsList(topics, Order.Mine),
+              topicsList(topics, langCode, Order.Mine),
             )
           },
           h2(trans.study.popularTopics()),
-          topicsList(popular),
+          topicsList(popular, langCode),
         ),
       )
     }
@@ -50,6 +55,7 @@ object topic {
   def show(
       topic: StudyTopic,
       pag: Paginator[WithChaptersAndLiked],
+      langCode: String,
       order: Order,
       myTopics: Option[StudyTopics],
   )(implicit ctx: Context) =
@@ -60,29 +66,30 @@ object topic {
       moreJs = infiniteScrollTag,
     ) {
       val active = s"topic:$topic"
-      val url    = (o: String) => routes.Study.byTopic(topic.value, o)
+      val url    = (l: String, o: String) => routes.Study.byTopic(topic.value, l, o)
       main(cls := "page-menu")(
-        views.html.study.list.menu(active, order, myTopics.??(_.value)),
+        views.html.study.list.menu(active, langCode, order, myTopics.??(_.value)),
         main(cls := "page-menu__content study-index box")(
           div(cls := "box__top")(
             h1(topic.value),
-            bits.orderSelect(order, active, url),
+            bits.langSelect(langCode, order, url),
+            bits.orderSelect(langCode, order, active, url),
             bits.newForm(),
           ),
           myTopics.ifTrue(order == Order.Mine) map { ts =>
             div(cls := "box__pad")(
-              topicsList(ts, Order.Mine),
+              topicsList(ts, langCode, Order.Mine),
             )
           },
-          views.html.study.list.paginate(pag, url(order.key)),
+          views.html.study.list.paginate(pag, url(langCode, order.key)),
         ),
       )
     }
 
-  def topicsList(topics: StudyTopics, order: Order = Order.default) =
-    div(cls := "topic-list")(
+  def topicsList(topics: StudyTopics, langCode: String, order: Order = Order.default) =
+    div(cls := "chip-list")(
       topics.value.map { t =>
-        a(href := routes.Study.byTopic(t.value, order.key))(t.value)
+        a(cls := "chip", href := routes.Study.byTopic(t.value, langCode, order.key))(t.value)
       },
     )
 }

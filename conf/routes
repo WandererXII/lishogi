@@ -136,18 +136,18 @@ GET   /analysis                        controllers.UserAnalysis.index
 POST  /analysis/notation               controllers.UserAnalysis.notation
 
 # Study
-GET   /study                           controllers.Study.allDefault(page: Int ?= 1)
-GET   /study/all/:order                controllers.Study.all(order: String, page: Int ?= 1)
-GET   /study/mine/:order               controllers.Study.mine(order: String, page: Int ?= 1)
-GET   /study/member/post-game-study/:order  controllers.Study.minePostGameStudies(order: String, page: Int ?= 1)
-GET   /study/member/:order             controllers.Study.mineMember(order: String, page: Int ?= 1)
-GET   /study/public/:order             controllers.Study.minePublic(order: String, page: Int ?= 1)
-GET   /study/private/:order            controllers.Study.minePrivate(order: String, page: Int ?= 1)
-GET   /study/likes/:order              controllers.Study.mineLikes(order: String, page: Int ?= 1)
-GET   /study/post-game-study/:gameId   controllers.Study.postGameStudiesOfDefault(gameId: String, page: Int ?= 1)
-GET   /study/post-game-study/:gameId/:order  controllers.Study.postGameStudiesOf(gameId: String, order: String, page: Int ?= 1)
+GET   /study                                       controllers.Study.allDefault(page: Int ?= 1)
+GET   /study/all/:lang/:order                      controllers.Study.all(lang: String, order: String, page: Int ?= 1)
+GET   /study/mine/:lang/:order                     controllers.Study.mine(lang: String, order: String, page: Int ?= 1)
+GET   /study/member/post-game-study/:order         controllers.Study.minePostGameStudies(lang: String, order: String, page: Int ?= 1)
+GET   /study/member/:lang/:order                   controllers.Study.mineMember(lang: String, order: String, page: Int ?= 1)
+GET   /study/public/:lang/:order                   controllers.Study.minePublic(lang: String, order: String, page: Int ?= 1)
+GET   /study/private/:lang/:order                  controllers.Study.minePrivate(lang: String, order: String, page: Int ?= 1)
+GET   /study/likes/:lang/:order                    controllers.Study.mineLikes(lang: String, order: String, page: Int ?= 1)
+GET   /study/post-game-study/:gameId               controllers.Study.postGameStudiesOfDefault(gameId: String, page: Int ?= 1)
+GET   /study/post-game-study/:gameId/:lang/:order  controllers.Study.postGameStudiesOf(gameId: String, lang: String,  order: String, page: Int ?= 1)
 GET   /study/by/:username              controllers.Study.byOwnerDefault(username: String, page: Int ?= 1)
-GET   /study/by/:username/:order       controllers.Study.byOwner(username: String, order: String, page: Int ?= 1)
+GET   /study/by/:username/:lang/:order controllers.Study.byOwner(username: String, lang: String, order: String, page: Int ?= 1)
 GET   /study/search                    controllers.Study.search(q: String ?= "", page: Int ?= 1)
 GET   /study/$id<\w{8}>                controllers.Study.show(id: String)
 POST  /study                           controllers.Study.create
@@ -169,9 +169,9 @@ POST  /study/$id<\w{8}>/clear-chat      controllers.Study.clearChat(id: String)
 POST  /study/$id<\w{8}>/import-notation controllers.Study.importNotation(id: String)
 GET   /study/$id<\w{8}>/multi-board     controllers.Study.multiBoard(id: String, page: Int ?= 1)
 POST  /study/$id<\w{8}>/admin           controllers.Study.admin(id: String)
-GET   /study/topic                      controllers.Study.topics
+GET   /study/topic/:lang                controllers.Study.topics(lang: String)
 POST  /study/topic                      controllers.Study.setTopics
-GET   /study/topic/:topic/:order        controllers.Study.byTopic(topic: String, order: String, page: Int ?= 1)
+GET   /study/topic/:topic/:lang/:order  controllers.Study.byTopic(topic: String, lang: String, order: String, page: Int ?= 1)
 GET   /study/topic/autocomplete         controllers.Study.topicAutocomplete
 
 # Learn
