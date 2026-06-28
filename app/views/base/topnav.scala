@@ -41,7 +41,6 @@ object topnav {
             a(href := puzzleUrl)(trans.puzzles()),
             a(href := routes.Puzzle.dashboard(30, "home"))(trans.puzzle.puzzleDashboard()),
             a(href := langHref(routes.Puzzle.show("tsume")))(trans.puzzleTheme.tsume()),
-            // a(cls := "new-feature")(href := langHref(routes.Storm.home))("Tsume Storm")
           ),
         )
       },
@@ -87,13 +86,12 @@ object topnav {
             a(href := routes.Team.home())(trans.team.teams()),
             ctx.noKid option a(href := routes.Chatroom.get)(trans.chatRoom()),
             ctx.noKid option a(href := routes.ForumCateg.index)(trans.forum()),
-            a(href := langHrefJP(routes.Blog.index()))(trans.blog()),
-            ctx.me
-              .exists(!_.kid) option a(href := langHref(routes.Plan.index))(
-              trans.patron.donate(),
-              cls      := "is-after",
-              dataIcon := Icons.patron,
-            ),
+            a(
+              href := (
+                if (ctx.isJapanese) routes.Article.recent("ja")
+                else routes.Article.default()
+              ),
+            )(trans.article.articles()),
           ),
         )
       },
@@ -109,5 +107,13 @@ object topnav {
           ),
         )
       },
+      ctx.isAuth && ctx.noKid && !ctx.me.exists(_.isPatron) option a(
+        cls  := "donate-button",
+        href := langHref(routes.Plan.index),
+      )(
+        span(dataIcon := Icons.patron)(
+          trans.patron.donate(),
+        ),
+      ),
     )
 }
