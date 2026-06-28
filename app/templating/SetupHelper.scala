@@ -89,6 +89,7 @@ trait SetupHelper { self: I18nHelper =>
       (Pref.BoardLayout.DEFAULT, trans.default.txt()),
       (Pref.BoardLayout.COMPACT, trans.compact.txt()),
       (Pref.BoardLayout.SMALL, trans.preferences.smallMoves.txt()),
+      (Pref.BoardLayout.TRAD, trans.preferences.traditional.txt()),
     )
 
   def translatedAnimationChoices(implicit lang: Lang) =

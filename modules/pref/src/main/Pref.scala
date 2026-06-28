@@ -219,11 +219,13 @@ object Pref {
     val DEFAULT = 0
     val COMPACT = 1
     val SMALL   = 2
+    val TRAD    = 3
 
     val choices = Seq(
       DEFAULT,
       COMPACT,
       SMALL,
+      TRAD,
     )
   }
 

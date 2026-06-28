@@ -403,6 +403,7 @@ object layout {
             "kid"                               -> ctx.kid,
             "mobile"                            -> ctx.isMobileBrowser,
             "playing"                           -> playing,
+            "trad-layout"                       -> (ctx.pref.boardLayout == 3),
           ),
           dataDev             := (!isProd && !isStage).option("true"),
           dataVapid           := vapidPublicKey,

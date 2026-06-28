@@ -160,3 +160,33 @@
     }
   }
 }
+
+.trad-layout .main-board {
+  // this shrinks everything down - not sure...
+  padding-bottom: calc((100% - 4vmin) / 43 * 25 * 12 / 11);
+
+  .sg-wrap {
+    // these are if we go with default padding-bottom
+    // height: calc(100% * (25 / 43) * (11 / 9));
+    // top: calc((100% - (100% * 25 / 43 * 11 / 9)) / 2);
+
+    grid-template-columns: 9fr 25fr 9fr;
+
+    .sg-hand-wrap {
+      height: calc(100% / 3);
+
+      sg-hand {
+        flex-direction: row-reverse;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap-reverse;
+
+        sg-hp-wrap {
+          width: calc(100% / 3);
+          height: calc(100% / 3);
+          flex: 0 0 calc(100% / 3);
+        }
+      }
+    }
+  }
+}
