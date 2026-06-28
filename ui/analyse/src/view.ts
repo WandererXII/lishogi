@@ -411,31 +411,37 @@ export default function (ctrl: AnalyseCtrl): VNode {
       study ? studyView.overboard(study) : null,
       ctrl.continueWith ? continueWithModal(ctrl) : null,
       h(
-        addChapterId(study, `div.analyse__board.main-board.v-${ctrl.data.game.variant.key}`),
-        {
-          hook:
-            hasTouchEvents ||
-            ctrl.gamebookPlay() ||
-            window.lishogi.storage.get('scrollMoves') == '0'
-              ? undefined
-              : bindNonPassive(
-                  'wheel',
-                  stepwiseScroll((e: WheelEvent, scroll: boolean) => {
-                    if (ctrl.gamebookPlay()) return;
-                    const target = e.target as HTMLElement;
-                    if (target.tagName !== 'SG-PIECES') return;
-                    e.preventDefault();
-                    if (e.deltaY > 0 && scroll) control.next(ctrl);
-                    else if (e.deltaY < 0 && scroll) control.prev(ctrl);
-                    ctrl.redraw();
-                  }),
-                ),
-        },
-        [
-          playerBars ? playerBars[ctrl.bottomIsSente() ? 1 : 0] : null,
-          shogiground.renderBoard(ctrl),
-          playerBars ? playerBars[ctrl.bottomIsSente() ? 0 : 1] : null,
-        ],
+        'div.analyse__board',
+        h(
+          addChapterId(
+            study,
+            `div.analyse__board-inner.main-board.v-${ctrl.data.game.variant.key}`,
+          ),
+          {
+            hook:
+              hasTouchEvents ||
+              ctrl.gamebookPlay() ||
+              window.lishogi.storage.get('scrollMoves') == '0'
+                ? undefined
+                : bindNonPassive(
+                    'wheel',
+                    stepwiseScroll((e: WheelEvent, scroll: boolean) => {
+                      if (ctrl.gamebookPlay()) return;
+                      const target = e.target as HTMLElement;
+                      if (target.tagName !== 'SG-PIECES') return;
+                      e.preventDefault();
+                      if (e.deltaY > 0 && scroll) control.next(ctrl);
+                      else if (e.deltaY < 0 && scroll) control.prev(ctrl);
+                      ctrl.redraw();
+                    }),
+                  ),
+          },
+          [
+            playerBars ? playerBars[ctrl.bottomIsSente() ? 1 : 0] : null,
+            shogiground.renderBoard(ctrl),
+            playerBars ? playerBars[ctrl.bottomIsSente() ? 0 : 1] : null,
+          ],
+        ),
       ),
       gaugeOn ? cevalView.renderGauge(ctrl) : null,
       gamebookPlayView ||

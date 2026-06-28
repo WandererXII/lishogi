@@ -7,7 +7,7 @@
   --main-max-width: calc(
     (
         100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
-          #{uniboard.$hands-gap}
+          #{uniboard.$hands-gap} - #{variables.$block-gap}
       ) /
       12 * 9
   );

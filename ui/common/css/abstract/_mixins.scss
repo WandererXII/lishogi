@@ -83,10 +83,6 @@
     #{$prop}: calc((100% - #{uniboard.$hands-gap}) / 7 * 5);
   }
 
-  .main-v-chushogi & {
-    #{$prop}: 100%;
-  }
-
   .main-v-dobutsu & {
     #{$prop}: calc((100% - #{uniboard.$hands-gap}) / 5 * 3);
   }
@@ -98,10 +94,6 @@
   .main-v-minishogi &,
   .main-v-kyotoshogi & {
     #{$prop}: calc((100% - #{uniboard.$hands-gap}) / 7 + #{uniboard.$hand-gap});
-  }
-
-  .main-v-chushogi & {
-    #{$prop}: 0;
   }
 
   .main-v-dobutsu & {

@@ -11,12 +11,16 @@ import { underboard } from './underboard';
 export default function (ctrl: EditorCtrl): VNode {
   const state = ctrl.getState();
   const color = ctrl.bottomColor();
-  return h(`div.board-editor.main-v-${ctrl.rules}`, [
-    sparePieces(ctrl, opposite(color), 'top'),
-    h(`div.main-board.v-${ctrl.rules}`, [ground.renderBoard(ctrl)]),
-    sparePieces(ctrl, color, 'bottom'),
-    actions(ctrl, state),
-    !ctrl.data.embed ? links(ctrl, state) : null,
-    !ctrl.data.embed ? underboard(ctrl, state) : tools(ctrl, state),
+  return h('div.board-editor-wrap', [
+    h(`div.board-editor.main-v-${ctrl.rules}`, [
+      sparePieces(ctrl, opposite(color), 'top'),
+      h(`div.main-board.v-${ctrl.rules}`, [ground.renderBoard(ctrl)]),
+      sparePieces(ctrl, color, 'bottom'),
+      actions(ctrl, state),
+    ]),
+    h('div.board-editor-interface', [
+      !ctrl.data.embed ? links(ctrl, state) : null,
+      !ctrl.data.embed ? underboard(ctrl, state) : tools(ctrl, state),
+    ]),
   ]);
 }

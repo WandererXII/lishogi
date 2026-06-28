@@ -6,13 +6,20 @@
 #main-wrap {
   --main-max-width: auto;
 
+  .board-editor-wrap {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   @include breakpoint.breakpoint(uniboard.$mq-col1-uniboard) {
     justify-items: center;
 
     --main-max-width: calc(
       (
-          100vh - #{variables.$site-header-outer-height} - #{uniboard.$hands-gap} -
-            #{uniboard.$hand-gap}
+          100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
+            #{uniboard.$hands-gap}
         ) /
         15 * 9 / 12 * 11
     );
@@ -20,8 +27,8 @@
     &:has(.main-v-minishogi, .main-v-kyotoshogi) {
       --main-max-width: calc(
         (
-            100vh - #{variables.$site-header-outer-height}- #{uniboard.$hands-gap} -
-              #{uniboard.$hand-gap}
+            100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
+              #{uniboard.$hands-gap}
           ) /
           11 * 5 / 12 * 11
       );
@@ -29,15 +36,16 @@
 
     &:has(.main-v-chushogi) {
       --main-max-width: calc(
-        (100vh - #{variables.$site-header-outer-height} - #{uniboard.$hand-gap}) / 20 * 12 / 12 * 11
+        (100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls}) /
+          20 * 12 / 12 * 11
       );
     }
 
     &:has(.main-v-dobutsu) {
       --main-max-width: calc(
         (
-            100vh - #{variables.$site-header-outer-height} - #{uniboard.$hands-gap} -
-              #{uniboard.$hand-gap}
+            100vh - #{variables.$site-header-outer-height} - #{uniboard.$col1-uniboard-controls} -
+              #{uniboard.$hands-gap}
           ) /
           11 * 4 / 12 * 11
       );
@@ -52,8 +60,11 @@
     'editor'
     'spare-bottom'
     'actions'
-    'links'
-    'underboard';
+    'links';
+
+  &-interface {
+    width: 100%;
+  }
 
   @include breakpoint.breakpoint(uniboard.$mq-col2-uniboard) {
     $files2: calc((var(--col2-uniboard-main-size) - #{uniboard.$hands-gap}) / 11 * 2 + 1rem);
@@ -67,11 +78,15 @@
       )
       minmax(math.div(uniboard.$col2-uniboard-table-min, 2), $files2)
       minmax(0, calc(#{uniboard.$col2-uniboard-table-max} - #{$files4}));
+
+    &-interface {
+      width: calc($files4 + var(--col2-uniboard-main-size));
+    }
+
     grid-template-areas:
       'editor    . spare-top spare-bottom .'
       'actions actions actions actions .'
-      'links   links   links   links .'
-      'underboard underboard underboard underboard .';
+      'links   links   links   links .';
 
     &.main-v-kyotoshogi,
     &.main-v-minishogi {
@@ -124,8 +139,11 @@
     grid-template-areas:
       'spare-top .       editor    .       spare-bottom'
       'actions   actions actions   actions actions'
-      'links     links   links     links   links'
-      'underboard underboard underboard underboard underboard';
+      'links     links   links     links   links';
+
+    &-interface {
+      width: calc($files2 + $files2 + var(--col3-uniboard-main-size));
+    }
 
     &.main-v-kyotoshogi,
     &.main-v-minishogi {

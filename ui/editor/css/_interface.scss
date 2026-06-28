@@ -1,0 +1,23 @@
+// @use 'pkg:breakpoint-sass' as breakpoint;
+// @use 'pkg:common/abstract/extends';
+// @use 'pkg:common/abstract/mixins';
+// @use 'pkg:common/abstract/uniboard';
+// @use 'pkg:common/theme';
+
+// .board-editor-interface {
+//   // grid-template-columns:
+//   //   minmax(0, $files2) variables.$block-gap var(--col3-uniboard-main-size)
+//   //   variables.$block-gap minmax(0, $files2);
+//   // @include breakpoint.breakpoint(uniboard.$mq-col1-uniboard) {
+//   // }
+
+//   @include breakpoint.breakpoint(uniboard.$mq-col2-uniboard) {
+//     $files4: calc((var(--col2-uniboard-main-size) - #{uniboard.$hands-gap}) / 11 * 4 + 1rem);
+//     width: calc($files4 + var(--col2-uniboard-main-size));
+//   }
+
+//   @include breakpoint.breakpoint(uniboard.$mq-col3-uniboard) {
+//     $files2: calc((var(--col3-uniboard-main-size) - #{uniboard.$hands-gap}) / 11 * 2 + 1rem);
+//     width: calc($files2 + $files2 + var(--col3-uniboard-main-size));
+//   }
+// }

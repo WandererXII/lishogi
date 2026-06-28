@@ -88,10 +88,10 @@
 
     &.v-chushogi {
       justify-self: center;
-      padding-bottom: calc(100% / 11 * 12);
+      width: calc((100% - #{uniboard.$hands-gap}) / 12 * 9 / 11 * 12);
+      padding-bottom: calc((100% - #{uniboard.$hands-gap}) / 11 * 9 / 11 * 12);
 
       .sg-wrap {
-        width: 100%;
         grid-template-areas: 'sg-board';
         grid-template-columns: 1fr;
         grid-template-rows: auto;

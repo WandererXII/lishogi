@@ -1,4 +1,5 @@
 @use 'layout';
+@use 'interface';
 @use 'spare';
 @use 'actions';
 @use 'links';
@@ -10,5 +11,10 @@
 
   .main-board {
     grid-area: editor;
+
+    &.v-chushogi {
+      width: 100%;
+      padding-bottom: calc(100% / 11 * 12);
+    }
   }
 }

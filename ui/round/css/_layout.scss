@@ -19,12 +19,18 @@
 
     --main-max-width: calc((#{$vertical-total}) / 12 * 9);
 
-    &:has(.main-v-minishogi, .main-v-kyotoshogi) {
-      --main-max-width: calc((#{$vertical-total}) / 7 * 5 / 12 * 11);
+    .round__app__board {
+      width: 100%;
     }
 
-    &:has(.main-v-dobutsu) {
-      --main-max-width: calc((#{$vertical-total}) / 6 * 3 / 12 * 11);
+    &:has(.main-v-minishogi, .main-v-kyotoshogi) .round__app__board {
+      width: calc((#{$vertical-total}) / 7 * 5 / 12 * 11);
+      max-width: 100vw;
+    }
+
+    &:has(.main-v-dobutsu) .round__app__board {
+      width: calc((#{$vertical-total}) / 6 * 3 / 12 * 11);
+      max-width: 100vw;
     }
 
     // board with no hands can take more space
@@ -85,12 +91,6 @@
       display: block;
       width: var(--col2-uniboard-main-size);
     }
-
-    &.main-v-chushogi {
-      .round__underboard {
-        width: var(--col2-uniboard-main-size-no-hands);
-      }
-    }
   }
 
   @include breakpoint.breakpoint(local.$mq-col3) {
@@ -135,16 +135,6 @@
     }
 
     @include mixins.crosstable-large;
-
-    &.main-v-chushogi {
-      grid-template-columns: uniboard.$col3-uniboard-side uniboard.$big-block-gap 1fr uniboard.$col3-uniboard-table;
-
-      .round__underboard {
-        grid-template-columns:
-          var(--col3-uniboard-main-size-no-hands)
-          variables.$block-gap uniboard.$col3-uniboard-table;
-      }
-    }
   }
 
   @include breakpoint.breakpoint(media-queries.$mq-not-small media-queries.$mq-landscape) {

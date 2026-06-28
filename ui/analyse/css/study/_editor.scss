@@ -40,23 +40,36 @@ $board-width: calc(
     'e-tools';
   user-select: none;
   width: 90%;
+  max-width: calc(100vh / 15 * 9 / 12 * 11 - #{uniboard.$hands-gap});
   margin: auto;
+
+  &.main-v-kyotoshogi,
+  &.main-v-minishogi {
+    max-width: calc(100vh / 12 * 5 / 12 * 11 - #{uniboard.$hands-gap});
+  }
+
+  &.main-v-dobutsu {
+    max-width: calc(100vh / 10 * 3 / 12 * 11 - #{uniboard.$hands-gap});
+  }
 
   .actions {
     grid-area: e-actions;
     font-size: 0.8em;
   }
 
-  .tools {
+  &-interface {
     grid-area: e-tools;
-    display: flex;
-    gap: 4%;
 
-    & > div {
-      flex: 1;
+    .tools {
+      display: flex;
+      gap: 4%;
 
-      select {
-        width: 100%;
+      & > div {
+        flex: 1;
+
+        select {
+          width: 100%;
+        }
       }
     }
   }
@@ -84,9 +97,10 @@ $board-width: calc(
   }
 }
 
-@include breakpoint.breakpoint(media-queries.$mq-x-small) {
+@include breakpoint.breakpoint(uniboard.$mq-col2-uniboard) {
   .board-editor {
     width: 100%;
+    max-width: unset;
     column-gap: 0.8em;
     grid-template-columns: 2fr 11fr 2fr;
     grid-template-areas:

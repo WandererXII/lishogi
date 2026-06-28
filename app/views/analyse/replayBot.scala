@@ -21,8 +21,10 @@ object replayBot {
         st.aside(cls := "analyse__side")(
           views.html.game.side(pov, none, simul = simul, analysis = false, bookmarked = false),
         ),
-        div(cls := s"analyse__board main-board ${variantClass(pov.game.variant)}")(
-          shogigroundEmpty(pov.game.variant, pov.color),
+        div(cls := "analyse__board")(
+          div(cls := s"analyse__board-inner main-board ${variantClass(pov.game.variant)}")(
+            shogigroundEmpty(pov.game.variant, pov.color),
+          ),
         ),
         div(cls := "analyse__tools")(div(cls := "ceval")),
         div(cls := "analyse__controls"),

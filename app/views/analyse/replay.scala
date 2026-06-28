@@ -80,8 +80,10 @@ object replay {
               ),
             chatOption.map(_ => views.html.chat.frag),
           ),
-          div(cls := s"analyse__board main-board ${variantClass(pov.game.variant)}")(
-            shogigroundEmpty(pov.game.variant, pov.color),
+          div(cls := "analyse__board")(
+            div(cls := s"analyse__board-inner main-board ${variantClass(pov.game.variant)}")(
+              shogigroundEmpty(pov.game.variant, pov.color),
+            ),
           ),
           div(cls := "analyse__tools")(div(cls := "ceval")),
           div(cls := "analyse__controls"),

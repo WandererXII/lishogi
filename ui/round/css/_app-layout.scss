@@ -289,6 +289,12 @@
     }
   }
 
+  @include breakpoint.breakpoint(local.$mq-col3) {
+    grid-template-columns:
+      var(--col3-uniboard-main-size)
+      variables.$block-gap uniboard.$col2-uniboard-table;
+  }
+
   &__board {
     grid-area: board;
 
@@ -298,22 +304,6 @@
       .main-v-chushogi & {
         margin: 0 auto;
       }
-    }
-  }
-
-  .main-v-chushogi & {
-    @include breakpoint.breakpoint(local.$mq-col2) {
-      grid-template-columns:
-        var(--col2-uniboard-main-size-no-hands)
-        uniboard.$big-block-gap uniboard.$col2-uniboard-table;
-    }
-  }
-
-  .main-v-chushogi &.compact-layout {
-    @include breakpoint.breakpoint(uniboard.$mq-col2-uniboard) {
-      grid-template-columns:
-        var(--col3-uniboard-main-size-no-hands)
-        uniboard.$big-block-gap uniboard.$col3-uniboard-table;
     }
   }
 

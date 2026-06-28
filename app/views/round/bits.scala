@@ -124,8 +124,10 @@ object bits {
 
   def roundAppPreload(pov: Pov, controls: Boolean)(implicit ctx: Context) =
     div(cls := roundAppClasses)(
-      div(cls := s"round__app__board main-board ${variantClass(pov.game.variant)}")(
-        shogiground(pov),
+      div(cls := "round__app__board")(
+        div(cls := s"round__app__board-inner main-board ${variantClass(pov.game.variant)}")(
+          shogiground(pov),
+        ),
       ),
       div(cls := "round__app__table"),
       div(cls := "ruser ruser-top user-link")(

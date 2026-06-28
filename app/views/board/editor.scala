@@ -31,15 +31,19 @@ object editor {
       withHrefLangs = lila.i18n.LangList.All.some,
     )(
       main(id := "editor-app")(
-        div(cls := s"board-editor ${mainVariantClass(sit.variant)}")(
-          div(cls := "spare spare-top"),
-          div(cls := s"main-board ${variantClass(sit.variant)}")(
-            shogigroundEmpty(sit.variant, shogi.Sente),
+        div(cls := "board-editor-wrap")(
+          div(cls := s"board-editor ${mainVariantClass(sit.variant)}")(
+            div(cls := "spare spare-top"),
+            div(cls := s"main-board ${variantClass(sit.variant)}")(
+              shogigroundEmpty(sit.variant, shogi.Sente),
+            ),
+            div(cls := "spare spare-bottom"),
+            div(cls := "actions"),
           ),
-          div(cls := "spare spare-bottom"),
-          div(cls := "actions"),
-          div(cls := "links"),
-          div(cls := "underboard"),
+          div(cls := "board-editor-interface")(
+            div(cls := "links"),
+            div(cls := "underboard"),
+          ),
         ),
       ),
     )
