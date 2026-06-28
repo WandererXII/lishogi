@@ -21,7 +21,6 @@ object twoFactor {
     ) {
       div(cls := "account twofactor box box-pad")(
         h1(twoFactorAuth()),
-        standardFlash(),
         postForm(cls := "form3", action := routes.Account.setupTwoFactor)(
           div(cls := "form-group")(twoFactorHelp()),
           div(cls := "form-group")(
@@ -60,7 +59,6 @@ object twoFactor {
           i(cls := "is-green text", dataIcon := Icons.correct),
           twoFactorEnabled(),
         ),
-        standardFlash(),
         postForm(cls := "form3", action := routes.Account.disableTwoFactor)(
           p(twoFactorDisable()),
           form3.passwordModified(form("passwd"), trans.password())(

@@ -24,7 +24,6 @@ object index {
             ),
           ),
         ),
-        standardFlash(cls := "box__pad"),
         p(cls := "box__pad")(
           "You can make OAuth requests without going through the authorization code flow.",
           br,

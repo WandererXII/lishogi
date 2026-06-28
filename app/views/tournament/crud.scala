@@ -66,7 +66,6 @@ object crud {
             form3.submit("Clone", Icons.trophy.some, klass = "button-green"),
           ),
         ),
-        standardFlash(),
         postForm(cls := "form3", action := routes.TournamentCrud.update(tour.id))(
           inForm(form, tour.some),
         ),

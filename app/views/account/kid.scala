@@ -18,7 +18,6 @@ object kid {
     ) {
       div(cls := "account box box-pad")(
         h1(trans.kidMode()),
-        standardFlash(),
         p(trans.kidModeExplanation()),
         br,
         br,

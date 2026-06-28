@@ -20,7 +20,6 @@ object theme {
         bits.pageMenu("themes"),
         div(cls := "page-menu__content box")(
           h1(trans.puzzle.puzzleThemes()),
-          standardFlash(cls := "box__pad"),
           div(cls := "puzzle-themes")(
             themes map { case (cat, themes) =>
               frag(

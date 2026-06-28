@@ -1,49 +1,41 @@
 @use '../abstract/extends';
 @use '../abstract/icons';
+@use '../abstract/z-index' as z;
 @use '../theme/generated/theme';
 
 .flash {
-  margin: 1em 0 2em 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: z.get('flash');
+  animation-name: slide-down;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-delay: 4s;
+  animation-fill-mode: forwards;
 
   &__content {
-    @extend %box-radius;
-
-    padding: 1em 2em;
+    padding: 0.6em 2em;
     background: theme.$c-good;
     color: theme.$c-good-over;
-
-    &::before {
-      @extend %data-icon;
-
-      content: icons.$correct;
-      margin-right: 1em;
-      font-size: 1.5em;
-    }
-
-    a {
-      color: theme.$c-good-over;
-    }
-  }
-
-  &-warning .flash__content {
-    background: theme.$c-warn;
-    color: theme.$c-warn-over;
-
-    &::before {
-      @extend %data-icon;
-
-      content: icons.$info-circle;
-    }
+    text-align: center;
+    font-weight: bold;
+    pointer-events: none;
   }
 
   &-failure .flash__content {
     background: theme.$c-bad;
     color: theme.$c-bad-over;
+  }
+}
 
-    &::before {
-      @extend %data-icon;
+@keyframes slide-down {
+  0% {
+    transform: translateY(0);
+  }
 
-      content: icons.$error;
-    }
+  100% {
+    transform: translateY(100%);
   }
 }

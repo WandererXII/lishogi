@@ -16,7 +16,6 @@ object email {
     ) {
       div(cls := "account box box-pad")(
         h1(trans.changeEmail()),
-        standardFlash(),
         postForm(cls := "form3", action := routes.Account.emailApply)(
           form3.passwordModified(form("passwd"), trans.password())(autofocus),
           form3.group(form("email"), trans.email())(form3.input(_, typ = "email")(required)),

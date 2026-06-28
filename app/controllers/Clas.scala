@@ -338,9 +338,9 @@ final class Clas(
                         case F.Invited =>
                           "success" -> s"An invitation has been sent to ${user.username}"
                         case F.Found =>
-                          "warning" -> s"${user.username} already has a pending invitation"
+                          "failure" -> s"${user.username} already has a pending invitation"
                         case F.CantMsgKid(url) =>
-                          "warning" -> s"${user.username} is a kid account and can't receive your message. You must give them the invitation URL manually: $url"
+                          "failure" -> s"${user.username} is a kid account and can't receive your message. You must give them the invitation URL manually: $url"
                       }
                     }
                   }

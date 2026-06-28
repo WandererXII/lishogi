@@ -1,3 +1,5 @@
+import { i18n } from 'i18n';
+
 window.lishogi.ready.then(() => {
   $('.security table form').on('submit', function (this: HTMLFormElement) {
     window.lishogi.xhr.formToXhr(this);
@@ -14,11 +16,14 @@ window.lishogi.ready.then(() => {
   $('form.autosubmit').each(function (this: HTMLFormElement) {
     const form = this;
     const $form = $(form);
-    const showSaved = () => $form.find('.saved').removeClass('none');
+    const showSaved = () =>
+      window.lishogi.announce({
+        tpe: 'success',
+        msg: i18n('preferences:yourPreferencesHaveBeenSaved'),
+      });
     $form.find('input').on('change', function (this: HTMLInputElement) {
       if (this.name == 'behavior.scrollMoves') {
         smStorage.set(this.value);
-        $form.find('.saved').fadeIn();
       }
       window.lishogi.xhr.formToXhr(form).then(() => {
         showSaved();

@@ -16,7 +16,6 @@ object username {
     ) {
       div(cls := "account box box-pad")(
         h1(trans.changeUsername()),
-        standardFlash(),
         postForm(cls := "form3", action := routes.Account.usernameApply)(
           form3.globalError(form),
           form3.group(

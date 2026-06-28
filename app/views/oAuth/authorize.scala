@@ -32,7 +32,7 @@ object authorize {
                 li(scope.name)
               },
             ),
-          flashMessage(cls := "flash-warning")(
+          p(cls := "warning")(
             "Not owned or operated by lishogi.org",
           ),
           p(

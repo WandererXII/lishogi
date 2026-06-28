@@ -118,8 +118,8 @@ declare global {
   };
 
   interface LishogiAnnouncement {
+    tpe?: 'failure' | 'success';
     msg?: string;
-    date?: string;
   }
 
   interface LishogiStorageEvent {

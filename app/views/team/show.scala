@@ -164,7 +164,6 @@ object show {
             ),
           ),
           div(cls := "team-show__content__col2")(
-            standardFlash(),
             st.section(cls := "team-show__desc")(
               richText(t.description),
               t.location.map { loc =>

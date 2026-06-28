@@ -18,14 +18,6 @@
 .user-show {
   overflow: hidden; /* this fixes profile overflow, but cuts out the trophies */
 
-  .flash {
-    margin: unset;
-
-    &__content {
-      border-radius: 0;
-    }
-  }
-
   &__numbers,
   &__sub-header {
     @extend %flex-between;

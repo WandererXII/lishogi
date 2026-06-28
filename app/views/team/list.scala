@@ -32,7 +32,6 @@ object list {
         bits.menu("mine".some),
         div(cls := "page-menu__content box")(
           h1(myTeams()),
-          standardFlash(),
           table(cls := "slist slist-pad")(
             if (teams.nonEmpty) tbody(teams.map(bits.teamTr(_)))
             else noTeam(),
@@ -47,7 +46,6 @@ object list {
         bits.menu("leader".some),
         div(cls := "page-menu__content box")(
           h1(teamsIlead()),
-          standardFlash(),
           table(cls := "slist slist-pad")(
             if (teams.nonEmpty) tbody(teams.map(bits.teamTr(_)))
             else noTeam(),
@@ -84,7 +82,6 @@ object list {
               ),
             ),
           ),
-          standardFlash(),
           table(cls := "slist slist-pad")(
             if (teams.nbResults > 0)
               tbody(cls := "infinitescroll")(

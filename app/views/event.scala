@@ -41,7 +41,6 @@ object event {
             form3.submit("Clone", Icons.mic.some, klass = "button-green"),
           ),
         ),
-        standardFlash(),
         postForm(cls := "content_box_content form3", action := routes.Event.update(event.id))(
           inForm(form),
         ),

@@ -425,18 +425,8 @@ object layout {
               wrapClass -> wrapClass.nonEmpty,
             ),
           )(body),
-          ctx.isAuth option div(
-            id := "friend_box",
-          )(
-            div(cls := "friend_box_title")(
-              iconTag(Icons.up),
-              trans.friends(),
-            ),
-            div(cls := "content_wrap none")(
-              div(cls := "content list"),
-            ),
-          ),
           a(id := "reconnecting", cls := "link text", dataIcon := Icons.loop),
+          standardFlash,
         ),
       ),
     )

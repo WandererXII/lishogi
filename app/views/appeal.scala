@@ -141,7 +141,6 @@ object appeal2 {
         if (appeal.isOpen) "Ongoing appeal" else "Closed appeal",
         asMod option frag(" : ", showUsernameById(appeal.id.some)),
       ),
-      standardFlash(),
       !asMod option renderHelp,
       div(cls := "body")(
         !asMod option renderStatus(appeal),

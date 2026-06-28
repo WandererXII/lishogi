@@ -30,8 +30,8 @@ object invite {
         br,
         br,
         invite.accepted.map {
-          case true  => flashMessage(cls := "flash-success")(trans.success.txt())
-          case false => flashMessage(cls := "flash-warning")(trans.decline.txt())
+          case true  => p(cls := "success")(trans.success.txt())
+          case false => p(cls := "warning")(trans.decline.txt())
         },
         invite.accepted.fold(true)(false.==) option
           postForm(cls := "form3", action := routes.Clas.invitationAccept(invite._id.value))(

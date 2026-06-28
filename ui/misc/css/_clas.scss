@@ -172,14 +172,6 @@ $c-bg-clas-over-dim: theme.$m-white_clas_mix_80;
 }
 
 .dashboard {
-  .flash {
-    margin: 2em 2em 0 2em;
-
-    &__content {
-      padding: 2em var(--box-padding);
-    }
-  }
-
   .students,
   .teachers {
     th {

@@ -47,6 +47,12 @@ export function init(): void {
     setTimeago(1000);
     pubsub.on('content_loaded', renderTimeago);
 
+    pubsub.on('content_loaded', () => {
+      document.querySelectorAll('.flash').forEach(el => {
+        el.addEventListener('click', () => el.classList.add('none'), { once: true });
+      });
+    });
+
     function renderFlatpickr() {
       if (window.flatpickr) {
         document.querySelectorAll('.flatpickr--init').forEach(el => {

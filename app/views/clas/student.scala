@@ -22,9 +22,8 @@ object student {
       cls := "student-show",
       top(clas, s),
       div(cls := "box__pad")(
-        standardFlash(),
         ctx.flash("password").map { password =>
-          flashMessage(cls := "student-show__password")(
+          div(cls := "student-show__password")(
             div(
               p(trans.clas.makeSureToCopy()),
               pre(trans.clas.passwordX(password)),
@@ -148,7 +147,7 @@ object student {
         ".",
       ),
       created map { case Student.WithPassword(student, password) =>
-        flashMessage(cls := "student-add__created")(
+        div(cls := "student-add__created")(
           strong(
             trans.clas.lishogiProfileXCreatedForY(
               showUsernameById(student.userId.some, withOnline = false),
@@ -162,7 +161,6 @@ object student {
           ),
         )
       },
-      standardFlash(),
       (nbStudents <= lila.clas.Clas.maxStudents) option frag(
         div(cls := "student-add__choice")(
           div(cls := "info")(
@@ -218,7 +216,6 @@ object student {
       cls := "student-show student-edit",
       top(clas, s),
       div(cls := "box__pad")(
-        standardFlash(),
         postForm(
           cls    := "form3",
           action := routes.Clas.studentUpdate(clas.id.value, s.user.username),
