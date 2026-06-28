@@ -65,6 +65,7 @@
 	<string name="forceResignation">Reclama la vittoria</string>
 	<string name="forceDraw">Stabilisci la patta</string>
 	<string name="talkInChat">Sii educato in chat!</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">La prima persona che si presenta a questo URL giocherà con te.</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s si è arreso</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s ha lasciato la partita</string>
@@ -439,6 +440,7 @@
 	<string name="follow">Segui</string>
 	<string name="following">Stai seguendo</string>
 	<string name="followers">Followers</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">Non seguire più</string>
 	<string name="block">Blocca</string>
 	<string name="blocked">Bloccato</string>
@@ -599,7 +601,6 @@
 	<string name="by">di %s</string>
 	<string name="thisTopicIsNowClosed">Questa discussione è chiusa.</string>
 	<string name="theming">Temi</string>
-	<string name="blog">Blog</string>
 	<string name="questionsAndAnswers">Domande &amp; risposte</string>
 	<string name="notes">Note</string>
 	<string name="typePrivateNotesHere">Scrivi qui le tue note private</string>
@@ -989,11 +990,6 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="subscribe">Iscriviti</string>
 	<string name="unsubscribe">Annullare l\'iscrizione</string>
 	<string name="notationSystem">Notazione</string>
-	<string name="officialBlog">Blog Ufficiale di Lishogi</string>
-	<string name="blogPostsFromYear">Post del Blog dal %1$s</string>
-	<string name="previousBlogPosts">Post del Blog precedenti</string>
-	<string name="continueReadingThis"> Continua a leggere questo post</string>
-	<string name="discussBlogForum">Discuti di questo post del Blog sul forum</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Disposizione dei pezzi non valida</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Re in posizione avanzata</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Valore totale</string>
@@ -1094,4 +1090,9 @@ Bullet, Blitz, Classico e altre opzioni sono disponibili per un divertimento sfr
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>
