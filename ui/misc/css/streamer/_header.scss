@@ -1,7 +1,11 @@
+@use 'pkg:breakpoint-sass' as breakpoint;
 @use 'pkg:common/abstract/extends';
+@use 'pkg:common/abstract/media-queries';
 @use 'pkg:common/theme';
 @use 'services';
-@use 'local';
+
+$pic-size: 260px;
+$overview-spacing: 2rem;
 
 .streamer-header {
   display: flex;
@@ -9,7 +13,10 @@
   border-bottom: theme.$border;
 
   .picture {
-    flex: 0 0 local.$pic-size;
+    flex: 0 0 $pic-size;
+    width: $pic-size;
+    height: $pic-size;
+    object-fit: cover;
   }
 
   .overview {
@@ -18,6 +25,17 @@
     flex-flow: column;
     justify-content: space-between;
     width: 100%;
+  }
+
+  @include breakpoint.breakpoint(media-queries.$mq-not-x-small) {
+    flex-direction: column;
+  }
+
+  @include breakpoint.breakpoint(media-queries.$mq-not-xx-small) {
+    .picture {
+      width: 100vw;
+      height: 100vw;
+    }
   }
 
   .metas {

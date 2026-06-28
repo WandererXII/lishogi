@@ -32,6 +32,14 @@ object bits extends Context.ToLang {
         )
     }
 
+  def overview(s: lila.streamer.Streamer.WithUserAndStream)(implicit lang: Lang): Frag =
+    div(cls := "overview")(
+      h2(s.streamer.name),
+      bits.headline(s.streamer),
+      bits.ats(s),
+      bits.services(s.streamer),
+    )
+
   def headline(s: lila.streamer.Streamer): Frag = {
     val d = s.headline.fold("-")(_.value)
     p(
@@ -47,10 +55,12 @@ object bits extends Context.ToLang {
       s.stream.map { s =>
         p(cls := "at")(currentlyStreaming(strong(s.status)))
       } getOrElse frag(
-        p(cls := "at")(trans.lastSeenActive(momentFromNow(s.streamer.seenAt))),
-        s.streamer.liveAt.map { liveAt =>
-          p(cls := "at")(lastStream(momentFromNow(liveAt)))
-        },
+        div(cls := "at-wrap")(
+          p(cls := "at")(trans.lastSeenActive(momentFromNow(s.streamer.seenAt))),
+          s.streamer.liveAt.map { liveAt =>
+            p(cls := "at")(lastStream(momentFromNow(liveAt)))
+          },
+        ),
       ),
     )
 
@@ -70,7 +80,7 @@ object bits extends Context.ToLang {
               editPage(),
             ),
         )
-      } getOrElse a(href := routes.Streamer.edit)(yourPage()),
+      } getOrElse a(cls := active.active("create"), href := routes.Streamer.edit)(yourPage()),
       isGranted(_.Streamers) option a(
         cls  := active.active("requests"),
         href := s"${routes.Streamer.index()}?requests=1",

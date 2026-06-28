@@ -4,8 +4,11 @@
 @use 'pkg:common/abstract/media-queries';
 @use 'pkg:common/abstract/mixins';
 @use 'pkg:common/theme';
-@use 'local';
+@use 'header';
 @use 'services';
+
+$pic-size: 260px;
+$overview-spacing: 2rem;
 
 .streamer-list {
   .streamer {
@@ -29,15 +32,10 @@
 
     &:nth-child(even) {
       background: theme.$c-bg-zebra;
-      justify-content: space-between;
-
-      .picture {
-        order: 3;
-      }
     }
 
     &:hover {
-      background: theme.$m-link_bg-box_mix_15;
+      background: theme.$m-primary_bg-box_mix_15;
     }
   }
 
@@ -45,21 +43,26 @@
     @extend %link-overlay;
   }
 
-  .picture {
-    display: none;
-    flex: 0 0 local.$pic-size;
+  .overview {
+    margin: calc($overview-spacing / 2) 10px calc($overview-spacing / 2) 2.5vw;
+    width: 100%;
+    max-height: calc(#{$pic-size} - #{$overview-spacing});
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 
-    @include breakpoint.breakpoint(local.$mq-picture) {
-      display: block;
+    .ats {
+      .at-wrap {
+        display: flex;
+        gap: 1rem;
+      }
     }
   }
 
-  .overview {
-    margin: 20px 10px 0 2.5vw;
-    display: flex;
-    flex-flow: column;
-    justify-content: space-between;
-    padding-bottom: 15px;
+  .picture {
+    width: $pic-size;
+    min-width: $pic-size;
+    height: $pic-size;
   }
 
   .headline {

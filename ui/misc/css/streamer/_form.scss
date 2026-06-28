@@ -4,7 +4,6 @@
 @use 'pkg:common/abstract/media-queries';
 @use 'pkg:common/theme';
 @use 'header';
-@use 'local';
 
 .streamer-edit {
   .streamer-header {
@@ -21,17 +20,10 @@
       }
     }
 
-    @include breakpoint.breakpoint(media-queries.$mq-not-medium) {
+    @include breakpoint.breakpoint(media-queries.$mq-not-small) {
       display: flex;
       flex-direction: column;
       padding-top: 2em;
-    }
-
-    .picture-create {
-      a {
-        display: block;
-        width: local.$pic-size;
-      }
     }
 
     a {
@@ -78,49 +70,30 @@
       margin-top: 2rem;
     }
   }
-}
 
-.streamer-rules {
-  h2 {
-    font-weight: bold;
-    font-size: 1.2rem;
-  }
+  form {
+    #form3-image {
+      display: none;
+    }
 
-  li {
-    margin: 0.9em 0 0.9em 2.2em;
-    line-height: 1.4em;
-    text-indent: -2.2em;
-    font-size: 0.95em;
-
-    &::before {
-      font-family: lishogi;
-      content: icons.$correct;
-      font-size: 1em;
-      margin-right: 0.5em;
-      vertical-align: middle;
-      opacity: 0.8;
-      color: theme.$c-good;
+    .form-check {
+      margin-top: 2rem;
     }
   }
 }
 
-.streamer-picture {
-  form {
-    padding: 30px;
-    border-top: theme.$border;
-    text-align: center;
+.streamer-rules {
+  padding: 2rem;
+  background: theme.$c-bg-zebra;
+  margin-bottom: 2rem;
+
+  h2 {
+    font-weight: bold;
+    font-size: 1.3rem;
   }
 
-  .cancel {
-    padding: 40px;
-    border-top: theme.$border;
-  }
-
-  .forms > *:first-child {
-    margin-top: 40px;
-  }
-
-  .picture_wrap {
-    text-align: center;
+  li {
+    list-style: disc;
+    margin: 1em 0 1em 2.2em;
   }
 }

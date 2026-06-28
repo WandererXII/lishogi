@@ -56,11 +56,16 @@ object edit extends Context.ToLang {
       title = s"${s.user.titleUsername} ${lishogiStreamer.txt()}",
       moreCss = cssTag("misc.streamer.form"),
       moreJs = jsTag("misc.streamer-form"),
+      csp = defaultCsp
+        .copy(
+          connectSrc = env.imgDomain :: defaultCsp.connectSrc,
+        )
+        .some,
     ) {
       main(cls := "page-menu")(
         bits.menu("edit", s.withoutStream.some),
         div(cls := "page-menu__content box streamer-edit")(
-          views.html.streamer.header(s, edit = ctx.is(s.user)),
+          if (ctx.is(s.user)) bits.rules else show.header(s),
           div(cls := "box__pad") {
             frag(
               statusBox,
@@ -231,10 +236,9 @@ object edit extends Context.ToLang {
                 form3.group(form("description"), longDescription())(form3.textarea(_)(rows := 10)),
                 form3.actions(
                   a(href := routes.Streamer.show(s.user.username))(trans.cancel()),
-                  form3.submit(trans.apply()),
+                  form3.submit(trans.save()),
                 ),
               ),
-              statusBox,
             )
           },
         ),

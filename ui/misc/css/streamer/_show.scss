@@ -6,7 +6,6 @@
 @use 'pkg:common/abstract/variables';
 @use 'pkg:common/theme';
 @use 'header';
-@use 'local';
 
 .streamer-show {
   .streamer-live-box a {
@@ -30,14 +29,6 @@
     }
   }
 
-  .picture {
-    display: none;
-
-    @include breakpoint.breakpoint(local.$mq-picture) {
-      display: block;
-    }
-  }
-
   .description {
     padding: 2.5em 50px 2.5em 65px;
     font-size: 1.4em;
@@ -52,10 +43,18 @@
     color: #3893e8;
   }
 
+  .ats {
+    .at-wrap {
+      display: flex;
+      gap: 1rem;
+    }
+  }
+
   .ratings {
     @extend %flex-center;
 
-    justify-content: space-between;
+    justify-content: center;
+    gap: 1rem;
     padding: 2em 50px 1em 58px;
     font-size: 1.6em;
     line-height: 0.9;

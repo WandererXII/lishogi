@@ -33,10 +33,20 @@ object show {
       openGraph = lila.app.ui
         .OpenGraph(
           title = title,
-          description = shorten(~(c.coach.profile.headline), 152),
           url = s"$netBaseUrl${routes.Coach.show(c.user.username)}",
           `type` = "profile",
-          image = c.coach.picturePath.map(p => dbImageUrl(p.value)),
+          description = shorten(~(c.coach.profile.headline), 152),
+          image = c.coach.picturePath.map(p =>
+            urlOrImageStorageUrl(
+              p.value,
+              lila.common.ImageStorage.Imgproxy
+                .opts(
+                  width = 600,
+                  height = 600,
+                )
+                .some,
+            ),
+          ),
         )
         .some,
     ) {

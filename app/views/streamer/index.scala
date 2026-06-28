@@ -28,6 +28,7 @@ object index {
           bits.redirectLink(s.user.username, s.stream.isDefined.some)(cls := "overlay"),
         s.stream.isDefined option span(cls := "ribbon")(span(trans.streamer.live())),
         bits.pic(s),
+        bits.overview(s),
       )
 
     views.html.base.layout(

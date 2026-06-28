@@ -1,6 +1,7 @@
 package views.html.streamer
 
 import controllers.routes
+import play.api.i18n.Lang
 
 import lila.api.Context
 import lila.app.templating.Environment._
@@ -51,7 +52,7 @@ object show {
                 xIsStreaming(s.streamer.name),
               ),
             ),
-            views.html.streamer.header(s),
+            header(s),
             s.streamer.description map { desc =>
               div(cls := "description")(richText(desc.value))
             },
@@ -63,4 +64,13 @@ object show {
         ),
       ),
     )
+
+  def header(
+      s: lila.streamer.Streamer.WithUserAndStream,
+  )(implicit lang: Lang) =
+    div(cls := "streamer-header")(
+      bits.pic(s),
+      bits.overview(s),
+    )
+
 }
