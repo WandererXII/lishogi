@@ -157,7 +157,10 @@ final class Round(
     }
 
   private def parseColorString(game: lila.game.Game, str: String): shogi.Color =
-    shogi.Color.fromName(str).getOrElse(game.firstColor)
+    shogi.Color
+      .fromName(str)
+      .orElse(game.playerByUserId(str.toLowerCase).map(_.color))
+      .getOrElse(game.firstColor)
 
   private def otherPovs(game: GameModel)(implicit ctx: Context): Fu[List[Pov]] =
     ctx.me ?? { user =>
@@ -220,20 +223,23 @@ final class Round(
       }
     }
 
-  private def proxyPov(gameId: String, color: String): Fu[Option[(Pov, SocketVersion)]] =
-    shogi.Color.fromName(color) ?? {
-      env.round.proxyRepo.povWithVersion(gameId, _)
-    }
-
   def sides(gameId: String, color: String) =
     Open { implicit ctx =>
-      OptionFuResult(proxyPov(gameId, color)) { case (pov, _) =>
-        env.tournament.api.gameView.withTeamVs(pov.game) zip
-          (pov.game.simulId ?? env.simul.repo.find) zip
-          env.game.crosstableApi.withMatchup(pov.game) zip
-          env.bookmark.api.exists(pov.game, ctx.me) map {
+      OptionFuResult(env.round.proxyRepo.game(gameId)) { case game =>
+        env.tournament.api.gameView.withTeamVs(game) zip
+          (game.simulId ?? env.simul.repo.find) zip
+          env.game.crosstableApi.withMatchup(game) zip
+          env.bookmark.api.exists(game, ctx.me) map {
             case (((tour, simul), crosstable), bookmarked) =>
-              Ok(html.game.bits.sides(pov, tour, crosstable, simul, bookmarked = bookmarked))
+              Ok(
+                html.game.bits.sides(
+                  Pov(game, parseColorString(game, color)),
+                  tour,
+                  crosstable,
+                  simul,
+                  bookmarked = bookmarked,
+                ),
+              )
           }
       }
     }
@@ -293,10 +299,9 @@ final class Round(
   def mini(gameId: String, color: String) =
     Open { implicit ctx =>
       OptionOk(
-        shogi.Color
-          .fromName(color)
-          .??(env.round.proxyRepo.povIfPresent(gameId, _)) orElse env.game.gameRepo
-          .pov(gameId, color),
+        env.round.proxyRepo.gameIfPresent(gameId) orElse env.game.gameRepo.game(gameId) map2 { g =>
+          Pov(g, parseColorString(g, color))
+        },
       )(html.game.bits.mini)
     }
 
