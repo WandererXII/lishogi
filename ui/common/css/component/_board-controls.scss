@@ -1,0 +1,138 @@
+@use 'pkg:breakpoint-sass' as breakpoint;
+@use '../abstract/extends';
+@use '../abstract/uniboard';
+@use '../abstract/variables';
+@use 'pkg:common/theme';
+
+.board-controls {
+  @extend %double-tap;
+
+  display: flex;
+  align-items: stretch;
+  font-size: 1.3rem;
+  height: 100%;
+
+  .fbt {
+    @extend %page-text, %flex-center, %box-radius;
+
+    justify-content: center;
+    cursor: pointer;
+
+    &[data-act='first'],
+    &[data-act='prev'],
+    &[data-act='next'],
+    &[data-act='last'] {
+      &:not(.disabled):hover {
+        background: theme.$m-primary_bg-box_mix_30;
+      }
+    }
+
+    &.hidden {
+      visibility: hidden;
+    }
+  }
+
+  .col1-controls {
+    display: none;
+    width: 100%;
+    flex: 1 1 auto;
+    margin: variables.$block-gap 0;
+    height: uniboard.$col1-uniboard-controls;
+
+    .col1-controls-scrollable {
+      @extend %box-neat-force, %metal;
+
+      display: flex;
+      flex: 4;
+      min-width: 0;
+
+      .col1-controls-scrollable-inner {
+        display: flex;
+        flex-flow: row nowrap;
+        align-items: center;
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+        flex: unset;
+
+        &::-webkit-scrollbar {
+          height: 0;
+        }
+
+        .fbt {
+          display: flex;
+          flex-wrap: nowrap;
+          justify-content: center;
+          align-items: center;
+          user-select: none;
+          height: 100%;
+
+          &.active {
+            background-color: theme.$c-accent;
+            color: theme.$c-accent-over;
+          }
+        }
+      }
+    }
+
+    .jumps {
+      display: flex;
+      flex: 2;
+
+      & > .fbt {
+        flex: 1;
+
+        &[data-act='first'],
+        &[data-act='last'] {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .col2-controls {
+    display: flex;
+    width: 100%;
+
+    .fbt {
+      @extend %box-radius;
+
+      flex: 1;
+      margin: 1px 0;
+    }
+
+    .jumps {
+      display: flex;
+      flex: 4;
+      padding: 0 0.5rem;
+
+      .fbt {
+        flex: 1;
+
+        &[data-act='first'],
+        &[data-act='prev'],
+        &[data-act='next'],
+        &[data-act='last'] {
+          flex: 2;
+        }
+
+        &[data-act='first'],
+        &[data-act='last'] {
+          font-size: 0.7em !important;
+        }
+      }
+    }
+  }
+
+  @include breakpoint.breakpoint(uniboard.$mq-col1-uniboard) {
+    // @media (hover: none) and (pointer: coarse) {
+    .col1-controls {
+      display: flex;
+    }
+
+    .col2-controls {
+      display: none;
+    }
+    // }
+  }
+}
