@@ -2,7 +2,6 @@ import type { AnalyseGame, Clock, Division, Player } from 'game/interfaces';
 import type { VNode } from 'snabbdom';
 import type AnalyseController from './ctrl';
 import type { ForecastData } from './forecast/interfaces';
-import type { Goal as PracticeGoal, StudyPracticeData } from './study/practice/interfaces';
 
 export interface NvuiPlugin {
   render(ctrl: AnalyseController): VNode;
@@ -22,7 +21,6 @@ export interface AnalyseData {
   forecast?: ForecastData;
   treeParts: Tree.Node[];
   evalPut?: boolean;
-  practiceGoal?: PracticeGoal;
   clock?: Clock;
   tags?: string[][];
   pref: any;
@@ -56,12 +54,11 @@ export interface AnalyseOpts {
   data: AnalyseData;
   initialPly?: number | string;
   userId: string | null;
-  mode: 'replay' | 'study' | 'analyse' | 'practice';
+  mode: 'replay' | 'study' | 'analyse';
   embed: boolean;
   socketSend: Socket.Send;
   study?: any;
   tagTypes?: string;
-  practice?: StudyPracticeData;
   $side?: JQuery;
   $meta?: JQuery; // separated to prevent chat layout shift
   $streamers?: JQuery;

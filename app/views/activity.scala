@@ -18,7 +18,6 @@ object activity {
           h2(semanticDate(a.interval.getStart)),
           div(cls := "entries")(
             a.patron map renderPatron,
-            a.practice map renderPractice,
             a.puzzles map renderPuzzles,
             a.storm map renderStorm,
             a.games map renderGames,
@@ -51,30 +50,6 @@ object activity {
           .plural(p.months, p.months, a(href := routes.Plan.index)("Patron")), // patron
       ),
     )
-
-  private def renderPractice(p: Map[lila.practice.PracticeStudy, Int])(implicit ctx: Context) = {
-    val ps = p.toSeq.sortBy(-_._2)
-    entryTag(
-      iconTag(Icons.bullseye),
-      div(
-        ps.headOption map onePractice,
-        ps match {
-          case _ :: rest if rest.nonEmpty => subTag(rest map onePractice)
-          case _                          => emptyFrag
-        },
-      ),
-    )
-  }
-
-  private def onePractice(tup: (lila.practice.PracticeStudy, Int))(implicit ctx: Context) =
-    tup match {
-      case (study, nb) =>
-        val href = routes.Practice.show("-", study.slug, study.id.value)
-        frag(
-          trans.activity.practicedNbPositions.plural(nb, nb, a(st.href := href)(study.name)),
-          br,
-        )
-    }
 
   private def renderPuzzles(p: Puzzles)(implicit ctx: Context) =
     entryTag(

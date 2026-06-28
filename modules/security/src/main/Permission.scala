@@ -39,7 +39,6 @@ object Permission {
   case object Appeals          extends Permission("APPEAL", "Handle appeals")
   case object ModLog           extends Permission("MOD_LOG", "See mod log")
   case object SeeInsights      extends Permission("SEE_INSIGHT", "View player insights")
-  case object PracticeConfig   extends Permission("PRACTICE_CONFIG", "Configure practice")
   case object Beta             extends Permission("BETA", "Beta features")
   case object UserSearch       extends Permission("USER_SEARCH", "Mod user search")
   case object ManageTeam       extends Permission("MANAGE_TEAM", "Manage teams")
@@ -139,7 +138,6 @@ object Permission {
           ManageTournament,
           ManageSimul,
           ManageEvent,
-          PracticeConfig,
           RemoveRanking,
           Streamers,
           Puzzles,
@@ -207,7 +205,6 @@ object Permission {
       ManageTournament,
       ManageSimul,
       StudyAdmin,
-      PracticeConfig,
     ),
     "Dev" -> List(
       Cli,

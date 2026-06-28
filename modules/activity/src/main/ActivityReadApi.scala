@@ -6,13 +6,11 @@ import reactivemongo.api.ReadPreference
 
 import lila.db.dsl._
 import lila.game.LightPov
-import lila.practice.PracticeStructure
 import lila.user.User
 
 final class ActivityReadApi(
     coll: Coll,
     gameRepo: lila.game.GameRepo,
-    practiceApi: lila.practice.PracticeApi,
     postApi: lila.forum.PostApi,
     simulApi: lila.simul.SimulApi,
     studyApi: lila.study.StudyApi,
@@ -37,27 +35,18 @@ final class ActivityReadApi(
           .vector(recentNb)
           .dmap(_.filterNot(_.isEmpty))
           .mon(_.user segment "activity.raws")
-      practiceStructure <- activities.exists(_.practice.isDefined) ?? {
-        practiceApi.structure.get dmap some
-      }
       views <- activities.map { a =>
-        one(practiceStructure, a).mon(_.user segment "activity.view")
+        one(a).mon(_.user segment "activity.view")
       }.sequenceFu
     } yield addSignup(u.createdAt, views)
 
-  private def one(practiceStructure: Option[PracticeStructure], a: Activity): Fu[ActivityView] =
+  private def one(a: Activity): Fu[ActivityView] =
     for {
       posts <- a.posts ?? { p =>
         postApi
           .liteViewsByIds(p.value.map(_.value))
           .mon(_.user segment "activity.posts") dmap some
       }
-      practice = (for {
-        p      <- a.practice
-        struct <- practiceStructure
-      } yield p.value flatMap { case (studyId, nb) =>
-        struct study studyId map (_ -> nb)
-      } toMap)
       postView = posts.map { p =>
         p.groupBy(_.topic)
           .view
@@ -107,7 +96,6 @@ final class ActivityReadApi(
       games = a.games,
       puzzles = a.puzzles,
       storm = a.storm,
-      practice = practice,
       posts = postView,
       simuls = simuls,
       patron = a.patron,

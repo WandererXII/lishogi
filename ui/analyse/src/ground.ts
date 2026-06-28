@@ -113,7 +113,7 @@ export function makeConfig(ctrl: AnalyseCtrl): SgConfig {
     },
     drawable: {
       enabled: !ctrl.embed,
-      eraseOnClick: !ctrl.opts.study || !!ctrl.opts.practice,
+      eraseOnClick: !ctrl.opts.study,
     },
     promotion: {
       promotesTo: (role: Role) => shogiPromote(variant)(role),

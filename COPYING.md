@@ -74,7 +74,7 @@ Lishogi as deployed on https://lishogi.org/ also uses these external services:
 - [Mailgun](https://www.mailgun.com/) for transactional email
 - [prismic.io](https://prismic.io/) for help/documentation pages and the blog
 - [twitch](https://www.twitch.tv/) for featured livestreams
-- [YouTube](https://www.youtube.com) for featured livestreams and the [Video library](https://lishogi.org/video)
+- [YouTube](https://www.youtube.com) for featured livestreams
 - [PayPal](https://www.paypal.com) for [Patron donations](https://lishogi.org/patron)
 - [check.torproject.org](https://check.torproject.org/exit-addresses) for a list or Tor exit nodes
 - [detectlanguage.com](https://detectlanguage.com/)

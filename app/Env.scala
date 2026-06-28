@@ -61,7 +61,6 @@ final class Env(
     val tv: lila.tv.Env,
     val blog: lila.blog.Env,
     val history: lila.history.Env,
-    val video: lila.video.Env,
     val playban: lila.playban.Env,
     val shutup: lila.shutup.Env,
     val push: lila.push.Env,
@@ -75,7 +74,6 @@ final class Env(
     val event: lila.event.Env,
     val coach: lila.coach.Env,
     val clas: lila.clas.Env,
-    val practice: lila.practice.Env,
     val activity: lila.activity.Env,
     val streamer: lila.streamer.Env,
     val oAuth: lila.oauth.Env,
@@ -232,7 +230,6 @@ final class EnvBoot(
   lazy val tv: lila.tv.Env                   = wire[lila.tv.Env]
   lazy val blog: lila.blog.Env               = wire[lila.blog.Env]
   lazy val history: lila.history.Env         = wire[lila.history.Env]
-  lazy val video: lila.video.Env             = wire[lila.video.Env]
   lazy val playban: lila.playban.Env         = wire[lila.playban.Env]
   lazy val shutup: lila.shutup.Env           = wire[lila.shutup.Env]
   lazy val push: lila.push.Env               = wire[lila.push.Env]
@@ -246,7 +243,6 @@ final class EnvBoot(
   lazy val event: lila.event.Env             = wire[lila.event.Env]
   lazy val coach: lila.coach.Env             = wire[lila.coach.Env]
   lazy val clas: lila.clas.Env               = wire[lila.clas.Env]
-  lazy val practice: lila.practice.Env       = wire[lila.practice.Env]
   lazy val activity: lila.activity.Env       = wire[lila.activity.Env]
   lazy val streamer: lila.streamer.Env       = wire[lila.streamer.Env]
   lazy val oAuth: lila.oauth.Env             = wire[lila.oauth.Env]

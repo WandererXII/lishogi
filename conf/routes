@@ -178,18 +178,6 @@ GET   /features                        controllers.Plan.features
 GET   /patreon                         controllers.Main.movedPermanently(to: String = "/patron")
 GET   /donate                          controllers.Main.movedPermanently(to: String = "/patron")
 
-# Practice
-GET   /practice                                   controllers.Practice.index
-GET   /practice/load/:studyId/:chapterId          controllers.Practice.chapter(studyId: String, chapterId: String)
-GET   /practice/config                            controllers.Practice.config
-POST  /practice/config                            controllers.Practice.configSave
-POST  /practice/reset                             controllers.Practice.reset
-GET   /practice/:sectionId                        controllers.Practice.showSection(sectionId: String)
-GET   /practice/:sectionId/:studySlug             controllers.Practice.showStudySlug(sectionId: String, studySlug: String)
-GET   /practice/:sectionId/:studySlug/:studyId    controllers.Practice.show(sectionId: String, studySlug: String, studyId: String)
-GET   /practice/:sectionId/:studySlug/:studyId/:chapterId controllers.Practice.showChapter(sectionId: String, studySlug: String, studyId: String, chapterId: String)
-POST  /practice/complete/:chapterId/:moves        controllers.Practice.complete(chapterId: String, moves: Int)
-
 # Streamer
 GET   /streamer                        controllers.Streamer.index(page: Int ?= 1)
 GET   /api/streamer/featured           controllers.Streamer.featured
@@ -368,12 +356,6 @@ POST  /challenge/tournament/$tourId<\w{8}>/:arrId controllers.Challenge.tourname
 # Notify
 GET  /notify                           controllers.Notify.recent(page: Int ?= 1)
 POST /notify/clear                     controllers.Notify.clear
-
-# Video
-GET   /video                           controllers.Video.index
-GET   /video/tags                      controllers.Video.tags
-GET   /video/author/:author            controllers.Video.author(author: String)
-GET   /video/:id                       controllers.Video.show(id: String)
 
 # I18n
 POST  /translation/select              controllers.I18n.select

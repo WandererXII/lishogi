@@ -119,9 +119,7 @@ final class LilaComponents(ctx: ApplicationLoader.Context)
   lazy val oAuth: OAuth                   = wire[OAuth]
   lazy val oAuthToken: OAuthToken         = wire[OAuthToken]
   lazy val plan: Plan                     = wire[Plan]
-  lazy val practice: Practice             = wire[Practice]
   lazy val pref: Pref                     = wire[Pref]
-  lazy val prismic: Prismic               = wire[Prismic]
   lazy val push: Push                     = wire[Push]
   lazy val puzzle: Puzzle                 = wire[Puzzle]
   lazy val relation: Relation             = wire[Relation]
@@ -142,7 +140,6 @@ final class LilaComponents(ctx: ApplicationLoader.Context)
   lazy val user: User                     = wire[User]
   lazy val userAnalysis: UserAnalysis     = wire[UserAnalysis]
   lazy val userTournament: UserTournament = wire[UserTournament]
-  lazy val video: Video                   = wire[Video]
   lazy val storm: Storm                   = wire[Storm]
 
   // eagerly wire up all controllers

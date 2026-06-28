@@ -85,13 +85,10 @@ export function bind(ctrl: AnalyseCtrl): void {
     preventing(() => {
       const gb = ctrl.gamebookPlay();
       if (gb) gb.onSpace();
-      else if (ctrl.studyPractice) return;
       else if (ctrl.ceval.enabled()) ctrl.playBestMove();
       else ctrl.toggleCeval();
     }),
   );
-
-  if (ctrl.studyPractice) return;
 
   kbd.bind('f', preventing(ctrl.flip));
   kbd.bind(

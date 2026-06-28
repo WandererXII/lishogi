@@ -56,11 +56,6 @@ final class ModlogApi(repo: ModlogRepo)(implicit
       )
     }
 
-  def practiceConfig(mod: User.ID) =
-    add {
-      Modlog(mod, none, Modlog.practiceConfig)
-    }
-
   def alt(mod: Mod, sus: Suspect, v: Boolean) =
     add {
       Modlog.make(mod, sus, if (v) Modlog.alt else Modlog.unalt)

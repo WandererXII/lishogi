@@ -13,8 +13,6 @@ function main(opts: AnalyseOpts): AnalyseCtrl {
       return replay(opts, start);
     case 'study':
       return study(opts, start);
-    case 'practice':
-      return practice(opts, start);
     default:
       return analysis(opts, start);
   }

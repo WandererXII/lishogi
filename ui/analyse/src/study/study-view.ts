@@ -18,7 +18,6 @@ import type { StudyCtrl, Tab, ToolTab } from './interfaces';
 import { view as inviteFormView } from './invite-form';
 import { view as multiBoardView } from './multi-board';
 import { view as notifView } from './notif';
-import * as practiceView from './practice/study-practice-view';
 import { view as serverEvalView } from './server-eval';
 import { view as chapterView } from './study-chapters';
 import { view as studyFormView } from './study-form';
@@ -305,7 +304,6 @@ export function overboard(ctrl: StudyCtrl): MaybeVNode {
 
 export function underboard(ctrl: AnalyseCtrl): MaybeVNodes {
   if (ctrl.embed) return [];
-  if (ctrl.studyPractice) return practiceView.underboard(ctrl.study!);
   const study = ctrl.study!;
   const toolTab = study.vm.toolTab();
   if (study.gamebookPlay())

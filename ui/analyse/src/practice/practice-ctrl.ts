@@ -31,7 +31,7 @@ export interface PracticeCtrl {
   hovering: Prop<{ usi: Usi } | null>;
   hinting: Prop<Hinting | null>;
   resume(): void;
-  playableDepth: Prop<number>;
+  playableDepth: number;
   reset(): void;
   preUserJump(from: Tree.Path, to: Tree.Path): void;
   postUserJump(from: Tree.Path, to: Tree.Path): void;
@@ -44,7 +44,7 @@ export interface PracticeCtrl {
   redraw: Redraw;
 }
 
-export function make(root: AnalyseCtrl, playableDepth: () => number): PracticeCtrl {
+export function make(root: AnalyseCtrl, playableDepth: number): PracticeCtrl {
   const running = prop(true);
   const comment = prop<Comment | null>(null);
   const hovering = prop<any>(null);
@@ -68,7 +68,7 @@ export function make(root: AnalyseCtrl, playableDepth: () => number): PracticeCt
   function playable(node: Tree.Node): boolean {
     const ceval = node.ceval;
     return ceval
-      ? ceval.depth >= Math.min(ceval.maxDepth || 99, playableDepth()) ||
+      ? ceval.depth >= Math.min(ceval.maxDepth || 99, playableDepth) ||
           (ceval.depth >= 15 && (ceval.cloud || ceval.millis > 5000))
       : false;
   }

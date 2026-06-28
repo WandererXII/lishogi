@@ -123,7 +123,7 @@ function doRender(ctrl: AnalyseCtrl): VNode {
 }
 
 export function render(ctrl: AnalyseCtrl): VNode | undefined {
-  if (ctrl.studyPractice || ctrl.embed) return;
+  if (ctrl.embed) return;
 
   if (
     !ctrl.data.analysis ||

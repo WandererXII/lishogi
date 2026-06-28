@@ -68,19 +68,3 @@ export function analysis(
 
   return ctrl;
 }
-
-export function practice(
-  opts: AnalyseOpts,
-  start: (opts: AnalyseOpts) => AnalyseCtrl,
-): AnalyseCtrl {
-  let ctrl: AnalyseCtrl | undefined;
-  opts.socketSend = wsConnect('/analysis/socket/v4', false, {
-    options: { reloadOnResume: true },
-    receive: (t: string, d: any) => {
-      ctrl?.socket.receive(t, d);
-    },
-  }).send;
-  ctrl = start(opts);
-
-  return ctrl;
-}

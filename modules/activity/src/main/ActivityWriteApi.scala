@@ -63,11 +63,6 @@ final class ActivityWriteApi(
       )
     }
 
-  def practice(prog: lila.practice.PracticeProgress.OnComplete) =
-    updateToday(prog.userId) { a =>
-      a.copy(practice = (~a.practice + prog.studyId).some)
-    }
-
   def simul(simul: lila.simul.Simul) =
     simulParticipant(simul, simul.hostId) >>
       simul.pairings.map(_.player.user).map { simulParticipant(simul, _) }.sequenceFu.void

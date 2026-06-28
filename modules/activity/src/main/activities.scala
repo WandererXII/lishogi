@@ -36,14 +36,6 @@ object activities {
   }
   implicit val StormZero: Zero[Storm] = Zero(Storm(0, 0))
 
-  case class Practice(value: Map[Study.Id, Int]) {
-    def +(studyId: Study.Id) =
-      copy(
-        value = value + (studyId -> value.get(studyId).fold(1)(1 +)),
-      )
-  }
-  implicit val PracticeZero: Zero[Practice] = Zero(Practice(Map.empty))
-
   case class SimulId(value: String) extends AnyVal
   case class Simuls(value: List[SimulId]) extends AnyVal {
     def +(s: SimulId) = copy(value = s :: value)

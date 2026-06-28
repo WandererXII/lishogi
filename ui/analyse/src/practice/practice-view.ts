@@ -95,7 +95,7 @@ function renderRunning(root: AnalyseCtrl, ctrl: PracticeCtrl): VNode {
         ? [h('strong', i18n('yourTurn'))]
         : [
             h('strong', i18n('computerThinking')),
-            renderEvalProgress(ctrl.currentNode(), ctrl.playableDepth()),
+            renderEvalProgress(ctrl.currentNode(), ctrl.playableDepth),
           ]
       ).concat(
         h('div.choices', [

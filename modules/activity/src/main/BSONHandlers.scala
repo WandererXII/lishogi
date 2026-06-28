@@ -3,7 +3,6 @@ package lila.activity
 import reactivemongo.api.bson._
 
 import lila.common.Day
-import lila.common.Iso
 import lila.db.dsl._
 import lila.rating.BSONHandlers.perfTypeKeyIso
 import lila.rating.PerfType
@@ -75,10 +74,6 @@ private object BSONHandlers {
     def writes(w: lila.db.BSON.Writer, s: Storm) = BSONDocument("r" -> s.runs, "s" -> s.score)
   }
 
-  implicit private[activity] lazy val practiceHandler: BSONHandler[Practice] =
-    typedMapHandler[Study.Id, Int](Iso.string[Study.Id](Study.Id.apply, _.value))
-      .as[Practice](Practice.apply, _.value)
-
   implicit private[activity] lazy val simulIdHandler: BSONHandler[SimulId] =
     BSONStringHandler.as[SimulId](SimulId.apply, _.value)
   implicit private[activity] lazy val simulsHandler: BSONHandler[Simuls] =
@@ -120,7 +115,6 @@ private object BSONHandlers {
     val posts     = "p"
     val puzzles   = "z"
     val storm     = "m"
-    val practice  = "r"
     val simuls    = "s"
     val corres    = "o"
     val patron    = "a"
@@ -143,7 +137,6 @@ private object BSONHandlers {
         posts = r.getO[Posts](posts),
         puzzles = r.getO[Puzzles](puzzles),
         storm = r.getO[Storm](storm),
-        practice = r.getO[Practice](practice),
         simuls = r.getO[Simuls](simuls),
         corres = r.getO[Corres](corres),
         patron = r.getO[Patron](patron),
@@ -162,7 +155,6 @@ private object BSONHandlers {
         posts     -> o.posts,
         puzzles   -> o.puzzles,
         storm     -> o.storm,
-        practice  -> o.practice,
         simuls    -> o.simuls,
         corres    -> o.corres,
         patron    -> o.patron,

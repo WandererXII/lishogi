@@ -21,8 +21,6 @@ import type {
 } from './interfaces';
 import { MultiBoardCtrl } from './multi-board';
 import { ctrl as notifCtrl } from './notif';
-import type { StudyPracticeCtrl, StudyPracticeData } from './practice/interfaces';
-import practiceCtrl from './practice/study-practice-ctrl';
 import { ServerEval } from './server-eval';
 import { ctrl as chapterCtrl } from './study-chapters';
 import { type StudyFormCtrl, ctrl as studyFormCtrl } from './study-form';

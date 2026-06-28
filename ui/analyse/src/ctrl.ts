@@ -61,7 +61,6 @@ import { make as makeSocket, type Socket } from './socket';
 import * as speech from './speech';
 import type GamebookPlayCtrl from './study/gamebook/gamebook-play-ctrl';
 import type { StudyCtrl } from './study/interfaces';
-import type { StudyPracticeCtrl } from './study/practice/interfaces';
 import makeStudy from './study/study-ctrl';
 import { type TreeView, ctrl as treeViewCtrl } from './tree-view/tree-view';
 import * as util from './util';
@@ -91,7 +90,6 @@ export default class AnalyseCtrl {
   fork: ForkCtrl;
   practice?: PracticeCtrl;
   study?: StudyCtrl;
-  studyPractice?: StudyPracticeCtrl;
 
   // state flags
   justPlayedUsi?: string;
@@ -189,10 +187,9 @@ export default class AnalyseCtrl {
     }
 
     this.study = opts.study
-      ? makeStudy(opts.study, this, (opts.tagTypes || '').split(','), opts.practice)
+      ? makeStudy(opts.study, this, (opts.tagTypes || '').split(','))
       : undefined;
     this.setOrientation();
-    this.studyPractice = this.study ? this.study.practice : undefined;
 
     this.shogiground.set(makeConfig(this), true);
     this.showGround(true);
@@ -757,7 +754,6 @@ export default class AnalyseCtrl {
         if (!isThreat) {
           if (this.retro) this.retro.onCeval();
           if (this.practice) this.practice.onCeval();
-          if (this.studyPractice) this.studyPractice.onCeval();
           this.evalCache.onCeval();
           if (ev.cloud && ev.depth >= this.ceval.effectiveMaxDepth()) this.ceval.stop();
         }
@@ -777,7 +773,7 @@ export default class AnalyseCtrl {
       },
       setAutoShapes: this.setAutoShapes,
       redraw: this.redraw,
-      ...(this.opts.study && this.opts.practice
+      ...(this.opts.study
         ? {
             storageKeyPrefix: 'practice',
             multiPvDefault: 1,
@@ -854,7 +850,7 @@ export default class AnalyseCtrl {
   };
 
   mandatoryCeval = (): boolean => {
-    return !!this.studyPractice;
+    return false;
   };
 
   private cevalReset(): void {
@@ -1036,11 +1032,7 @@ export default class AnalyseCtrl {
     if (this.practice || !this.ceval.possible) this.practice = undefined;
     else {
       if (this.retro) this.toggleRetro();
-      this.practice = makePractice(this, () => {
-        // push to 20 to store AI moves in the cloud
-        // lower to 18 after task completion (or failure)
-        return this.studyPractice && this.studyPractice.success() === null ? 20 : 18;
-      });
+      this.practice = makePractice(this, 16);
     }
     this.setAutoShapes();
   };

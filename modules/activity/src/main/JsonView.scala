@@ -105,16 +105,6 @@ final class JsonView(
         .add("games", a.games)
         .add("puzzles", a.puzzles)
         .add("tournaments", a.tours)
-        .add(
-          "practice",
-          a.practice.map(_.toList.sortBy(-_._2) map { case (study, nb) =>
-            Json.obj(
-              "url"         -> s"/practice/-/${study.slug}/${study.id}",
-              "name"        -> study.name,
-              "nbPositions" -> nb,
-            )
-          }),
-        )
         .add("simuls", a.simuls.map(_ map simulWrites(user).writes))
         .add(
           "correspondenceMoves",

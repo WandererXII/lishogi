@@ -186,7 +186,6 @@ object teacherDashboard {
       c: Clas,
       students: List[Student.WithUser],
       basicCompletion: Map[User.ID, Int],
-      practiceCompletion: Map[User.ID, Int],
       coordScores: Map[User.ID, shogi.Color.Map[Int]],
   )(implicit ctx: Context) =
     layout(c, students, "progress")(
@@ -198,7 +197,6 @@ object teacherDashboard {
               th(attr("data-sort-default") := "1")(
                 trans.clas.nbStudents.pluralSame(students.size),
                 sortNumberTh(trans.shogiBasics()),
-                sortNumberTh(trans.practice()),
                 sortNumberTh(trans.coordinates.coordinates()),
               ),
             ),
@@ -209,10 +207,6 @@ object teacherDashboard {
                   studentTd(c, s),
                   td(dataSort := basicCompletion.getOrElse(user.id, 0))(
                     basicCompletion.getOrElse(user.id, 0).toString,
-                    "%",
-                  ),
-                  td(dataSort := practiceCompletion.getOrElse(user.id, 0))(
-                    practiceCompletion.getOrElse(user.id, 0).toString,
                     "%",
                   ),
                   td(dataSort := coord.sente, cls := "coords")(

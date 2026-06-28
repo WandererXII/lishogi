@@ -34,7 +34,6 @@ import serverSideUnderboard from './server-side-underboard';
 import * as gbEdit from './study/gamebook/gamebook-edit';
 import * as gbPlay from './study/gamebook/gamebook-play-view';
 import type { StudyCtrl } from './study/interfaces';
-import * as studyPracticeView from './study/practice/study-practice-view';
 import * as studyView from './study/study-view';
 import { render as renderTreeView } from './tree-view/tree-view';
 
@@ -467,81 +466,75 @@ export default function (ctrl: AnalyseCtrl): VNode {
       acplView(ctrl),
       ctrl.embed
         ? null
-        : ctrl.studyPractice
-          ? studyPracticeView.side(study!)
-          : h(
-              'aside.analyse__side',
-              {
-                hook: onInsert(elm => {
-                  ctrl.opts.$side?.length && $(elm).replaceWith(ctrl.opts.$side);
-                }),
-              },
-              (study
-                ? [studyView.side(study)]
-                : [
-                    ctrl.forecast ? forecastView(ctrl, ctrl.forecast) : null,
-                    !ctrl.synthetic && playable(ctrl.data)
-                      ? h(
-                          'div.back-to-game',
-                          h(
-                            'a.button.button-empty.text',
-                            {
-                              attrs: {
-                                href: router.game(ctrl.data, ctrl.data.player.color),
-                                'data-icon': icons.back,
-                              },
+        : h(
+            'aside.analyse__side',
+            {
+              hook: onInsert(elm => {
+                ctrl.opts.$side?.length && $(elm).replaceWith(ctrl.opts.$side);
+              }),
+            },
+            (study
+              ? [studyView.side(study)]
+              : [
+                  ctrl.forecast ? forecastView(ctrl, ctrl.forecast) : null,
+                  !ctrl.synthetic && playable(ctrl.data)
+                    ? h(
+                        'div.back-to-game',
+                        h(
+                          'a.button.button-empty.text',
+                          {
+                            attrs: {
+                              href: router.game(ctrl.data, ctrl.data.player.color),
+                              'data-icon': icons.back,
                             },
-                            i18n('backToGame'),
-                          ),
-                        )
-                      : null,
-                  ]
-              ).concat(
-                ctrl.opts.$meta
-                  ? h('div.meta', {
-                      hook: onInsert(el => {
-                        $(el).replaceWith(ctrl.opts.$meta!);
+                          },
+                          i18n('backToGame'),
+                        ),
+                      )
+                    : null,
+                ]
+            ).concat(
+              ctrl.opts.$meta
+                ? h('div.meta', {
+                    hook: onInsert(el => {
+                      $(el).replaceWith(ctrl.opts.$meta!);
 
-                        const rematchButton = document.querySelector(
-                          '.game__links .button.rematch',
-                        );
-                        rematchButton?.addEventListener('click', () => {
+                      const rematchButton = document.querySelector('.game__links .button.rematch');
+                      rematchButton?.addEventListener('click', () => {
+                        ctrl.socket.send('rematch-yes');
+                        rematchButton.classList.toggle('sent');
+                      });
+                    }),
+                  })
+                : null,
+              ctrl.opts.$streamers
+                ? h('div.context-streamers', {
+                    hook: onInsert(el => {
+                      $(el).replaceWith(ctrl.opts.$streamers!.removeClass('none'));
+                    }),
+                  })
+                : null,
+              ctrl.opts.chat
+                ? h('section.mchat', {
+                    hook: onInsert(_ => {
+                      if (ctrl.opts.chat.instance) ctrl.opts.chat.instance.destroy();
+                      ctrl.opts.chat.parseMoves = true;
+                      ctrl.opts.chat.playerFilter = !finished(ctrl.data);
 
-                          ctrl.socket.send('rematch-yes');
-                          rematchButton.classList.toggle('sent');
-                        });
-                      }),
-                    })
-                  : null,
-                ctrl.opts.$streamers
-                  ? h('div.context-streamers', {
-                      hook: onInsert(el => {
-                        $(el).replaceWith(ctrl.opts.$streamers!.removeClass('none'));
-                      }),
-                    })
-                  : null,
-                ctrl.opts.chat
-                  ? h('section.mchat', {
-                      hook: onInsert(_ => {
-                        if (ctrl.opts.chat.instance) ctrl.opts.chat.instance.destroy();
-                        ctrl.opts.chat.parseMoves = true;
-                        ctrl.opts.chat.playerFilter = !finished(ctrl.data);
-
-                        const data = ctrl.opts.data;
-                        const sentePlayer =
-                          data.player.color === 'sente' ? data.player : data.opponent;
-                        const gotePlayer =
-                          data.player.color === 'gote' ? data.player : data.opponent;
-                        ctrl.opts.chat.players = {
-                          sente: sentePlayer.user?.id,
-                          gote: gotePlayer.user?.id,
-                        };
-                        ctrl.opts.chat.instance = makeChat(ctrl.opts.chat);
-                      }),
-                    })
-                  : null,
-              ),
+                      const data = ctrl.opts.data;
+                      const sentePlayer =
+                        data.player.color === 'sente' ? data.player : data.opponent;
+                      const gotePlayer = data.player.color === 'gote' ? data.player : data.opponent;
+                      ctrl.opts.chat.players = {
+                        sente: sentePlayer.user?.id,
+                        gote: gotePlayer.user?.id,
+                      };
+                      ctrl.opts.chat.instance = makeChat(ctrl.opts.chat);
+                    }),
+                  })
+                : null,
             ),
+          ),
       ctrl.embed ? null : ctrl.opts.mode === 'replay' ? chatGameMembers() : chatMembers(),
     ],
   );
