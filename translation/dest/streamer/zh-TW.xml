@@ -44,10 +44,6 @@
   <string name="headline">大標題</string>
   <string name="tellUsAboutTheStream">請用一句話形容您的直播</string>
   <string name="longDescription">詳細說明</string>
-  <string name="xStreamerPicture">%s實況主圖片</string>
-  <string name="changePicture">更換/刪除您的圖片</string>
-  <string name="uploadPicture">上傳一張圖片</string>
-  <string name="deletePicture">删除圖片</string>
   <string name="maxSize">檔案大小限制：%s</string>
   <string name="installBlocker">安裝惡意軟件攔截器！</string>
   <string name="beSafe">遠離Twitch和Youtube上廣告和追踪器的騷擾
