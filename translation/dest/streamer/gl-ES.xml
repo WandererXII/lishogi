@@ -45,10 +45,6 @@
   <string name="headline">Titular</string>
   <string name="tellUsAboutTheStream">Cóntanos sobre a túa transmisión nunha frase</string>
   <string name="longDescription">Descrición longa</string>
-  <string name="xStreamerPicture">Imaxe do presentador %s</string>
-  <string name="changePicture">Cambiar ou borrar a túa foto</string>
-  <string name="uploadPicture">Subir unha foto</string>
-  <string name="deletePicture">Borrar a foto</string>
   <string name="maxSize">Tamaño máximo: %s</string>
   <string name="installBlocker">Instala un bloqueador de contido!</string>
   <string name="beSafe">Mantente a salvo dos anuncios e rastrexadores
