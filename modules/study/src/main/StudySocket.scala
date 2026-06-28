@@ -135,10 +135,6 @@ final private class StudySocket(
           reading[ChapterMaker.EditData](o) { data =>
             who foreach api.editChapter(studyId, data)
           }
-        case "descStudy" =>
-          o str "d" foreach { desc =>
-            who foreach api.descStudy(studyId, desc)
-          }
         case "descChapter" =>
           reading[ChapterMaker.DescData](o) { data =>
             who foreach api.descChapter(studyId, data)
@@ -392,8 +388,6 @@ final private class StudySocket(
         "w"         -> who,
       ),
     )
-  def descStudy(desc: Option[String], who: Who) =
-    version("descStudy", Json.obj("desc" -> desc, "w" -> who))
   def setTopics(topics: StudyTopics, who: Who) =
     version("setTopics", Json.obj("topics" -> topics, "w" -> who))
   def addChapter(pos: Position.Ref, sticky: Boolean, who: Who) =

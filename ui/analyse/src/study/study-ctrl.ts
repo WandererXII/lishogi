@@ -132,14 +132,6 @@ export default function (
   const commentForm: CommentForm = new CommentForm(ctrl);
   const glyphForm: GlyphCtrl = glyphFormCtrl(ctrl);
   const tags = tagsCtrl(ctrl, () => data.chapter, tagTypes);
-  const studyDesc = new DescriptionCtrl(
-    data.description,
-    t => {
-      data.description = t;
-      send('descStudy', t);
-    },
-    redraw,
-  );
   const chapterDesc = new DescriptionCtrl(
     data.chapter.description,
     t => {
@@ -221,7 +213,6 @@ export default function (
       (data as any)[key] = s[key];
     });
     chapterDesc.set(data.chapter.description);
-    studyDesc.set(data.description);
     document.title = data.name;
     members.dict(s.members);
     chapters.list(s.chapters);
@@ -445,13 +436,6 @@ export default function (
       }
       redraw();
     },
-    descStudy(d: any) {
-      setMemberActive(d.w);
-      if (d.w && d.w.s === li.sri) return;
-      data.description = d.desc;
-      studyDesc.set(d.desc);
-      redraw();
-    },
     setTopics(d: any) {
       setMemberActive(d.w);
       data.topics = d.topics;
@@ -582,7 +566,6 @@ export default function (
     serverEval,
     share,
     tags,
-    studyDesc,
     chapterDesc,
     topics,
     vm,

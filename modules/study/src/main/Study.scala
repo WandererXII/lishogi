@@ -163,7 +163,7 @@ object Study {
       cloneable: String,
       chat: String,
       sticky: String,
-      description: String,
+      description: Option[String],
       icon: Option[String],
       lang: Option[String],
   ) {
@@ -175,8 +175,7 @@ object Study {
         clon <- UserSelection.byKey get cloneable
         chat <- UserSelection.byKey get chat
         stic = sticky == "true"
-        desc = description == "true"
-      } yield Settings(comp, clon, chat, stic, desc)
+      } yield Settings(comp, clon, chat, stic)
   }
 
   case class WithChapter(study: Study, chapter: Chapter)

@@ -41,10 +41,9 @@ final class JsonView(
         .obj(
           "liked" -> liked,
           "features" -> Json.obj(
-            "cloneable"   -> allowed(study.settings.cloneable),
-            "chat"        -> allowed(study.settings.chat),
-            "sticky"      -> study.settings.sticky,
-            "description" -> study.settings.description,
+            "cloneable" -> allowed(study.settings.cloneable),
+            "chat"      -> allowed(study.settings.chat),
+            "sticky"    -> study.settings.sticky,
           ),
           "topics"   -> study.topicsOrEmpty,
           "chapters" -> chapters.map(chapterMetadataWrites.writes),
@@ -167,6 +166,7 @@ final class JsonView(
       .add("postGameStudy" -> s.postGameStudy)
       .add("icon" -> s.icon)
       .add("lang" -> s.lang)
+      .add("description" -> s.description)
   }
 }
 

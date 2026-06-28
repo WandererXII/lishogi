@@ -420,7 +420,6 @@ object BSONHandlers {
         cloneable = r.getO[UserSelection]("cloneable") | Settings.init.cloneable,
         chat = r.getO[UserSelection]("chat") | Settings.init.chat,
         sticky = r.getO[Boolean]("sticky") | Settings.init.sticky,
-        description = r.getO[Boolean]("description") | Settings.init.description,
       )
     private val writer                 = Macros.writer[Settings]
     def writes(w: Writer, s: Settings) = writer.writeTry(s).get

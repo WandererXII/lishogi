@@ -1,5 +1,6 @@
 import { type Prop, prop } from 'common/common';
 import { createIconSelector, svgSprite } from 'common/icon-selector';
+import { allLangs } from 'common/langs';
 import { modal } from 'common/modal';
 import { bind, bindNonPassive, bindSubmit, type MaybeVNodes } from 'common/snabbdom';
 import { i18n } from 'i18n';
@@ -24,7 +25,7 @@ interface FormData {
 interface Select {
   key: string;
   name: string;
-  choices: Choice[];
+  choices: (Choice | undefined)[];
   selected: string;
 }
 type Choice = [string, string];
@@ -41,16 +42,18 @@ function select(s: Select): MaybeVNodes {
     h(
       `select#study-${s.key}.form-control`,
       s.choices.map(o =>
-        h(
-          'option',
-          {
-            attrs: {
-              value: o[0],
-              selected: s.selected === o[0],
-            },
-          },
-          o[1],
-        ),
+        o
+          ? h(
+              'option',
+              {
+                attrs: {
+                  value: o[0],
+                  selected: s.selected === o[0],
+                },
+              },
+              o[1],
+            )
+          : undefined,
       ),
     ),
   ];
@@ -97,6 +100,8 @@ export function view(ctrl: StudyFormCtrl): VNode {
   const data = ctrl.getData();
   const isNew = ctrl.isNew();
   const icon = iconSelector?.selected() || data.icon || 'study';
+  const userLangCode = document.documentElement.lang;
+  const userLang = allLangs[userLangCode];
 
   const updateName = (vnode: VNode, isUpdate: boolean) => {
     const el = vnode.elm as HTMLInputElement;
@@ -203,6 +208,19 @@ export function view(ctrl: StudyFormCtrl): VNode {
             h(
               'div.form-group.form-half',
               select({
+                key: 'lang',
+                name: i18n('language'),
+                choices: [
+                  ['', ''],
+                  userLang ? [userLangCode, userLang] : undefined,
+                  ...Object.entries(allLangs),
+                ],
+                selected: data.lang || '',
+              }),
+            ),
+            h(
+              'div.form-group.form-half',
+              select({
                 key: 'visibility',
                 name: i18n('study:visibility'),
                 choices: [
@@ -213,6 +231,8 @@ export function view(ctrl: StudyFormCtrl): VNode {
                 selected: data.visibility,
               }),
             ),
+          ]),
+          h('div.form-split', [
             h(
               'div.form-group.form-half',
               select({
@@ -222,8 +242,6 @@ export function view(ctrl: StudyFormCtrl): VNode {
                 selected: data.settings.cloneable,
               }),
             ),
-          ]),
-          h('div.form-split', [
             h(
               'div.form-group.form-half',
               select({
@@ -233,6 +251,8 @@ export function view(ctrl: StudyFormCtrl): VNode {
                 selected: data.settings.computer,
               }),
             ),
+          ]),
+          h('div.form-split', [
             h(
               'div.form-group.form-half',
               select({
@@ -242,8 +262,6 @@ export function view(ctrl: StudyFormCtrl): VNode {
                 selected: data.settings.chat,
               }),
             ),
-          ]),
-          h('div.form-split', [
             h(
               'div.form-group.form-half',
               select({
@@ -256,19 +274,26 @@ export function view(ctrl: StudyFormCtrl): VNode {
                 selected: `${data.settings.sticky}`,
               }),
             ),
-            h(
-              'div.form-group.form-half',
-              select({
-                key: 'description',
-                name: i18n('study:pinnedStudyComment'),
-                choices: [
-                  ['false', i18n('study:noPinnedComment')],
-                  ['true', i18n('study:rightUnderTheBoard')],
-                ],
-                selected: `${data.settings.description}`,
-              }),
-            ),
           ]),
+          h(
+            'div.form-split',
+            h('div.form-group.form-full', [
+              h('label.form-label', { attrs: { for: 'study-description' } }, i18n('description')),
+              h('textarea.form-control', {
+                attrs: {
+                  id: 'study-description',
+                  value: data.description || '',
+                  rows: 4,
+                },
+                hook: {
+                  insert(vnode: VNode) {
+                    const el = vnode.elm as HTMLInputElement;
+                    el.value = data.description || '';
+                  },
+                },
+              }),
+            ]),
+          ),
           formButton(isNew ? i18n('study:start') : i18n('save')),
         ],
       ),

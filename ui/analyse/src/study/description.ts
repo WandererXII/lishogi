@@ -26,20 +26,20 @@ export class DescriptionCtrl {
   }
 }
 
-function descTitle(chapter: boolean) {
-  return `${chapter ? 'Chapter' : 'Study'} pinned comment`;
+function descTitle() {
+  return 'Chapter pinned comment';
 }
 
-export function view(study: StudyCtrl, chapter: boolean): VNode | undefined {
-  const desc = chapter ? study.chapterDesc : study.studyDesc;
+export function view(study: StudyCtrl): VNode | undefined {
+  const desc = study.chapterDesc;
   const contrib = study.members.canContribute() && !study.gamebookPlay();
-  if (desc.edit) return edit(desc, chapter ? study.data.chapter.id : study.data.id, chapter);
+  if (desc.edit) return edit(desc, study.data.chapter.id);
   const isEmpty = desc.text === '-';
   if (!desc.text || (isEmpty && !contrib)) return;
-  return h(`div.study-desc${chapter ? '.chapter-desc' : ''}${isEmpty ? '.empty' : ''}`, [
+  return h(`div.study-desc.chapter-desc${isEmpty ? '.empty' : ''}`, [
     contrib && !isEmpty
       ? h('div.contrib', [
-          h('span', descTitle(chapter)),
+          h('span', descTitle()),
           isEmpty
             ? null
             : h('a', {
@@ -78,16 +78,16 @@ export function view(study: StudyCtrl, chapter: boolean): VNode | undefined {
               desc.redraw,
             ),
           },
-          descTitle(chapter),
+          descTitle(),
         )
       : h('div.text', { hook: richHTML(desc.text) }),
   ]);
 }
 
-function edit(ctrl: DescriptionCtrl, id: string, chapter: boolean): VNode {
+function edit(ctrl: DescriptionCtrl, id: string): VNode {
   return h('div.study-desc-form', [
     h('div.title', [
-      descTitle(chapter),
+      descTitle(),
       h('button.button.button-empty.button-red', {
         attrs: {
           'data-icon': icons.cancel,

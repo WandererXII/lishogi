@@ -751,18 +751,6 @@ final class StudyApi(
       }
     }
 
-  def descStudy(studyId: Study.Id, desc: String)(who: Who) =
-    sequenceStudy(studyId) { study =>
-      Contribute(who.u, study) {
-        val newStudy = study.copy(description = desc.nonEmpty option desc)
-        (study != newStudy) ?? {
-          studyRepo.updateSomeFields(newStudy) >>-
-            sendTo(study.id)(_.descStudy(newStudy.description, who)) >>-
-            indexStudy(study)
-        }
-      }
-    }
-
   def setTopics(studyId: Study.Id, topicStrs: List[String])(who: Who) =
     sequenceStudy(studyId) { study =>
       Contribute(who.u, study) {
@@ -793,9 +781,7 @@ final class StudyApi(
             name = Study toName data.name,
             settings = settings,
             visibility = data.vis,
-            description = settings.description option {
-              study.description.filter(_.nonEmpty) | "-"
-            },
+            description = data.description.map(_.take(2500)),
             icon = data.icon.flatMap(lila.common.String.iconSanityCheck),
             lang = data.lang,
           )

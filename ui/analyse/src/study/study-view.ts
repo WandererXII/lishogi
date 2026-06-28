@@ -340,11 +340,5 @@ export function underboard(ctrl: AnalyseCtrl): MaybeVNodes {
       panel = multiBoardView(study.multiBoard, study);
       break;
   }
-  return [
-    notifView(study.notif),
-    descView(study, true),
-    descView(study, false),
-    buttons(ctrl),
-    panel,
-  ];
+  return [notifView(study.notif), descView(study), buttons(ctrl), panel];
 }
