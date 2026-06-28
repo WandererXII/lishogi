@@ -17,23 +17,20 @@ object mini {
     relation match {
       case None if followable && !blocked =>
         a(
-          cls      := "btn-rack__btn relation-button text",
-          dataIcon := Icons.thumbsUp,
-          href     := s"${routes.Relation.follow(userId)}?mini=1",
+          cls  := "btn-rack__btn relation-button text",
+          href := s"${routes.Relation.follow(userId)}?mini=1",
         )(trans.follow())
       case Some(true) =>
         a(
-          cls      := "btn-rack__btn relation-button text",
-          title    := trans.unfollow.txt(),
-          href     := s"${routes.Relation.unfollow(userId)}?mini=1",
-          dataIcon := Icons.thumbsUp,
+          cls   := "btn-rack__btn relation-button text",
+          title := trans.unfollow.txt(),
+          href  := s"${routes.Relation.unfollow(userId)}?mini=1",
         )(trans.following())
       case Some(false) =>
         a(
-          cls      := "btn-rack__btn relation-button text",
-          title    := trans.unblock.txt(),
-          href     := s"${routes.Relation.unblock(userId)}?mini=1",
-          dataIcon := Icons.forbidden,
+          cls   := "btn-rack__btn relation-button text",
+          title := trans.unblock.txt(),
+          href  := s"${routes.Relation.unblock(userId)}?mini=1",
         )(trans.blocked())
       case _ => emptyFrag
     }

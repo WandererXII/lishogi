@@ -20,6 +20,26 @@ object header {
   )(implicit ctx: Context) = {
     val isSystem = u.id == User.lishogiId
 
+    val followUnfollowUnblock = (ctx.isAuth && !ctx.is(u)) option (social.relation match {
+      case None =>
+        frag(
+          social.followable && !social.blocked option a(
+            cls  := "btn-rack__btn relation-button",
+            href := routes.Relation.follow(u.id),
+          )(trans.follow()),
+        )
+      case Some(true) =>
+        a(
+          cls  := "btn-rack__btn relation-button",
+          href := routes.Relation.unfollow(u.id),
+        )(trans.following())
+      case Some(false) =>
+        a(
+          cls  := "btn-rack__btn relation-button",
+          href := routes.Relation.unblock(u.id),
+        )(trans.blocked())
+    })
+
     val more = div(cls := "none click-menu")(
       if (ctx is u)
         frag(
@@ -37,7 +57,7 @@ object header {
           )(trans.followers()),
           a(
             href     := routes.User.opponents,
-            dataIcon := Icons.people,
+            dataIcon := Icons.heartFull,
           )(trans.favoriteOpponents()),
           a(
             href     := routes.Relation.blocks(),
@@ -50,33 +70,11 @@ object header {
             href     := routes.Msg.convo(u.id),
             dataIcon := Icons.talk,
           )(trans.composeMessage()),
-          social.relation match {
-            case None =>
-              frag(
-                social.followable && !social.blocked option a(
-                  cls      := "relation-button",
-                  href     := routes.Relation.follow(u.id),
-                  dataIcon := Icons.thumbsUp,
-                )(trans.follow()),
-                !isSystem option a(
-                  cls      := "relation-button",
-                  href     := routes.Relation.block(u.id),
-                  dataIcon := Icons.forbidden,
-                )(trans.block()),
-              )
-            case Some(true) =>
-              a(
-                cls      := "relation-button",
-                dataIcon := Icons.thumbsUp,
-                href     := routes.Relation.unfollow(u.id),
-              )(trans.following())
-            case Some(false) =>
-              a(
-                cls      := "relation-button",
-                dataIcon := Icons.forbidden,
-                href     := routes.Relation.unblock(u.id),
-              )(trans.blocked())
-          },
+          (ctx.isAuth && social.relation.isEmpty && !isSystem) option a(
+            cls      := "relation-button",
+            href     := routes.Relation.block(u.id),
+            dataIcon := Icons.forbidden,
+          )(trans.block()),
           (ctx.isAuth && ctx.noKid && !isSystem) option a(
             href     := s"${routes.Report.form}?username=${u.username}",
             dataIcon := Icons.warning,
@@ -107,6 +105,7 @@ object header {
           cls      := "btn-rack__btn text",
           dataIcon := Icons.challenge,
         )(trans.challengeToPlay()),
+      followUnfollowUnblock,
       a(
         cls      := "btn-rack__btn click-menu-open",
         dataIcon := Icons.ellipsis,
@@ -373,7 +372,6 @@ object header {
       ((ctx is u) && u.perfs.bestStandardRating > 2500 && !u.hasTitle && !u.isBot && !ctx.pref.hasSeenVerifyTitle) option
         views.html.user.bits.claimTitle,
       isGranted(_.UserSpy) option div(cls := "mod-zone none"),
-      standardFlash(),
       angle match {
         case Angle.Games(Some(searchForm)) => views.html.search.user(u, searchForm)
         case _                             => profileSide(u, info)
