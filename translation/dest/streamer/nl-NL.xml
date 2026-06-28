@@ -45,10 +45,6 @@
   <string name="headline">Titel</string>
   <string name="tellUsAboutTheStream">Vertel ons in één zin over je stream</string>
   <string name="longDescription">Uitgebreide omschrijving</string>
-  <string name="xStreamerPicture">%s streamer afbeelding</string>
-  <string name="changePicture">Wijzig/verwijder je foto</string>
-  <string name="uploadPicture">Upload een foto</string>
-  <string name="deletePicture">Foto verwijderen</string>
   <string name="maxSize">Maximale grootte: %s</string>
   <string name="installBlocker">Installeer een malware blocker!</string>
   <string name="beSafe">Wees beschermd voor advertenties en trackers
