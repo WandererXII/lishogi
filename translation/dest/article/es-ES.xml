@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="article">Article</string>
+  <string name="articles">Articles</string>
+  <string name="recentArticles">Recent articles</string>
+  <string name="bestArticles">Best articles</string>
+  <string name="likedArticles">Liked articles</string>
+  <string name="myArticles">My articles</string>
+  <string name="articlesWrittenByX">Articles written by %s</string>
+  <string name="submittedArticles">Submitted articles</string>
+  <string name="categories">Categories</string>
+  <string name="draft">Draft</string>
+  <string name="published">Published</string>
+  <string name="drafts">Drafts</string>
+  <string name="author">Author</string>
+  <string name="translateArticle">Translate article</string>
+  <string name="translator">Translator</string>
+  <string name="noneYet">No articles yet</string>
+  <string name="newArticle">New article</string>
+  <string name="newArticleByX">New article by %s</string>
+  <string name="editArticle">Edit article</string>
+  <string name="deleteArticle">Delete article</string>
+  <string name="deleteXLangOfArticle" comment="Example: Delete EN language version of article">Delete %s language version of article</string>
+  <string name="categoryAll">All</string>
+  <string name="categoryOfficial">Official</string>
+  <string name="categoryAnalysis">Analysis</string>
+  <string name="categoryCulture">Culture</string>
+  <string name="categoryEvents">Events</string>
+  <string name="categoryGuides">Guides</string>
+  <string name="categoryLishogi">Lishogi</string>
+  <string name="categorySoftware">Software</string>
+  <string name="categoryVariants">Variants</string>
+  <string name="title">Title</string>
+  <string name="coverImage">Cover image</string>
+  <string name="introText" comment="Introductory sentence or first paragraph of article">Intro text</string>
+  <string name="introHelp">Introductory sentence with the main point of the article.</string>
+  <string name="bodyText">Body text</string>
+  <string name="submitForPublishing">Submit for publishing</string>
+  <string name="saveAsDraft">Save as draft</string>
+  <string name="discuss">Discuss</string>
+  <string name="articleIsADraft">This article is still a draft.</string>
+  <string name="articleUnderReview">The article is being reviewed before publishing.</string>
+  <string name="shortTOS">Content of articles must be related to shogi, contain no inappropriate or AI generated text or images. You must also have rights or permission to all the images and text used.</string>
+  <string name="articlePublished">Your article was published</string>
+  <string name="Read the article here">Your article was published</string>
+</resources>
