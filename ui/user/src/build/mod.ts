@@ -101,7 +101,7 @@ function userMod($zone: any): void {
       .find('.mark-alt')
       .on('click', function (this: HTMLAnchorElement) {
         if (confirm('Close alt account?')) {
-          window.lishogi.xhr.text('POST', this.href);
+          window.lishogi.xhr.text('POST', $(this).attr('href')!);
           $(this).remove();
         }
       });
@@ -113,7 +113,7 @@ function userMod($zone: any): void {
     $(el)
       .find('.button')
       .on('click', function (this: HTMLAnchorElement) {
-        window.lishogi.xhr.text('POST', this.href);
+        window.lishogi.xhr.text('POST', $(this).attr('href')!);
         $(this).parent().parent().toggleClass('blocked');
         return false;
       });
