@@ -37,10 +37,10 @@
   <string name="bodyText">Corpo do artigo</string>
   <string name="submitForPublishing">Enviar para ser publicado</string>
   <string name="saveAsDraft">Gardar como borrador</string>
-  <string name="discuss">Discuss</string>
-  <string name="articleIsADraft">This article is still a draft.</string>
-  <string name="articleUnderReview">The article is being reviewed before publishing.</string>
-  <string name="shortTOS">Content of articles must be related to shogi, contain no inappropriate or AI generated text or images. You must also have rights or permission to all the images and text used.</string>
-  <string name="articlePublished">Your article was published</string>
-  <string name="Read the article here">Your article was published</string>
+  <string name="discuss">Falar do artigo</string>
+  <string name="articleIsADraft">Este artigo aínda é un borrador</string>
+  <string name="articleUnderReview">Este artigo vai ser revisado antes da súa publicación.</string>
+  <string name="shortTOS">O contido dos artigos ten que estar relacionado co shogi e non pode incluír texto ou imaxes desaxeitados ou xerados por IA. Tamén debes posuír os dereitos ou ter permiso para a publicación das imaxes e do texto empregado.</string>
+  <string name="articlePublished">O teu artigo foi publicado</string>
+  <string name="Read the article here">O teu artigo foi publicado</string>
 </resources>
