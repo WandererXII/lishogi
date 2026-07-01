@@ -65,6 +65,7 @@
 	<string name="forceResignation">Reclamar a vitoria</string>
 	<string name="forceDraw">Reclamar as táboas</string>
 	<string name="talkInChat">Por favor, sé correcto na sala de conversa!</string>
+	<string name="playersCannotSeeMessagesDuringGame">Os xogadores non poden ver as túas mensaxes durante a partida!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">A primeira persoa que chegue a este URL xogará contra ti</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s rendeuse</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s saíu da partida</string>
@@ -439,6 +440,7 @@
 	<string name="follow">Seguir</string>
 	<string name="following">Seguindo</string>
 	<string name="followers">Seguidores</string>
+	<string name="allYouFollow">Todos os xogadores que segues</string>
 	<string name="unfollow">Deixar de seguir</string>
 	<string name="block">Bloquear</string>
 	<string name="blocked">Bloqueado</string>
@@ -599,7 +601,6 @@
 	<string name="by">por %s</string>
 	<string name="thisTopicIsNowClosed">Este tema xa está pechado.</string>
 	<string name="theming">Aparencia</string>
-	<string name="blog">Blog</string>
 	<string name="questionsAndAnswers">Preguntas e respostas</string>
 	<string name="notes">Notas</string>
 	<string name="typePrivateNotesHere">Escribe aquí as túas notas privadas</string>
@@ -988,11 +989,6 @@
 	<string name="subscribe">Subscribirse</string>
 	<string name="unsubscribe">Cancelar a subscrición</string>
 	<string name="notationSystem">Notación</string>
-	<string name="officialBlog">Blog Oficial de Lishogi</string>
-	<string name="blogPostsFromYear">Publicacións de %1$s</string>
-	<string name="previousBlogPosts">Anteriores publicacións</string>
-	<string name="continueReadingThis"> Continuar lendo esta publicación</string>
-	<string name="discussBlogForum">Discutir esta publicación no foro</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Pezas invasoras</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Rei entrante</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Valor total</string>
@@ -1093,4 +1089,9 @@
 	<string name="newPlayerTournaments">Participa en torneos de shogi con outros usuarios ou organiza os teus propios torneos.</string>
 	<string name="newPlayerPuzzles">Mellora as túas habilidades resolvendo crebacabezas de shogi.</string>
 	<string name="newPlayerStudies">Descubre os estudos e leccións realizados pola comunidade ou crea e comparte os teus propios.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">Todos os idiomas</string>
+	<string name="begForDonations">Todo en Lishogi é libre para todo o mundo e para sempre. Se podes, por favor considera facer unha doazón para axudar ó proxecto.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Elixe un arquivo ou arrástrao aquí</string>
+	<string name="profilePicture" comment="For streamers and coaches">Fotografía</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentación</string>
 </resources>

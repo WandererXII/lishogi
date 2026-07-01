@@ -64,6 +64,7 @@
 	<string name="forceResignation">Giành chiến thắng</string>
 	<string name="forceDraw">Bắt buộc hòa</string>
 	<string name="talkInChat">Hãy cư xử thân thiện trong cuộc trò chuyện!</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Người đầu tiên sử dụng url này sẽ bắt đầu chơi với bạn</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s chịu thua</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s rời ván đấu</string>
@@ -415,6 +416,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="follow">Theo dõi</string>
 	<string name="following">Đang theo dõi</string>
 	<string name="followers">Followers</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">Bỏ theo dõi</string>
 	<string name="block">Chặn</string>
 	<string name="blocked">Đã chặn</string>
@@ -570,7 +572,6 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="by">bởi %s</string>
 	<string name="thisTopicIsNowClosed">Chủ đề này bây giờ đã đóng</string>
 	<string name="theming">Chủ đề</string>
-	<string name="blog">Nhật ký (web)</string>
 	<string name="questionsAndAnswers">Hỏi &amp; Đáp</string>
 	<string name="notes">Chú thích</string>
 	<string name="typePrivateNotesHere">Nhập ghi chú cá nhân ở đây</string>
@@ -949,11 +950,6 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="subscribe">Đăng kí</string>
 	<string name="unsubscribe">Hủy đăng ký</string>
 	<string name="notationSystem">Kí hiệu</string>
-	<string name="officialBlog">Blog Chính thức của Lishogi</string>
-	<string name="blogPostsFromYear">Bài blog từ %1$s</string>
-	<string name="previousBlogPosts">Bài blog trước</string>
-	<string name="continueReadingThis"> Tiếp tục đọc bài này</string>
-	<string name="discussBlogForum">Bàn luận về bài blog trong diễn đàn</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Tổng giá trị</string>
@@ -1052,4 +1048,9 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>

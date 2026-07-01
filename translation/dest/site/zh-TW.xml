@@ -64,6 +64,7 @@
 	<string name="forceResignation">取勝</string>
 	<string name="forceDraw">和棋</string>
 	<string name="talkInChat">請在聊天室裡文明一點</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">第一個訪問該網址的人將與您下棋。</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
@@ -414,6 +415,7 @@
 	<string name="follow">關注</string>
 	<string name="following">已關注</string>
 	<string name="followers">Followers</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">取消關注</string>
 	<string name="block">加入黑名單</string>
 	<string name="blocked">已加入黑名單</string>
@@ -569,7 +571,6 @@
 	<string name="by">%s作</string>
 	<string name="thisTopicIsNowClosed">本话题已关闭。</string>
 	<string name="theming">主题</string>
-	<string name="blog">博客</string>
 	<string name="questionsAndAnswers">问答</string>
 	<string name="notes">筆記</string>
 	<string name="typePrivateNotesHere">在此輸入私人筆記</string>
@@ -948,11 +949,6 @@
 	<string name="subscribe">訂閱</string>
 	<string name="unsubscribe">取消訂閱</string>
 	<string name="notationSystem">記譜方法</string>
-	<string name="officialBlog">Lishogi 官方博客</string>
-	<string name="blogPostsFromYear">來自 %1$s 的部落格文章</string>
-	<string name="previousBlogPosts">上一則貼文</string>
-	<string name="continueReadingThis"> 繼續閱讀</string>
-	<string name="discussBlogForum">在論壇上討論這篇貼文</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">入玉</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
@@ -1051,4 +1047,9 @@
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>

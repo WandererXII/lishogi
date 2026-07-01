@@ -29,7 +29,6 @@
 	<string name="publishOnListHelp">プロフィールの準備ができたら有効にしてください</string>
 	<string name="availableForLessons">現在レッスンを受け付けています</string>
 	<string name="availableForLessonsHelp">生徒募集を有効にする</string>
-	<string name="allLanguages" comment="List all languages">すべての言語</string>
 	<string name="languagesSpoken">対応言語</string>
 	<string name="languagesSpokenHelp">どの言語でレッスンできますか？</string>
 	<string name="hourlyRateHelp">目安・参考用（契約を伴いません、3～140 文字）</string>
@@ -43,8 +42,4 @@
 	<string name="publicStudiesHelp">Lishogi の研究 URL を最大 6 件まで（1 行に 1 件）</string>
 	<string name="youtubeChannelUrl">YouTubeチャンネルのURL</string>
 	<string name="youtubeVideosHelp">YouTube 動画の URL を最大 6 件まで（1 行に 1 件）</string>
-	<string name="basicsTab">基本情報</string>
-	<string name="textsTab">テキスト</string>
-	<string name="contentsTab">内容</string>
-	<string name="profileSaved">変更が保存されました</string>
 </resources>

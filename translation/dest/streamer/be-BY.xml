@@ -47,10 +47,6 @@
   <string name="headline">Загаловак</string>
   <string name="tellUsAboutTheStream">Распавядзіце пра ваш стрым адным сказам</string>
   <string name="longDescription">Поўнае апісанне</string>
-  <string name="xStreamerPicture">Выява стрымеру %s</string>
-  <string name="changePicture">Змяніць/выдаліць вашу выяву</string>
-  <string name="uploadPicture">Загрузіць выяву</string>
-  <string name="deletePicture">Выдаліць выяву</string>
   <string name="maxSize">Максімальны памер: %s</string>
   <string name="installBlocker">Усталюйце блакавальнік шкоднасных праграм!</string>
   <string name="beSafe">Будзьце абаронены ад рэкламы і трэкераў

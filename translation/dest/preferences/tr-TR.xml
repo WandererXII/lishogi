@@ -48,6 +48,7 @@
 	<string name="yorozuyaNotation">Yorozuya notasyonu</string>
 	<string name="yourPreferencesHaveBeenSaved">Tercihleriniz kaydedildi.</string>
 	<string name="smallMoves">Küçük hareketler</string>
+	<string name="traditional" comment="Traditional board layout - komadai">Traditional</string>
 	<string name="audibleClocks">Saatlerin ses çıkarmasına izin verildi</string>
 	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">Sistem</string>
 	<string name="myClock" comment="What clocks should make sound?">Saatim</string>

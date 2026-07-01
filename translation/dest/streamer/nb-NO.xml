@@ -45,10 +45,6 @@
   <string name="headline">Overskrift</string>
   <string name="tellUsAboutTheStream">I én setning, fortell oss om strømmen din</string>
   <string name="longDescription">Lang beskrivelse</string>
-  <string name="xStreamerPicture">%s strømmerbilde</string>
-  <string name="changePicture">Endre/slette ditt strømmerbilde</string>
-  <string name="uploadPicture">Last opp et bilde</string>
-  <string name="deletePicture">Delete picture</string>
   <string name="maxSize">Maks størrelse: %s</string>
   <string name="installBlocker">Install a malware blocker!</string>
   <string name="beSafe">Be safe from ads and trackers

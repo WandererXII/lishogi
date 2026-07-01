@@ -154,7 +154,7 @@
   <string name="publicationTag" comment="Tags for kif and csa">Publikacja</string>
   <string name="collectionTag" comment="Tags for kif and csa">Kolekcja</string>
   <string name="lengthTag" comment="Tags for kif and csa">Długość</string>
-  <string name="prizeTag" comment="Tags for kif and csa">Prize</string>
+  <string name="prizeTag" comment="Tags for kif and csa">Nagroda</string>
   <string name="initHelp" comment="Interactive study lesson">Help the player find the initial move, with a comment.</string>
   <string name="introGamebook" comment="Interactive study lesson">Introduce the gamebook with a comment</string>
   <string name="putFirstMove" comment="Interactive study lesson">Put the opponent\'s first move on the board.</string>

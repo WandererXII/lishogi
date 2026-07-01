@@ -3,7 +3,7 @@
 	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Zagraj ze znajomym</string>
 	<string name="playWithTheMachine">Zagraj z komputerem</string>
-	<string name="playOtherPlayers">Play other players</string>
+	<string name="playOtherPlayers">Graj z innymi graczami</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Przekaż ten adres, by zaprosić kogoś do wspólnej gry</string>
 	<string name="gameOver">Partia zakończona</string>
 	<string name="waitingForOpponent">Oczekiwanie na przeciwnika</string>
@@ -20,16 +20,16 @@
 	<string name="resign">Poddaj się</string>
 	<string name="checkmate">Mat</string>
 	<string name="stalemate">Pat</string>
-	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Poddanie się</string>
 	<string name="check">Szach</string>
 	<string name="impasse">Impas</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Powtórzenie</string>
 	<string name="perpetualCheck">Wieczny szach</string>
 	<string name="royalsLost" comment="Used in chushogi">Wszystkie królewskie bierki stracone</string>
 	<string name="bareKing" comment="Used in chushogi">Ogołocony król</string>
-	<string name="lionCaptured" comment="Used in dobutsu shogi">The lion was captured</string>
-	<string name="tryRule" comment="Used in dobutsu shogi">Try rule</string>
-	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Illegal move</string>
+	<string name="lionCaptured" comment="Used in dobutsu shogi">Lew został schwytany</string>
+	<string name="tryRule" comment="Used in dobutsu shogi">Lew wszedł do obozu przeciwnika</string>
+	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Niedozwolony ruch</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s grał przeciwko %2$s</string>
 	<string name="xIsPlayingY" comment="Playing right now, game is still being played">%1$s gra przeciwko %2$s</string>
 	<string name="xWon" comment="Example: Player won!">%s wygrywa!</string>
@@ -52,9 +52,9 @@
 	<string name="newOpponent">Nowy przeciwnik</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Przeciwnik chce zagrać z Tobą nową partię</string>
 	<string name="joinTheGame">Dołącz do gry</string>
-	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
-	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
-	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
+	<string name="registeredJoinTheGame">Tylko zarejestrowani użytkownicy mogą dołączyć do gier innych zarejestrowanych użytkowników</string>
+	<string name="outsideYourRating">Twój ranking jest poza dozwolonym zakresem dla tej gry</string>
+	<string name="gamesOutsideYourRatingRange">Pokaż gry spoza swojego zakresu rankingowego</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Ruch %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Przeciwnik porzucił partię. Możesz ogłosić wygraną za %s sekundę.</item>
@@ -67,11 +67,12 @@
 	<string name="forceResignation">Ogłoś wygraną</string>
 	<string name="forceDraw">Ogłoś remis</string>
 	<string name="talkInChat">Bądź uprzejmy na czacie!</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Pierwsza osoba, która przejdzie pod ten adres, dołączy do Twojej partii.</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s poddały się</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s opuściły grę</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s nie wykonały ruchu</string>
-	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s played an illegal move</string>
+	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s zagrał nielegalny ruch</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Udostępnij ten adres innym, by mogli zobaczyć tę partię</string>
 	<string name="theComputerAnalysisHasFailed">Nie udało się przeanalizować tej partii</string>
 	<string name="viewTheComputerAnalysis">Zobacz analizę komputerową</string>
@@ -151,8 +152,8 @@
 	<string name="claimADraw">Ogłoś remis</string>
 	<string name="offerDraw">Zaproponuj remis</string>
 	<string name="offerAdjournment">Zaproponuj odłożenie partii</string>
-	<string name="offerResumption">Offer resumption</string>
-	<string name="acceptResumption">Accept resumption</string>
+	<string name="offerResumption">Zaoferuj wznowienie</string>
+	<string name="acceptResumption">Zaakceptuj wznowienie</string>
 	<string name="draw">Remis</string>
 	<string name="gameAdjourned">Partia została odłożona</string>
 	<string name="gameResumed">Partia została wznowiona</string>
@@ -183,7 +184,7 @@
 	<string name="computersAreNotAllowedToPlay">Komputerom i graczom wspomagającym się komputerami zabrania się grać. Podczas gry niedozwolone jest korzystanie z pomocy programów szachowych, baz danych oraz innych graczy. Odradzamy zakładanie wielu kont, a utrata umiaru w tym zakresie skutkować będzie zablokowaniem.</string>
 	<string name="games">Partie</string>
 	<string name="forum">Forum</string>
-	<string name="forumDescription">Shogi discussions and feedback about Lishogi development</string>
+	<string name="forumDescription">Dyskusje o shogi i informacje zwrotne o rozwoju Lishogi</string>
 	<string name="xPostedInForumY">%1$s napisał/a w temacie %2$s</string>
 	<string name="latestForumPosts">Najnowsze wpisy</string>
 	<string name="players">Gracze</string>
@@ -200,7 +201,7 @@
 	<string name="daysPerTurn">Dni na ruch</string>
 	<string name="oneDay">1 dzień</string>
 	<plurals name="nbDays">
-		<item quantity="one">dzień</item>
+		<item quantity="one">%s dzień</item>
 		<item quantity="few">%s dni</item>
 		<item quantity="many">%s dni</item>
 		<item quantity="other">%s dni</item>
@@ -258,19 +259,19 @@
 	<string name="adjournmentOfferSent">Propozycja odłożenia partii została wysłana</string>
 	<string name="adjournmentOfferCanceled">Propozycja odłożenia partii została anulowana</string>
 	<string name="adjournmentOfferAccepted">Propozycja odłożenia partii została przyjęta</string>
-	<string name="resumptionOfferSent">Resumption offer sent</string>
-	<string name="resumptionOfferCanceled">Resumption offer cancelled</string>
+	<string name="resumptionOfferSent">Propozycja wznowienia została wysłana</string>
+	<string name="resumptionOfferCanceled">Propozycja wznowienia została anulowana</string>
 	<string name="xOffersDraw" comment="%s - sente(black)/gote(white)">%s oferują remis</string>
 	<string name="xDeclinesDraw" comment="%s - sente(black)/gote(white)">%s odrzucają propozycję remisu</string>
 	<string name="yourOpponentOffersADraw">Przeciwnik proponuje remis</string>
 	<string name="xOffersAdjournment" comment="%s - sente(black)/gote(white)">%s proponuje odłożenie partii</string>
 	<string name="xDeclinesAdjournment" comment="%s - sente(black)/gote(white)">%s odrzuca propozycję odłożenia partii</string>
 	<string name="yourOpponentOffersAnAdjournment">Twój przeciwnik proponuje odłożenie partii</string>
-	<string name="xOffersResumption" comment="%s - sente(black)/gote(white)">%s proposes resumption</string>
-	<string name="xDeclinesResumption" comment="%s - sente(black)/gote(white)">%s declines resumption</string>
-	<string name="yourOpponentProposesResumption">Your opponent proposes resumption</string>
-	<string name="makeASealedMove">Make a move, that will be played after the game is resumed</string>
-	<string name="waitingForASealedMove">Waiting for the opponent to make a sealed move</string>
+	<string name="xOffersResumption" comment="%s - sente(black)/gote(white)">%s proponuje wznowienie</string>
+	<string name="xDeclinesResumption" comment="%s - sente(black)/gote(white)">%s odrzuca wznowienie</string>
+	<string name="yourOpponentProposesResumption">Przeciwnik proponuje wznowienie</string>
+	<string name="makeASealedMove">Wykonaj ruch, który zostanie zagrany po wznowieniu gry</string>
+	<string name="waitingForASealedMove">Oczekiwanie na wykonanie tajnego ruchu przez przeciwnika</string>
 	<string name="accept">Przyjmij</string>
 	<string name="decline">Odrzuć</string>
 	<string name="playingRightNow">W toku</string>
@@ -293,7 +294,7 @@
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Współczesny wariant shogi z naprzemiennymi unikalnymi promocjami na szachownicy 5×5.</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Wariant podobny do standardowego shogi, gdzie bierki poruszają się jak sojusznicze bierki za nimi.</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Tak jak standardowe shogi, ale wygrywa ten, kto pierwszy da szacha królowi przeciwnika</string>
-	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">A beginner-friendly shogi variant on a very small board</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">Wariant shogi na małej szachownicy, skierowany do początkujących</string>
 	<string name="unlimited">Bez limitu</string>
 	<string name="mode">Rodzaj</string>
 	<string name="casual">Towarzyska</string>
@@ -359,10 +360,10 @@
 		<item quantity="other">%s w toku</item>
 	</plurals>
 	<plurals name="nbAdjourned" comment="Paused games">
-		<item quantity="one">%s adjourned</item>
-		<item quantity="few">%s adjourned</item>
-		<item quantity="many">%s adjourned</item>
-		<item quantity="other">%s adjourned</item>
+		<item quantity="one">%s odłożona</item>
+		<item quantity="few">%s odłożone</item>
+		<item quantity="many">%s odłożonych</item>
+		<item quantity="other">%s odłożonych</item>
 	</plurals>
 	<string name="exportGames">Eksportuj partie</string>
 	<string name="export">Eksportuj</string>
@@ -460,9 +461,9 @@
 	<string name="continueFromHere">Kontynuuj z tej pozycji</string>
 	<string name="toStudy">Opracowanie</string>
 	<string name="importGame">Importuj partię</string>
-	<string name="importCategory" comment="Category name for games that were imported">Import</string>
+	<string name="importCategory" comment="Category name for games that were imported">Importowane</string>
 	<string name="importedGame">Gra została zaimportowana.</string>
-	<string name="importedByX">Imported by %s</string>
+	<string name="importedByX">Zaimportowana przez %s</string>
 	<string name="importGameKifCsaExplanation">Wklejenie zapisu partii w formacie KIF lub CSA daje możliwość jej odtworzenia, analizy komputerowej, rozmowy i udostępniania.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s zaimportowana partia</item>
@@ -488,15 +489,16 @@
 	<string name="favoriteOpponents">Ulubieni przeciwnicy</string>
 	<string name="follow">Obserwuj</string>
 	<string name="following">Obserwowany</string>
-	<string name="followers">Followers</string>
+	<string name="followers">Obserwujący</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">Przestań obserwować</string>
 	<string name="block">Zablokuj</string>
 	<string name="blocked">Zablokowany</string>
 	<string name="unblock">Odblokuj</string>
-	<string name="thanksForReport">Thanks for the report</string>
+	<string name="thanksForReport">Dziękujemy za zgłoszenie</string>
 	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
-	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
-	<string name="blockSuggestions">In the meantime, you can block this user:</string>
+	<string name="moderatorsReportReview">Moderatorzy wkrótce to przeanalizują i podejmą odpowiednie działania.</string>
+	<string name="blockSuggestions">W międzyczasie możesz zablokować tego użytkownika:</string>
 	<string name="followsYou">Obserwuje Cię</string>
 	<string name="xStartedFollowingY">%1$s obserwuje %2$s</string>
 	<plurals name="nbFollowers">
@@ -554,7 +556,7 @@
 	<string name="tournamentIsStarting">Rozpoczęcie turnieju</string>
 	<string name="tournamentPairingsAreNowClosed">Zakończono kojarzenie par.</string>
 	<string name="standByX">Parowanie graczy, przygotuj się do gry, %s!</string>
-	<string name="waitingForPlayersToPair">Waiting for more players to start pairing...</string>
+	<string name="waitingForPlayersToPair">Oczekiwanie na rozpoczęcie parowania większej liczby graczy...</string>
 	<string name="youArePlaying">Grasz!</string>
 	<string name="winRate">Wygranych</string>
 	<string name="berserkRate">Berserków</string>
@@ -625,8 +627,8 @@
 	<string name="autoSwitch">Przełącz po ruchu</string>
 	<string name="puzzles">Zadania</string>
 	<string name="puzzleStorm" comment="Try to keep short - puzzle minigame">Puzzle storm</string>
-	<string name="reportPuzzle">Report puzzle</string>
-	<string name="reportPuzzleReason">Why should the puzzle be removed?</string>
+	<string name="reportPuzzle">Zgłoś zadanie</string>
+	<string name="reportPuzzleReason">Dlaczego należy usunąć to zadanie?</string>
 	<string name="latestUpdates">Aktualności</string>
 	<string name="tournamentWinners">Zwycięzcy turniejów</string>
 	<string name="name">Nazwa</string>
@@ -659,7 +661,6 @@
 	<string name="by">autor %s</string>
 	<string name="thisTopicIsNowClosed">Ten temat został zamknięty.</string>
 	<string name="theming">Wygląd</string>
-	<string name="blog">Blog</string>
 	<string name="questionsAndAnswers">Pytania i odpowiedzi</string>
 	<string name="notes">Notatki</string>
 	<string name="typePrivateNotesHere">Pisz tutaj notatki prywatne</string>
@@ -781,7 +782,7 @@
 	<string name="termsOfService">Regulamin</string>
 	<string name="sourceCode">Kod źródłowy</string>
 	<string name="simultaneousExhibitions">Symultany</string>
-	<string name="xSimul" comment="Name simul">%s simul</string>
+	<string name="xSimul" comment="Name simul">Symultana %s</string>
 	<string name="simulComplete">Symultana zakończona</string>
 	<string name="backToSimul">Powrót do symultany</string>
 	<string name="host">Symultanista</string>
@@ -811,7 +812,7 @@
 	<string name="simulDescription">Opis symultany</string>
 	<string name="anythingTellParticipants">Wiadomość do przekazania uczestnikom?</string>
 	<string name="lishogiTournaments">Turnieje Lishogi</string>
-	<string name="tournamentShields">Tournament shields</string>
+	<string name="tournamentShields">Tarcze turniejowe</string>
 	<string name="tournamentOfficial">Oficjalny</string>
 	<string name="timeBeforeTournamentStarts">Czas do rozpoczęcia turnieju</string>
 	<string name="averageCentipawnLoss">Średnia strata w centypionach</string>
@@ -828,7 +829,7 @@
 	<string name="tournamentMayHaveBeenCanceled">Mógł zostać anulowany, jeżeli wszyscy gracze wycofali się przed jego rozpoczęciem.</string>
 	<string name="returnToTournamentsHomepage">Wróć do turnieju</string>
 	<string name="weeklyPerfTypeRatingDistribution">Tygodniowy rozkład rankingu w wariancie %s</string>
-	<string name="monthlyPerfTypeRatingDistribution">Monthly %s rating distribution</string>
+	<string name="monthlyPerfTypeRatingDistribution">Miesięczny rozkład rankingu: %s</string>
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">%1$s gracz w tym tygodniu (%2$s).</item>
 		<item quantity="few">%1$s graczy w tym tygodniu (%2$s).</item>
@@ -836,10 +837,10 @@
 		<item quantity="other">%1$s graczy (%2$s) w tym tygodniu.</item>
 	</plurals>
 	<plurals name="nbPerfTypePlayersThisMonth">
-		<item quantity="one">%1$s %2$s player this month.</item>
-		<item quantity="few">%1$s %2$s players this month.</item>
-		<item quantity="many">%1$s %2$s players this month.</item>
-		<item quantity="other">%1$s %2$s players this month.</item>
+		<item quantity="one">%2$s: %1$s gracz w tym miesiącu</item>
+		<item quantity="few">%2$s: %1$s gracze w tym miesiącu</item>
+		<item quantity="many">%2$s: %1$s graczy w tym miesiącu</item>
+		<item quantity="other">%2$s: %1$s graczy w tym miesiącu</item>
 	</plurals>
 	<string name="yourPerfTypeRatingIsRating">Twój ranking (%1$s) to %2$s.</string>
 	<string name="youAreBetterThanPercentOfPerfTypePlayers">Jesteś lepszy niż %1$s graczy (%2$s).</string>
@@ -904,15 +905,15 @@
 	<string name="xCreatesStudyY">%1$s utworzył opracowanie %2$s</string>
 	<string name="quickPairing">Szybkie parowanie</string>
 	<string name="lobby">Poczekalnia</string>
-	<string name="presets" comment="Tab in lobby, try to keep it short">Presets</string>
+	<string name="presets" comment="Tab in lobby, try to keep it short">Szybkie parowanie</string>
 	<string name="anonymous">Anonimowy</string>
-	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonymous</string>
+	<string name="anonymousUser" comment="A player without account (ex. Playing a game against Anonymous)">Anonim</string>
 	<string name="yourScore">Twój wynik: %s</string>
 	<string name="language">Język</string>
 	<string name="background">Tło</string>
 	<string name="light">Jasne</string>
 	<string name="dark">Ciemne</string>
-	<string name="systemBackground" comment="Background theme based on system preferences dark/light">System</string>
+	<string name="systemBackground" comment="Background theme based on system preferences dark/light">Systemowe</string>
 	<string name="transparent">Przezroczyste</string>
 	<string name="customTheme">Własny motyw</string>
 	<string name="backgroundImageUrl">Adres do obrazu tła:</string>
@@ -992,9 +993,9 @@
 		<item quantity="other">%s sekund</item>
 	</plurals>
 	<plurals name="nbMinutes">
-		<item quantity="one">%s minute</item>
-		<item quantity="few">%s minutes</item>
-		<item quantity="many">%s minutes</item>
+		<item quantity="one">%s minuta</item>
+		<item quantity="few">%s minuty</item>
+		<item quantity="many">%s minut</item>
 		<item quantity="other">%s minuty</item>
 	</plurals>
 	<string name="opening">Otwarcie</string>
@@ -1044,7 +1045,7 @@
 	<string name="bullet" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Bullet</string>
 	<string name="blitz" comment="Translate only if it sounds good in your language, otherwise we can just keep the english name">Błyskawiczne</string>
 	<string name="veryFastShogi">Very fast shogi</string>
-	<string name="fastShogi">Fast shogi</string>
+	<string name="fastShogi">Shogi szybkie</string>
 	<string name="rapid">Rapid</string>
 	<string name="classical">Classical</string>
 	<string name="ultraBulletDesc">Partie szalenie szybkie: mniej niż 30 sekund</string>
@@ -1068,11 +1069,6 @@
 	<string name="subscribe">Subskrybuj</string>
 	<string name="unsubscribe">Zakończ subskrybcję</string>
 	<string name="notationSystem">Notacja</string>
-	<string name="officialBlog">Oficjalny blog Lishogi</string>
-	<string name="blogPostsFromYear">Posty na blogu od %1$s</string>
-	<string name="previousBlogPosts">Poprzednie wpisy</string>
-	<string name="continueReadingThis"> Czytaj dalej</string>
-	<string name="discussBlogForum">Dyskutuj o tym wpisie na forum</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Bierki w strefie promocji</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Wejście króla</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Łączna wartość</string>
@@ -1110,9 +1106,9 @@
 	<string name="readyToPlay" comment="Used as a help on a game that can be immediately started without waiting (ai games for example, or timecontrol where another player is already waiting)">Gotowe do gry</string>
 	<string name="generalShogiDiscussionForum" comment="Forum category title">Ogólne dyskusje o shogi</string>
 	<string name="gameAnalysisForum" comment="Forum category title">Analiza partii</string>
-	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
-	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
-	<string name="teamXForum" comment="Forum category title">Forum of the team %s</string>
+	<string name="lishogiFeedbackForum" comment="Forum category title">Opinie zwrotne o Lishogi</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Dyskusje na pozostałe tematy</string>
+	<string name="teamXForum" comment="Forum category title">Forum klubu %s</string>
 	<string name="kickPlayer">Wyrzuć gracza</string>
 	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Zarządzanie graczami</string>
 	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
@@ -1124,20 +1120,20 @@
 	<string name="bestResults" comment="Best tournament/simul results achieved">Najlepsze wyniki</string>
 	<string name="stats" comment="Game, tournament or simul stats">Statystyki</string>
 	<string name="dateStartedNewest">Data rozpoczęcia (od najnowszych)</string>
-	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
+	<string name="timeAlmostUp" comment="Notification for correspondence games">Czas zaraz minie!</string>
 	<string name="gameAgainstX" comment="Your game against playerX">Partia przeciwko %s</string>
-	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<string name="pageReload" comment="Confirmation warning">Strona musi zostać odświeżona</string>
 	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
-		<item quantity="one">%s candidate player</item>
-		<item quantity="few">%s candidate players</item>
-		<item quantity="many">%s candidate players</item>
-		<item quantity="other">%s candidate players</item>
+		<item quantity="one">%s oczekujący gracz</item>
+		<item quantity="few">%s oczekujący gracze</item>
+		<item quantity="many">%s oczekujących graczy</item>
+		<item quantity="other">%s oczekujących graczy</item>
 	</plurals>
 	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
-		<item quantity="one">%s accepted player</item>
-		<item quantity="few">%s accepted players</item>
-		<item quantity="many">%s accepted players</item>
-		<item quantity="other">%s accepted players</item>
+		<item quantity="one">%s zaakceptowany gracz</item>
+		<item quantity="few">%s zaakceptowani gracze</item>
+		<item quantity="many">%s zaakceptowanych graczy</item>
+		<item quantity="other">%s zaakceptowanych graczy</item>
 	</plurals>
 	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
 	<string name="acceptRandomCandidate">Accept random candidate</string>
@@ -1177,4 +1173,9 @@
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>

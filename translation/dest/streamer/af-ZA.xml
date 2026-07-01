@@ -45,10 +45,6 @@
   <string name="headline">Hoofopskrif</string>
   <string name="tellUsAboutTheStream">Vertel ons meer van jou uitsending in een sin</string>
   <string name="longDescription">Lang uitbreiding</string>
-  <string name="xStreamerPicture">%s aanbieder foto</string>
-  <string name="changePicture">Verander/verwyder jou prent</string>
-  <string name="uploadPicture">Laai prent op</string>
-  <string name="deletePicture">Verwyder prent</string>
   <string name="maxSize">Maksimum grootte: %s</string>
   <string name="installBlocker">Instaleer \'n muur teen malware!</string>
   <string name="beSafe">Wees veilig teen advertensies en koekies

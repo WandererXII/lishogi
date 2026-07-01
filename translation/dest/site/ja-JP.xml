@@ -64,6 +64,7 @@
 	<string name="forceResignation">投了させる</string>
 	<string name="forceDraw">引き分けにする</string>
 	<string name="talkInChat">チャットでは礼儀を忘れず</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">このURLを最初にクリックした人があなたと対局します。</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%sが投了しました</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%sが退席しました</string>
@@ -415,6 +416,7 @@
 	<string name="follow">フォローする</string>
 	<string name="following">フォローしています</string>
 	<string name="followers">フォロワー</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">フォローをやめる</string>
 	<string name="block">ブロックする</string>
 	<string name="blocked">ブロック済</string>
@@ -570,7 +572,6 @@
 	<string name="by">%s によって</string>
 	<string name="thisTopicIsNowClosed">このトピックは閉鎖されました。</string>
 	<string name="theming">デザインテーマ</string>
-	<string name="blog">ブログ</string>
 	<string name="questionsAndAnswers">Q&amp;A</string>
 	<string name="notes">メモ</string>
 	<string name="typePrivateNotesHere">自分用のメモ欄</string>
@@ -949,11 +950,6 @@
 	<string name="subscribe">投稿をフォロー</string>
 	<string name="unsubscribe">投稿のフォローをはずす</string>
 	<string name="notationSystem">表記方法</string>
-	<string name="officialBlog">Lishogi 公式ブログ</string>
-	<string name="blogPostsFromYear">%1$s によるブログ投稿</string>
-	<string name="previousBlogPosts">前のブログ投稿</string>
-	<string name="continueReadingThis">続けてこの投稿を読む</string>
-	<string name="discussBlogForum">フォーラムでこのブログ記事を議論する</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">無効な駒</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">入玉</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">合計点数</string>
@@ -1052,4 +1048,9 @@
 	<string name="newPlayerTournaments">他のプレイヤーと将棋大会に参加したり、自分で大会を開催できます。</string>
 	<string name="newPlayerPuzzles">将棋の詰将棋や局面問題を解いて実力を伸ばしましょう。</string>
 	<string name="newPlayerStudies">コミュニティが作成した研究やレッスンを学べます。自分で作って共有することもできます。</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>

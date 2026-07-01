@@ -45,10 +45,6 @@
   <string name="headline">عنوان .</string>
   <string name="tellUsAboutTheStream">موضوع خود را در یک جمله به ما بگویید.</string>
   <string name="longDescription">توضیحات  طولانی.</string>
-  <string name="xStreamerPicture">تصویر استریمر %s</string>
-  <string name="changePicture">تصویر خود را تغییر دهید / حذف کنید</string>
-  <string name="uploadPicture">بارگذاری تصویر</string>
-  <string name="deletePicture">Delete picture</string>
   <string name="maxSize">بیشترین اندازه یا حجم: %s</string>
   <string name="installBlocker">Install a malware blocker!</string>
   <string name="beSafe">Be safe from ads and trackers
