@@ -1,42 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="article">Article</string>
-  <string name="articles">Articles</string>
-  <string name="recentArticles">Recent articles</string>
-  <string name="bestArticles">Best articles</string>
-  <string name="likedArticles">Liked articles</string>
-  <string name="myArticles">My articles</string>
-  <string name="articlesWrittenByX">Articles written by %s</string>
-  <string name="submittedArticles">Submitted articles</string>
-  <string name="categories">Categories</string>
-  <string name="draft">Draft</string>
-  <string name="published">Published</string>
-  <string name="drafts">Drafts</string>
-  <string name="author">Author</string>
-  <string name="translateArticle">Translate article</string>
-  <string name="translator">Translator</string>
-  <string name="noneYet">No articles yet</string>
-  <string name="newArticle">New article</string>
-  <string name="newArticleByX">New article by %s</string>
-  <string name="editArticle">Edit article</string>
-  <string name="deleteArticle">Delete article</string>
-  <string name="deleteXLangOfArticle" comment="Example: Delete EN language version of article">Delete %s language version of article</string>
-  <string name="categoryAll">All</string>
-  <string name="categoryOfficial">Official</string>
-  <string name="categoryAnalysis">Analysis</string>
-  <string name="categoryCulture">Culture</string>
-  <string name="categoryEvents">Events</string>
-  <string name="categoryGuides">Guides</string>
+  <string name="article">Artigo</string>
+  <string name="articles">Artigos</string>
+  <string name="recentArticles">Artigos recentes</string>
+  <string name="bestArticles">Mellores artigos</string>
+  <string name="likedArticles">Artigos que me gustan</string>
+  <string name="myArticles">Os meus artigos</string>
+  <string name="articlesWrittenByX">Artigos escritos por %s</string>
+  <string name="submittedArticles">Artigos enviados</string>
+  <string name="categories">Categorías</string>
+  <string name="draft">Borrador</string>
+  <string name="published">Publicados</string>
+  <string name="drafts">Borradores</string>
+  <string name="author">Autor</string>
+  <string name="translateArticle">Traducir artigo</string>
+  <string name="translator">Tradutor</string>
+  <string name="noneYet">Aínda non hai artigos</string>
+  <string name="newArticle">Novo artigo</string>
+  <string name="newArticleByX">Novo artigo de %s</string>
+  <string name="editArticle">Editar artigo</string>
+  <string name="deleteArticle">Borrar artigo</string>
+  <string name="deleteXLangOfArticle" comment="Example: Delete EN language version of article">Borrar a versión %s do artigo</string>
+  <string name="categoryAll">Todos</string>
+  <string name="categoryOfficial">Oficial</string>
+  <string name="categoryAnalysis">Análise</string>
+  <string name="categoryCulture">Cultura</string>
+  <string name="categoryEvents">Eventos</string>
+  <string name="categoryGuides">Guías</string>
   <string name="categoryLishogi">Lishogi</string>
   <string name="categorySoftware">Software</string>
-  <string name="categoryVariants">Variants</string>
-  <string name="title">Title</string>
-  <string name="coverImage">Cover image</string>
-  <string name="introText" comment="Introductory sentence or first paragraph of article">Intro text</string>
-  <string name="introHelp">Introductory sentence with the main point of the article.</string>
-  <string name="bodyText">Body text</string>
-  <string name="submitForPublishing">Submit for publishing</string>
-  <string name="saveAsDraft">Save as draft</string>
+  <string name="categoryVariants">Variantes</string>
+  <string name="title">Título</string>
+  <string name="coverImage">Imaxe da portada</string>
+  <string name="introText" comment="Introductory sentence or first paragraph of article">Texto introdutorio</string>
+  <string name="introHelp">Frase introdutoria que resume o artigo</string>
+  <string name="bodyText">Corpo do artigo</string>
+  <string name="submitForPublishing">Enviar para ser publicado</string>
+  <string name="saveAsDraft">Gardar como borrador</string>
   <string name="discuss">Discuss</string>
   <string name="articleIsADraft">This article is still a draft.</string>
   <string name="articleUnderReview">The article is being reviewed before publishing.</string>
