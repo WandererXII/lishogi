@@ -1090,8 +1090,8 @@
 	<string name="newPlayerPuzzles">Mellora as túas habilidades resolvendo crebacabezas de shogi.</string>
 	<string name="newPlayerStudies">Descubre os estudos e leccións realizados pola comunidade ou crea e comparte os teus propios.</string>
 	<string name="allLanguages" comment="Name for 'Show all languages' option">Todos os idiomas</string>
-	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
-	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
-	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
-	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
+	<string name="begForDonations">Todo en Lishogi é libre para todo o mundo e para sempre. Se podes, por favor considera facer unha doazón para axudar ó proxecto.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Elixe un arquivo ou arrástrao aquí</string>
+	<string name="profilePicture" comment="For streamers and coaches">Fotografía</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentación</string>
 </resources>
