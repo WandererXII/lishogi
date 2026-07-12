@@ -281,7 +281,7 @@
 	<string name="abortGame">Przerwij partię</string>
 	<string name="gameAborted">Gra została przerwana</string>
 	<string name="rules" comment="As in what you can and can't do">Zasady</string>
-	<string name="standard" comment="Variant - meaning standard shogi">Standard</string>
+	<string name="standard" comment="Variant - meaning standard shogi">Standardowa</string>
 	<string name="minishogi">Minishogi</string>
 	<string name="chushogi">Chushogi</string>
 	<string name="annanshogi">Annan shogi</string>
@@ -457,7 +457,7 @@
 	<string name="pasteTheSfenStringHere">Wklej tutaj pozycję w formacie SFEN</string>
 	<string name="pasteTheKifCsaStringHere">Wklej KIF lub CSA tutaj</string>
 	<string name="fromPosition">Z pozycji</string>
-	<string name="default" comment="Default starting position as opposed to custom starting position">Standardowa</string>
+	<string name="default" comment="Default starting position as opposed to custom starting position">Standardowy</string>
 	<string name="continueFromHere">Kontynuuj z tej pozycji</string>
 	<string name="toStudy">Opracowanie</string>
 	<string name="importGame">Importuj partię</string>
@@ -947,7 +947,7 @@
 	<string name="error.min">Musi być większe lub równe %s</string>
 	<string name="error.max">Musi być mniejsze lub równe %s</string>
 	<string name="error.unknown">Błąd</string>
-	<string name="custom">Niestandardowa</string>
+	<string name="custom">Niestandardowe</string>
 	<string name="notifications">Powiadomienia</string>
 	<string name="challenges">Zaproszenia</string>
 	<string name="perfRatingX">Ranking: %s</string>
@@ -1162,18 +1162,18 @@
 	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
-	<string name="oneUrlPerLine">One URL per line.</string>
+	<string name="oneUrlPerLine">Jeden adres URL na linię.</string>
 	<string name="translate" comment="Button text used to translate forum posts for example">Przetłumacz</string>
 	<string name="newPlayerIntro">Witaj w lishogi. Jeśli jesteś tu nowy, poniższe przewodniki pozwolą Ci szybko rozpocząć odkrywanie funkcjonalności serwisu.</string>
 	<string name="newPlayerRegisterCta">Utwórz konto, aby odblokować wszystkie funkcje</string>
-	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
-	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
-	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
-	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
-	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
-	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
-	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
-	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="newPlayerPreferences">Dostosuj wygląd witryny – zestawy bierek, szachownicę, notację, dźwięki i inne.</string>
+	<string name="newPlayerLearn">Poznaj ruchy każdej bierki oraz podstawowe zasady, a także przećwicz je w praktycznych lekcjach.</string>
+	<string name="newPlayerPlayPeople">Rozgrywaj partie rankingowe lub towarzyskie przeciwko innym graczom, albo rzuć wyzwanie znajomym.</string>
+	<string name="newPlayerPlayAi">Ćwicz z komputerem, wybierając poziom trudności dostosowany do swoich umiejętności.</string>
+	<string name="newPlayerTournaments">Weź udział w turniejach shogi przeciwko innym graczom, lub zorganizuj własny turniej.</string>
+	<string name="newPlayerPuzzles">Szlifuj swoje umiejętności rozwiązując zadania shogi.</string>
+	<string name="newPlayerStudies">Przeglądaj opracowania i lekcje stworzone przez społeczność, albo utwórz własne i podziel się nimi.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">Wszystkie języki</string>
 	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
 	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
 	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
