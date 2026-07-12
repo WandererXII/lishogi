@@ -67,7 +67,7 @@
 	<string name="forceResignation">Ogłoś wygraną</string>
 	<string name="forceDraw">Ogłoś remis</string>
 	<string name="talkInChat">Bądź uprzejmy na czacie!</string>
-	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
+	<string name="playersCannotSeeMessagesDuringGame">Gracze nie widzą twoich wiadomości podczas gry!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Pierwsza osoba, która przejdzie pod ten adres, dołączy do Twojej partii.</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s poddały się</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s opuściły grę</string>
@@ -1163,9 +1163,9 @@
 	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
 	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
 	<string name="oneUrlPerLine">One URL per line.</string>
-	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
-	<string name="newPlayerIntro">Welcome to lishogi. If you\'re new here, this quick overview will help you get started and discover what the site offers.</string>
-	<string name="newPlayerRegisterCta">Create an account to unlock all features</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Przetłumacz</string>
+	<string name="newPlayerIntro">Witaj w lishogi. Jeśli jesteś tu nowy, poniższe przewodniki pozwolą Ci szybko rozpocząć odkrywanie funkcjonalności serwisu.</string>
+	<string name="newPlayerRegisterCta">Utwórz konto, aby odblokować wszystkie funkcje</string>
 	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
 	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
 	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
