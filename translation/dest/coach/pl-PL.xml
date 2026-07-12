@@ -2,8 +2,8 @@
 <resources>
 	<string name="lishogiCoach">Trener Lishogi</string>
 	<string name="editMyCoachProfile">Edit my coach profile</string>
-	<string name="lishogiOnlyFeatures">Lishogi only features independent coaches and is not responsible for their conduct or the quality of their teaching.</string>
-	<string name="lishogiNoFees">Coaching fees are strictly between coaches and students - Lishogi takes nothing.</string>
+	<string name="lishogiOnlyFeatures">Lishogi jedynie prezentuje niezależnych trenerów i nie jest odpowiedzialne za ich zachowanie lub jakość nauczania.</string>
+	<string name="lishogiNoFees">Opłaty za naukę są kwestią wyłącznie pomiędzy trenerami a uczniami – Lishogi nie pobiera nic.</string>
 	<string name="becomeACoach">Czy jesteś doświadczonym trenerem shogi i chcesz być polecany przez Lishogi?</string>
 	<string name="sendApplication">Wyślij nam e-mail pod adres %s, a rozpatrzymy Twoje zgłoszenie.</string>
 	<string name="location">Lokalizacja</string>
