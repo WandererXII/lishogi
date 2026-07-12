@@ -12,5 +12,5 @@
   <string name="weekendX">Weekendowy turniej %s</string>
   <string name="eliteX">Elite %s</string>
   <string name="xArena">%s Arena</string>
-  <string name="xRobin">%s Round-robin</string>
+  <string name="xRobin">%s Każdy z każdym</string>
 </resources>
