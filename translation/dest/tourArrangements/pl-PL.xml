@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="roundRobin" comment="https://en.wikipedia.org/wiki/Round-robin_tournament">Round-robin</string>
-	<string name="startGameNow">Start game now</string>
+	<string name="roundRobin" comment="https://en.wikipedia.org/wiki/Round-robin_tournament">Każdy z każdym</string>
+	<string name="startGameNow">Rozpocznij partię teraz</string>
 	<string name="goToGame">Przejdź do partii</string>
 	<string name="gameScheduling">Game scheduling</string>
-	<string name="suggestTime" comment="Time that you suggest to your opponent to start a game">Suggest time</string>
-	<string name="suggestDifferentTime" comment="Time to start a game that you want to suggest, if some time was already suggested">Suggest different time</string>
-	<string name="acceptSuggestedTime" comment="Accept time opponent suggested to start a game">Accept suggested time</string>
-	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s accepted your suggested time</string>
-	<string name="suggestedTime" comment="Currently suggested time to start a game">Suggested time</string>
+	<string name="suggestTime" comment="Time that you suggest to your opponent to start a game">Zaproponuj godzinę</string>
+	<string name="suggestDifferentTime" comment="Time to start a game that you want to suggest, if some time was already suggested">Zaproponuj inną godzinę</string>
+	<string name="acceptSuggestedTime" comment="Accept time opponent suggested to start a game">Zaakceptuj proponowaną godzinę</string>
+	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s akceptuje zaproponowaną godzinę</string>
+	<string name="suggestedTime" comment="Currently suggested time to start a game">Proponowana godzina</string>
 	<string name="scheduledAt" comment="Date/time when game is scheduled for">Zaplanowane na</string>
-	<string name="startedAt" comment="Date/time when game started">Started at</string>
-	<string name="upcomingGameWithX" comment="Upcoming game with username">Upcoming game with %s</string>
+	<string name="startedAt" comment="Date/time when game started">Rozpoczęto</string>
+	<string name="upcomingGameWithX" comment="Upcoming game with username">Nadchodząca partia z %s</string>
 	<string name="yourUpcomingGames">Twoje nadchodzące partie</string>
-	<string name="allUpcomingAndOngoingGames">All upcoming and ongoing games</string>
-	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">My arranged games</string>
+	<string name="allUpcomingAndOngoingGames">Wszystkie nadchodzące i bieżące partie</string>
+	<string name="myArrangedGames" comment="My arranged games from round-robin and organized tournaments">Moje zaplanowane partie</string>
 	<string name="gameWillNotStart">Partia nie rozpocznie się automatycznie!</string>
 	<string name="organized" comment="Tournament format - organized, players can only play games created by the organizer">Zorganizowany</string>
-	<string name="existingGamesBetweenPlayers" comment="For tour organizers, title for a list of upcoming games between two selected players">Existing games between players</string>
-	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">Points (W/D/L)</string>
-	<string name="gameName" comment="Name of arranged game">Game name</string>
-	<string name="howDoesRoundRobinWork">How does round-robin work?</string>
-	<string name="howDoesRoundRobinWorkAnswerNew">In a round-robin tournament, each player can play one game against every other player.</string>
-	<string name="howToPlayGames">How do I play a game?</string>
-	<string name="howToPlayGamesAnswerNew">To play, click the cell in the table where you and the opponent you want to play against meet. You can schedule a date and time of the game or start the game right away by sending a challenge to your opponent.</string>
-	<string name="roundRobinScoring">How are points given?</string>
-	<string name="roundRobinScoringAnswer">You get 3 points for a win, 2 for a draw, and 1 for a loss. Every match counts toward your total score.</string>
-	<string name="roundRobinWinner">How is the winner decided?</string>
-	<string name="roundRobinWinnerAnswer">The player with the most points at the end wins. If players have the same number of points, the one who joined the tournament earlier is ranked higher.</string>
-	<string name="howDoOrganizedTournamentsWork">How do organized tournaments work?</string>
-	<string name="howDoOrganizedTournamentsWorkAnswerNew">In organized tournaments, only the tournament organizer can create matches between players.</string>
-	<string name="whoStartsMatches">Who starts the match?</string>
-	<string name="whoStartsMatchesAnswerNew">The match starts once a challenge is issued and accepted. Organizer cannot start a game.</string>
-	<string name="organizedScoring">How are points given?</string>
-	<string name="organizedScoringAnswer">The organizer decides how many points are awarded for a win, draw, or loss.</string>
-	<string name="howManyGames">How many games can be played?</string>
-	<string name="howManyGamesAnswer">The organizer can create at most %s games.</string>
-	<string name="annulResults">Annul results</string>
-	<string name="annulledGames">Annulled games</string>
+	<string name="existingGamesBetweenPlayers" comment="For tour organizers, title for a list of upcoming games between two selected players">Istniejące partie pomiędzy graczami</string>
+	<string name="pointsWDL" comment="points awarded for: W - win, D - draw, L - loss">Punkty (Z/R/P)</string>
+	<string name="gameName" comment="Name of arranged game">Nazwa partii</string>
+	<string name="howDoesRoundRobinWork">Jak działa turniej w systemie „każdy z każdym‟?</string>
+	<string name="howDoesRoundRobinWorkAnswerNew">W turnieju typu każdy z każdym, każdy zawodnik rozgrywa jedną partię z każdym pozostałym zawodnikiem.</string>
+	<string name="howToPlayGames">Jak rozegrać partię?</string>
+	<string name="howToPlayGamesAnswerNew">Aby rozegrać partię, kliknij komórkę w tabeli, gdzie krzyżujecie się Ty i przeciwnik, z którym chcesz zagrać. Możesz zaplanować datę i godzinę partii, lub rozpocząć partię natychmiast poprzez wysłanie wyzwania do przeciwnika.</string>
+	<string name="roundRobinScoring">Jak przyznawane są punkty?</string>
+	<string name="roundRobinScoringAnswer">Otrzymujesz 3 punkty za wygraną, 2 za remis i 1 za porażkę. Każda partia liczy się do ostatecznego wyniku.</string>
+	<string name="roundRobinWinner">Jak wyłaniany jest zwycięzca?</string>
+	<string name="roundRobinWinnerAnswer">Zawodnik z największą liczbą punktów na końcu wygrywa. Jeśli zawodnicy mają taką samą liczbę punktów, ten, który wcześniej dołączył do turnieju, zajmuje wyższe miejsce.</string>
+	<string name="howDoOrganizedTournamentsWork">Jak działają turnieje zorganizowane?</string>
+	<string name="howDoOrganizedTournamentsWorkAnswerNew">W turniejach zorganizowanych tylko organizator turnieju może zestawiać zawodników między sobą.</string>
+	<string name="whoStartsMatches">Kto rozpoczyna partię?</string>
+	<string name="whoStartsMatchesAnswerNew">Partia rozpoczyna się po wysłaniu i przyjęciu wyzwania. Organizator nie może rozpocząć partii.</string>
+	<string name="organizedScoring">Jak przyznawane są punkty?</string>
+	<string name="organizedScoringAnswer">Organizator decyduje, ile punktów jest przyznawanych za wygraną, remis, lub porażkę.</string>
+	<string name="howManyGames">Ile partii może być rozegranych?</string>
+	<string name="howManyGamesAnswer">Organizator może utworzyć do %s partii.</string>
+	<string name="annulResults">Anuluj wyniki</string>
+	<string name="annulledGames">Anulowane partie</string>
 </resources>
