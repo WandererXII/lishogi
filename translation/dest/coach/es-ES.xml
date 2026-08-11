@@ -31,15 +31,15 @@
 	<string name="availableForLessonsHelp">Activar para obtener más estudiantes</string>
 	<string name="languagesSpoken">Idiomas que habla</string>
 	<string name="languagesSpokenHelp">En qué idiomas puedes dar lecciones?</string>
-	<string name="hourlyRateHelp">Indicative, non-contractual (3 to 140 chars)</string>
-	<string name="whoAreYou">Who are you?</string>
-	<string name="whoAreYouHelp">Age, profession, country... let your students know you</string>
-	<string name="playingExperienceHelp">Tournaments played, best wins, other achievements</string>
-	<string name="teachingExperienceHelp">Diplomas, years of practice, best student results</string>
-	<string name="otherExperiencesHelp">E.g. as shogi commentator, or teaching other domains</string>
-	<string name="bestSkillsHelp">Best skills in shogi and teaching</string>
-	<string name="teachingMethodHelp">How you prepare and run lessons. How you follow up with students.</string>
-	<string name="publicStudiesHelp">Up to 6 Lishogi study URLs, one per line</string>
-	<string name="youtubeChannelUrl">URL of your YouTube channel</string>
-	<string name="youtubeVideosHelp">Up to 6 YouTube video URLs, one per line</string>
+	<string name="hourlyRateHelp">Indicativo, no contractual (entre 3 y 140 caracteres)</string>
+	<string name="whoAreYou">¿Quién eres?</string>
+	<string name="whoAreYouHelp">Edad, profesión, país... date a conocer a tus estudiantes</string>
+	<string name="playingExperienceHelp">Torneos jugados, mejores victorias, otros logros</string>
+	<string name="teachingExperienceHelp">Diplomas, años de práctica, mejores resultados de estudiantes</string>
+	<string name="otherExperiencesHelp">Por ejemplo, como comentarista de shogi, o enseñando en otros ámbitos</string>
+	<string name="bestSkillsHelp">Mejores habilidades en shogi y enseñanza</string>
+	<string name="teachingMethodHelp">Cómo te preparas y realizas lecciones. Cómo te mantienes en contacto con tus estudiantes.</string>
+	<string name="publicStudiesHelp">Hasta 6 URLs de estudios de Lishogi, uno por línea</string>
+	<string name="youtubeChannelUrl">URL de tu canal de YouTube</string>
+	<string name="youtubeVideosHelp">Hasta 6 URL de vídeos de YouTube, una por línea</string>
 </resources>
