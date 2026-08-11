@@ -83,7 +83,7 @@ En síntesis, las puntuaciones de Glicko usan \"intervalos de confianza\" al cal
 Básicamente, el sistema tiene un 90% de seguridad de que tu puntuación está entre 800 y 2200. Es un intervalo muy amplio y poco preciso (hay mucha incertidumbre). Por eso, cuando un jugador acaba de empezar, su puntuación cambiará de forma muy brusca, incluso puede que varios cientos de puntos cada vez. Pero después de algunas partidas contra jugadores más veteranos, el intervalo de confianza se irá reduciendo (el sistema tendrá cada vez más clara cuál es su puntuación exacta), y la cantidad de puntos ganados o perdidos después de cada partida disminuirá.
 
 Otro punto que cabe señalar es que, si pasa un tiempo sin jugar, el intervalo de confianza volverá aumentar. Esto te permite ganar o perder puntos más rápidamente para igualar cualquier cambio en tu fuerza de juego durante ese tiempo que has pasado sin jugar.</string>
-	<string name="ratingSystemUsedByLishogiDraw">Draws do not affect ratings.</string>
+	<string name="ratingSystemUsedByLishogiDraw">Los empates no afectan a las puntuaciones.</string>
 	<string name="whatIsProvisionalRating">¿Por qué hay un signo de interrogación (?) junto a una puntuación?</string>
 	<string name="provisionalRatingExplanation">El signo de interrogación significa que la puntuación es provisional. Las razones incluyen:</string>
 	<string name="notPlayedEnoughRatedGamesAgainstX">El jugador aún no ha finalizado suficientes partidas por puntos contra %1$s en la categoría de puntuación.</string>
@@ -94,10 +94,10 @@ Otro punto que cabe señalar es que, si pasa un tiempo sin jugar, el intervalo d
 	<string name="inOrderToAppearsYouMust">Para llegar al %1$s deberías:</string>
 	<string name="ratingLeaderboards">tablero de liderazgo</string>
 	<string name="havePlayedMoreThanThirtyGamesInThatRating">haber jugado al menos 30 partidas por puntos en una puntuación dada,</string>
-	<string name="havePlayedARatedGameAtLeastOneMonthAgo">have played a rated game within the last month for this rating,</string>
+	<string name="havePlayedARatedGameAtLeastOneMonthAgo">haber jugado una partida clasificatoria en el último mes para esta puntuación</string>
 	<string name="ratingDeviationLowerThanXinShogiYinVariants">tener una desviación de la puntuación menor que %1$s en shogi estándar, y menor que %2$s en variantes,</string>
 	<string name="beInTopTen">estar entre los 10 primeros de esta clasificación.</string>
-	<string name="clickHereRatingRanks">Click here to see how ratings map to ranks.</string>
+	<string name="clickHereRatingRanks">Haz clic aquí para ver como las puntuaciones se relacionan con los rangos</string>
 	<string name="secondRequirementToStopOldPlayersTrustingLeaderboards">El segundo requisito es que los jugadores que ya no usan sus cuentas dejen de poblar los tableros de liderazgo.</string>
 	<string name="whyAreRatingHigher">¿Por qué son más altas las puntuaciones en comparación con otros sitios y organizaciones como FIDE, USCF y el CIC?</string>
 	<string name="whyAreRatingHigherExplanation">Lo mejor es no considerar las puntuaciones como cifras absolutas ni compararlas con otras organizaciones. Diferentes organizaciones tienen diferentes niveles de jugadores, diferentes sistemas de puntuación (Elo, Glicko, Glicko-2 o una versión modificada de los primeros). Estos factores pueden afectar drásticamente los números absolutos (puntuaciones).
