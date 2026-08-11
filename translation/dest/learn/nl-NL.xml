@@ -159,7 +159,8 @@ op een manier die niet kan worden verdedigd!</string>
 	<string name="thisIsTheInitialPosition">This is the initial position
 of every game of shogi!
 Make any move to continue.</string>
-	<string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.</string>
+	<string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.
+</string>
 	<string name="dropAGold">Drop a gold on the left side of the king, then place another gold on the right.</string>
 	<string name="thenPlaceASilver">Then place the silver next to the left-side gold, and a silver beside the right gold.</string>
 	<string name="dropTheKnights">Drop the knights the same way you placed the silvers. Your opponent will be doing the Itou (伊藤) style.</string>
