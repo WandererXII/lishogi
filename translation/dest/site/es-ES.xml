@@ -3,7 +3,7 @@
 	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Jugar contra un amigo</string>
 	<string name="playWithTheMachine">Jugar contra el ordenador</string>
-	<string name="playOtherPlayers">Play other players</string>
+	<string name="playOtherPlayers">Jugar contra otros jugadores</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Para invitar a alguien a jugar, comparte este enlace</string>
 	<string name="gameOver">Fin de la partida</string>
 	<string name="waitingForOpponent">Esperando al oponente</string>
@@ -53,8 +53,8 @@
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Tu oponente quiere la revancha</string>
 	<string name="joinTheGame">Unirse a la partida</string>
 	<string name="registeredJoinTheGame">Solo los jugadores registrados pueden unirse a las partidas de otros jugadores registrados.</string>
-	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
-	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
+	<string name="outsideYourRating">Tu puntuación está fuera del rango admitido para este juego</string>
+	<string name="gamesOutsideYourRatingRange">Mostrar juegos fuera de tu rango de puntuación</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Juega %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Tu oponente ha salido de la partida. Podrás reclamar la victoria en %s segundo.</item>
@@ -65,7 +65,7 @@
 	<string name="forceResignation">Reclamar la victoria</string>
 	<string name="forceDraw">Declarar tablas</string>
 	<string name="talkInChat">Por favor, sé amable en el chat</string>
-	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
+	<string name="playersCannotSeeMessagesDuringGame">Los jugadores no pueden ver tus mensajes durante el juego!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">La primera persona que entre en este enlace jugará contigo.</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s se ha rendido</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s ha dejado la partida</string>
