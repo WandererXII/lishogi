@@ -158,7 +158,8 @@ in un modo in cui non possa essere difeso!</string>
 	<string name="boardSetupIntro">I due eserciti l\'uno di fronte all\'altro, pronti per la battaglia.</string>
 	<string name="thisIsTheInitialPosition">Questa è la posizione iniziale di ogni partita di Shogi!
 Fai una mossa qualsiasi per continuare.</string>
-	<string name="firstPlaceTheKing">Ci sono due metodi tradizionali per posizionare i pezzi prima della partita. Ti insegniamo il metodo Oohashi (大橋), che è il più utilizzato tra i professionisti. Il re va messo per primo. Mettilo nello spazio al centro sulla prima riga.</string>
+	<string name="firstPlaceTheKing">Ci sono due metodi tradizionali per posizionare i pezzi prima della partita. Ti insegniamo il metodo Oohashi (大橋), che è il più utilizzato tra i professionisti. Il re va messo per primo. Mettilo nello spazio al centro sulla prima riga.
+</string>
 	<string name="dropAGold">Metti un generale d\'oro alla sinistra del re, poi l\'altro alla sua destra.</string>
 	<string name="thenPlaceASilver">Dopodiché piazza un generale d\'argento alla sinistra di quello d\'oro di sinistra, e l\'altro alla destra di quello di destra.</string>
 	<string name="dropTheKnights">Piazza i cavalieri nello stesso modo in cui hai piazzato i generali d\'argento.
