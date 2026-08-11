@@ -151,7 +151,8 @@ Zbij bierki przeciwnika!</string>
 	<string name="thisIsTheInitialPosition">To jest początkowa pozycja
 każdej partii shogi!
 Wykonaj dowolny ruch, aby kontynuować.</string>
-	<string name="firstPlaceTheKing">Istnieją dwie tradycyjne metody ustawiania bierek przed partią. Zaprezentujemy styl Oohashi (大橋), najczęściej wybierany przez profesjonalistów. Król idzie pierwszy. Umieść króla na środkowym polu najbliższego rzędu.</string>
+	<string name="firstPlaceTheKing">Istnieją dwie tradycyjne metody ustawiania bierek przed partią. Zaprezentujemy styl Oohashi (大橋), najczęściej wybierany przez profesjonalistów. Król idzie pierwszy. Umieść króla na środkowym polu najbliższego rzędu.
+</string>
 	<string name="dropAGold">Umieść jednego złotego generała po lewej stronie króla, a potem drugiego po prawej.</string>
 	<string name="thenPlaceASilver">Potem umieść jednego srebrnego generała obok lewego złotego generała, a drugiego obok prawego złotego generała.</string>
 	<string name="dropTheKnights">Umieść skoczki w podobny sposób jak wcześniej srebrne generały. Twój przeciwnik ustawia bierki w stylu Itou (伊藤).</string>
