@@ -154,7 +154,8 @@
 	<string name="boardSetupIntro">两军对峙，准备战斗。</string>
 	<string name="thisIsTheInitialPosition">这是每一盘将棋开局时的棋子摆法。
 请移动任意棋驹以继续。</string>
-	<string name="firstPlaceTheKing">摆放棋子有两种传统顺序。这里演示的是职业棋手最为常用的大桥流。首先，把王将放到最后一排的最中间位置。</string>
+	<string name="firstPlaceTheKing">摆放棋子有两种传统顺序。这里演示的是职业棋手最为常用的大桥流。首先，把王将放到最后一排的最中间位置。
+</string>
 	<string name="dropAGold">在王将左侧摆放一枚金将，然后在右侧也同样摆放一枚金将。</string>
 	<string name="thenPlaceASilver">然后在左侧的金将外摆放银将，右侧同理。</string>
 	<string name="dropTheKnights">按照之前的方式，摆放桂马。你的对手会使用伊藤流继续摆放棋子。</string>
