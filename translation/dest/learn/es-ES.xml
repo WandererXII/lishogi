@@ -157,7 +157,8 @@ de forma que no pueda defenderse!</string>
 	<string name="thisIsTheInitialPosition">Esta es la posición inicial 
 de todas las partidas de shogi.
 Mueve cualquier pieza para continuar.</string>
-	<string name="firstPlaceTheKing">Hay dos formas tradicionales de colocar las piezas antes de una partida. Te enseñaremos el estilo Oohashi (大橋), comúnmente utilizado por profesionales. El rey va primero. Pon el rey en la casilla central de la primera fila.</string>
+	<string name="firstPlaceTheKing">Hay dos formas tradicionales de colocar las piezas antes de una partida. Te enseñaremos el estilo Oohashi (大橋), comúnmente utilizado por profesionales. El rey va primero. Pon el rey en la casilla central de la primera fila.
+</string>
 	<string name="dropAGold">Coloca un oro en el lado izquierdo del rey, luego coloca otro oro a la derecha.</string>
 	<string name="thenPlaceASilver">Luego coloca la plata al lado del oro izquierdo y una plata al lado del oro derecho.</string>
 	<string name="dropTheKnights">Coloca los caballos de la misma manera que has colocado las platas. Tu oponente estará haciendo el estilo Itou (伊藤).</string>
