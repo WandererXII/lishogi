@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 	<string name="lishogiCoach">Entrenador de Lishogi</string>
-	<string name="editMyCoachProfile">Edit my coach profile</string>
-	<string name="lishogiOnlyFeatures">Lishogi only features independent coaches and is not responsible for their conduct or the quality of their teaching.</string>
-	<string name="lishogiNoFees">Coaching fees are strictly between coaches and students - Lishogi takes nothing.</string>
+	<string name="editMyCoachProfile">Editar mi perfil de tutor</string>
+	<string name="lishogiOnlyFeatures">Lishogi solo cuenta con entrenadores independientes y no es responsable de su conducta o dela calidad de su enseñanza.</string>
+	<string name="lishogiNoFees">Las tasas de coaching son estrictamente ente los entrenadores y los estudiantes. Lishogi no obtiene nada.</string>
 	<string name="becomeACoach">¿Eres un gran entrenador de shogi con experiencia y quieres estar presente en lishogi?</string>
 	<string name="sendApplication">Envíanos un correo electrónico a %s y revisaremos tu solicitud.</string>
 	<string name="location">Ubicación</string>
@@ -24,13 +24,13 @@
 	<string name="teachingMethod">Metodología de enseñanza</string>
 	<string name="publicStudies">Estudios públicos</string>
 	<string name="youtubeVideos">Vídeos de YouTube</string>
-	<string name="headline">Short and inspiring headline</string>
-	<string name="publishOnList">Publish on the coaches list</string>
-	<string name="publishOnListHelp">Enable when your profile is ready</string>
-	<string name="availableForLessons">Currently available for lessons</string>
-	<string name="availableForLessonsHelp">Enable to get more students</string>
-	<string name="languagesSpoken">Languages spoken</string>
-	<string name="languagesSpokenHelp">Which languages can you give lessons in?</string>
+	<string name="headline">Titular corto e inspirador</string>
+	<string name="publishOnList">Publicar en la lista de coaches</string>
+	<string name="publishOnListHelp">Activar cuando tu perfil esté listo</string>
+	<string name="availableForLessons">Actualmente disponible para lecciones</string>
+	<string name="availableForLessonsHelp">Activar para obtener más estudiantes</string>
+	<string name="languagesSpoken">Idiomas que habla</string>
+	<string name="languagesSpokenHelp">En qué idiomas puedes dar lecciones?</string>
 	<string name="hourlyRateHelp">Indicative, non-contractual (3 to 140 chars)</string>
 	<string name="whoAreYou">Who are you?</string>
 	<string name="whoAreYouHelp">Age, profession, country... let your students know you</string>
