@@ -153,7 +153,8 @@ Take the enemy pieces!</string>
 	<string name="boardSetupIntro">두 군대가 맞서 싸울 준비를 합니다</string>
 	<string name="thisIsTheInitialPosition">이것이 쇼기의 맨처음 배치입니다.
 계속하려면 원하는 다음 수를 둬보세요.</string>
-	<string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.</string>
+	<string name="firstPlaceTheKing">There are two traditional ways of setting up pieces before a game. We will be teaching the Oohashi (大橋) style, most commonly used by professionals. The king goes first. Move the king to the back rank’s center square.
+</string>
 	<string name="dropAGold">Drop a gold on the left side of the king, then place another gold on the right.</string>
 	<string name="thenPlaceASilver">Then place the silver next to the left-side gold, and a silver beside the right gold.</string>
 	<string name="dropTheKnights">Drop the knights the same way you placed the silvers. Your opponent will be doing the Itou (伊藤) style.</string>
