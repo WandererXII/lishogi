@@ -70,7 +70,7 @@
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s se ha rendido</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s ha dejado la partida</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s no ha movido</string>
-	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s played an illegal move</string>
+	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s jugó un movimiento ilegal</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Comparte este enlace para invitar espectadores a ver la partida</string>
 	<string name="theComputerAnalysisHasFailed">El análisis del ordenador ha fallado</string>
 	<string name="viewTheComputerAnalysis">Ver el análisis del ordenador</string>
@@ -113,8 +113,8 @@
 	<string name="recentGames">Partidas recientes</string>
 	<string name="topGames">Mejores partidas</string>
 	<string name="noGameFound">No se ha encontrado ninguna partida</string>
-	<string name="pageNotFound">Page not found</string>
-	<string name="returnToHomepage">Return to homepage</string>
+	<string name="pageNotFound">Página no encontrada</string>
+	<string name="returnToHomepage">Volver a la página principal</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Prueba incluyendo más partidas desde el menú de preferencias</string>
 	<string name="openingExplorer">Explorador de aperturas</string>
 	<string name="xOpeningExplorer">Explorador de la apertura %s</string>
@@ -230,7 +230,7 @@
 	</plurals>
 	<string name="confirm">Confirmar</string>
 	<string name="cancel">Cancelar</string>
-	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Comenzar</string>
 	<string name="timeOut">Tiempo agotado</string>
 	<string name="drawOfferSent">Oferta de tablas enviada</string>
 	<string name="drawOfferDeclined">Oferta de tablas rechazada</string>
@@ -274,7 +274,7 @@
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante moderna de shogi con promociones alternas únicas en un tablero de 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante similar al shogi estándar, donde las piezas se mueven igual que las piezas del mismo bando situadas detrás de ellas</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Igual que el shogi estándar, sólo que gana el primero que da jaque al rey rival</string>
-	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">A beginner-friendly shogi variant on a very small board</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">Una variante para principiantes con un tablero pequeño</string>
 	<string name="unlimited">Ilimitado</string>
 	<string name="mode">Modo</string>
 	<string name="casual">Amistosa</string>
@@ -353,7 +353,7 @@
 	<string name="tournament">Torneo</string>
 	<string name="tournamentLeaderboard">Ganadores del torneo</string>
 	<string name="tournaments">Torneos</string>
-	<string name="myTournaments">My tournaments</string>
+	<string name="myTournaments">Mis torneos</string>
 	<string name="tournamentPoints">Puntos de torneo</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s punto de torneo</item>
@@ -415,9 +415,9 @@
 	<string name="continueFromHere">Continuar desde aquí</string>
 	<string name="toStudy">Estudiar</string>
 	<string name="importGame">Importar partida</string>
-	<string name="importCategory" comment="Category name for games that were imported">Import</string>
+	<string name="importCategory" comment="Category name for games that were imported">Importar</string>
 	<string name="importedGame">Partida importada.</string>
-	<string name="importedByX">Imported by %s</string>
+	<string name="importedByX">Importado por %s</string>
 	<string name="importGameKifCsaExplanation">Pega una partida KIF o CSA para obtener una repetición navegable, análisis por ordenador, chat de juego y una URL para compartir.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s partida importada</item>
@@ -439,14 +439,14 @@
 	<string name="favoriteOpponents">Oponentes favoritos</string>
 	<string name="follow">Seguir</string>
 	<string name="following">Siguiendo</string>
-	<string name="followers">Followers</string>
-	<string name="allYouFollow">All players you follow</string>
+	<string name="followers">Seguidores</string>
+	<string name="allYouFollow">Todos los jugadores que sigues</string>
 	<string name="unfollow">Dejar de seguir</string>
 	<string name="block">Bloquear</string>
 	<string name="blocked">Bloqueado</string>
 	<string name="unblock">Desbloquear</string>
-	<string name="thanksForReport">Thanks for the report</string>
-	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
+	<string name="thanksForReport">Gracias por la denuncia</string>
+	<string name="reportedSomeoneBanned">Alguien a quien denunciaste fue bloqueado</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Te sigue</string>
