@@ -39,7 +39,6 @@
   <plurals name="keepItShort">
     <item quantity="one">Keep it short: %s character max</item>
     <item quantity="two">Keep it short: %s characters max</item>
-    <item quantity="many">Keep it short: %s characters max</item>
     <item quantity="other">Keep it short: %s characters max</item>
   </plurals>
   <string name="visibility">Visible on the streamers page</string>
