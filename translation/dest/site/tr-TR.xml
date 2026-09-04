@@ -65,7 +65,7 @@
 	<string name="forceResignation">Galibiyet talep et</string>
 	<string name="forceDraw">Beraberlik ilan et</string>
 	<string name="talkInChat">Lütfen sohbette nazik ol!</string>
-	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
+	<string name="playersCannotSeeMessagesDuringGame">Oyun esnasında oyuncular mesajlarınızı göremezler!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Bağlantıya ilk ulaşan kişi rakibiniz olacak.</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s çekildi</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s oyunu terk etti</string>
@@ -440,7 +440,7 @@
 	<string name="follow">Takip et</string>
 	<string name="following">Takip ediyorsun</string>
 	<string name="followers">Takipçiler</string>
-	<string name="allYouFollow">All players you follow</string>
+	<string name="allYouFollow">Takip ettiğiniz tüm oyuncular</string>
 	<string name="unfollow">Takibi bırak</string>
 	<string name="block">Engelle</string>
 	<string name="blocked">Engellendi</string>
@@ -1089,8 +1089,8 @@
 	<string name="newPlayerTournaments">Diğer oyunculara karşı shogi turnuvalarında oynayın veya kendi turnuvalarınızı düzenleyin.</string>
 	<string name="newPlayerPuzzles">Shogi bulmacaları çözerek yeteneklerinizi geliştirin.</string>
 	<string name="newPlayerStudies">Çalışmalar ve dersler topluluk tarafından oluşturulmuştur - veya kendinizinkini oluşturun ve paylaşın.</string>
-	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
-	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">Tüm diller</string>
+	<string name="begForDonations">Lishogi\'de her şey, herkes için sonsuza dek ücretsizdir. Mümkünse projeye destek olmak için lütfen bağış yapmayı düşünün.</string>
 	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
 	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
 	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
