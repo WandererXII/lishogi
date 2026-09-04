@@ -1091,7 +1091,7 @@
 	<string name="newPlayerStudies">Çalışmalar ve dersler topluluk tarafından oluşturulmuştur - veya kendinizinkini oluşturun ve paylaşın.</string>
 	<string name="allLanguages" comment="Name for 'Show all languages' option">Tüm diller</string>
 	<string name="begForDonations">Lishogi\'de her şey, herkes için sonsuza dek ücretsizdir. Mümkünse projeye destek olmak için lütfen bağış yapmayı düşünün.</string>
-	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
-	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
-	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Dosya seçin veya buraya sürükleyin</string>
+	<string name="profilePicture" comment="For streamers and coaches">Resim</string>
+	<string name="documentation" comment="Shown in top menu as a link">Dokümantasyon</string>
 </resources>
