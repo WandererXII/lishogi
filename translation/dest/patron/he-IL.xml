@@ -44,7 +44,6 @@
 	<plurals name="patronForMonths">
 		<item quantity="one">פטרון ליצ\'ס לחודש אחד</item>
 		<item quantity="two">פטרון ליצ\'ס ל%s חודשים</item>
-		<item quantity="many">פטרון ליצ\'ס ל%s חודשים</item>
 		<item quantity="other">פטרון ליצ\'ס ל%s חודשים</item>
 	</plurals>
 	<string name="youSupportWith">אתה תומך בליצ\'ס עם %s בחודש.</string>
