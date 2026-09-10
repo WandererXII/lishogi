@@ -65,6 +65,7 @@
 	<string name="forceResignation">जीत का दवा करें</string>
 	<string name="forceDraw">बराबरी पर खेल समाप्त करें</string>
 	<string name="talkInChat">कृपया चैट में अच्छे बनें !</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">इस URL पर आने वाला पहला व्यक्ति आपके साथ खेलेगा।</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s खेल छोड़ कर चला गया</string>
@@ -440,6 +441,7 @@
 	<string name="follow">फ़ॉलो</string>
 	<string name="following">फॉलोइंग</string>
 	<string name="followers">Followers</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">अनफ़ॉलो</string>
 	<string name="block">ब्लॉक</string>
 	<string name="blocked">ब्लॉक किया</string>
@@ -600,7 +602,6 @@
 	<string name="by">%s द्वारा</string>
 	<string name="thisTopicIsNowClosed">यह विषय अब बंद हो चुका है।</string>
 	<string name="theming">थीम (Theming)</string>
-	<string name="blog">ब्लॉग</string>
 	<string name="questionsAndAnswers">सवाल &amp; जवाब</string>
 	<string name="notes">टिप्पणियाँ</string>
 	<string name="typePrivateNotesHere">निजी नोट्स यहाँ लिखें</string>
@@ -989,11 +990,6 @@
 	<string name="subscribe">सब्सक्राइब</string>
 	<string name="unsubscribe">सदस्यता रद्द</string>
 	<string name="notationSystem">अंकन पद्धति</string>
-	<string name="officialBlog">Lishogi आधिकारिक ब्लॉग</string>
-	<string name="blogPostsFromYear">%1$s से ब्लॉग पोस्ट</string>
-	<string name="previousBlogPosts">पिछले ब्लॉग पोस्ट</string>
-	<string name="continueReadingThis"> इस पोस्ट को पढ़ना जारी रखें</string>
-	<string name="discussBlogForum">फ़ोरम में इस ब्लॉग पोस्ट पर चर्चा करें</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">हमलावर टुकड़े</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">राजा में प्रवेश</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">कुल मूल्य</string>
@@ -1094,4 +1090,9 @@
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>

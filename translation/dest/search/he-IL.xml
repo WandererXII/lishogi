@@ -5,13 +5,11 @@
 	<plurals name="searchInXGames">
 		<item quantity="one">Search in %s shogi game</item>
 		<item quantity="two">Search in %s shogi games</item>
-		<item quantity="many">Search in %s shogi games</item>
 		<item quantity="other">Search in %s shogi games</item>
 	</plurals>
 	<plurals name="xGamesFound">
 		<item quantity="one">משחק אחד נמצא</item>
 		<item quantity="two">%s משחקים נמצאו</item>
-		<item quantity="many">%s משחקים נמצאו</item>
 		<item quantity="other">%s משחקים נמצאו</item>
 	</plurals>
 	<string name="opponentName">שם היריב</string>

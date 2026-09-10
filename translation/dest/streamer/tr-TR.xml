@@ -45,10 +45,6 @@
   <string name="headline">Başlık</string>
   <string name="tellUsAboutTheStream">Bir cümle ile bize yayınınızı tarif edin</string>
   <string name="longDescription">Ayrıntılı açıklama</string>
-  <string name="xStreamerPicture">%s yayıncı resmi</string>
-  <string name="changePicture">Resmi değiştirin/silin</string>
-  <string name="uploadPicture">Resim yükle</string>
-  <string name="deletePicture">Resmi Sil</string>
   <string name="maxSize">Azami boyut: %s</string>
   <string name="installBlocker">Kötü amaçlı yazılımlara karşı bir virüs programı yükleyin!</string>
   <string name="beSafe">YouTube ve Twitch\'e kök salmış

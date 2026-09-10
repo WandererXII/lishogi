@@ -147,7 +147,8 @@ Um das zu tun, klicke auf das Zahnrad oder deinen Benutzernamen (oben rechts) un
 	<string name="howTheGameStarts">Wie das Spiel beginnt</string>
 	<string name="boardSetupIntro">Die beiden Armeen stehen einander gegenüber, bereit für die Schlacht.</string>
 	<string name="thisIsTheInitialPosition">Dies ist die Ausgangsposition jeder Shogi-Partie. Mache einen beliebigen Zug, um fortzufahren.</string>
-	<string name="firstPlaceTheKing">Es gibt zwei traditionelle Wege die Figuren vor einem Spiel aufzustellen. Wir benutzen den Oohashi-Stil (大橋), der auch von Profis verwendet wird. Der König wird zuerst aufgestellt. Setze den König auf das mittlere Feld der ersten Reihe!</string>
+	<string name="firstPlaceTheKing">Es gibt zwei traditionelle Wege die Figuren vor einem Spiel aufzustellen. Wir benutzen den Oohashi-Stil (大橋), der auch von Profis verwendet wird. Der König wird zuerst aufgestellt. Setze den König auf das mittlere Feld der ersten Reihe!
+</string>
 	<string name="dropAGold">Setze einen Goldgeneral auf die linke Seite auf den König, platziere dann ein weiteren Goldgeneral auf der rechten Seite.</string>
 	<string name="thenPlaceASilver">Platziere einen Silbergeneral neben dem linken Goldgeneral und einen weiteren neben dem rechten.</string>
 	<string name="dropTheKnights">Setze die Springer auf die gleiche Art, wie die silbernen Generäle ein. Dein Gegner wird den Itou-Stil machen.</string>

@@ -29,7 +29,6 @@
 	<string name="publishOnListHelp">Activer lorsque votre profil est prêt</string>
 	<string name="availableForLessons">Actuellement disponible pour des cours</string>
 	<string name="availableForLessonsHelp">Activer pour trouver plus d\'élèves</string>
-	<string name="allLanguages" comment="List all languages">Toutes les langues</string>
 	<string name="languagesSpoken">Langues parlées</string>
 	<string name="languagesSpokenHelp">Dans quelles langues pouvez-vous donner des cours ?</string>
 	<string name="hourlyRateHelp">Indicatif, non contractuel (3 à 140 caractères)</string>
@@ -43,8 +42,4 @@
 	<string name="publicStudiesHelp">Jusqu\'à 6 URL d\'étude de Lishogi, une par ligne</string>
 	<string name="youtubeChannelUrl">URL de votre chaîne YouTube</string>
 	<string name="youtubeVideosHelp">Jusqu\'à 6 URL de vidéo YouTube, une par ligne</string>
-	<string name="basicsTab">Bases</string>
-	<string name="textsTab">Textes</string>
-	<string name="contentsTab">Contenus</string>
-	<string name="profileSaved">Vos changements ont été enregistrés.</string>
 </resources>

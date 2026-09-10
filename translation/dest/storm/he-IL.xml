@@ -11,13 +11,11 @@
   <plurals name="xRuns">
     <item quantity="one">1 run</item>
     <item quantity="two">%s runs</item>
-    <item quantity="many">%s runs</item>
     <item quantity="other">%s runs</item>
   </plurals>
   <plurals name="playedNbRunsOfPuzzleStorm">
     <item quantity="one">Played one run of %2$s</item>
     <item quantity="two">Played %1$s runs of %2$s</item>
-    <item quantity="many">Played %1$s runs of %2$s</item>
     <item quantity="other">Played %1$s runs of %2$s</item>
   </plurals>
   <string name="highscoreX">Highscore: %s</string>

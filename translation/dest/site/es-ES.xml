@@ -3,7 +3,7 @@
 	<string name="shogi">Shogi</string>
 	<string name="playWithAFriend">Jugar contra un amigo</string>
 	<string name="playWithTheMachine">Jugar contra el ordenador</string>
-	<string name="playOtherPlayers">Play other players</string>
+	<string name="playOtherPlayers">Jugar contra otros jugadores</string>
 	<string name="toInviteSomeoneToPlayGiveThisUrl">Para invitar a alguien a jugar, comparte este enlace</string>
 	<string name="gameOver">Fin de la partida</string>
 	<string name="waitingForOpponent">Esperando al oponente</string>
@@ -20,14 +20,14 @@
 	<string name="resign">Abandonar</string>
 	<string name="checkmate">Jaque mate</string>
 	<string name="stalemate">Ahogado</string>
-	<string name="resignation" comment="Status of game that was resigned by one of the players">Resignation</string>
+	<string name="resignation" comment="Status of game that was resigned by one of the players">Rendición</string>
 	<string name="check">Jaque</string>
 	<string name="impasse">Punto muerto</string>
 	<string name="repetition" comment="Status of a game ending due to repeated positions">Tablas por repetición de jugadas</string>
 	<string name="perpetualCheck">Jaque perpetuo</string>
 	<string name="royalsLost" comment="Used in chushogi">Se han perdido todas las piezas reales</string>
 	<string name="bareKing" comment="Used in chushogi">Rey despojado</string>
-	<string name="lionCaptured" comment="Used in dobutsu shogi">The lion was captured</string>
+	<string name="lionCaptured" comment="Used in dobutsu shogi">El león ha sido capturado</string>
 	<string name="tryRule" comment="Used in dobutsu shogi">Try rule</string>
 	<string name="illegalMove" comment="Status name - shown after a game when an illegal move was played - pro mode">Jugada ilegal</string>
 	<string name="xPlayedY" comment="Played in the past, game is now over. User1 played [against] user2.">%1$s jugó contra %2$s</string>
@@ -52,9 +52,9 @@
 	<string name="newOpponent">Nuevo oponente</string>
 	<string name="yourOpponentWantsToPlayANewGameWithYou">Tu oponente quiere la revancha</string>
 	<string name="joinTheGame">Unirse a la partida</string>
-	<string name="registeredJoinTheGame">Only registered users can join games from other registered users</string>
-	<string name="outsideYourRating">Your rating is outside the allowed range for this game</string>
-	<string name="gamesOutsideYourRatingRange">Show games outside your rating range</string>
+	<string name="registeredJoinTheGame">Solo los jugadores registrados pueden unirse a las partidas de otros jugadores registrados.</string>
+	<string name="outsideYourRating">Tu puntuación está fuera del rango admitido para este juego</string>
+	<string name="gamesOutsideYourRatingRange">Mostrar juegos fuera de tu rango de puntuación</string>
 	<string name="xPlays" comment="%s - sente(black)/gote(white)">Juega %s</string>
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">Tu oponente ha salido de la partida. Podrás reclamar la victoria en %s segundo.</item>
@@ -65,11 +65,12 @@
 	<string name="forceResignation">Reclamar la victoria</string>
 	<string name="forceDraw">Declarar tablas</string>
 	<string name="talkInChat">Por favor, sé amable en el chat</string>
+	<string name="playersCannotSeeMessagesDuringGame">Los jugadores no pueden ver tus mensajes durante el juego!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">La primera persona que entre en este enlace jugará contigo.</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s se ha rendido</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s ha dejado la partida</string>
 	<string name="xDidntMove" comment="%s - sente(black)/gote(white)">%s no ha movido</string>
-	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s played an illegal move</string>
+	<string name="xPlayedIllegalMove" comment="%s - sente(black)/gote(white)">%s jugó un movimiento ilegal</string>
 	<string name="shareThisUrlToLetSpectatorsSeeTheGame">Comparte este enlace para invitar espectadores a ver la partida</string>
 	<string name="theComputerAnalysisHasFailed">El análisis del ordenador ha fallado</string>
 	<string name="viewTheComputerAnalysis">Ver el análisis del ordenador</string>
@@ -112,8 +113,8 @@
 	<string name="recentGames">Partidas recientes</string>
 	<string name="topGames">Mejores partidas</string>
 	<string name="noGameFound">No se ha encontrado ninguna partida</string>
-	<string name="pageNotFound">Page not found</string>
-	<string name="returnToHomepage">Return to homepage</string>
+	<string name="pageNotFound">Página no encontrada</string>
+	<string name="returnToHomepage">Volver a la página principal</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Prueba incluyendo más partidas desde el menú de preferencias</string>
 	<string name="openingExplorer">Explorador de aperturas</string>
 	<string name="xOpeningExplorer">Explorador de la apertura %s</string>
@@ -229,7 +230,7 @@
 	</plurals>
 	<string name="confirm">Confirmar</string>
 	<string name="cancel">Cancelar</string>
-	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Start</string>
+	<string name="start" comment="Used in buttons to mean 'Start tournament' or 'Start simul'">Comenzar</string>
 	<string name="timeOut">Tiempo agotado</string>
 	<string name="drawOfferSent">Oferta de tablas enviada</string>
 	<string name="drawOfferDeclined">Oferta de tablas rechazada</string>
@@ -273,7 +274,7 @@
 	<string name="kyotoshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante moderna de shogi con promociones alternas únicas en un tablero de 5x5</string>
 	<string name="annanshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Variante similar al shogi estándar, donde las piezas se mueven igual que las piezas del mismo bando situadas detrás de ellas</string>
 	<string name="checkshogiDescription" comment="No need to translate it literally, serves as short description of the variant">Igual que el shogi estándar, sólo que gana el primero que da jaque al rey rival</string>
-	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">A beginner-friendly shogi variant on a very small board</string>
+	<string name="dobutsuDescription" comment="No need to translate it literally, serves as short description of the variant">Una variante para principiantes con un tablero pequeño</string>
 	<string name="unlimited">Ilimitado</string>
 	<string name="mode">Modo</string>
 	<string name="casual">Amistosa</string>
@@ -352,7 +353,7 @@
 	<string name="tournament">Torneo</string>
 	<string name="tournamentLeaderboard">Ganadores del torneo</string>
 	<string name="tournaments">Torneos</string>
-	<string name="myTournaments">My tournaments</string>
+	<string name="myTournaments">Mis torneos</string>
 	<string name="tournamentPoints">Puntos de torneo</string>
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s punto de torneo</item>
@@ -414,9 +415,9 @@
 	<string name="continueFromHere">Continuar desde aquí</string>
 	<string name="toStudy">Estudiar</string>
 	<string name="importGame">Importar partida</string>
-	<string name="importCategory" comment="Category name for games that were imported">Import</string>
+	<string name="importCategory" comment="Category name for games that were imported">Importar</string>
 	<string name="importedGame">Partida importada.</string>
-	<string name="importedByX">Imported by %s</string>
+	<string name="importedByX">Importado por %s</string>
 	<string name="importGameKifCsaExplanation">Pega una partida KIF o CSA para obtener una repetición navegable, análisis por ordenador, chat de juego y una URL para compartir.</string>
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s partida importada</item>
@@ -438,13 +439,14 @@
 	<string name="favoriteOpponents">Oponentes favoritos</string>
 	<string name="follow">Seguir</string>
 	<string name="following">Siguiendo</string>
-	<string name="followers">Followers</string>
+	<string name="followers">Seguidores</string>
+	<string name="allYouFollow">Todos los jugadores que sigues</string>
 	<string name="unfollow">Dejar de seguir</string>
 	<string name="block">Bloquear</string>
 	<string name="blocked">Bloqueado</string>
 	<string name="unblock">Desbloquear</string>
-	<string name="thanksForReport">Thanks for the report</string>
-	<string name="reportedSomeoneBanned">Someone you reported was banned</string>
+	<string name="thanksForReport">Gracias por la denuncia</string>
+	<string name="reportedSomeoneBanned">Alguien a quien denunciaste fue bloqueado</string>
 	<string name="moderatorsReportReview">The moderators will review it very soon, and take appropriate action.</string>
 	<string name="blockSuggestions">In the meantime, you can block this user:</string>
 	<string name="followsYou">Te sigue</string>
@@ -599,7 +601,6 @@
 	<string name="by">por %s</string>
 	<string name="thisTopicIsNowClosed">Este tema está cerrado.</string>
 	<string name="theming">Apariencia</string>
-	<string name="blog">Blog</string>
 	<string name="questionsAndAnswers">Preguntas y respuestas</string>
 	<string name="notes">Notas</string>
 	<string name="typePrivateNotesHere">Escribe aquí tus notas privadas</string>
@@ -988,11 +989,6 @@
 	<string name="subscribe">Suscribirse</string>
 	<string name="unsubscribe">Cancelar la suscripción</string>
 	<string name="notationSystem">Notación</string>
-	<string name="officialBlog">Blog Oficial de Lishogi</string>
-	<string name="blogPostsFromYear">Publicaciones de %1$s</string>
-	<string name="previousBlogPosts">Publicaciones anteriores</string>
-	<string name="continueReadingThis"> Continuar leyendo esta publicación</string>
-	<string name="discussBlogForum">Discutir esta publicación en el foro</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Piezas invasoras</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Rey entrante</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Valor total</string>
@@ -1031,66 +1027,71 @@
 	<string name="generalShogiDiscussionForum" comment="Forum category title">General Shogi Discussion</string>
 	<string name="gameAnalysisForum" comment="Forum category title">Game Analysis</string>
 	<string name="lishogiFeedbackForum" comment="Forum category title">Lishogi Feedback</string>
-	<string name="offTopicDiscussionForum" comment="Forum category title">Off-Topic Discussion</string>
+	<string name="offTopicDiscussionForum" comment="Forum category title">Discusiones no relacionadas</string>
 	<string name="teamXForum" comment="Forum category title">Foro del equipo %s</string>
-	<string name="kickPlayer">Kick player</string>
-	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Manage players</string>
-	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Not reversible</string>
-	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Share mainline URL</string>
-	<string name="tourCreated" comment="title - tournaments created by user">Created</string>
-	<string name="tourRecent">Recently played</string>
-	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Format</string>
-	<string name="tourUpcoming" comment="Upcoming tournaments">Upcoming</string>
-	<string name="bestResults" comment="Best tournament/simul results achieved">Best results</string>
-	<string name="stats" comment="Game, tournament or simul stats">Stats</string>
-	<string name="dateStartedNewest">Date started (newest)</string>
-	<string name="timeAlmostUp" comment="Notification for correspondence games">Time is almost up!</string>
-	<string name="gameAgainstX" comment="Your game against playerX">Game vs %s</string>
-	<string name="pageReload" comment="Confirmation warning">Page needs to be reloaded</string>
+	<string name="kickPlayer">Expulsar jugador</string>
+	<string name="managePlayers" comment="Manage players in tournaments - for tournament organizers">Administrar jugadores</string>
+	<string name="notReversible" comment="Attached to action (deleting study for example) that cannot be reversed">Irreversible</string>
+	<string name="shareMainlineUrl" comment="Mainline means moves without variations (branches)">Compartir URL principal</string>
+	<string name="tourCreated" comment="title - tournaments created by user">Creado</string>
+	<string name="tourRecent">Jugado recientemente</string>
+	<string name="tourFormat" comment="Tournament format - arena, round-robin, organized...">Formato</string>
+	<string name="tourUpcoming" comment="Upcoming tournaments">Próximamente</string>
+	<string name="bestResults" comment="Best tournament/simul results achieved">Mejores resultados</string>
+	<string name="stats" comment="Game, tournament or simul stats">Estadísticas</string>
+	<string name="dateStartedNewest">Fecha de inicio (más reciente)</string>
+	<string name="timeAlmostUp" comment="Notification for correspondence games">El tiempo está a punto de agotarse!</string>
+	<string name="gameAgainstX" comment="Your game against playerX">Juego contra %s</string>
+	<string name="pageReload" comment="Confirmation warning">La página necesita recargarse</string>
 	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
 		<item quantity="one">%s candidate player</item>
-		<item quantity="other">%s candidate players</item>
+		<item quantity="other">%s jugadores candidatos</item>
 	</plurals>
 	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
-		<item quantity="one">%s accepted player</item>
-		<item quantity="other">%s accepted players</item>
+		<item quantity="one">%s jugador aceptado</item>
+		<item quantity="other">%s jugadores aceptados</item>
 	</plurals>
-	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
-	<string name="acceptRandomCandidate">Accept random candidate</string>
-	<string name="exploreSiteAndHaveFun">Explore the site and have fun :)</string>
-	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Help the king escape through the bottom opening of the board by sliding the pieces.</string>
-	<string name="startDate">Start date</string>
-	<string name="endDate">End date</string>
-	<string name="xJoinedTheGame">%s joined the game</string>
-	<string name="connectingToTheGame">Connecting to the game</string>
-	<string name="bestMoveWasX">Best move was %s</string>
-	<string name="mateCreatedDescription">Checkmate is now unavoidable</string>
-	<string name="mateDelayedDescription" comment="Sequence of moves">Not the best checkmate sequence</string>
-	<string name="mateLostDescription" comment="Sequence of moves">Lost forced checkmate sequence</string>
+	<string name="acceptPlayersStartSimul">Una vez hayas acepdato dos o más jugadores, podrás iniciar la simulación</string>
+	<string name="acceptRandomCandidate">Aceptar candidato al azar</string>
+	<string name="exploreSiteAndHaveFun">Explora el sitio y diviértete :)</string>
+	<string name="hakoiriMusumeExplanation" comment="Mini game on 404 pages">Ayuda al rey a escapar a través de la apertura inferior del tablero deslizando las piezas.</string>
+	<string name="startDate">Fecha de inicio</string>
+	<string name="endDate">Fecha de fin</string>
+	<string name="xJoinedTheGame">%s se ha unido a la partida</string>
+	<string name="connectingToTheGame">Conectando con el juego</string>
+	<string name="bestMoveWasX">El mejor movimiento era %s</string>
+	<string name="mateCreatedDescription">Ahora el jaque mate es inevitable</string>
+	<string name="mateDelayedDescription" comment="Sequence of moves">No es la mejor secuencia de mate</string>
+	<string name="mateLostDescription" comment="Sequence of moves">Secuencia de mate forzado perdida</string>
 	<string name="dotSymbol" comment="If your language uses different symbol (jp: 。), sentence ender.">.</string>
 	<string name="colonSymbol" comment="If your language uses different symbol (jp: ：), example is 'Username: test'">:</string>
-	<string name="tournamentCandidates">Tournament candidates</string>
-	<string name="kickedAndDeniedPlayers">Kicked and denied players</string>
-	<string name="noPlayersJoinedYet">No players joined yet</string>
-	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Closed</string>
-	<string name="proMode" comment="Mode where making illegal move loses the game">Professional mode</string>
-	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Illegal moves result in a loss, premoves are disabled, checks are not highlighted and only certain piece sets are allowed</string>
-	<string name="icon">Icon</string>
+	<string name="tournamentCandidates">Candidatos del Torneo</string>
+	<string name="kickedAndDeniedPlayers">Jugadores expulsados y rechazados</string>
+	<string name="noPlayersJoinedYet">Aún no se ha unido ningún jugador</string>
+	<string name="tourClosed" comment="Tournament cannot be joined anymore, joining was closed">Cerrado</string>
+	<string name="proMode" comment="Mode where making illegal move loses the game">Modo profesional</string>
+	<string name="proModeDescription" comment="Mode where making illegal move loses the game">Los movimientos ilegales resultan en una derrota, los movimientos anticipados están desactivados, los jaques no están destacados y solo están permitidos determinados conjuntos de piezas</string>
+	<string name="icon">Icono</string>
 	<string name="online">Online</string>
 	<string name="offline">Offline</string>
-	<string name="ranks" comment="Ranks like 1-kyu etc.">Ranks</string>
-	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">You ranked up!</string>
-	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Ranks are awarded only after stable rating is reached.</string>
-	<string name="leavingLobbyAlert">Leaving this page removes your real time game requests.</string>
-	<string name="oneUrlPerLine">One URL per line.</string>
-	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
-	<string name="newPlayerIntro">Welcome to lishogi. If you\'re new here, this quick overview will help you get started and discover what the site offers.</string>
-	<string name="newPlayerRegisterCta">Create an account to unlock all features</string>
-	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
-	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
+	<string name="ranks" comment="Ranks like 1-kyu etc.">Rangos</string>
+	<string name="youRankedUp" comment="Shown when going for example from 2-kyu to 1-kyu">Has subido de rango!</string>
+	<string name="ranksAfterStable" comment="Ranks like 1-kyu etc.">Los rangos se entregan una vez se llega a una puntuación de clasificación estable.</string>
+	<string name="leavingLobbyAlert">Abandonar esta página elimina tus solicitudes de juego en tiempo real.</string>
+	<string name="oneUrlPerLine">Una URL por línea.</string>
+	<string name="translate" comment="Button text used to translate forum posts for example">Traducir</string>
+	<string name="newPlayerIntro">Bienvenido/a a Lishogi. Si eres nuevo/a aquí, este resumen te ayudará a empezar y a descubrir todo lo que ofrece el sitio web.</string>
+	<string name="newPlayerRegisterCta">Crea una cuenta para obtener acceso a todas las características</string>
+	<string name="newPlayerPreferences">Personaliza el aspecto del sitio web - paquetes de piezas, tableros, notación, sonidos y más.</string>
+	<string name="newPlayerLearn">Aprende como se mueve cada pieza, entiende las reglas básicas y practica con lecciones guiadas.</string>
 	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
 	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="article">Article</string>
+  <string name="articles">Articles</string>
+  <string name="recentArticles">Recent articles</string>
+  <string name="bestArticles">Best articles</string>
+  <string name="likedArticles">Artículos que me gustan</string>
+  <string name="myArticles">Mis artículos</string>
+  <string name="articlesWrittenByX">Artículos escritos por %s</string>
+  <string name="submittedArticles">Artículos presentados</string>
+  <string name="categories">Categorías</string>
+  <string name="draft">Borrador</string>
+  <string name="published">Publicado</string>
+  <string name="drafts">Borradores</string>
+  <string name="author">Autor/a</string>
+  <string name="translateArticle">Traducir artículo</string>
+  <string name="translator">Traductor</string>
+  <string name="noneYet">Sin artículos por ahora</string>
+  <string name="newArticle">Artículo nuevo</string>
+  <string name="newArticleByX">Nuevo artículo por %s</string>
+  <string name="editArticle">Editar artículo</string>
+  <string name="deleteArticle">Eliminar artículo</string>
+  <string name="deleteXLangOfArticle" comment="Example: Delete EN language version of article">Eliminar versión en el idioma %s del artículo</string>
+  <string name="categoryAll">Todo</string>
+  <string name="categoryOfficial">Oficial</string>
+  <string name="categoryAnalysis">Análisis</string>
+  <string name="categoryCulture">Cultura</string>
+  <string name="categoryEvents">Eventos</string>
+  <string name="categoryGuides">Guías</string>
+  <string name="categoryLishogi">Lishogi</string>
+  <string name="categorySoftware">Software</string>
+  <string name="categoryVariants">Variantes</string>
+  <string name="title">Título</string>
+  <string name="coverImage">Imagen de portada</string>
+  <string name="introText" comment="Introductory sentence or first paragraph of article">Texto de introducción</string>
+  <string name="introHelp">Frase introductoria con el enfoque del artículo.</string>
+  <string name="bodyText">Texto del cuerpo</string>
+  <string name="submitForPublishing">Presentar para publicación</string>
+  <string name="saveAsDraft">Guardar como borrador</string>
+  <string name="discuss">Hablar sobre esto</string>
+  <string name="articleIsADraft">Este artículo aún es un borrador.</string>
+  <string name="articleUnderReview">Este artículo está siendo revisado antes de su publicación.</string>
+  <string name="shortTOS">El contenido de los artículos debe estar relacionado con el shogi y no deben contener ni texto ni imágenes inapropiados o generados por IA. También debes tener los derechos o los permisos necesarios para todo el texto e imágenes utilizados.</string>
+  <string name="articlePublished">Tu artículo ha sido publicado</string>
+  <string name="Read the article here">Tu artículo ha sido publicado</string>
+</resources>

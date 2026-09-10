@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="article">Makale</string>
+  <string name="articles">Makaleler</string>
+  <string name="recentArticles">Son makaleler</string>
+  <string name="bestArticles">En iyi makaleler</string>
+  <string name="likedArticles">Beğenilen makaleler</string>
+  <string name="myArticles">Makalelerim</string>
+  <string name="articlesWrittenByX">%s tarafından yazılan makaleler</string>
+  <string name="submittedArticles">Gönderilen makaleler</string>
+  <string name="categories">Kategoriler</string>
+  <string name="draft">Taslak</string>
+  <string name="published">Yayınlanan</string>
+  <string name="drafts">Taslaklar</string>
+  <string name="author">Yazar</string>
+  <string name="translateArticle">Makaleyi çevir</string>
+  <string name="translator">Çevirmen</string>
+  <string name="noneYet">Henüz makale yok</string>
+  <string name="newArticle">Yeni makale</string>
+  <string name="newArticleByX">%s tarafından yeni makale</string>
+  <string name="editArticle">Makaleyi düzenle</string>
+  <string name="deleteArticle">Makaleyi sil</string>
+  <string name="deleteXLangOfArticle" comment="Example: Delete EN language version of article">Makalenin %s dilindeki sürümünü sil</string>
+  <string name="categoryAll">Hepsi</string>
+  <string name="categoryOfficial">Resmi</string>
+  <string name="categoryAnalysis">Analiz</string>
+  <string name="categoryCulture">Kültür</string>
+  <string name="categoryEvents">Olaylar</string>
+  <string name="categoryGuides">Rehberler</string>
+  <string name="categoryLishogi">Lishogi</string>
+  <string name="categorySoftware">Yazılım</string>
+  <string name="categoryVariants">Varyantlar</string>
+  <string name="title">Başlık</string>
+  <string name="coverImage">Kapak resmi</string>
+  <string name="introText" comment="Introductory sentence or first paragraph of article">Giriş metni</string>
+  <string name="introHelp">Makalenin ana fikrini veren giriş cümlesi.</string>
+  <string name="bodyText">Gövde metni</string>
+  <string name="submitForPublishing">Yayınlamak için gönder</string>
+  <string name="saveAsDraft">Taslak olarak kaydet</string>
+  <string name="discuss">Tartışma</string>
+  <string name="articleIsADraft">Bu makale hala bir taslak.</string>
+  <string name="articleUnderReview">Makale, yayınlanmadan önce inceleniyor.</string>
+  <string name="shortTOS">Makalelerin içeriği shogi ile ilgili olmalı, uygunsuz veya AI ile oluşturulmuş metin ya da görseller içermemelidir. Ayrıca kullanılan tüm görsel ve metinlerin haklarına sahip olmalı veya bunları kullanmak için izniniz bulunmalıdır.</string>
+  <string name="articlePublished">Makaleniz yayınlandı.</string>
+  <string name="Read the article here">Makaleniz yayınlandı.</string>
+</resources>

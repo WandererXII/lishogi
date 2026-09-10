@@ -59,7 +59,6 @@
 	<plurals name="opponentLeftCounter">
 		<item quantity="one">המשתמש עזב את המשחק. תוכל לקחת ניצחון בעוד %s שנייה.</item>
 		<item quantity="two">המשתמש עזב את המשחק. תוכל לירוש ניצחון בעוד %s שניות.</item>
-		<item quantity="many">יריבך עזב את המשחק. תוכל לדרוש ניצחון בעוד %s שניות.</item>
 		<item quantity="other">יריבך עזב את המשחק. תוכל לדרוש ניצחון בעוד %s שניות.</item>
 	</plurals>
 	<string name="opponentLeftChoices">יריבך עזב את המשחק. באפשרותך לכפות פרישה, להכריז על תיקו או להמתין לו.</string>
@@ -67,6 +66,7 @@
 	<string name="forceResignation">קח את הניצחון</string>
 	<string name="forceDraw">הכרז תיקו</string>
 	<string name="talkInChat">בבקשה דבר בצ\'אט בצורה נאותה</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">האדם הראשון שיכנס לכתובת הזאת ישחק איתך</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s left the game</string>
@@ -98,7 +98,6 @@
 	<plurals name="nbMoves">
 		<item quantity="one">%s move</item>
 		<item quantity="two">%s moves</item>
-		<item quantity="many">%s moves</item>
 		<item quantity="other">%s moves</item>
 	</plurals>
 	<string name="variantLoss">הפסד כפוי</string>
@@ -159,20 +158,17 @@
 	<plurals name="nbPlayers">
 		<item quantity="one">%s שחקנים</item>
 		<item quantity="two">%s שחקנים</item>
-		<item quantity="many">%s שחקנים</item>
 		<item quantity="other">%s שחקנים</item>
 	</plurals>
 	<string name="currentGames">המשחקים הנוכחיים</string>
 	<plurals name="nbGames">
 		<item quantity="one">%s משחקים</item>
 		<item quantity="two">%s משחקים</item>
-		<item quantity="many">%s משחקים</item>
 		<item quantity="other">%s משחקים</item>
 	</plurals>
 	<plurals name="nbBookmarks">
 		<item quantity="one">%s מועדפים</item>
 		<item quantity="two">%s סימניות</item>
-		<item quantity="many">%s סימניות</item>
 		<item quantity="other">%s סימניות</item>
 	</plurals>
 	<string name="viewInFullSize">צפה בגודל מלא</string>
@@ -202,13 +198,11 @@
 	<plurals name="nbDays">
 		<item quantity="one">%s יום</item>
 		<item quantity="two">%s ימים</item>
-		<item quantity="many">%s ימים</item>
 		<item quantity="other">%s ימים</item>
 	</plurals>
 	<plurals name="nbHours">
 		<item quantity="one">%s שעה</item>
 		<item quantity="two">%s שעתיים</item>
-		<item quantity="many">%s שעות</item>
 		<item quantity="other">%s שעות</item>
 	</plurals>
 	<string name="time">זמן</string>
@@ -231,20 +225,17 @@
 	<plurals name="rankIsUpdatedEveryNbMinutes">
 		<item quantity="one">הדירוג מתעדכן כל דקה</item>
 		<item quantity="two">הדירוג מתעדכנת כל %s דקות</item>
-		<item quantity="many">הדירוג מתעדכנת כל %s דקות</item>
 		<item quantity="other">הדירוג מתעדכן כל %s דקות</item>
 	</plurals>
 	<plurals name="nbPuzzles">
 		<item quantity="one">חידה</item>
 		<item quantity="two">%s פאזלים</item>
-		<item quantity="many">%s פאזלים</item>
 		<item quantity="other">חידות מסוג %s</item>
 	</plurals>
 	<string name="gamesPlayed">משחקים ששוחקו</string>
 	<plurals name="nbGamesWithYou">
 		<item quantity="one">%s משחק איתך</item>
 		<item quantity="two">%s משחקים איתך</item>
-		<item quantity="many">%s משחקים איתך</item>
 		<item quantity="other">%s משחקים איתך</item>
 	</plurals>
 	<string name="confirm">Confirm</string>
@@ -331,37 +322,31 @@
 	<plurals name="nbRated">
 		<item quantity="one">מדורג %s</item>
 		<item quantity="two">מדורג %s</item>
-		<item quantity="many">מדורג %s</item>
 		<item quantity="other">מדורג %s</item>
 	</plurals>
 	<plurals name="nbWins">
 		<item quantity="one">%s ניצחון</item>
 		<item quantity="two">%s נצחונות</item>
-		<item quantity="many">%s נצחונות</item>
 		<item quantity="other">%s נצחונות</item>
 	</plurals>
 	<plurals name="nbLosses">
 		<item quantity="one">%s הפסד</item>
 		<item quantity="two">%s הפסדים</item>
-		<item quantity="many">%s הפסדים</item>
 		<item quantity="other">%s הפסדים</item>
 	</plurals>
 	<plurals name="nbDraws">
 		<item quantity="one">%s תוצאת תיקו</item>
 		<item quantity="two">%s תוצאות תיקו</item>
-		<item quantity="many">%s תוצאות תיקו</item>
 		<item quantity="other">%s תוצאות תיקו</item>
 	</plurals>
 	<plurals name="nbPlaying">
 		<item quantity="one">%s משחק</item>
 		<item quantity="two">%s משחקים</item>
-		<item quantity="many">%s משחקים</item>
 		<item quantity="other">%s משחקים</item>
 	</plurals>
 	<plurals name="nbAdjourned" comment="Paused games">
 		<item quantity="one">%s adjourned</item>
 		<item quantity="two">%s adjourned</item>
-		<item quantity="many">%s adjourned</item>
 		<item quantity="other">%s adjourned</item>
 	</plurals>
 	<string name="exportGames">ייצא משחקים</string>
@@ -370,7 +355,6 @@
 	<plurals name="giveNbSeconds">
 		<item quantity="one">תן %s שנייה</item>
 		<item quantity="two">תן %s שניות</item>
-		<item quantity="many">תן %s שניות</item>
 		<item quantity="other">תן %s שניות</item>
 	</plurals>
 	<string name="thisAccountViolatedTos">This account violated the Lishogi Terms of Service</string>
@@ -391,13 +375,11 @@
 	<plurals name="nbTournamentPoints">
 		<item quantity="one">%s נקודת טורניר</item>
 		<item quantity="two">%s נקודות טורניר</item>
-		<item quantity="many">%s נקודות טורניר</item>
 		<item quantity="other">%s נקודות טורניר</item>
 	</plurals>
 	<plurals name="nbStudies">
 		<item quantity="one">%s לימוד</item>
 		<item quantity="two">%s למידות</item>
-		<item quantity="many">%s למידות</item>
 		<item quantity="other">%s למידות</item>
 	</plurals>
 	<string name="viewTournament">צפה בטורניר</string>
@@ -406,25 +388,21 @@
 	<plurals name="moreThanNbRatedGames">
 		<item quantity="one">משחק מדורג %s ≥</item>
 		<item quantity="two">משחק מדורג %s ≥</item>
-		<item quantity="many">משחק מדורג %s ≥</item>
 		<item quantity="other">משחק מדורג %s ≥</item>
 	</plurals>
 	<plurals name="moreThanNbPerfRatedGames">
 		<item quantity="one">≥ %1$s %2$s משחק מדורג</item>
 		<item quantity="two">≥ %1$s %2$s משחקים מדורגים</item>
-		<item quantity="many">≥ %1$s %2$s משחקים מדורגים</item>
 		<item quantity="other">≥ %1$s %2$s משחקים מדורגים</item>
 	</plurals>
 	<plurals name="needNbMorePerfGames">
 		<item quantity="one">עלייך לשחק עוד %1$s עוד %2$s משחקים מדורגים</item>
 		<item quantity="two">עלייך לשחק עוד %1$s עוד %2$s משחקים מדורגים</item>
-		<item quantity="many">עלייך לשחק עוד %1$s עוד %2$s משחקים מדורגים</item>
 		<item quantity="other">עלייך לשחק עוד %1$s עוד %2$s משחקים מדורגים</item>
 	</plurals>
 	<plurals name="needNbMoreGames">
 		<item quantity="one">עלייך לשחק עוד %s משחקים מדורגים</item>
 		<item quantity="two">עלייך לשחק עוד %s משחקים מדורגים</item>
-		<item quantity="many">עלייך לשחק עוד %s משחקים מדורגים</item>
 		<item quantity="other">עלייך לשחק עוד %s משחקים מדורגים</item>
 	</plurals>
 	<string name="yourPerfRatingIsProvisional">דירוג משחק ה%s שלך הוא זמני</string>
@@ -467,7 +445,6 @@
 	<plurals name="nbImportedGames">
 		<item quantity="one">%s משחק מיובא</item>
 		<item quantity="two">%s משחקים מיובאים</item>
-		<item quantity="many">%s משחקים מיובאים</item>
 		<item quantity="other">%s משחקים מיובאים</item>
 	</plurals>
 	<string name="thisIsAShogiCaptcha">This is a shogi CAPTCHA.</string>
@@ -480,7 +457,6 @@
 	<plurals name="nbFriendsOnline">
 		<item quantity="one">%s חבר מחובר</item>
 		<item quantity="two">%s חברים מחוברים</item>
-		<item quantity="many">%s חברים מחוברים</item>
 		<item quantity="other">%s חברים מחוברים</item>
 	</plurals>
 	<string name="noFriendsOnline">אין חברים מחוברים</string>
@@ -489,6 +465,7 @@
 	<string name="follow">עקוב</string>
 	<string name="following">עוקבים</string>
 	<string name="followers">Followers</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">הפסק מעקב</string>
 	<string name="block">חסום</string>
 	<string name="blocked">חסום</string>
@@ -502,13 +479,11 @@
 	<plurals name="nbFollowers">
 		<item quantity="one">%s עוקב</item>
 		<item quantity="two">%s עוקבים</item>
-		<item quantity="many">%s עוקבים</item>
 		<item quantity="other">%s עוקבים</item>
 	</plurals>
 	<plurals name="nbFollowing">
 		<item quantity="one">%s עוקב</item>
 		<item quantity="two">%s עוקבים</item>
-		<item quantity="many">%s עוקב</item>
 		<item quantity="other">%s עוקב</item>
 	</plurals>
 	<string name="more">עוד</string>
@@ -523,7 +498,6 @@
 	<plurals name="lessThanNbMinutes">
 		<item quantity="one">פחות מ- %s דקות</item>
 		<item quantity="two">פחות מ- %s דקות</item>
-		<item quantity="many">פחות מ%s דקות</item>
 		<item quantity="other">פחות מ%s דקות</item>
 	</plurals>
 	<string name="required">נדרש.</string>
@@ -611,14 +585,12 @@
 	<plurals name="playedXTimes">
 		<item quantity="one">שוחק פעם %s</item>
 		<item quantity="two">שוחק %s פעמים</item>
-		<item quantity="many">שוחק %s פעמים</item>
 		<item quantity="other">שוחק %s פעמים</item>
 	</plurals>
 	<string name="fromGameLink">מהמשחק %s</string>
 	<plurals name="nbGamesInPlay">
 		<item quantity="one">%s משחק בתהליך</item>
 		<item quantity="two">%s משחקים בתהליך</item>
-		<item quantity="many">%s משחקים בתהליך</item>
 		<item quantity="other">%s משחקים בתהליך</item>
 	</plurals>
 	<string name="automaticallyProceedToNextGameAfterMoving">המשך אוטומטית למשחק הבא אחרי מהלך</string>
@@ -659,7 +631,6 @@
 	<string name="by">על-ידי %s</string>
 	<string name="thisTopicIsNowClosed">הנושא סגור עכשיו</string>
 	<string name="theming">הופעה</string>
-	<string name="blog">בלוג</string>
 	<string name="questionsAndAnswers">שאלות ותשובות</string>
 	<string name="notes">הערות</string>
 	<string name="typePrivateNotesHere">הכנס הערות פרטיות כאן</string>
@@ -718,13 +689,11 @@
 	<plurals name="maximumNbCharacters">
 		<item quantity="one">מספר תווים מירבי: %s</item>
 		<item quantity="two">מספר תווים מירבי: %s.</item>
-		<item quantity="many">מספר תווים מירבי: %s.</item>
 		<item quantity="other">מספר תווים מירבי: %s.</item>
 	</plurals>
 	<plurals name="blocks">
 		<item quantity="one">%s נחסם</item>
 		<item quantity="two">%s נחסמו</item>
-		<item quantity="many">%s נחסמו</item>
 		<item quantity="other">%s נחסמו</item>
 	</plurals>
 	<string name="listBlockedPlayers">רשימת שחקנים שחסמת</string>
@@ -765,7 +734,6 @@
 	<plurals name="nbForumPosts">
 		<item quantity="one">%s פוסט בפורום</item>
 		<item quantity="two">%s פוסטים בפורום</item>
-		<item quantity="many">%s פוסטים בפורום</item>
 		<item quantity="other">%s פוסטים בפורום</item>
 	</plurals>
 	<string name="tpTimeSpentPlaying">זמן במשחק : %s</string>
@@ -835,13 +803,11 @@
 	<plurals name="nbPerfTypePlayersThisWeek">
 		<item quantity="one">%1$s שחקני %2$s השבוע.</item>
 		<item quantity="two">%1$s שחקני %2$s השבוע.</item>
-		<item quantity="many">%1$s שחקני %2$s השבוע.</item>
 		<item quantity="other">%1$s שחקני %2$s השבוע.</item>
 	</plurals>
 	<plurals name="nbPerfTypePlayersThisMonth">
 		<item quantity="one">%1$s %2$s player this month.</item>
 		<item quantity="two">%1$s %2$s players this month.</item>
-		<item quantity="many">%1$s %2$s players this month.</item>
 		<item quantity="other">%1$s %2$s players this month.</item>
 	</plurals>
 	<string name="yourPerfTypeRatingIsRating">דירוגך במשחקי %1$s הוא %2$s.</string>
@@ -897,7 +863,6 @@
 	<plurals name="availableInNbLanguages">
 		<item quantity="one">זמין ב%s שפה!</item>
 		<item quantity="two">זמין ב%s שפות!</item>
-		<item quantity="many">זמין ב%s שפות!</item>
 		<item quantity="other">זמין ב%s שפות!</item>
 	</plurals>
 	<string name="gameAnalysis">ניתוח משחק</string>
@@ -956,7 +921,6 @@
 	<plurals name="nbSecondsToPlayTheFirstMove">
 		<item quantity="one">%s שניה לשחק את המסע הראשון</item>
 		<item quantity="two">%s שניות כדי לשחק את המסע הראשון</item>
-		<item quantity="many">%s שניות כדי לשחק את המסע הראשון</item>
 		<item quantity="other">%s שניות כדי לשחק את המסע הראשון</item>
 	</plurals>
 	<string name="practiceWithComputer">התאמן עם המחשב</string>
@@ -991,13 +955,11 @@
 	<plurals name="nbSeconds">
 		<item quantity="one">%s שניה</item>
 		<item quantity="two">%s שניות</item>
-		<item quantity="many">%s שניות</item>
 		<item quantity="other">%s שניות</item>
 	</plurals>
 	<plurals name="nbMinutes">
 		<item quantity="one">%s minute</item>
 		<item quantity="two">%s minutes</item>
-		<item quantity="many">%s minutes</item>
 		<item quantity="other">%s minutes</item>
 	</plurals>
 	<string name="opening">פתיחה</string>
@@ -1017,7 +979,6 @@
 	<plurals name="andSaveNbPremoveLines">
 		<item quantity="one">ושמור %s קו קדם המסע</item>
 		<item quantity="two">ושמור %s קו קדם המסעים</item>
-		<item quantity="many">ושמור %s קו קדם המסעים</item>
 		<item quantity="other">ושמור %s קו קדם המסעים</item>
 	</plurals>
 	<string name="sorry">מצטערים :(</string>
@@ -1071,11 +1032,6 @@
 	<string name="subscribe">עקוב</string>
 	<string name="unsubscribe">בטל את המעקב</string>
 	<string name="notationSystem">Notation</string>
-	<string name="officialBlog">Lishogi Official Blog</string>
-	<string name="blogPostsFromYear">Blog posts from %1$s</string>
-	<string name="previousBlogPosts">Previous blog posts</string>
-	<string name="continueReadingThis"> Continue reading this post</string>
-	<string name="discussBlogForum">Discuss this blog post in the forum</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
@@ -1133,13 +1089,11 @@
 	<plurals name="nbCandidatePlayers" comment="Used in simuls - players request to join, host can accept them">
 		<item quantity="one">%s candidate player</item>
 		<item quantity="two">%s candidate players</item>
-		<item quantity="many">%s candidate players</item>
 		<item quantity="other">%s candidate players</item>
 	</plurals>
 	<plurals name="nbAcceptedPlayers" comment="Used in simuls - players request to join, host can accept them">
 		<item quantity="one">%s accepted player</item>
 		<item quantity="two">%s accepted players</item>
-		<item quantity="many">%s accepted players</item>
 		<item quantity="other">%s accepted players</item>
 	</plurals>
 	<string name="acceptPlayersStartSimul">Once you\'ve accepted two or more players, you can start the simul.</string>
@@ -1180,4 +1134,9 @@
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>

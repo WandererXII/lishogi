@@ -48,6 +48,7 @@
 	<string name="yorozuyaNotation">萬屋式表記</string>
 	<string name="yourPreferencesHaveBeenSaved">設定が保存されました。</string>
 	<string name="smallMoves">小手数</string>
+	<string name="traditional" comment="Traditional board layout - komadai">Traditional</string>
 	<string name="audibleClocks">時計の音声を有効にする</string>
 	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">システム</string>
 	<string name="myClock" comment="What clocks should make sound?">自分の時計のみ</string>

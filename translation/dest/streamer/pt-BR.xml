@@ -45,10 +45,6 @@
   <string name="headline">Cabeçalho</string>
   <string name="tellUsAboutTheStream">Em uma frase, conte-nos sobre a sua transmissão</string>
   <string name="longDescription">Descrição detalhada</string>
-  <string name="xStreamerPicture">Foto do streamer %s</string>
-  <string name="changePicture">Alterar/excluir sua foto</string>
-  <string name="uploadPicture">Enviar uma imagem</string>
-  <string name="deletePicture">Excluir foto</string>
   <string name="maxSize">Tamanho máximo: %s</string>
   <string name="installBlocker">Instale um antivírus!</string>
   <string name="beSafe">Livre-se dos anúncios e trackers que infestam a Twitch e o YouTube.

@@ -48,6 +48,7 @@
 	<string name="yorozuyaNotation">Notation Yorozuya</string>
 	<string name="yourPreferencesHaveBeenSaved">Vos préférences ont été sauvegardées.</string>
 	<string name="smallMoves">Coups minuscules</string>
+	<string name="traditional" comment="Traditional board layout - komadai">Traditional</string>
 	<string name="audibleClocks">Horloges autorisées à faire des sons</string>
 	<string name="systemSound" comment="General sounds - notifications, moves, etc. Keep short">Système</string>
 	<string name="myClock" comment="What clocks should make sound?">Mon horloge</string>

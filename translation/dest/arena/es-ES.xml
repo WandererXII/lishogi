@@ -48,9 +48,9 @@ Juega rápido y vuelve al recibidor para jugar más partidas y ganar más puntos
     <item quantity="one">Ver el equipo</item>
     <item quantity="other">Ver todos los %s equipos</item>
   </plurals>
-  <string name="howManyPlayersCanJoin">How many players can join?</string>
-  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
-  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defender</string>
+  <string name="howManyPlayersCanJoin">Cuántos jugadores pueden unirse?</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">Por defecto, %s jugadores pueden unirse a un torneo de este formato.</string>
+  <string name="howManyPlayersCanJoinAnswer">%s jugadores pueden unirse a este torneo.</string>
+  <string name="howManyPlayersCanJoinDenied">Después del inicio del torneo, los jugadores expulsados siguen contando para el límite de jugadores totales.</string>
+  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defensor</string>
 </resources>

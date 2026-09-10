@@ -44,10 +44,6 @@
   <string name="headline">Tiêu đề</string>
   <string name="tellUsAboutTheStream">Giới thiệu về luồng của bạn trong một câu</string>
   <string name="longDescription">Mô tả chi tiết</string>
-  <string name="xStreamerPicture">Ảnh Streamer của %s</string>
-  <string name="changePicture">Thay đổi/xóa ảnh của bạn</string>
-  <string name="uploadPicture">Tải lên hình ảnh</string>
-  <string name="deletePicture">Xóa ảnh</string>
   <string name="maxSize">Kích cỡ tối đa: %s</string>
   <string name="installBlocker">Cài phần mềm chặn mã độc!</string>
   <string name="beSafe">Cảnh giác trước quảng cáo và trình tấn công Twitch và YouTube. 

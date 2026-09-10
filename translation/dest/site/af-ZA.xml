@@ -65,6 +65,7 @@
 	<string name="forceResignation">Eis die oorwinning</string>
 	<string name="forceDraw">Eis \'n gelykop</string>
 	<string name="talkInChat">Wees asseblief vriendelik!</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">Die eerste persoon wat dié skakel volg, speel teen jou.</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s resigned</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s het die spel verlaat</string>
@@ -439,6 +440,7 @@
 	<string name="follow">Volg</string>
 	<string name="following">Besig om te volg</string>
 	<string name="followers">Followers</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">Ontvolg</string>
 	<string name="block">Blokeer</string>
 	<string name="blocked">Geblok</string>
@@ -600,7 +602,6 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="by">deur %s</string>
 	<string name="thisTopicIsNowClosed">Hierdie onderwerp is nou gesluit.</string>
 	<string name="theming">Versiering</string>
-	<string name="blog">Blog</string>
 	<string name="questionsAndAnswers">Vrae &amp; Antwoorde</string>
 	<string name="notes">Notas</string>
 	<string name="typePrivateNotesHere">Tik private notas hier in</string>
@@ -989,11 +990,6 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="subscribe">Skryf in</string>
 	<string name="unsubscribe">Beëindig inskrywing</string>
 	<string name="notationSystem">Notation</string>
-	<string name="officialBlog">Lishogi Official Blog</string>
-	<string name="blogPostsFromYear">Blog posts from %1$s</string>
-	<string name="previousBlogPosts">Previous blog posts</string>
-	<string name="continueReadingThis"> Continue reading this post</string>
-	<string name="discussBlogForum">Discuss this blog post in the forum</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invading pieces</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Entering king</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Total value</string>
@@ -1094,4 +1090,9 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>

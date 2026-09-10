@@ -46,17 +46,17 @@ Gioca in fretta e ritorna nella lobby per avere la possibilità di giocare più 
   <string name="thisIsPrivate">Questo torneo è privato</string>
   <string name="shareUrl">Condividi questo URL per permettere alle persone di unirsi: %s</string>
   <string name="drawStreak">Serie di patte: quando in un\'arena un giocatore pareggia in partite consecutive viene assegnato un punto solo per il primo pareggio o per ogni patta in cui sono state effettuate più di %s mosse. La serie di patte può essere interrotta solo da una vittoria, non da una sconfitta o da un\'ulteriore patta.</string>
-  <string name="noBerserkAllowed">No Berserk allowed</string>
-  <string name="noArenaStreaks">No Arena streaks</string>
-  <string name="averagePerformance">Average performance</string>
-  <string name="averageScore">Average score</string>
+  <string name="noBerserkAllowed">Il Berserk non è permesso</string>
+  <string name="noArenaStreaks">Arena senza streak</string>
+  <string name="averagePerformance">Performance media</string>
+  <string name="averageScore">Punteggio medio</string>
   <plurals name="viewAllXTeams" comment="viewAllXTeams [one] [other]&#10;&#10;%s is the number of teams that can be viewed">
-    <item quantity="one">View the team</item>
-    <item quantity="other">View all %s teams</item>
+    <item quantity="one">Vedi la squadra</item>
+    <item quantity="other">Vedi tutte le %s squadre</item>
   </plurals>
-  <string name="howManyPlayersCanJoin">How many players can join?</string>
-  <string name="howManyPlayersCanJoinAnswerDefault">By default, a tournament of this format can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinAnswer">This tournament can be joined by %s players.</string>
-  <string name="howManyPlayersCanJoinDenied">After the tournament starts, players who are kicked out still count toward the total player limit.</string>
-  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Defender</string>
+  <string name="howManyPlayersCanJoin">Quanti giocatori possono partecipare?</string>
+  <string name="howManyPlayersCanJoinAnswerDefault">Di norma, un torneo di questo formato può essere giocato da %s giocatori.</string>
+  <string name="howManyPlayersCanJoinAnswer">Questo torneo può essere giocato da %s giocatori.</string>
+  <string name="howManyPlayersCanJoinDenied">Dopo l\'inizio del torneo, i giocatori che vengono cacciati contano ancora nel limite di giocatori totali.</string>
+  <string name="defender" comment="Player defenfing shield won last shield tournament, the player who won last time">Difensore</string>
 </resources>

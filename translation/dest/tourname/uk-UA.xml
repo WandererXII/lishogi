@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="hourlyX" comment="adjective">Щогодинно %s</string>
+  <string name="hourlyX" comment="adjective">Щогодинна %s</string>
   <string name="dailyX" comment="adjective">Щоденна %s</string>
   <string name="easternX">Східна %s</string>
   <string name="weeklyX" comment="adjective">Щотижня %s</string>
@@ -9,8 +9,8 @@
   <string name="xShieldArena">%s Арена за Щит</string>
   <string name="xShield">%s Щит</string>
   <string name="xTeamBattle">%s Командна битва</string>
-  <string name="weekendX">Weekend %s</string>
+  <string name="weekendX">Вихідні %s</string>
   <string name="eliteX">Елітний %s</string>
   <string name="xArena">%s Арена</string>
-  <string name="xRobin">%s Round-robin</string>
+  <string name="xRobin">Круговий турнір %s</string>
 </resources>

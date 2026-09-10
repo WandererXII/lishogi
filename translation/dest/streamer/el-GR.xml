@@ -45,10 +45,6 @@
   <string name="headline">Κεφαλίδα</string>
   <string name="tellUsAboutTheStream">Σε μια πρόταση, περιγράψτε μας την μετάδοσή σας</string>
   <string name="longDescription">Πλήρης περιγραφή</string>
-  <string name="xStreamerPicture">%s εικόνα μεταδότη</string>
-  <string name="changePicture">Αλλαγή/διαγραφή εικόνας</string>
-  <string name="uploadPicture">Ανέβασμα εικόνας</string>
-  <string name="deletePicture">Διαγραφή εικόνας</string>
   <string name="maxSize">Μέγιστο μέγεθος: %s</string>
   <string name="installBlocker">Εγκαταστήστε έναν malware blocker!</string>
   <string name="beSafe">Για να είστε ασφαλείς από διαφημίσεις και

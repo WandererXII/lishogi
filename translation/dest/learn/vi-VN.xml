@@ -152,7 +152,8 @@ Hãy thoát khỏi mối đe dọa đó!</string>
 	<string name="boardSetupIntro">Hai bên quân đối mặt với nhau, sẵn sàng cho cuộc chiến.</string>
 	<string name="thisIsTheInitialPosition">Đây là vị trí ban đầu của mọi ván cờ Shogi!
 Hãy đi nước bất kỳ để tiếp tục.</string>
-	<string name="firstPlaceTheKing">Có hai cách truyền thống để sắp xếp quân cờ trước trận đấu. Chúng tôi sẽ dạy phong cách Oohashi (大橋), phong cách thường được các chuyên gia sử dụng nhất. Xếp quân Vua trước. Di chuyển Vua đến ô trung tâm của hàng sau.</string>
+	<string name="firstPlaceTheKing">Có hai cách truyền thống để sắp xếp quân cờ trước trận đấu. Chúng tôi sẽ dạy phong cách Oohashi (大橋), phong cách thường được các chuyên gia sử dụng nhất. Xếp quân Vua trước. Di chuyển Vua đến ô trung tâm của hàng sau.
+</string>
 	<string name="dropAGold">Đặt một Kim Tướng vào bên trái Vua, sau đó đặt Kim Tướng còn lại vào bên phải.</string>
 	<string name="thenPlaceASilver">Sau đó đặt Ngân Tướng bên cạnh Kim Tướng bên trái và Ngân Tướng còn lại bên cạnh Kim Tướng bên phải.</string>
 	<string name="dropTheKnights">Thả các quân Mã giống như cách bạn đặt quân Ngân Tướng. Đối thủ của bạn sẽ thực hiện phong cách Itou (伊藤).</string>

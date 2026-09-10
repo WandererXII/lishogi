@@ -67,6 +67,7 @@
 	<string name="forceResignation">Vynutit vzdání partie</string>
 	<string name="forceDraw">Vynutit remízu</string>
 	<string name="talkInChat">Pro povídání v chatu pište sem</string>
+	<string name="playersCannotSeeMessagesDuringGame">Players cannot see your messages during the game!</string>
 	<string name="theFirstPersonToComeOnThisUrlWillPlayWithYou">První kdo přijde pomocí tohoto odkazu, bude s Vámi hrát</string>
 	<string name="xResigned" comment="%s - sente(black)/gote(white)">%s rezignoval</string>
 	<string name="xLeftTheGame" comment="%s - sente(black)/gote(white)">%s opustil hru.</string>
@@ -489,6 +490,7 @@
 	<string name="follow">Sledovat</string>
 	<string name="following">Sledován</string>
 	<string name="followers">Sledující</string>
+	<string name="allYouFollow">All players you follow</string>
 	<string name="unfollow">Přestat sledovat</string>
 	<string name="block">Blokovat</string>
 	<string name="blocked">Blokován</string>
@@ -659,7 +661,6 @@
 	<string name="by">od %s</string>
 	<string name="thisTopicIsNowClosed">Toto téma je již uzavřeno.</string>
 	<string name="theming">Témata</string>
-	<string name="blog">Blog</string>
 	<string name="questionsAndAnswers">Otázky a Odpovědi</string>
 	<string name="notes">Poznámky</string>
 	<string name="typePrivateNotesHere">Zde napište soukromé poznámky</string>
@@ -1068,11 +1069,6 @@
 	<string name="subscribe">Odebírat</string>
 	<string name="unsubscribe">Zrušit odběr</string>
 	<string name="notationSystem">Notace</string>
-	<string name="officialBlog">Oficiální blog Lishogi</string>
-	<string name="blogPostsFromYear">Blogové příspěvky od %1$s</string>
-	<string name="previousBlogPosts">Předchozí blogové příspěvky</string>
-	<string name="continueReadingThis"> Pokračovat ve čtení tohoto příspěvku</string>
-	<string name="discussBlogForum">Diskutovat o tomto blogu ve fóru</string>
 	<string name="invadingPieces" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Invazní kameny</string>
 	<string name="enteringKing" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Vstupující král</string>
 	<string name="totalImpasseValue" comment="Related to impasse (https://lishogi.org/explanation/impasse)">Celková hodnota</string>
@@ -1177,4 +1173,9 @@
 	<string name="newPlayerTournaments">Play in shogi tournaments against other players or organize your own tournaments.</string>
 	<string name="newPlayerPuzzles">Improve your skills by solving shogi puzzles.</string>
 	<string name="newPlayerStudies">Studies and lessons created by the community - or create and share your own.</string>
+	<string name="allLanguages" comment="Name for 'Show all languages' option">All languages</string>
+	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
+	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
+	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
+	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
 </resources>
