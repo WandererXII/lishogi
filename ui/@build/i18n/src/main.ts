@@ -86,7 +86,9 @@ await workspaceBuildConductor('i18n', async (rootDir: string, pkgs: Project[], o
     all: async () => {
       await bundleI18ns();
     },
-    onChange: async (_event: WatchEventType, filepath: string) => {
+    onChange: async (_event: WatchEventType, filepath: string | null) => {
+      if (filepath === null) return;
+
       await xmlManager.update(filepath);
       const pkg = getPackageFromPath(pkgs, filepath);
       if (pkg) {

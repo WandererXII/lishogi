@@ -1,4 +1,5 @@
 import { useJapanese } from 'common/common';
+import { roleToForsyth } from 'common/shogiops';
 import { toMoveOrDrop } from 'keyboard-move/util';
 import { allKeys, files, ranks } from 'shogiground/constants';
 import { boardToSfen } from 'shogiground/sfen';
@@ -6,7 +7,7 @@ import type { Hand, Hands, Pieces } from 'shogiground/types';
 import { opposite } from 'shogiground/util';
 import { makeKifBoard } from 'shogiops/notation/kif';
 import { toKanjiDigit } from 'shogiops/notation/util';
-import { parseBoardSfen, parseSfen, pieceToForsyth, roleToForsyth } from 'shogiops/sfen';
+import { parseBoardSfen, parseSfen, pieceToForsyth } from 'shogiops/sfen';
 import type { Piece, Role, SquareName } from 'shogiops/types';
 import { isDrop, makeUsi, parseUsi } from 'shogiops/util';
 import { dimensions, handRoles } from 'shogiops/variant/util';
@@ -67,7 +68,7 @@ export function renderMove(
 export function renderPieces(pieces: Pieces, style: Style): VNode {
   return h(
     'div',
-    ['sente', 'gote'].map((color: 'sente' | 'gote') => {
+    (['sente', 'gote'] as const).map(color => {
       const lists: any = [];
       [
         'king',

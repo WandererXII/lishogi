@@ -1,4 +1,9 @@
 import { prefs } from 'common/prefs';
+import {
+  roleToForsyth,
+  promote as shogiPromote,
+  unpromote as shogiUnpromote,
+} from 'common/shogiops';
 import { notationFiles, notationRanks } from 'shogi/notation';
 import { predrop } from 'shogi/pre-drop';
 import { premove } from 'shogi/pre-move';
@@ -6,16 +11,14 @@ import resizeHandle from 'shogi/resize';
 import type { Config as SgConfig } from 'shogiground/config';
 import type { DrawShape } from 'shogiground/draw';
 import type * as sg from 'shogiground/types';
-import { forsythToRole, roleToForsyth } from 'shogiops/sfen';
-import type { Piece, Role } from 'shogiops/types';
+import { forsythToRole } from 'shogiops/sfen';
+import type { Piece } from 'shogiops/types';
 import { makeSquareName, parseSquareName } from 'shogiops/util';
 import {
   handRoles,
   pieceCanPromote,
   pieceForcePromote,
   promotableOnDrop,
-  promote as shogiPromote,
-  unpromote as shogiUnpromote,
 } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type AnalyseCtrl from './ctrl';
@@ -73,7 +76,7 @@ export function makeConfig(ctrl: AnalyseCtrl): SgConfig {
     },
     events: {
       move: ctrl.userMove,
-      drop: ctrl.userDrop,
+      drop: (piece, dest, prom) => ctrl.userDrop(piece as Piece, dest, prom),
       select: (key: Key) => {
         if (
           ctrl.lionFirstMove &&
@@ -116,8 +119,8 @@ export function makeConfig(ctrl: AnalyseCtrl): SgConfig {
       eraseOnClick: !ctrl.opts.study,
     },
     promotion: {
-      promotesTo: (role: Role) => shogiPromote(variant)(role),
-      unpromotesTo: (role: Role) => shogiUnpromote(variant)(role),
+      promotesTo: shogiPromote(variant),
+      unpromotesTo: shogiUnpromote(variant),
       movePromotionDialog: (orig: Key, dest: Key) => {
         const piece = ctrl.shogiground.state.pieces.get(orig) as Piece;
         const capture = ctrl.shogiground.state.pieces.get(dest) as Piece | undefined;

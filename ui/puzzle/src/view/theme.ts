@@ -38,9 +38,9 @@ const editor = (ctrl: Controller): VNode => {
   const visibleThemes: ThemeKey[] = data.puzzle.themes
     .filter(t => !invisibleThemes.has(t))
     .concat(
-      Object.keys(votedThemes).filter(
-        (t: ThemeKey) => votedThemes[t] && !data.puzzle.themes.includes(t),
-      ) as ThemeKey[],
+      (Object.keys(votedThemes) as ThemeKey[]).filter(
+        t => votedThemes[t] && !data.puzzle.themes.includes(t),
+      ),
     )
     .sort();
   const allThemes = location.pathname == '/training/daily' ? null : ctrl.allThemes;

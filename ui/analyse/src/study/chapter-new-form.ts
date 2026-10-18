@@ -50,14 +50,14 @@ export function ctrl(
   chapters: Prop<StudyChapterMeta[]>,
   root: AnalyseCtrl,
 ): StudyChapterNewFormCtrl {
-  const vm = {
+  const vm: StudyChapterNewFormCtrl['vm'] = {
     open: false,
     initial: prop(false),
     tab: storedProp('study.form.tab', 'init'),
     editor: null,
-    editorSfen: prop(null),
-    editorVariant: prop(null),
-    editorOrientation: prop(null),
+    editorSfen: prop<Sfen | null>(null),
+    editorVariant: prop<VariantKey | null>(null),
+    editorOrientation: prop<Color | null>(null),
   };
 
   function open() {
@@ -314,7 +314,7 @@ export function view(ctrl: StudyChapterNewFormCtrl): VNode {
                 },
                 notOrientationTab
                   ? [h('option', i18n('study:automatic'))]
-                  : ['sente', 'gote'].map((color: Color) =>
+                  : (['sente', 'gote'] as const).map(color =>
                       option(color, currentChapter.setup.orientation, colorName(color, false)),
                     ),
               ),

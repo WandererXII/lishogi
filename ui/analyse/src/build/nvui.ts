@@ -54,7 +54,7 @@ function main(redraw: Redraw) {
         h('div.nvui', [
           h('h1', i18n('nvui:textualRepresentation')),
           h('h2', i18n('nvui:gameInfo')),
-          ...['sente', 'gote'].map((color: Color) =>
+          ...(['sente', 'gote'] as const).map(color =>
             h('p', [`${color} player: `, renderPlayer(ctrl, playerByColor(d, color))]),
           ),
           h('p', `${d.game.rated ? i18n('rated') : i18n('casual')}`),
@@ -233,7 +233,7 @@ function renderAcpl(
     (n.glyphs || []).find(g => analysisGlyphs.includes(g.symbol)),
   );
   const res: Array<VNode> = [];
-  ['sente', 'gote'].forEach((color: Color) => {
+  (['sente', 'gote'] as const).forEach(color => {
     const acpl = anal[color].acpl;
     res.push(h('h3', `${color} player: ${acpl} ACPL`));
     res.push(

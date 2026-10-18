@@ -66,7 +66,7 @@ export function nodeClasses(
   };
 }
 
-function eventPath(e: MouseEvent): Tree.Path | null {
+function eventPath(e: Event): Tree.Path | null {
   return (
     (e.target as HTMLElement).getAttribute('p') ||
     ((e.target as HTMLElement).parentNode as HTMLElement).getAttribute('p')
@@ -92,7 +92,7 @@ export function mainHook(ctrl: AnalyseCtrl): Hooks {
     insert: vnode => {
       const el = vnode.elm as HTMLElement;
       if (ctrl.path !== '') autoScroll(ctrl, el);
-      const ctxMenuCallback = (e: MouseEvent) => {
+      const ctxMenuCallback = (e: MouseEvent | TouchEvent) => {
         const path = eventPath(e);
         if (path !== null)
           contextMenu(e, {
@@ -196,7 +196,7 @@ export function truncateComment(text: string, len: number, ctx: Ctx): string {
 }
 
 export function retroLine(ctx: Ctx, node: Tree.Node, opts: Opts): VNode | undefined {
-  return node.comp && ctx.ctrl.retro && ctx.ctrl.retro.hideComputerLine(node, opts.parentPath)
+  return node.comp && ctx.ctrl.retro?.hideComputerLine(node, opts.parentPath)
     ? h('line', i18n('learnFromThisMistake'))
     : undefined;
 }

@@ -1,10 +1,11 @@
 import { prefs } from 'common/prefs';
+import { promote } from 'common/shogiops';
 import { notationFiles, notationRanks } from 'shogi/notation';
 import resizeHandle from 'shogi/resize';
 import type { Config as SgConfig } from 'shogiground/config';
-import type { Piece, Role } from 'shogiops/types';
+import type { Piece } from 'shogiops/types';
 import { parseSquareName } from 'shogiops/util';
-import { pieceCanPromote, pieceForcePromote, promote } from 'shogiops/variant/util';
+import { pieceCanPromote, pieceForcePromote } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type { Controller } from '../interfaces';
 
@@ -47,9 +48,7 @@ function makeConfig(ctrl: Controller): SgConfig {
       showDests: ctrl.pref.destination && ctrl.pref.dropDestination,
     },
     promotion: {
-      promotesTo: (role: Role) => {
-        return promote('standard')(role);
-      },
+      promotesTo: promote('standard'),
       movePromotionDialog: (orig: Key, dest: Key) => {
         const piece = ctrl.shogiground.state.pieces.get(orig) as Piece;
         return (
@@ -78,7 +77,7 @@ function makeConfig(ctrl: Controller): SgConfig {
     },
     events: {
       move: ctrl.userMove,
-      drop: ctrl.userDrop,
+      drop: (piece, dest, prom) => ctrl.userDrop(piece as Piece, dest, prom),
       insert(elements) {
         if (elements) resizeHandle(elements, ctrl.pref.resizeHandle, { visible: () => true });
       },

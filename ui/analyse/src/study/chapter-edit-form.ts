@@ -207,7 +207,7 @@ function viewLoaded(data: StudyChapterConfig): VNode[] {
         ),
         h(
           'select#chapter-orientation.form-control',
-          ['sente', 'gote'].map((color: Color) =>
+          (['sente', 'gote'] as const).map(color =>
             option(color, data.orientation, colorName(color, false)),
           ),
         ),

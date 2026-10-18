@@ -11,9 +11,9 @@ export function onInsert<A extends HTMLElement>(f: (element: A) => void): Hooks 
   };
 }
 
-export function bind(
-  eventName: string,
-  f: (e: Event) => any,
+export function bind<K extends keyof HTMLElementEventMap>(
+  eventName: K,
+  f: (e: HTMLElementEventMap[K]) => any,
   redraw?: () => void,
   passive = true,
 ): Hooks {
@@ -31,9 +31,9 @@ export function bind(
   );
 }
 
-export const bindNonPassive = (
-  eventName: string,
-  f: (e: Event) => any,
+export const bindNonPassive = <K extends keyof HTMLElementEventMap>(
+  eventName: K,
+  f: (e: HTMLElementEventMap[K]) => any,
   redraw?: () => void,
 ): Hooks => bind(eventName, f, redraw, false);
 

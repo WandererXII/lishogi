@@ -1,5 +1,5 @@
 window.lishogi.ready.then(() => {
-  const allButtons = document.querySelectorAll('.format-button');
+  const allButtons = document.querySelectorAll<HTMLElement>('.format-button');
   const allFaq = document.querySelectorAll('.body > div');
   allButtons.forEach((el: HTMLElement) => {
     el.addEventListener('click', () => {

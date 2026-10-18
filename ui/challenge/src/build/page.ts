@@ -25,7 +25,7 @@ function main(opts: any): void {
   });
 
   function init() {
-    $('#challenge-redirect').each(function (this: HTMLAnchorElement) {
+    $<HTMLAnchorElement>('#challenge-redirect').each(function (this: HTMLAnchorElement) {
       location.href = this.href;
     });
     $(selector)
@@ -35,7 +35,7 @@ function main(opts: any): void {
         $(this).html('<span class="ddloader"></span>');
       });
     $(selector)
-      .find('form.xhr')
+      .find<HTMLFormElement>('form.xhr')
       .on('submit', function (this: HTMLFormElement, e) {
         e.preventDefault();
         window.lishogi.xhr.formToXhr(this);

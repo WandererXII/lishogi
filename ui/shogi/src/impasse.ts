@@ -80,7 +80,7 @@ export function impasseInfo(
 export function isImpasse(rules: Rules, sfen: Sfen, initialSfen?: Sfen): boolean {
   const info = impasseInfo(rules, sfen, initialSfen);
   if (info) {
-    return ['sente', 'gote'].some((color: Color) => {
+    return (['sente', 'gote'] as const).some(color => {
       const i = info[color];
       return (
         i.king &&

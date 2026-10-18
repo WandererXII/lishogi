@@ -15,15 +15,15 @@ export class StrongSocket implements IStrongSocket {
   private version: number | false;
   private lastVersionTime: number = performance.now();
 
-  private pingSchedule: Timeout;
-  private connectSchedule: Timeout;
+  private pingSchedule: Timeout | undefined;
+  private connectSchedule: Timeout | undefined;
   private lastPingTime: number = performance.now();
   private averageLag = 0;
   private pongCount = 0;
   private ready = false;
   private wasInitiated = false;
   private connectionAttempt = 0;
-  private networkElementStatus: 'online' | 'reconnected' | 'offline';
+  private networkElementStatus: 'online' | 'reconnected' | 'offline' | undefined;
 
   private ackable: Ackable = new Ackable((t, d, o) => this.send(t, d, o));
 
@@ -151,7 +151,7 @@ export class StrongSocket implements IStrongSocket {
       this.ws!.send(pingData);
       this.lastPingTime = performance.now();
     } catch (e) {
-      this.debug(e, true);
+      this.debug(String(e), true);
     }
 
     this.scheduleConnect(this.options.pongTimeout);
@@ -235,7 +235,7 @@ export class StrongSocket implements IStrongSocket {
     }
   };
 
-  private onError = (e: Event): void => {
+  private onError = (e: unknown): void => {
     this.ready = false;
 
     if (this.heartbeat.wasSuspended) return;

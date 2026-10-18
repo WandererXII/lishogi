@@ -1,8 +1,9 @@
 import { icons } from 'common/icons';
 import { h, type VNode } from 'snabbdom';
+import type { Mode } from './dasher';
 
 export type Close = () => void;
-export type Open = (sub: string) => void;
+export type Open = (sub: Mode) => void;
 
 export function bind(
   eventName: string,

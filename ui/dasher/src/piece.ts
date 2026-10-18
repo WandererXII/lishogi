@@ -80,7 +80,7 @@ export function view(ctrl: PieceCtrl): VNode {
           ctrl.setActiveTab(tab);
         }),
       },
-      ['standard', 'chushogi', 'kyotoshogi'].map((v: Tab) =>
+      (['standard', 'chushogi', 'kyotoshogi'] as const).map(v =>
         h(
           'div',
           { attrs: { 'data-tab': v }, class: { active: ctrl.activeTab === v } },

@@ -1,12 +1,13 @@
 import { prefs } from 'common/prefs';
+import { promote } from 'common/shogiops';
 import { notationFiles, notationRanks } from 'shogi/notation';
 import resizeHandle from 'shogi/resize';
 import type { Config } from 'shogiground/config';
 import type { Drawable, SquareHighlight } from 'shogiground/draw';
 import { shogigroundDropDests, shogigroundMoveDests } from 'shogiops/compat';
-import type { Piece, Role } from 'shogiops/types';
+import type { Piece } from 'shogiops/types';
 import { isDrop, makeSquareName, parseSquareName, parseUsi } from 'shogiops/util';
-import { pieceCanPromote, pieceForcePromote, promote } from 'shogiops/variant/util';
+import { pieceCanPromote, pieceForcePromote } from 'shogiops/variant/util';
 import type LearnCtrl from './ctrl';
 import type { Level, UsiWithColor } from './interfaces';
 import { illegalShogigroundDropDests, illegalShogigroundMoveDests, inCheck } from './shogi';
@@ -27,9 +28,7 @@ export function initConfig(ctrl: LearnCtrl): Config {
       },
     },
     promotion: {
-      promotesTo: (role: Role) => {
-        return promote('standard')(role);
-      },
+      promotesTo: promote('standard'),
       movePromotionDialog: (orig: Key, dest: Key) => {
         const piece = ctrl.shogiground.state.pieces.get(orig) as Piece;
         return (

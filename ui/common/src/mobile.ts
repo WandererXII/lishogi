@@ -5,7 +5,7 @@ const longPressDuration = 610;
 
 export function bindMobileTapHold(
   el: HTMLElement,
-  f: (e: Event) => unknown,
+  f: (e: TouchEvent) => unknown,
   redraw?: () => void,
 ): void {
   let longPressCountdown: number;

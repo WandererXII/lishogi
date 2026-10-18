@@ -13,7 +13,7 @@ window.lishogi.ready.then(() => {
   });
   const smStorage = window.lishogi.storage.make('scrollMoves');
 
-  $('form.autosubmit').each(function (this: HTMLFormElement) {
+  $<HTMLFormElement>('form.autosubmit').each(function (this: HTMLFormElement) {
     const form = this;
     const $form = $(form);
     const showSaved = () =>

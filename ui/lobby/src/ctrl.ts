@@ -41,7 +41,7 @@ export default class LobbyController {
   filter: Filter;
   ratings: RatingsRecord | undefined;
   presetOpts: PresetOpts;
-  allPresets: Preset[];
+  allPresets!: Preset[];
   currentPresetId: string | undefined; // real time only
   setupCtrl: SetupCtrl;
 

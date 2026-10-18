@@ -61,7 +61,7 @@ function userMod($zone: any): void {
 
   window.lishogi.pubsub.emit('content_loaded');
 
-  $('#mz_menu > a:not(.available)').each(function (this: HTMLAnchorElement) {
+  $<HTMLAnchorElement>('#mz_menu > a:not(.available)').each(function (this: HTMLAnchorElement) {
     $(this).toggleClass('available', !!$(getLocationHash(this)).length);
   });
   makeReady('#mz_menu', el => {
@@ -75,7 +75,8 @@ function userMod($zone: any): void {
       });
   });
 
-  makeReady('form.xhr', (el: HTMLFormElement) => {
+  makeReady('form.xhr', el => {
+    if (!(el instanceof HTMLFormElement)) return;
     $(el).on('submit', () => {
       $(el).addClass('ready').find('input').prop('disabled', true);
       window.lishogi.xhr

@@ -43,7 +43,7 @@ export function filter(ctrl: InsightCtrl): VNode {
       },
       [
         h('h2', i18n('filterGames')),
-        options(ctrl, 'since', allOptions.since, (nb: number) => i18nPluralSame('nbDays', nb)),
+        options(ctrl, 'since', allOptions.since, nb => i18nPluralSame('nbDays', Number(nb))),
         options(ctrl, 'variant', allOptions.variant, i18nVariant),
         options(ctrl, 'color', allOptions.color, (s: 'both' | 'sente' | 'gote') =>
           s === 'both'
@@ -61,11 +61,11 @@ export function filter(ctrl: InsightCtrl): VNode {
   ]);
 }
 
-function options(
+function options<T extends string>(
   ctrl: InsightCtrl,
   key: keyof InsightFilter,
-  values: string[],
-  display: (value: string | number) => string,
+  values: T[],
+  display: (value: T) => string,
 ): VNode {
   const current = ctrl.filter[key];
   function value2option(value: string, name: string): VNode {

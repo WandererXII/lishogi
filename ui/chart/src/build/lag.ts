@@ -22,7 +22,7 @@ const v = {
 function main(): void {
   wsOnOpen(() => wsSend('moveLat', true));
 
-  $('.meter canvas').each(function (this: HTMLCanvasElement, index) {
+  $<HTMLCanvasElement>('.meter canvas').each(function (this: HTMLCanvasElement, index) {
     const colors = [cssVar('--c-good'), cssVar('--c-warn'), cssVar('--c-bad')];
     const colorsOver = [cssVar('--c-good-over'), cssVar('--c-warn-over'), cssVar('--c-bad-over')];
     const dataset: ChartDataset<'doughnut'>[] = [

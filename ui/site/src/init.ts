@@ -341,7 +341,7 @@ export function init(): void {
           reg.pushManager.getSubscription().then(sub => {
             const curKey = sub?.options.applicationServerKey;
             const isNewKey =
-              curKey && btoa(String.fromCharCode.apply(null, new Uint8Array(curKey))) !== vapid;
+              curKey && btoa(String.fromCharCode(...new Uint8Array(curKey))) !== vapid;
             const resub =
               isNewKey || Number.parseInt(pushStorage.get() || '0', 10) + 43200000 < Date.now(); // 12 hours
             if (!sub || resub) {

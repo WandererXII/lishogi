@@ -73,7 +73,7 @@ export class ClockController {
   };
 
   showTenths: (millis: Millis, color: Color) => boolean;
-  times: Times;
+  times!: Times;
 
   playerColor: Color;
   isSpectator: boolean;

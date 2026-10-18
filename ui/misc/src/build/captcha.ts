@@ -12,7 +12,7 @@ const readServerValue = (t: string): string => atob(reverse(t));
 
 window.lishogi.ready.then(() => {
   setTimeout(() => {
-    document.querySelectorAll('div.captcha').forEach((captchaEl: HTMLElement) => {
+    document.querySelectorAll<HTMLElement>('div.captcha').forEach((captchaEl: HTMLElement) => {
       const board = captchaEl.querySelector<HTMLElement>('.mini-board')!;
       const hint = readServerValue(board.dataset.x!) as Key;
       const orientation = readServerValue(board.dataset.y!) as Color;

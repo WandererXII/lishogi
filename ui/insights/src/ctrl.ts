@@ -22,10 +22,10 @@ export default class InsightCtrl {
   activeTab: Tab;
   mostPlayedMovesColor: Color;
 
-  filterToggle: boolean; // mobile view
+  filterToggle = false; // mobile view
 
-  data: InsightData;
-  filter: InsightFilter;
+  data!: InsightData;
+  filter!: InsightFilter;
 
   pref: any;
 

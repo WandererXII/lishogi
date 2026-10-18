@@ -41,7 +41,7 @@ export default class StormCtrl {
       },
     };
     this.vm = {
-      signed: prop(undefined),
+      signed: prop<string | undefined>(undefined),
       lateStart: false,
       filterFailed: false,
       filterSlow: false,

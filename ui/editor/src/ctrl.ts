@@ -1,6 +1,7 @@
 import { loadPieceSpriteByVariant } from 'common/assets';
 import { defined, type Prop, prop } from 'common/common';
 import { analysis, editor } from 'common/links';
+import { roleToForsyth } from 'common/shogiops';
 import { Shogiground } from 'shogiground';
 import type { Api as SgApi } from 'shogiground/api';
 import type { NumberPair, Piece } from 'shogiground/types';
@@ -16,7 +17,6 @@ import {
   parseBoardSfen,
   parseHands,
   parseSfen,
-  roleToForsyth,
 } from 'shogiops/sfen';
 import type { Role, Rules, Setup } from 'shogiops/types';
 import { toBW, toColor } from 'shogiops/util';
@@ -32,9 +32,9 @@ export default class EditorCtrl {
   initTouchMovePos: NumberPair | undefined;
   lastTouchMovePos: NumberPair | undefined;
 
-  turn: Color;
+  turn!: Color;
   rules: Rules;
-  moveNumber: number;
+  moveNumber!: number;
 
   backStack: string[] = [];
   currentBeforeStack: string;
@@ -49,7 +49,7 @@ export default class EditorCtrl {
 
     this.shogiground = Shogiground(makeConfig(this));
 
-    this.selected = prop('pointer');
+    this.selected = prop<Selected>('pointer');
 
     this.bind();
 

@@ -25,8 +25,8 @@ import {
 } from './util';
 
 export default class SetupCtrl {
-  key: SetupKey;
-  data: SetupData;
+  key!: SetupKey;
+  data!: SetupData;
 
   stores: {
     hook: FormStore;
@@ -34,11 +34,11 @@ export default class SetupCtrl {
     ai: FormStore;
   };
 
-  isOpen: boolean;
-  isExtraOpen: boolean;
-  submitted: boolean;
+  isOpen = false;
+  isExtraOpen = false;
+  submitted = false;
 
-  invalidSfen: boolean;
+  invalidSfen = false;
   error: string | undefined;
 
   nvui: boolean;

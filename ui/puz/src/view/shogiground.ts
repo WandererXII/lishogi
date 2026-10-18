@@ -1,15 +1,15 @@
 import { prefs } from 'common/prefs';
+import { promote } from 'common/shogiops';
 import resizeHandle from 'shogi/resize';
 import type { Config as SgConfig } from 'shogiground/config';
 import type { State } from 'shogiground/state';
-import type { Piece, Role } from 'shogiops/types';
+import type { Piece } from 'shogiops/types';
 import { parseSquareName } from 'shogiops/util';
 import {
   handRoles,
   pieceCanPromote,
   pieceForcePromote,
   promotableOnDrop,
-  promote,
 } from 'shogiops/variant/util';
 import type { PuzPrefs, UserDrop, UserMove } from '../interfaces';
 
@@ -48,7 +48,7 @@ export function makeConfig(
       showDests: pref.destination && pref.dropDestination,
     },
     promotion: {
-      promotesTo: (role: Role) => promote(variant)(role),
+      promotesTo: promote(variant),
       movePromotionDialog: (orig: Key, dest: Key) => {
         const piece = state.pieces.get(orig) as Piece;
         const capture = state.pieces.get(dest) as Piece | undefined;
@@ -76,7 +76,7 @@ export function makeConfig(
     },
     events: {
       move: userMove,
-      drop: userDrop,
+      drop: (piece, dest) => userDrop(piece as Piece, dest),
       insert(elements) {
         if (elements) resizeHandle(elements, pref.resizeHandler, { visible: () => true });
       },

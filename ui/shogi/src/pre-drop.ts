@@ -1,6 +1,5 @@
-import type { Pieces } from 'shogiground/types';
+import type { Piece, Pieces } from 'shogiground/types';
 import { SquareSet } from 'shogiops/square-set';
-import type { Piece } from 'shogiops/types';
 import { makeSquareName } from 'shogiops/util';
 import { dimensions, fullSquareSet } from 'shogiops/variant/util';
 

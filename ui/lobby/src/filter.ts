@@ -26,7 +26,7 @@ interface FilteredSeeks {
 
 export default class Filter {
   store: FormStore;
-  data: FilterData | null;
+  data!: FilterData | null;
   open = false;
 
   constructor(

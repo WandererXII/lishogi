@@ -90,7 +90,7 @@ export default class RoundController {
   firstSeconds = true;
   flip = false;
   loading = false;
-  loadingTimeout: number;
+  loadingTimeout: number | undefined;
   redirecting = false;
   wasFocused: boolean = document.hasFocus();
   impasseHelp = false;
@@ -363,9 +363,10 @@ export default class RoundController {
     onDrop: NonNullable<State['events']['drop']>;
   } => ({
     onUserMove: this.onUserMove,
-    onUserDrop: this.onUserDrop,
-    onMove: this.onMove,
-    onDrop: this.onDrop,
+    onUserDrop: (piece, key, prom, meta) => this.onUserDrop(piece as Piece, key, prom, meta),
+    onMove: (orig, dest, prom, captured) =>
+      this.onMove(orig, dest, prom, captured as Piece | undefined),
+    onDrop: (piece, key, prom) => this.onDrop(piece as Piece, key, prom),
   });
 
   replaying = (): boolean => this.ply !== round.lastPly(this.data);

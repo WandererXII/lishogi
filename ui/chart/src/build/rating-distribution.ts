@@ -13,7 +13,7 @@ import {
 import type { DistributionData } from '../interface';
 
 function main(data: DistributionData): void {
-  $('#rating_distribution_chart').each(function (this: HTMLCanvasElement) {
+  $<HTMLCanvasElement>('#rating_distribution_chart').each(function (this: HTMLCanvasElement) {
     const ratingAt = (i: number) => 400 + i * 25;
     const arraySum = (arr: number[]) => arr.reduce((a, b) => a + b, 0);
     const sum = arraySum(data.freq);

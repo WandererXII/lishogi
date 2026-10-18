@@ -7,7 +7,7 @@ import { getPackages, getRootDir, type Project } from './workspace-packages.js';
 
 interface WorkspaceBuilder {
   all: () => Promise<void>;
-  onChange: (event: WatchEventType, filepath: string) => Promise<void>;
+  onChange: (event: WatchEventType, filepath: string | null) => Promise<void>;
   stop: () => Promise<void>;
   watchPaths: string[];
 }
@@ -44,7 +44,7 @@ export async function workspaceBuildConductor(
     await builder.all();
 
     if (isWatch) {
-      const onChange = async (event: WatchEventType, filepath: string) => {
+      const onChange = async (event: WatchEventType, filepath: string | null) => {
         try {
           await builder.onChange(event, filepath);
         } catch (error) {

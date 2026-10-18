@@ -70,24 +70,24 @@ const li = window.lishogi;
 export default class AnalyseCtrl {
   data: AnalyseData;
 
-  tree: TreeWrapper;
-  socket: Socket;
+  tree!: TreeWrapper;
+  socket!: Socket;
   shogiground: ShogigroundApi;
-  ceval: CevalCtrl;
-  evalCache: EvalCache;
+  ceval!: CevalCtrl;
+  evalCache!: EvalCache;
 
   // current tree state, cursor, and denormalized node lists
-  path: Tree.Path;
-  node: Tree.Node;
-  nodeList: Tree.Node[];
-  mainline: Tree.Node[];
+  path!: Tree.Path;
+  node!: Tree.Node;
+  nodeList!: Tree.Node[];
+  mainline!: Tree.Node[];
 
   // sub controllers
-  actionMenu: ActionMenuCtrl;
-  autoplay: Autoplay;
+  actionMenu!: ActionMenuCtrl;
+  autoplay!: Autoplay;
   forecast?: ForecastCtrl;
   retro?: RetroCtrl;
-  fork: ForkCtrl;
+  fork!: ForkCtrl;
   practice?: PracticeCtrl;
   study?: StudyCtrl;
 
@@ -96,9 +96,9 @@ export default class AnalyseCtrl {
   autoScrollRequested = false;
   redirecting = false;
   onMainline = true;
-  synthetic: boolean; // false if coming from a real game
-  imported: boolean; // true if coming from kif or csa
-  ongoing: boolean; // true if real game is ongoing
+  synthetic!: boolean; // false if coming from a real game
+  imported!: boolean; // true if coming from kif or csa
+  ongoing!: boolean; // true if real game is ongoing
   lionFirstMove: NormalMove | undefined;
 
   // display flags

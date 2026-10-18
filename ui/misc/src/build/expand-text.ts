@@ -1,13 +1,14 @@
 import { loadPieceSpriteByVariant, loadScript } from 'common/assets';
 import { defined } from 'common/common';
 import { icons } from 'common/icons';
+import { roleToForsyth } from 'common/shogiops';
 import { camelToKebab } from 'common/string';
 import { isLight } from 'common/styles';
 import { notationFiles, notationRanks } from 'shogi/notation';
 import type { DrawShape, DrawShapePiece } from 'shogiground/draw';
 import { usiToSquareNames } from 'shogiops/compat';
 import { RULES } from 'shogiops/constants';
-import { forsythToRole, initialSfen, roleToForsyth } from 'shogiops/sfen';
+import { forsythToRole, initialSfen } from 'shogiops/sfen';
 import type { Rules } from 'shogiops/types';
 import { isDrop, makeSquareName, parseSquareName, parseUsi } from 'shogiops/util';
 import { handRoles } from 'shogiops/variant/util';
@@ -143,7 +144,7 @@ function expandTwitter(a: Candidate) {
 
     // polyfill document.createElement so that iframes created by twitter get the `credentialless` attribute
     const originalCreateElement = document.createElement;
-    document.createElement = function (this, ...args: any[]) {
+    document.createElement = function (this, ...args: Parameters<Document['createElement']>) {
       const element = originalCreateElement.apply(this, args);
       if (element instanceof HTMLIFrameElement) {
         (element as any).credentialless = true;
@@ -426,7 +427,7 @@ function configureSrc(url: string) {
 
 // YouTube, Twitter, studies, games
 function main() {
-  const as: Candidate[] = Array.from(document.querySelectorAll('.expand-text a'))
+  const as: Candidate[] = Array.from(document.querySelectorAll<HTMLAnchorElement>('.expand-text a'))
     .map((el: HTMLAnchorElement) => {
       if (el.classList.contains('parsed')) return false;
       else el.classList.add('parsed');

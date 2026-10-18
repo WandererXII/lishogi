@@ -26,8 +26,8 @@ await workspaceBuildConductor('css', async (rootDir: string, pkgs: Project[], ou
       await Promise.all(buildFiles.map(file => builder.build(file)));
       console.log(`Compiled ${buildFiles.length} scss files`);
     },
-    onChange: async (event: WatchEventType, filepath: string) => {
-      if (filepath.includes('/generated/')) return;
+    onChange: async (event: WatchEventType, filepath: string | null) => {
+      if (filepath === null || filepath.includes('/generated/')) return;
 
       console.log(`Change detected in: ${filepath}`);
 

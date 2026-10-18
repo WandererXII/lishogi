@@ -174,7 +174,7 @@ function scales(opts: MyChartOptions, nbOfLabels: number) {
       ticks: {
         precision: 0,
         color: fontClear,
-        callback: (value: string): string => value + affix,
+        callback: (value: string | number): string => value + affix,
       },
       suggestedMin: 0,
       suggestedMax: suggestedMax,

@@ -58,7 +58,7 @@ function accuracyByMoveNumber(data: AnalysisResult, flt: InsightFilter): VNode {
         backgroundColor: `${accuracy}55`,
         data: labels.map(key => fixed(d[key])),
         tooltip: {
-          valueMap: (value: number) => `${i18n('insights:average')}: ${value}`,
+          valueMap: value => `${i18n('insights:average')}: ${value}`,
           counts: labels.map(key => data.accuracyByMoveNumberCount[key] || 0),
         },
       },

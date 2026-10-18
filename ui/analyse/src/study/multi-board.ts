@@ -1,11 +1,12 @@
 import { loadPieceSpriteByVariants } from 'common/assets';
 import { icons } from 'common/icons';
+import { roleToForsyth } from 'common/shogiops';
 import { bind, type MaybeVNodes } from 'common/snabbdom';
 import spinner from 'common/spinner';
 import { i18n } from 'i18n';
 import { Shogiground } from 'shogiground';
 import { usiToSquareNames } from 'shogiops/compat';
-import { forsythToRole, roleToForsyth } from 'shogiops/sfen';
+import { forsythToRole } from 'shogiops/sfen';
 import { handRoles } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type { ChapterPreview, Position, StudyCtrl } from './interfaces';

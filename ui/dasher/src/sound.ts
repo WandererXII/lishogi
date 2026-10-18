@@ -102,7 +102,7 @@ export function view(ctrl: SoundCtrl): VNode {
             ctrl.setActiveTab(tab);
           }),
         },
-        ['system', 'clock'].map((v: Tab) =>
+        (['system', 'clock'] as const).map(v =>
           h(
             'div',
             { attrs: { 'data-tab': v }, class: { active: ctrl.activeTab === v } },

@@ -6,9 +6,9 @@ import { build as makeTree, type TreeWrapper, ops as treeOps, path as treePath }
 export class AnalyseCtrl {
   tree: TreeWrapper;
   initialPath: Tree.Path;
-  path: Tree.Path;
-  nodeList: Tree.Node[];
-  node: Tree.Node;
+  path!: Tree.Path;
+  nodeList!: Tree.Node[];
+  node!: Tree.Node;
 
   groundElement: HTMLElement | undefined;
 

@@ -13,7 +13,7 @@ export interface State {
 }
 
 export default class GamebookPlayCtrl {
-  state: State;
+  state!: State;
 
   constructor(
     readonly root: AnalyseCtrl,

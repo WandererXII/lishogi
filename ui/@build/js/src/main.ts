@@ -41,7 +41,9 @@ await workspaceBuildConductor('js', async (_rootDir: string, pkgs: Project[], ou
 
   return {
     all: all(buildOne),
-    onChange: async (event: WatchEventType, filepath: string) => {
+    onChange: async (event: WatchEventType, filepath: string | null) => {
+      if (filepath === null) return;
+
       const pkg = getPackageFromPath(pkgs, filepath)!;
       const impacted = findImpactedPackages(pkg, pkgs);
 

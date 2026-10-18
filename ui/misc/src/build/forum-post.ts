@@ -32,7 +32,7 @@ window.lishogi.ready.then(() => {
       form.find('textarea').height(message.height()!);
     });
 
-  $('.post-text-area').one('focus', function (this: HTMLTextAreaElement) {
+  $<HTMLTextAreaElement>('.post-text-area').one('focus', function (this: HTMLTextAreaElement) {
     const topicId = $(this).attr('data-topic');
 
     if (!topicId) return;

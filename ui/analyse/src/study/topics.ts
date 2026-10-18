@@ -124,7 +124,7 @@ function setupTagify(elm: HTMLTextAreaElement, userId?: string) {
           tagi.loading(false).dropdown.show.call(tagi, term); // render the suggestions dropdown
         });
     });
-    $('.tagify__input').each(function (this: HTMLInputElement) {
+    $<HTMLInputElement>('.tagify__input').each(function (this: HTMLInputElement) {
       this.focus();
     });
   });

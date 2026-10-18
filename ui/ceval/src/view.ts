@@ -1,12 +1,13 @@
 import { defined, notNull, requestIdleCallbackWithFallback } from 'common/common';
 import { icons } from 'common/icons';
+import { roleToForsyth } from 'common/shogiops';
 import type { MaybeVNodes } from 'common/snabbdom';
 import stepwiseScroll from 'common/wheel';
 import { i18n, i18nFormat } from 'i18n';
 import { makeNotationLineWithPosition, notationsWithColor } from 'shogi/notation';
 import type { Config } from 'shogiground/config';
 import { usiToSquareNames } from 'shogiops/compat';
-import { forsythToRole, makeSfen, parseSfen, roleToForsyth } from 'shogiops/sfen';
+import { forsythToRole, makeSfen, parseSfen } from 'shogiops/sfen';
 import type { MoveOrDrop } from 'shogiops/types';
 import { makeUsi, opposite, parseUsi } from 'shogiops/util';
 import type { Position } from 'shogiops/variant/position';
@@ -378,7 +379,7 @@ export function renderPvs(ctrl: ParentCtrl): VNode | undefined {
             }),
           );
           el.addEventListener('mouseout', () => ctrl.getCeval().setHovering(getElSfen(el)));
-          for (const event of ['touchstart', 'mousedown']) {
+          for (const event of ['touchstart', 'mousedown'] as const) {
             el.addEventListener(event, (e: TouchEvent | MouseEvent) => {
               const usiList = getElUsiList(e);
               if (usiList.length > (pvIndex ?? 0) && !ctrl.threatMode()) {

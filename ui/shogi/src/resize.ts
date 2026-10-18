@@ -3,7 +3,7 @@ import { type PrefTypes, prefs } from 'common/prefs';
 import { debounce } from 'common/timings';
 import type { BoardElements } from 'shogiground/types';
 
-type MouchEvent = MouseEvent & TouchEvent;
+type MouchEvent = MouseEvent | TouchEvent;
 
 export default function resizeHandle(
   els: BoardElements,
@@ -78,7 +78,7 @@ export default function resizeHandle(
 }
 
 function eventPosition(e: MouchEvent): [number, number] | undefined {
-  if (e.clientX || e.clientX === 0) return [e.clientX, e.clientY];
+  if ('clientX' in e) return [e.clientX, e.clientY];
   if (e.touches && e.targetTouches[0])
     return [e.targetTouches[0].clientX, e.targetTouches[0].clientY];
   return undefined;

@@ -63,7 +63,7 @@ function main(redraw: Redraw) {
         [
           h('h1', gameText(ctrl)),
           h('h2', i18n('nvui:gameInfo')),
-          ...['sente', 'gote'].map((color: Color) =>
+          ...(['sente', 'gote'] as const).map(color =>
             h('p', [`${color} player: `, playerHtml(ctrl, ctrl.playerByColor(color))]),
           ),
           h('p', `${d.game.rated ? i18n('rated') : i18n('casual')} ${d.game.perf}`),

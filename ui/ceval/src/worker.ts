@@ -22,7 +22,7 @@ declare global {
 }
 
 export abstract class AbstractWorker<T> {
-  private booted: boolean;
+  private booted = false;
 
   constructor(readonly opts: T) {}
 

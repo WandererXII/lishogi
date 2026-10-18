@@ -88,8 +88,8 @@ export default class TournamentController {
       },
     );
 
-    if (this.isRobin()) this.activeTab = storedProp('tournament.tab.robin', 'games');
-    else if (this.isOrganized()) this.activeTab = storedProp('tournament.tab.org', 'games');
+    if (this.isRobin()) this.activeTab = storedProp<Tab>('tournament.tab.robin', 'games');
+    else if (this.isOrganized()) this.activeTab = storedProp<Tab>('tournament.tab.org', 'games');
 
     if (this.activeTab?.() === 'challenges' && !this.data.isStarted) this.activeTab('games');
 

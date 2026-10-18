@@ -14,7 +14,7 @@
   "homepage": "https://lishogi.org",
   "engines": {
     "node": ">=22",
-    "pnpm": ">=10.6"
+    "pnpm": ">=10.26.0"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.4.7",
@@ -22,13 +22,12 @@
     "@types/jquery": "^3.5.34",
     "@types/lishogi": "workspace:*",
     "@types/node": "^22.19.15",
-    "@typescript/native-preview": "7.0.0-dev.20260317.1",
     "knip": "^5.87.0",
     "prettier": "^3.8.1",
     "stylelint": "^16.26.1",
     "stylelint-config-standard-scss": "^16.0.0",
     "tsx": "^4.21.0",
-    "typescript": "^5.9.3"
+    "typescript": "^7"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",
@@ -37,7 +36,6 @@
     "ui:lint": "biome check && knip --no-config-hints && stylelint **/*.scss --cache --ignore-path .gitignore",
     "ui:lint:fix": "biome check --write && knip --no-config-hints --fix && stylelint **/*.scss --cache --ignore-path .gitignore --fix",
     "ui:type-check": "pnpm -F './ui/*' -F './ui/@build/*' exec sh -c 'pwd && tsc --noEmit'",
-    "ui:type-check-native": "pnpm -F './ui/*' -F './ui/@build/*' exec sh -c 'pwd && tsgo --noEmit'",
     "ui:format": "biome format && prettier --cache --check .",
     "ui:format:fix": "biome format --write && prettier --cache --write .",
     "i18n:lint": "pnpm -F @bin/utils run trans:lint",

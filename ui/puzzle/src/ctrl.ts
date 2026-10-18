@@ -30,7 +30,6 @@ import type {
   MoveTest,
   PuzzleData,
   PuzzleOpts,
-  PuzzleResult,
   RoundThemes,
   ThemeKey,
   Vm,
@@ -282,20 +281,19 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
     vm.resultSent = true;
     vm.result = win ? 'win' : 'fail';
     session.complete(data.puzzle.id, win);
-    return xhr
-      .complete(data.puzzle.id, data.theme.key, win, data.replay)
-      .then((res: PuzzleResult) => {
-        if (res?.next.user && data.user) {
-          data.user.rating = res.next.user.rating;
-          data.user.provisional = res.next.user.provisional;
-          vm.round = res.round;
-          if (res.round?.ratingDiff) session.setRatingDiff(data.puzzle.id, res.round.ratingDiff);
-        }
-        if (win) speech.success();
-        if (res.replayComplete) vm.next.reject('replay complete');
-        else vm.next.resolve(res.next);
-        redraw();
-      });
+    return xhr.complete(data.puzzle.id, data.theme.key, win, data.replay).then(res => {
+      if (!res) return;
+      if (res?.next.user && data.user) {
+        data.user.rating = res.next.user.rating;
+        data.user.provisional = res.next.user.provisional;
+        vm.round = res.round;
+        if (res.round?.ratingDiff) session.setRatingDiff(data.puzzle.id, res.round.ratingDiff);
+      }
+      if (win) speech.success();
+      if (res.replayComplete) vm.next.reject('replay complete');
+      else vm.next.resolve(res.next);
+      redraw();
+    });
   }
 
   function nextPuzzle(): void {

@@ -1,10 +1,11 @@
 import { prefs } from 'common/prefs';
+import { promote, roleToForsyth, unpromote } from 'common/shogiops';
 import { notationFiles, notationRanks } from 'shogi/notation';
 import resizeHandle from 'shogi/resize';
 import type { Config as SgConfig } from 'shogiground/config';
 import type { BoardElements, HandElements } from 'shogiground/types';
-import { forsythToRole, roleToForsyth } from 'shogiops/sfen';
-import { handRoles, promote, unpromote } from 'shogiops/variant/util';
+import { forsythToRole } from 'shogiops/sfen';
+import { handRoles } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type EditorCtrl from './ctrl';
 

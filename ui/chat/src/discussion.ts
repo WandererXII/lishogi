@@ -16,7 +16,11 @@ declare global {
     lishogi: {
       pubsub: { emit: (event: string, data: any) => void };
       tempStorage: {
-        make: (key: string) => { get: () => string | null; set: (v: string) => void; remove: () => void };
+        make: (key: string) => {
+          get: () => string | null;
+          set: (v: string) => void;
+          remove: () => void;
+        };
       };
       mousetrap: { bind: (key: string, fn: () => boolean | void) => void };
     };
@@ -118,10 +122,12 @@ function renderInput(ctrl: ChatCtrl): VNode | undefined {
   });
 }
 
+let mouchListener: (e: MouseEvent | TouchEvent) => void;
+
 const setupHooks = (ctrl: ChatCtrl, chatEl: HTMLInputElement) => {
   const storage = window.lishogi.tempStorage.make('chatInput');
   const savedVal = storage.get();
-  
+
   if (savedVal) {
     chatEl.value = savedVal;
     storage.remove();
@@ -132,7 +138,7 @@ const setupHooks = (ctrl: ChatCtrl, chatEl: HTMLInputElement) => {
     if (e.key === 'Enter') {
       e.preventDefault();
       const txt = chatEl.value.trim();
-      
+
       if (txt === '') {
         const kbdInput = document.querySelector('.keyboard-move input') as HTMLElement;
         if (kbdInput) kbdInput.focus();
@@ -159,8 +165,8 @@ const setupHooks = (ctrl: ChatCtrl, chatEl: HTMLInputElement) => {
   });
 
   // Ensure clicks remove chat focus
-  const mouchEvents = ['touchstart', 'mousedown'];
-  
+  const mouchEvents = ['touchstart', 'mousedown'] as const;
+
   const mouchListener = (e: MouseEvent | TouchEvent) => {
     if (e instanceof MouseEvent) {
       if (!e.shiftKey && e.buttons !== 2 && e.button !== 2) chatEl.blur();
@@ -241,7 +247,7 @@ function renderText(t: string, parseMoves: boolean, system: boolean) {
       },
     } as any);
   }
-  
+
   return h('t', { attrs }, maybeTranslated);
 }
 
@@ -253,7 +259,7 @@ function separateTimestamp(str: string): [string, string] {
 function translateMessage(t: string): string {
   const parts = t.split(':');
   const prefix = parts[0];
-  
+
   if (prefix !== 'key') return t;
 
   const trans = parts[1];
@@ -316,9 +322,9 @@ function translateMessage(t: string): string {
 function report(ctrl: ChatCtrl, line: HTMLElement) {
   const userA = line.querySelector('a.user-link') as HTMLAnchorElement;
   const tNode = line.querySelector('t') as HTMLElement;
-  
+
   if (!userA || !tNode) return;
-  
+
   const text = tNode.innerText;
   if (confirm(`Report "${text}" to moderators?`)) {
     const userId = userA.href.split('/')[4];

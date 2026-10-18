@@ -1,19 +1,19 @@
 import { prefs } from 'common/prefs';
+import { promote, roleToForsyth } from 'common/shogiops';
 import { notationFiles, notationRanks } from 'shogi/notation';
 import { predrop } from 'shogi/pre-drop';
 import { premove } from 'shogi/pre-move';
 import resizeHandle from 'shogi/resize';
 import type { Config } from 'shogiground/config';
 import { usiToSquareNames } from 'shogiops/compat';
-import { forsythToRole, parseSfen, roleToForsyth } from 'shogiops/sfen';
-import type { Piece, Role } from 'shogiops/types';
+import { forsythToRole, parseSfen } from 'shogiops/sfen';
+import type { Piece } from 'shogiops/types';
 import { makeSquareName, parseSquareName } from 'shogiops/util';
 import {
   handRoles,
   pieceCanPromote,
   pieceForcePromote,
   promotableOnDrop,
-  promote,
 } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type RoundController from './ctrl';
@@ -102,9 +102,7 @@ export function makeConfig(ctrl: RoundController): Config {
       },
     },
     promotion: {
-      promotesTo: (role: Role) => {
-        return promote(variant)(role);
-      },
+      promotesTo: promote(variant),
       movePromotionDialog: (orig: Key, dest: Key) => {
         const piece = ctrl.shogiground.state.pieces.get(orig) as Piece | undefined;
         const capture = ctrl.shogiground.state.pieces.get(dest) as Piece | undefined;

@@ -73,6 +73,6 @@ export default function renderActions(ctrl: MsgCtrl, convo: Convo): VNode[] {
   return nodes;
 }
 
-const withConfirm = (f: () => void) => (e: MouseEvent) => {
+const withConfirm = (f: () => void) => (e: Event) => {
   if (confirm(`${(e.target as HTMLElement).getAttribute('title') || 'Confirm'}?`)) f();
 };

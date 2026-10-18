@@ -1,10 +1,11 @@
 import type { Api as SgApi } from 'shogiground/api';
 import type { Config } from 'shogiground/config';
 import { usiToSquareNames } from 'shogiops/compat';
-import { forsythToRole, roleToForsyth } from 'shogiops/sfen';
+import { forsythToRole } from 'shogiops/sfen';
 import { handRoles } from 'shogiops/variant/util';
 import { loadPieceSpriteByVariant } from './assets';
 import * as domData from './data';
+import { roleToForsyth } from './shogiops';
 import { wsSend } from './ws';
 
 export const initAll = (): void => {

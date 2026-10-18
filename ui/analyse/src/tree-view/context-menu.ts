@@ -137,7 +137,7 @@ function view(opts: Opts, coords: Coords): VNode {
   );
 }
 
-export default function (e: MouseEvent, opts: Opts): void {
+export default function (e: MouseEvent | TouchEvent, opts: Opts): void {
   let pos = getPosition(e);
   if (pos === null) {
     if (opts.root.contextMenuPath) return;

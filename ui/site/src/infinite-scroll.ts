@@ -1,8 +1,9 @@
 import * as domData from 'common/data';
 import { spinnerHtml } from 'common/spinner';
 
-export function loadInfiniteScroll(sel: string): void {
-  document.querySelectorAll(sel).forEach((el: HTMLElement) => {
+export function loadInfiniteScroll(sel: string | HTMLElement): void {
+  const elements = typeof sel === 'string' ? document.querySelectorAll<HTMLElement>(sel) : [sel];
+  elements.forEach(el => {
     if (!el.querySelector('.pager a')) return;
 
     const parent = getOutOfTable(el.parentElement);
@@ -40,7 +41,7 @@ export function loadInfiniteScroll(sel: string): void {
     infScroll.on('append', () => {
       window.lishogi.pubsub.emit('content_loaded');
       const ids: string[] = [];
-      el.querySelectorAll('.paginated[data-dedup]').forEach((dedupEL: HTMLElement) => {
+      el.querySelectorAll<HTMLElement>('.paginated[data-dedup]').forEach(dedupEL => {
         const id = dedupEL.dataset.dedup;
         if (id) {
           if (ids.includes(id)) dedupEL.remove();
