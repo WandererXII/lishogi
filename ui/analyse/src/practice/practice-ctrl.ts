@@ -210,7 +210,7 @@ export function make(root: AnalyseCtrl, playableDepth: number): PracticeCtrl {
     },
     commentShape(enable: boolean) {
       const c = comment();
-      if (!enable || !c || !c.best) hovering(null);
+      if (!enable || !c?.best) hovering(null);
       else
         hovering({
           usi: c.best.usi,

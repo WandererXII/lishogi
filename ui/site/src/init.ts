@@ -227,7 +227,7 @@ export function init(): void {
         const handler: (e: JQuery.ClickEvent) => void = (e: JQuery.ClickEvent) => {
           if (
             $.contains($p[0], e.target as HTMLElement) ||
-            !!$('.sp-container:not(.sp-hidden)').length
+            $('.sp-container:not(.sp-hidden)').length
           )
             return;
           $p.removeClass('shown');

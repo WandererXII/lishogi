@@ -101,15 +101,12 @@
       'uchat . under under';
     grid-gap: 0;
 
-    &__underboard {
-      margin-top: 3vmin;
-    }
-
     &__underchat {
       margin-top: 2vmin;
     }
 
     &__underboard {
+      margin-top: 3vmin;
       display: grid;
       grid-template-columns:
         var(--col3-uniboard-main-size)

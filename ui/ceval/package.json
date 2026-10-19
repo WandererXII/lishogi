@@ -14,7 +14,7 @@
     "breakpoint-sass": "catalog:",
     "common": "workspace:*",
     "i18n": "workspace:*",
-    "idb-keyval": "^6.2.2",
+    "idb-keyval": "^6.3.0",
     "shogi": "workspace:*",
     "shogiground": "catalog:",
     "shogiops": "catalog:",

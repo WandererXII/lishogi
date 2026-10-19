@@ -58,13 +58,7 @@ export default function (opts: Opts): DrawShape[] {
         shapes = shapes.concat(
           makeAutoShapesFromUsi(nextBest, turnColor, useCur && n.ceval ? 'engine' : 'engineThreat'),
         );
-      if (
-        opts.ceval.enabled() &&
-        n.ceval &&
-        n.ceval.pvs &&
-        n.ceval.pvs[1] &&
-        !(opts.threatMode && n.threat && n.threat.pvs[2])
-      ) {
+      if (opts.ceval.enabled() && n.ceval?.pvs?.[1] && !(opts.threatMode && n.threat?.pvs[2])) {
         n.ceval.pvs.forEach((pv, i) => {
           if (pv.moves[0] === nextBest) return;
           const shift = winningChances.povDiff(color as Color, n.ceval!.pvs[0], pv);

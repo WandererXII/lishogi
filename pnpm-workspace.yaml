@@ -9,7 +9,7 @@ catalog:
   breakpoint-sass: github:WandererXII/breakpoint#4.1
   shogiground: ^0.10.3
   shogiops: ^0.21.0
-  snabbdom: ^3.6.3
+  snabbdom: ^3.6.4
 
 minimumReleaseAge: 1440
 minimumReleaseAgeExclude:

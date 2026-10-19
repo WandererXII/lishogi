@@ -65,7 +65,7 @@ export function initWidgets(): void {
     },
 
     renderLine: ($line: JQuery, data: WatchersData | undefined) => {
-      if (!data || !data.nb) {
+      if (!data?.nb) {
         $line.addClass('none');
         return;
       }

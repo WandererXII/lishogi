@@ -13,7 +13,7 @@ import * as util from '../util';
 
 function studyAdvancedButton(ctrl: RoundController): VNode | null {
   const d = ctrl.data;
-  return game.replayable(d) && !!ctrl.data.player.user
+  return game.replayable(d) && ctrl.data.player.user
     ? h(
         'a.fbt.new-study-button',
         {

@@ -57,7 +57,6 @@ export interface StudyCtrl {
   redraw: Redraw;
 }
 
-export type Tab = '' | 'members' | 'chapters';
 export type ToolTab =
   | 'study'
   | 'members'
@@ -259,7 +258,7 @@ export interface ChapterPreview {
   playing: boolean;
 }
 
-export interface ChapterPreviewPlayer {
+interface ChapterPreviewPlayer {
   name: string;
   rating?: number;
 }

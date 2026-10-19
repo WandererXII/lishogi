@@ -160,7 +160,7 @@ function movetime(
     datasets.push(...moveSeriesSet);
   }
 
-  if (!data.clock || data.clock.initial !== 0) {
+  if (data.clock?.initial !== 0) {
     datasets.push(...lineBuilder(totalSeriesPlot, false));
     datasets.push(...lineBuilder(totalSeriesPlot, true));
   }

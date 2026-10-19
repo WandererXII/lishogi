@@ -38,11 +38,9 @@ html.custom-light {
   --c-good: var(--c-green);
   --c-good-over: #fff; // fallback
   --c-bad: var(--c-red);
-  --c-bad: var(--c-red);
   --c-bad-over: #fff; // fallback
   --c-warn: color-mix(in srgb, var(--c-bad) 70%, yellow);
   --c-warn-over: #fff; // fallback
-  --c-bad-over: #fff; // fallback
   --c-font-metal-hover: var(--c-font-clear);
   --c-font-metal: inherit;
   --metal-shadow: none;
@@ -54,13 +52,12 @@ html.custom-light {
 
 @supports (color: oklch(from var(--c-accent) calc(1 - round(l, 1)) 0 0)) {
   html.custom-light {
-    --c-accent-over: oklch(from var(--c-accent) calc(1 - round(l, 1)) 0 0);
-    --c-primary-over: oklch(from var(--c-primary) calc(1 - round(l, 1)) 0 0);
-    --c-secondary-over: oklch(from var(--c-secondary) calc(1 - round(l, 1)) 0 0);
-    --c-brag-over: oklch(from var(--c-brag) calc(1 - round(l, 1)) 0 0);
-    --c-good-over: oklch(from var(--c-good) calc(1 - round(l, 1)) 0 0);
-    --c-warn-over: oklch(from var(--c-warn) calc(1 - round(l, 1)) 0 0);
-    --c-bad-over: oklch(from var(--c-bad) calc(1 - round(l, 1)) 0 0);
-    --c-bad-over: oklch(from var(--c-bad) calc(1 - round(l, 1)) 0 0);
+    --c-accent-over: oklch(from var(--c-accent) calc(1 - round(l, 1)) 0 0deg);
+    --c-primary-over: oklch(from var(--c-primary) calc(1 - round(l, 1)) 0 0deg);
+    --c-secondary-over: oklch(from var(--c-secondary) calc(1 - round(l, 1)) 0 0deg);
+    --c-brag-over: oklch(from var(--c-brag) calc(1 - round(l, 1)) 0 0deg);
+    --c-good-over: oklch(from var(--c-good) calc(1 - round(l, 1)) 0 0deg);
+    --c-warn-over: oklch(from var(--c-warn) calc(1 - round(l, 1)) 0 0deg);
+    --c-bad-over: oklch(from var(--c-bad) calc(1 - round(l, 1)) 0 0deg);
   }
 }

@@ -5,7 +5,7 @@ import { i18n } from 'i18n';
 import { pubsub } from './pubsub';
 import { initiatingHtml } from './util';
 
-export interface UserData {
+interface UserData {
   id: string;
   name: string;
   patron?: boolean;

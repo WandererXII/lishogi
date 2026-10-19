@@ -10,10 +10,6 @@ export function chapterConfig(studyId: string, chapterId: string): Promise<Study
   return window.lishogi.xhr.json('GET', `/study/${studyId}/${chapterId}/meta`);
 }
 
-export function practiceComplete(chapterId: string, nbMoves: number): Promise<void> {
-  return window.lishogi.xhr.json('POST', `/practice/complete/${chapterId}/${nbMoves}`);
-}
-
 export function importNotation(studyId: string, data: Record<string, any>): Promise<void> {
   return window.lishogi.xhr.json(
     'POST',

@@ -26,10 +26,10 @@ export default function renderClock(run: Run, onFlag: OnFlag, withBonus: boolean
     }),
     ...(withBonus
       ? [
-          !!malus && malus.at > getNow() - 900
+          malus && malus.at > getNow() - 900
             ? h('div.puz-clock__malus', `-${malus.seconds}`)
             : null,
-          !!bonus && bonus.at > getNow() - 900
+          bonus && bonus.at > getNow() - 900
             ? h('div.puz-clock__bonus', `+${bonus.seconds}`)
             : null,
         ]

@@ -42,7 +42,7 @@ export default function moveTest(vm: Vm, puzzle: Puzzle): MoveTestReturn {
     const shogi = parseSfen('standard', nodes[i].sfen, false).unwrap() as Shogi;
     const outcome = shogi.outcome()?.result;
     const winOutcomes: Result[] = ['checkmate', 'stalemate'];
-    if (!!outcome && winOutcomes.includes(outcome)) {
+    if (outcome && winOutcomes.includes(outcome)) {
       vm.node.puzzle = 'win';
       return vm.node.puzzle;
     }

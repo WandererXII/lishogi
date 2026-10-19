@@ -166,7 +166,7 @@ export default class TournamentController {
 
     this.loadPage(data.standing);
 
-    if (this.activeTab?.() === 'challenges' && !!data.isFinished) this.activeTab('games');
+    if (this.activeTab?.() === 'challenges' && data.isFinished) this.activeTab('games');
 
     sound.end(this.data);
     sound.countDown(this.data);

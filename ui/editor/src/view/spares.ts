@@ -39,7 +39,7 @@ export function sparePieces(ctrl: EditorCtrl, color: Color, position: 'top' | 'b
           const active = ctrl.shogiground.state.selectedPiece?.color === color;
           const elm = vnode.elm as HTMLElement;
           elm.classList.toggle('active', active);
-          if (!!ctrl.shogiground.state.selectedPiece && !active)
+          if (ctrl.shogiground.state.selectedPiece && !active)
             elm.classList.toggle('inactive', !active);
           else elm.classList.remove('inactive');
         },

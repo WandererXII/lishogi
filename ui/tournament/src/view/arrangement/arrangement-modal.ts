@@ -97,7 +97,7 @@ function header(ctrl: TournamentController, a: Arrangement): VNode {
           }),
         )
       : null,
-    ctrl.isCreator() && !ctrl.isOrganized() && !!a.gameId && !ctrl.data.isFinished
+    ctrl.isCreator() && !ctrl.isOrganized() && a.gameId && !ctrl.data.isFinished
       ? h(
           'a.annul-icon',
           {
@@ -299,7 +299,7 @@ function points(ctrl: TournamentController, a: Arrangement, user: ArrangementUse
 }
 
 function colors(a: Arrangement, user: ArrangementUser): MaybeVNode {
-  if (!a.gameId && !!a.color) {
+  if (!a.gameId && a.color) {
     const isColorPlayer = a.user1?.id === user.id;
     return h(`div.color-icon.${isColorPlayer ? a.color : opposite(a.color)}`, {
       attrs: {

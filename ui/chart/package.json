@@ -4,7 +4,7 @@
   "license": "AGPL-3.0-or-later",
   "type": "module",
   "dependencies": {
-    "@ctrl/tinycolor": "^4.2.0",
+    "@ctrl/tinycolor": "^4.2.1",
     "@juggle/resize-observer": "^3.4.0",
     "breakpoint-sass": "catalog:",
     "ceval": "workspace:*",
@@ -13,7 +13,7 @@
     "chartjs-plugin-datalabels": "^2.2.0",
     "chartjs-plugin-zoom": "^2.2.0",
     "common": "workspace:*",
-    "dayjs": "^1.11.20",
+    "dayjs": "^1.11.23",
     "game": "workspace:*",
     "i18n": "workspace:*"
   }

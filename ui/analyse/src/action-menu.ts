@@ -70,7 +70,7 @@ function autoplayButtons(ctrl: AnalyseCtrl): VNode {
   const d = ctrl.data;
   const speeds = [
     ...baseSpeeds,
-    ...(!!d.clock && notEmpty(d.game.moveCentis) ? [realtimeSpeed] : []),
+    ...(d.clock && notEmpty(d.game.moveCentis) ? [realtimeSpeed] : []),
     ...(d.analysis ? [cplSpeed] : []),
   ];
   return h(

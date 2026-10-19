@@ -10,3 +10,57 @@ index 941abe3546bba24c4b0b2851ab0b9d92286aff07..a8abea4a8f30cba512d39c077c5603a6
        "import": "./dist/esm/index.js",
        "require": "./dist/toastui-editor.js"
      },
+diff --git a/types/convertor.d.ts b/types/convertor.d.ts
+index 2ab9c93933161301372710ea788ab1a2ddecf931..8e1d43ab63d5a14b10e2a409ec21e4a66f18f469 100644
+--- a/types/convertor.d.ts
++++ b/types/convertor.d.ts
+@@ -1,4 +1,4 @@
+-import { NodeType, MarkType, Schema, ProsemirrorNode, Mark } from 'prosemirror-model';
++import { NodeType, MarkType, Schema, Node as ProsemirrorNode, Mark } from 'prosemirror-model';
+ import { MdNode, MdNodeType, RendererOptions, HTMLToken, MdPos } from './toastmark';
+ import { WwNodeType, WwMarkType } from './wysiwyg';
+ 
+diff --git a/types/editor.d.ts b/types/editor.d.ts
+index 9c14b98574acdce406b2c900ce1ae062817dad7a..211870fda1e2f6ebf86b90d5df76036768943ece 100644
+--- a/types/editor.d.ts
++++ b/types/editor.d.ts
+@@ -3,7 +3,7 @@ import { EditorView, Decoration, DecorationSet } from 'prosemirror-view';
+ import { EditorState, Plugin, PluginKey, Selection, TextSelection } from 'prosemirror-state';
+ import { undoInputRule, InputRule, inputRules } from 'prosemirror-inputrules';
+ import { keymap } from 'prosemirror-keymap';
+-import { Editor } from '@t/index';
++// Editor is declared in this module.
+ 
+ import {
+   HTMLConvertor,
+@@ -333,7 +333,7 @@ export interface Base {
+ 
+   createSchema(): Schema;
+ 
+-  createKeymaps(useCommandShortcut: boolean): Plugin<any, any>[];
++  createKeymaps(useCommandShortcut: boolean): Plugin<any>[];
+ 
+   createCommands(): Record<string, EditorCommandFn<Record<string, any>>>;
+ 
+diff --git a/types/spec.d.ts b/types/spec.d.ts
+index e99a61086f7d1ce48b35759d15ee3d933c4a0120..76a89b72604cb961621133b81e4a79f08b1fb73c 100644
+--- a/types/spec.d.ts
++++ b/types/spec.d.ts
+@@ -1,7 +1,7 @@
+ import { Schema } from 'prosemirror-model';
+ import { Transaction, Plugin } from 'prosemirror-state';
+ import { EditorView } from 'prosemirror-view';
+-import { Command } from 'prosemirror-commands';
++import { Command } from 'prosemirror-state';
+ import { ToastMark } from './toastmark';
+ import { Emitter } from './event';
+ 
+@@ -37,7 +37,7 @@ export interface SpecManager {
+     addedCommands?: Record<string, EditorCommand>
+   ): EditorAllCommandMap<DefaultPayload>;
+ 
+-  keymaps(useCommandShortcut: boolean): Plugin<any, any>[];
++  keymaps(useCommandShortcut: boolean): Plugin<any>[];
+ 
+   setContext(context: SpecContext): void;
+ }

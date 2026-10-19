@@ -274,7 +274,7 @@ export default function (opts: CevalOpts): CevalCtrl {
           baseName: 'stockfish',
           baseUrl: 'vendors/fairy-stockfish-nnue.wasm/',
           module: 'Stockfish',
-          version: 'a410474a',
+          version: '4d4b393',
           wasmMemory: sharedWasmMemory(fixedMemory() ? maxMemory : minMemory, maxMemory),
         });
       }

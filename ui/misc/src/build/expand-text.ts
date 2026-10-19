@@ -246,7 +246,7 @@ function getPieceDetails(char: string, variant: VariantKey): DrawShapePiece | un
   };
 }
 
-export function parseShape(s: string, variant: VariantKey): DrawShape | undefined {
+function parseShape(s: string, variant: VariantKey): DrawShape | undefined {
   const token = s.trim();
   if (!token) return undefined;
 

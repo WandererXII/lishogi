@@ -71,6 +71,7 @@ body {
 
     .fbt {
       flex: 1;
+
       &:not(.disabled):hover {
         background: theme.$m-primary_bg-box_mix_30;
       }

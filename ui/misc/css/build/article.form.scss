@@ -67,6 +67,7 @@
           border-color: theme.$c-border;
           color: red;
           background-position-y: -48px; // to show white icons
+
           @include mixins.light-theme {
             background-position-y: 4px;
           }

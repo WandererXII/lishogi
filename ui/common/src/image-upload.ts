@@ -1,6 +1,6 @@
 import { icons } from './icons';
 
-export interface ImageUploadConfig {
+interface ImageUploadConfig {
   selector: string;
   inputSelector: string;
   label: string;

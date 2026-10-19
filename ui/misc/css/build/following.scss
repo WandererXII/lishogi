@@ -21,9 +21,7 @@
 
   .following-wrap {
     @include mixins.transition(opacity);
-  }
 
-  .following-wrap {
     display: flex;
     flex-direction: column;
     border-bottom: theme.$border;

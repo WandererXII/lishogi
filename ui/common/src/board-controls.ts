@@ -51,7 +51,7 @@ function jumpButton(direction: JumpDirection, jump: JumpButton): VNode {
   });
 }
 
-export function jumpsControl(jumps: JumpsConfig): VNode {
+function jumpsControl(jumps: JumpsConfig): VNode {
   return h(
     'div.jumps',
     {

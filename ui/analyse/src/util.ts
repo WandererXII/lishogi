@@ -4,10 +4,6 @@ import { h, type VNode } from 'snabbdom';
 
 export const emptyRedButton = 'button.button.button-red.button-empty';
 
-export function readOnlyProp<A>(value: A): () => A {
-  return (): A => value;
-}
-
 export function iconTag(icon: string): VNode {
   return h('i', { attrs: dataIcon(icon) });
 }

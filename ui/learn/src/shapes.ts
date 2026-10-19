@@ -76,13 +76,13 @@ export function onSuccess<T extends Shape>(shapes: T[]): VmEvaluation<T[]> {
 
 export function onFailure<T extends Shape>(shapes: T[]): VmEvaluation<T[]> {
   return (level: Level, usiCList: UsiWithColor[]): T[] => {
-    if (usiCList.length && level.failure && level.failure(level, usiCList)) return shapes;
+    if (usiCList.length && level.failure?.(level, usiCList)) return shapes;
     else return [];
   };
 }
 
 export function checkShapes(level: Level, usiCList: UsiWithColor[]): DrawShape[] {
-  if (!usiCList.length || !level.failure || !level.failure(level, usiCList)) return [];
+  if (!usiCList.length || !level.failure?.(level, usiCList)) return [];
   const pos = currentPosition(level, usiCList);
   const sideInCheck = inCheck(pos);
   if (sideInCheck) {

@@ -34,7 +34,7 @@ export default function ctrl(opts: NotifyOpts, redraw: Redraw): Ctrl {
   }
 
   function notifyNew() {
-    if (!data || data.pager.currentPage !== 1) return;
+    if (data?.pager.currentPage !== 1) return;
     const notif = data.pager.currentPageResults.find(n => !n.read);
     if (!notif) return;
     opts.pulse();
@@ -53,14 +53,14 @@ export default function ctrl(opts: NotifyOpts, redraw: Redraw): Ctrl {
   }
 
   function nextPage() {
-    if (!data || !data.pager.nextPage) return;
+    if (!data?.pager.nextPage) return;
     scrolling = true;
     loadPage(data.pager.nextPage);
     redraw();
   }
 
   function previousPage() {
-    if (!data || !data.pager.previousPage) return;
+    if (!data?.pager.previousPage) return;
     scrolling = true;
     loadPage(data.pager.previousPage);
     redraw();

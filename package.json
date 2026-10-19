@@ -17,17 +17,17 @@
     "pnpm": ">=10.26.0"
   },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.7",
+    "@biomejs/biome": "^2.5.15",
     "@config/tsconfig": "workspace:*",
     "@types/jquery": "^3.5.34",
     "@types/lishogi": "workspace:*",
-    "@types/node": "^22.19.15",
-    "knip": "^5.87.0",
-    "prettier": "^3.8.1",
-    "stylelint": "^16.26.1",
-    "stylelint-config-standard-scss": "^16.0.0",
-    "tsx": "^4.21.0",
-    "typescript": "^7"
+    "@types/node": "^22.20.5",
+    "knip": "^6.41.0",
+    "prettier": "^3.9.10",
+    "stylelint": "^17.16.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
   },
   "scripts": {
     "preinstall": "npx only-allow pnpm",

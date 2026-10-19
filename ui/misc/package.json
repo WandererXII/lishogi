@@ -7,6 +7,7 @@
     "@liskadan/sliding-puzzles": "^0.3.0",
     "@textcomplete/core": "^0.1.13",
     "@textcomplete/textarea": "^0.1.13",
+    "@toast-ui/editor": "^3.2.2",
     "breakpoint-sass": "catalog:",
     "canvas-confetti": "^1.9.4",
     "chat": "workspace:*",
@@ -16,8 +17,7 @@
     "shogi": "workspace:*",
     "shogiground": "catalog:",
     "shogiops": "catalog:",
-    "tablesort": "^5.7.0",
-    "@toast-ui/editor": "^3.2.2"
+    "tablesort": "^5.7.1"
   },
   "devDependencies": {
     "@types/canvas-confetti": "^1.9.0"
