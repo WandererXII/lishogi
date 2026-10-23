@@ -1,8 +1,8 @@
 import type { Api as SgApi } from 'shogiground/api';
 import type { Config } from 'shogiground/config';
 import { usiToSquareNames } from 'shogiops/compat';
+import { handRoles } from 'shogiops/position/util';
 import { forsythToRole } from 'shogiops/sfen';
-import { handRoles } from 'shogiops/variant/util';
 import { loadPieceSpriteByVariant } from './assets';
 import * as domData from './data';
 import { roleToForsyth } from './shogiops';

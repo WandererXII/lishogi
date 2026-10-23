@@ -1,14 +1,14 @@
 import { plyColor } from 'shogi/common';
 import { makeNotationWithPosition } from 'shogi/notation';
 import { scalashogiCharPair } from 'shogiops/compat';
+import type { Position } from 'shogiops/position/position';
 import { initialSfen, makeSfen, parseSfen } from 'shogiops/sfen';
 import type { MoveOrDrop } from 'shogiops/types';
 import { makeUsi, parseUsi, toColor } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
 import type { TreeWrapper } from 'tree';
 
 export function usiToTree(usis: Usi[]): Tree.Node {
-  const pos = parseSfen('standard', initialSfen('standard'), false).unwrap();
+  let pos = parseSfen('standard', initialSfen('standard'), false).unwrap();
   const root: Tree.Node = {
     ply: 0,
     id: '',
@@ -18,9 +18,9 @@ export function usiToTree(usis: Usi[]): Tree.Node {
   let current = root;
   usis.forEach((usi, i) => {
     const move = parseUsi(usi)!;
-    const captured = pos.board.has(move.to);
+    const captured = pos.board.hasPieceAt(move.to);
     const notationMove = makeNotationWithPosition(pos, move, pos.lastMoveOrDrop);
-    pos.play(move);
+    pos = pos.play(move);
     const nextNode = makeNode(pos, move, notationMove, captured, i + 1);
     current.children.push(nextNode);
     current = nextNode;
@@ -48,14 +48,14 @@ export function mergeSolution(
   pov: Color,
 ): void {
   const initialNode = root.nodeAtPath(initialPath);
-  const pos = parseSfen('standard', initialNode.sfen, false).unwrap();
+  let pos = parseSfen('standard', initialNode.sfen, false).unwrap();
   const fromPly = initialNode.ply;
 
   const nodes = solution.map((usi, i) => {
     const move = parseUsi(usi)!;
-    const captured = pos.board.has(move.to);
+    const captured = pos.board.hasPieceAt(move.to);
     const notationMove = makeNotationWithPosition(pos, move, pos.lastMoveOrDrop);
-    pos.play(move);
+    pos = pos.play(move);
     const node = makeNode(pos, move, notationMove, captured, fromPly + i + 1);
     if ((pov == 'sente') == (node.ply % 2 == 1)) (node as any).puzzle = 'good';
     return node;

@@ -1,8 +1,8 @@
 import { roleName } from 'shogi/notation';
 import type { MouchEvent } from 'shogiground/types';
 import { eventPosition } from 'shogiground/util';
+import { allRoles, promote } from 'shogiops/position/util';
 import type { Piece, Role } from 'shogiops/types';
-import { allRoles, promote } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type EditorCtrl from '../ctrl';
 import { isSpecialSelected, type Selected, type SpecialSelected } from '../interfaces';

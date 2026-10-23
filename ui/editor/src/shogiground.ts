@@ -4,8 +4,8 @@ import { notationFiles, notationRanks } from 'shogi/notation';
 import resizeHandle from 'shogi/resize';
 import type { Config as SgConfig } from 'shogiground/config';
 import type { BoardElements, HandElements } from 'shogiground/types';
+import { handRoles } from 'shogiops/position/util';
 import { forsythToRole } from 'shogiops/sfen';
-import { handRoles } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type EditorCtrl from './ctrl';
 

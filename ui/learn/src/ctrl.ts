@@ -179,7 +179,7 @@ export default class LearnCtrl {
       else if (this.vm.level.failure?.(this.vm.level, this.vm.usiCList)) this.failLevel();
 
       // update shogiground accordingly
-      const pos = currentPosition(this.vm.level, this.vm.usiCList);
+      let pos = currentPosition(this.vm.level, this.vm.usiCList);
       const hasObstacles = !!this.vm.level.obstacles?.length;
       const illegalDests = !!this.vm.level.offerIllegalDests || hasObstacles;
       const active = this.vm.levelState !== 'fail' && this.vm.levelState !== 'completed';
@@ -195,15 +195,15 @@ export default class LearnCtrl {
                 : this.vm.level.showFailureMove(this.vm.level, this.vm.usiCList);
         const parsedUsi = usi && parseUsi(usi);
 
-        if (parsedUsi && pos.board.getRole(parsedUsi.to) !== 'king') {
+        if (parsedUsi && pos.board.roleAt(parsedUsi.to) !== 'king') {
           const usiC = { usi: usi, color: opposite(this.vm.level.color) };
           this.vm.usiCList.push(usiC);
-          pos.play(parsedUsi);
+          pos = pos.play(parsedUsi);
           ground.playUsi(this, usiC);
         }
       }
 
-      pos.turn = this.vm.level.color;
+      pos = pos.update({ turn: this.vm.level.color });
 
       this.shogiground.set({
         turnColor: this.vm.level.color,

@@ -83,11 +83,11 @@ export function onFailure<T extends Shape>(shapes: T[]): VmEvaluation<T[]> {
 
 export function checkShapes(level: Level, usiCList: UsiWithColor[]): DrawShape[] {
   if (!usiCList.length || !level.failure?.(level, usiCList)) return [];
-  const pos = currentPosition(level, usiCList);
+  let pos = currentPosition(level, usiCList);
   const sideInCheck = inCheck(pos);
   if (sideInCheck) {
-    const kingSq = pos.board.pieces(sideInCheck, 'king').singleSquare();
-    pos.turn = opposite(sideInCheck);
+    const kingSq = pos.board.byPiece(sideInCheck, 'king').singleSquare();
+    pos = pos.update({ turn: opposite(sideInCheck) });
     const kingAttacks = findCaptures(pos);
     return kingAttacks
       .filter(m => m.to === kingSq)

@@ -3,9 +3,9 @@ import { promote } from 'common/shogiops';
 import { notationFiles, notationRanks } from 'shogi/notation';
 import resizeHandle from 'shogi/resize';
 import type { Config as SgConfig } from 'shogiground/config';
+import { pieceCanPromote, pieceForcePromote } from 'shogiops/position/util';
 import type { Piece } from 'shogiops/types';
 import { parseSquareName } from 'shogiops/util';
-import { pieceCanPromote, pieceForcePromote } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type { Controller } from '../interfaces';
 

@@ -157,7 +157,7 @@ function pieceCounter(ctrl: EditorCtrl): VNode {
 
   const pieceCount: [Role, number, string][] = initialRoles.map((r: Role) => [
     r,
-    defaultBoard.role(r).size(),
+    defaultBoard.byRole(r).size(),
     roleName(ctrl.rules, r).toUpperCase(),
   ]);
 

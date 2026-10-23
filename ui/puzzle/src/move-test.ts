@@ -1,10 +1,10 @@
 import { plyColor } from 'shogi/common';
 import { opposite } from 'shogiground/util';
+import type { Shogi } from 'shogiops/position/rules/shogi';
+import { pieceForcePromote } from 'shogiops/position/util';
 import { parseSfen } from 'shogiops/sfen';
 import type { Result } from 'shogiops/types';
 import { isDrop, isMove, parseUsi } from 'shogiops/util';
-import type { Shogi } from 'shogiops/variant/shogi';
-import { pieceForcePromote } from 'shogiops/variant/util';
 import { path as pathOps } from 'tree';
 import type { MoveTest, Puzzle, Vm } from './interfaces';
 
@@ -18,7 +18,7 @@ function sameMove(u1: string, u2: string, shogi: Shogi): boolean {
   if (isDrop(usi1) && isDrop(usi2)) {
     return usi1.role === usi2.role && usi1.to === usi2.to;
   } else if (isMove(usi1) && isMove(usi2)) {
-    const role = shogi.board.getRole(usi1.to);
+    const role = shogi.board.roleAt(usi1.to);
     return (
       usi1.from === usi2.from &&
       usi1.to === usi2.to &&

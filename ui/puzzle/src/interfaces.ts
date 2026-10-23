@@ -7,8 +7,8 @@ import type { KeyboardMove } from 'keyboard-move';
 import type { EngineCode } from 'shogi/engine-name';
 import type { Api as SgApi } from 'shogiground/api';
 import type { Config as SgConfig } from 'shogiground/config';
+import type { Shogi } from 'shogiops/position/rules/shogi';
 import type { MoveOrDrop, Outcome, Piece } from 'shogiops/types';
-import type { Shogi } from 'shogiops/variant/shogi';
 import type { TreeWrapper } from 'tree';
 import type PuzzleSession from './session';
 

@@ -41,15 +41,17 @@ function isStandardMaterial(sfen: Sfen): boolean {
   const board = pos.value.board;
   const hands = pos.value.hands.color('sente').combine(pos.value.hands.color('gote'));
   return (
-    board.role('pawn').size() + board.role('tokin').size() + hands.get('pawn') <= 18 &&
-    board.role('lance').size() + board.role('promotedlance').size() + hands.get('lance') <= 4 &&
-    board.role('knight').size() + board.role('promotedknight').size() + hands.get('knight') <= 4 &&
-    board.role('silver').size() + board.role('promotedsilver').size() + hands.get('silver') <= 4 &&
-    board.role('gold').size() + hands.get('gold') <= 4 &&
-    board.role('rook').size() + board.role('dragon').size() + hands.get('rook') <= 2 &&
-    board.role('bishop').size() + board.role('horse').size() + hands.get('bishop') <= 2 &&
-    board.role('king').size() == 2 &&
-    board.role('king').intersect(board.color('sente')).size() === 1
+    board.byRole('pawn').size() + board.byRole('tokin').size() + hands.get('pawn') <= 18 &&
+    board.byRole('lance').size() + board.byRole('promotedlance').size() + hands.get('lance') <= 4 &&
+    board.byRole('knight').size() + board.byRole('promotedknight').size() + hands.get('knight') <=
+      4 &&
+    board.byRole('silver').size() + board.byRole('promotedsilver').size() + hands.get('silver') <=
+      4 &&
+    board.byRole('gold').size() + hands.get('gold') <= 4 &&
+    board.byRole('rook').size() + board.byRole('dragon').size() + hands.get('rook') <= 2 &&
+    board.byRole('bishop').size() + board.byRole('horse').size() + hands.get('bishop') <= 2 &&
+    board.byRole('king').size() == 2 &&
+    board.byRole('king').intersect(board.byColor('sente')).size() === 1
   );
 }
 

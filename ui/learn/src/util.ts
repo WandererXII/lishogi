@@ -1,7 +1,7 @@
+import type { Position } from 'shogiops/position/position';
 import { forsythToPiece, parseSfen } from 'shogiops/sfen';
 import type { Piece } from 'shogiops/types';
 import { opposite, parseSquareName, parseUsi } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
 import type { Level, Scenario, UsiWithColor } from './interfaces';
 
 export function createScenario(usis: Usi[], color: Color = 'sente', switchColor = false): Scenario {
@@ -18,17 +18,22 @@ export function currentPosition(
   usiCList: UsiWithColor[] = [],
   ignoreObstacles = false,
 ): Position {
-  const shogi = parseSfen('standard', level.sfen, false).unwrap();
+  let shogi = parseSfen('standard', level.sfen, false).unwrap();
   const obstacles = level.obstacles;
 
   if (!ignoreObstacles && obstacles)
     for (const obstacle of obstacles) {
-      shogi.board.set(parseSquareName(obstacle), { role: 'pawn', color: opposite(level.color) });
+      shogi = shogi.update({
+        board: shogi.board.withPieceAt(parseSquareName(obstacle), {
+          role: 'pawn',
+          color: opposite(level.color),
+        }),
+      });
     }
 
   for (const uc of usiCList) {
-    shogi.turn = uc.color;
-    shogi.play(parseUsi(uc.usi)!);
+    shogi = shogi.update({ turn: uc.color });
+    shogi = shogi.play(parseUsi(uc.usi)!);
   }
   return shogi;
 }

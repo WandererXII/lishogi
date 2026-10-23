@@ -269,6 +269,7 @@ export class Protocol {
 
       const wMoves = work.moves.filter(wm => !!wm);
       let oppositeCheckOccurred = false;
+      let position = pos.value;
 
       for (const wMove of wMoves) {
         const parsedWMove = parseUsi(wMove);
@@ -277,11 +278,11 @@ export class Protocol {
           return { initialSfen: work.initialSfen, moves: work.moves };
         }
 
-        pos.value.play(parsedWMove);
-        if (pos.value.isCheck(opposite(pos.value.turn))) oppositeCheckOccurred = true;
+        position = position.play(parsedWMove);
+        if (position.isCheck(opposite(position.turn))) oppositeCheckOccurred = true;
       }
 
-      if (oppositeCheckOccurred) return { initialSfen: makeSfen(pos.value), moves: [] };
+      if (oppositeCheckOccurred) return { initialSfen: makeSfen(position), moves: [] };
 
       return { initialSfen: work.initialSfen, moves: work.moves };
     } else return { initialSfen: work.initialSfen, moves: work.moves };

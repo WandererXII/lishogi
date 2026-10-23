@@ -21,6 +21,9 @@ import type * as sg from 'shogiground/types';
 import { samePiece } from 'shogiground/util';
 import { eagleLionAttacks, falconLionAttacks } from 'shogiops/attacks';
 import { checksSquareNames, shogigroundSecondLionStep, usiToSquareNames } from 'shogiops/compat';
+import type { PositionError, Position as ShogiPosition } from 'shogiops/position/position';
+import type { Chushogi } from 'shogiops/position/rules/chushogi';
+import { handRoles, promotableOnDrop, promote, unpromote } from 'shogiops/position/util';
 import { initialSfen, parseSfen } from 'shogiops/sfen';
 import type { NormalMove, Piece, Role, Square } from 'shogiops/types';
 import {
@@ -34,9 +37,6 @@ import {
   type Result,
   squareDist,
 } from 'shogiops/util';
-import type { Chushogi } from 'shogiops/variant/chushogi';
-import type { PositionError, Position as ShogiPosition } from 'shogiops/variant/position';
-import { handRoles, promotableOnDrop, promote, unpromote } from 'shogiops/variant/util';
 import * as blur from './blur';
 import * as cevalSub from './ceval-sub';
 import { ClockController } from './clock/clock-ctrl';
@@ -280,7 +280,7 @@ export default class RoundController {
 
   private onChushogiMove = (orig: Key, dest: Key, prom: boolean, meta: sg.MoveMetadata) => {
     const posRes = this.position(this.stepAt(this.ply));
-    const piece = posRes.isOk && posRes.value.board.get(parseSquareName(orig))!;
+    const piece = posRes.isOk && posRes.value.board.pieceAt(parseSquareName(orig))!;
     if (
       piece &&
       this.lionFirstMove === undefined &&
@@ -335,9 +335,9 @@ export default class RoundController {
     const pos = this.position(this.stepAt(this.ply));
     const parsed = parseUsi(usi);
     if (parsed && pos.isOk && pos.value.isLegal(parsed)) {
-      pos.value.play(parsed);
+      const next = pos.value.play(parsed);
       this.shogiground.set({
-        checks: checksSquareNames(pos.value),
+        checks: checksSquareNames(next),
       });
     }
   }

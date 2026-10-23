@@ -42,14 +42,13 @@ export function scenarioFailure(level: Level, usiCList: UsiWithColor[]): boolean
 export function extinct(color: Color): Assertion {
   return (level: Level, usiCList: UsiWithColor[]) => {
     const shogi = currentPosition(level, usiCList);
-    return shogi.board.color(color).isEmpty();
+    return shogi.board.byColor(color).isEmpty();
   };
 }
 
 export function check(color: Color): Assertion {
   return (level: Level, usiCList: UsiWithColor[]) => {
-    const shogi = currentPosition(level, usiCList);
-    shogi.turn = color;
+    const shogi = currentPosition(level, usiCList).update({ turn: color });
     return shogi.isCheck();
   };
 }
@@ -62,21 +61,19 @@ export function checkmate(level: Level, usiCList: UsiWithColor[]): boolean {
 }
 
 export function unprotectedCapture(level: Level, usiCList: UsiWithColor[]): boolean {
-  const pos = currentPosition(level, usiCList);
-  pos.turn = opposite(level.color);
+  const pos = currentPosition(level, usiCList).update({ turn: opposite(level.color) });
   return !!findUnprotectedCapture(pos);
 }
 
 export function anyCapture(level: Level, usiCList: UsiWithColor[]): boolean {
-  const pos = currentPosition(level, usiCList);
-  pos.turn = opposite(level.color);
+  const pos = currentPosition(level, usiCList).update({ turn: opposite(level.color) });
   return !!findCapture(pos);
 }
 
 export function pieceOn(piece: Piece, key: Key): Assertion {
   return (level: Level, usiCList: UsiWithColor[]) => {
     const shogi = currentPosition(level, usiCList);
-    const boardPiece = shogi.board.get(parseSquareName(key));
+    const boardPiece = shogi.board.pieceAt(parseSquareName(key));
     return !!boardPiece && samePiece(piece, boardPiece);
   };
 }
@@ -84,7 +81,7 @@ export function pieceOn(piece: Piece, key: Key): Assertion {
 export function colorOn(color: Color, key: Key): Assertion {
   return (level: Level, usiCList: UsiWithColor[]) => {
     const shogi = currentPosition(level, usiCList);
-    const boardColor = shogi.board.getColor(parseSquareName(key));
+    const boardColor = shogi.board.colorAt(parseSquareName(key));
     return !!boardColor && color === boardColor;
   };
 }

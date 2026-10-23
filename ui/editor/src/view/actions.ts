@@ -1,9 +1,9 @@
 import { icons } from 'common/icons';
 import { i18n, i18nFormatCapitalized } from 'i18n';
 import { colorName } from 'shogi/color-name';
+import { handRoles } from 'shogiops/position/util';
 import { initialSfen } from 'shogiops/sfen';
 import { opposite } from 'shogiops/util';
-import { handRoles } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type EditorCtrl from '../ctrl';
 import type { EditorState } from '../interfaces';

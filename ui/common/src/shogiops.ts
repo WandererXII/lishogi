@@ -1,7 +1,7 @@
 import { ROLES } from 'shogiops/constants';
+import { promote as shogiopsPromote, unpromote as shogiopsUnpromote } from 'shogiops/position/util';
 import { roleToForsyth as shogiopsRoleToForsyth } from 'shogiops/sfen';
 import type { Role, Rules } from 'shogiops/types';
-import { promote as shogiopsPromote, unpromote as shogiopsUnpromote } from 'shogiops/variant/util';
 
 export function roleToForsyth(rules: Rules): (role: string) => string | undefined {
   return adaptRole(shogiopsRoleToForsyth(rules));

@@ -3,8 +3,8 @@ import * as data from 'common/data';
 import type { Api } from 'shogiground/api';
 import type { Config } from 'shogiground/config';
 import { usiToSquareNames } from 'shogiops/compat';
+import { handRoles } from 'shogiops/position/util';
 import { forsythToRole } from 'shogiops/sfen';
-import { handRoles } from 'shogiops/variant/util';
 import { resize } from '../util';
 
 function parseSfen(el: HTMLElement): void {

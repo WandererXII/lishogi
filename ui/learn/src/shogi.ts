@@ -1,10 +1,10 @@
 import { randomNumber } from 'common/common';
 import type { DropDests, MoveDests } from 'shogiground/types';
+import type { Position } from 'shogiops/position/position';
+import { fullSquareSet, handRoles } from 'shogiops/position/util';
 import { SquareSet } from 'shogiops/square-set';
 import type { NormalMove, PieceName, Square } from 'shogiops/types';
 import { makeSquareName, makeUsi, opposite } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
-import { fullSquareSet, handRoles } from 'shogiops/variant/util';
 
 export function illegalShogigroundMoveDests(pos: Position): MoveDests {
   const result = new Map();
@@ -66,7 +66,7 @@ export function findCaptures(pos: Position): NormalMove[] {
   const captures: NormalMove[] = [];
   for (const [orig, dests] of pos.allMoveDests()) {
     for (const dest of dests) {
-      if (pos.board.color(opposite(pos.turn)).has(dest)) {
+      if (pos.board.byColor(opposite(pos.turn)).has(dest)) {
         captures.push({ from: orig, to: dest });
       }
     }
@@ -81,9 +81,8 @@ export function findCapture(pos: Position): Usi | undefined {
 
 export function findUnprotectedCapture(pos: Position): Usi | undefined {
   const move = findCaptures(pos).find(move => {
-    const clone = pos.clone();
-    clone.play(move);
-    for (const [_orig, dests] of clone.allMoveDests()) {
+    const nextPos = pos.play(move);
+    for (const [_orig, dests] of nextPos.allMoveDests()) {
       if (dests.has(move.to)) return false;
     }
     return true;
@@ -93,8 +92,7 @@ export function findUnprotectedCapture(pos: Position): Usi | undefined {
 
 export function inCheck(pos: Position): Color | undefined {
   if (pos.isCheck()) return pos.turn;
-  const clone = pos.clone();
-  clone.turn = opposite(pos.turn);
-  if (clone.isCheck()) return clone.turn;
+  const oppositePos = pos.update({ turn: opposite(pos.turn) });
+  if (oppositePos.isCheck()) return oppositePos.turn;
   return;
 }

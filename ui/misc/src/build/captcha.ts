@@ -4,9 +4,9 @@ import { reverse } from 'common/string';
 import type { Api as ShogigroundApi } from 'shogiground/api';
 import * as compat from 'shogiops/compat';
 import { Hand, Hands } from 'shogiops/hands';
+import * as util from 'shogiops/position/util';
 import { makeSfen, parseSfen } from 'shogiops/sfen';
 import type { Role } from 'shogiops/types';
-import * as util from 'shogiops/variant/util';
 
 const readServerValue = (t: string): string => atob(reverse(t));
 
@@ -19,12 +19,12 @@ window.lishogi.ready.then(() => {
 
       let sfen = readServerValue(board.dataset.z!);
 
-      const pos = parseSfen('minishogi', sfen, false);
+      let pos = parseSfen('minishogi', sfen, false);
       if (pos.isOk) {
         const senteHand = orientation === 'gote' ? pos.value.hands.color('sente') : Hand.empty();
         const goteHand = orientation === 'sente' ? pos.value.hands.color('gote') : Hand.empty();
-        pos.value.hands = Hands.from(senteHand, goteHand);
-        sfen = makeSfen(pos.value);
+        pos = pos.map(position => position.update({ hands: Hands.from(senteHand, goteHand) }));
+        sfen = pos.unwrap(position => makeSfen(position));
       }
 
       initOneWithState(board, {

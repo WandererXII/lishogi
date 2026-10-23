@@ -5,12 +5,12 @@ import { allKeys, files, ranks } from 'shogiground/constants';
 import { boardToSfen } from 'shogiground/sfen';
 import type { Hand, Hands, Pieces } from 'shogiground/types';
 import { opposite } from 'shogiground/util';
-import { makeKifBoard } from 'shogiops/notation/kif';
+import { makeKifBoard } from 'shogiops/notation/game/kif';
 import { toKanjiDigit } from 'shogiops/notation/util';
+import { dimensions, handRoles } from 'shogiops/position/util';
 import { parseBoardSfen, parseSfen, pieceToForsyth } from 'shogiops/sfen';
 import type { Piece, Role, SquareName } from 'shogiops/types';
 import { isDrop, makeUsi, parseUsi } from 'shogiops/util';
-import { dimensions, handRoles } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import { makeSetting, type Setting } from './setting';
 
@@ -54,7 +54,7 @@ export function renderMove(
   const pos = parseSfen(variant, sfen, false);
   const move = parseUsi(usi);
   if (pos.isErr || !move) return '';
-  const piece = pos.value.board.get(move.to)!;
+  const piece = pos.value.board.pieceAt(move.to)!;
   if (isDrop(move)) {
     const to = usi.slice(2, 4) as Key;
     return `${renderRole(piece.role, style)} * ${renderKey(to, style)}`;

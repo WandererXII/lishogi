@@ -4,8 +4,8 @@ import { rankFromRating } from 'shogi/rank';
 import { usernameVNodes } from 'shogi/username';
 import { Shogiground } from 'shogiground';
 import { usiToSquareNames } from 'shogiops/compat';
+import { handRoles } from 'shogiops/position/util';
 import { forsythToRole } from 'shogiops/sfen';
-import { handRoles } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type LobbyController from '../ctrl';
 

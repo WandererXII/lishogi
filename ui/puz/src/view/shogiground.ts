@@ -3,14 +3,14 @@ import { promote } from 'common/shogiops';
 import resizeHandle from 'shogi/resize';
 import type { Config as SgConfig } from 'shogiground/config';
 import type { State } from 'shogiground/state';
-import type { Piece } from 'shogiops/types';
-import { parseSquareName } from 'shogiops/util';
 import {
   handRoles,
   pieceCanPromote,
   pieceForcePromote,
   promotableOnDrop,
-} from 'shogiops/variant/util';
+} from 'shogiops/position/util';
+import type { Piece } from 'shogiops/types';
+import { parseSquareName } from 'shogiops/util';
 import type { PuzPrefs, UserDrop, UserMove } from '../interfaces';
 
 // all puzzles are standard

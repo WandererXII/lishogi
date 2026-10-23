@@ -4,10 +4,10 @@ import {
   shogigroundMoveDests,
   squareSetToSquareNames,
 } from 'shogiops/compat';
+import type { Position } from 'shogiops/position/position';
+import { fullSquareSet, handRoles } from 'shogiops/position/util';
 import type { SquareName } from 'shogiops/types';
 import { makePieceName, makeSquareName, type Result } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
-import { fullSquareSet, handRoles } from 'shogiops/variant/util';
 import type { VNodeData } from 'snabbdom';
 
 export { bind, onInsert } from 'common/snabbdom';
@@ -48,7 +48,7 @@ function moveDestsWithIllegal(pos: Position): sg.MoveDests {
 
 function allDropDests(pos: Position): sg.DropDests {
   const allButMine = squareSetToSquareNames(
-    fullSquareSet(pos.rules).diff(pos.board.color(pos.turn)),
+    fullSquareSet(pos.rules).diff(pos.board.byColor(pos.turn)),
   );
   const result: sg.DropDests = new Map();
 

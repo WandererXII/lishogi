@@ -1,12 +1,12 @@
 import { defined } from 'common/common';
 import { analysis } from 'common/links';
-import { makeCsaHeader, makeCsaMoveOrDrop } from 'shogiops/notation/csa';
-import { makeKifHeader, makeKifMoveOrDrop } from 'shogiops/notation/kif';
+import { makeCsaHeader, makeCsaMoveOrDrop } from 'shogiops/notation/game/csa';
+import { makeKifHeader, makeKifMoveOrDrop } from 'shogiops/notation/game/kif';
+import type { Position } from 'shogiops/position/position';
+import type { Shogi } from 'shogiops/position/rules/shogi';
 import { initialSfen, parseSfen } from 'shogiops/sfen';
 import type { Square } from 'shogiops/types';
 import { parseUsi } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
-import type { Shogi } from 'shogiops/variant/shogi';
 import { ops as treeOps } from 'tree';
 import { renderTime } from './clocks';
 import type AnalyseCtrl from './ctrl';
@@ -22,7 +22,6 @@ function pad(str: string, size: number): string {
 }
 
 function makeKifNodes(node: Tree.Node, pos: Position, offset: number): string[] {
-  pos = pos.clone();
   const res: string[] = [];
 
   const mainline = treeOps.mainlineNodeList(node);
@@ -50,7 +49,7 @@ function makeKifNodes(node: Tree.Node, pos: Position, offset: number): string[] 
           res.push(moveNumStr + split[1] + kifTime);
         } else res.push(`${moveNumStr} ${kifMove}${kifTime}`);
         lastDest = move.to;
-        pos.play(move);
+        pos = pos.play(move);
       }
     }
     if (defined(m.comments)) {
@@ -164,7 +163,6 @@ function makeCsaTime(moveTime: number): string {
 }
 
 function makeCsaMainline(node: Tree.Node, pos: Shogi): string[] {
-  pos = pos.clone();
   const res: string[] = [];
 
   const mainline = treeOps.mainlineNodeList(node);
@@ -176,7 +174,7 @@ function makeCsaMainline(node: Tree.Node, pos: Shogi): string[] {
         const csaMove = makeCsaMoveOrDrop(pos, move);
         const csaTime = defined(m.clock) ? makeCsaTime(m.clock) : '';
         res.push(csaMove + csaTime);
-        pos.play(move);
+        pos = pos.play(move);
       }
     }
     if (defined(m.comments)) {

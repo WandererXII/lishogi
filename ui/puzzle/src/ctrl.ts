@@ -17,10 +17,10 @@ import {
   shogigroundMoveDests,
   usiToSquareNames,
 } from 'shogiops/compat';
+import type { Shogi } from 'shogiops/position/rules/shogi';
 import { makeSfen, parseSfen } from 'shogiops/sfen';
 import type { MoveOrDrop, Outcome, Piece, Role } from 'shogiops/types';
 import { makeUsi, parseSquareName, parseUsi } from 'shogiops/util';
-import type { Shogi } from 'shogiops/variant/shogi';
 import { type TreeWrapper, build as treeBuild, ops as treeOps, path as treePath } from 'tree';
 import { last } from 'tree/ops';
 import { fromNodeList } from 'tree/path';
@@ -194,9 +194,9 @@ export default function (opts: PuzzleOpts, redraw: Redraw): Controller {
   function sendMoveOrDropAt(path: Tree.Path, pos: Shogi, md: MoveOrDrop): void {
     const parent = tree.nodeAtPath(path);
     const lastUsi = parent.usi ? parseUsi(parent.usi) : undefined;
-    const capture = pos.board.get(md.to);
+    const capture = pos.board.pieceAt(md.to);
     const notationMove = makeNotationWithPosition(pos, md, lastUsi);
-    pos.play(md);
+    pos = pos.play(md);
     addNode(
       {
         ply: parent.ply + 1,

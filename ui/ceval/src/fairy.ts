@@ -1,7 +1,7 @@
+import { promote } from 'shogiops/position/util';
 import { parseSfen } from 'shogiops/sfen';
 import type { DropMove } from 'shogiops/types';
 import { isDrop, makeUsi, parseUsi } from 'shogiops/util';
-import { promote } from 'shogiops/variant/util';
 
 export function toFairyKyotoFormat(sfen: Sfen, moves: string[]): string {
   // fairy expects something like this: p+nks+l/5/5/L+S1N+P/+LSK+NP
@@ -26,7 +26,7 @@ export function toFairyKyotoFormat(sfen: Sfen, moves: string[]): string {
   };
 
   const uMoves: string[] = [];
-  const pos = parseSfen('kyotoshogi', sfen, false).unwrap();
+  let pos = parseSfen('kyotoshogi', sfen, false).unwrap();
   moves.forEach(usi => {
     const move = parseUsi(usi)!;
     // G*3b -> +N*3b
@@ -37,12 +37,12 @@ export function toFairyKyotoFormat(sfen: Sfen, moves: string[]): string {
     }
     // 5e4d+ -> 5e4d-, if necessary
     else if (move.promotion) {
-      const roleChar = pos.board.getRole(move.from)![0];
+      const roleChar = pos.board.roleAt(move.from)![0];
       const fairyUsi = mappingBoard[roleChar]?.includes('+') ? `${usi.slice(0, -1)}-` : usi;
 
       uMoves.push(fairyUsi);
     } else uMoves.push(usi);
-    pos.play(move);
+    pos = pos.play(move);
   });
 
   const splitSfen = sfen.split(' ');

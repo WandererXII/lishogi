@@ -7,11 +7,11 @@ import { i18n, i18nFormat } from 'i18n';
 import { makeNotationLineWithPosition, notationsWithColor } from 'shogi/notation';
 import type { Config } from 'shogiground/config';
 import { usiToSquareNames } from 'shogiops/compat';
+import type { Position } from 'shogiops/position/position';
+import { handRoles } from 'shogiops/position/util';
 import { forsythToRole, makeSfen, parseSfen } from 'shogiops/sfen';
 import type { MoveOrDrop } from 'shogiops/types';
 import { makeUsi, opposite, parseUsi } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
-import { handRoles } from 'shogiops/variant/util';
 import { h, type VNode } from 'snabbdom';
 import type { CevalCtrl, Eval, NodeEvals, ParentCtrl } from './types';
 import { renderEval, unsupportedVariants } from './util';
@@ -328,7 +328,7 @@ export function renderPvs(ctrl: ParentCtrl): VNode | undefined {
   if (!instance.allowed() || !instance.possible || !instance.enabled()) return;
   const multiPv = Number.parseInt(instance.multiPv());
   const node = ctrl.getNode();
-  const position = parseSfen(instance.variant.key, node.sfen, false);
+  let position = parseSfen(instance.variant.key, node.sfen, false);
   let pvs: Tree.PvData[];
   let threat = false;
   let pvMoves: (string | null)[];
@@ -339,10 +339,15 @@ export function renderPvs(ctrl: ParentCtrl): VNode | undefined {
   } else if (node.ceval) pvs = node.ceval.pvs;
   else pvs = [];
   if (position.isOk) {
-    if (node.usi) position.value.lastMoveOrDrop = parseUsi(node.usi);
+    if (node.usi)
+      position = position.map(pos => pos.update({ lastMoveOrDrop: parseUsi(node.usi!) }));
     if (threat) {
-      position.value.turn = opposite(position.value.turn);
-      if (position.value.turn == 'sente') position.value.moveNumber += 1;
+      position = position.map(pos =>
+        pos.update({
+          turn: opposite(pos.turn),
+          moveNumber: pos.moveNumber + (pos.turn === 'gote' ? 1 : 0),
+        }),
+      );
     }
   }
   return h(
@@ -421,7 +426,7 @@ function renderPv(threat: boolean, multiPv: number, pv?: Tree.PvData, pos?: Posi
       children.push(h('strong', defined(pv.mate) ? `#${pv.mate}` : renderEval(pv.cp!)));
     }
     if (pos) {
-      children.push(...renderPvMoves(pos.clone(), pv.moves.slice(0, MAX_NUM_MOVES)));
+      children.push(...renderPvMoves(pos, pv.moves.slice(0, MAX_NUM_MOVES)));
     }
   }
   return h('div.pv.pv--nowrap', data, children);
@@ -457,7 +462,7 @@ function renderPvMoves(pos: Position, pv: Usi[]): VNode[] {
   for (let i = 0; i < moves.length; i++) {
     const colorIcon = addColorIcon ? `.color-icon.${pos.turn}` : '';
     const moveNumber = `${pos.moveNumber}. `;
-    pos.play(moves[i]);
+    pos = pos.play(moves[i]);
     const usi = makeUsi(moves[i]);
     const sfen = makeSfen(pos);
     key += `|${usi}`;

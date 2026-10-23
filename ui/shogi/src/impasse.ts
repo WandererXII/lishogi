@@ -1,7 +1,7 @@
 import { isHandicap } from 'shogiops/handicaps';
+import { promotionZone } from 'shogiops/position/util';
 import { parseSfen } from 'shogiops/sfen';
 import type { Rules } from 'shogiops/types';
-import { promotionZone } from 'shogiops/variant/util';
 
 interface ImpasseInfo {
   king: boolean;
@@ -31,19 +31,19 @@ export function impasseInfo(
 
   const pointOffset = initialSfen ? pointOffsetFromSfen(rules, initialSfen) : 0;
   const board = shogi.value.board;
-  const sentePromotion = promotionZone(rules)('sente').intersect(board.color('sente'));
-  const gotePromotion = promotionZone(rules)('gote').intersect(board.color('gote'));
+  const sentePromotion = promotionZone(rules)('sente').intersect(board.byColor('sente'));
+  const gotePromotion = promotionZone(rules)('gote').intersect(board.byColor('gote'));
   const allMajorPieces = board
-    .role('bishop')
-    .union(board.role('rook'))
-    .union(board.role('horse'))
-    .union(board.role('dragon'));
+    .byRole('bishop')
+    .union(board.byRole('rook'))
+    .union(board.byRole('horse'))
+    .union(board.byRole('dragon'));
 
-  const senteKing: boolean = !sentePromotion.intersect(board.role('king')).isEmpty();
-  const goteKing: boolean = !gotePromotion.intersect(board.role('king')).isEmpty();
+  const senteKing: boolean = !sentePromotion.intersect(board.byRole('king')).isEmpty();
+  const goteKing: boolean = !gotePromotion.intersect(board.byRole('king')).isEmpty();
 
-  const senteNumberOfPieces: number = sentePromotion.diff(board.role('king')).size();
-  const goteNumberOfPieces: number = gotePromotion.diff(board.role('king')).size();
+  const senteNumberOfPieces: number = sentePromotion.diff(board.byRole('king')).size();
+  const goteNumberOfPieces: number = gotePromotion.diff(board.byRole('king')).size();
 
   const senteImpasseValue =
     senteNumberOfPieces +
@@ -100,12 +100,12 @@ function pointOffsetFromSfen(rules: Rules, sfen: string): number {
   const board = pos.value.board;
   const combinedHand = pos.value.hands.color('sente').combine(pos.value.hands.color('gote'));
 
-  const allPiecesWithoutKings = board.occupied.diff(board.role('king'));
+  const allPiecesWithoutKings = board.occupied.diff(board.byRole('king'));
   const allMajorPieces = board
-    .role('bishop')
-    .union(board.role('rook'))
-    .union(board.role('horse'))
-    .union(board.role('dragon'));
+    .byRole('bishop')
+    .union(board.byRole('rook'))
+    .union(board.byRole('horse'))
+    .union(board.byRole('dragon'));
 
   return (
     impasseNecessaryGoteScore * 2 -

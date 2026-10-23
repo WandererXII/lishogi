@@ -1,10 +1,11 @@
 import type { DrawShape } from 'shogiground/draw';
 import { Board } from 'shogiops/board';
+import type { Position } from 'shogiops/position/position';
+import { unpromote } from 'shogiops/position/util';
 import { parseSfen } from 'shogiops/sfen';
-import type { RoleMap, Square } from 'shogiops/types';
+import { SquareSet } from 'shogiops/square-set';
+import type { Role, Square } from 'shogiops/types';
 import { isDrop, makeSquareName, opposite } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
-import { unpromote } from 'shogiops/variant/util';
 import type { KeyboardMove, KeyboardMoveHandler } from '../ctrl';
 import {
   allCandidates,
@@ -93,7 +94,7 @@ function main(opts: Opts): KeyboardMoveHandler | undefined {
           } else shapes.push({ orig: makeSquareName(sqs[0]), dest: makeSquareName(sqs[0]), brush });
         } else if (role && Math.abs(m.length - v.length) <= 1) {
           if (!forceDrop) {
-            const pieces = Array.from(pos.board.pieces(pos.turn, role));
+            const pieces = Array.from(pos.board.byPiece(pos.turn, role));
             for (const piece of pieces)
               shapes.push({ orig: makeSquareName(piece), dest: makeSquareName(piece), brush });
           }
@@ -168,15 +169,22 @@ function main(opts: Opts): KeyboardMoveHandler | undefined {
     canPlay = yourMove;
     // premove/predrop
     if (!canPlay) {
-      pos.turn = opposite(pos.turn);
-      const myOccupied = pos.board.color(pos.turn);
-      const roleMap: RoleMap = new Map();
+      pos = pos.update({ turn: opposite(pos.turn) });
+      const myOccupied = pos.board.byColor(pos.turn);
+      const roleMap = new Map<Role, SquareSet>();
 
       for (const r of pos.board.presentRoles()) {
-        roleMap.set(r, pos.board.role(r).intersect(myOccupied));
+        roleMap.set(r, pos.board.byRole(r).intersect(myOccupied));
       }
 
-      pos.board = Board.from(myOccupied, [[pos.turn, myOccupied]], roleMap);
+      pos = pos.update({
+        board: Board.from(
+          myOccupied,
+          pos.turn === 'sente' ? myOccupied : SquareSet.empty(),
+          pos.turn === 'gote' ? myOccupied : SquareSet.empty(),
+          roleMap,
+        ),
+      });
     }
 
     submit(opts.input.value, {

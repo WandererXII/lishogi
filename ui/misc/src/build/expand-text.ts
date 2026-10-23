@@ -8,10 +8,10 @@ import { notationFiles, notationRanks } from 'shogi/notation';
 import type { DrawShape, DrawShapePiece } from 'shogiground/draw';
 import { usiToSquareNames } from 'shogiops/compat';
 import { RULES } from 'shogiops/constants';
+import { handRoles } from 'shogiops/position/util';
 import { forsythToRole, initialSfen } from 'shogiops/sfen';
 import type { Rules } from 'shogiops/types';
 import { isDrop, makeSquareName, parseSquareName, parseUsi } from 'shogiops/util';
-import { handRoles } from 'shogiops/variant/util';
 
 type LinkType = 'youtube' | 'twitter' | 'game' | 'study';
 

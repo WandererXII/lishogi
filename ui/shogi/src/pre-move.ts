@@ -1,10 +1,10 @@
 import type { Pieces } from 'shogiground/types';
 import { attacks, kingAttacks } from 'shogiops/attacks';
+import { directlyBehind } from 'shogiops/position/rules/annanshogi';
+import { fullSquareSet } from 'shogiops/position/util';
 import { SquareSet } from 'shogiops/square-set';
 import type { Piece } from 'shogiops/types';
 import { makeSquareName, parseSquareName } from 'shogiops/util';
-import { directlyBehind } from 'shogiops/variant/annanshogi';
-import { fullSquareSet } from 'shogiops/variant/util';
 
 export function premove(variant: VariantKey): (key: Key, pieces: Pieces) => Key[] {
   return (key, pieces) => {

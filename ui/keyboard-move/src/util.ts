@@ -1,12 +1,12 @@
 import { defined } from 'common/common';
-import { makeJapaneseMoveOrDrop } from 'shogiops/notation/japanese';
+import { makeJapaneseMoveOrDrop } from 'shogiops/notation/move/japanese';
 import { aimingAt, csaToRole, fromKanjiDigit, kanjiToRole } from 'shogiops/notation/util';
+import type { Position } from 'shogiops/position/position';
+import { pieceCanPromote } from 'shogiops/position/util';
 import { forsythToRole } from 'shogiops/sfen';
 import type { SquareSet } from 'shogiops/square-set';
 import type { MoveOrDrop, Role, Square } from 'shogiops/types';
 import { parseSquareName } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
-import { pieceCanPromote } from 'shogiops/variant/util';
 
 const fileR: RegExp = /(?:[１２３４５６７８９]|[一二三四五六七八九]|[1-9])/;
 const rankR: RegExp = /(?:[１２３４５６７８９]|[一二三四五六七八九]|[1-9]|[a-i])/;
@@ -24,7 +24,7 @@ export function toMoveOrDrop(str: string, pos: Position): MoveOrDrop | undefined
 
   if (sqs.length) {
     if (sqs.length === 2) {
-      const piece = pos.board.get(sqs[0]);
+      const piece = pos.board.pieceAt(sqs[0]);
       if (piece) {
         const move = {
           from: sqs[0],
@@ -33,7 +33,7 @@ export function toMoveOrDrop(str: string, pos: Position): MoveOrDrop | undefined
         };
         return pos.isLegal(move) ? move : undefined;
       }
-      const pieceReversed = pos.board.get(sqs[1]);
+      const pieceReversed = pos.board.pieceAt(sqs[1]);
       if (pieceReversed) {
         const move = {
           from: sqs[1],
@@ -147,5 +147,5 @@ export function toRole(variant: VariantKey, str: string): Role | undefined {
 }
 
 export function allCandidates(dest: Square, role: Role, pos: Position): SquareSet {
-  return aimingAt(pos, pos.board.pieces(pos.turn, role), dest);
+  return aimingAt(pos, pos.board.byPiece(pos.turn, role), dest);
 }

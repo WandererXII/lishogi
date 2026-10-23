@@ -1,17 +1,17 @@
 import { memoize } from 'common/common';
 import { type PrefTypes, prefs } from 'common/prefs';
 import type { Notation as sgNotation } from 'shogiground/types';
-import { makeJapaneseMoveOrDrop } from 'shogiops/notation/japanese';
-import { makeKifMoveOrDrop } from 'shogiops/notation/kif';
-import { makeKitaoKawasakiMoveOrDrop } from 'shogiops/notation/kitao-kawasaki';
+import { makeKifMoveOrDrop } from 'shogiops/notation/game/kif';
+import { makeJapaneseMoveOrDrop } from 'shogiops/notation/move/japanese';
+import { makeKitaoKawasakiMoveOrDrop } from 'shogiops/notation/move/kitao-kawasaki';
+import { makeWesternMoveOrDrop } from 'shogiops/notation/move/western';
+import { makeWesternEngineMoveOrDrop } from 'shogiops/notation/move/western-engine';
+import { makeYorozuyaMoveOrDrop } from 'shogiops/notation/move/yorozuya';
 import { roleToKanji, roleToWestern } from 'shogiops/notation/util';
-import { makeWesternMoveOrDrop } from 'shogiops/notation/western';
-import { makeWesternEngineMoveOrDrop } from 'shogiops/notation/western-engine';
-import { makeYorozuyaMoveOrDrop } from 'shogiops/notation/yorozuya';
+import type { Position } from 'shogiops/position/position';
 import { parseSfen, roleToForsyth } from 'shogiops/sfen';
 import type { MoveOrDrop, Role, Rules, Square } from 'shogiops/types';
 import { makeUsi, parseUsi } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
 import { plyColor } from './common';
 
 type Notation = PrefTypes['notation'];
@@ -92,12 +92,11 @@ export function makeNotationLineWithPosition(
   mds: MoveOrDrop[],
   lastMoveOrDrop?: MoveOrDrop | { to: Square },
 ): MoveNotation[] {
-  pos = pos.clone();
   const line: MoveNotation[] = [];
   for (const md of mds) {
     line.push(makeNotationWithPosition(pos, md, lastMoveOrDrop));
     lastMoveOrDrop = md;
-    pos.play(md);
+    pos = pos.play(md);
   }
   return line;
 }

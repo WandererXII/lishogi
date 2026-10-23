@@ -1,5 +1,5 @@
 import { i18n } from 'i18n';
-import { allRoles } from 'shogiops/variant/util';
+import { allRoles } from 'shogiops/position/util';
 import { h, type VNode } from 'snabbdom';
 import type InsightCtrl from '../../ctrl';
 import type { AnalysisResult, InsightFilter } from '../../types';

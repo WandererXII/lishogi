@@ -11,15 +11,15 @@ import resizeHandle from 'shogi/resize';
 import type { Config as SgConfig } from 'shogiground/config';
 import type { DrawShape } from 'shogiground/draw';
 import type * as sg from 'shogiground/types';
-import { forsythToRole } from 'shogiops/sfen';
-import type { Piece } from 'shogiops/types';
-import { makeSquareName, parseSquareName } from 'shogiops/util';
 import {
   handRoles,
   pieceCanPromote,
   pieceForcePromote,
   promotableOnDrop,
-} from 'shogiops/variant/util';
+} from 'shogiops/position/util';
+import { forsythToRole } from 'shogiops/sfen';
+import type { Piece } from 'shogiops/types';
+import { makeSquareName, parseSquareName } from 'shogiops/util';
 import { h, type VNode } from 'snabbdom';
 import type AnalyseCtrl from './ctrl';
 

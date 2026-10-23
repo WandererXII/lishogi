@@ -1,7 +1,7 @@
 import type { Config as SgConfig } from 'shogiground/config';
 import { shogigroundDropDests, shogigroundMoveDests, usiToSquareNames } from 'shogiops/compat';
+import { handRoles } from 'shogiops/position/util';
 import { makeSfen } from 'shogiops/sfen';
-import { handRoles } from 'shogiops/variant/util';
 import type { Run } from './interfaces';
 
 export const makeSgOpts = (run: Run, canMove: boolean): SgConfig => {

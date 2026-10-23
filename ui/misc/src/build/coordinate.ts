@@ -1,7 +1,7 @@
 import { capitalize } from 'common/string';
 import { colorName } from 'shogi/color-name';
 import { COLORS } from 'shogiops/constants';
-import { handRoles } from 'shogiops/variant/util';
+import { handRoles } from 'shogiops/position/util';
 
 interface CoordinatesOpts {
   scoreUrl: string;

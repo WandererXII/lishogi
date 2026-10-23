@@ -1,6 +1,6 @@
+import type { Shogi } from 'shogiops/position/rules/shogi';
 import { parseSfen } from 'shogiops/sfen';
 import { parseUsi } from 'shogiops/util';
-import type { Shogi } from 'shogiops/variant/shogi';
 import type { Puzzle } from './interfaces';
 import { getNow } from './util';
 
@@ -20,9 +20,9 @@ export default class CurrentPuzzle {
   }
 
   position = (): Shogi => {
-    const pos = parseSfen('standard', this.puzzle.sfen, false).unwrap() as Shogi;
+    let pos = parseSfen('standard', this.puzzle.sfen, false).unwrap() as Shogi;
     this.line.slice(0, this.moveIndex).forEach(usi => {
-      pos.play(parseUsi(usi)!);
+      pos = pos.play(parseUsi(usi)!);
     });
     return pos;
   };

@@ -1,5 +1,5 @@
+import type { Position } from 'shogiops/position/position';
 import { opposite } from 'shogiops/util';
-import type { Position } from 'shogiops/variant/position';
 
 export function isEvalBetter(a: Tree.ClientEval, b: Tree.ClientEval): boolean {
   return a.depth > b.depth || (a.depth === b.depth && a.nodes > b.nodes);
@@ -20,10 +20,9 @@ export function invalidPosition(pos: Position): boolean {
       if (
         [...allMoves.entries()].every(([orig, dests]) => {
           return [...dests].every(dest => {
-            const clone = pos.clone();
-            clone.play({ from: orig, to: dest });
-            clone.turn = opposite(clone.turn);
-            return clone.isCheck();
+            let nextPos = pos.play({ from: orig, to: dest });
+            nextPos = nextPos.update({ turn: opposite(nextPos.turn) });
+            return nextPos.isCheck();
           });
         })
       )
@@ -31,8 +30,7 @@ export function invalidPosition(pos: Position): boolean {
     }
 
     // Fail - if opposite check
-    const oppositePos = pos.clone();
-    oppositePos.turn = opposite(pos.turn);
+    const oppositePos = pos.update({ turn: opposite(pos.turn) });
 
     if (oppositePos.isCheck()) return true;
 

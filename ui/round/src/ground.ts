@@ -6,15 +6,15 @@ import { premove } from 'shogi/pre-move';
 import resizeHandle from 'shogi/resize';
 import type { Config } from 'shogiground/config';
 import { usiToSquareNames } from 'shogiops/compat';
-import { forsythToRole, parseSfen } from 'shogiops/sfen';
-import type { Piece } from 'shogiops/types';
-import { makeSquareName, parseSquareName } from 'shogiops/util';
 import {
   handRoles,
   pieceCanPromote,
   pieceForcePromote,
   promotableOnDrop,
-} from 'shogiops/variant/util';
+} from 'shogiops/position/util';
+import { forsythToRole, parseSfen } from 'shogiops/sfen';
+import type { Piece } from 'shogiops/types';
+import { makeSquareName, parseSquareName } from 'shogiops/util';
 import { h, type VNode } from 'snabbdom';
 import type RoundController from './ctrl';
 import type { RoundData } from './interfaces';

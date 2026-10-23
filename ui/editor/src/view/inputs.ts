@@ -1,7 +1,7 @@
 import { icons } from 'common/icons';
 import { i18n } from 'i18n';
-import { makeCsaHeader, parseCsaHeader } from 'shogiops/notation/csa';
-import { makeKifHeader, parseKifHeader } from 'shogiops/notation/kif';
+import { makeCsaHeader, parseCsaHeader } from 'shogiops/notation/game/csa';
+import { makeKifHeader, parseKifHeader } from 'shogiops/notation/game/kif';
 import { makeSfen, parseSfen } from 'shogiops/sfen';
 import { h, type VNode } from 'snabbdom';
 import type EditorCtrl from '../ctrl';

@@ -1,7 +1,7 @@
 import type { Piece, Pieces } from 'shogiground/types';
+import { dimensions, fullSquareSet } from 'shogiops/position/util';
 import { SquareSet } from 'shogiops/square-set';
 import { makeSquareName } from 'shogiops/util';
-import { dimensions, fullSquareSet } from 'shogiops/variant/util';
 
 export function predrop(variant: VariantKey): (piece: Piece, pieces: Pieces) => Key[] {
   return (piece, pieces) => {

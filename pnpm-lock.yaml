@@ -13,8 +13,8 @@ catalogs:
       specifier: ^0.10.3
       version: 0.10.3
     shogiops:
-      specifier: ^0.21.0
-      version: 0.21.0
+      specifier: ^0.22.0
+      version: 0.22.0
     snabbdom:
       specifier: ^3.6.4
       version: 3.6.4
@@ -218,7 +218,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
 
   ui/analyse:
     dependencies:
@@ -257,7 +257,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -294,7 +294,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -384,7 +384,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -423,7 +423,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -450,7 +450,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -501,7 +501,7 @@ importers:
         version: link:../shogi
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -519,7 +519,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -543,7 +543,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -567,7 +567,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -612,7 +612,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       tablesort:
         specifier: ^5.7.1
         version: 5.7.1
@@ -667,7 +667,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -701,7 +701,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -731,7 +731,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -770,7 +770,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -794,7 +794,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -853,7 +853,7 @@ importers:
         version: 0.10.3
       shogiops:
         specifier: 'catalog:'
-        version: 0.21.0
+        version: 0.22.0
       snabbdom:
         specifier: 'catalog:'
         version: 3.6.4
@@ -4637,9 +4637,9 @@ packages:
   shogiground@0.10.3:
     resolution: {integrity: sha512-MqMVjmQv+i9h3ISRk//FZ6pPYPNqq14ZtPGYw9qfkaCKReMkB39ogP5wnXynpLFtE7ja7RyiOpXeC1MZS8UAoA==}
 
-  shogiops@0.21.0:
-    resolution: {integrity: sha512-1Mor5yI7RoeKCcTSW+mvq4Rr9VIZ3VHHF8G/RBV6lohIAnw0PJDwueNtLoO2fSiKCkJ5/NvzScRx4i+dQNq0CQ==}
-    engines: {pnpm: '>=10.16.0'}
+  shogiops@0.22.0:
+    resolution: {integrity: sha512-VLYypwKSMr1TPumbngZ/NTtpLbUJbx1RHtbMJK7MTvVjjoIkUzJFwBoIq93qQ+oq5mt6J8XwcEUaMf+NYCUyTQ==}
+    engines: {pnpm: '>=10.26.0'}
 
   signal-exit@3.0.7:
     resolution: {integrity: sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==}
@@ -9150,7 +9150,7 @@ snapshots:
 
   shogiground@0.10.3: {}
 
-  shogiops@0.21.0:
+  shogiops@0.22.0:
     dependencies:
       '@badrap/result': 0.3.1
 

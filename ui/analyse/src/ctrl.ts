@@ -29,6 +29,9 @@ import {
   usiToSquareNames,
 } from 'shogiops/compat';
 import { isHandicap as sgIsHandicap } from 'shogiops/handicaps';
+import type { Position, PositionError } from 'shogiops/position/position';
+import type { Chushogi } from 'shogiops/position/rules/chushogi';
+import { promotableOnDrop, promote } from 'shogiops/position/util';
 import { makeHandsSfen, parseSfen } from 'shogiops/sfen';
 import type { NormalMove, Outcome, Piece } from 'shogiops/types';
 import {
@@ -40,9 +43,6 @@ import {
   type Result,
   squareDist,
 } from 'shogiops/util';
-import type { Chushogi } from 'shogiops/variant/chushogi';
-import type { Position, PositionError } from 'shogiops/variant/position';
-import { promotableOnDrop, promote } from 'shogiops/variant/util';
 import { build as makeTree, type TreeWrapper, ops as treeOps, path as treePath } from 'tree';
 import { Ctrl as ActionMenuCtrl } from './action-menu';
 import { compute as computeAutoShapes, getIllegalShape } from './auto-shape';
@@ -512,16 +512,16 @@ export default class AnalyseCtrl {
     const pos = this.position(this.node);
     const md = parseUsi(usi);
     if (pos.isOk && md && pos.value.isLegal(md)) {
-      pos.value.play(md);
+      const next = pos.value.play(md);
 
-      const handsSfen = makeHandsSfen(pos.value.rules, pos.value.hands);
+      const handsSfen = makeHandsSfen(next.rules, next.hands);
       this.shogiground.set({
         turnColor: this.shogiground.state.activeColor as Color,
         activeColor: opposite(this.shogiground.state.activeColor as Color),
         sfen: {
           hands: handsSfen,
         },
-        checks: pos.value.isCheck(),
+        checks: next.isCheck(),
         premovable: {
           enabled: true,
         },
@@ -571,7 +571,7 @@ export default class AnalyseCtrl {
     li.sound.move(!!capture);
 
     const posRes = this.position(this.node);
-    const piece = posRes.isOk && posRes.value.board.get(parseSquareName(orig))!;
+    const piece = posRes.isOk && posRes.value.board.pieceAt(parseSquareName(orig))!;
     if (
       piece &&
       this.lionFirstMove === undefined &&

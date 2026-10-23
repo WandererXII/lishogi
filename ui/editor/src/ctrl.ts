@@ -8,6 +8,7 @@ import type { NumberPair, Piece } from 'shogiground/types';
 import { eventPosition, opposite, samePiece } from 'shogiground/util';
 import { Board } from 'shogiops/board';
 import { Hand, Hands } from 'shogiops/hands';
+import { handRoles, promotableRoles, promote, unpromote } from 'shogiops/position/util';
 import {
   forsythToRole,
   initialSfen,
@@ -20,7 +21,6 @@ import {
 } from 'shogiops/sfen';
 import type { Role, Rules, Setup } from 'shogiops/types';
 import { toBW, toColor } from 'shogiops/util';
-import { handRoles, promotableRoles, promote, unpromote } from 'shogiops/variant/util';
 import type { EditorData, EditorOptions, EditorState, Selected } from './interfaces';
 import { makeConfig } from './shogiground';
 
@@ -325,13 +325,13 @@ export default class EditorCtrl {
     const setup = this.getSetup();
     const startingBoard = parseSfen(this.rules, initialSfen(this.rules), false).unwrap().board;
     return (
-      this.countPieces('pawn', setup) <= startingBoard.role('pawn').size() &&
-      this.countPieces('lance', setup) <= startingBoard.role('lance').size() &&
-      this.countPieces('knight', setup) <= startingBoard.role('knight').size() &&
-      this.countPieces('silver', setup) <= startingBoard.role('silver').size() &&
-      this.countPieces('gold', setup) <= startingBoard.role('gold').size() &&
-      this.countPieces('bishop', setup) <= startingBoard.role('bishop').size() &&
-      this.countPieces('rook', setup) <= startingBoard.role('rook').size() &&
+      this.countPieces('pawn', setup) <= startingBoard.byRole('pawn').size() &&
+      this.countPieces('lance', setup) <= startingBoard.byRole('lance').size() &&
+      this.countPieces('knight', setup) <= startingBoard.byRole('knight').size() &&
+      this.countPieces('silver', setup) <= startingBoard.byRole('silver').size() &&
+      this.countPieces('gold', setup) <= startingBoard.byRole('gold').size() &&
+      this.countPieces('bishop', setup) <= startingBoard.byRole('bishop').size() &&
+      this.countPieces('rook', setup) <= startingBoard.byRole('rook').size() &&
       setup.board.occupied.size() + setup.hands.count() <
         startingBoard.occupied.size() - 2 + this.countPieces('king', setup)
     );
@@ -341,12 +341,12 @@ export default class EditorCtrl {
     if (!defined(setup)) setup = this.getSetup();
     role = unpromote(this.rules)(role) || role;
     return (
-      setup.board.role(role).size() +
+      setup.board.byRole(role).size() +
       (handRoles(this.rules).includes(role)
         ? setup.hands.color('sente').get(role) + setup.hands.color('gote').get(role)
         : 0) +
       (promotableRoles(this.rules).includes(role)
-        ? setup.board.role(promote(this.rules)(role)!).size()
+        ? setup.board.byRole(promote(this.rules)(role)!).size()
         : 0)
     );
   }
@@ -359,41 +359,42 @@ export default class EditorCtrl {
 
     const pieceCounts: { [index: string]: number } = {
       lance:
-        startingBoard.role('lance').size() -
-        board.role('lance').size() -
-        board.role('promotedlance').size() -
+        startingBoard.byRole('lance').size() -
+        board.byRole('lance').size() -
+        board.byRole('promotedlance').size() -
         senteHand.get('lance'),
       knight:
-        startingBoard.role('knight').size() -
-        board.role('knight').size() -
-        board.role('promotedknight').size() -
+        startingBoard.byRole('knight').size() -
+        board.byRole('knight').size() -
+        board.byRole('promotedknight').size() -
         senteHand.get('knight'),
       silver:
-        startingBoard.role('silver').size() -
-        board.role('silver').size() -
-        board.role('promotedsilver').size() -
+        startingBoard.byRole('silver').size() -
+        board.byRole('silver').size() -
+        board.byRole('promotedsilver').size() -
         senteHand.get('silver'),
-      gold: startingBoard.role('gold').size() - board.role('gold').size() - senteHand.get('gold'),
+      gold:
+        startingBoard.byRole('gold').size() - board.byRole('gold').size() - senteHand.get('gold'),
       pawn:
-        startingBoard.role('pawn').size() -
-        board.role('pawn').size() -
-        board.role('tokin').size() -
+        startingBoard.byRole('pawn').size() -
+        board.byRole('pawn').size() -
+        board.byRole('tokin').size() -
         senteHand.get('pawn'),
       bishop:
-        startingBoard.role('bishop').size() -
-        board.role('bishop').size() -
-        board.role('horse').size() -
+        startingBoard.byRole('bishop').size() -
+        board.byRole('bishop').size() -
+        board.byRole('horse').size() -
         senteHand.get('bishop'),
       rook:
-        startingBoard.role('rook').size() -
-        board.role('rook').size() -
-        board.role('dragon').size() -
+        startingBoard.byRole('rook').size() -
+        board.byRole('rook').size() -
+        board.byRole('dragon').size() -
         senteHand.get('rook'),
     };
-    const goteHand = Hand.empty();
+    let goteHand = Hand.empty();
 
     for (const p in pieceCounts) {
-      if (pieceCounts[p] > 0) goteHand.set(p as Role, pieceCounts[p]);
+      if (pieceCounts[p] > 0) goteHand = goteHand.with(p as Role, pieceCounts[p]);
     }
 
     this.setHands(Hands.from(senteHand, goteHand));
