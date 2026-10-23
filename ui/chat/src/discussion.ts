@@ -10,23 +10,6 @@ import * as spam from './spam';
 import { userLink } from './util';
 import { flag } from './xhr';
 
-// Declare global lishogi interfaces used in the code to ensure strict TS compliance
-declare global {
-  interface Window {
-    lishogi: {
-      pubsub: { emit: (event: string, data: any) => void };
-      tempStorage: {
-        make: (key: string) => {
-          get: () => string | null;
-          set: (v: string) => void;
-          remove: () => void;
-        };
-      };
-      mousetrap: { bind: (key: string, fn: () => boolean | void) => void };
-    };
-  }
-}
-
 export default function (ctrl: ChatCtrl): Array<VNode | undefined> {
   if (!ctrl.vm.enabled) return [];
 
@@ -122,8 +105,6 @@ function renderInput(ctrl: ChatCtrl): VNode | undefined {
   });
 }
 
-let mouchListener: (e: MouseEvent | TouchEvent) => void;
-
 const setupHooks = (ctrl: ChatCtrl, chatEl: HTMLInputElement) => {
   const storage = window.lishogi.tempStorage.make('chatInput');
   const savedVal = storage.get();
@@ -135,6 +116,9 @@ const setupHooks = (ctrl: ChatCtrl, chatEl: HTMLInputElement) => {
   }
 
   chatEl.addEventListener('keydown', (e: KeyboardEvent) => {
+    // IME confirmation can report Enter even while composition is still active.
+    if (e.isComposing || e.keyCode === 229) return;
+
     if (e.key === 'Enter') {
       e.preventDefault();
       const txt = chatEl.value.trim();
@@ -234,7 +218,7 @@ const updateText = (parseMoves: boolean) => (oldVnode: VNode, vnode: VNode) => {
 function renderText(t: string, parseMoves: boolean, system: boolean) {
   const [timestamp, text] = system ? separateTimestamp(t) : ['', t];
   const maybeTranslated = system ? translateMessage(text) : text;
-  const attrs = timestamp ? { title: timestamp } : {};
+  const attrs: VNodeData['attrs'] = timestamp ? { title: timestamp } : {};
 
   if (enhance.isMoreThanText(text)) {
     const hook = updateText(parseMoves);
