@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-  <string name="private">Gizli</string>
+  <string name="private">Özel</string>
   <string name="myStudies">Benim çalışmalarım</string>
   <string name="studiesIContributeTo">Katkıda bulunduğum çalışmalar</string>
   <string name="myPublicStudies">Paylaştığım çalışmalar</string>
@@ -135,7 +135,7 @@
   <string name="endTag" comment="Tags for kif and csa">Bitiş</string>
   <string name="siteTag" comment="Tags for kif and csa">Site</string>
   <string name="eventTag" comment="Tags for kif and csa">Olay</string>
-  <string name="timeControlTag" comment="Tags for kif and csa">Zaman kontrolü</string>
+  <string name="timeControlTag" comment="Tags for kif and csa">Süre ayarı</string>
   <string name="xEloTag" comment="Tags for kif and csa; Sente/Gote">%s Ukd</string>
   <string name="xTitleTag" comment="Tags for kif and csa; Sente/Gote">%s rütbe</string>
   <string name="xTeamTag" comment="Tags for kif and csa; Sente/Gote">%s takım</string>

@@ -23,7 +23,7 @@
 	<string name="theRook">Kale</string>
 	<string name="itMovesInStraightLines">Düz gider</string>
 	<string name="rookIntro">Kale güçlü bir taştır. Onu yönetmeye hazır mısın?</string>
-	<string name="rookGoal">Kalenin üzerine tıklayarak onu yıldızın üzerine bırak.</string>
+	<string name="rookGoal">Kaleye tıklayarak onu yıldıza götür!</string>
 	<string name="grabAllTheStarsRemember">Tüm yıldızları toplayın! Tahtanın dışına bakmayı unutma.</string>
 	<string name="rookPromotion">Kale, güçlü bir Ejderha\'ya terfi olabilir. Şunu unutma, terfi bölgesini terketsen bile artık terfi edebilirsin.</string>
 	<string name="rookSummary">Kale, yukarı, aşağı, sağa ve sola istediği kadar hareket edebilir.</string>
@@ -49,7 +49,7 @@
 	<string name="theKnight">At</string>
 	<string name="itMovesInAnLShape">L şeklinde hareket eder, fakat sadece İLERİ!</string>
 	<string name="knightIntro">İşte senin için bir başka meydan okuma. At biraz... kurnaz bir taştır.</string>
-	<string name="knightsHaveAFancyWay">At, sürekli zıplamasıyla meşhurdur.</string>
+	<string name="knightsHaveAFancyWay">At, sürekli zıplamasıyla meşhurdur!</string>
 	<string name="knightsCanJumpOverObstacles">At, engellerin üzerinden atlayabilir!</string>
 	<string name="knightSummary">At, L şeklinde ileri zıplayabilir, fakat sadece iki kare ileri ve bir kare yana olacak şekilde. Ayrıca yapacağı hamle diğer taşlar tarafından engellenemez, üzerlerinden atlayabilir.</string>
 	<string name="pknightSummary">Terfi almış atın hamleleri terfi almamış attan çok daha farklıdır fakat dikkat edersen terfi almış at, altın general ile aynı hamleleri yapabilir, bu yüzden altın general\'i iyi çalıştığınızdan emin olmalısınız.</string>
@@ -80,7 +80,7 @@
 	<string name="goldComplete">Tebrikler! İyi iş çıkardın!</string>
 	<string name="theSilver">Gümüş general</string>
 	<string name="itMovesEitherForwardOrDiagonallyBack">Gümüş general çapraz olarak istediği yöne ilerler, buna ek olarak bir kare ileriye gidebilir.</string>
-	<string name="silverIntro">Alışılmadık hamlelere sahip bir başka parça daha, fakat bu son. Söz.</string>
+	<string name="silverIntro">Alışılmadık hamlelere sahip bir başka parça daha, fakat bu son. Söz!</string>
 	<string name="silverPromotion">Gümüş generali terfi ettiğin zaman yapabileceği hamleler altın general ile aynıdır.</string>
 	<string name="silverSummary">Bu hamleleri biraz çalıştıktan sonra kesinlikle unutmayacaksın.</string>
 	<string name="psilverSummary">Altın generalin aynısı, bunu daha sık göreceksin.</string>
@@ -95,7 +95,7 @@
 	<string name="captureIntro">Rakibin korumasız taşlarını bul ve ele geçir!</string>
 	<string name="takeTheEnemyPiecesAndDontLoseYours">Rakibin taşlarını yiyin!
 Ve sizinkileri kaptırmayın.</string>
-	<string name="captureComplete">Tebrikler! Artık shogi taşlarını nasıl yiyeceğini biliyorsun.</string>
+	<string name="captureComplete">Tebrikler! Artık shogi taşlarıyla nasıl savaşacağını biliyorsun!</string>
 	<string name="pieceDrops">Oyuna Geri Taş Sokma</string>
 	<string name="reuseCapturedPieces">Yenmiş taşları yeniden kullan!</string>
 	<string name="dropIntro">Bir kez daha, kendi taşlarınızı kaptırmadan rakibin bütün taşlarını ele geçirin!</string>
@@ -115,7 +115,7 @@ Düşman taşlarını al!</string>
 	<string name="combat">Çarpışma</string>
 	<string name="captureAndDefendPieces">Taşlarını koru ve rakip taşları ele geçir</string>
 	<string name="combatIntro">Güçlü bir savaşçı hem saldırıyı hem de savunmayı iyi bilir!</string>
-	<string name="combatComplete">Tebrikler! Artık shogi taşlarıyla nasıl savaşacağını biliyorsun.</string>
+	<string name="combatComplete">Tebrikler! Artık shogi taşlarıyla nasıl savaşacağını biliyorsun!</string>
 	<string name="checkInOne">Şah çekme</string>
 	<string name="attackTheOpponentsKing">Tek hamlede şah çek</string>
 	<string name="checkInOneIntro">Şah çekmek için rakip şahı tehdit etmelisin. Rakibinin de şahını koruması gerekiyor!</string>
@@ -148,7 +148,8 @@ Düşman taşlarını al!</string>
 	<string name="howTheGameStarts">Oyun nasıl başlar</string>
 	<string name="boardSetupIntro">İki ordu karşı karşıya dizilmiş, savaşa hazır.</string>
 	<string name="thisIsTheInitialPosition">Her shogi oyunu bu düzende başlar! Devam etmek için herhangi bir hamle yap.</string>
-	<string name="firstPlaceTheKing">Oyundan önce taşları dizmenin iki geleneksel yolu bulunur. Profesyoneller tarafından sıklıkla tercih edilen Oohashi (大橋) stilini öğreteceğiz. Önce şah yerine koyulur. Şahınızı ilk sıranın orta karesine yerleştirin.</string>
+	<string name="firstPlaceTheKing">Oyundan önce taşları dizmenin iki geleneksel yolu bulunur. Profesyoneller tarafından sıklıkla tercih edilen Oohashi (大橋) stilini öğreteceğiz. Önce şah yerine koyulur. Şahınızı ilk sıranın orta karesine yerleştirin.
+</string>
 	<string name="dropAGold">Şahın, önceliği sola vermek üzere her iki tarafına da birer altın yerleştirin.</string>
 	<string name="thenPlaceASilver">Ardından birer gümüşü önce sol taraftaki altının yanına, daha sonra da sağdaki altının yanına yerleştirin.</string>
 	<string name="dropTheKnights">Atını, gümüşü bıraktığın gibi bırak. Senin düşmanın Itou (伊藤) stilini yapıcak.</string>
@@ -164,7 +165,7 @@ Düşman taşlarını al!</string>
 	<string name="perpetualCheckIsALoss">Ancak sürekli şah çekmek, şah çeken kısım için kayıptır. Maalesef senin düşmanın bu kuralı bilmiyor! Tek yasal hamleyi yap.</string>
 	<string name="boardFlippedFindBestMove">Tahta şimdi çevrildi. Buradaki en iyi hamle ne?</string>
 	<string name="repetitionComplete">Sürekli şah çekmenin kayıp olmasındaki sebep herkesin oyunu berabereye zorlamasını önlemektir.</string>
-	<string name="advanced">İleri düzey</string>
+	<string name="advanced">Gelişmiş</string>
 	<string name="pieceValue">Taş değerleri</string>
 	<string name="evaluatePieceStrength">Taş güçlerini hesaplama</string>
 	<string name="pieceValueIntroNew">Hareket kabiliyeti daha fazla olan taşlar daha değerlidir. Şahın paha biçilemezdir! Onu kaybetmek oyunu kaybetmektir.</string>
@@ -174,7 +175,7 @@ Düşman taşlarını al!</string>
 Kendi taşını kaybetmeden en değerli taşı al.</string>
 	<string name="goldBishopRook">Altın &lt; Fil &lt; Kale
 En değerli taşı al.</string>
-	<string name="takeAllThePiecesStartingFromTheMost">Tüm taşları en değerliden en değersize göre al.</string>
+	<string name="takeAllThePiecesStartingFromTheMost">Tüm taşları en değerliden en değersize göre al!</string>
 	<string name="anExchangeIs">Takas bir taşı alırken aynı zamanda bir taşı kaybetmektir. Hangisi daha iyi bir takastır? Kaleye karşı gümüs mü, ata karşı altın mı?</string>
 	<string name="theOpponentJustGaveAway">Düşmanın zayıf kalesini beleşe verdi! Alır mısın?</string>
 	<string name="yourKingsValueIsInfinite">Şahın değeri kaleyle kıyaslandığında sonsuzdur. Buradaki en iyi hamle ne?</string>
@@ -210,13 +211,13 @@ En değerli taşı al.</string>
 	<string name="perfect">Mükemmel!</string>
 	<string name="outstanding">Müthiş!</string>
 	<string name="wayToGo">Aynen böyle devam et!</string>
-	<string name="yesYesYes">Kasparov bunu beğendi.</string>
+	<string name="yesYesYes">Evet, evet, evet!</string>
 	<string name="youreGoodAtThis">Sen bu işte iyisin!</string>
 	<string name="nailedIt">Başardın!</string>
 	<string name="rightOn">İşte böyle!</string>
 	<string name="stageXComplete">%s. aşama tamamlandı</string>
 	<string name="yourScore">Puanın</string>
-	<string name="next">Sıradaki</string>
+	<string name="next">Sonraki</string>
 	<string name="backToMenu">Menüye geri dön</string>
 	<string name="puzzleFailed">Bulmaca çözülemedi!</string>
 	<string name="retry">Tekrar dene</string>

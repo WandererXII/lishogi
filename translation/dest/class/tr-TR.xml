@@ -54,8 +54,8 @@ Sınıfa erişim linki burada.</string>
 	<string name="invitationToClass">Öğrenci olarak \"%s\" sınıfına katılmaya davet edildiniz.</string>
 	<string name="clickToViewInvitation">Davetiyeyi görüntülemek için linke tıklayınız:</string>
 	<plurals name="nbPendingInvitations">
-		<item quantity="one">%s tane bekleyen davetiye</item>
-		<item quantity="other">%s tane bekleyen davet</item>
+		<item quantity="one">Bir bekleyen davetiye</item>
+		<item quantity="other">%s tane bekleyen davetiye</item>
 	</plurals>
 	<string name="noPendingInvitations">Bekleyen davetiye yok</string>
 	<string name="onlyVisibleToTeachers">Sadece sınıf antrenörleri tarafından görülebilir</string>
@@ -84,7 +84,7 @@ Sınıfa erişim linki burada.</string>
 	<string name="overDays">Günler boyunca</string>
 	<string name="timePlaying">Toplam oynama zamanı</string>
 	<string name="variantXOverLastY">%1$s sondan %2$s</string>
-	<string name="winrate">Kazanma Oranı</string>
+	<string name="winrate">Kazanma oranı</string>
 	<string name="na">Mevcut değil</string>
 	<string name="news">Sınıf haberleri</string>
 	<string name="editNews">Haberleri düzenle</string>

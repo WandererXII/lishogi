@@ -12,7 +12,7 @@
 	<string name="youHaveLifetime">Artık Ömür Boyu Destekçi hesabınız var. Bu müthiş bir şey!</string>
 	<string name="patronUntil">Destekçi hesabınızın süresi %s tarihinde sona erecek.</string>
 	<string name="ifNotRenewed">Yeniden bağış yapmadığınız takdirde hesabınız ücretsiz hesaba çevrilecektir.</string>
-	<string name="weRelyOnSupport">Lishogi sizler gibi insanların desteği sayesinde ayakta duruyor. Bu çorbada sizin de tuzunuz olsun istiyorsanız lütfen bizden desteğinizi esirgemeyin.</string>
+	<string name="weRelyOnSupport">Lishogi sizler gibi insanların desteği sayesinde ayakta duruyor. Lishogi\'yi beğeniyorsanız bağış yaparak veya Patron olarak bize destek olmayı düşünün!</string>
 	<string name="donationSupport">Lishogi\'yi ve açık kaynak geliştirmeyi desteklemek istiyorsanız bağış yapmayı düşünebilirsiniz! Karşılığında bir şey almayacaksınız çünkü Lishogi tüm kullanıcılarına eşit davranır, ancak bağışınız çok makbule geçer!</string>
 	<string name="lifetime">Ömür Boyu</string>
 	<string name="payLifetimeOnce">Tek seferde %s ödeyin ve sonsuza dek Lishogi destekçisi olun!</string>
