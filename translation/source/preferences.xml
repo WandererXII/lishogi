@@ -3,6 +3,7 @@
 	<string name="preferences">Preferences</string>
 	<string name="gameDisplay">Game display</string>
 	<string name="boardLayout">Game board layout</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Hide ghosts of pieces in hand</string>
 	<string name="handsBackground">Show background behind pieces in hand</string>
 	<string name="pieceAnimation">Piece animation</string>
