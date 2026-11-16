@@ -30,7 +30,7 @@ final private class ChallengeSocket(
       rooms,
       lila log "challenge",
     ) orElse remoteSocketApi.baseHandler,
-  )
+  ) >>- send(P.Out.boot)
 
   api registerSocket this
 }
