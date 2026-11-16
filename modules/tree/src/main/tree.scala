@@ -2,9 +2,8 @@ package lila.tree
 
 import play.api.libs.json._
 
-import shogi.Centis
 import shogi.Piece
-import shogi.Pos
+import shogi.Square
 import shogi.format.Glyph
 import shogi.format.Glyphs
 import shogi.format.forsyth.Sfen
@@ -12,6 +11,7 @@ import shogi.format.usi.Usi
 import shogi.format.usi.UsiCharPair
 
 import lila.base.PimpedJsObject
+import lila.common.Centis
 import lila.common.Json._
 
 sealed trait Node {
@@ -95,12 +95,12 @@ object Node {
 
   sealed trait Shape
   object Shape {
-    type ID         = String
-    type Brush      = String
-    type PosOrPiece = Either[Pos, Piece]
+    type ID            = String
+    type Brush         = String
+    type SquareOrPiece = Either[Square, Piece]
 
-    case class Circle(brush: Brush, pos: PosOrPiece, piece: Option[Piece]) extends Shape
-    case class Arrow(brush: Brush, orig: PosOrPiece, dest: PosOrPiece)     extends Shape
+    case class Circle(brush: Brush, orig: SquareOrPiece, piece: Option[Piece]) extends Shape
+    case class Arrow(brush: Brush, orig: SquareOrPiece, dest: SquareOrPiece)   extends Shape
   }
   case class Shapes(value: List[Shape]) extends AnyVal {
     def list = value
@@ -184,8 +184,8 @@ object Node {
     def nonEmpty = deviation.nonEmpty || hint.nonEmpty
   }
 
-  implicit private val posWrites: Writes[Pos] = Writes[Pos] { p =>
-    JsString(p.key)
+  implicit private val squareWrites: Writes[Square] = Writes[Square] { sq =>
+    JsString(sq.key)
   }
   implicit private val pieceWrites: Writes[Piece] = Writes[Piece] { p =>
     Json.obj(
@@ -193,15 +193,16 @@ object Node {
       "color" -> p.color.name,
     )
   }
-  implicit private val shapePieceOrPosWrites: Writes[Shape.PosOrPiece] = Writes[Shape.PosOrPiece] {
-    case Left(pos)    => posWrites.writes(pos)
-    case Right(piece) => pieceWrites.writes(piece)
-  }
+  implicit private val shapePieceOrSquareWrites: Writes[Shape.SquareOrPiece] =
+    Writes[Shape.SquareOrPiece] {
+      case Left(square) => squareWrites.writes(square)
+      case Right(piece) => pieceWrites.writes(piece)
+    }
   implicit private val shapeCircleWrites: Writes[Shape.Circle] = Writes { c =>
     Json.obj(
       "brush" -> c.brush,
-      "orig"  -> c.pos,
-      "dest"  -> c.pos,
+      "orig"  -> c.orig,
+      "dest"  -> c.orig,
       "piece" -> c.piece,
     )
   }

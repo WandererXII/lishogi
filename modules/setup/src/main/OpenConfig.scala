@@ -1,8 +1,8 @@
 package lila.setup
 
-import shogi.Clock
 import shogi.format.forsyth.Sfen
 
+import lila.game.clock.Clock
 import lila.rating.PerfType
 
 final case class OpenConfig(
@@ -22,8 +22,8 @@ final case class OpenConfig(
 
   def validSfen =
     sfen.fold(true) { sf =>
-      sf.toSituationPlus(variant)
-        .exists(_.situation.playable(strict = strictSfen))
+      sf.toPosition(variant)
+        .exists(_.playable(strict = strictSfen))
     }
 
 }

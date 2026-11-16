@@ -6,7 +6,7 @@ import play.api.libs.json._
 
 import shogi.Color
 import shogi.Piece
-import shogi.Pos
+import shogi.Square
 import shogi.format.Tags
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
@@ -185,8 +185,8 @@ object JsonView {
   implicit private[study] val usiWrites: Writes[Usi] = Writes[Usi] { u =>
     JsString(u.usi)
   }
-  implicit private val posReader: Reads[Pos] = Reads[Pos] { v =>
-    (v.asOpt[String] flatMap Pos.fromKey).fold[JsResult[Pos]](JsError(Nil))(JsSuccess(_))
+  implicit private val squareReader: Reads[Square] = Reads[Square] { v =>
+    (v.asOpt[String] flatMap Square.fromKey).fold[JsResult[Square]](JsError(Nil))(JsSuccess(_))
   }
   implicit private val colorReader: Reads[shogi.Color] = Reads[shogi.Color] { c =>
     (c.asOpt[String] flatMap shogi.Color.fromName)
@@ -226,25 +226,25 @@ object JsonView {
     }
   implicit private[study] val settingsWriter: Writes[Settings] = Json.writes[Settings]
 
-  implicit private[study] val pieceOrPosReader: Reads[Shape.PosOrPiece] = Reads[Shape.PosOrPiece] {
-    v =>
-      posReader.reads(v) match {
-        case JsSuccess(pos, _) => JsSuccess(Left(pos).withRight[Piece])
+  implicit private[study] val pieceOrSquareReader: Reads[Shape.SquareOrPiece] =
+    Reads[Shape.SquareOrPiece] { v =>
+      squareReader.reads(v) match {
+        case JsSuccess(square, _) => JsSuccess(Left(square).withRight[Piece])
         case JsError(_) =>
           pieceReader.reads(v) match {
-            case JsSuccess(piece, _) => JsSuccess(Right(piece).withLeft[Pos])
+            case JsSuccess(piece, _) => JsSuccess(Right(piece).withLeft[Square])
             case JsError(_)          => JsError(Nil)
           }
       }
-  }
+    }
 
   implicit private[study] val shapeReader: Reads[Shape] = Reads[Shape] { js =>
     js.asOpt[JsObject]
       .flatMap { o =>
         for {
           brush <- o str "brush"
-          orig  <- o.get[Shape.PosOrPiece]("orig")
-        } yield o.get[Shape.PosOrPiece]("dest") match {
+          orig  <- o.get[Shape.SquareOrPiece]("orig")
+        } yield o.get[Shape.SquareOrPiece]("dest") match {
           case Some(dest) if dest != orig => Shape.Arrow(brush, orig, dest)
           case _                          => Shape.Circle(brush, orig, o.get[Piece]("piece"))
         }

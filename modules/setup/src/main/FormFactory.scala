@@ -142,7 +142,7 @@ final class FormFactory {
         "increment" -> increment,
         "byoyomi"   -> byoyomi,
         "periods"   -> periods,
-      )(shogi.Clock.Config.apply)(shogi.Clock.Config.unapply),
+      )(lila.game.clock.Clock.Config.apply)(lila.game.clock.Clock.Config.unapply),
     )
 
     private lazy val variant =

@@ -34,18 +34,21 @@ final private class ShoginetEvalCache(
 
   private def rawEvals(game: Work.Game): Fu[List[(Int, lila.evalCache.EvalCacheEntry.Eval)]] =
     shogi.Replay
-      .situations(
+      .positionsWhileValid(
         game.usiList.take(maxPlies - 1),
         game.initialSfen,
         game.variant,
-      )
-      .fold(
-        _ => fuccess(Nil),
-        _.toList.zipWithIndex
-          .map { case (sit, index) =>
-            evalCacheApi.getSinglePvEval(game.variant, sit.toSfen) dmap2 { index -> _ }
+      ) match {
+      case (positions, None) =>
+        positions.zipWithIndex
+          .map { case (position, index) =>
+            evalCacheApi.getSinglePvEval(
+              game.variant,
+              position.toSfenWithoutMoveNumber,
+            ) dmap2 { index -> _ }
           }
           .sequenceFu
-          .map(_.flatten),
-      )
+          .map(_.flatten)
+      case _ => fuccess(Nil)
+    }
 }

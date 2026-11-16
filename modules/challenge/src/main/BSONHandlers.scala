@@ -33,14 +33,14 @@ private object BSONHandlers {
       (r.intO("l"), r.intO("i"), Some(r.intD("b")), Some(r.intD("p"))) mapN {
         (limit, inc, byo, per) =>
           {
-            TimeControl.Clock(shogi.Clock.Config(limit, inc, byo, per))
+            TimeControl.Clock(lila.game.clock.Clock.Config(limit, inc, byo, per))
           }
       } orElse {
         r intO "d" map TimeControl.Correspondence.apply
       } getOrElse TimeControl.Unlimited
     def writes(w: Writer, t: TimeControl) =
       t match {
-        case TimeControl.Clock(shogi.Clock.Config(l, i, b, p)) =>
+        case TimeControl.Clock(lila.game.clock.Clock.Config(l, i, b, p)) =>
           $doc("l" -> l, "i" -> i, "b" -> b, "p" -> p)
         case TimeControl.Correspondence(d) => $doc("d" -> d)
         case TimeControl.Unlimited         => $empty

@@ -1,7 +1,6 @@
 package lila.lobby
 
-import shogi.Situation
-import shogi.{ Game => ShogiGame }
+import shogi.Position
 
 import lila.game.Game
 import lila.game.Player
@@ -71,14 +70,13 @@ final private class Biter(
     }
 
   private def makeGame(hook: Hook, senteUser: Option[User], goteUser: Option[User]) = {
-    val clock    = hook.clock.toClock
+    val position = Position(hook.realVariant)
+    val clock    = hook.clock.toClock(position.color)
     val perfType = lila.rating.PerfType.from(hook.realVariant, hasClock = true)
     Game
       .make(
-        shogi = ShogiGame(
-          situation = Situation(hook.realVariant),
-          clock = clock.some,
-        ),
+        position = position,
+        clock = clock.some,
         initialSfen = None,
         sentePlayer = Player.make(shogi.Sente, senteUser, perfType),
         gotePlayer = Player.make(shogi.Gote, goteUser, perfType),
@@ -94,10 +92,7 @@ final private class Biter(
     val perfType = lila.rating.PerfType.from(seek.realVariant, hasClock = false)
     Game
       .make(
-        shogi = ShogiGame(
-          situation = Situation(seek.realVariant),
-          clock = none,
-        ),
+        position = Position(seek.realVariant),
         initialSfen = None,
         sentePlayer = Player.make(shogi.Sente, senteUser, perfType),
         gotePlayer = Player.make(shogi.Gote, goteUser, perfType),

@@ -5,9 +5,8 @@ import scala.util.Success
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 
-import shogi.Centis
 import shogi.Piece
-import shogi.Pos
+import shogi.Square
 import shogi.Status
 import shogi.format.Glyph
 import shogi.format.Glyphs
@@ -21,6 +20,7 @@ import shogi.format.usi.UsiCharPair
 import shogi.variant.Standard
 import shogi.variant.Variant
 
+import lila.common.Centis
 import lila.common.Iso
 import lila.db.BSON
 import lila.db.BSON.Reader
@@ -54,15 +54,15 @@ object BSONHandlers {
     x => BSONString(SfenUtils.toForsyth(x, Standard).getOrElse("p")),
   )
 
-  implicit private val PosOrPieceBSONHandler: BSONHandler[Shape.PosOrPiece] =
-    tryHandler[Shape.PosOrPiece](
+  implicit private val SquareOrPieceBSONHandler: BSONHandler[Shape.SquareOrPiece] =
+    tryHandler[Shape.SquareOrPiece](
       { case BSONString(v) =>
-        Pos
+        Square
           .fromKey(v)
           .map(Left(_).withRight[Piece])
           .orElse(
-            SfenUtils.toPiece(v, Standard).map(Right(_).withLeft[Pos]),
-          ) toTry s"No such pos or piece: $v"
+            SfenUtils.toPiece(v, Standard).map(Right(_).withLeft[Square]),
+          ) toTry s"No such square or piece: $v"
       },
       x => BSONString(x.fold(_.key, p => SfenUtils.toForsyth(p, Standard).getOrElse("p"))),
     )
@@ -70,12 +70,12 @@ object BSONHandlers {
   implicit val ShapeBSONHandler: BSON[Shape] = new BSON[Shape] {
     def reads(r: Reader) = {
       val brush = r str "b"
-      r.getO[Shape.PosOrPiece]("p") map { pos =>
-        Shape.Circle(brush, pos, None)
+      r.getO[Shape.SquareOrPiece]("p") map { orig =>
+        Shape.Circle(brush, orig, None)
       } getOrElse {
-        r.getO[Shape.PosOrPiece]("d") map { dest =>
-          Shape.Arrow(brush, r.get[Shape.PosOrPiece]("o"), dest)
-        } getOrElse Shape.Circle(brush, r.get[Shape.PosOrPiece]("o"), r.getO[Piece]("k"))
+        r.getO[Shape.SquareOrPiece]("d") map { dest =>
+          Shape.Arrow(brush, r.get[Shape.SquareOrPiece]("o"), dest)
+        } getOrElse Shape.Circle(brush, r.get[Shape.SquareOrPiece]("o"), r.getO[Piece]("k"))
       }
     }
     def writes(w: Writer, t: Shape) =

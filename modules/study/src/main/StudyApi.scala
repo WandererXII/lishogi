@@ -4,13 +4,13 @@ import scala.concurrent.duration._
 
 import akka.stream.scaladsl._
 
-import shogi.Centis
 import shogi.format.Glyph
 import shogi.format.Tags
 
 import lila.chat.Chat
 import lila.chat.ChatApi
 import lila.common.Bus
+import lila.common.Centis
 import lila.hub.actorApi.map.Tell
 import lila.hub.actorApi.round.RematchNo
 import lila.hub.actorApi.round.RematchYes

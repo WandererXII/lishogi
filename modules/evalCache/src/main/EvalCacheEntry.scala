@@ -115,7 +115,7 @@ object EvalCacheEntry {
     def make(sfen: Sfen): SmallSfen =
       new SmallSfen(sfen.truncate.value.filterNot(_ == '/'))
     def validate(variant: Variant, sfen: Sfen): Option[SmallSfen] =
-      sfen.toSituation(variant).exists(_.valid(strict = false)) option make(
+      sfen.toPosition(variant).exists(_.valid(strict = false)) option make(
         sfen,
       )
   }

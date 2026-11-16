@@ -6,7 +6,7 @@ import play.api.i18n.Lang
 import lila.common.Form._
 
 sealed trait TimeControl {
-  def clock: Option[shogi.Clock.Config]
+  def clock: Option[lila.game.clock.Clock.Config]
   def days: Option[Int]
   def estimateTotalSeconds: Int
   def show(implicit lang: Lang): String
@@ -15,7 +15,7 @@ sealed trait TimeControl {
 
 object TimeControl {
 
-  case class RealTime(value: shogi.Clock.Config) extends TimeControl {
+  case class RealTime(value: lila.game.clock.Clock.Config) extends TimeControl {
     def clock                     = value.some
     def days                      = none
     def estimateTotalSeconds      = value.estimateTotalSeconds
@@ -89,7 +89,8 @@ object TimeControl {
           Correspondence(daysPerTurn)
         else
           RealTime(
-            shogi.Clock.Config((clockTime * 60).toInt, clockIncrement, clockByoyomi, periods),
+            lila.game.clock.Clock
+              .Config((clockTime * 60).toInt, clockIncrement, clockByoyomi, periods),
           )
 
       def clock = convert.clock

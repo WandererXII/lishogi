@@ -1,9 +1,8 @@
 package lila.evaluation
 
-import shogi.Centis
-import shogi.Stats
-
+import lila.common.Centis
 import lila.common.Maths
+import lila.common.Stats
 
 object Statistics {
 

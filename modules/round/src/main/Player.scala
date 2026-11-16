@@ -4,12 +4,11 @@ import cats.data.Validated
 import cats.data.Validated.Invalid
 import cats.data.Validated.Valid
 
-import shogi.Centis
-import shogi.LagMetrics
 import shogi.Status
 import shogi.format.usi.Usi
 
 import lila.common.Bus
+import lila.common.Centis
 import lila.game.Game
 import lila.game.Game.PlayerId
 import lila.game.GameRepo
@@ -17,6 +16,7 @@ import lila.game.Pov
 import lila.game.Progress
 import lila.game.actorApi.MoveGameEvent
 import lila.game.actorApi.PauseGame
+import lila.game.clock.LagMetrics
 import lila.hub.actorApi.round.ShoginetResign
 import lila.round.actorApi.round.DrawNo
 import lila.round.actorApi.round.ForecastPlay
@@ -155,24 +155,24 @@ final private class Player(
       blur: Boolean,
       metrics: LagMetrics,
   ): Validated[String, UsiResult] =
-    game.shogi(usi, metrics) match {
+    game.prepareMove(usi, metrics) match {
       case Valid(nsg) =>
         Valid(
           if (nsg.clock.exists(_.outOfTime(game.turnColor, withGrace = false))) Flagged
-          else if (game.prePaused && !nsg.situation.end)
+          else if (game.prePaused && !nsg.position.end)
             UsiApplied(game.pauseAndSealUsi(usi, nsg, blur))
           else UsiApplied(game.applyGame(nsg, blur)),
         )
-      case Invalid(err) if (game.isProMode && illegalSanityCheck(game.shogi, usi)) =>
+      case Invalid(err) if (game.isProMode && illegalSanityCheck(game.position, usi)) =>
         Valid(Illegal(game.withIllegalUsi(usi), err))
       case i @ Invalid(_) => i
     }
 
-  private def illegalSanityCheck(shogiGame: shogi.Game, usi: Usi): Boolean =
+  private def illegalSanityCheck(position: shogi.Position, usi: Usi): Boolean =
     usi match {
-      case u: Usi.Move => shogiGame.board(u.orig).exists(_.color == shogiGame.color)
+      case u: Usi.Move => position.board(u.orig).exists(_.color == position.color)
       case u: Usi.Drop =>
-        shogiGame.board(u.pos).isEmpty && shogiGame.hands(shogiGame.color)(u.role) > 0
+        position.board(u.square).isEmpty && position.hands(position.color)(u.role) > 0
     }
 
   private def notifyOfPausedGame(usi: Usi, game: Game): Funit = {
@@ -181,10 +181,10 @@ final private class Player(
 
   private[round] def notifyUsi(usi: Usi, game: Game): Unit = {
     import lila.hub.actorApi.round.{ CorresMoveEvent, MoveEvent, SimulMoveEvent }
-    val color = !game.situation.color
+    val color = !game.position.color
     val moveEvent = MoveEvent(
       gameId = game.id,
-      sfen = game.situation.toSfen.value,
+      sfen = game.position.toSfenWithoutMoveNumber.value,
       usi = usi.usi,
     )
 
@@ -218,17 +218,17 @@ final private class Player(
 
   private def usiFinish(game: Game)(implicit proxy: GameProxy): Fu[Events] = {
     game.status match {
-      case Status.Mate       => finisher.other(game, _.Mate, winner = game.situation.winner)
-      case Status.Stalemate  => finisher.other(game, _.Stalemate, winner = game.situation.winner)
-      case Status.Impasse27  => finisher.other(game, _.Impasse27, winner = game.situation.winner)
-      case Status.Repetition => finisher.other(game, _.Repetition, winner = game.situation.winner)
+      case Status.Mate       => finisher.other(game, _.Mate, winner = game.position.winner)
+      case Status.Stalemate  => finisher.other(game, _.Stalemate, winner = game.position.winner)
+      case Status.Impasse27  => finisher.other(game, _.Impasse27, winner = game.position.winner)
+      case Status.Repetition => finisher.other(game, _.Repetition, winner = game.position.winner)
       case Status.PerpetualCheck =>
-        finisher.other(game, _.PerpetualCheck, winner = game.situation.winner)
-      case Status.RoyalsLost => finisher.other(game, _.RoyalsLost, winner = game.situation.winner)
-      case Status.BareKing   => finisher.other(game, _.BareKing, winner = game.situation.winner)
-      case Status.TryRule    => finisher.other(game, _.TryRule, winner = game.situation.winner)
+        finisher.other(game, _.PerpetualCheck, winner = game.position.winner)
+      case Status.RoyalsLost => finisher.other(game, _.RoyalsLost, winner = game.position.winner)
+      case Status.BareKing   => finisher.other(game, _.BareKing, winner = game.position.winner)
+      case Status.TryRule    => finisher.other(game, _.TryRule, winner = game.position.winner)
       case Status.Check =>
-        finisher.other(game, _.Check, winner = game.situation.winner)
+        finisher.other(game, _.Check, winner = game.position.winner)
       case Status.Draw => finisher.other(game, _.Draw, winner = none)
       case _           => fuccess(Nil)
     }

@@ -24,7 +24,7 @@ final private[simul] class SimulRepo(simulColl: Coll)(implicit
     { case BSONInteger(v) => Variant.orDefault(v) },
     x => BSONInteger(x.id),
   )
-  import shogi.Clock.Config
+  import lila.game.clock.Clock.Config
   implicit private val clockHandler: BSONDocumentHandler[Config] = Macros.handler[Config]
   implicit private val ClockBSONHandler: BSONDocumentHandler[SimulClock] =
     Macros.handler[SimulClock]

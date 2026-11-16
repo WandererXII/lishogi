@@ -138,7 +138,7 @@ object HookConfig extends BaseHumanConfig {
       variant = variant,
       handicap = h
         .map(Sfen.apply)
-        .filter(sfen => sfen.toSituation(variant).exists(_.playable(strict = true))),
+        .filter(sfen => sfen.toPosition(variant).exists(_.playable(strict = true))),
       timeMode = TimeMode(tm) err s"Invalid time mode $tm",
       time = t,
       increment = i,

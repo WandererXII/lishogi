@@ -160,7 +160,7 @@ object Schedule {
     def closest(factor: Int) =
       all.minBy(s => math.abs(s.factor - factor))
 
-    def fromClock(clock: shogi.Clock.Config) = {
+    def fromClock(clock: lila.game.clock.Clock.Config) = {
       val time = clock.estimateTotalSeconds
       if (time < 600) VeryFast
       else if (time < 1500) Fast
@@ -210,7 +210,7 @@ object Schedule {
     import Speed._
     import shogi.variant._
 
-    val CC = shogi.Clock.Config
+    val CC = lila.game.clock.Clock.Config
     val RT = TimeControl.RealTime
     val CR = TimeControl.Correspondence
 

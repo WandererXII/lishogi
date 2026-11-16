@@ -2,7 +2,6 @@ package lila.setup
 
 import scala.util.chaining._
 
-import shogi.Clock
 import shogi.format.forsyth.Sfen
 import shogi.variant.Variant
 
@@ -11,6 +10,7 @@ import lila.game.Game
 import lila.game.Player
 import lila.game.Pov
 import lila.game.Source
+import lila.game.clock.Clock
 import lila.lobby.Color
 import lila.user.User
 
@@ -40,21 +40,22 @@ final case class ApiAiConfig(
 
 // identical to aiconfig?
   def game(user: Option[User]) =
-    makeGame pipe { shogiGame =>
+    makePosition pipe { position =>
       val perfType = lila.rating.PerfType.from(
-        shogiGame.variant,
+        position.variant,
         hasClock = timeMode == TimeMode.RealTime,
       )
       Game
         .make(
-          shogi = shogiGame,
+          position = position,
+          clock = makeClock.map(_.toClock(position.color)),
           initialSfen = sfen,
           sentePlayer = creatorColor.fold(
             Player.make(shogi.Sente, user, perfType),
-            Player.make(shogi.Sente, EngineConfig(sfen, shogiGame.variant, level).some),
+            Player.make(shogi.Sente, EngineConfig(sfen, position.variant, level).some),
           ),
           gotePlayer = creatorColor.fold(
-            Player.make(shogi.Gote, EngineConfig(sfen, shogiGame.variant, level).some),
+            Player.make(shogi.Gote, EngineConfig(sfen, position.variant, level).some),
             Player.make(shogi.Gote, user, perfType),
           ),
           mode = shogi.Mode.Casual,

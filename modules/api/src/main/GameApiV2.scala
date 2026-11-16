@@ -83,7 +83,7 @@ final class GameApiV2(
       java.net.URLEncoder.encode(
         fileR.replaceAllIn(
           "lishogi_game_%s_%s_vs_%s_%s.%s".format(
-            Tag.UTCDate.format.print(game.createdAt),
+            Tag.UTCDate.format.format(java.time.Instant.ofEpochMilli(game.createdAt.getMillis)),
             notationDump.dumper.player(game.sentePlayer, su, lila.i18n.defaultLang),
             notationDump.dumper.player(game.gotePlayer, gu, lila.i18n.defaultLang),
             game.id,
@@ -98,7 +98,7 @@ final class GameApiV2(
     java.net.URLEncoder.encode(
       fileR.replaceAllIn(
         "lishogi_tournament_%s_%s_%s.%s".format(
-          Tag.UTCDate.format.print(tour.startsAt),
+          Tag.UTCDate.format.format(java.time.Instant.ofEpochMilli(tour.startsAt.getMillis)),
           tour.id,
           lila.common.String.slugify(tour.name),
           fileType(configInput),

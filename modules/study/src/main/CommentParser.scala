@@ -2,7 +2,7 @@ package lila.study
 
 import shogi.Color
 import shogi.Piece
-import shogi.Pos
+import shogi.Square
 
 import lila.tree.Node.Shape
 import lila.tree.Node.Shapes
@@ -48,8 +48,8 @@ private[study] object CommentParser {
         val circles = str.split(',').toList.map(_.trim).flatMap { c =>
           for {
             color <- c.headOption
-            pos   <- toPosOrPiece(c.drop(1))
-          } yield Shape.Circle(toBrush(color), pos, None)
+            orig  <- toSquareOrPiece(c.drop(1))
+          } yield Shape.Circle(toBrush(color), orig, None)
         }
         Shapes(circles) -> circlesRemoveRegex.replaceAllIn(comment, "").trim
       case _ => Shapes(Nil) -> comment
@@ -61,8 +61,8 @@ private[study] object CommentParser {
         val arrows = str.split(',').toList.flatMap { c =>
           for {
             color <- c.headOption
-            orig  <- toPosOrPiece(c.drop(1).take(2))
-            dest  <- toPosOrPiece(c.drop(3).take(2))
+            orig  <- toSquareOrPiece(c.drop(1).take(2))
+            dest  <- toSquareOrPiece(c.drop(3).take(2))
           } yield Shape.Arrow(toBrush(color), orig, dest)
         }
         Shapes(arrows) -> arrowsRemoveRegex.replaceAllIn(comment, "").trim
@@ -75,22 +75,22 @@ private[study] object CommentParser {
         val pieces = str.split(',').toList.map(_.trim).flatMap { c =>
           for {
             color <- c.headOption
-            pos   <- Pos.fromKey(c.drop(1).take(2)).map(Left(_).withRight[Piece])
-            piece <- toPosOrPiece(c.drop(3)).flatMap(_.toOption)
-          } yield Shape.Circle(toBrush(color), pos, piece.some)
+            orig  <- Square.fromKey(c.drop(1).take(2)).map(Left(_).withRight[Piece])
+            piece <- toSquareOrPiece(c.drop(3)).flatMap(_.toOption)
+          } yield Shape.Circle(toBrush(color), orig, piece.some)
         }
         Shapes(pieces) -> piecesRemoveRegex.replaceAllIn(comment, "").trim
       case _ => Shapes(Nil) -> comment
     }
 
-  private def toPosOrPiece(str: String): Option[Shape.PosOrPiece] =
-    Pos
+  private def toSquareOrPiece(str: String): Option[Shape.SquareOrPiece] =
+    Square
       .fromKey(str)
       .map(Left(_).withRight[Piece])
       .orElse {
         shogi.format.usi.Usi.Drop.usiToRole
           .get(str.filterNot(_ == '_').toUpperCase)
-          .map(r => Right(Piece(Color.fromSente(str.toLowerCase != str), r)).withLeft[Pos])
+          .map(r => Right(Piece(Color.fromSente(str.toLowerCase != str), r)).withLeft[Square])
       }
 
   private def toBrush(color: Char): Shape.Brush =

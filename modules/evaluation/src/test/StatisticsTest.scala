@@ -3,7 +3,7 @@ package lila.evaluation
 import Statistics._
 import org.specs2.mutable._
 
-import shogi.Centis
+import lila.common.Centis
 
 class StatisticsTest extends Specification {
   "move times" should {

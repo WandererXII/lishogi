@@ -1,10 +1,9 @@
 package lila.setup
 
-import shogi.Clock
 import shogi.format.forsyth.Sfen
 import shogi.variant.Variant
-import shogi.{ Game => ShogiGame }
 
+import lila.game.clock.Clock
 import lila.lobby.Color
 
 private[setup] trait Config {
@@ -69,11 +68,11 @@ trait Positional { self: Config =>
 
   lazy val validSfen =
     sfen.fold(true) { sf =>
-      sf.toSituationPlus(variant)
-        .exists(_.situation.playable(strict = strictSfen))
+      sf.toPosition(variant)
+        .exists(_.playable(strict = strictSfen))
     }
 
-  def makeGame = ShogiGame(sfen, variant).withClock(makeClock.map(_.toClock))
+  def makePosition = shogi.Position(sfen, variant)
 
 }
 

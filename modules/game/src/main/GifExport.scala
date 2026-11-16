@@ -6,14 +6,13 @@ import play.api.libs.ws.WSClient
 import akka.stream.scaladsl._
 import akka.util.ByteString
 
-import shogi.Centis
 import shogi.Color
+import shogi.Position
 import shogi.Replay
-import shogi.Situation
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
-import shogi.{ Game => ShogiGame }
 
+import lila.common.Centis
 import lila.common.Json._
 import lila.common.Maths
 import lila.common.config.BaseUrl
@@ -64,7 +63,7 @@ final class GifExport(
   def gameThumbnail(game: Game): Fu[Option[Source[ByteString, _]]] = {
     if (Game.gifVariants.contains(game.variant)) {
       val query = List(
-        "sfen" -> game.shogi.toSfen.value,
+        "sfen" -> game.position.toSfen.value,
         "black" -> Namer.playerTextBlocking(game.sentePlayer, withRank = false)(
           lightUserApi.sync,
           lila.i18n.defaultLang,
@@ -76,7 +75,7 @@ final class GifExport(
         "orientation" -> game.firstColor.engName,
       ) ::: List(
         game.lastUsiStr.map { "lastMove" -> _ },
-        game.situation.checkSquares.headOption.map { "check" -> _.key },
+        game.position.checkSquares.headOption.map { "check" -> _.key },
       ).flatten
 
       lightUserApi preloadMany game.userIds flatMap { _ =>
@@ -132,13 +131,14 @@ final class GifExport(
   }
 
   private def frames(game: Game) = {
-    Replay.gamesWhileValid(
+    Replay.positionsWhileValid(
       game.usis,
       game.initialSfen,
       game.variant,
     ) match {
-      case (games, _) =>
-        val steps = (games.head, None) :: games.tail.zip(game.usis.map(_.some))
+      case (Nil, _) => Json.arr()
+      case (head :: tail, _) =>
+        val steps = (head, None) :: tail.zip(game.usis.map(_.some))
         framesRec(
           steps.zip(scaleMoveTimes(~game.moveTimes).map(_.some).padTo(steps.length, None)),
           Json.arr(),
@@ -148,23 +148,23 @@ final class GifExport(
 
   @annotation.tailrec
   private def framesRec(
-      games: List[((ShogiGame, Option[Usi]), Option[Centis])],
+      positions: List[((Position, Option[Usi]), Option[Centis])],
       arr: JsArray,
   ): JsArray =
-    games match {
-      case ((game, usi), scaledMoveTime) :: tail =>
+    positions match {
+      case ((position, usi), scaledMoveTime) :: tail =>
         // longer delay for last frame
         val delay = if (tail.isEmpty) Centis(500).some else scaledMoveTime
-        framesRec(tail, arr :+ frame(game.situation, usi, delay))
+        framesRec(tail, arr :+ frame(position, usi, delay))
       case _ => arr
     }
 
-  private def frame(situation: Situation, usi: Option[Usi], delay: Option[Centis]) =
+  private def frame(position: Position, usi: Option[Usi], delay: Option[Centis]) =
     Json
       .obj(
-        "sfen"     -> situation.toSfen,
+        "sfen"     -> position.toSfenWithoutMoveNumber,
         "lastMove" -> usi.map(_.usi),
       )
-      .add("check", situation.checkSquares.headOption.map(_.key))
+      .add("check", position.checkSquares.headOption.map(_.key))
       .add("delay", delay.map(_.centis))
 }

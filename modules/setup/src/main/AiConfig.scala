@@ -42,21 +42,22 @@ case class AiConfig(
   ).some
 
   def game(user: Option[User]) =
-    makeGame pipe { shogiGame =>
+    makePosition pipe { position =>
       val perfType = lila.rating.PerfType.from(
-        shogiGame.variant,
+        position.variant,
         hasClock = timeMode == TimeMode.RealTime,
       )
       Game
         .make(
-          shogi = shogiGame,
+          position = position,
+          clock = makeClock.map(_.toClock(position.color)),
           initialSfen = sfen,
           sentePlayer = creatorColor.fold(
             Player.make(shogi.Sente, user, perfType),
-            Player.make(shogi.Sente, EngineConfig(sfen, shogiGame.variant, level).some),
+            Player.make(shogi.Sente, EngineConfig(sfen, position.variant, level).some),
           ),
           gotePlayer = creatorColor.fold(
-            Player.make(shogi.Gote, EngineConfig(sfen, shogiGame.variant, level).some),
+            Player.make(shogi.Gote, EngineConfig(sfen, position.variant, level).some),
             Player.make(shogi.Gote, user, perfType),
           ),
           mode = shogi.Mode.Casual,

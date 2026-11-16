@@ -1,7 +1,6 @@
 package lila.study
 
-import shogi.Centis
-
+import lila.common.Centis
 import lila.common.Maths
 
 case class MoveOpts(

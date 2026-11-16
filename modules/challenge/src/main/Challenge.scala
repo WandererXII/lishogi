@@ -126,11 +126,11 @@ object Challenge {
 
   sealed trait TimeControl
   object TimeControl {
-    def make(clock: Option[shogi.Clock.Config], days: Option[Int]) =
+    def make(clock: Option[lila.game.clock.Clock.Config], days: Option[Int]) =
       clock.map(Clock).orElse(days map Correspondence).getOrElse(Unlimited)
     case object Unlimited                extends TimeControl
     case class Correspondence(days: Int) extends TimeControl
-    case class Clock(config: shogi.Clock.Config) extends TimeControl {
+    case class Clock(config: lila.game.clock.Clock.Config) extends TimeControl {
       // All durations are expressed in seconds
       def limit     = config.limit
       def increment = config.increment

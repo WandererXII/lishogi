@@ -229,7 +229,7 @@ private[tournament] case class TournamentSetup(
     .getOrElse(DataForm.minutesDefault)
 
   def validPosition = position.fold(true) { sfen =>
-    sfen.toSituation(realVariant).exists(_.playable(strict = true))
+    sfen.toPosition(realVariant).exists(_.playable(strict = true))
   }
 
   def validMinutes(granted: Boolean) =

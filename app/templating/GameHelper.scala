@@ -4,7 +4,6 @@ package templating
 import controllers.routes
 import play.api.i18n.Lang
 
-import shogi.Clock
 import shogi.Color
 import shogi.Mode
 import shogi.variant.Variant
@@ -18,6 +17,7 @@ import lila.game.Namer
 import lila.game.Player
 import lila.game.Pov
 import lila.game.Source
+import lila.game.clock.Clock
 import lila.i18n.defaultLang
 import lila.i18n.{ I18nKeys => trans }
 
@@ -245,7 +245,7 @@ trait GameHelper {
       cls         := miniBoardCls(game.id, variant, isLive),
       dataLive    := isLive.option(game.id),
       dataColor   := pov.color.name,
-      dataSfen    := game.situation.toSfen.value,
+      dataSfen    := game.position.toSfenWithoutMoveNumber.value,
       dataLastUsi := ~game.lastUsiStr,
       dataVariant := variant.key,
     )(shogigroundEmpty(variant, pov.color))
@@ -261,7 +261,7 @@ trait GameHelper {
       cls         := miniBoardCls(pov.gameId, variant, isLive),
       dataLive    := isLive.option(pov.gameId),
       dataColor   := pov.color.name,
-      dataSfen    := pov.game.situation.toSfen.value,
+      dataSfen    := pov.game.position.toSfenWithoutMoveNumber.value,
       dataLastUsi := ~pov.game.lastUsiStr,
       dataVariant := variant.key,
       target      := blank.option("_blank"),

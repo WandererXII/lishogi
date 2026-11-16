@@ -1,8 +1,8 @@
 package lila.study
 
-import shogi.Centis
 import shogi.Color
 
+import lila.common.Centis
 import lila.game.Game
 import lila.game.Namer
 import lila.game.Pov

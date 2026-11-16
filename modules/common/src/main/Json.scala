@@ -4,8 +4,9 @@ import play.api.libs.json.{ Json => PlayJson, _ }
 
 import org.joda.time.DateTime
 
-import shogi.Centis
 import shogi.format.forsyth.Sfen
+
+import lila.common.Centis
 
 object Json {
 

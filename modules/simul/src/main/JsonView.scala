@@ -128,7 +128,7 @@ final class JsonView(
         "id"       -> g.id,
         "status"   -> g.status.id,
         "variant"  -> g.variant.key,
-        "sfen"     -> g.situation.toSfen,
+        "sfen"     -> g.position.toSfenWithoutMoveNumber,
         "lastMove" -> ~g.lastUsiStr,
         "orient"   -> g.playerByUserId(hostId).map(_.color),
       )

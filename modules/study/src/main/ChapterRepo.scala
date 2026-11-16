@@ -108,7 +108,7 @@ final class ChapterRepo(
   def setGlyphs(glyphs: shogi.format.Glyphs) =
     setNodeValue(Node.BsonFields.glyphs, glyphs.nonEmpty) _
 
-  def setClock(clock: Option[shogi.Centis]) = setNodeValue(Node.BsonFields.clock, clock) _
+  def setClock(clock: Option[lila.common.Centis]) = setNodeValue(Node.BsonFields.clock, clock) _
 
   def forceVariation(force: Boolean) =
     setNodeValue(Node.BsonFields.forceVariation, force option true) _

@@ -72,7 +72,7 @@ object StudyForm {
 
       def validSfen =
         sfen.fold(true) { sf =>
-          sf.toSituation(variant).exists(_.valid(strict = false))
+          sf.toPosition(variant).exists(_.valid(strict = false))
         }
 
       def as: As =

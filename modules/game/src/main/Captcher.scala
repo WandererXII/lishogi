@@ -6,9 +6,8 @@ import akka.actor._
 import akka.pattern.pipe
 import cats.data.NonEmptyList
 
-import shogi.format.Reader
-import shogi.format.Tags
-import shogi.{ Game => ShogiGame }
+import shogi.Position
+import shogi.Replay
 
 import lila.common.Captcha
 import lila.hub.actorApi.captcha._
@@ -76,30 +75,28 @@ final private class Captcher(gameRepo: GameRepo)(implicit ec: scala.concurrent.E
       } yield Captcha(game.id, sfen(rewinded), rewinded.color.sente, solutions)
 
     // Not looking for drop checkmates or checking promotions
-    private def solve(game: ShogiGame): Option[Captcha.Solutions] =
-      game.situation.moveActors.values
+    private def solve(position: Position): Option[Captcha.Solutions] =
+      position.moveActors.values
         .flatMap { case moveActor =>
           moveActor.toUsis filter { usi =>
-            game.situation(usi).toOption.fold(false)(_.status.contains(shogi.Status.Mate))
+            position(usi).toOption.fold(false)(_.status.contains(shogi.Status.Mate))
           }
         }
         .to(List) map { usi =>
         s"${usi.orig}${usi.dest}" // we don't care about promotions
       } toNel
 
-    private def rewind(moves: Usis): Option[ShogiGame] =
-      Reader
+    private def rewind(moves: Usis): Option[Position] =
+      Replay
         .fromUsi(
           moves.dropRight(1),
           none,
           shogi.variant.Minishogi,
-          Tags.empty,
         )
         .valid
-        .map(_.state)
         .toOption
 
-    private def sfen(game: ShogiGame): String =
-      game.situation.toSfen.truncate.value
+    private def sfen(position: Position): String =
+      position.toSfenWithoutMoveNumber.value
   }
 }

@@ -6,10 +6,10 @@ import play.api.libs.json._
 
 import cats.data.Validated
 
-import shogi.Centis
 import shogi.format.Glyph
 import shogi.format.Glyphs
 
+import lila.common.Centis
 import lila.room.RoomSocket.{ Protocol => RP, _ }
 import lila.socket.RemoteSocket.{ Protocol => P, _ }
 import lila.socket.Socket.Sri
@@ -47,8 +47,7 @@ final private class StudySocket(
 
   def onServerEval(studyId: Study.Id, eval: ServerEval.Progress): Unit =
     eval match {
-      case ServerEval.Progress(chapterId, root, analysis, division) =>
-        import lila.game.JsonView.divisionWriter
+      case ServerEval.Progress(chapterId, root, analysis) =>
         import JsonView._
         send(
           RP.Out.tellRoom(
@@ -59,7 +58,6 @@ final private class StudySocket(
                 "analysis" -> analysis,
                 "ch"       -> chapterId,
                 "tree"     -> JsonView.defaultNodeJsonWriter.writes(root),
-                "division" -> division,
               ),
             ),
           ),

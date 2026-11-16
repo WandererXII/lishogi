@@ -1,6 +1,5 @@
 package lila.study
 
-import shogi.Centis
 import shogi.format.Glyph
 import shogi.format.Glyphs
 import shogi.format.forsyth.Sfen
@@ -8,6 +7,7 @@ import shogi.format.usi.Usi
 import shogi.format.usi.UsiCharPair
 import shogi.variant.Variant
 
+import lila.common.Centis
 import lila.tree.Eval.Score
 import lila.tree.Node.Comment
 import lila.tree.Node.Comments

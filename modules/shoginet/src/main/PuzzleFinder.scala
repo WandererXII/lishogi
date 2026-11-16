@@ -19,14 +19,13 @@ private object PuzzleFinder {
       work.game.initialSfen.fold(true)(_.initialOf(work.game.variant)) &&
       work.game.studyId.isEmpty
     ) {
-      lazy val games = Replay
-        .gamesWhileValid(
+      lazy val positions = Replay
+        .positionsWhileValid(
           work.game.usiList,
           work.game.initialSfen,
           work.game.variant,
         )
         ._1
-        .toList
       val investigatable = analysis.infos
         .map(_.eval)
         .sliding(2)
@@ -40,14 +39,14 @@ private object PuzzleFinder {
         .takeRight(5)
 
       investigatable flatMap { index =>
-        games.lift(index).map { game =>
+        positions.lift(index).map { position =>
           Work.Puzzle(
             _id = Work.makeId,
             game = Work.Game(
               id = "synthetic",
-              initialSfen = game.toSfen.some,
+              initialSfen = position.toSfen.some,
               studyId = none,
-              variant = game.variant,
+              variant = position.variant,
               moves = ~work.game.usiList.lift(index).map(_.usi),
             ),
             engine = lila.game.EngineConfig.Engine.YaneuraOu.name,

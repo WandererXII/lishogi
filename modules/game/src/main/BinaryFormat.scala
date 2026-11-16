@@ -4,21 +4,21 @@ import scala.util.Try
 
 import org.joda.time.DateTime
 
-import shogi.Centis
-import shogi.Clock
-import shogi.ClockPlayer
 import shogi.Color
 import shogi.Gote
 import shogi.Piece
 import shogi.PieceMap
+import shogi.Position
 import shogi.Sente
-import shogi.Situation
-import shogi.Timestamp
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
 import shogi.variant.Variant
 
+import lila.common.Centis
 import lila.db.ByteArray
+import lila.game.clock.Clock
+import lila.game.clock.ClockPlayer
+import lila.game.clock.Timestamp
 import lila.game.compression.clock.{ Encoder => ClockEncoder }
 
 object BinaryFormat {
@@ -241,8 +241,8 @@ object BinaryFormat {
         variant: Variant,
     ): PieceMap = {
       val init = initialSfen.flatMap { sfen =>
-        sfen.toSituation(variant)
-      } | Situation(variant)
+        sfen.toPosition(variant)
+      } | Position(variant)
       val mm    = collection.mutable.Map(init.board.pieces.toSeq: _*)
       var color = init.color
       usis.foreach { case usi =>
@@ -262,8 +262,8 @@ object BinaryFormat {
               color = !color
             }
           }
-          case Usi.Drop(role, pos) => {
-            mm update (pos, Piece(color, role))
+          case Usi.Drop(role, square) => {
+            mm update (square, Piece(color, role))
             color = !color
           }
         }

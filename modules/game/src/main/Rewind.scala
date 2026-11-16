@@ -3,24 +3,21 @@ package lila.game
 import cats.data.Validated
 import org.joda.time.DateTime
 
-import shogi.format.Reader
-import shogi.format.Tags
+import shogi.Replay
 
 object Rewind {
 
   def apply(game: Game): Validated[String, Progress] =
-    Reader
+    Replay
       .fromUsi(
         usis = game.usis.dropRight(1),
         initialSfen = game.initialSfen,
         variant = game.variant,
-        tags = Tags.empty,
       )
       .valid
-      .map { replay =>
-        val rewindedGame = replay.state
+      .map { rewinded =>
         val color        = game.turnColor
-        val turn         = rewindedGame.fullTurnNumber
+        val turn         = rewinded.fullTurnNumber
         val refundPeriod = ~(game.clockHistory map (_.countSpentPeriods(!color, turn)))
 
         val newClock = game.clock.map(_.refundPeriods(!color, refundPeriod).takeback) map { clk =>
@@ -37,13 +34,8 @@ object Rewind {
         val newGame = game.copy(
           sentePlayer = rewindPlayer(game.sentePlayer),
           gotePlayer = rewindPlayer(game.gotePlayer),
-          shogi = game.initialSfen.fold(rewindedGame.copy(clock = newClock)) { sfen =>
-            rewindedGame
-              .copy(clock = newClock)
-              .withHistory(
-                rewindedGame.situation.history.withInitialSfen(sfen),
-              )
-          },
+          position = rewinded,
+          clock = newClock,
           binaryMoveTimes = game.binaryMoveTimes.map { binary =>
             val moveTimes = BinaryFormat.moveTime.read(binary, game.playedPlies)
             BinaryFormat.moveTime.write(moveTimes.dropRight(1))

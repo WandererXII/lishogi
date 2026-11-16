@@ -38,6 +38,14 @@ class BinaryClockHistoryTest extends Specification {
 
   "binary clock history" should {
 
+    "preserve a fixed pre-migration compression fixture" in {
+      val expected = Array[Byte](12, -26, 11, -96, 64)
+      val times    = Vector(6000, 5900, 5700, 5600).map(Centis.apply)
+      clockHistory.writeSide(Centis(6000), times, false).value.toVector must_== expected.toVector
+      clockHistory.readSide(Centis(6000), ByteArray(expected), false) must_==
+        Vector(6003, 5899, 5699, 5600).map(Centis.apply)
+      clockHistory.readSide(Centis(6000), ByteArray(expected), true).last must_== Centis(0)
+    }
     "handle empty vectors" in {
       clockHistory.writeSide(Centis(720000), Vector.empty, false).isEmpty must beTrue
     }

@@ -52,7 +52,6 @@ final class Env(
     rankingApi: lila.user.RankingApi,
     notifyApi: lila.notify.NotifyApi,
     rematches: lila.game.Rematches,
-    divider: lila.game.Divider,
     prefApi: lila.pref.PrefApi,
     historyApi: lila.history.HistoryApi,
     evalCache: lila.evalCache.EvalCacheApi,

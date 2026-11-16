@@ -99,7 +99,7 @@ final class PimpedEither[A, B](private val v: Either[A, B]) extends AnyVal {
 final class PimpedFiniteDuration(private val d: FiniteDuration) extends AnyVal {
 
   def toCentis =
-    shogi.Centis {
+    lila.common.Centis {
       // divide by Double, then round, to avoid rounding issues with just `/10`!
       math.round {
         if (d.unit eq MILLISECONDS) d.length / 10d

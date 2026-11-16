@@ -964,7 +964,6 @@ export default class AnalyseCtrl {
     this.data.analysis = data.analysis;
     if (data.analysis)
       data.analysis.partial = !!treeOps.findInMainline(data.tree, this.partialAnalysisCallback);
-    if (data.division) this.data.game.division = data.division;
     if (this.retro) this.retro.onMergeAnalysisData();
     li.pubsub.emit('analysis.server.progress', this.data);
     this.redraw();

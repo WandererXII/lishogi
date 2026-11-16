@@ -34,36 +34,39 @@ object GameToRoot {
       gm: Node.GameMainline,
   ): Node.Root = {
     val usis = gm.usis.take(Node.MAX_PLIES)
-    shogi.Replay.gamesWhileValid(usis, gm.initialSfen, gm.variant) match {
-      case (gamesWithInit, error) =>
+    shogi.Replay.positionsWhileValid(usis, gm.initialSfen, gm.variant) match {
+      case (positionsWithInit, error) =>
         error foreach logShogiError(gm.id)
-        val init  = gamesWithInit.head
-        val games = gamesWithInit.tail
+        // an unreadable initial sfen yields no positions, fall back to the variant's default
+        val (init, positions) = positionsWithInit match {
+          case head :: tail => (head, tail)
+          case Nil          => (shogi.Position(gm.variant), Nil)
+        }
         val root = Node.Root(
           ply = init.plies,
           sfen = init.toSfen,
-          check = init.situation.check,
+          check = init.check,
           clock = gm.clocks.flatMap(_.headOption),
           gameMainline = gm.some,
           children = Node.emptyChildren,
         )
-        def makeNode(g: shogi.Game, usi: Usi) =
+        def makeNode(p: shogi.Position, usi: Usi) =
           Node(
-            id = UsiCharPair(usi, g.variant),
-            ply = g.plies,
+            id = UsiCharPair(usi, p.variant),
+            ply = p.plies,
             usi = usi,
-            sfen = g.toSfen,
-            check = g.situation.check,
-            clock = gm.clocks flatMap (_ lift (g.plies - init.plies)),
+            sfen = p.toSfen,
+            check = p.check,
+            clock = gm.clocks flatMap (_ lift (p.plies - init.plies)),
             forceVariation = false,
             children = Node.emptyChildren,
           )
 
-        games.zip(usis).reverse match {
+        positions.zip(usis).reverse match {
           case Nil => root
-          case (g, m) :: rest =>
-            root addChild rest.foldLeft(makeNode(g, m)) { case (node, (g, m)) =>
-              makeNode(g, m) addChild node
+          case (p, m) :: rest =>
+            root addChild rest.foldLeft(makeNode(p, m)) { case (node, (p, m)) =>
+              makeNode(p, m) addChild node
             }
         }
     }

@@ -2,13 +2,13 @@ package lila.study
 
 import org.joda.time.DateTime
 
-import shogi.Centis
 import shogi.Color
 import shogi.Status
 import shogi.format.Glyph
 import shogi.format.Tags
 import shogi.variant.Variant
 
+import lila.common.Centis
 import lila.common.Iso
 import lila.tree.Node.Comment
 import lila.tree.Node.Gamebook

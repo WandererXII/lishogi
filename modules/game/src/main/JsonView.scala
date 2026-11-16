@@ -2,12 +2,12 @@ package lila.game
 
 import play.api.libs.json._
 
-import shogi.Clock
 import shogi.Color
 import shogi.format.forsyth.Sfen
 
 import lila.common.Json._
 import lila.common.LightUser
+import lila.game.clock.Clock
 
 final class JsonView(rematches: Rematches) {
 
@@ -21,11 +21,11 @@ final class JsonView(rematches: Rematches) {
         "perf"          -> game.perfKey,
         "rated"         -> game.rated,
         "initialSfen"   -> (game.initialSfen | game.variant.initialSfen),
-        "sfen"          -> game.shogi.toSfen,
+        "sfen"          -> game.position.toSfen,
         "player"        -> game.turnColor,
         "plies"         -> game.plies,
-        "startedAtStep" -> game.shogi.startedAtStep,
-        "startedAtPly"  -> game.shogi.startedAtPly,
+        "startedAtStep" -> game.position.startedAtStep,
+        "startedAtPly"  -> game.position.startedAtPly,
         "source"        -> game.source,
         "status"        -> game.status,
         "createdAt"     -> game.createdAt,
@@ -34,7 +34,7 @@ final class JsonView(rematches: Rematches) {
       .add("tournamentId" -> game.tournamentId)
       .add("winner" -> game.winnerColor)
       .add("lastMove" -> game.lastUsiStr)
-      .add("check" -> game.situation.check)
+      .add("check" -> game.position.check)
       .add("rematch" -> rematches.getAcceptedId(game.id))
       .add("postGameStudy" -> game.postGameStudy)
       .add("isProMode" -> game.isProMode)
@@ -46,7 +46,7 @@ final class JsonView(rematches: Rematches) {
       .obj(
         "fullId"   -> pov.fullId,
         "gameId"   -> pov.gameId,
-        "sfen"     -> pov.game.situation.toSfen,
+        "sfen"     -> pov.game.position.toSfenWithoutMoveNumber,
         "color"    -> pov.color.name,
         "lastMove" -> ~pov.game.lastUsiStr,
         "source"   -> pov.game.source,
@@ -143,13 +143,6 @@ object JsonView {
       "increment"   -> c.increment,
       "sente"       -> c.senteTime,
       "gote"        -> c.goteTime,
-    )
-  }
-
-  implicit val divisionWriter: OWrites[shogi.Division] = OWrites { o =>
-    Json.obj(
-      "middle" -> o.middle,
-      "end"    -> o.end,
     )
   }
 

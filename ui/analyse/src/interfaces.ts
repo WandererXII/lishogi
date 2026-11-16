@@ -1,4 +1,4 @@
-import type { AnalyseGame, Clock, Division, Player } from 'game/interfaces';
+import type { AnalyseGame, Clock, Player } from 'game/interfaces';
 import type { VNode } from 'snabbdom';
 import type AnalyseController from './ctrl';
 import type { ForecastData } from './forecast/interfaces';
@@ -33,7 +33,6 @@ export interface ServerEvalData {
   ch: string;
   analysis?: Analysis;
   tree: Tree.Node;
-  division?: Division;
 }
 
 interface Analysis {

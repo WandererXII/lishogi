@@ -13,7 +13,6 @@ import {
   senteColor,
   tooltipConfig,
 } from '../common';
-import division from '../division';
 import type { AnalyseData, Player, PlyChart } from '../interface';
 
 function movetime(
@@ -154,7 +153,6 @@ function movetime(
     borderWidth: 1,
     datalabels: { display: false },
   }));
-  const divisionLines = division(data.game.division);
   const datasets: ChartDataset<any>[] = [];
   if (labels.length > 8) {
     datasets.push(...moveSeriesSet);
@@ -164,7 +162,7 @@ function movetime(
     datasets.push(...lineBuilder(totalSeriesPlot, false));
     datasets.push(...lineBuilder(totalSeriesPlot, true));
   }
-  datasets.push(plyLine(ply || firstPly), ...divisionLines);
+  datasets.push(plyLine(ply || firstPly));
 
   if (byoEntry?.sente)
     datasets.push(plyLine(byoEntry.sente * 2 - 1, false, { borderColor: senteColor() }));
@@ -172,7 +170,7 @@ function movetime(
     datasets.push(plyLine(byoEntry.gote * 2 - 1, false, { borderColor: goteColor() }));
 
   const config: Chart['config'] = {
-    type: 'line' /* Needed for compat. with plyline and divisionlines.
+    type: 'line' /* Needed for compat. with plyline.
      * Makes the x-axis 'linear' instead of 'category'.
      * Side effect: makes the chart smaller than the canvas area.
      */,

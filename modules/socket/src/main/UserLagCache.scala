@@ -4,7 +4,7 @@ import scala.concurrent.duration._
 
 import com.github.blemale.scaffeine.Cache
 
-import shogi.Centis
+import lila.common.Centis
 
 object UserLagCache {
 

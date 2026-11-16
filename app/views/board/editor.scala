@@ -10,14 +10,14 @@ import lila.app.ui.ScalatagsTemplate._
 object editor {
 
   def apply(
-      sit: shogi.Situation,
+      position: shogi.Position,
       orientation: shogi.Color,
   )(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.boardEditor.txt(),
-      variant = sit.variant.some,
+      variant = position.variant.some,
       moreCss = cssTag("editor"),
-      moreJs = moduleJsTag("editor", jsData(sit, orientation)),
+      moreJs = moduleJsTag("editor", jsData(position, orientation)),
       shogiground = false,
       zoomable = true,
       openGraph = lila.app.ui
@@ -32,10 +32,10 @@ object editor {
     )(
       main(id := "editor-app")(
         div(cls := "board-editor-wrap")(
-          div(cls := s"board-editor ${mainVariantClass(sit.variant)}")(
+          div(cls := s"board-editor ${mainVariantClass(position.variant)}")(
             div(cls := "spare spare-top"),
-            div(cls := s"main-board ${variantClass(sit.variant)}")(
-              shogigroundEmpty(sit.variant, shogi.Sente),
+            div(cls := s"main-board ${variantClass(position.variant)}")(
+              shogigroundEmpty(position.variant, shogi.Sente),
             ),
             div(cls := "spare spare-bottom"),
             div(cls := "actions"),
@@ -49,12 +49,12 @@ object editor {
     )
 
   def jsData(
-      sit: shogi.Situation,
+      position: shogi.Position,
       orientation: shogi.Color,
   )(implicit ctx: Context) =
     Json.obj(
-      "sfen"    -> sit.toSfen.truncate.value,
-      "variant" -> sit.variant.key,
+      "sfen"    -> position.toSfen.truncate.value,
+      "variant" -> position.variant.key,
       "baseUrl" -> netBaseUrl,
       "options" -> Json.obj(
         "orientation" -> orientation.name,

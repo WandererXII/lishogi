@@ -2,7 +2,7 @@ package controllers
 
 import views._
 
-import shogi.Situation
+import shogi.Position
 import shogi.format.forsyth.Sfen
 import shogi.variant.Standard
 import shogi.variant.Variant
@@ -48,17 +48,17 @@ final class Editor(env: Env) extends LilaController(env) {
       fuccess {
         val sfen        = get("sfen") map Sfen.clean
         val variant     = get("variant").flatMap(Variant.byKey get _)
-        val sit         = readSfen(sfen, variant)
+        val position    = readSfen(sfen, variant)
         val orientation = get("orientation").flatMap(shogi.Color.fromName).getOrElse(shogi.Sente)
         Ok(
-          html.board.editor.jsData(sit, orientation),
+          html.board.editor.jsData(position, orientation),
         ) as JSON
       }
     }
 
-  private def readSfen(sfenO: Option[Sfen], variantO: Option[Variant]): Situation = {
+  private def readSfen(sfenO: Option[Sfen], variantO: Option[Variant]): Position = {
     val variant = variantO | Standard
-    sfenO.filter(_.value.nonEmpty).flatMap(_.toSituation(variant)) | Situation(variant)
+    sfenO.filter(_.value.nonEmpty).flatMap(_.toPosition(variant)) | Position(variant)
   }
 
   def game(id: String) =
@@ -68,7 +68,7 @@ final class Editor(env: Env) extends LilaController(env) {
           if (game.playableEvenPaused) routes.Round.gameOrChallengeDefault(game.id)
           else
             routes.Editor.parseArg(
-              s"${game.variant.key}/${get("sfen") | (game.shogi.toSfen).value}?orientation=${get("orientation") | "sente"}",
+              s"${game.variant.key}/${get("sfen") | (game.position.toSfen).value}?orientation=${get("orientation") | "sente"}",
             )
         }
       }

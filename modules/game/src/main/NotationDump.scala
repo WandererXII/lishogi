@@ -4,7 +4,6 @@ import play.api.i18n.Lang
 
 import org.joda.time.DateTime
 
-import shogi.Centis
 import shogi.Color
 import shogi.Replay
 import shogi.format.Notation
@@ -15,6 +14,7 @@ import shogi.format.csa.Csa
 import shogi.format.kif.Kif
 import shogi.format.usi.Usi
 
+import lila.common.Centis
 import lila.common.LightUser
 import lila.common.config.BaseUrl
 
@@ -55,7 +55,7 @@ final class NotationDump(
         )
         makeMoveList(
           flags keepDelayIf game.playable applyDelay extendedMoves,
-          game.shogi.startedAtStep,
+          game.position.startedAtStep,
           clockOffset,
           clocksSpent,
           clocksTotal,
@@ -106,8 +106,10 @@ final class NotationDump(
     }
   }
 
-  def dateAndTime(dateTime: DateTime): String =
-    s"${Tag.UTCDate.format.print(dateTime)} ${Tag.UTCTime.format.print(dateTime)}"
+  def dateAndTime(dateTime: DateTime): String = {
+    val instant = java.time.Instant.ofEpochMilli(dateTime.getMillis)
+    s"${Tag.UTCDate.format.format(instant)} ${Tag.UTCTime.format.format(instant)}"
+  }
 
   def tags(
       game: Game,
@@ -140,9 +142,9 @@ final class NotationDump(
               Tag(_.Start, dateAndTime(game.createdAt)),
               Tag(_.End, dateAndTime(game.movedAt)),
               if (isCsa)
-                Tag.timeControlCsa(game.clock.map(_.config))
+                lila.game.clock.NotationClock.timeControlCsa(game.clock.map(_.config))
               else
-                Tag.timeControlKif(game.clock.map(_.config)),
+                lila.game.clock.NotationClock.timeControlKif(game.clock.map(_.config)),
             )
           }
         }

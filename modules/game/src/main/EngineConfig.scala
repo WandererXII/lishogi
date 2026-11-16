@@ -55,15 +55,15 @@ object EngineConfig {
     )
 
   def isStandardMaterial(sfen: Sfen): Boolean =
-    sfen.toSituation(Standard).exists { sit =>
+    sfen.toPosition(Standard).exists { position =>
       val default = Standard.pieces.values.map(_.role)
       def countHands(r: Role): Int =
-        ~Standard.handRoles.find(_ == r).map(hr => sit.hands.count(hr))
-      sit.playable(strict = true) &&
+        ~Standard.handRoles.find(_ == r).map(hr => position.hands.count(hr))
+      position.playable(strict = true) &&
       Standard.allRoles.filterNot(r => Standard.unpromote(r).isDefined).forall { r =>
         default
-          .count(_ == r) >= (sit.board
-          .count(r) + ~Standard.promote(r).map(sit.board.count) + countHands(r))
+          .count(_ == r) >= (position.board
+          .count(r) + ~Standard.promote(r).map(position.board.count) + countHands(r))
       }
     }
 }

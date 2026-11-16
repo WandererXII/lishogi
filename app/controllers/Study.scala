@@ -241,14 +241,12 @@ final class Study(
               .map2(_.copy(id = chapter.id.value, studyId = sc.study.id.value.some))
           }
       }
-      division = analysis.isDefined option env.study.serverEvalMerger.divisionOf(chapter)
       baseData = env.round.jsonView.userAnalysisJson(
         pov,
         ctx.pref,
         chapter.setup.orientation,
         owner = false,
         me = ctx.me,
-        division = division,
       )
       studyJson <- env.study.jsonView(study, chapters, chapter, ctx.me)
     } yield WithChapter(study, chapter) -> JsData(

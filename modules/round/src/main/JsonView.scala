@@ -4,11 +4,10 @@ import scala.math
 
 import play.api.libs.json._
 
-import shogi.Clock
-
 import lila.game.Game
 import lila.game.JsonView._
 import lila.game.Pov
+import lila.game.clock.Clock
 import lila.game.{ Player => GamePlayer }
 import lila.pref.Pref
 import lila.round.actorApi.SocketStatus
@@ -22,7 +21,6 @@ final class JsonView(
     getSocketStatus: Game => Fu[SocketStatus],
     takebacker: Takebacker,
     moretimer: Moretimer,
-    divider: lila.game.Divider,
     evalCache: lila.evalCache.EvalCacheApi,
     isOfferingRematch: IsOfferingRematch,
     isOfferingResume: IsOfferingResume,
@@ -167,7 +165,6 @@ final class JsonView(
             .obj(
               "game" -> gameJsonView(game)
                 .add("moveCentis" -> (withFlags.movetimes ?? game.moveTimes.map(_.map(_.centis))))
-                .add("division" -> withFlags.division.option(divider(game)))
                 .add("byoEntry" -> game.clockHistory.map { ch =>
                   val pers = ch.firstEnteredPeriodByColor
                   Json
@@ -225,7 +222,6 @@ final class JsonView(
       orientation: shogi.Color,
       owner: Boolean,
       me: Option[User],
-      division: Option[shogi.Division] = none,
   ) = {
     import pov._
     Json
@@ -235,15 +231,14 @@ final class JsonView(
             "id"            -> gameId,
             "variant"       -> game.variant,
             "initialSfen"   -> (game.initialSfen | game.variant.initialSfen),
-            "sfen"          -> game.shogi.toSfen,
+            "sfen"          -> game.position.toSfen,
             "plies"         -> game.plies,
             "player"        -> game.turnColor.name,
             "status"        -> game.status,
             "source"        -> game.source,
-            "startedAtStep" -> game.shogi.startedAtStep,
-            "startedAtPly"  -> game.shogi.startedAtPly,
+            "startedAtStep" -> game.position.startedAtStep,
+            "startedAtPly"  -> game.position.startedAtPly,
           )
-          .add("division", division)
           .add("winner", game.winner.map(_.color.name)),
         "player" -> Json.obj(
           "id"    -> owner.option(pov.playerId),
@@ -296,7 +291,6 @@ object JsonView {
 
   case class WithFlags(
       movetimes: Boolean = false,
-      division: Boolean = false,
       clocks: Boolean = false,
       blurs: Boolean = false,
   )

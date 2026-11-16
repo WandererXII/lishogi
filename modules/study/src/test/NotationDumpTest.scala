@@ -36,19 +36,28 @@ class NotationDumpTest extends Specification {
 
   val root = Node.Root.default(variant.Standard)
 
+  // nodes carry the position reached after their move, roles are read from the parent's sfen
+  private def withSfens(sfen: Sfen, cs: Children): Children =
+    Children(cs.nodes.map { n =>
+      val after = shogi.Position(sfen.some, variant.Standard)(n.usi).toOption.get.toSfen
+      n.copy(sfen = after, children = withSfens(after, n.children))
+    })
+
+  def rootWith(cs: Children) = root.copy(children = withSfens(root.sfen, cs))
+
   "toMoves" should {
     "empty" in {
       P.toMoves(root, variant.Standard) must beEmpty
     }
     "one move" in {
-      val tree = root.copy(children = children(node(1, "5g5f")))
+      val tree = rootWith(children(node(1, "5g5f")))
       P.toMoves(tree, variant.Standard) must beLike { case Vector(move) =>
         move.usiWithRole.usi.usi must_== "5g5f"
         move.variations must beEmpty
       }
     }
     "one move and variation" in {
-      val tree = root.copy(children =
+      val tree = rootWith(
         children(
           node(1, "5g5f"),
           node(1, "7i6h"),
@@ -63,7 +72,7 @@ class NotationDumpTest extends Specification {
       }
     }
     "two moves and one variation" in {
-      val tree = root.copy(children =
+      val tree = rootWith(
         children(
           node(
             1,
@@ -86,7 +95,7 @@ class NotationDumpTest extends Specification {
       }
     }
     "two moves and two variations" in {
-      val tree = root.copy(children =
+      val tree = rootWith(
         children(
           node(
             1,
@@ -114,7 +123,7 @@ class NotationDumpTest extends Specification {
       }
     }
     "more moves and variations" in {
-      val tree = root.copy(children =
+      val tree = rootWith(
         children(
           node(
             1,

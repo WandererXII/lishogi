@@ -27,24 +27,24 @@ object NotationImport {
 
   def apply(notation: String, contributors: List[LightUser]): Validated[String, Result] =
     ImportData(notation, analyse = none).preprocess(user = none).map {
-      case Preprocessed(game, replay, parsedNotation) =>
+      case Preprocessed(game, setup, parsedNotation) =>
         val annotator = findAnnotator(parsedNotation, contributors)
         parseComments(parsedNotation.initialPosition.comments, annotator) match {
           case (shapes, comments) =>
             val root = Node.Root(
-              ply = replay.setup.plies,
+              ply = setup.plies,
               sfen = game.initialSfen | game.variant.initialSfen,
-              check = replay.setup.situation.check,
+              check = setup.check,
               shapes = shapes,
               comments = comments,
               glyphs = Glyphs.empty,
-              clock = parsedNotation.tags.clockConfig.map(_.limit),
+              clock = lila.game.clock.NotationClock.config(parsedNotation.tags).map(_.limit),
               gameMainline = none,
               children = Node.Children {
                 val variations =
-                  makeVariations(parsedNotation.parsedSteps.value, replay.setup, annotator)
+                  makeVariations(parsedNotation.parsedSteps.value, setup, annotator)
                 makeNode(
-                  prev = replay.setup,
+                  prev = setup,
                   parsedSteps = parsedNotation.parsedSteps.value,
                   annotator = annotator,
                 ).fold(variations)(_ :: variations).toVector
@@ -68,24 +68,24 @@ object NotationImport {
 
   def userAnalysis(notation: String): Validated[String, (Game, Node.Root, Tags)] =
     ImportData(notation, analyse = none).preprocess(user = none).map {
-      case Preprocessed(game, replay, parsedNotation) =>
+      case Preprocessed(game, setup, parsedNotation) =>
         val annotator = findAnnotator(parsedNotation, Nil)
         parseComments(parsedNotation.initialPosition.comments, annotator) match {
           case (shapes, comments) =>
             val root = Node.Root(
-              ply = replay.setup.plies,
+              ply = setup.plies,
               sfen = game.initialSfen | game.variant.initialSfen,
-              check = replay.setup.situation.check,
+              check = setup.check,
               shapes = shapes,
               comments = comments,
               glyphs = Glyphs.empty,
-              clock = parsedNotation.tags.clockConfig.map(_.limit),
+              clock = lila.game.clock.NotationClock.config(parsedNotation.tags).map(_.limit),
               gameMainline = none,
               children = Node.Children {
                 val variations =
-                  makeVariations(parsedNotation.parsedSteps.value, replay.setup, annotator)
+                  makeVariations(parsedNotation.parsedSteps.value, setup, annotator)
                 makeNode(
-                  prev = replay.setup,
+                  prev = setup,
                   parsedSteps = parsedNotation.parsedSteps.value,
                   annotator = annotator,
                 ).fold(variations)(_ :: variations).toVector
@@ -110,12 +110,12 @@ object NotationImport {
 
   private def makeVariations(
       parsedSteps: List[ParsedStep],
-      game: shogi.Game,
+      position: shogi.Position,
       annotator: Option[Comment.Author],
   ) =
     parsedSteps.headOption.?? {
       _.metas.variations.flatMap { variation =>
-        makeNode(game, variation.value, annotator)
+        makeNode(position, variation.value, annotator)
       }
     }
 
@@ -142,7 +142,7 @@ object NotationImport {
     }
 
   private def makeNode(
-      prev: shogi.Game,
+      prev: shogi.Position,
       parsedSteps: List[ParsedStep],
       annotator: Option[Comment.Author],
   ): Option[Node] =
@@ -161,14 +161,16 @@ object NotationImport {
                       ply = game.plies,
                       usi = usi,
                       sfen = game.toSfen,
-                      check = game.situation.check,
+                      check = game.check,
                       shapes = shapes,
                       comments = comments,
                       glyphs = parsedStep.metas.glyphs,
                       // Normally we store time remaining after turn,
                       // which is pretty useless with byo...
                       // for imports we are gonna store time spent on this step
-                      clock = parsedStep.metas.timeSpent,
+                      clock = parsedStep.metas.timeSpent.map(d =>
+                        lila.common.Centis.ofMillis(d.toMillis),
+                      ),
                       children = removeDuplicatedChildrenFirstNode {
                         val variations = makeVariations(rest, game, annotator)
                         Node.Children {

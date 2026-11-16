@@ -18,13 +18,13 @@ case class AnaUsi(
 ) {
 
   def node: Validated[String, Node] = {
-    shogi.Game(sfen.some, variant)(usi) map { game =>
+    shogi.Position(sfen.some, variant)(usi) map { position =>
       Node(
         id = UsiCharPair(usi, variant),
-        ply = game.plies,
+        ply = position.plies,
         usi = usi,
-        sfen = game.toSfen,
-        check = game.situation.check,
+        sfen = position.toSfen,
+        check = position.check,
         clock = none,
         children = Node.emptyChildren,
         forceVariation = false,

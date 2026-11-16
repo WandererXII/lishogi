@@ -1,8 +1,8 @@
 package lila.setup
 
-import shogi.Clock
 import shogi.format.forsyth.Sfen
 
+import lila.game.clock.Clock
 import lila.lobby.Color
 import lila.rating.PerfType
 
@@ -35,8 +35,8 @@ final case class ApiConfig(
 
   def validSfen =
     sfen.fold(true) { sf =>
-      sf.toSituationPlus(variant)
-        .exists(_.situation.playable(strict = strictSfen))
+      sf.toPosition(variant)
+        .exists(_.playable(strict = strictSfen))
     }
 
   def validSpeed(isBot: Boolean) =

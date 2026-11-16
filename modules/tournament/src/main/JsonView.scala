@@ -366,7 +366,7 @@ final class JsonView(
     }
     Json.obj(
       "id"       -> game.id,
-      "sfen"     -> game.situation.toSfen,
+      "sfen"     -> game.position.toSfenWithoutMoveNumber,
       "color"    -> game.firstColor.name,
       "lastMove" -> ~game.lastUsiStr,
       "variant"  -> game.variant.key,

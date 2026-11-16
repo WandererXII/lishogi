@@ -5,7 +5,6 @@ import scala.concurrent.duration._
 import play.api.libs.json.Json
 import views._
 
-import shogi.format.Reader
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
 import shogi.variant.Standard
@@ -61,8 +60,8 @@ final class UserAnalysis(
       variant: Variant,
       imported: Boolean = false,
   ): Pov = {
-    val g = shogi.Game(sfen, variant)
-    makePovWithShogi(g, g.toSfen.some, imported)
+    val position = shogi.Position(sfen, variant)
+    makePovWithShogi(position, position.toSfen.some, imported)
   }
 
   private def makePovWithUsis(
@@ -70,29 +69,29 @@ final class UserAnalysis(
       variant: Variant,
       usis: List[Usi],
       imported: Boolean = false,
-  ): Pov =
-    makePovWithShogi(
-      shogi.Replay(
-        usis = usis,
-        initialSfen = sfen,
-        variant = variant,
-      ) match {
-        case Reader.Result.Complete(replay)      => replay.state
-        case Reader.Result.Incomplete(replay, _) => replay.state
-      },
-      sfen.flatMap(sf => sf.toSituationPlus(variant).map(_.toSfen)),
-      imported,
-    )
+  ): Pov = {
+    val initialSfen = sfen.flatMap(_.toPosition(variant)).map(_.toSfen)
+    val position = shogi.Replay.fromUsi(
+      usis = usis,
+      initialSfen = initialSfen,
+      variant = variant,
+    ) match {
+      case shogi.Replay.Result.Complete(p)      => p
+      case shogi.Replay.Result.Incomplete(p, _) => p
+      case shogi.Replay.Result.InvalidSfen(_)   => shogi.Position(variant)
+    }
+    makePovWithShogi(position, initialSfen, imported)
+  }
 
   private def makePovWithShogi(
-      shogiGame: shogi.Game,
+      position: shogi.Position,
       initialSfen: Option[Sfen],
       imported: Boolean,
   ): Pov =
     Pov(
       lila.game.Game
         .make(
-          shogi = shogiGame,
+          position = position,
           initialSfen = initialSfen,
           sentePlayer = lila.game.Player.make(shogi.Sente),
           gotePlayer = lila.game.Player.make(shogi.Gote),

@@ -106,7 +106,7 @@ final class BotJsonView(
     else if (g.isSlow) "rapid"
     else "classical"
 
-  implicit private val clockConfigWriter: OWrites[shogi.Clock.Config] = OWrites { c =>
+  implicit private val clockConfigWriter: OWrites[lila.game.clock.Clock.Config] = OWrites { c =>
     Json.obj(
       "initial"   -> c.limit.millis,
       "increment" -> c.increment.millis,

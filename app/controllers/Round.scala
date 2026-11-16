@@ -268,7 +268,7 @@ final class Round(
         Redirect(
           "%s?sfen=%s#%s".format(
             routes.Lobby.home,
-            get("sfen") | (game.shogi.toSfen).value,
+            get("sfen") | (game.position.toSfen).value,
             mode,
           ),
         )

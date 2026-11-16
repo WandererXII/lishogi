@@ -5,11 +5,11 @@ import scala.concurrent.duration._
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 
-import shogi.Centis
 import shogi.Color
 import shogi.Status
 
 import lila.common.Bus
+import lila.common.Centis
 import lila.common.Iso
 import lila.common.Uptime
 import lila.db.dsl._

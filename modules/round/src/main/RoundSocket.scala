@@ -10,10 +10,8 @@ import akka.actor.Cancellable
 import akka.actor.CoordinatedShutdown
 import akka.actor.Scheduler
 
-import shogi.Centis
 import shogi.Color
 import shogi.Gote
-import shogi.LagMetrics
 import shogi.Sente
 import shogi.format.usi.UciToUsi
 import shogi.format.usi.Usi
@@ -21,6 +19,7 @@ import shogi.format.usi.Usi
 import lila.chat.BusChan
 import lila.chat.Chat
 import lila.common.Bus
+import lila.common.Centis
 import lila.common.IpAddress
 import lila.common.Lilakka
 import lila.game.Event
@@ -28,6 +27,7 @@ import lila.game.Game
 import lila.game.Game.FullId
 import lila.game.Game.PlayerId
 import lila.game.Pov
+import lila.game.clock.LagMetrics
 import lila.hub.DuctConcMap
 import lila.hub.actorApi.map.Exists
 import lila.hub.actorApi.map.Tell
@@ -259,7 +259,7 @@ object RoundSocket {
         else if (pov.game.isSlow) 2
         else 1
       } / {
-        pov.game.shogi.situation.materialImbalance match {
+        pov.game.position.materialImbalance match {
           case i if (pov.color.sente && i <= -4) || (pov.color.gote && i >= 4) => 3
           case _                                                               => 1
         }

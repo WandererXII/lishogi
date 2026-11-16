@@ -59,7 +59,7 @@ object BSONHandlers {
             inc   <- doc.getAsTry[Int]("increment")
             byo   <- doc.getAsTry[Int]("byoyomi")
             per   <- doc.getAsTry[Int]("periods")
-          } yield TimeControl.RealTime(shogi.Clock.Config(limit, inc, byo, per))
+          } yield TimeControl.RealTime(lila.game.clock.Clock.Config(limit, inc, byo, per))
       }
     },
     {

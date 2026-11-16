@@ -14,9 +14,8 @@ import akka.actor.CoordinatedShutdown
 import io.lettuce.core._
 import io.lettuce.core.pubsub.StatefulRedisPubSubConnection
 
-import shogi.Centis
-
 import lila.common.Bus
+import lila.common.Centis
 import lila.common.Lilakka
 import lila.hub.actorApi.Announce
 import lila.hub.actorApi.relation.Follow

@@ -24,13 +24,13 @@ final private class Joiner(
       case _ if !c.hasClock && destUser.isEmpty                           => fuccess(None)
       case _ =>
         c.challengerUserId.??(userRepo.byId) flatMap { challengerUser =>
-          val shogiGame =
-            shogi
-              .Game(c.initialSfen, c.variant)
-              .withClock(c.clock.map(_.config.toClock))
+          val position =
+            shogi.Position(c.initialSfen, c.variant)
           val game = Game
             .make(
-              shogi = shogiGame,
+              position = position,
+              clock = c.clock.map(_.config.toClock(position.color)),
+              daysPerTurn = c.daysPerTurn,
               initialSfen = c.initialSfen,
               sentePlayer =
                 Player.make(shogi.Sente, c.finalColor.fold(challengerUser, destUser), c.perfType),
@@ -39,7 +39,6 @@ final private class Joiner(
               mode = if (c.initialSfen.isDefined) Mode.Casual else c.mode,
               proMode = ~c.proMode,
               source = if (c.tourInfo.isDefined) Source.Tournament else Source.Friend,
-              daysPerTurn = c.daysPerTurn,
               notationImport = None,
             )
             .withId(c.id)

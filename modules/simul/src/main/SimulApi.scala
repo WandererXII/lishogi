@@ -219,18 +219,15 @@ final class SimulApi(
           hostColor = simul.hostColor | shogi.Color.fromSente(number % 2 == 0)
           senteUser = hostColor.fold(host, user)
           goteUser  = hostColor.fold(user, host)
-          clock     = simul.clock.shogiClockOf(hostColor)
+          position  = shogi.Position(simul.position, pairing.player.variant)
+          clock     = simul.clock.shogiClockOf(hostColor, position.color)
           perfType = PerfType.from(
             pairing.player.variant,
             hasClock = true,
           )
           game1 = Game.make(
-            shogi = shogi
-              .Game(
-                simul.position,
-                pairing.player.variant,
-              )
-              .copy(clock = clock.start.some),
+            position = position,
+            clock = clock.start.some,
             initialSfen = simul.position,
             sentePlayer = lila.game.Player.make(shogi.Sente, senteUser.some, perfType),
             gotePlayer = lila.game.Player.make(shogi.Gote, goteUser.some, perfType),

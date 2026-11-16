@@ -1,7 +1,6 @@
 package lila.round
 
 import shogi.Color
-import shogi.DecayingStats
 import shogi.Status
 
 import lila.common.Bus
@@ -13,6 +12,7 @@ import lila.game.Provisionals
 import lila.game.RatingDiffs
 import lila.game.actorApi.AbortedBy
 import lila.game.actorApi.FinishGame
+import lila.game.clock.DecayingStats
 import lila.i18n.{ I18nKeys => trans }
 import lila.playban.PlaybanApi
 import lila.user.User

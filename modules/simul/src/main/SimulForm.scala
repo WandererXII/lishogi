@@ -136,7 +136,8 @@ object SimulForm {
   ) {
     def clock =
       SimulClock(
-        config = shogi.Clock.Config(clockTime * 60, clockIncrement, clockByoyomi, periods),
+        config =
+          lila.game.clock.Clock.Config(clockTime * 60, clockIncrement, clockByoyomi, periods),
         hostExtraTime = clockExtra * 60,
       )
 
@@ -146,7 +147,7 @@ object SimulForm {
     def isCustomPositionValid =
       position.fold(true) { sfen =>
         sfen
-          .toSituation(actualVariants.headOption | shogi.variant.Standard)
+          .toPosition(actualVariants.headOption | shogi.variant.Standard)
           .exists(_.playable(strict = true))
       }
 

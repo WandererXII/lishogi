@@ -104,12 +104,12 @@ final private class ChapterMaker(
 
   private def fromSfenOrBlank(study: Study, data: Data, order: Int, userId: User.ID): Chapter = {
     val variant = data.variant.flatMap(Variant.apply) | Variant.default
-    (data.sfen.filterNot(_.initialOf(variant)).flatMap { _.toSituationPlus(variant) } match {
+    (data.sfen.filterNot(_.initialOf(variant)).flatMap { _.toPosition(variant) } match {
       case Some(parsed) =>
         Node.Root(
           ply = parsed.plies,
           sfen = parsed.toSfen,
-          check = parsed.situation.check,
+          check = parsed.check,
           gameMainline = none,
           children = Node.emptyChildren,
         ) -> true

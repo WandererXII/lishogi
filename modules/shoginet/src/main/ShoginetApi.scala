@@ -237,22 +237,22 @@ final class ShoginetApi(
       submittedBy: String,
   ): Funit = {
     val puzs = sfens
-      .flatMap(sfen => sfen.toSituation(shogi.variant.Standard))
+      .flatMap(sfen => sfen.toPosition(shogi.variant.Standard))
       .withFilter(
         _.playable(strict = true),
       )
-      .map { sit =>
+      .map { position =>
         Work.Puzzle(
           _id = Work.makeId,
           game = Work.Game(
             id = "synthetic",
-            initialSfen = sit.toSfen.some,
+            initialSfen = position.toSfenWithoutMoveNumber.some,
             studyId = none,
-            variant = sit.variant,
+            variant = position.variant,
             moves = "",
           ),
           engine =
-            if (forYaneuraOu(sit)) lila.game.EngineConfig.Engine.YaneuraOu.name
+            if (forYaneuraOu(position)) lila.game.EngineConfig.Engine.YaneuraOu.name
             else lila.game.EngineConfig.Engine.Fairy.name,
           source = Work.Puzzle.Source(
             game = none,
@@ -272,14 +272,14 @@ final class ShoginetApi(
     repo.addPuzzles(puzs)
   }
 
-  private val initialSit = shogi.Situation(shogi.variant.Standard)
-  private def forYaneuraOu(sit: shogi.Situation): Boolean =
-    sit.variant.handRoles.forall { r =>
-      sit.board.count(r) + sit.hands.sente(r) + sit.hands.gote(r) <= initialSit.board.count(
+  private val initialPosition = shogi.Position(shogi.variant.Standard)
+  private def forYaneuraOu(position: shogi.Position): Boolean =
+    position.variant.handRoles.forall { r =>
+      position.board.count(r) + position.hands.sente(r) + position.hands.gote(r) <= initialPosition.board.count(
         r,
-      ) + initialSit.hands.sente(r) + initialSit.hands.gote(r)
-    } && sit.variant.allRoles.diff(sit.variant.handRoles).forall { r =>
-      sit.board.count(r) <= initialSit.board.count(r)
+      ) + initialPosition.hands.sente(r) + initialPosition.hands.gote(r)
+    } && position.variant.allRoles.diff(position.variant.handRoles).forall { r =>
+      position.board.count(r) <= initialPosition.board.count(r)
     }
 
   def queuedPuzzles(userId: String): Fu[Int] =

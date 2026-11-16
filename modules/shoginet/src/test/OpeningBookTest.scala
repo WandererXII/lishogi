@@ -2,7 +2,7 @@ package lila.shoginet
 
 import org.specs2.mutable._
 
-import shogi.Situation
+import shogi.Position
 import shogi.format.usi.Usi
 import shogi.variant.Standard
 
@@ -11,13 +11,13 @@ final class OpeningBookTest extends Specification {
   "opening book" should {
     "contain only valid USI moves on all paths" in {
 
-      def checkNode(sit: Situation, node: OpeningBook.MoveNode): Boolean = {
-        val next = sit(Usi(node.usi).get)
+      def checkNode(position: Position, node: OpeningBook.MoveNode): Boolean = {
+        val next = position(Usi(node.usi).get)
         next.isValid must beTrue
         node.children.forall(checkNode(next.toOption.get, _))
       }
 
-      val root = Situation(shogi.variant.Standard)
+      val root = Position(shogi.variant.Standard)
 
       OpeningBook.standard forall { node =>
         checkNode(root, node)

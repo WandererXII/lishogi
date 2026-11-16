@@ -32,9 +32,9 @@ case class Puzzle(
   lazy val sfenAfterInitialMove: Sfen =
     (if (gameId.isDefined)
        for {
-         sit1 <- sfen.toSituation(shogi.variant.Standard)
-         sit2 <- sit1(line.head).toOption
-       } yield sit2.toSfen
+         pos1 <- sfen.toPosition(shogi.variant.Standard)
+         pos2 <- pos1(line.head).toOption
+       } yield pos2.toSfenWithoutMoveNumber
      else sfen.some).getOrElse(sfen)
 
   def color: Color =

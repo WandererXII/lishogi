@@ -9,10 +9,10 @@ import cats.data.Validated
 
 import shogi.Color
 import shogi.Mode
+import shogi.Position
 import shogi.Replay
 import shogi.Status
 import shogi.format.ParsedNotation
-import shogi.format.Reader
 import shogi.format.Tag
 import shogi.format.TagType
 import shogi.format.csa.CsaParser
@@ -36,7 +36,7 @@ final class DataForm {
 private case class TagResult(status: Status, winner: Option[Color])
 case class Preprocessed(
     game: NewGame,
-    replay: Replay,
+    setup: Position,
     parsed: ParsedNotation,
 )
 
@@ -48,12 +48,6 @@ case class ImportData(notation: String, analyse: Option[String]) {
   private val maxLength = 32768
 
   val notationTrunc = notation take (maxLength * 2)
-
-  private def evenIncomplete(result: Reader.Result): Replay =
-    result match {
-      case Reader.Result.Complete(replay)      => replay
-      case Reader.Result.Incomplete(replay, _) => replay
-    }
 
   // csa and kif together
   private def createStatus(termination: String): Status =
@@ -76,7 +70,7 @@ case class ImportData(notation: String, analyse: Option[String]) {
       .mkString("\n")
     val lines = augmentString(noKifComments.replace(",", "\n")).linesIterator.toList
     lines.exists(l =>
-      l.startsWith("PI") || l.startsWith("P1") || CsaParser.moveOrDropRegex.matches(l),
+      l.startsWith("PI") || l.startsWith("P1") || ImportData.csaMoveOrDropRegex.matches(l),
     )
   }
 
@@ -87,57 +81,80 @@ case class ImportData(notation: String, analyse: Option[String]) {
       KifParser.full(notationTrunc).leftMap("KIF parsing error: " + _)
 
   def preprocess(user: Option[String]): Validated[String, Preprocessed] =
-    parseNotation map { parsed =>
-      Reader.fromParsedNotation(
-        parsed,
-        parsedSteps => parsedSteps.copy(value = parsedSteps.value take maxPlies),
-      ) pipe evenIncomplete pipe { case replay @ Replay(init, game) =>
-        val status = createStatus(~parsed.tags(_.Termination).map(_.toUpperCase))
-
-        val date = parsed.tags.anyDate
-
-        def name(whichName: TagPicker, whichRating: TagPicker): String =
-          parsed.tags(whichName).fold("?") { n =>
-            n + ~parsed.tags(whichRating).map(e => s" (${e take 8})")
-          }
-
-        val notationTrunc = notation.take(maxLength)
-
-        val dbGame = Game
-          .make(
-            shogi = game,
-            initialSfen = init.toSfen.some,
-            sentePlayer = Player.make(shogi.Sente) withName name(_.Sente, _.SenteElo),
-            gotePlayer = Player.make(shogi.Gote) withName name(_.Gote, _.GoteElo),
-            mode = Mode.Casual,
-            proMode = false,
-            source = Source.Import,
-            notationImport = NotationImport
-              .make(
-                user = user,
-                date = date,
-                kif = !isCsa option notationTrunc,
-                csa = isCsa option notationTrunc,
-              )
-              .some,
-          )
-          .sloppy
-          .copy(loadClockHistory = _ => None)
-          .start pipe { dbGame =>
-          // apply the result from the board or the tags
-          game.situation.status match {
-            case Some(situationStatus) => dbGame.finish(situationStatus, game.situation.winner)
-            case None =>
-              parsed.tags.resultColor
-                .map(winner => TagResult(status, winner))
-                .filter(_.status > Status.Started)
-                .fold(dbGame) { res =>
-                  dbGame.finish(res.status, res.winner)
-                }
-          }
-        }
-
-        Preprocessed(NewGame(dbGame), replay.copy(state = game), parsed)
+    parseNotation andThen { parsed =>
+      Replay
+        .fromParsedNotation(
+          parsed,
+          parsedSteps => parsedSteps.copy(value = parsedSteps.value take maxPlies),
+        ) match {
+        case Replay.Result.InvalidSfen(err) => Validated.invalid(err)
+        case Replay.Result.Complete(position) =>
+          Validated.valid(preprocessed(user, parsed, position))
+        case Replay.Result.Incomplete(position, _) =>
+          Validated.valid(preprocessed(user, parsed, position))
       }
     }
+
+  private def preprocessed(
+      user: Option[String],
+      parsed: ParsedNotation,
+      position: Position,
+  ): Preprocessed = {
+    val init =
+      Position(parsed.initialSfen, parsed.variant)
+    val status = createStatus(~parsed.tags(_.Termination).map(_.toUpperCase))
+
+    val date = parsed.tags.anyDate
+
+    def name(whichName: TagPicker, whichRating: TagPicker): String =
+      parsed.tags(whichName).fold("?") { n =>
+        n + ~parsed.tags(whichRating).map(e => s" (${e take 8})")
+      }
+
+    val notationTrunc = notation.take(maxLength)
+
+    val dbGame = Game
+      .make(
+        position = position,
+        initialSfen = init.toSfen.some,
+        sentePlayer = Player.make(shogi.Sente) withName name(_.Sente, _.SenteElo),
+        gotePlayer = Player.make(shogi.Gote) withName name(_.Gote, _.GoteElo),
+        mode = Mode.Casual,
+        proMode = false,
+        source = Source.Import,
+        clock = lila.game.clock.NotationClock.config(parsed.tags).map(_.toClock(position.color)),
+        notationImport = NotationImport
+          .make(
+            user = user,
+            date = date,
+            kif = !isCsa option notationTrunc,
+            csa = isCsa option notationTrunc,
+          )
+          .some,
+      )
+      .sloppy
+      .copy(loadClockHistory = _ => None)
+      .start pipe { dbGame =>
+      // apply the result from the board or the tags
+      position.status match {
+        case Some(positionStatus) => dbGame.finish(positionStatus, position.winner)
+        case None =>
+          parsed.tags.resultColor
+            .map(winner => TagResult(status, winner))
+            .filter(_.status > Status.Started)
+            .fold(dbGame) { res =>
+              dbGame.finish(res.status, res.winner)
+            }
+      }
+    }
+
+    Preprocessed(NewGame(dbGame), init, parsed)
+  }
+}
+
+object ImportData {
+
+  // mirrors the CSA step regex in scalashogi, which is no longer public
+  private val csaMoveOrDropRegex =
+    raw"""(\+|-)?([1-9][1-9]|00)([1-9][1-9])(OU|HI|RY|KA|UM|KI|GI|NG|KE|NK|KY|NY|FU|TO)""".r
 }

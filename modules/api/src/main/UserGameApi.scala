@@ -55,7 +55,7 @@ final class UserGameApi(
             .add("rating" -> p.rating)
             .add("ratingDiff" -> p.ratingDiff)
         }),
-        "sfen"      -> g.situation.toSfen,
+        "sfen"      -> g.position.toSfen,
         "winner"    -> g.winnerColor.map(_.name),
         "bookmarks" -> g.bookmarks,
       )

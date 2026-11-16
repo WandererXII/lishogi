@@ -65,7 +65,6 @@ final class Analyse(
                 withFlags = WithFlags(
                   movetimes = true,
                   clocks = true,
-                  division = true,
                 ),
               ) map { data =>
                 Ok(

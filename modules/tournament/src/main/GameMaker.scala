@@ -23,17 +23,13 @@ final class GameMaker(
       playersMap: Map[User.ID, Player],
       ranking: Ranking,
   ): Fu[Game] = {
-    val player1 = playersMap get pairing.user1 err s"Missing pairing player1 $pairing"
-    val player2 = playersMap get pairing.user2 err s"Missing pairing player2 $pairing"
-    val clock   = tour.timeControl.clock.map(_.toClock)
+    val player1  = playersMap get pairing.user1 err s"Missing pairing player1 $pairing"
+    val player2  = playersMap get pairing.user2 err s"Missing pairing player2 $pairing"
+    val position = shogi.Position(tour.position, tour.variant)
     val game = Game
       .make(
-        shogi = shogi
-          .Game(
-            tour.position,
-            tour.variant,
-          )
-          .copy(clock = clock),
+        position = position,
+        clock = tour.timeControl.clock.map(_.toClock(position.color)),
         daysPerTurn = tour.timeControl.days,
         initialSfen = tour.position,
         sentePlayer = makePlayer(Sente, player1),

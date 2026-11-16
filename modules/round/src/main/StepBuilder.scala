@@ -18,23 +18,27 @@ object StepBuilder {
       variant: Variant,
       initialSfen: Option[Sfen],
   ): JsArray = {
-    shogi.Replay.gamesWhileValid(usis, initialSfen, variant) match {
-      case (games, error) =>
+    shogi.Replay.positionsWhileValid(usis, initialSfen, variant) match {
+      case (positions, error) =>
         error foreach logShogiError(id)
-        val init = games.head
+        // an unreadable initial sfen yields no positions, fall back to the variant's default
+        val (init, moved) = positions match {
+          case head :: tail => (head, tail)
+          case Nil          => (shogi.Position(variant), Nil)
+        }
         JsArray {
           val initStep = Step(
             ply = init.plies,
             usi = none,
             sfen = init.toSfen,
-            check = init.situation.check,
+            check = init.check,
           )
-          val moveSteps = games.tail.zip(usis).map { case (g, u) =>
+          val moveSteps = moved.zip(usis).map { case (p, u) =>
             Step(
-              ply = g.plies,
+              ply = p.plies,
               usi = u.some,
-              sfen = g.toSfen,
-              check = g.situation.check,
+              sfen = p.toSfen,
+              check = p.check,
             )
           }
           (initStep :: moveSteps).map(_.toJson)

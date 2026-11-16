@@ -18,7 +18,6 @@ final class Env(
     ws: WSClient,
     lightUserApi: lila.user.LightUserApi,
     gameNotationDump: lila.game.NotationDump,
-    divider: lila.game.Divider,
     gameRepo: lila.game.GameRepo,
     userRepo: lila.user.UserRepo,
     notifyApi: lila.notify.NotifyApi,

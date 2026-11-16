@@ -154,7 +154,7 @@ final class Analyser(
         variant = game.variant,
         moves = game.usis.take(maxPlies).map(_.usi).mkString(" "),
       ),
-      startPly = game.shogi.startedAtPly,
+      startPly = game.position.startedAtPly,
       puzzleWorthy = game.userRatings.exists(_ > 1600),
       sender = sender,
     )

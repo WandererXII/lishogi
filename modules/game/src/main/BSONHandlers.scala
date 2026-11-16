@@ -6,23 +6,22 @@ import scala.util.Try
 import org.joda.time.DateTime
 import reactivemongo.api.bson._
 
-import shogi.Clock
 import shogi.Color
 import shogi.ConsecutiveAttacks
 import shogi.Gote
 import shogi.Hands
 import shogi.Mode
-import shogi.Pos
+import shogi.Position
 import shogi.Sente
 import shogi.Status
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
 import shogi.variant.Variant
-import shogi.{ Game => ShogiGame }
 import shogi.{ History => ShogiHistory }
 
 import lila.db.BSON
 import lila.db.dsl._
+import lila.game.clock.Clock
 
 object BSONHandlers {
 
@@ -53,7 +52,7 @@ object BSONHandlers {
       val light = lightGameBSONHandler.readsWithPlayerIds(r, r str F.playerIds)
 
       val initialSfen    = r.getO[Sfen](F.initialSfen)
-      val startedAtStep  = initialSfen.flatMap(_.stepNumber) | 1
+      val startedAtStep  = initialSfen.flatMap(_.stepNumber).fold(1)(_ max 1 min 9999)
       val startedAtColor = initialSfen.flatMap(_.color) | Sente
       val startedAtPly =
         startedAtStep - (if ((startedAtStep % 2 == 1) == startedAtColor.sente) 1 else 0)
@@ -80,35 +79,23 @@ object BSONHandlers {
       val hands          = r.strO(F.hands) flatMap { Sfen.makeHandsFromString(_, gameVariant) }
 
       val lastLionCapture =
-        if (gameVariant.chushogi) r.strO(F.lastLionCapture).flatMap(Pos.fromKey) else None
+        if (gameVariant.chushogi) r.strO(F.lastLionCapture).flatMap(shogi.Square.fromKey) else None
       val counts = r.intsD(F.consecutiveAttacks)
 
-      val shogiGame = ShogiGame(
-        situation = shogi.Situation(
-          shogi.Board(pieces = pieces),
-          hands = hands.getOrElse(Hands.empty),
-          color = plyColor,
-          history = ShogiHistory(
-            lastUsi = usis.lastOption,
-            lastLionCapture = lastLionCapture,
-            consecutiveAttacks = ConsecutiveAttacks(~counts.headOption, ~counts.lastOption),
-            positionHashes = positionHashes,
-            initialSfen = initialSfen,
-          ),
-          variant = gameVariant,
+      val position = Position(
+        board = shogi.Board(pieces = pieces),
+        hands = hands.getOrElse(Hands.empty),
+        color = plyColor,
+        history = ShogiHistory(
+          lastLionCapture = lastLionCapture,
+          consecutiveAttacks = ConsecutiveAttacks(~counts.headOption, ~counts.lastOption),
+          positionHashes = positionHashes,
+          initialSfen = initialSfen,
+          usis = usis,
+          startedAtPly = startedAtPly,
+          stepShifted = startedAtPly == startedAtStep,
         ),
-        usis = usis,
-        clock = r.getO[Color => Clock](F.clock) {
-          clockBSONReader(
-            createdAt,
-            periodEntries,
-            light.sentePlayer.berserk,
-            light.gotePlayer.berserk,
-          )
-        } map (_(clockColor)),
-        plies = plies,
-        startedAtPly = startedAtPly,
-        startedAtStep = startedAtStep,
+        variant = gameVariant,
       )
 
       val senteClockHistory = r bytesO F.senteClockHistory
@@ -118,7 +105,15 @@ object BSONHandlers {
         id = light.id,
         sentePlayer = light.sentePlayer,
         gotePlayer = light.gotePlayer,
-        shogi = shogiGame,
+        position = position,
+        clock = r.getO[Color => Clock](F.clock) {
+          clockBSONReader(
+            createdAt,
+            periodEntries,
+            light.sentePlayer.berserk,
+            light.gotePlayer.berserk,
+          )
+        } map (_(clockColor)),
         loadClockHistory = clk =>
           for {
             bs <- senteClockHistory
@@ -173,15 +168,15 @@ object BSONHandlers {
           ),
         ),
         F.status -> o.status,
-        F.plies  -> o.shogi.plies,
-        F.clock -> (o.shogi.clock flatMap { c =>
+        F.plies  -> o.position.plies,
+        F.clock -> (o.clock flatMap { c =>
           clockBSONWrite(o.createdAt, c).toOption
         }),
         F.daysPerTurn        -> o.daysPerTurn,
         F.moveTimes          -> o.binaryMoveTimes,
         F.sealedUsi          -> o.sealedUsi.map(_.usi),
-        F.senteClockHistory  -> clockHistory(Sente, o.clockHistory, o.shogi.clock, o.flagged),
-        F.goteClockHistory   -> clockHistory(Gote, o.clockHistory, o.shogi.clock, o.flagged),
+        F.senteClockHistory  -> clockHistory(Sente, o.clockHistory, o.clock, o.flagged),
+        F.goteClockHistory   -> clockHistory(Gote, o.clockHistory, o.clock, o.flagged),
         F.periodsSente       -> periodEntries(Sente, o.clockHistory),
         F.periodsGote        -> periodEntries(Gote, o.clockHistory),
         F.rated              -> w.boolO(o.mode.rated),

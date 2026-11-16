@@ -2,11 +2,9 @@ package lila.round
 
 import scala.concurrent.duration._
 
-import shogi.Clock
 import shogi.Color.Gote
 import shogi.Color.Sente
 import shogi.{ Color => ShogiColor }
-import shogi.{ Game => ShogiGame }
 
 import lila.common.Bus
 import lila.game.AnonCookie
@@ -132,14 +130,12 @@ final private class Rematcher(
   private def returnGame(pov: Pov, withId: Option[Game.ID]): Fu[Game] =
     for {
       users <- userRepo byIds pov.game.userIds
-      shogiGame = ShogiGame(pov.game.initialSfen, pov.game.variant)
-        .copy(clock = pov.game.clock map { c =>
-          Clock(c.config)
-        })
-      sPlayer = returnPlayer(pov.game, Sente, users)
-      gPlayer = returnPlayer(pov.game, Gote, users)
+      position = shogi.Position(pov.game.initialSfen, pov.game.variant)
+      sPlayer  = returnPlayer(pov.game, Sente, users)
+      gPlayer  = returnPlayer(pov.game, Gote, users)
       sloppy = Game.make(
-        shogi = shogiGame,
+        position = position,
+        clock = pov.game.clock.map(_.config.toClock(position.color)),
         initialSfen = pov.game.initialSfen,
         sentePlayer = if (pov.game.isHandicap) gPlayer else sPlayer,
         gotePlayer = if (pov.game.isHandicap) sPlayer else gPlayer,

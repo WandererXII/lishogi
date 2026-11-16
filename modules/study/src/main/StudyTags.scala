@@ -12,7 +12,9 @@ object StudyTags {
     tags pipe filterRelevant pipe removeContradictingTermination pipe sort
 
   def setRootClockFromTags(c: Chapter): Option[Chapter] =
-    c.updateRoot { _.setClockAt(c.tags.clockConfig map (_.limit), Path.root) } filter (c !=)
+    c.updateRoot {
+      _.setClockAt(lila.game.clock.NotationClock.config(c.tags) map (_.limit), Path.root)
+    } filter (c !=)
 
   // just so that csa output isn't all ugly...
   def tagsToAscii(tags: Tags): Tags =
@@ -44,6 +46,7 @@ object StudyTags {
       Site,
       Event,
       TimeControl,
+      Byoyomi,
       Sente,
       SenteElo,
       SenteTitle,

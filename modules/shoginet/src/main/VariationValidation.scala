@@ -4,7 +4,7 @@ import cats.data.Validated
 import cats.data.Validated.valid
 import cats.implicits._
 
-import shogi.Game
+import shogi.Position
 import shogi.Replay
 import shogi.format.usi.UciToUsi
 import shogi.format.usi.Usi
@@ -20,16 +20,13 @@ private object VariationValidation {
 
   def apply(game: Work.Game, analysis: Analysis): WithErrors[Analysis] = {
 
-    lazy val games = Replay
-      .gamesWhileValid(
+    lazy val positions = Replay
+      .positionsWhileValid(
         game.usiList,
         game.initialSfen,
         game.variant,
       )
       ._1
-      .toList
-
-    lazy val init = games.head
 
     val pliesWithAdviceAndVariation: Set[Int] = analysis.advices.view.collect {
       case a if a.info.hasVariation => a.ply
@@ -42,15 +39,17 @@ private object VariationValidation {
 
     def validateUsi(ply: Int, variation: List[String]): Validated[String, List[Usi]] =
       for {
-        game <- games lift (ply - init.startedAtPly - 1) toValid s"No game at $ply. ply"
+        position <- positions.headOption.flatMap { init =>
+          positions lift (ply - init.startedAtPly - 1)
+        } toValid s"No position at $ply. ply"
         usis <- variation
           .map(s => Usi.apply(s).orElse(UciToUsi.apply(s)))
           .sequence toValid "Invalid USI moves " + variation
         validatedUsis <-
-          usis.foldLeft[Validated[String, (Game, List[Usi])]](valid((game, Nil))) {
-            case (Validated.Valid((game, usis)), usi) =>
-              game(usi).leftMap(e => s"ply $ply $e") map { g =>
-                (g, usi :: usis)
+          usis.foldLeft[Validated[String, (Position, List[Usi])]](valid((position, Nil))) {
+            case (Validated.Valid((position, usis)), usi) =>
+              position(usi).leftMap(e => s"ply $ply $e") map { p =>
+                (p, usi :: usis)
               }
             case (failure, _) => failure
           }

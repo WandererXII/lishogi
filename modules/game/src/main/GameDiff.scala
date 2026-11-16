@@ -4,19 +4,19 @@ import scala.util.Try
 
 import reactivemongo.api.bson._
 
-import shogi.Centis
-import shogi.Clock
 import shogi.Color
 import shogi.ConsecutiveAttacks
 import shogi.Gote
 import shogi.Hands
-import shogi.Pos
 import shogi.Sente
+import shogi.Square
 
+import lila.common.Centis
 import lila.db.BSON.BSONJodaDateTimeHandler
 import lila.db.ByteArray
 import lila.db.ByteArray.ByteArrayBSONHandler
 import lila.game.Game.BSONFields._
+import lila.game.clock.Clock
 
 object GameDiff {
 
@@ -105,7 +105,7 @@ object GameDiff {
     dOpt(
       lastLionCapture,
       _.history.lastLionCapture,
-      (op: Option[Pos]) => op map { p => w.str(p.key) },
+      (sqOpt: Option[Square]) => sqOpt map { sq => w.str(sq.key) },
     )
     dOpt(
       consecutiveAttacks,

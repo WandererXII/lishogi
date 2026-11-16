@@ -3,8 +3,7 @@ package templating
 
 import shogi.Color
 import shogi.Hand
-import shogi.Pos
-import shogi.Situation
+import shogi.Square
 import shogi.variant.Variant
 
 import lila.app.ui.ScalatagsTemplate._
@@ -13,30 +12,36 @@ import lila.game.Pov
 trait ShogigroundHelper {
 
   def shogiground(
-      sit: Situation,
+      position: shogi.Position,
       orient: Color,
   ): Frag =
-    sgWrap(sit.variant, orient) {
+    sgWrap(position.variant, orient) {
       frag(
         shogigroundHand(
           Top,
-          sit.variant,
+          position.variant,
           !orient,
-          sit.hands(!orient),
+          position.hands(!orient),
         ),
         sgBoard(
           sgSquares,
           sgPieces {
             raw {
               val scale = 50
-              def x(p: Pos) =
-                orient.fold(sit.variant.numberOfFiles - p.file.index - 1, p.file.index) * scale
-              def y(p: Pos) =
-                orient.fold(p.rank.index, sit.variant.numberOfRanks - p.rank.index - 1) * scale
-              sit.board.pieces.map { case (pos, piece) =>
+              def x(sq: Square) =
+                orient.fold(
+                  position.variant.numberOfFiles - sq.file.index - 1,
+                  sq.file.index,
+                ) * scale
+              def y(sq: Square) =
+                orient.fold(
+                  sq.rank.index,
+                  position.variant.numberOfRanks - sq.rank.index - 1,
+                ) * scale
+              position.board.pieces.map { case (sq, piece) =>
                 val klass = s"${piece.color.name} ${piece.role.name}"
-                s"""<piece class="$klass" style="transform: translate(${x(pos)}%, ${y(
-                    pos,
+                s"""<piece class="$klass" style="transform: translate(${x(sq)}%, ${y(
+                    sq,
                   )}%) scale(0.5)"></piece>"""
               } mkString ""
             }
@@ -44,16 +49,16 @@ trait ShogigroundHelper {
         ),
         shogigroundHand(
           Bottom,
-          sit.variant,
+          position.variant,
           orient,
-          sit.hands(orient),
+          position.hands(orient),
         ),
       )
     }
 
   def shogiground(pov: Pov): Frag =
     shogiground(
-      sit = pov.game.situation,
+      position = pov.game.position,
       orient = pov.color,
     )
 

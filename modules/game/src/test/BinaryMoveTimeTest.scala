@@ -2,8 +2,7 @@ package lila.game
 
 import org.specs2.mutable._
 
-import shogi.Centis
-
+import lila.common.Centis
 import lila.db.ByteArray
 
 class BinaryMoveTimeTest extends Specification {

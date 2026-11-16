@@ -50,16 +50,10 @@ export interface AnalyseGame {
   byoEntry?: { sente?: number; gote?: number };
   initialSfen?: string;
   importedBy?: string;
-  division?: Division;
   perf: string;
   rated?: boolean;
   lastMove?: Usi;
   illegalUsi?: Usi;
-}
-
-export interface Division {
-  middle?: number;
-  end?: number;
 }
 
 export interface Status {

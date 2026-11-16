@@ -46,8 +46,6 @@ final class Env(
 
   lazy val gifExport = new GifExport(ws, lightUserApi, baseUrl, config.gifUrl)
 
-  lazy val divider = wire[Divider]
-
   lazy val cached: Cached = wire[Cached]
 
   lazy val paginator = wire[PaginatorBuilder]

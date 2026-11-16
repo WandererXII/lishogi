@@ -9,11 +9,11 @@ import play.api.libs.json._
 import alleycats.Zero
 import org.joda.time.DateTime
 
-import shogi.Centis
 import shogi.Color
 import shogi.Gote
 import shogi.Sente
 
+import lila.common.Centis
 import lila.game.Event
 import lila.game.Game
 import lila.game.Game.FullId
@@ -295,10 +295,10 @@ final private[round] class RoundDuct(
     case ShoginetPlayFallback(ply) =>
       handle { game =>
         (game.playable && game.plies == ply) ?? {
-          logger.warn(s"Shoginet play fallback: ${game.shogi.toSfen}")
-          val usiOpt = game.situation.moveActors.values
+          logger.warn(s"Shoginet play fallback: ${game.position.toSfen}")
+          val usiOpt = game.position.moveActors.values
             .flatMap(_.toUsis)
-            .headOption orElse game.situation.dropActors.values
+            .headOption orElse game.position.dropActors.values
             .flatMap(_.toUsis)
             .headOption
           usiOpt ?? { usi => player.shoginet(game, ply, usi) }

@@ -57,7 +57,6 @@ object ServerEval {
       sequencer: StudySequencer,
       socket: StudySocket,
       chapterRepo: ChapterRepo,
-      divider: lila.game.Divider,
   )(implicit ec: scala.concurrent.ExecutionContext) {
 
     def apply(analysis: Analysis, complete: Boolean): Funit =
@@ -120,7 +119,6 @@ object ServerEval {
                       chapterId = chapter.id,
                       root = chapter.root,
                       analysis = toJson(chapter, analysis),
-                      division = divisionOf(chapter),
                     ),
                   )
                 }
@@ -134,14 +132,6 @@ object ServerEval {
         apply(analysis.copy(id = pgs.chapterId, studyId = pgs.studyId.some), complete)
       }
 
-    def divisionOf(chapter: Chapter) =
-      divider(
-        id = chapter.id.value,
-        usis = chapter.root.mainline.map(_.usi).toVector,
-        variant = chapter.setup.variant,
-        initialSfen = chapter.root.sfen.some,
-      )
-
     private def analysisLine(
         root: RootOrNode,
         variant: shogi.variant.Variant,
@@ -149,27 +139,27 @@ object ServerEval {
     ): Option[Node] = {
       val variation = info.variation take 15
       val usis      = ~Usi.readList(variation).orElse(UciToUsi.readList(variation))
-      shogi.Replay.gamesWhileValid(usis, root.sfen.some, variant) match {
-        case (games, error) =>
+      shogi.Replay.positionsWhileValid(usis, root.sfen.some, variant) match {
+        case (positions, error) =>
           error foreach { logger.info(_) }
-          games.tail.zip(usis).reverse match {
+          positions.drop(1).zip(usis).reverse match {
             case Nil => none
-            case (g, m) :: rest =>
+            case (p, m) :: rest =>
               rest
-                .foldLeft(makeBranch(g, m)) { case (node, (g, m)) =>
-                  makeBranch(g, m) addChild node
+                .foldLeft(makeBranch(p, m)) { case (node, (p, m)) =>
+                  makeBranch(p, m) addChild node
                 } some
           }
       }
     }
 
-    private def makeBranch(g: shogi.Game, usi: Usi) =
+    private def makeBranch(p: shogi.Position, usi: Usi) =
       Node(
-        id = UsiCharPair(usi, g.variant),
-        ply = g.plies,
+        id = UsiCharPair(usi, p.variant),
+        ply = p.plies,
         usi = usi,
-        sfen = g.toSfen,
-        check = g.situation.check,
+        sfen = p.toSfen,
+        check = p.check,
         clock = none,
         children = Node.emptyChildren,
         forceVariation = false,
@@ -180,7 +170,6 @@ object ServerEval {
       chapterId: Chapter.Id,
       root: Node.Root,
       analysis: JsObject,
-      division: shogi.Division,
   )
 
   def toJson(chapter: Chapter, analysis: Analysis) =

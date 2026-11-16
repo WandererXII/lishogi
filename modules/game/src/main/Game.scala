@@ -1,22 +1,24 @@
 package lila.game
 
+import cats.data.Validated
 import org.joda.time.DateTime
 
-import shogi.Centis
-import shogi.Clock
 import shogi.Color
 import shogi.Color.Gote
 import shogi.Color.Sente
 import shogi.Handicap
 import shogi.Mode
+import shogi.Position
 import shogi.Status
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
 import shogi.variant.Variant
-import shogi.{ Game => ShogiGame }
 
+import lila.common.Centis
 import lila.common.Sequence
 import lila.db.ByteArray
+import lila.game.clock.Clock
+import lila.game.clock.LagMetrics
 import lila.rating.PerfType
 import lila.user.User
 
@@ -24,7 +26,8 @@ case class Game(
     id: Game.ID,
     sentePlayer: Player,
     gotePlayer: Player,
-    shogi: ShogiGame,
+    position: Position,
+    clock: Option[Clock] = None,
     loadClockHistory: Clock => Option[ClockHistory] = _ => Game.someEmptyClockHistory,
     status: Status,
     daysPerTurn: Option[Int],
@@ -38,18 +41,16 @@ case class Game(
     movedAt: DateTime = DateTime.now,
     metadata: Metadata,
 ) {
-  lazy val clockHistory = shogi.clock flatMap loadClockHistory
+  lazy val clockHistory = clock flatMap loadClockHistory
 
-  def situation = shogi.situation
-  def board     = shogi.board
-  def hands     = shogi.hands
-  def history   = shogi.history
-  def variant   = shogi.variant
-  def plies     = shogi.plies
-  def clock     = shogi.clock
-  def usis      = shogi.usis
+  def board   = position.board
+  def hands   = position.hands
+  def history = position.history
+  def variant = position.variant
+  def plies   = position.plies
+  def usis    = position.usis
 
-  def initialSfen = history.initialSfen
+  def initialSfen = history.initialSfen.filterNot(_.initialOf(variant))
 
   val players = List(sentePlayer, gotePlayer)
 
@@ -79,13 +80,13 @@ case class Game(
   def firstPlayer  = player(firstColor)
   def secondPlayer = player(!firstColor)
 
-  def turnColor = shogi.color
+  def turnColor = position.color
 
   def turnOf(p: Player): Boolean = p == player
   def turnOf(c: Color): Boolean  = c == turnColor
   def turnOf(u: User): Boolean   = player(u) ?? turnOf
 
-  def playedPlies = plies - shogi.startedAtPly
+  def playedPlies = position.playedPlies
 
   def flagged = (status == Status.Outoftime).option(turnColor)
 
@@ -159,7 +160,7 @@ case class Game(
 
       pairs.zipWithIndex.map { case ((first, second), index) =>
         {
-          val turn         = index + 2 + shogi.startedAtPly / 2
+          val turn         = index + 2 + position.startedAtPly / 2
           val afterByoyomi = byoyomiStart ?? (_ <= turn)
 
           // after byoyomi we store movetimes directly, not remaining time
@@ -216,39 +217,50 @@ case class Game(
       )
 
       sealedUsi
-        .flatMap(u => shogi(u).toOption)
+        .flatMap(u => position(u).toOption)
         .fold {
           resumed.copy(
-            shogi = shogi.copy(clock = clock.map(_.start)),
+            clock = clock.map(_.start),
           )
-        } { newShogi =>
+        } { newPosition =>
           resumed.copy(
             // clock was already updated, make sure proper color is set
-            shogi = newShogi.copy(clock = clock.map(_.copy(color = newShogi.situation.color).start)),
+            position = newPosition,
+            clock = clock.map(_.copy(color = newPosition.color).start),
           )
         }
     }
 
   def forcePause =
     copy(
-      shogi = shogi.copy(clock = clock.map(_.hardStop)),
+      clock = clock.map(_.hardStop),
       sentePlayer = sentePlayer.removePauseOffer,
       gotePlayer = gotePlayer.removePauseOffer,
       status = Status.Paused,
       movedAt = DateTime.now,
     )
 
+  def prepareMove(usi: Usi, metrics: LagMetrics): Validated[String, Game.PreparedMove] =
+    position(usi).map { next =>
+      val gameActive = next.status.isEmpty
+      val candidate = clock.map { current =>
+        val stepped = current.step(metrics, gameActive)
+        if (position.playedPlies == 1 && gameActive) stepped.start else stepped
+      }
+      Game.PreparedMove(next, candidate)
+    }
+
   def pauseAndSealUsi(
       usi: Usi,
-      newShogi: ShogiGame, // new shogi position
+      prepared: Game.PreparedMove,
       blur: Boolean,
   ) =
-    applyGame(newShogi, blur, true).map { g =>
+    applyGame(prepared, blur, true).map { g =>
       g.copy(
         sentePlayer = g.sentePlayer.removePauseOffer,
         gotePlayer = g.gotePlayer.removePauseOffer,
-        shogi =
-          shogi.copy(clock = newShogi.clock.map(_.stop)), // use old shogi position but new clock
+        position = position, // retain the sealed position
+        clock = prepared.clock.map(_.stop),
         sealedUsi = usi.some,
         status = Status.Paused,
       )
@@ -256,10 +268,11 @@ case class Game(
 
   // after making a move
   def applyGame(
-      newShogi: ShogiGame, // new shogi position
+      prepared: Game.PreparedMove,
       blur: Boolean,
       reload: Boolean = false,
   ): Progress = {
+    val newPosition = prepared.position
     def copyPlayer(player: Player) =
       if (blur && turnColor == player.color)
         player.addBlurs(playerMoves(player.color))
@@ -268,16 +281,17 @@ case class Game(
     // This must be computed eagerly
     // because it depends on the current time
     val newClockHistory = for {
-      clk <- newShogi.clock
+      clk <- prepared.clock
       ch  <- clockHistory
     } yield ch
-      .record(turnColor, clk, shogi.fullTurnNumber)
+      .record(turnColor, clk, position.fullTurnNumber)
 
     val updated = copy(
       sentePlayer = copyPlayer(sentePlayer),
       gotePlayer = copyPlayer(gotePlayer),
-      shogi = newShogi,
-      binaryMoveTimes = (!isNotationImport && !shogi.clock.isDefined).option {
+      position = newPosition,
+      clock = prepared.clock,
+      binaryMoveTimes = (!isNotationImport && !clock.isDefined).option {
         BinaryFormat.moveTime.write {
           binaryMoveTimes.?? { t =>
             BinaryFormat.moveTime.read(t, playedPlies)
@@ -285,21 +299,21 @@ case class Game(
         }
       },
       loadClockHistory = _ => newClockHistory,
-      status = newShogi.situation.status | status,
+      status = newPosition.status | status,
       movedAt = DateTime.now,
     )
 
-    val event = newShogi.usis.lastOption.ifFalse(reload).fold[Event](Event.Reload) { usi =>
+    val event = newPosition.usis.lastOption.ifFalse(reload).fold[Event](Event.Reload) { usi =>
       Event.UsiEvent(
         usi = usi,
-        situation = newShogi.situation,
+        position = newPosition,
         state = Event.State(
-          color = newShogi.situation.color,
-          plies = newShogi.plies,
+          color = newPosition.color,
+          plies = newPosition.plies,
           status = (status != updated.status) option updated.status,
-          winner = newShogi.situation.winner,
+          winner = newPosition.winner,
         ),
-        clock = updated.shogi.clock map Event.Clock.apply orElse {
+        clock = updated.clock map Event.Clock.apply orElse {
           updated.playableCorrespondenceClock map Event.CorrespondenceClock.apply
         },
       )
@@ -454,11 +468,11 @@ case class Game(
       Progress(
         this,
         copy(
-          shogi = shogi.copy(clock = Some(newClock)),
+          clock = Some(newClock),
           loadClockHistory = _ =>
             clockHistory.map(history => {
               if (history(color).isEmpty && history.periodEntries(color).isEmpty) history
-              else history.reset(color).record(color, newClock, shogi.fullTurnNumber)
+              else history.reset(color).record(color, newClock, position.fullTurnNumber)
             }),
         ).updatePlayer(color, _.goBerserk),
       ) ++
@@ -478,7 +492,7 @@ case class Game(
       status = status,
       sentePlayer = sentePlayer.finish(winner contains Sente),
       gotePlayer = gotePlayer.finish(winner contains Gote),
-      shogi = shogi.copy(clock = clock map { _.stop }),
+      clock = clock map { _.stop },
       loadClockHistory = clk =>
         clockHistory map { history =>
           // If not already finished, we're ending due to an event
@@ -489,7 +503,7 @@ case class Game(
           // the board.
           if (!finished)
             history
-              .record(turnColor, clk, shogi.fullTurnNumber)
+              .record(turnColor, clk, position.fullTurnNumber)
           else history
         },
     )
@@ -562,7 +576,7 @@ case class Game(
 
   def isUnlimited = !hasClock && !hasCorrespondenceClock
 
-  def withClock(c: Clock) = Progress(this, copy(shogi = shogi.copy(clock = Some(c))))
+  def withClock(c: Clock) = Progress(this, copy(clock = Some(c)))
 
   def correspondenceGiveTime = Progress(this, copy(movedAt = DateTime.now))
 
@@ -603,7 +617,7 @@ case class Game(
   def onePlayerHasMoved    = playedPlies > 0
   def bothPlayersHaveMoved = playedPlies > 1
 
-  def startColor = Color.fromPly(shogi.startedAtPly)
+  def startColor = Color.fromPly(position.startedAtPly)
 
   def playerMoves(color: Color): Int =
     if (color == startColor) (playedPlies + 1) / 2
@@ -710,6 +724,8 @@ object Game {
   }
   case class PlayerId(value: String) extends AnyVal with StringValue
 
+  final case class PreparedMove private[game] (position: Position, clock: Option[Clock])
+
   val syntheticId = "synthetic"
 
   val maxPlayingRealtime = 100 // plus 200 correspondence games
@@ -761,8 +777,8 @@ object Game {
   val idRegex         = """[\w-]{8}""".r
   def validId(id: ID) = idRegex matches id
 
-  private val boardApiRatedMinClock  = shogi.Clock.Config(15 * 60, 0, 0, 0)
-  private val boardApiCasualMinClock = shogi.Clock.Config(5 * 60, 0, 0, 0)
+  private val boardApiRatedMinClock  = lila.game.clock.Clock.Config(15 * 60, 0, 0, 0)
+  private val boardApiCasualMinClock = lila.game.clock.Clock.Config(5 * 60, 0, 0, 0)
 
   def isBoardCompatible(game: Game): Boolean =
     game.clock.fold(true) { c =>
@@ -781,7 +797,7 @@ object Game {
   private[game] val someEmptyClockHistory = Some(ClockHistory())
 
   def make(
-      shogi: ShogiGame,
+      position: Position,
       initialSfen: Option[Sfen],
       sentePlayer: Player,
       gotePlayer: Player,
@@ -790,18 +806,20 @@ object Game {
       source: Source,
       notationImport: Option[NotationImport],
       daysPerTurn: Option[Int] = None,
+      clock: Option[Clock] = None,
   ): NewGame = {
     val createdAt = DateTime.now
-    val shogiWithInitialSfen =
-      initialSfen.filterNot(_.initialOf(shogi.variant)).fold(shogi) { sfen =>
-        shogi.withHistory(shogi.situation.history.withInitialSfen(sfen))
-      }
+    val positionWithInitialSfen =
+      position.withHistory(
+        position.history.copy(initialSfen = initialSfen.filterNot(_.initialOf(position.variant))),
+      )
     NewGame(
       Game(
         id = IdGenerator.uncheckedGame,
         sentePlayer = sentePlayer,
         gotePlayer = gotePlayer,
-        shogi = shogiWithInitialSfen,
+        position = positionWithInitialSfen,
+        clock = clock,
         status = Status.Created,
         daysPerTurn = daysPerTurn,
         mode = mode,

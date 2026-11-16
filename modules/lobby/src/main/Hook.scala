@@ -4,9 +4,9 @@ import play.api.libs.json._
 
 import org.joda.time.DateTime
 
-import shogi.Clock
 import shogi.Mode
 
+import lila.game.clock.Clock
 import lila.rating.RatingRange
 import lila.socket.Socket.Sri
 import lila.user.User

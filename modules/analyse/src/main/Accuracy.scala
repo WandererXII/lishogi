@@ -26,7 +26,7 @@ object Accuracy {
     PovLike(
       color = pov.color,
       startColor = pov.game.startColor,
-      startedAtPly = pov.game.shogi.startedAtPly,
+      startedAtPly = pov.game.position.startedAtPly,
     )
 
   def diffsList(pov: PovLike, analysis: Analysis): List[Int] = {

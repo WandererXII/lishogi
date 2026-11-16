@@ -2,18 +2,18 @@ package lila.game
 
 import play.api.libs.json._
 
-import shogi.Centis
 import shogi.Color
-import shogi.Situation
+import shogi.Position
 import shogi.Status
 import shogi.format.forsyth.Sfen
 import shogi.format.usi.Usi
-import shogi.{ Clock => ShogiClock }
 
 import lila.chat.AnonLine
 import lila.chat.UserLine
+import lila.common.Centis
 import lila.common.Json._
 import lila.game.JsonView._
+import lila.game.clock.{ Clock => GameClock }
 
 sealed trait Event {
   def typ: String
@@ -59,14 +59,14 @@ object Event {
   object UsiEvent {
     def apply(
         usi: Usi,
-        situation: Situation,
+        position: Position,
         state: State,
         clock: Option[ClockEvent],
     ): UsiEvent =
       UsiEvent(
         usi = usi,
-        sfen = situation.toSfen,
-        check = situation.check,
+        sfen = position.toSfenWithoutMoveNumber,
+        check = position.check,
         state = state,
         clock = clock,
       )
@@ -189,7 +189,7 @@ object Event {
         .add("lag" -> nextLagComp.collect { case Centis(c) if c > 1 => c })
   }
   object Clock {
-    def apply(clock: ShogiClock): Clock = {
+    def apply(clock: GameClock): Clock = {
       val senteClock = clock currentClockFor Color.Sente
       val goteClock  = clock currentClockFor Color.Gote
       Clock(

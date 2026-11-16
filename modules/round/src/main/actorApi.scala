@@ -4,11 +4,11 @@ package actorApi
 import scala.concurrent.Promise
 
 import shogi.Color
-import shogi.LagMetrics
 import shogi.format.usi.Usi
 
 import lila.common.IpAddress
 import lila.game.Game.PlayerId
+import lila.game.clock.LagMetrics
 import lila.socket.Socket.SocketVersion
 
 case class ByePlayer(playerId: PlayerId)

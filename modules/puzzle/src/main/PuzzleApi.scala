@@ -280,9 +280,9 @@ final class PuzzleApi(
         submittedBy: Option[String],
     ): Fu[Option[Puzzle.Id]] = {
       val validated = for {
-        sitPlus <- sfen.toSituationPlus(shogi.variant.Standard)
-        validSfen = sitPlus.toSfen
-        result    = shogi.Replay(line, validSfen.some, shogi.variant.Standard).valid
+        position <- sfen.toPosition(shogi.variant.Standard)
+        validSfen = position.toSfen
+        result    = shogi.Replay.fromUsi(line, validSfen.some, shogi.variant.Standard).valid
         validLine <- line.toNel.ifTrue(result.isValid)
       } yield ((validSfen, validLine))
 

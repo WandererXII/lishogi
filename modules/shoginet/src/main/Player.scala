@@ -4,13 +4,13 @@ import scala.concurrent.duration._
 
 import org.joda.time.DateTime
 
-import shogi.Clock
 import shogi.Gote
 import shogi.Sente
 
 import lila.common.Bus
 import lila.common.Random.approximately
 import lila.game.Game
+import lila.game.clock.Clock
 import lila.hub.actorApi.map.Tell
 import lila.hub.actorApi.round.ShoginetPlay
 import lila.hub.actorApi.round.ShoginetResign
@@ -46,7 +46,7 @@ final class Player(
   private val maxLevelForOpeningBook = 8
 
   private val delayFactor  = 0.011f
-  private val defaultClock = Clock(300, 0, 0, 0)
+  private val defaultClock = Clock(300, 0, 0, 0, Sente)
 
   private def delayFor(g: Game): Option[FiniteDuration] =
     if (!g.bothPlayersHaveMoved) 2.seconds.some
@@ -67,7 +67,7 @@ final class Player(
       } yield divided.millis
 
   private def makeWork(game: Game, ec: lila.game.EngineConfig): Fu[Work.Move] =
-    if (game.situation.playable(strict = true))
+    if (game.position.playable(strict = true))
       if (game.plies <= maxPlies)
         fuccess(
           Work.Move(
@@ -80,7 +80,7 @@ final class Player(
               variant = game.variant,
               moves = game.usis.map(_.usi) mkString " ",
             ),
-            currentSfen = game.shogi.toSfen,
+            currentSfen = game.position.toSfen,
             level = ec.level,
             engine = ec.engine.name,
             clock = game.clock.map { clk =>

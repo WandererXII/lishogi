@@ -238,13 +238,14 @@ final private[api] class GameApi(
         "moves"    -> withFlags.moves.option(g.usis.map(_.usi) mkString " "),
         "sfens" -> (withFlags.sfens && g.finished) ?? {
           shogi.Replay
-            .situations(
+            .positionsWhileValid(
               usis = g.usis,
               initialSfen = g.initialSfen,
               variant = g.variant,
-            )
-            .toOption map { sits =>
-            JsArray(sits.toList.map(_.toSfen.value) map JsString.apply)
+            ) match {
+            case (positions, None) =>
+              JsArray(positions.map(_.toSfenWithoutMoveNumber.value) map JsString.apply).some
+            case _ => none[JsArray]
           }
         },
         "winner" -> g.winnerColor.map(_.name),

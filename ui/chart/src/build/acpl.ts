@@ -16,7 +16,6 @@ import {
   senteColor,
   tooltipConfig,
 } from '../common';
-import division from '../division';
 import type { AcplChart, AnalyseData, Player } from '../interface';
 
 const blursEnabled = true;
@@ -31,7 +30,6 @@ function main(
   if (possibleChart) return possibleChart as AcplChart;
   const blurBackgroundColorWhite = 'white';
   const blurBackgroundColorBlack = 'black';
-  const divisionLines = division(data.game.division);
   const firstPly = mainline[0].ply;
   const plyLineChart = plyLine(ply || firstPly);
   const isPartial = (d: AnalyseData) => !d.analysis || d.analysis.partial;
@@ -116,7 +114,7 @@ function main(
     type: 'line',
     data: {
       labels: moveLabels.map((_, index) => index),
-      datasets: [acpl, plyLineChart, ...divisionLines],
+      datasets: [acpl, plyLineChart],
     },
     options: {
       clip: false,

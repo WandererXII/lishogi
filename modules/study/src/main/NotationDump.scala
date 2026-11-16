@@ -4,8 +4,8 @@ import akka.stream.scaladsl._
 import org.joda.time.format.DateTimeFormat
 
 import shogi.Piece
-import shogi.Pos
 import shogi.Role
+import shogi.Square
 import shogi.format.Glyphs
 import shogi.format.Initial
 import shogi.format.NotationStep
@@ -132,12 +132,12 @@ object NotationDump {
       if (p.color.sente) roleStr.toUpperCase else roleStr
     }
 
-    def writePosOrPiece(pop: Either[Pos, Piece]): String =
-      pop.fold(_.key, p => ("_" + pieceLetter(p)) takeRight 2)
+    def writeSquareOrPiece(sop: Either[Square, Piece]): String =
+      sop.fold(_.key, p => ("_" + pieceLetter(p)) takeRight 2)
 
     val circles = render("csl") {
       shapes.value.collect { case Shape.Circle(brush, orig, None) =>
-        s"${renderBrush(brush)}${writePosOrPiece(orig)}"
+        s"${renderBrush(brush)}${writeSquareOrPiece(orig)}"
       }
     }
     val pieces = render("cpl") {
@@ -147,7 +147,7 @@ object NotationDump {
     }
     val arrows = render("cal") {
       shapes.value.collect { case Shape.Arrow(brush, orig, dest) =>
-        s"${renderBrush(brush)}${writePosOrPiece(orig)}${writePosOrPiece(dest)}"
+        s"${renderBrush(brush)}${writeSquareOrPiece(orig)}${writeSquareOrPiece(dest)}"
       }
     }
     s"$circles$arrows$pieces".some.filter(_.nonEmpty)
