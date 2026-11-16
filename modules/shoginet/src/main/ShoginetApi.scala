@@ -252,7 +252,7 @@ final class ShoginetApi(
             moves = "",
           ),
           engine =
-            if (forYaneuraOu(position)) lila.game.EngineConfig.Engine.YaneuraOu.name
+            if (ShoginetApi.forYaneuraOu(position)) lila.game.EngineConfig.Engine.YaneuraOu.name
             else lila.game.EngineConfig.Engine.Fairy.name,
           source = Work.Puzzle.Source(
             game = none,
@@ -271,16 +271,6 @@ final class ShoginetApi(
       }
     repo.addPuzzles(puzs)
   }
-
-  private val initialPosition = shogi.Position(shogi.variant.Standard)
-  private def forYaneuraOu(position: shogi.Position): Boolean =
-    position.variant.handRoles.forall { r =>
-      position.board.count(r) + position.hands.sente(r) + position.hands.gote(r) <= initialPosition.board.count(
-        r,
-      ) + initialPosition.hands.sente(r) + initialPosition.hands.gote(r)
-    } && position.variant.allRoles.diff(position.variant.handRoles).forall { r =>
-      position.board.count(r) <= initialPosition.board.count(r)
-    }
 
   def queuedPuzzles(userId: String): Fu[Int] =
     repo.countUserPuzzles(userId)
@@ -307,6 +297,26 @@ object ShoginetApi {
       analysisNodes: Int,
       clientVersion: Client.ClientVersion,
   )
+
+  private def materialCount(position: shogi.Position): Map[shogi.Role, Int] = {
+    val onBoard = position.board.pieces.values.toList
+      .map { p =>
+        position.variant.unpromoteRoleForHand(p.role).getOrElse(p.role): shogi.Role
+      }
+      .groupMapReduce(identity)(_ => 1)(_ + _)
+    position.variant.handRoles.foldLeft(onBoard) { (acc, role) =>
+      val inHands = position.hands.sente(role) + position.hands.gote(role)
+      acc.updated(role, acc.getOrElse(role, 0) + inHands)
+    }
+  }
+
+  private lazy val standardMaterial = materialCount(shogi.Position(shogi.variant.Standard))
+
+  // YaneuraOu only supports positions that don't exceed standard shogi material
+  private[shoginet] def forYaneuraOu(position: shogi.Position): Boolean =
+    position.variant.standard && materialCount(position).forall { case (role, n) =>
+      n <= standardMaterial.getOrElse(role, 0)
+    }
 
   case object WorkNotFound extends LilaException {
     val message = "The work has disappeared"
