@@ -1,4 +1,4 @@
-import { initOneWithState } from 'common/mini-board';
+import { destroy, initOneWithState } from 'common/mini-board';
 import * as status from 'game/status';
 import { i18n, i18nFormat, i18nVdom } from 'i18n';
 import { h, type VNode } from 'snabbdom';
@@ -58,6 +58,7 @@ const miniPairing = (ctrl: SimulCtrl) => (pairing: Pairing) => {
                 variant: game.variant,
               });
             },
+            destroy: vnode => destroy(vnode.elm as HTMLElement),
           },
         },
         h('div.sg-wrap'),

@@ -39,6 +39,7 @@ const shogigroundBoard = (ctrl: StormCtrl): VNode =>
           ),
         );
       },
+      destroy: () => ctrl.shogiground.destroy(),
     },
   });
 

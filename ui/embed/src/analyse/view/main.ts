@@ -1,4 +1,4 @@
-import { initOneWithState } from 'common/mini-board';
+import { destroy, initOneWithState } from 'common/mini-board';
 import { h, type VNode } from 'snabbdom';
 import type { AnalyseCtrl } from '../ctrl';
 import { renderFooter } from './footer';
@@ -17,6 +17,7 @@ export function view(ctrl: AnalyseCtrl): VNode {
           });
           ctrl.groundElement = vnode.elm as HTMLElement;
         },
+        destroy: vnode => destroy(vnode.elm as HTMLElement),
       },
     }),
     renderMoves(ctrl),

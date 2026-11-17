@@ -8,12 +8,18 @@ import * as domData from './data';
 import { roleToForsyth } from './shogiops';
 import { wsSend } from './ws';
 
+const scannedMinis = new Set<HTMLElement>();
+
 export const initAll = (): void => {
+  for (const node of scannedMinis) {
+    if (!node.isConnected) destroy(node);
+  }
+
   const minis = Array.from(
     document.getElementsByClassName('parse-sfen') as HTMLCollectionOf<HTMLElement>,
   );
   minis.forEach(n => {
-    innerInit(n);
+    if (innerInit(n)) scannedMinis.add(n);
   });
 
   const liveMinis = minis.map(m => m.dataset.live).filter(m => m !== undefined);
@@ -37,7 +43,7 @@ const initOne = (node: HTMLElement): void => {
   if (live) startWatching([live]);
 };
 
-const innerInit = (node: HTMLElement): void => {
+const innerInit = (node: HTMLElement): boolean => {
   const state = parseNode(node);
   if (state) {
     let sgWrap = node.firstChild as HTMLElement | null;
@@ -71,11 +77,23 @@ const innerInit = (node: HTMLElement): void => {
         visible: false,
       },
     };
+    destroy(node);
     domData.set<SgApi>(node, 'shogiground', window.Shogiground(config, { board: sgWrap }));
     sgWrap.classList.remove('preload');
     node.classList.remove('parse-sfen');
+    return true;
   }
+  return false;
 };
+
+export function destroy(node: HTMLElement): void {
+  scannedMinis.delete(node);
+  const sg = domData.get<SgApi>(node, 'shogiground');
+  if (sg) {
+    sg.destroy();
+    domData.set(node, 'shogiground', undefined);
+  }
+}
 
 export function update(node: HTMLElement, sfen: Sfen, lm?: Usi): void {
   const sg = domData.get<SgApi>(node, 'shogiground');

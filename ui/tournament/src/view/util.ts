@@ -1,5 +1,5 @@
 import { icons } from 'common/icons';
-import { initOneWithState } from 'common/mini-board';
+import { destroy, initOneWithState } from 'common/mini-board';
 import { numberFormat } from 'common/number';
 import { bind, dataIcon, type MaybeVNode, type MaybeVNodes, proverb } from 'common/snabbdom';
 import { i18n } from 'i18n';
@@ -26,6 +26,7 @@ export function miniBoard(game: Featured): VNode {
             lastMove: game.lastMove,
           });
         },
+        destroy: vnode => destroy(vnode.elm as HTMLElement),
       },
     },
     h('div.sg-wrap'),

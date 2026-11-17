@@ -185,6 +185,9 @@ function makeSg(preview: ChapterPreview): VNode {
           }
           vnode.data!.cp = old.data!.cp;
         },
+        destroy(vnode) {
+          vnode.data!.cp?.sg.destroy();
+        },
       },
     }),
   );

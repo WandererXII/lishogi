@@ -121,13 +121,15 @@ const renderHistory = (ctrl: StormCtrl): VNode => {
                   href: `/training/${round.puzzle.id}`,
                   target: '_blank',
                 },
-                hook: onInsert(el => {
-                  miniBoard.initOneWithState(el, {
-                    variant: 'standard',
-                    sfen: round.puzzle.sfen,
-                    orientation: toColor(round.puzzle.sfen.split(' ')[1]),
-                  });
-                }),
+                hook: {
+                  insert: vnode =>
+                    miniBoard.initOneWithState(vnode.elm as HTMLElement, {
+                      variant: 'standard',
+                      sfen: round.puzzle.sfen,
+                      orientation: toColor(round.puzzle.sfen.split(' ')[1]),
+                    }),
+                  destroy: vnode => miniBoard.destroy(vnode.elm as HTMLElement),
+                },
               }),
               h('span.storm--end__history__round__meta', [
                 h('span.storm--end__history__round__result', [

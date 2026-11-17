@@ -56,7 +56,7 @@ $shape-themes: (
     g.#{$theme} line {
       stroke: #{$color};
     }
-    marker#arrowhead-#{$theme} path {
+    marker[data-brush='#{$theme}'] path {
       fill: #{$color};
     }
     g.#{$theme} g.description ellipse {
@@ -76,7 +76,7 @@ $shape-themes: (
       g.#{$blue} line {
         stroke: $blue-alt;
       }
-      marker#arrowhead-#{$blue} path {
+      marker[data-brush='#{$blue}'] path {
         fill: $blue-alt;
       }
     }

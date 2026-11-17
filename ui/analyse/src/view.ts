@@ -408,6 +408,7 @@ export default function (ctrl: AnalyseCtrl): VNode {
           if (!!playerBars != $('body').hasClass('header-margin')) {
             requestAnimationFrame(() => {
               $('body').toggleClass('header-margin', !!playerBars);
+              ctrl.shogiground.refreshBounds();
               ctrl.redraw();
             });
           }
@@ -415,10 +416,10 @@ export default function (ctrl: AnalyseCtrl): VNode {
         update(_, _2) {
           forceInnerCoords(ctrl, needsInnerCoords);
         },
-        postpatch(old, vnode) {
-          if (old.data!.gaugeOn !== gaugeOn)
-            document.body.dispatchEvent(new Event('shogiground.resize'));
-          vnode.data!.gaugeOn = gaugeOn;
+        postpatch(old) {
+          const classes = old.data?.class;
+          if (classes?.['gauge-on'] !== gaugeOn || classes?.['has-player-bars'] !== !!playerBars)
+            ctrl.shogiground.refreshBounds();
         },
       },
       class: {

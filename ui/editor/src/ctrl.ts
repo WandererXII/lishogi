@@ -5,7 +5,7 @@ import { roleToForsyth } from 'common/shogiops';
 import { Shogiground } from 'shogiground';
 import type { Api as SgApi } from 'shogiground/api';
 import type { NumberPair, Piece } from 'shogiground/types';
-import { eventPosition, opposite, samePiece } from 'shogiground/util';
+import { eventPosition, opposite } from 'shogiground/util';
 import { Board } from 'shogiops/board';
 import { Hand, Hands } from 'shogiops/hands';
 import { handRoles, promotableRoles, promote, unpromote } from 'shogiops/position/util';
@@ -439,15 +439,7 @@ export default class EditorCtrl {
   }
   removeFromHand(c: Color, r: Role, reload = false): void {
     const unpromotedRole = handRoles(this.rules).includes(r) ? r : unpromote(this.rules)(r);
-    const piece = { color: c, role: unpromotedRole || r };
-    this.shogiground.removeFromHand(piece);
-    // unselect if we no loger have piece in hand
-    if (
-      this.shogiground.state.selectedPiece &&
-      samePiece(this.shogiground.state.selectedPiece, piece) &&
-      this.shogiground.state.hands.handMap.get(c)?.get(r) === 0
-    )
-      this.shogiground.selectPiece(null);
+    this.shogiground.removeFromHand({ color: c, role: unpromotedRole || r });
     if (reload) this.onChange();
   }
 }

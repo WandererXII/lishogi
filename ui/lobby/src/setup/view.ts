@@ -1,6 +1,6 @@
 import { useJapanese } from 'common/common';
 import { icons } from 'common/icons';
-import { initOneWithState, update } from 'common/mini-board';
+import { destroy, initOneWithState, update } from 'common/mini-board';
 import { modal } from 'common/modal';
 import { getPerfIcon } from 'common/perf-icons';
 import { bind, dataIcon, type MaybeVNodes } from 'common/snabbdom';
@@ -162,6 +162,7 @@ function positionInput(ctrl: SetupCtrl): VNode {
                   update(el, ctrl.data.sfen);
                 }
               },
+              destroy: vnode => destroy(vnode.elm as HTMLElement),
             },
           })
         : null,
