@@ -49,7 +49,7 @@ export default function (ctrl: ChatCtrl): Array<VNode | undefined> {
 
             if (jumpBtn) {
               window.lishogi.pubsub.emit('jump', jumpBtn.getAttribute('data-ply'));
-            } else if (mod && modBtn && modBtn.parentNode) {
+            } else if (mod && modBtn?.parentNode) {
               mod.open(modBtn.parentNode as HTMLElement);
             } else if (!mod && flagBtn && flagBtn.parentNode) {
               report(ctrl, flagBtn.parentNode as HTMLElement);

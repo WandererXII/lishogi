@@ -7,8 +7,8 @@ export interface MovePoint {
 }
 
 // Add a slight offset so the graph doesn't get cutoff when eval = mate.
-export const chartYMax = 1.05;
-export const chartYMin: number = -chartYMax;
+const chartYMax = 1.05;
+const chartYMin: number = -chartYMax;
 
 export const accentColor: () => string = () => cssVar('--c-accent');
 export const borderColor: () => string = () => cssVar('--c-border');
