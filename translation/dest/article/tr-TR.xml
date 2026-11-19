@@ -10,7 +10,7 @@
   <string name="submittedArticles">Gönderilen makaleler</string>
   <string name="categories">Kategoriler</string>
   <string name="draft">Taslak</string>
-  <string name="published">Yayınlanan</string>
+  <string name="published">Yayımlanan</string>
   <string name="drafts">Taslaklar</string>
   <string name="author">Yazar</string>
   <string name="translateArticle">Makaleyi çevir</string>
@@ -22,7 +22,7 @@
   <string name="deleteArticle">Makaleyi sil</string>
   <string name="deleteXLangOfArticle" comment="Example: Delete EN language version of article">Makalenin %s dilindeki sürümünü sil</string>
   <string name="categoryAll">Hepsi</string>
-  <string name="categoryOfficial">Resmi</string>
+  <string name="categoryOfficial">Resmî</string>
   <string name="categoryAnalysis">Analiz</string>
   <string name="categoryCulture">Kültür</string>
   <string name="categoryEvents">Olaylar</string>

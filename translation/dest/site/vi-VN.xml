@@ -111,7 +111,7 @@
 	<string name="recentGames">Ván gần đây</string>
 	<string name="topGames">Các ván đấu hàng đầu</string>
 	<string name="noGameFound">Không tìm thấy trò chơi</string>
-	<string name="pageNotFound">Page not found</string>
+	<string name="pageNotFound">Không tìm thấy trang</string>
 	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Bạn có muốn thêm nhiều ván đấu hơn từ mục lục?</string>
 	<string name="openingExplorer">Sách khai cuộc</string>
@@ -1041,7 +1041,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 	<string name="newPlayerIntro">Welcome to lishogi. If you\'re new here, this quick overview will help you get started and discover what the site offers.</string>
 	<string name="newPlayerRegisterCta">Create an account to unlock all features</string>
-	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
+	<string name="newPlayerPreferences"></string>
 	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
 	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
 	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
@@ -1052,5 +1052,5 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
 	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
 	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
-	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
+	<string name="documentation" comment="Shown in top menu as a link">Tài liệu</string>
 </resources>

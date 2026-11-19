@@ -42,5 +42,5 @@
   <string name="articleUnderReview">The article is being reviewed before publishing.</string>
   <string name="shortTOS">Content of articles must be related to shogi, contain no inappropriate or AI generated text or images. You must also have rights or permission to all the images and text used.</string>
   <string name="articlePublished">Your article was published</string>
-  <string name="Read the article here">Your article was published</string>
+  <string name="Read the article here">Bài viết của bạn đã được xuất bản</string>
 </resources>
