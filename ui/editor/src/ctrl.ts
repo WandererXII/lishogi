@@ -431,15 +431,4 @@ export default class EditorCtrl {
     if (this.shogiground.state.orientation !== o) this.shogiground.toggleOrientation();
     this.onChange();
   }
-
-  addToHand(c: Color, r: Role, reload = false): void {
-    const unpromotedRole = handRoles(this.rules).includes(r) ? r : unpromote(this.rules)(r);
-    this.shogiground.addToHand({ color: c, role: unpromotedRole || r });
-    if (reload) this.onChange();
-  }
-  removeFromHand(c: Color, r: Role, reload = false): void {
-    const unpromotedRole = handRoles(this.rules).includes(r) ? r : unpromote(this.rules)(r);
-    this.shogiground.removeFromHand({ color: c, role: unpromotedRole || r });
-    if (reload) this.onChange();
-  }
 }

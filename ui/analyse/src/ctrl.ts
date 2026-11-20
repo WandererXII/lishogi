@@ -278,10 +278,6 @@ export default class AnalyseCtrl {
     this.redraw();
   };
 
-  topColor(): Color {
-    return opposite(this.bottomColor());
-  }
-
   bottomColor(): Color {
     return this.flipped ? opposite(this.data.orientation) : this.data.orientation;
   }

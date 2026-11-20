@@ -14,7 +14,6 @@ export interface Socket {
   send: Socket.Send;
   receive(type: string, data: any): boolean;
   sendAnaUsi(req: Req): void;
-  sendForecasts(req: Req): void;
 }
 
 export function make(send: Socket.Send, ctrl: AnalyseCtrl): Socket {
@@ -97,9 +96,6 @@ export function make(send: Socket.Send, ctrl: AnalyseCtrl): Socket {
       return !!ctrl.study && ctrl.study.socketHandler(type, data);
     },
     sendAnaUsi,
-    sendForecasts(req) {
-      send('forecasts', req);
-    },
     send,
   };
 }

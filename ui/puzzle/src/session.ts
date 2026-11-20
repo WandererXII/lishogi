@@ -32,8 +32,6 @@ export default class PuzzleSession {
     this.default,
   );
 
-  clear = (): Store => this.update(s => ({ ...s, rounds: [] }));
-
   get = (): Store => {
     const prev = this.store();
     return prev.theme == this.theme && prev.at > Date.now() - this.maxAge ? prev : this.default();

@@ -175,39 +175,3 @@ function compareSelected(a: Selected, b: Selected): boolean {
   if (typeof a === 'string') return a === b;
   return a[0] === b[0] && a[1] === b[1];
 }
-
-// maybe later, but it looks too cluttered
-// +/-
-// export function handSpares(ctrl: EditorCtrl, position: 'top' | 'bottom'): VNode {
-//   const processPiece = (e: Event) => {
-//     const piece = getPiece(e, ctrl.shogiground.state.orientation);
-//     const action = (e.target as HTMLElement).dataset.action;
-//     if (piece) {
-//       if (action === 'add') ctrl.addToHand(piece.color, piece.role, true);
-//       else ctrl.removeFromHand(piece.color, piece.role, true);
-//     }
-//   };
-
-//   const hRoles = handRoles(ctrl.rules);
-//   if (position === 'bottom') hRoles.reverse();
-
-//   return h(
-//     'div.hand-spare.hand-spare-' + position,
-//     { on: { click: () => processPiece } },
-//     hRoles.map(r =>
-//       h('div', [
-//         h('div.plus', { attrs: { 'data-role': r, 'data-pos': position, 'data-action': 'add' } }, '+'),
-//         h('div.minus', { attrs: { 'data-role': r, 'data-pos': position } }, '-'),
-//       ])
-//     )
-//   );
-// }
-
-// function getPiece(e: Event, orientation: Color): Piece | undefined {
-//   const role: Role | undefined = ((e.target as HTMLElement).dataset.role as Role) || undefined;
-//   if (role) {
-//     const color: Color = (e.target as HTMLElement).dataset.pos === 'bottom' ? orientation : opposite(orientation);
-//     return { role, color };
-//   }
-//   return;
-// }

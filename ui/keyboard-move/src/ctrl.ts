@@ -26,11 +26,9 @@ export interface KeyboardMove {
   hasFocus(): boolean;
   setFocus(v: boolean): void;
   select(key: Key): void;
-  hasSelected(): Key | undefined;
   confirmMove(): void;
   usedMove: boolean;
   jump(delta: number): void;
-  justSelected(): boolean;
   clock(): ClockController | undefined;
   draw(): void;
   next(): void;
@@ -63,14 +61,10 @@ export function ctrl(root: RootController, step: Step): KeyboardMove {
   let focus = false;
   let handler: KeyboardMoveHandler | undefined;
   let preHandlerBuffer = step;
-  let lastSelect = performance.now();
   const sgState = root.shogiground.state;
   const select = (key: Key, prom?: boolean): void => {
     if (sgState.selected === key) root.shogiground.cancelMoveOrDrop();
-    else {
-      root.shogiground.selectSquare(key, prom, true);
-      lastSelect = performance.now();
-    }
+    else root.shogiground.selectSquare(key, prom, true);
   };
   let usedMove = false;
   return {
@@ -111,14 +105,12 @@ export function ctrl(root: RootController, step: Step): KeyboardMove {
       root.redraw();
     },
     select,
-    hasSelected: () => sgState.selected,
     confirmMove: () => root.submitUsi?.(true),
     usedMove,
     jump(plyDelta: number) {
       root.userJumpPlyDelta?.(plyDelta);
       root.redraw();
     },
-    justSelected: () => performance.now() - lastSelect < 500,
     clock: () => root.clock,
     draw: () => (root.offerDraw ? root.offerDraw(true, true) : null),
     resign: v => (root.resign ? root.resign(v, true) : null),

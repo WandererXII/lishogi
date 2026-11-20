@@ -31,8 +31,6 @@ export interface StudyCtrl {
   tags: any;
   chapterDesc: DescriptionCtrl;
   toggleLike(): void;
-  rematch(yes: boolean): void;
-  position(): Position;
   isChapterOwner(): boolean;
   canJumpTo(path: Tree.Path): boolean;
   onJump(): void;
@@ -234,7 +232,6 @@ export interface StudyMembersCtrl {
   size: () => number;
   setSpectators: (usernames?: string[]) => void;
   isOnline: (userId: string) => boolean;
-  hasOnlineContributor: () => boolean;
 }
 
 export type TagTypes = string[];

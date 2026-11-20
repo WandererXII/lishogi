@@ -32,7 +32,6 @@ export interface PracticeCtrl {
   hinting: Prop<Hinting | null>;
   resume(): void;
   playableDepth: number;
-  reset(): void;
   preUserJump(from: Tree.Path, to: Tree.Path): void;
   postUserJump(from: Tree.Path, to: Tree.Path): void;
   onUserMove(): void;
@@ -186,10 +185,6 @@ export function make(root: AnalyseCtrl, playableDepth: number): PracticeCtrl {
     hinting,
     resume,
     playableDepth,
-    reset() {
-      comment(null);
-      hinting(null);
-    },
     preUserJump(from: Tree.Path, to: Tree.Path) {
       if (from !== to) {
         running(false);

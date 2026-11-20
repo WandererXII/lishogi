@@ -31,9 +31,6 @@ export function notifyApp(): typeof window.lishogi.notifyApp {
         setCount(nb: number) {
           $toggle.find('span').attr('data-count', nb);
         },
-        show() {
-          if (!isVisible()) $toggle.trigger('click');
-        },
         setNotified() {
           wsSend('notified');
         },

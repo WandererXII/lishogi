@@ -149,11 +149,6 @@ export function ctrl(opts: Opts): StudyMembersCtrl {
     isOnline(userId: string) {
       return online[userId];
     },
-    hasOnlineContributor() {
-      const members = dict();
-      for (const i in members) if (online[i] && members[i].role === 'w') return true;
-      return false;
-    },
   };
 }
 

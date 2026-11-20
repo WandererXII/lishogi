@@ -322,7 +322,6 @@ export default function (data: StudyData, ctrl: AnalyseCtrl, tagTypes: TagTypes)
   }
 
   const likeToggler = debounce(() => send('like', { liked: data.liked }), 1000);
-  const rematcher = debounce(yes => send('rematch', { yes: yes }), 1000, true);
 
   const socketHandlers: Record<string, any> = {
     path(d: any) {
@@ -560,12 +559,6 @@ export default function (data: StudyData, ctrl: AnalyseCtrl, tagTypes: TagTypes)
       data.liked = !data.liked;
       redraw();
       likeToggler();
-    },
-    rematch(yes: boolean) {
-      rematcher(yes);
-    },
-    position() {
-      return data.position;
     },
     currentChapter,
     isChapterOwner,

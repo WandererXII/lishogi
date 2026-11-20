@@ -22,7 +22,6 @@ export interface StudyChaptersCtrl {
   editForm: any;
   list: Prop<StudyChapterMeta[]>;
   get(id: string): StudyChapterMeta | undefined;
-  size(): number;
   sort(ids: string[]): void;
   firstChapterId(): string;
   toggleNewForm(): void;
@@ -48,9 +47,6 @@ export function ctrl(
     list,
     get(id) {
       return list().find(c => c.id === id);
-    },
-    size() {
-      return list().length;
     },
     sort(ids) {
       send('sortChapters', ids);

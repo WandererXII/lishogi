@@ -100,9 +100,6 @@ export const powertip: any = {
     const p = t.parentElement;
     if (p?.classList?.contains('ulpt')) powerTipWith(p, e, userPowertip);
   },
-  manualGameIn(parent: HTMLElement) {
-    onIdleForAll(parent, '.glpt', gamePowertip);
-  },
   manualGame: gamePowertip,
   manualUserIn(parent: HTMLElement) {
     onIdleForAll(parent, '.ulpt', (el: HTMLElement) => userPowertip(el));

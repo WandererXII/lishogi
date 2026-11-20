@@ -6,7 +6,6 @@ export interface NotifyOpts {
   initiated?: number;
   isVisible(): boolean;
   setCount(nb: number): void;
-  show(): void;
   setNotified(): void;
   pulse(): void;
 }
