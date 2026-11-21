@@ -41,14 +41,14 @@ object ofPlayer {
           ),
           div(cls := "puzzle-of-player__results")(
             (user, puzzles) match {
-              case (Some(u), Some(pager)) =>
-                if (pager.nbResults == 0 && ctx.is(u))
+              case (Some(usr), Some(pager)) =>
+                if (pager.nbResults == 0 && ctx.is(usr))
                   p(
                     "You have no puzzles in the database, but Lishogi still loves you very much.",
                   )
                 else
                   frag(
-                    p(strong(trans.puzzle.fromXGamesFound((pager.nbResults), showUsername(u)))),
+                    p(strong(trans.puzzle.fromXGamesFound((pager.nbResults), showUsername(usr)))),
                     div(cls := "puzzle-of-player__pager infinite-scroll")(
                       pager.currentPageResults.map { puzzle =>
                         div(cls := "puzzle-of-player__puzzle")(
@@ -68,7 +68,10 @@ object ofPlayer {
                           ),
                         )
                       },
-                      pagerNext(pager, np => s"${routes.Puzzle.ofPlayer(u.username.some, np).url}"),
+                      pagerNext(
+                        pager,
+                        np => s"${routes.Puzzle.ofPlayer(usr.username.some, np).url}",
+                      ),
                     ),
                   )
               case (_, _) =>

@@ -146,7 +146,7 @@ case object Perfs {
     )
   }
 
-  val perfsBSONHandler = new BSON[Perfs] {
+  val perfsBSONHandler: BSON[Perfs] = new BSON[Perfs] {
 
     implicit def perfHandler: BSON[Perf] = Perf.perfBSONHandler
 

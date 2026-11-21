@@ -59,7 +59,7 @@ final class GameStateStream(
       as: shogi.Color,
       user: User,
       queue: SourceQueueWithComplete[Option[JsObject]],
-  )(implicit lang: Lang) =
+  )(implicit lang: Lang): Actor =
     new Actor {
 
       val id = game.id

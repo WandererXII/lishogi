@@ -150,7 +150,7 @@ final private class Rematcher(
 
   private def returnPlayer(game: Game, color: ShogiColor, users: List[User]): lila.game.Player =
     game.opponent(color).engineConfig match {
-      case Some(ec) => lila.game.Player.make(color, ec.some)
+      case Some(engineConfig) => lila.game.Player.make(color, engineConfig.some)
       case None =>
         lila.game.Player.make(
           color,

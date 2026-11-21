@@ -50,8 +50,8 @@ object submitted {
           ),
           div(cls := "puzzle-of-player__results")(
             (user, puzzles) match {
-              case (Some(u), Some(pager)) =>
-                if (pager.nbResults == 0 && ctx.is(u))
+              case (Some(usr), Some(pager)) =>
+                if (pager.nbResults == 0 && ctx.is(usr))
                   p(
                     if (~count > 0)
                       s"Puzzles you have submitted are being verified (${~count} puzzles in queue). Thank you!"
@@ -59,7 +59,7 @@ object submitted {
                   )
                 else
                   frag(
-                    p(strong(s"Found ${pager.nbResults} puzzles", showUsername(u))),
+                    p(strong(s"Found ${pager.nbResults} puzzles", showUsername(usr))),
                     p(strong(s"Found ${~count} puzzles in queue")),
                     div(cls := "puzzle-of-player__pager infinite-scroll")(
                       pager.currentPageResults.map { puzzle =>
@@ -80,7 +80,10 @@ object submitted {
                           ),
                         )
                       },
-                      pagerNext(pager, np => s"${routes.Puzzle.submitted(u.username.some, np).url}"),
+                      pagerNext(
+                        pager,
+                        np => s"${routes.Puzzle.submitted(usr.username.some, np).url}",
+                      ),
                     ),
                   )
               case (_, _) =>

@@ -322,7 +322,7 @@ object contact {
             div(cls := "content")(content),
           ),
         )
-      case b @ Branch(id, _, children) =>
+      case branch @ Branch(id, _, children) =>
         frag(
           div(makeId(node.id), cls := s"node branch $id")(
             h2(parent map goBack, node.name),
@@ -332,7 +332,7 @@ object contact {
               },
             ),
           ),
-          children map { renderNode(_, b.some) },
+          children map { renderNode(_, branch.some) },
         )
     }
 

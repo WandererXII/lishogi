@@ -24,8 +24,8 @@ case class UserRecord(
 
   def badOutcomeScore: Float =
     outcomes.collect {
-      case Outcome.NoPlay | Outcome.Abort => .7f
-      case o if o != Outcome.Good         => 1
+      case Outcome.NoPlay | Outcome.Abort     => .7f
+      case outcome if outcome != Outcome.Good => 1
     } sum
 
   def badOutcomeRatio: Float = if (bans.sizeIs < 3) 0.4f else 0.3f
@@ -104,7 +104,7 @@ object TempBan {
       (bans.lastOption ?? { prev =>
         prev.endsAt.toNow.getStandardHours.toSaturatedInt match {
           case h if h < 72 => prev.mins * (132 - h) / 60
-          case h           => prev.mins - Math.pow(h / 12, 1.5).toInt
+          case h           => prev.mins - Math.pow((h / 12).toDouble, 1.5).toInt
         }
       } atLeast baseMinutes) * (if (accountCreationDate.plusDays(3).isAfterNow) 2 else 1)
     }

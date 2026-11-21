@@ -188,7 +188,7 @@ trait GameHelper {
         game.loserColor
           .map(l => transWithColorName(trans.xDidntMove, l, game.isHandicap))
           .getOrElse(trans.finished.txt())
-      case s => statusName(s, game.variant.some)
+      case status => statusName(status, game.variant.some)
     }
 
   def sourceName(source: Source)(implicit lang: Lang): String =

@@ -36,10 +36,10 @@ final private class DnsApi(
   ) { domain =>
     fetch(domain, "mx") {
       _ take 20 flatMap { obj =>
-        (obj \ "data").asOpt[String].map(_ split ' ') collect { case Array(_, domain) =>
+        (obj \ "data").asOpt[String].map(_ split ' ') collect { case Array(_, mx) =>
           Domain {
-            if (domain endsWith ".") domain.dropRight(1)
-            else domain
+            if (mx endsWith ".") mx.dropRight(1)
+            else mx
           }
         }
       }

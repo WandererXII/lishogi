@@ -79,9 +79,9 @@ object show {
               trans.nbMinutes.pluralSameTxt(sim.clock.hostExtraMinutes),
               br,
               trans.hostColorX(sim.hostColor match {
-                case Some(color) => {
-                  if (handicapOpt.isDefined) handicapColorName(color)
-                  else standardColorName(color)
+                case Some(hostColor) => {
+                  if (handicapOpt.isDefined) handicapColorName(hostColor)
+                  else standardColorName(hostColor)
                 }
                 case _ => trans.randomColor()
               }),

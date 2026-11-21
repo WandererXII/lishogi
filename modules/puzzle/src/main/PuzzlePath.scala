@@ -55,7 +55,7 @@ final private class PuzzlePathApi(
       .flatMap {
         case Some(path) => fuccess(path.some)
         case _ if actualTier == PuzzleTier.Top =>
-          nextFor(user, theme, PuzzleTier.Good, difficulty, previousPaths)
+          nextFor(user, theme, PuzzleTier.Good, difficulty, previousPaths, compromise = 0)
         case _ if actualTier == PuzzleTier.Good && compromise == 2 =>
           nextFor(user, theme, PuzzleTier.All, difficulty, previousPaths, compromise = 1)
         case _ if compromise < 5 =>

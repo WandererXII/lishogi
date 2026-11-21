@@ -109,7 +109,7 @@ object String {
       // https://github.com/playframework/play-json/blob/160f66a84a9c5461c52b50ac5e222534f9e05442/play-json/js/src/main/scala/StaticBinding.scala#L65
       jsValue match {
         case JsNull         => "null"
-        case JsString(s)    => safeJsonString(s)
+        case JsString(str)  => safeJsonString(str)
         case JsNumber(n)    => n.toString
         case JsFalse        => "false"
         case JsTrue         => "true"

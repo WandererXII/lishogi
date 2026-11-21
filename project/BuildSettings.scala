@@ -85,40 +85,18 @@ object BuildSettings {
   val compilerOptions = Seq(
     "-encoding",
     "utf-8",
-    "-explaintypes",
     "-feature",
-    "-language:higherKinds",
+    "-unchecked",
     "-language:implicitConversions",
     "-language:postfixOps",
-    "-Ymacro-annotations",
-    "-unchecked",
-    "-Xcheckinit",
-    // Linting options
-    "-Xlint:adapted-args",
-    "-Xlint:constant",
-    "-Xlint:delayedinit-select",
-    "-Xlint:deprecation",
-    "-Xlint:inaccessible",
-    "-Xlint:infer-any",
-    "-Xlint:missing-interpolator",
-    "-Xlint:nullary-unit",
-    "-Xlint:option-implicit",
-    "-Xlint:package-object-classes",
-    "-Xlint:poly-implicit-overload",
-    "-Xlint:private-shadow",
-    "-Xlint:stars-align",
-    "-Xlint:type-parameter-shadow",
-    // Warning options
+    // all lints, except those that are mostly noise here
+    "-Xlint:_,-strict-unsealed-patmat",
+    "-Wunused", // all unused checks, incl. params, patvars and unneeded @nowarn
     "-Wdead-code",
     "-Wextra-implicit",
-    "-Wunused:imports",
-    "-Wunused:patvars",
-    "-Wunused:privates",
-    "-Wunused:locals",
-    "-Wunused:explicits",
-    "-Wunused:implicits",
-    "-Wmacros:after",
     "-Wvalue-discard",
+    "-Wmultiarg-infix",
+    "-Wmacros:after", // check unused symbols against macro expansions (macwire)
     "-Werror",
   )
 

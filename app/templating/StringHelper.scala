@@ -22,11 +22,11 @@ trait StringHelper { self: NumberHelper =>
   def splitNumber(s: Frag)(implicit lang: Lang): Frag = {
     val rendered = s.render
     rendered match {
-      case NumberFirstRegex(number, html) =>
+      case NumberFirstRegex(number, rest) =>
         frag(
           strong((~number.toIntOption).localize),
           br,
-          raw(html),
+          raw(rest),
         )
       case NumberLastRegex(n) if rendered.lengthIs > n.length + 1 =>
         frag(

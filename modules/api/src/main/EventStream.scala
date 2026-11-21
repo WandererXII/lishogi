@@ -58,7 +58,7 @@ final class EventStream(
     }
   }
 
-  private def mkActor(me: User, queue: SourceQueueWithComplete[Option[JsObject]]) =
+  private def mkActor(me: User, queue: SourceQueueWithComplete[Option[JsObject]]): Actor =
     new Actor {
 
       val classifiers = List(

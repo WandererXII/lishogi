@@ -62,5 +62,5 @@ final private class EvalCacheTruster(
   // 200 games  = 0.41
   // 1000 games = 2.16
   private def nbGamesBonus(user: User) =
-    math.sqrt(user.count.game / 100) - 1
+    math.sqrt((user.count.game / 100).toDouble) - 1
 }

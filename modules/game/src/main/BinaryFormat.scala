@@ -250,20 +250,20 @@ object BinaryFormat {
           case Usi.Move(orig, dest, prom, None) => {
             mm.remove(orig) map { piece =>
               val mp = piece.updateRole(variant.promote).filter(_ => prom).getOrElse(piece)
-              mm update (dest, mp)
+              mm.update(dest, mp)
               color = !color
             }
           }
           case Usi.Move(orig, dest, prom, Some(ms)) => {
             mm.remove(orig) map { piece =>
               val mp = piece.updateRole(variant.promote).filter(_ => prom).getOrElse(piece)
-              mm update (dest, mp)
+              mm.update(dest, mp)
               mm remove ms
               color = !color
             }
           }
           case Usi.Drop(role, square) => {
-            mm update (square, Piece(color, role))
+            mm.update(square, Piece(color, role))
             color = !color
           }
         }

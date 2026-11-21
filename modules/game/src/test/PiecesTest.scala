@@ -85,13 +85,13 @@ class PiecesTest extends Specification {
     "500 production" in {
       Fixtures.fromProd500 forall { uStr =>
         val u = Usi.readList(uStr).get
-        fromUsis(u.toVector) must_== shogi.Replay
+        (fromUsis(u.toVector) must_== shogi.Replay
           .fromUsi(u, None, Standard)
           .valid
           .toOption
           .get
           .board
-          .pieces
+          .pieces).isSuccess
       }
     }
 

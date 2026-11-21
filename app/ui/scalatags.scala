@@ -138,7 +138,7 @@ trait ScalatagsExtensions {
   implicit val classesAttr: AttrValue[List[(String, Boolean)]] =
     new AttrValue[List[(String, Boolean)]] {
       def apply(t: scalatags.text.Builder, a: Attr, m: List[(String, Boolean)]): Unit = {
-        val cls = m collect { case (s, true) => s } mkString " "
+        val cls = m collect { case (className, true) => className } mkString " "
         if (cls.nonEmpty) t.setAttr(a.name, scalatags.text.Builder.GenericAttrValueSource(cls))
       }
     }

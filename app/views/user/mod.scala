@@ -561,7 +561,7 @@ object mod {
               )(
                 List(other.ips.size -> "IP", other.fps.size -> "Print")
                   .collect {
-                    case (nb, name) if nb > 0 => s"$nb $name"
+                    case (nb, kind) if nb > 0 => s"$nb $kind"
                   }
                   .mkString(", "),
               ),

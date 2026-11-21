@@ -26,7 +26,7 @@ final class BoardApiHookStream(
       }
     }
 
-  private def mkActor(hook: Hook, queue: SourceQueueWithComplete[Option[JsObject]]) =
+  private def mkActor(hook: Hook, queue: SourceQueueWithComplete[Option[JsObject]]): Actor =
     new Actor {
 
       val classifiers = List(s"hookRemove:${hook.id}")

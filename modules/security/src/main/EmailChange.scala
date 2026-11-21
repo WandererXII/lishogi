@@ -63,8 +63,8 @@ ${Mailgun.txt.serviceNote}
       private val sep = ' '
       def read(str: String) =
         str.split(sep) match {
-          case Array(id, email) => EmailAddress from email map { TokenPayload(id, _) }
-          case _                => none
+          case Array(userId, email) => EmailAddress from email map { TokenPayload(userId, _) }
+          case _                    => none
         }
       def write(a: Option[TokenPayload]) =
         a ?? { case TokenPayload(userId, EmailAddress(email)) =>

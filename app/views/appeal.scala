@@ -19,8 +19,8 @@ object appeal2 {
     layout("Appeal") {
       main(cls := "page-small box box-pad page appeal")(
         appeal match {
-          case Some(a) => renderAppeal(a, textForm, asMod = false)
-          case None    => newAppeal(textForm)
+          case Some(ap) => renderAppeal(ap, textForm, asMod = false)
+          case None     => newAppeal(textForm)
         },
       )
     }

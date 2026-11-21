@@ -65,9 +65,9 @@ class NotationDumpTest extends Specification {
       )
       P.toMoves(tree, variant.Standard) must beLike { case Vector(move) =>
         move.usiWithRole.usi.usi must_== "5g5f"
-        move.variations must beLike { case List(List(move)) =>
-          move.usiWithRole.usi.usi must_== "7i6h"
-          move.variations must beEmpty
+        move.variations must beLike { case List(List(variation)) =>
+          variation.usiWithRole.usi.usi must_== "7i6h"
+          variation.variations must beEmpty
         }
       }
     }
@@ -169,9 +169,9 @@ class NotationDumpTest extends Specification {
           s.usiWithRole.usi.usi must_== "7i6h"
           s.variations must beEmpty
           g.usiWithRole.usi.usi must_== "9c9d"
-          g.variations must beLike { case List(List(g, s)) =>
-            g.usiWithRole.usi.usi must_== "8c8d"
-            s.usiWithRole.usi.usi must_== "7g7f"
+          g.variations must beLike { case List(List(gv, sv)) =>
+            gv.usiWithRole.usi.usi must_== "8c8d"
+            sv.usiWithRole.usi.usi must_== "7g7f"
           }
         }
         g1.usiWithRole.usi.usi must_== "3c3d"

@@ -26,9 +26,7 @@ case class MyInfo(
     gameId: Option[lila.game.Game.ID],
     teamId: Option[TeamID],
 ) {
-  def page = {
-    math.floor((rank - 1) / 10) + 1
-  }.toInt
+  def page = (rank - 1) / 10 + 1
 }
 
 case class PlayerInfoExt(
