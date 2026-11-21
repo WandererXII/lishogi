@@ -8,8 +8,6 @@ case class RatingRange(min: Int, max: Int) {
     (min <= RatingRange.min || rating >= min) &&
       (max >= RatingRange.max || rating <= max)
 
-  def notBroad: Option[RatingRange] = (this != RatingRange.broad) option this
-
   def withinLimits(rating: Int, delta: Int, multipleOf: Int) =
     copy(
       min = closestMultipleOf(multipleOf, min.atMost(rating + delta)),

@@ -51,9 +51,8 @@ case class Study(
   def rewindTo(c: Chapter.Like): Study =
     copy(position = Position.Ref(chapterId = c.id, path = Path.root))
 
-  def isPublic   = visibility == Study.Visibility.Public
-  def isUnlisted = visibility == Study.Visibility.Unlisted
-  def isPrivate  = visibility == Study.Visibility.Private
+  def isPublic  = visibility == Study.Visibility.Public
+  def isPrivate = visibility == Study.Visibility.Private
 
   def isNew = (nowSeconds - createdAt.getSeconds) < 4
 
@@ -74,8 +73,6 @@ case class Study(
   }
 
   def nbMembers = members.members.size
-
-  def withoutMembers = copy(members = StudyMembers.empty)
 
   def topicsOrEmpty = topics | StudyTopics.empty
 

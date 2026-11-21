@@ -18,22 +18,7 @@ object ImageStorage {
       .map("%02x".format(_))
       .mkString
 
-  private val uploadMaxMb            = 10
-  private val uploadMaxMbRecommended = (uploadMaxMb - 2) atLeast 1
-  private val storageFormat          = "webp"
-
-  private val allowedFormats = Set(
-    "jpeg",
-    "jpg",
-    "png",
-    "webp",
-    "gif",
-    "avif",
-  )
-  val allowedMimeTypes = allowedFormats.map(t => s"image/$t")
-
-  val recommendations =
-    s"Accepted size: ${uploadMaxMbRecommended}MB; Accepted formats: ${allowedFormats.mkString(", ")}"
+  private val storageFormat = "webp"
 
   object Imgproxy {
 

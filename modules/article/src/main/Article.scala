@@ -154,8 +154,6 @@ object Article {
     def byKey(key: String): Option[State] =
       all.find(_.key == key)
 
-    def maxDraftsPerUser = 3
-
   }
 
   type Rank = DateTime

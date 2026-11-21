@@ -46,7 +46,6 @@ object Advice {
 
   sealed abstract class Judgement(val glyph: Glyph, val key: String) {
     override def toString = key
-    def isBlunder         = this == Judgement.Blunder
   }
   object Judgement {
     object Inaccuracy extends Judgement(Glyph.MoveOrDropAssessment.dubious, trans.inaccuracy.key)

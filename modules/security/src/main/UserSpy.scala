@@ -19,17 +19,10 @@ case class UserSpy(
     otherUsers: List[UserSpy.OtherUser],
 ) {
 
-  import UserSpy.OtherUser
-
   def rawIps = ips map (_.ip.value)
   def rawFps = prints map (_.fp.value)
 
   def otherUserIds = otherUsers.map(_.user.id)
-
-  def usersSharingIp =
-    otherUsers.collect {
-      case OtherUser(user, ips, _) if ips.nonEmpty => user
-    }
 
   def distinctLocations = UserSpy.distinctRecent(ips.map(_.datedLocation).sortBy(-_.seconds))
 }

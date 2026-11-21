@@ -229,7 +229,6 @@ trait UserHelper {
   val lineIcon: Frag = i(cls := "line")
   private def patronIcon(implicit lang: Lang): Frag =
     i(cls := "line patron", title := trans.patron.lishogiPatron.txt())
-  val moderatorIcon: Frag = i(cls := "line moderator", title := "Lishogi Mod")
   private def lineIcon(patron: Boolean)(implicit lang: Lang): Frag =
     if (patron) patronIcon else lineIcon
   def lineIcon(user: LightUser)(implicit lang: Lang): Frag = lineIcon(user.isPatron)

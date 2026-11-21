@@ -20,7 +20,6 @@ private class TimelineConfig(
 final class Env(
     appConfig: Configuration,
     db: lila.db.Db,
-    userRepo: lila.user.UserRepo,
     relationApi: lila.relation.RelationApi,
     cacheApi: lila.memo.CacheApi,
 )(implicit

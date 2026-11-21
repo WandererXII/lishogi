@@ -161,8 +161,6 @@ final case class Clock(
   def berserked(c: Color) = players(c).berserk
   def lag(c: Color)       = players(c).lag
 
-  def lagCompAvg = players map { _.lag.compAvg.orEmpty } reduce (_ avg _)
-
   // Lowball estimate of next step's lag comp for UI butter.
   def lagCompEstimate(c: Color) = players(c).lag.compEstimate
 

@@ -55,9 +55,6 @@ trait AssetHelper { self: I18nHelper with SecurityHelper =>
   def cssTag(name: String): Frag =
     cssAt(s"css/$name.${if (minifiedAssets) "min" else "dev"}.css")
 
-  def vendorCssTag(vendor: String, path: String): Frag =
-    cssAt(s"vendors/${vendor}/${path}")
-
   private def jsAt(filePath: String): Frag =
     script(
       deferAttr,

@@ -8,9 +8,8 @@ sealed trait Line {
   def text: String
   def author: String
   def deleted: Boolean
-  def isSystem    = author == systemUserId
-  def isHuman     = !isSystem
-  def humanAuthor = isHuman option author
+  def isSystem = author == systemUserId
+  def isHuman  = !isSystem
   def troll: Boolean
   def isVisible = !troll && !deleted
 }

@@ -10,9 +10,7 @@ object thanks {
 
   import trans.patron._
 
-  def apply(patron: Option[lila.plan.Patron], customer: Option[lila.plan.StripeCustomer])(implicit
-      ctx: Context,
-  ) =
+  def apply(patron: Option[lila.plan.Patron])(implicit ctx: Context) =
     views.html.base.layout(
       moreCss = cssTag("misc.page"),
       title = thankYou.txt(),
@@ -23,13 +21,12 @@ object thanks {
           p(tyvm()),
           p(transactionCompleted()),
           patron.map { pat =>
-            if (pat.payPal.exists(_.renew) || customer.exists(_.renew)) ctx.me.fold(emptyFrag) {
-              me =>
-                p(
-                  permanentPatron(),
-                  br,
-                  a(href := routes.User.show(me.username))(checkOutProfile()),
-                )
+            if (pat.payPal.exists(_.renew)) ctx.me.fold(emptyFrag) { me =>
+              p(
+                permanentPatron(),
+                br,
+                a(href := routes.User.show(me.username))(checkOutProfile()),
+              )
             }
             else {
               frag(

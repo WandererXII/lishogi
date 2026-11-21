@@ -89,8 +89,6 @@ object Form {
         ))
     }
 
-  def tolerantBoolean = of[Boolean](formatter.tolerantBooleanFormatter)
-
   def hasKey[A](choices: Options[A], key: A) =
     choices.map(_._1).toList contains key
 

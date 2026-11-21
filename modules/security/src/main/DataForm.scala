@@ -36,8 +36,6 @@ final class DataForm(
       .verifying(captchaFailMessage, validateCaptcha _),
   )
 
-  def emptyWithCaptcha = withCaptcha(empty)
-
   private val anyEmail        = LilaForm.cleanNonEmptyText.verifying(Constraints.emailAddress)
   private val sendableEmail   = anyEmail.verifying(emailValidator.sendableConstraint)
   private val acceptableEmail = anyEmail.verifying(emailValidator.acceptableConstraint)

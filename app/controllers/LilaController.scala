@@ -209,13 +209,6 @@ abstract private[controllers] class LilaController(val env: Env)
       if (isGranted(perm)) f(ctx)(me) else authorizationFailed
     }
 
-  protected def SecureF(
-      s: UserModel => Boolean,
-  )(f: Context => UserModel => Fu[Result]): Action[AnyContent] =
-    Auth(parse.anyContent) { implicit ctx => me =>
-      if (s(me)) f(ctx)(me) else authorizationFailed
-    }
-
   protected def SecureBody[A](
       parser: BodyParser[A],
   )(perm: Permission)(f: BodyContext[A] => UserModel => Fu[Result]): Action[A] =
@@ -394,8 +387,6 @@ abstract private[controllers] class LilaController(val env: Env)
         data => op(data),
       )
 
-  protected def FuRedirect(fua: Fu[Call]) = fua map { Redirect(_) }
-
   protected def OptionOk[A, B: Writeable: ContentTypeOf](
       fua: Fu[Option[A]],
   )(op: A => B)(implicit ctx: Context): Fu[Result] =
@@ -457,9 +448,6 @@ abstract private[controllers] class LilaController(val env: Env)
 
   def ridiculousBackwardCompatibleJsonError(err: JsObject): JsObject =
     err ++ Json.obj("error" -> err)
-
-  protected def notFoundReq(req: RequestHeader): Fu[Result] =
-    reqToCtx(req) flatMap (x => notFound(x))
 
   protected def isGranted(permission: Permission.Selector, user: UserModel): Boolean =
     Granter(permission(Permission))(user)
@@ -591,9 +579,6 @@ abstract private[controllers] class LilaController(val env: Env)
 
   private def CSRF(req: RequestHeader)(f: => Fu[Result]): Fu[Result] =
     if (csrfCheck(req)) f else csrfForbiddenResult
-
-  protected def XhrOnly(res: => Fu[Result])(implicit ctx: Context) =
-    if (HTTPRequest isXhr ctx.req) res else notFound
 
   protected def XhrOrRedirectHome(res: => Fu[Result])(implicit ctx: Context) =
     if (HTTPRequest isXhr ctx.req) res

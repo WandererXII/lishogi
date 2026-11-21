@@ -263,7 +263,6 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
   }
 
   def incToints(id: ID, nb: Int) = coll.update.one($id(id), $inc("toints" -> nb))
-  def removeAllToints            = coll.update.one($empty, $unset("toints"), multi = true)
 
   def create(
       username: String,
@@ -477,8 +476,6 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
       botSelect(true) ++ enabledSelect,
       ReadPreference.secondaryPreferred,
     )
-
-  def getTitle(id: ID): Fu[Option[Title]] = coll.primitiveOne[Title]($id(id), F.title)
 
   def setPlan(user: User, plan: Plan): Funit = {
     implicit val pbw: BSONWriter[Plan] = Plan.planBSONHandler

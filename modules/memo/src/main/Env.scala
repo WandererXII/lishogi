@@ -21,8 +21,6 @@ final class Env(
 
   private val config = appConfig.get[MemoConfig]("memo")(AutoConfig.loader)
 
-  lazy val configStore = wire[ConfigStore.Builder]
-
   lazy val settingStore = wire[SettingStore.Builder]
 
   lazy val cacheApi = wire[CacheApi]

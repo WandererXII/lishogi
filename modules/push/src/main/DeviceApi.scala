@@ -10,9 +10,6 @@ final private class DeviceApi(coll: Coll)(implicit ec: scala.concurrent.Executio
 
   implicit private val DeviceBSONHandler: BSONDocumentHandler[Device] = Macros.handler[Device]
 
-  private[push] def findByDeviceId(deviceId: String): Fu[Option[Device]] =
-    coll.one[Device]($id(deviceId))
-
   private[push] def findLastManyByUserId(platform: String, max: Int)(
       userId: String,
   ): Fu[List[Device]] =
@@ -26,9 +23,6 @@ final private class DeviceApi(coll: Coll)(implicit ec: scala.concurrent.Executio
       .sort($doc("seenAt" -> -1))
       .cursor[Device]()
       .list(max)
-
-  private[push] def findLastOneByUserId(platform: String)(userId: String): Fu[Option[Device]] =
-    findLastManyByUserId(platform, 1)(userId) dmap (_.headOption)
 
   def register(user: User, platform: String, deviceId: String) = {
     lila.mon.push.register.in(platform).increment()

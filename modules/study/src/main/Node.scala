@@ -66,11 +66,8 @@ case class Node(
 
   def dropFirstChild = copy(children = Children(children.variations))
 
-  def isCommented = comments.value.nonEmpty
-
   def setComment(comment: Comment)         = copy(comments = comments set comment)
   def deleteComment(commentId: Comment.Id) = copy(comments = comments delete commentId)
-  def deleteComments                       = copy(comments = Comments.empty)
 
   def setGamebook(gamebook: Gamebook) = copy(gamebook = gamebook.some)
 

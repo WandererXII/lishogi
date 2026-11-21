@@ -18,10 +18,9 @@ import lila.game.clock.{ Clock => GameClock }
 sealed trait Event {
   def typ: String
   def data: JsValue
-  def only: Option[Color]   = None
-  def owner: Boolean        = false
-  def troll: Boolean        = false
-  def moveBy: Option[Color] = None
+  def only: Option[Color] = None
+  def owner: Boolean      = false
+  def troll: Boolean      = false
 }
 
 object Event {
@@ -53,7 +52,6 @@ object Event {
       .add("winner" -> state.winner)
       .add("check" -> check)
 
-    override def moveBy = Some(!state.color)
   }
 
   object UsiEvent {

@@ -37,7 +37,6 @@ object mon {
       )
     val fingerPrint          = timer("http.fingerPrint.time").withoutTags()
     def jsmon(event: String) = counter("http.jsmon").withTag("event", event)
-    val imageBytes           = histogram("http.image.bytes").withoutTags()
   }
   object syncache {
     def miss(name: String)    = counter("syncache.miss").withTag("name", name)
@@ -362,7 +361,6 @@ object mon {
   }
   object plan {
     val paypal  = histogram("plan.amount").withTag("service", "paypal")
-    val stripe  = histogram("plan.amount").withTag("service", "stripe")
     val goal    = gauge("plan.goal").withoutTags()
     val current = gauge("plan.current").withoutTags()
     val percent = gauge("plan.percent").withoutTags()

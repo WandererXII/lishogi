@@ -8,5 +8,4 @@ package object relation extends PackageObject {
 
   private[relation] type ID = String
 
-  private[relation] type OnlineStudyingCache = com.github.blemale.scaffeine.Cache[ID, String]
 }

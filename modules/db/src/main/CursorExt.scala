@@ -22,11 +22,5 @@ trait CursorExt { self: dsl =>
 
     def list(): Fu[List[A]] = list(none)
 
-    // like headOption, but with stopOnError defaulting to false
-    def uno: Fu[Option[A]] =
-      c.collect[Iterable](
-        1,
-        Cursor.ContOnError[Iterable[A]](),
-      ).map(_.headOption)
   }
 }

@@ -23,7 +23,6 @@ object RageSit {
   val empty = RageSit(0)
 
   sealed trait Update
-  case object Noop       extends Update
   case object Reset      extends Update
   case class Inc(v: Int) extends Update
 

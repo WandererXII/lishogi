@@ -45,9 +45,6 @@ final class AssessApi(
   def createPlayerAssessment(assessed: PlayerAssessment) =
     assessRepo.coll.update.one($id(assessed._id), assessed, upsert = true).void
 
-  def getPlayerAssessmentById(id: String) =
-    assessRepo.coll.byId[PlayerAssessment](id)
-
   private def getPlayerAssessmentsByUserId(userId: String, nb: Int) =
     assessRepo.coll
       .find($doc("userId" -> userId))

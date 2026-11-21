@@ -1,10 +1,7 @@
 package lila.hub
 
-import scala.concurrent.ExecutionContext
 import scala.concurrent.Promise
 import scala.concurrent.duration.FiniteDuration
-
-import com.github.blemale.scaffeine.LoadingCache
 
 /*
  * Only processes one computation at a time
@@ -68,23 +65,4 @@ final class AskPipeline[A](compute: () => Fu[A], timeout: FiniteDuration, name: 
   sealed private trait State
   private case object Idle                                                         extends State
   private case class Processing(current: List[Promise[A]], next: List[Promise[A]]) extends State
-}
-
-// Distributes tasks to many pipelines
-final class AskPipelines[K, R](
-    compute: K => Fu[R],
-    expiration: FiniteDuration,
-    timeout: FiniteDuration,
-    name: String,
-)(implicit
-    ec: ExecutionContext,
-    system: akka.actor.ActorSystem,
-) {
-
-  def apply(key: K): Fu[R] = pipelines.get(key).get
-
-  private val pipelines: LoadingCache[K, AskPipeline[R]] =
-    lila.common.LilaCache.scaffeine
-      .expireAfterAccess(expiration)
-      .build(key => new AskPipeline[R](() => compute(key), timeout, name = s"$name:$key"))
 }

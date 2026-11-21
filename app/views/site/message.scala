@@ -67,12 +67,6 @@ object message {
       )
     }
 
-  def challengeDenied(msg: String)(implicit ctx: Context) =
-    apply(
-      title = trans.challengeToPlay.txt(),
-      back = routes.Lobby.home.url.some,
-    )(msg)
-
   def teamCreateLimit(implicit ctx: Context) =
     apply("Cannot create a team") {
       "You have already created a team this week."
@@ -87,11 +81,6 @@ object message {
     apply("403 - Access denied!") {
       "You tried to visit a page you're not authorized to access."
     }
-
-  def temporarilyDisabled(implicit ctx: Context) =
-    apply("Temporarily disabled")(
-      "Sorry, his feature is temporarily disabled while we figure out a way to bring it back.",
-    )
 
   def tooManyDrafts(nb: Int)(implicit ctx: Context) =
     apply("Too many drafts")(

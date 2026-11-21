@@ -37,8 +37,6 @@ case class FriendConfig(
     proMode.some,
   ).some
 
-  def isPersistent = timeMode == TimeMode.Unlimited || timeMode == TimeMode.Correspondence
-
   def perfType: PerfType =
     lila.rating.PerfType.from(variant, hasClock = timeMode == TimeMode.RealTime)
 }

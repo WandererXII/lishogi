@@ -4,7 +4,6 @@ import play.api.data.Forms._
 import play.api.data._
 
 import shogi.format.forsyth.Sfen
-import shogi.variant.Standard
 import shogi.variant.Variant
 
 import lila.rating.RatingRange
@@ -16,13 +15,6 @@ final class FormFactory {
   import Mappings._
 
   val filter = Form(single("local" -> text))
-
-  def aiFilled(sfen: Option[Sfen], variant: Option[Variant])(implicit
-      ctx: UserContext,
-  ): Form[AiConfig] =
-    ai(ctx) fill sfen.foldLeft(AiConfig.default) { case (config, f) =>
-      config.copy(sfen = f.some, variant = variant.getOrElse(Standard))
-    }
 
   def ai(ctx: UserContext) = Form(
     mapping(
@@ -46,13 +38,6 @@ final class FormFactory {
       ),
   )
 
-  def friendFilled(sfen: Option[Sfen], variant: Option[Variant])(implicit
-      ctx: UserContext,
-  ): Form[FriendConfig] =
-    friend(ctx) fill sfen.foldLeft(FriendConfig.default) { case (config, f) =>
-      config.copy(sfen = f.some, variant = variant.getOrElse(Standard))
-    }
-
   def friend(ctx: UserContext) =
     Form(
       mapping(
@@ -73,9 +58,6 @@ final class FormFactory {
         .verifying("Invalid speed", _.validSpeed(ctx.me.exists(_.isBot)))
         .verifying("invalidSfen", _.validSfen),
     )
-
-  def hookFilled(timeModeString: Option[String])(implicit ctx: UserContext): Form[HookConfig] =
-    hook fill HookConfig.default.withTimeModeString(timeModeString)
 
   def hook(implicit ctx: UserContext) = {
     Form(

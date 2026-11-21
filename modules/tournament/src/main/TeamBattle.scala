@@ -9,7 +9,6 @@ case class TeamBattle(
     teams: Set[TeamID],
     nbLeaders: Int,
 ) {
-  def hasEnoughTeams     = teams.sizeIs > 1
   lazy val sortedTeamIds = teams.toList.sorted
 
   def hasTooManyTeams = teams.sizeIs > TeamBattle.displayTeams

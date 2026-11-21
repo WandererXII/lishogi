@@ -68,9 +68,6 @@ final class TournamentRepo(val coll: Coll, playerCollName: CollName)(implicit
       .batchSize(1)
       .cursor[Tournament]()
 
-  def startedIds: Fu[List[Tournament.ID]] =
-    coll.primitive[Tournament.ID](startedSelect, sort = $doc("createdAt" -> -1), "_id")
-
   private[tournament] def notableFinished(limit: Int): Fu[List[Tournament]] =
     coll
       .find(finishedSelect)
@@ -294,29 +291,6 @@ final class TournamentRepo(val coll: Coll, playerCollName: CollName)(implicit
       .sort($doc("startsAt" -> 1))
       .cursor[Tournament]()
       .list()
-
-  def allScheduledDedup: Fu[List[Tournament]] =
-    coll
-      .find(createdSelect ++ scheduledSelect)
-      .sort($doc("startsAt" -> 1))
-      .cursor[Tournament]()
-      .list() map {
-      _.flatMap { tour =>
-        tour.schedule map (tour -> _)
-      }.foldLeft(List.empty[Tournament] -> none[Schedule.Freq]) {
-        case ((tours, skip), (_, sched)) if skip.contains(sched.freq) => (tours, skip)
-        case ((tours, skip), (tour, sched)) =>
-          (
-            tour :: tours,
-            sched.freq match {
-              case Schedule.Freq.Daily   => Schedule.Freq.Eastern.some
-              case Schedule.Freq.Eastern => Schedule.Freq.Daily.some
-              case _                     => skip
-            },
-          )
-      }._1
-        .reverse
-    }
 
   def update(tour: Tournament) =
     coll.update.one(

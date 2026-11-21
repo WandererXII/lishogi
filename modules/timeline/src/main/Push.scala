@@ -10,13 +10,10 @@ import lila.hub.actorApi.timeline.Atom
 import lila.hub.actorApi.timeline.Propagate
 import lila.hub.actorApi.timeline.ReloadTimelines
 import lila.hub.actorApi.timeline.propagation._
-import lila.security.Permission
 import lila.user.User
-import lila.user.UserRepo
 
 final private[timeline] class Push(
     relationApi: lila.relation.RelationApi,
-    userRepo: UserRepo,
     entryApi: EntryApi,
     unsubApi: UnsubApi,
 ) extends Actor {
@@ -40,27 +37,10 @@ final private[timeline] class Push(
       case Followers(id) => relationApi.freshFollowersFromSecondary(id)
       case Mutuals(id)   => relationApi.fetchMutuals(id)
       case ExceptUser(_) => fuccess(Nil)
-      case ModsOnly(_)   => fuccess(Nil)
-    } flatMap { users =>
-      propagations.foldLeft(fuccess(users.flatten.distinct)) {
-        case (fus, ExceptUser(id)) => fus.dmap(_.filter(id !=))
-        case (fus, ModsOnly(true)) =>
-          fus flatMap { us =>
-            userRepo.userIdsWithRoles(modPermissions.map(_.dbKey)) dmap { userIds =>
-              us filter userIds.contains
-            }
-          }
-        case (fus, _) => fus
-      }
+    } map { users =>
+      val excluded = propagations.collect { case ExceptUser(id) => id }.toSet
+      users.flatten.distinct.filterNot(excluded.contains)
     }
-
-  private def modPermissions =
-    List(
-      Permission.ModNote,
-      Permission.Doxing,
-      Permission.Admin,
-      Permission.SuperAdmin,
-    )
 
   private def makeEntry(users: List[User.ID], data: Atom): Fu[Entry] = {
     val entry = Entry.make(data)

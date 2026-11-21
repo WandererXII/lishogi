@@ -53,8 +53,6 @@ case class Report(
     )
 
   def recentAtom: Atom = atoms.head
-  def oldestAtom: Atom = atoms.last
-  def bestAtom: Atom   = bestAtoms(1).headOption | recentAtom
   def bestAtoms(nb: Int): List[Atom] =
     atoms.toList.sortBy { a =>
       (-a.score.value, -a.at.getSeconds)
@@ -63,10 +61,6 @@ case class Report(
   def atomBy(reporterId: ReporterId): Option[Atom] = atoms.toList.find(_.by == reporterId)
   def bestAtomByHuman: Option[Atom]                = bestAtoms(10).toList.find(_.byHuman)
 
-  def unprocessedCheat = open && isCheat
-  def unprocessedOther = open && isOther
-  def unprocessedComm  = open && isComm
-
   def process(by: User) =
     copy(
       open = false,
@@ -74,8 +68,6 @@ case class Report(
     )
 
   def userIds: List[User.ID] = user :: atoms.toList.map(_.by.value)
-
-  def isRecentComm = room == Room.Comm && open
 
   def boostWith: Option[User.ID] =
     (reason == Reason.Boost) ?? {

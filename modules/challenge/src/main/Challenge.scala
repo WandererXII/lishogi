@@ -69,7 +69,6 @@ case class Challenge(
 
   def hasClock = clock.isDefined
 
-  def openDest = destUser.isEmpty
   def online   = status == Status.Created
   def active   = online || status == Status.Offline
   def declined = status == Status.Declined

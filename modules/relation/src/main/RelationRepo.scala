@@ -15,7 +15,6 @@ final private class RelationRepo(coll: Coll, userRepo: lila.user.UserRepo)(impli
 
   def following(userId: ID) = relating(userId, Follow)
 
-  def blockers(userId: ID) = relaters(userId, Block)
   def blocking(userId: ID) = relating(userId, Block)
 
   def freshFollowersFromSecondary(userId: ID): Fu[List[User.ID]] =
@@ -64,21 +63,6 @@ final private class RelationRepo(coll: Coll, userRepo: lila.user.UserRepo)(impli
         ),
       )
     }
-
-  private def relaters(
-      userId: ID,
-      relation: Relation,
-      rp: ReadPreference = ReadPreference.primary,
-  ): Fu[Set[ID]] =
-    coll
-      .distinctEasy[ID, Set](
-        "u1",
-        $doc(
-          "u2" -> userId,
-          "r"  -> relation,
-        ),
-        rp,
-      )
 
   private def relating(userId: ID, relation: Relation): Fu[Set[ID]] =
     coll.distinctEasy[ID, Set](

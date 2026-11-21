@@ -35,10 +35,6 @@ final class Paginator[A] private[paginator] (
     */
   def hasToPaginate: Boolean = nbResults > maxPerPage.value
 
-  /** Returns whether there is previous page or not.
-    */
-  def hasPreviousPage: Boolean = previousPage.isDefined
-
   /** Returns whether there is next page or not.
     */
   def hasNextPage: Boolean = nextPage.isDefined

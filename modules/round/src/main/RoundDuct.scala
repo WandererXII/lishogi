@@ -116,7 +116,6 @@ final private[round] class RoundDuct(
     def setBotConnected(v: Boolean) =
       botConnected = v
 
-    def isBotConnected = botConnected
   }
 
   private val sentePlayer = new Player(Sente)

@@ -78,8 +78,6 @@ case class User(
 
   def hasGames = count.game > 0
 
-  def countRated = count.rated
-
   def hasTitle = title.exists(Title.BOT !=)
 
   lazy val seenRecently: Boolean = timeNoSee < User.seenRecently

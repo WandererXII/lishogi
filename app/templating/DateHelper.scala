@@ -21,8 +21,6 @@ trait DateHelper { self: I18nHelper with StringHelper =>
   private val dateTimeStyle = "MS"
   private val dateStyle     = "M-"
 
-  private val dayMonthPattern = "dd-MM"
-
   private val dateTimeFormatters = new ConcurrentHashMap[String, DateTimeFormatter]
   private val dateFormatters     = new ConcurrentHashMap[String, DateTimeFormatter]
   private val periodFormatters   = new ConcurrentHashMap[String, PeriodFormatter]
@@ -34,7 +32,6 @@ trait DateHelper { self: I18nHelper with StringHelper =>
 
   private val isoFormatter = ISODateTimeFormat.dateTime
 
-  private val englishDayMonthFormatter = DateTimeFormat forPattern dayMonthPattern
   private val englishDateFormatter     = DateTimeFormat forStyle dateStyle
   private val englishDateTimeFormatter = DateTimeFormat forStyle dateTimeStyle
 
@@ -68,8 +65,6 @@ trait DateHelper { self: I18nHelper with StringHelper =>
   def showDate(date: DateTime)(implicit lang: Lang): String =
     dateFormatter print date
 
-  def showEnglishDayMonth(date: DateTime): String =
-    englishDayMonthFormatter print date
   def showEnglishDate(date: DateTime): String =
     englishDateFormatter print date
   def showEnglishDateTime(date: DateTime): String =
@@ -80,9 +75,6 @@ trait DateHelper { self: I18nHelper with StringHelper =>
 
   def showPeriod(period: Period)(implicit lang: Lang): String =
     periodFormatter print period.normalizedStandard(periodType)
-
-  def showMinutes(minutes: Int)(implicit lang: Lang): String =
-    showPeriod(new Period(minutes * 60 * 1000L))
 
   def isoDate(date: DateTime): String = isoFormatter print date
 

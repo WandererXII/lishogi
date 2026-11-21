@@ -33,12 +33,6 @@ final class StudyRepo(private[study] val coll: AsyncColl)(implicit
     F.rank   -> false,
   )
 
-  private[study] val lightProjection = $doc(
-    "_id"        -> false,
-    "visibility" -> true,
-    "members"    -> true,
-  )
-
   def byId(id: Study.Id) = coll(_.one[Study]($id(id), projection.some))
 
   def byOrderedIds(ids: Seq[Study.Id]) = coll(_.byOrderedIds[Study, Study.Id](ids)(_.id))

@@ -97,8 +97,6 @@ case class Tournament(
 
   def isNowOrSoon = startsAt.isBefore(DateTime.now plusMinutes 15) && !isFinished
 
-  def isDistant = startsAt.isAfter(DateTime.now plusDays 1)
-
   def nearImportantMoment =
     (isCreated && secondsToStart < 2 * 60 * 60) ||
       isRecentlyStarted ||
@@ -126,8 +124,6 @@ case class Tournament(
     secondsToFinish pipe { s =>
       "%02d:%02d".format(s / 60, s % 60)
     }
-
-  def schedulePair = schedule map { this -> _ }
 
   def winner =
     winnerId map { userId =>

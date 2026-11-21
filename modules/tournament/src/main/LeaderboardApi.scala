@@ -150,7 +150,6 @@ object LeaderboardApi {
 
     case class PerfResult(nb: Int, points: Ints, rank: Ints) {
       private def rankPercent(n: Double) = (n * 100 / rankRatioMultiplier).toInt
-      def rankPercentMean                = rank.mean map rankPercent
       def rankPercentMedian              = rank.median map rankPercent
     }
 

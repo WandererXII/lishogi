@@ -13,8 +13,6 @@ case class Modlog(
     date: DateTime = DateTime.now,
 ) {
 
-  def isLishogi = mod == lila.user.User.lishogiId
-
   def showAction =
     action match {
       case Modlog.alt                 => "mark as alt"

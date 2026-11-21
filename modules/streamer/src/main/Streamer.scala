@@ -78,7 +78,6 @@ object Streamer {
 
   case class Twitch(userId: String) {
     def fullUrl = s"https://www.twitch.tv/$userId"
-    def minUrl  = s"twitch.tv/$userId"
   }
   object Twitch {
     private val UserIdRegex = """([a-zA-Z0-9](?:\w{2,24}+))""".r
@@ -94,7 +93,6 @@ object Streamer {
 
   case class YouTube(channelId: String) {
     def fullUrl = s"https://www.youtube.com/channel/$channelId/live"
-    def minUrl  = s"youtube.com/channel/$channelId/live"
   }
   object YouTube {
     private val ChannelIdRegex = """^(UC[\w-]{22})$""".r

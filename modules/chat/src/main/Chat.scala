@@ -36,8 +36,6 @@ case class Chat(
 
   def add(line: Line) = copy(lines = lines :+ line)
 
-  def mapLines(f: Line => Line) = copy(lines = lines map f)
-
   def userIds: List[User.ID] = lines.collect { case l: UserLine => l.userId }
 
   def truncate(max: Int) = copy(lines = lines.drop((lines.size - max) atLeast 0))

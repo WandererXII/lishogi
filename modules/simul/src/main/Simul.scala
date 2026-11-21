@@ -119,8 +119,6 @@ case class Simul(
       PerfType.from(variant, hasClock = true)
     }
 
-  def applicantRatio = s"${applicants.count(_.accepted)}/${applicants.size}"
-
   def variantRich = variants.sizeIs > 3
 
   def isHost(userOption: Option[User]): Boolean = userOption ?? isHost

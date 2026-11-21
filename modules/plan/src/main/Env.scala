@@ -3,7 +3,6 @@ package lila.plan
 import scala.concurrent.duration._
 
 import play.api.Configuration
-import play.api.libs.ws.WSClient
 
 import com.softwaremill.macwire._
 import io.methvin.play.autoconfig._
@@ -14,14 +13,12 @@ import lila.common.config._
 private class PlanConfig(
     @ConfigName("collection.patron") val patronColl: CollName,
     @ConfigName("collection.charge") val chargeColl: CollName,
-    val stripe: StripeClient.Config,
     @ConfigName("paypal.ipn_key") val payPalIpnKey: Secret,
 )
 
 final class Env(
     appConfig: Configuration,
     db: lila.db.Db,
-    ws: WSClient,
     timeline: lila.hub.actors.Timeline,
     notifyApi: lila.notify.NotifyApi,
     cacheApi: lila.memo.CacheApi,
@@ -34,13 +31,10 @@ final class Env(
     system: akka.actor.ActorSystem,
 ) {
 
-  import StripeClient.configLoader
   private val config = appConfig.get[PlanConfig]("plan")(AutoConfig.loader)
 
   private lazy val patronColl = db(config.patronColl)
   private lazy val chargeColl = db(config.chargeColl)
-
-  private lazy val stripeClient: StripeClient = wire[StripeClient]
 
   private lazy val notifier: PlanNotifier = wire[PlanNotifier]
 
@@ -56,7 +50,6 @@ final class Env(
   )
 
   lazy val api = new PlanApi(
-    stripeClient = stripeClient,
     patronColl = patronColl,
     chargeColl = chargeColl,
     notifier = notifier,
@@ -68,8 +61,6 @@ final class Env(
     monthlyGoalApi = monthlyGoalApi,
   )
 
-  private lazy val webhookHandler = new WebhookHandler(api)
-
   private lazy val expiration = new Expiration(
     userRepo,
     patronColl,
@@ -79,8 +70,6 @@ final class Env(
   system.scheduler.scheduleWithFixedDelay(15 minutes, 15 minutes) { () =>
     expiration.run.unit
   }
-
-  def webhook = webhookHandler.apply _
 
   def cli =
     new lila.common.Cli {

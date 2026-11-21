@@ -22,8 +22,7 @@ case class Pov(game: Game, color: Color) {
 
   def ref = PovRef(game.id, color)
 
-  def withGame(g: Game)   = copy(game = g)
-  def withColor(c: Color) = copy(color = c)
+  def withGame(g: Game) = copy(game = g)
 
   def forceResignable = game.forceResignable && !isMyTurn
 

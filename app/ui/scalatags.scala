@@ -146,10 +146,6 @@ trait ScalatagsExtensions {
   val emptyFrag: Frag                   = new RawFrag("")
   implicit val LilaFragZero: Zero[Frag] = Zero(emptyFrag)
 
-  val emptyModifier: Modifier = new Modifier {
-    def applyTo(t: Builder) = {}
-  }
-
   val targetBlank: Modifier = (t: Builder) => {
     // Prevent tab nabbing when opening untrusted links. Apply also to trusted
     // links, because there can be a small peformance advantage and lila does

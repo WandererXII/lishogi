@@ -36,15 +36,6 @@ object Room {
       case Reason.Boost | Reason.Playbans | Reason.Other => Other
     }
 
-  def toReasons(room: Room): Set[Reason] =
-    room match {
-      case Cheat  => Set(Reason.Cheat)
-      case Print  => Set(Reason.CheatPrint)
-      case Comm   => Set(Reason.Comm)
-      case Other  => Set(Reason.Boost, Reason.Other)
-      case Xfiles => Set.empty
-    }
-
   case class Counts(value: Map[Room, Int]) {
     def get      = value.get _
     lazy val sum = value.view.filterKeys(Xfiles !=).values.sum

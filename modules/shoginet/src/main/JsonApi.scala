@@ -11,7 +11,6 @@ import shogi.variant.Variant
 
 import lila.common.IpAddress
 import lila.common.Json._
-import lila.common.Maths
 import lila.game.FairyConversion
 import lila.shoginet.{ Work => W }
 import lila.tree.Eval.Cp
@@ -77,14 +76,6 @@ object JsonApi {
     ) {
 
       def evaluations = analysis.collect { case Right(e) => e }
-
-      def medianNodes =
-        Maths.median {
-          evaluations
-            .filterNot(_.mateFound)
-            .filterNot(_.deadDraw)
-            .flatMap(_.nodes)
-        }
 
     }
 

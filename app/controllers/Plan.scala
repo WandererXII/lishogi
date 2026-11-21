@@ -8,9 +8,6 @@ import views._
 import lila.api.Context
 import lila.app._
 import lila.common.EmailAddress
-import lila.plan.MonthlyCustomerInfo
-import lila.plan.OneTimeCustomerInfo
-import lila.plan.StripeCustomer
 import lila.user.{ User => UserModel }
 
 final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends LilaController(env) {
@@ -24,12 +21,11 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
         import lila.plan.PlanApi.SyncResult._
         env.plan.api.sync(me) flatMap {
           case ReloadUser => Redirect(routes.Plan.index).fuccess
-          case Synced(Some(patron), None) =>
+          case Synced(Some(patron)) =>
             env.user.repo email me.id flatMap { email =>
               renderIndex(email, patron.some)
             }
-          case Synced(Some(patron), Some(customer)) => indexPatron(me, patron, customer)
-          case Synced(_, _)                         => indexFreeUser(me)
+          case Synced(_) => indexFreeUser(me)
         }
       }
     }
@@ -39,9 +35,9 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
       ctx.me.fold(Redirect(routes.Plan.index).fuccess) { me =>
         import lila.plan.PlanApi.SyncResult._
         env.plan.api.sync(me) flatMap {
-          case ReloadUser         => Redirect(routes.Plan.list).fuccess
-          case Synced(Some(_), _) => indexFreeUser(me)
-          case _                  => Redirect(routes.Plan.index).fuccess
+          case ReloadUser      => Redirect(routes.Plan.list).fuccess
+          case Synced(Some(_)) => indexFreeUser(me)
+          case _               => Redirect(routes.Plan.index).fuccess
         }
       }
     }
@@ -69,19 +65,6 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
       ),
     )
 
-  private def indexPatron(me: UserModel, patron: lila.plan.Patron, customer: StripeCustomer)(
-      implicit ctx: Context,
-  ) =
-    env.plan.api.customerInfo(me, customer) flatMap {
-      case Some(info: MonthlyCustomerInfo) => Ok(html.plan.indexStripe(me, patron, info)).fuccess
-      case Some(info: OneTimeCustomerInfo) =>
-        renderIndex(info.customer.email map EmailAddress.apply, patron.some)
-      case None =>
-        env.user.repo email me.id flatMap { email =>
-          renderIndex(email, patron.some)
-        }
-    }
-
   def features =
     Open { implicit ctx =>
       pageHit
@@ -90,38 +73,13 @@ final class Plan(env: Env)(implicit system: akka.actor.ActorSystem) extends Lila
       }
     }
 
-  def switch =
-    AuthBody { implicit ctx => me =>
-      implicit val req = ctx.body
-      lila.plan.Switch.form
-        .bindFromRequest()
-        .fold(
-          _ => funit,
-          data => env.plan.api.switch(me, data.cents),
-        ) inject Redirect(routes.Plan.index)
-    }
-
-  def cancel =
-    AuthBody { _ => me =>
-      env.plan.api.cancel(me) inject Redirect(routes.Plan.index)
-    }
-
   def thanks =
     Open { implicit ctx =>
-      // wait for the payment data from stripe or paypal
+      // wait for the payment data from paypal
       lila.common.Future.delay(2.seconds) {
-        ctx.me ?? env.plan.api.userPatron flatMap { patron =>
-          patron ?? env.plan.api.patronCustomer map { customer =>
-            Ok(html.plan.thanks(patron, customer))
-          }
+        ctx.me ?? env.plan.api.userPatron map { patron =>
+          Ok(html.plan.thanks(patron))
         }
-      }
-    }
-
-  def webhook =
-    Action.async(parse.json) { req =>
-      env.plan.webhook(req.body) map { _ =>
-        Ok("kthxbye")
       }
     }
 

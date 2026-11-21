@@ -22,8 +22,6 @@ abstract class Trouper(implicit ec: ExecutionContext) extends lila.common.Tellab
 
   protected var isAlive = true
 
-  def getIsAlive = isAlive
-
   def stop(): Unit = {
     isAlive = false
   }

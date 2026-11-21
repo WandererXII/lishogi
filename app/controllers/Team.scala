@@ -542,6 +542,4 @@ You received this because you are subscribed to messages of the team $url."""
   private[controllers] def teamsIBelongTo(me: lila.user.User): Fu[List[LightTeam]] =
     api mine me map { _.map(_.light) }
 
-  private[controllers] def teamsILead(me: lila.user.User): Fu[List[LightTeam]] =
-    api mine me map { _.map(_.light) }
 }

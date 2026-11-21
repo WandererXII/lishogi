@@ -55,7 +55,6 @@ object PuzzleDashboard {
     def failed    = fixed + unfixed
 
     def winPercent      = wins * 100 / nb
-    def fixedPercent    = fixed * 100 / nb
     def firstWinPercent = firstWins * 100 / nb
 
     lazy val performance = puzzleRatingAvg - 500 + math.round(1000 * (firstWins.toFloat / nb))

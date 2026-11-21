@@ -20,14 +20,12 @@ case class Pairing(
   def gameId = id
 
   def users                                       = List(user1, user2)
-  def usersPair                                   = user1 -> user2
   def contains(user: User.ID): Boolean            = user1 == user || user2 == user
   def contains(u1: User.ID, u2: User.ID): Boolean = contains(u1) && contains(u2)
 
   def finished = status >= shogi.Status.Mate
   def playing  = !finished
 
-  def quickFinish      = finished && plies.exists(20 >)
   def quickDraw        = draw && plies.exists(20 >)
   def notSoQuickFinish = finished && plies.exists(14 <=)
   def longGame         = plies.exists(60 <=)

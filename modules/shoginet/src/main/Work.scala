@@ -43,8 +43,6 @@ object Work {
       date: DateTime,
   ) {
 
-    def ageInMillis = nowMillis - date.getMillis
-
     override def toString = s"by $userId at $date"
   }
 

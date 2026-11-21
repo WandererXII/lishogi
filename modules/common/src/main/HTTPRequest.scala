@@ -35,11 +35,7 @@ object HTTPRequest {
 
   def userAgent(req: RequestHeader): Option[String] = req.headers get HeaderNames.USER_AGENT
 
-  val isAndroid = UaMatcher("""(?i)android.+mobile""")
-  val isMobile  = UaMatcher("""(?i)iphone|ipad|ipod|android.+mobile""")
-
-  private def uaContains(req: RequestHeader, str: String) = userAgent(req).exists(_ contains str)
-  def isChrome(req: RequestHeader)                        = uaContains(req, "Chrome/")
+  val isMobile = UaMatcher("""(?i)iphone|ipad|ipod|android.+mobile""")
 
   // chrome 96+, firefox 119+
   val isChrome96Plus   = UaMatcher("""Chrome/(?:\d{3,}|9[6-9])""")

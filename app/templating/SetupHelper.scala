@@ -44,12 +44,6 @@ trait SetupHelper { self: I18nHelper =>
       (1, trans.yes.txt(), none),
     )
 
-  def translatedModeChoicesTournament(implicit lang: Lang) =
-    List(
-      (Mode.Casual.id.toString, trans.casualTournament.txt(), none),
-      (Mode.Rated.id.toString, trans.ratedTournament.txt(), none),
-    )
-
   private val encodeId = (v: Variant) => v.id.toString
 
   private def variantTuple(encode: Variant => String)(variant: Variant)(implicit lang: Lang) =
@@ -198,7 +192,6 @@ trait SetupHelper { self: I18nHelper =>
 
   def translatedMessageChoices(implicit lang: Lang)     = privacyBaseChoices
   def translatedStudyInviteChoices(implicit lang: Lang) = privacyBaseChoices
-  def translatedPalantirChoices(implicit lang: Lang)    = privacyBaseChoices
 
   def privacyBaseChoices(implicit lang: Lang) =
     List(

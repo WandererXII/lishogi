@@ -39,8 +39,6 @@ case class Schedule(
 
   def sameFreq(other: Schedule) = freq == other.freq
 
-  def similarConditions(other: Schedule) = conditions similar other.conditions
-
   def sameDay(other: Schedule) = day == other.day
 
   def hasMaxRating = conditions.maxRating.isDefined
@@ -96,7 +94,6 @@ object Schedule {
 
     def compare(other: Freq) = Integer.compare(importance, other.importance)
 
-    def isDaily          = this == Schedule.Freq.Daily
     def isDailyOrBetter  = this >= Schedule.Freq.Daily
     def isWeeklyOrBetter = this >= Schedule.Freq.Weekly
   }

@@ -59,10 +59,6 @@ case class Post(
     copy(editHistory = history.some, text = newText, updatedAt = updated.some)
   }
 
-  def hasEdits = editHistory.isDefined
-
-  def displayModIcon = ~modIcon
-
   def visibleBy(u: Option[User]): Boolean = !troll || u.fold(false)(visibleBy)
   def visibleBy(u: User): Boolean         = !troll || userId.exists(_ == u.id && u.marks.troll)
 

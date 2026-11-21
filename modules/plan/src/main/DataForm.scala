@@ -41,6 +41,5 @@ object DataForm {
 
     def grossCents = (gross * 100).toInt
 
-    def feeCents = (fee * 100).toInt
   }
 }

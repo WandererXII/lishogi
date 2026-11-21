@@ -142,7 +142,6 @@ object Condition {
     def similar(other: All) =
       sameRatings(other) && titled == other.titled && teamMember == other.teamMember
 
-    def isRatingLimited = maxRating.isDefined || minRating.isDefined
   }
 
   object All {

@@ -1,7 +1,6 @@
 package lila.coach
 
 import org.joda.time.DateTime
-import org.joda.time.Days
 
 case class Coach(
     _id: Coach.Id, // user ID
@@ -24,7 +23,6 @@ case class Coach(
 
   def isListed = listed.value && approved.value
 
-  def daysOld = Days.daysBetween(createdAt, DateTime.now).getDays
 }
 
 object Coach {

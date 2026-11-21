@@ -1,7 +1,5 @@
 package lila.db
 
-import scala.util.Try
-
 import reactivemongo.api.bson._
 
 case class ByteArray(value: Array[Byte]) {
@@ -21,9 +19,6 @@ case class ByteArray(value: Array[Byte]) {
 object ByteArray {
 
   val empty = ByteArray(Array())
-
-  def fromHexStr(hexStr: String): Try[ByteArray] =
-    Try(ByteArray(hex str2Hex hexStr))
 
   implicit val ByteArrayBSONHandler: BSONHandler[ByteArray] = dsl.quickHandler[ByteArray](
     { case v: BSONBinary => ByteArray(v.byteArray) },

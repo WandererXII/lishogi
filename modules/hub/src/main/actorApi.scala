@@ -181,7 +181,6 @@ package timeline {
     case class Followers(user: String)    extends Propagation
     case class Mutuals(user: String)      extends Propagation
     case class ExceptUser(user: String)   extends Propagation
-    case class ModsOnly(value: Boolean)   extends Propagation
   }
 
   import propagation._
@@ -192,7 +191,6 @@ package timeline {
     def toFollowersOf(id: String)   = add(Followers(id))
     def toMutualsOf(id: String)     = add(Mutuals(id))
     def exceptUser(id: String)      = add(ExceptUser(id))
-    def modsOnly(value: Boolean)    = add(ModsOnly(value))
     private def add(p: Propagation) = copy(propagations = p :: propagations)
   }
 }

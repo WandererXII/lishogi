@@ -382,8 +382,6 @@ case class Game(
 
   def paused = status == Status.Paused
 
-  def notStarted = !started
-
   def aborted = status == Status.Aborted
 
   def playedThenAborted = aborted && bothPlayersHaveMoved
@@ -699,7 +697,6 @@ case class Game(
   def sentePov                                      = pov(Sente)
   def gotePov                                       = pov(Gote)
   def playerPov(p: Player)                          = pov(p.color)
-  def loserPov                                      = loser map playerPov
 
   def setAnalysed = copy(metadata = metadata.copy(analysed = true))
 

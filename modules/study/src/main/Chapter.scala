@@ -84,8 +84,6 @@ case class Chapter(
 
   def withoutChildren = copy(root = root.withoutChildren)
 
-  def withoutChildrenIfPractice = if (isPractice) copy(root = root.withoutChildren) else this
-
   def isOverweight = root.children.countRecursive >= Chapter.maxNodes
 }
 

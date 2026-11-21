@@ -76,8 +76,6 @@ case class Perfs(
     } | Perf.default.intRating
   }
 
-  def bestProgress: Int = bestProgressIn(PerfType.leaderboardable)
-
   def bestProgressIn(types: List[PerfType]): Int =
     types.foldLeft(0) { case (max, t) =>
       val p = apply(t).progress
@@ -96,8 +94,6 @@ case class Perfs(
     "puzzle"         -> puzzle,
   )
 
-  def ratingMap: Map[String, Int] = perfsMap.view.mapValues(_.intRating).toMap
-
   def apply(key: String): Option[Perf] = perfsMap get key
 
   def apply(perfType: PerfType): Perf =
@@ -112,11 +108,6 @@ case class Perfs(
       case PerfType.Dobutsu        => dobutsu
       case PerfType.Puzzle         => puzzle
     }
-
-  def inShort =
-    perfs map { case (name, perf) =>
-      s"$name:${perf.intRating}"
-    } mkString ", "
 
   def latest: Option[DateTime] =
     perfsMap.values.flatMap(_.latest).foldLeft(none[DateTime]) {

@@ -54,14 +54,6 @@ case class HookConfig(
       color.name,
     ).some
 
-  def withTimeModeString(tc: Option[String]) =
-    tc match {
-      case Some("realTime")       => copy(timeMode = TimeMode.RealTime)
-      case Some("correspondence") => copy(timeMode = TimeMode.Correspondence)
-      case Some("unlimited")      => copy(timeMode = TimeMode.Unlimited)
-      case _                      => this
-    }
-
   def hook(
       sri: lila.socket.Socket.Sri,
       user: Option[User],

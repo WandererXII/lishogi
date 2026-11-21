@@ -152,7 +152,6 @@ final class Env(
       _          <- team.api.quitAll(u.id)
       _          <- challenge.api.removeByUserId(u.id)
       _          <- tournament.api.withdrawAll(u)
-      _          <- plan.api.cancel(u).nevermind
       _          <- lobby.seekApi.removeByUser(u)
       _          <- security.store.closeAllSessionsOf(u.id)
       _          <- push.webSubscriptionApi.unsubscribeByUser(u)

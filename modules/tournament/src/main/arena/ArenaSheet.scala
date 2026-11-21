@@ -50,8 +50,6 @@ object Sheet {
         case _       => None
       }
 
-    def isDraw = res == ResDraw
-
     val value = ((res, flag) match {
       case (ResWin, Double)  => 4
       case (ResWin, _)       => 2

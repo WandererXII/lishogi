@@ -10,7 +10,7 @@ import shogi.variant.Variant
 
 // todo
 class PiecesTest extends Specification {
-  val usis = Usi.readList(Fixtures.fromProd3).get.toVector
+  val usis = Usi.readList(Fixtures.fromProd).get.toVector
   def fromUsis(usis: Vector[Usi], variant: Variant = Standard) =
     BinaryFormat.pieces.read(usis, None, variant)
 

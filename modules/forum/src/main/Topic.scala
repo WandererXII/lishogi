@@ -51,8 +51,6 @@ case class Topic(
       updatedAtTroll = post.createdAt,
     )
 
-  def incNbPosts = copy(nbPosts = nbPosts + 1)
-
   def isOld = updatedAt isBefore DateTime.now.minusMonths(2)
 }
 

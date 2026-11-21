@@ -172,7 +172,7 @@ object index {
                   ),
                   div(cls := "amount_choice")(
                     st.group(cls := "radio buttons amount")(
-                      lila.plan.StripePlan.defaultAmounts.map { cents =>
+                      lila.plan.Cents.defaultAmounts.map { cents =>
                         val id = s"plan_${cents.value}"
                         div(
                           input(
