@@ -1,7 +1,5 @@
 package lila.evalCache
 
-import play.api.Configuration
-
 import com.softwaremill.macwire._
 
 import lila.common.Bus
@@ -12,7 +10,6 @@ import lila.socket.Socket.Sri
 
 @Module
 final class Env(
-    appConfig: Configuration,
     userRepo: lila.user.UserRepo,
     db: lila.db.Db,
     cacheApi: lila.memo.CacheApi,
@@ -21,7 +18,7 @@ final class Env(
     ec: scala.concurrent.ExecutionContext,
 ) {
 
-  private lazy val coll = db(appConfig.get[CollName]("evalCache.collection.evalCache"))
+  private lazy val coll = db(CollName("eval_cache"))
 
   private lazy val truster = wire[EvalCacheTruster]
 

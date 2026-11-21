@@ -15,7 +15,6 @@ import lila.socket.Socket.SocketVersion
 
 @Module
 private class SimulConfig(
-    @ConfigName("collection.simul") val simulColl: CollName,
     @ConfigName("feature.views") val featureViews: Max,
 )
 
@@ -39,7 +38,7 @@ final class Env(
 
   private val config = appConfig.get[SimulConfig]("simul")(AutoConfig.loader)
 
-  private lazy val simulColl = db(config.simulColl)
+  private lazy val simulColl = db(CollName("simul"))
 
   lazy val repo: SimulRepo = wire[SimulRepo]
 

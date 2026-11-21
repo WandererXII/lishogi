@@ -1,14 +1,11 @@
 package lila.playban
 
-import play.api.Configuration
-
 import com.softwaremill.macwire._
 
 import lila.common.config.CollName
 
 @Module
 final class Env(
-    appConfig: Configuration,
     messenger: lila.msg.MsgApi,
     chatApi: lila.chat.ChatApi,
     userRepo: lila.user.UserRepo,
@@ -18,7 +15,7 @@ final class Env(
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private lazy val playbanColl = db(
-    CollName(appConfig.get[String]("playban.collection.playban")),
+    CollName("playban"),
   )
 
   private lazy val feedback = wire[PlaybanFeedback]

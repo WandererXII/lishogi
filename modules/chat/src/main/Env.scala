@@ -12,8 +12,6 @@ import io.methvin.play.autoconfig._
 import lila.common.config._
 
 private case class ChatConfig(
-    @ConfigName("collection.chat") chatColl: CollName,
-    @ConfigName("collection.timeout") timeoutColl: CollName,
     @ConfigName("max_lines") maxLines: Chat.MaxLines,
     @ConfigName("actor.name") actorName: String,
     @ConfigName("timeout.duration") timeoutDuration: FiniteDuration,
@@ -43,12 +41,12 @@ final class Env(
   import config._
 
   lazy val timeout = new ChatTimeout(
-    coll = db(timeoutColl),
+    coll = db(CollName("chat_timeout")),
     duration = timeoutDuration,
   )
 
   lazy val api = new ChatApi(
-    coll = db(chatColl),
+    coll = db(CollName("chat")),
     userRepo = userRepo,
     chatTimeout = timeout,
     flood = flood,

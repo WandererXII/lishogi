@@ -27,9 +27,6 @@ import lila.user.User
 
 @Module
 private class RoundConfig(
-    @ConfigName("collection.note") val noteColl: CollName,
-    @ConfigName("collection.forecast") val forecastColl: CollName,
-    @ConfigName("collection.alarm") val alarmColl: CollName,
     @ConfigName("moretime") val moretimeDuration: MoretimeDuration,
 )
 
@@ -143,7 +140,7 @@ final class Env(
   lazy val perfsUpdater: PerfsUpdater = wire[PerfsUpdater]
 
   lazy val forecastApi: ForecastApi = new ForecastApi(
-    coll = db(config.forecastColl),
+    coll = db(CollName("forecast")),
     tellRound = tellRound,
   )
 
@@ -180,13 +177,13 @@ final class Env(
 
   lazy val jsonView = wire[JsonView]
 
-  lazy val noteApi = new NoteApi(db(config.noteColl))
+  lazy val noteApi = new NoteApi(db(CollName("game_note")))
 
   MoveLatMonitor.start(scheduler)
 
   system.actorOf(Props(wire[Titivate]), name = "titivate")
 
-  new CorresAlarm(db(config.alarmColl), isUserPresent, proxyRepo.game _)
+  new CorresAlarm(db(CollName("round_alarm")), isUserPresent, proxyRepo.game _)
 
   private lazy val takebacker = wire[Takebacker]
 

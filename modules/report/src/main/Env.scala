@@ -12,7 +12,6 @@ import lila.common.config._
 
 @Module
 private class ReportConfig(
-    @ConfigName("collection.report") val reportColl: CollName,
     @ConfigName("score.threshold") val scoreThreshold: Int,
     @ConfigName("actor.name") val actorName: String,
 )
@@ -42,7 +41,7 @@ final class Env(
 
   private val config = appConfig.get[ReportConfig]("report")(AutoConfig.loader)
 
-  private lazy val reportColl = db(config.reportColl)
+  private lazy val reportColl = db(CollName("report2"))
 
   lazy val scoreThresholdSetting = settingStore[Int](
     "reportScoreThreshold",

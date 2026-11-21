@@ -11,8 +11,6 @@ import lila.common.config._
 
 @Module
 private class PlanConfig(
-    @ConfigName("collection.patron") val patronColl: CollName,
-    @ConfigName("collection.charge") val chargeColl: CollName,
     @ConfigName("paypal.ipn_key") val payPalIpnKey: Secret,
 )
 
@@ -33,8 +31,8 @@ final class Env(
 
   private val config = appConfig.get[PlanConfig]("plan")(AutoConfig.loader)
 
-  private lazy val patronColl = db(config.patronColl)
-  private lazy val chargeColl = db(config.chargeColl)
+  private lazy val patronColl = db(CollName("plan_patron"))
+  private lazy val chargeColl = db(CollName("plan_charge"))
 
   private lazy val notifier: PlanNotifier = wire[PlanNotifier]
 

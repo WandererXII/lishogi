@@ -11,10 +11,6 @@ import lila.user.User
 
 @Module
 private class ModConfig(
-    @ConfigName("collection.player_assessment") val assessmentColl: CollName,
-    @ConfigName("collection.boosting") val boostingColl: CollName,
-    @ConfigName("collection.modlog") val modlogColl: CollName,
-    @ConfigName("collection.gaming_history") val gamingHistoryColl: CollName,
     @ConfigName("actor.name") val actorName: String,
     @ConfigName("boosting.nb_games_to_mark") val boostingNbGamesToMark: Int,
     @ConfigName("boosting.ratio_games_to_mark") val boostingRatioToMark: Int,
@@ -50,9 +46,9 @@ final class Env(
 
   private def scheduler = system.scheduler
 
-  private lazy val logRepo        = new ModlogRepo(db(config.modlogColl))
-  private lazy val assessmentRepo = new AssessmentRepo(db(config.assessmentColl))
-  private lazy val historyRepo    = new HistoryRepo(db(config.gamingHistoryColl))
+  private lazy val logRepo        = new ModlogRepo(db(CollName("modlog")))
+  private lazy val assessmentRepo = new AssessmentRepo(db(CollName("player_assessment")))
+  private lazy val historyRepo    = new HistoryRepo(db(CollName("mod_gaming_history")))
 
   lazy val logApi = wire[ModlogApi]
 
@@ -68,7 +64,7 @@ final class Env(
 
   private lazy val boosting = new BoostingApi(
     modApi = api,
-    collBoosting = db(config.boostingColl),
+    collBoosting = db(CollName("boosting")),
     nbGamesToMark = config.boostingNbGamesToMark,
     ratioGamesToMark = config.boostingRatioToMark,
   )

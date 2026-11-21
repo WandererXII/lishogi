@@ -13,9 +13,6 @@ import lila.game.Game
 
 @Module
 private class ShoginetConfig(
-    @ConfigName("collection.analysis") val analysisColl: CollName,
-    @ConfigName("collection.puzzle") val puzzleColl: CollName,
-    @ConfigName("collection.client") val clientColl: CollName,
     @ConfigName("actor.name") val actorName: String,
     @ConfigName("anon_mode") val anonMode: Boolean,
     @ConfigName("analysis.nodes") val analysisNodes: Int,
@@ -47,12 +44,12 @@ final class Env(
 
   private val config = appConfig.get[ShoginetConfig]("shoginet")(AutoConfig.loader)
 
-  private val analysisColl = db(config.analysisColl)
+  private val analysisColl = db(CollName("fishnet_analysis"))
 
   private lazy val colls = ShoginetColls(
     analysis = analysisColl,
-    puzzle = db(config.puzzleColl),
-    client = db(config.clientColl),
+    puzzle = db(CollName("fishnet_puzzle")),
+    client = db(CollName("fishnet_client")),
   )
 
   private lazy val repo = new ShoginetRepo(

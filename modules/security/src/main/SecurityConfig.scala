@@ -12,7 +12,6 @@ import lila.security.SecurityConfig._
 
 @Module
 final private class SecurityConfig(
-    val collection: Collection,
     @ConfigName("flood.duration") val floodDuration: FiniteDuration,
     @ConfigName("geoip") val geoIP: GeoIP.Config,
     @ConfigName("password_reset.secret") val passwordResetSecret: Secret,
@@ -29,13 +28,6 @@ final private class SecurityConfig(
 )
 
 private object SecurityConfig {
-
-  case class Collection(
-      security: CollName,
-      @ConfigName("print_ban") printBan: CollName,
-      firewall: CollName,
-  )
-  implicit val collectionLoader: ConfigLoader[Collection] = AutoConfig.loader[Collection]
 
   case class EmailConfirm(
       enabled: Boolean,

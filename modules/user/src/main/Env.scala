@@ -13,11 +13,6 @@ import lila.db.dsl.Coll
 
 private class UserConfig(
     @ConfigName("online.ttl") val onlineTtl: FiniteDuration,
-    @ConfigName("collection.user") val collectionUser: CollName,
-    @ConfigName("collection.note") val collectionNote: CollName,
-    @ConfigName("collection.trophy") val collectionTrophy: CollName,
-    @ConfigName("collection.trophyKind") val collectionTrophyKind: CollName,
-    @ConfigName("collection.ranking") val collectionRanking: CollName,
     @ConfigName("password.bpass.secret") val passwordBPassSecret: Secret,
 )
 
@@ -37,7 +32,7 @@ final class Env(
 
   private val config = appConfig.get[UserConfig]("user")(AutoConfig.loader)
 
-  val repo = new UserRepo(db(config.collectionUser))
+  val repo = new UserRepo(db(CollName("user4")))
 
   val lightUserApi: LightUserApi = wire[LightUserApi]
   val lightUser                  = lightUserApi.async
@@ -49,15 +44,15 @@ final class Env(
 
   lazy val noteApi = {
     def mk = (coll: Coll) => wire[NoteApi]
-    mk(db(config.collectionNote))
+    mk(db(CollName("note")))
   }
 
   lazy val trophyApi =
-    new TrophyApi(db(config.collectionTrophy), db(config.collectionTrophyKind), cacheApi)
+    new TrophyApi(db(CollName("trophy")), db(CollName("trophyKind")), cacheApi)
 
   lazy val rankingApi = {
     def mk = (coll: Coll) => wire[RankingApi]
-    mk(db(config.collectionRanking))
+    mk(db(CollName("ranking")))
   }
 
   lazy val cached: Cached = wire[Cached]

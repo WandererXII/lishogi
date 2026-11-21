@@ -12,9 +12,6 @@ import io.methvin.play.autoconfig._
 import lila.common.config._
 
 final private class GameConfig(
-    @ConfigName("collection.game") val gameColl: CollName,
-    @ConfigName("collection.crosstable") val crosstableColl: CollName,
-    @ConfigName("collection.matchup") val matchupColl: CollName,
     @ConfigName("paginator.max_per_page") val paginatorMaxPerPage: MaxPerPage,
     @ConfigName("captcher.name") val captcherName: String,
     @ConfigName("captcher.duration") val captcherDuration: FiniteDuration,
@@ -40,7 +37,7 @@ final class Env(
   private val config = appConfig.get[GameConfig]("game")(AutoConfig.loader)
   import config.paginatorMaxPerPage
 
-  lazy val gameRepo = new GameRepo(db(config.gameColl))
+  lazy val gameRepo = new GameRepo(db(CollName("game5")))
 
   lazy val idGenerator = wire[IdGenerator]
 
@@ -53,8 +50,8 @@ final class Env(
   lazy val notationDump = wire[NotationDump]
 
   lazy val crosstableApi = new CrosstableApi(
-    coll = db(config.crosstableColl),
-    matchupColl = db(config.matchupColl),
+    coll = db(CollName("crosstable2")),
+    matchupColl = db(CollName("matchup")),
   )
 
   lazy val gamesByUsersStream = wire[GamesByUsersStream]

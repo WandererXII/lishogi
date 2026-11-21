@@ -1,14 +1,11 @@
 package lila.perfStat
 
-import play.api.Configuration
-
 import akka.actor._
 import com.softwaremill.macwire._
 
 import lila.common.config._
 
 final class Env(
-    appConfig: Configuration,
     lightUser: lila.common.LightUser.GetterSync,
     gameRepo: lila.game.GameRepo,
     db: lila.db.Db,
@@ -18,7 +15,7 @@ final class Env(
 ) {
 
   lazy val storage = new PerfStatStorage(
-    coll = db(appConfig.get[CollName]("perfStat.collection.perf_stat")),
+    coll = db(CollName("perf_stat")),
   )
 
   lazy val indexer = wire[PerfStatIndexer]

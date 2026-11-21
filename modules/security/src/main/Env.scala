@@ -43,7 +43,7 @@ final class Env(
   val recaptchaPublicConfig = config.recaptcha.public
 
   lazy val firewall = new Firewall(
-    coll = db(config.collection.firewall),
+    coll = db(CollName("firewall")),
     scheduler = scheduler,
   )
 
@@ -59,7 +59,7 @@ final class Env(
 
   lazy val userSpy = wire[UserSpyApi]
 
-  lazy val store = new Store(db(config.collection.security), cacheApi, net.ip)
+  lazy val store = new Store(db(CollName("security")), cacheApi, net.ip)
 
   lazy val ugcArmedSetting = settingStore[Boolean](
     "ugcArmed",
@@ -67,7 +67,7 @@ final class Env(
     text = "Enable the user garbage collector".some,
   )
 
-  lazy val printBan = new PrintBan(db(config.collection.printBan))
+  lazy val printBan = new PrintBan(db(CollName("print_ban")))
 
   lazy val garbageCollector = {
     def mk: (() => Boolean) => GarbageCollector = isArmed => wire[GarbageCollector]

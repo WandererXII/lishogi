@@ -11,10 +11,6 @@ import lila.db.AsyncColl
 @Module
 private class PuzzleConfig(
     @ConfigName("mongodb.uri") val mongoUri: String,
-    @ConfigName("collection.puzzle") val puzzleColl: CollName,
-    @ConfigName("collection.round") val roundColl: CollName,
-    @ConfigName("collection.path") val pathColl: CollName,
-    @ConfigName("collection.report") val reportColl: CollName,
 )
 
 case class PuzzleColls(
@@ -44,10 +40,10 @@ final class Env(
   private lazy val db = mongo.asyncDb("puzzle", config.mongoUri)
 
   lazy val colls = PuzzleColls(
-    puzzle = db(config.puzzleColl),
-    round = db(config.roundColl),
-    path = db(config.pathColl),
-    report = db(config.reportColl),
+    puzzle = db(CollName("puzzle2_puzzle")),
+    round = db(CollName("puzzle2_round")),
+    path = db(CollName("puzzle2_path")),
+    report = db(CollName("puzzle2_report")),
   )
 
   private lazy val gameJson: GameJson = wire[GameJson]

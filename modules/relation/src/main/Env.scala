@@ -11,7 +11,6 @@ import lila.hub.actors
 
 @Module
 private class RelationConfig(
-    @ConfigName("collection.relation") val collection: CollName,
     @ConfigName("limit.follow") val maxFollow: Max,
     @ConfigName("limit.block") val maxBlock: Max,
 )
@@ -33,7 +32,7 @@ final class Env(
 
   def maxFollow = config.maxFollow
 
-  private lazy val coll = db(config.collection)
+  private lazy val coll = db(CollName("relation"))
 
   private lazy val repo: RelationRepo = wire[RelationRepo]
 

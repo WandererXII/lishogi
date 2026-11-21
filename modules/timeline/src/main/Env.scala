@@ -10,8 +10,6 @@ import lila.common.config._
 
 @Module
 private class TimelineConfig(
-    @ConfigName("collection.entry") val entryColl: CollName,
-    @ConfigName("collection.unsub") val unsubColl: CollName,
     @ConfigName("user.display_max") val userDisplayMax: Max,
     @ConfigName("user.actor.name") val userActorName: String,
 )
@@ -30,12 +28,12 @@ final class Env(
   private val config = appConfig.get[TimelineConfig]("timeline")(AutoConfig.loader)
 
   lazy val entryApi = new EntryApi(
-    coll = db(config.entryColl),
+    coll = db(CollName("timeline_entry")),
     cacheApi = cacheApi,
     userMax = config.userDisplayMax,
   )
 
-  lazy val unsubApi = new UnsubApi(db(config.unsubColl))
+  lazy val unsubApi = new UnsubApi(db(CollName("timeline_unsub")))
 
   def status(channel: String)(userId: String): Fu[Option[Boolean]] =
     unsubApi.get(channel, userId) flatMap {

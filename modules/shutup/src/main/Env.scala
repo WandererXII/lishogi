@@ -11,7 +11,6 @@ import lila.user.UserRepo
 
 @Module
 private class ShutupConfig(
-    @ConfigName("collection.shutup") val shutupColl: CollName,
     @ConfigName("actor.name") val actorName: String,
 )
 
@@ -29,7 +28,7 @@ final class Env(
 
   private val config = appConfig.get[ShutupConfig]("shutup")(AutoConfig.loader)
 
-  private lazy val coll = db(config.shutupColl)
+  private lazy val coll = db(CollName("shutup"))
 
   lazy val api = wire[ShutupApi]
 

@@ -17,8 +17,6 @@ import lila.push.FirebasePush.configLoader
 
 @Module
 final private class PushConfig(
-    @ConfigName("collection.device") val deviceColl: CollName,
-    @ConfigName("collection.subscription") val subscriptionColl: CollName,
     val web: WebPush.Config,
     val firebase: FirebasePush.Config,
 )
@@ -39,8 +37,8 @@ final class Env(
 
   def vapidPublicKey = config.web.vapidPublicKey
 
-  private lazy val deviceApi  = new DeviceApi(db(config.deviceColl))
-  lazy val webSubscriptionApi = new WebSubscriptionApi(db(config.subscriptionColl))
+  private lazy val deviceApi  = new DeviceApi(db(CollName("push_device")))
+  lazy val webSubscriptionApi = new WebSubscriptionApi(db(CollName("push_subscription")))
 
   def registerDevice    = deviceApi.register _
   def unregisterDevices = deviceApi.unregister _

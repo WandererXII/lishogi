@@ -58,12 +58,9 @@ object MongoCache {
   type LoaderWrapper[K, V] = Loader[K, V] => Loader[K, V]
 
   final class Api(
-      db: lila.db.Db,
-      config: MemoConfig,
+      coll: lila.db.dsl.Coll,
       cacheApi: CacheApi,
   )(implicit ec: scala.concurrent.ExecutionContext) {
-
-    private val coll = db(config.cacheColl)
 
     // AsyncLoadingCache with monitoring and DB persistence
     def apply[K, V: BSONHandler](

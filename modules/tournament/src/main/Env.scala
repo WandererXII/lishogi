@@ -15,11 +15,6 @@ import lila.user.User
 
 @Module
 private class TournamentConfig(
-    @ConfigName("collection.tournament") val tournamentColl: CollName,
-    @ConfigName("collection.player") val playerColl: CollName,
-    @ConfigName("collection.pairing") val pairingColl: CollName,
-    @ConfigName("collection.arrangement") val arrangementColl: CollName,
-    @ConfigName("collection.leaderboard") val leaderboardColl: CollName,
     @ConfigName("api_actor.name") val apiActorName: String,
 )
 
@@ -54,11 +49,13 @@ final class Env(
 
   lazy val forms = wire[DataForm]
 
-  lazy val tournamentRepo  = new TournamentRepo(db(config.tournamentColl), config.playerColl)
-  lazy val pairingRepo     = new PairingRepo(db(config.pairingColl))
-  lazy val arrangementRepo = new ArrangementRepo(db(config.arrangementColl))
-  lazy val playerRepo      = new PlayerRepo(db(config.playerColl))
-  private lazy val leaderboardRepo = new LeaderboardRepo(db(config.leaderboardColl))
+  private val playerColl = CollName("tournament_player")
+
+  lazy val tournamentRepo  = new TournamentRepo(db(CollName("tournament2")), playerColl)
+  lazy val pairingRepo     = new PairingRepo(db(CollName("tournament_pairing")))
+  lazy val arrangementRepo = new ArrangementRepo(db(CollName("tournament_arrangement")))
+  lazy val playerRepo      = new PlayerRepo(db(playerColl))
+  private lazy val leaderboardRepo = new LeaderboardRepo(db(CollName("tournament_leaderboard")))
 
   lazy val cached: Cached = wire[Cached]
 
