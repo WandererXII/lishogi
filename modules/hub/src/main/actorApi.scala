@@ -125,53 +125,55 @@ package timeline {
   sealed abstract class Atom(val channel: String, val okForKid: Boolean) {
     def userIds: List[String]
   }
-  case class Follow(u1: String, u2: String) extends Atom("follow", true) {
+  case class Follow(u1: String, u2: String) extends Atom("follow", okForKid = true) {
     def userIds = List(u1, u2)
   }
-  case class TeamJoin(userId: String, teamId: String) extends Atom("teamJoin", false) {
+  case class TeamJoin(userId: String, teamId: String) extends Atom("teamJoin", okForKid = false) {
     def userIds = List(userId)
   }
-  case class TeamCreate(userId: String, teamId: String) extends Atom("teamCreate", false) {
+  case class TeamCreate(userId: String, teamId: String)
+      extends Atom("teamCreate", okForKid = false) {
     def userIds = List(userId)
   }
   case class ForumPost(userId: String, topicId: Option[String], topicName: String, postId: String)
-      extends Atom(s"forum:${~topicId}", false) {
+      extends Atom(s"forum:${~topicId}", okForKid = false) {
     def userIds = List(userId)
   }
   case class TourJoin(userId: String, tourId: String, tourName: String)
-      extends Atom("tournament", true) {
+      extends Atom("tournament", okForKid = true) {
     def userIds = List(userId)
   }
   case class GameEnd(playerId: String, opponent: Option[String], win: Option[Boolean], perf: String)
-      extends Atom("gameEnd", true) {
+      extends Atom("gameEnd", okForKid = true) {
     def userIds = opponent.toList
   }
   case class SimulCreate(userId: String, simulId: String, simulName: String)
-      extends Atom("simulCreate", true) {
+      extends Atom("simulCreate", okForKid = true) {
     def userIds = List(userId)
   }
   case class SimulJoin(userId: String, simulId: String, simulName: String)
-      extends Atom("simulJoin", true) {
+      extends Atom("simulJoin", okForKid = true) {
     def userIds = List(userId)
   }
   case class StudyCreate(userId: String, studyId: String, studyName: String)
-      extends Atom("studyCreate", true) {
+      extends Atom("studyCreate", okForKid = true) {
     def userIds = List(userId)
   }
   case class StudyLike(userId: String, studyId: String, studyName: String)
-      extends Atom("studyLike", true) {
+      extends Atom("studyLike", okForKid = true) {
     def userIds = List(userId)
   }
-  case class PlanStart(userId: String) extends Atom("planStart", true) {
+  case class PlanStart(userId: String) extends Atom("planStart", okForKid = true) {
     def userIds = List(userId)
   }
-  case class StreamStart(id: String, name: String) extends Atom("streamStart", true) {
+  case class StreamStart(id: String, name: String) extends Atom("streamStart", okForKid = true) {
     def userIds = List(id)
   }
-  case class SystemNotification(msg: String) extends Atom("systemNotification", true) {
+  case class SystemNotification(msg: String) extends Atom("systemNotification", okForKid = true) {
     def userIds = Nil
   }
-  case class ArticlePublished(author: String, id: String) extends Atom("articlePublished", true) {
+  case class ArticlePublished(author: String, id: String)
+      extends Atom("articlePublished", okForKid = true) {
     def userIds = List(author)
   }
 

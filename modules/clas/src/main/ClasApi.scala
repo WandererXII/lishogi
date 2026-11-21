@@ -115,11 +115,11 @@ final class ClasApi(
               )
           }
 
-    def archive(c: Clas, t: User, v: Boolean): Funit =
+    def archive(c: Clas, t: User, archived: Boolean): Funit =
       coll.update
         .one(
           $id(c.id),
-          if (v) $set("archived" -> Clas.Recorded(t.id, DateTime.now))
+          if (archived) $set("archived" -> Clas.Recorded(t.id, DateTime.now))
           else $unset("archived"),
         )
         .void
@@ -198,7 +198,7 @@ final class ClasApi(
         )
         .orFail(s"No user could be created for ${data.username}")
         .flatMap { user =>
-          userRepo.setKid(user, true) >>
+          userRepo.setKid(user, kid = true) >>
             userRepo.setManagedUserInitialPerfs(user.id) >>
             coll.insert.one(Student.make(user, clas, teacher.id, data.realName, managed = true)) >>
             sendWelcomeMessage(teacher.id, user, clas) inject
@@ -211,12 +211,12 @@ final class ClasApi(
       authenticator.setPassword(s.userId, password) inject password
     }
 
-    def archive(sId: Student.Id, t: User, v: Boolean): Fu[Option[Student]] =
+    def archive(sId: Student.Id, t: User, archived: Boolean): Fu[Option[Student]] =
       coll
         .findAndUpdateEasy[Student](
           selector = $id(sId),
           update =
-            if (v) $set("archived" -> Clas.Recorded(t.id, DateTime.now))
+            if (archived) $set("archived" -> Clas.Recorded(t.id, DateTime.now))
             else $unset("archived"),
           fetchNewObject = true,
         )
@@ -253,7 +253,7 @@ ${clas.desc}""",
 
     def create(clas: Clas, user: User, realName: String, teacher: User): Fu[ClasInvite.Feedback] =
       student
-        .archive(Student.id(user.id, clas.id), user, false)
+        .archive(Student.id(user.id, clas.id), user, archived = false)
         .map2[ClasInvite.Feedback](_ => Already) getOrElse {
         lila.mon.clas.studentInvite(teacher.id)
         val invite = ClasInvite.make(clas, user, realName, teacher)

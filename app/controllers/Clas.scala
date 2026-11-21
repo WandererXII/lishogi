@@ -238,10 +238,10 @@ final class Clas(
       }
     }
 
-  def archive(id: String, v: Boolean) =
+  def archive(id: String, archived: Boolean) =
     SecureBody(_.Teacher) { _ => me =>
       WithClass(me, id) { clas =>
-        env.clas.api.clas.archive(clas, me, v) inject
+        env.clas.api.clas.archive(clas, me, archived) inject
           Redirect(routes.Clas.show(clas.id.value)).flashSuccess
       }
     }
@@ -390,11 +390,11 @@ final class Clas(
       }
     }
 
-  def studentArchive(id: String, username: String, v: Boolean) =
+  def studentArchive(id: String, username: String, archived: Boolean) =
     Secure(_.Teacher) { _ => me =>
       WithClass(me, id) { clas =>
         WithStudent(clas, username) { s =>
-          env.clas.api.student.archive(s.student.id, me, v) inject
+          env.clas.api.student.archive(s.student.id, me, archived) inject
             Redirect(routes.Clas.studentShow(clas.id.value, username)).flashSuccess
         }
       }

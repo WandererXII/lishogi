@@ -321,7 +321,7 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
   def setRankban   = setMark(UserMark.Rankban) _
   def setAlt       = setMark(UserMark.Alt) _
 
-  def setKid(user: User, v: Boolean) = coll.updateField($id(user.id), F.kid, v).void
+  def setKid(user: User, kid: Boolean) = coll.updateField($id(user.id), F.kid, kid).void
 
   def isKid(id: ID) = coll.exists($id(id) ++ $doc(F.kid -> true))
 

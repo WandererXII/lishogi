@@ -51,7 +51,7 @@ final class ChatApi(
               Chat.Mine(chat forUser user.some, _)
             }
           }
-        case None => cache.get(chatId) dmap { Chat.Mine(_, false) }
+        case None => cache.get(chatId) dmap { Chat.Mine(_, timeout = false) }
       }
   }
 
@@ -75,9 +75,9 @@ final class ChatApi(
             Chat.Mine(chat forUser user.some, _)
           }
         }
-      case Some(user)   => fuccess(Chat.Mine(Chat.make(chatId) forUser user.some, false))
-      case None if cond => find(chatId) dmap { Chat.Mine(_, false) }
-      case None         => fuccess(Chat.Mine(Chat.make(chatId), false))
+      case Some(user)   => fuccess(Chat.Mine(Chat.make(chatId) forUser user.some, timeout = false))
+      case None if cond => find(chatId) dmap { Chat.Mine(_, timeout = false) }
+      case None         => fuccess(Chat.Mine(Chat.make(chatId), timeout = false))
     }
 
   def optionsByOrderedIds(chatIds: List[Chat.Id]): Fu[List[Option[Chat]]] =
@@ -118,7 +118,7 @@ final class ChatApi(
     makeAnonLine(chatId, color, text) ?? { line =>
       pushLine(chatId, line) >>- {
         publish(chatId, actorApi.ChatLine(chatId, line), busChan)
-        lila.mon.chat.message("anonPlayer", false).increment().unit
+        lila.mon.chat.message("anonPlayer", troll = false).increment().unit
       }
     }
 

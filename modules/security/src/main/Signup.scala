@@ -129,7 +129,7 @@ final class Signup(
                 data.username,
                 passwordHash,
                 email.acceptable,
-                false,
+                blind = false,
                 mustConfirmEmail = mustConfirm.value,
               )
               .orFail(s"No user could be created for ${data.username}")

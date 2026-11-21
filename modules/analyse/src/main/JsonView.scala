@@ -19,7 +19,7 @@ object JsonView {
           Json
             .obj(
               "name"    -> a.judgment.key,
-              "comment" -> a.makeComment(false, true),
+              "comment" -> a.makeComment(withEval = false, withBestMove = true),
             )
             .add(
               "glyph" -> withGlyph.option(

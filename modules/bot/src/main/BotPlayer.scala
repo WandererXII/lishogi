@@ -62,9 +62,9 @@ final class BotPlayer(
       chatApi.write(chatId, me.id, d.text, publicSource = source, _.Round)
     }
 
-  def rematchAccept(id: Game.ID, me: User): Fu[Boolean] = rematch(id, me, true)
+  def rematchAccept(id: Game.ID, me: User): Fu[Boolean] = rematch(id, me, accept = true)
 
-  def rematchDecline(id: Game.ID, me: User): Fu[Boolean] = rematch(id, me, false)
+  def rematchDecline(id: Game.ID, me: User): Fu[Boolean] = rematch(id, me, accept = false)
 
   private def rematch(challengeId: Game.ID, me: User, accept: Boolean): Fu[Boolean] =
     rematches.prevGameIdOffering(challengeId) ?? gameRepo.game map {

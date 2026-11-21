@@ -31,7 +31,7 @@ object widgets {
                 if (g.imported)
                   frag(
                     g.notationImport.flatMap(_.user) map { uid =>
-                      trans.importedByX(showUsernameById(uid.some, None, false))
+                      trans.importedByX(showUsernameById(uid.some, None, withOnline = false))
                     } getOrElse span("IMPORT"),
                     separator,
                     bits.variantLink(g.variant, none),

@@ -62,10 +62,10 @@ case class Simul(
       copy(applicants = applicants filterNot (_ is userId))
     }
 
-  def accept(userId: String, v: Boolean) =
+  def accept(userId: String, accepted: Boolean) =
     Created {
       copy(applicants = applicants map {
-        case a if a is userId => a.copy(accepted = v)
+        case a if a is userId => a.copy(accepted = accepted)
         case a                => a
       })
     }

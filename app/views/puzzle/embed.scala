@@ -18,7 +18,7 @@ object embed {
       moreCss = cssTag("embed.puzzle"),
       moreJs = jsTag("embed.puzzle"),
     )(
-      dailyLink(daily, false)(config.lang)(
+      dailyLink(daily, withText = false)(config.lang)(
         targetBlank,
         id  := "daily-puzzle",
         cls := "embedded",

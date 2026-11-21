@@ -197,7 +197,7 @@ final class MsgApi(
                   contact | LightUser.fallback(thread other user),
                   msgs,
                   lila.relation.Relations(none, none),
-                  false,
+                  postable = false,
                 )
               }
             }

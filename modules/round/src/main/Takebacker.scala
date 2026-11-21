@@ -59,7 +59,7 @@ final private class Takebacker(
             g.updatePlayer(color, _.removeTakebackProposition)
           }
         } inject {
-          List(Event.TakebackOffers(false, false)) -> situation.decline
+          List(Event.TakebackOffers(sente = false, gote = false)) -> situation.decline
         }
       case Pov(game, color) if pov.opponent.isProposingTakeback =>
         proxy.save {
@@ -68,7 +68,7 @@ final private class Takebacker(
             g.updatePlayer(!color, _.removeTakebackProposition)
           }
         } inject {
-          List(Event.TakebackOffers(false, false)) -> situation.decline
+          List(Event.TakebackOffers(sente = false, gote = false)) -> situation.decline
         }
       case _ => fufail(ClientError("[takebacker] invalid no " + pov))
     }

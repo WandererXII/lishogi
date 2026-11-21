@@ -97,6 +97,7 @@ object BuildSettings {
     "-Wvalue-discard",
     "-Wmultiarg-infix",
     "-Wmacros:after", // check unused symbols against macro expansions (macwire)
+    "-Wunnamed-boolean-literal-strict",
     "-Werror",
   )
 

@@ -24,26 +24,26 @@ final class ModApi(
     refunder: RatingRefund,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  def setAlt(mod: Mod, prev: Suspect, v: Boolean): Funit =
+  def setAlt(mod: Mod, prev: Suspect, alt: Boolean): Funit =
     for {
-      _ <- userRepo.setAlt(prev.user.id, v)
-      sus = prev.set(_.withMarks(_.set(_.Alt, v)))
+      _ <- userRepo.setAlt(prev.user.id, alt)
+      sus = prev.set(_.withMarks(_.set(_.Alt, alt)))
       _ <- reportApi.process(mod, sus, Set(Room.Cheat, Room.Print))
-      _ <- logApi.alt(mod, sus, v)
+      _ <- logApi.alt(mod, sus, alt)
     } yield {
-      if (v) notifier.reporters(mod, sus).unit
+      if (alt) notifier.reporters(mod, sus).unit
     }
 
-  def setEngine(mod: Mod, prev: Suspect, v: Boolean): Funit =
-    (prev.user.marks.engine != v) ?? {
+  def setEngine(mod: Mod, prev: Suspect, engine: Boolean): Funit =
+    (prev.user.marks.engine != engine) ?? {
       for {
-        _ <- userRepo.setEngine(prev.user.id, v)
-        sus = prev.set(_.withMarks(_.set(_.Engine, v)))
+        _ <- userRepo.setEngine(prev.user.id, engine)
+        sus = prev.set(_.withMarks(_.set(_.Engine, engine)))
         _ <- reportApi.process(mod, sus, Set(Room.Cheat, Room.Print))
-        _ <- logApi.engine(mod, sus, v)
+        _ <- logApi.engine(mod, sus, engine)
       } yield {
-        Bus.publish(lila.hub.actorApi.mod.MarkCheater(sus.user.id, v), "adjustCheater")
-        if (v) {
+        Bus.publish(lila.hub.actorApi.mod.MarkCheater(sus.user.id, engine), "adjustCheater")
+        if (engine) {
           notifier.reporters(mod, sus)
           refunder schedule sus
         }
@@ -57,7 +57,7 @@ final class ModApi(
       _ <- (!sus.user.isBot && !unengined) ?? {
         reportApi.getLishogiMod flatMap { mod =>
           lila.mon.cheat.autoMark.increment()
-          setEngine(mod, sus, true) >>
+          setEngine(mod, sus, engine = true) >>
             noteApi.lishogiWrite(sus.user, note)
         }
       }
@@ -101,7 +101,7 @@ final class ModApi(
 
   def garbageCollect(sus: Suspect): Funit =
     reportApi.getLishogiMod flatMap { mod =>
-      setAlt(mod, sus, v = true) >>
+      setAlt(mod, sus, alt = true) >>
         setTroll(mod, sus, value = false) >>
         logApi.garbageCollect(mod, sus)
     }
@@ -121,7 +121,7 @@ final class ModApi(
   def setKid(mod: String, username: String): Funit =
     withUser(username) { user =>
       userRepo.isKid(user.id) flatMap {
-        !_ ?? { (userRepo.setKid(user, true)) } >> logApi.setKidMode(mod, user.id)
+        !_ ?? { (userRepo.setKid(user, kid = true)) } >> logApi.setKidMode(mod, user.id)
       }
     }
 

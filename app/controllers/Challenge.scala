@@ -78,7 +78,7 @@ final class Challenge(
               Ok(html.challenge.theirs(c, json, user, get("color") flatMap shogi.Color.fromName))
             },
         json = Ok(json).fuccess,
-      ) flatMap withChallengeAnonCookie(mine && c.challengerIsAnon, c, true)
+      ) flatMap withChallengeAnonCookie(mine && c.challengerIsAnon, c, owner = true)
     } dmap env.lilaCookie.ensure(ctx.req)
 
   private def isMine(challenge: ChallengeModel)(implicit ctx: Context) =
@@ -103,7 +103,7 @@ final class Challenge(
               negotiate(
                 html = Redirect(routes.Round.gameOrChallengeDefault(pov.gameId)).fuccess,
                 json = env.api.roundApi.player(pov, none) map { Ok(_) },
-              ) flatMap withChallengeAnonCookie(ctx.isAnon, c, false)
+              ) flatMap withChallengeAnonCookie(ctx.isAnon, c, owner = false)
             case None =>
               negotiate(
                 html = Redirect(routes.Round.gameOrChallengeDefault(c.id)).fuccess,

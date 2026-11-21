@@ -255,7 +255,7 @@ case class Game(
       prepared: Game.PreparedMove,
       blur: Boolean,
   ) =
-    applyGame(prepared, blur, true).map { g =>
+    applyGame(prepared, blur, reload = true).map { g =>
       g.copy(
         sentePlayer = g.sentePlayer.removePauseOffer,
         gotePlayer = g.gotePlayer.removePauseOffer,

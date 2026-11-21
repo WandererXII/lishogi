@@ -35,8 +35,8 @@ final class Env(
   def cli =
     new lila.common.Cli {
       def process = {
-        case "coach" :: "enable" :: username :: Nil  => api.toggleApproved(username, true)
-        case "coach" :: "disable" :: username :: Nil => api.toggleApproved(username, false)
+        case "coach" :: "enable" :: username :: Nil  => api.toggleApproved(username, value = true)
+        case "coach" :: "disable" :: username :: Nil => api.toggleApproved(username, value = false)
       }
     }
 }

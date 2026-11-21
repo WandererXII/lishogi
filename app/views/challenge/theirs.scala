@@ -19,7 +19,7 @@ object theirs {
     views.html.base.layout(
       title = challengeTitle(c),
       openGraph = challengeOpenGraph(c).some,
-      moreJs = bits.js(c, json, false, color),
+      moreJs = bits.js(c, json, owner = false, color),
       moreCss = cssTag("challenge.page"),
     ) {
       main(cls := "page-small challenge-page challenge-theirs box box-pad")(
@@ -39,7 +39,7 @@ object theirs {
                     )
                   },
               ),
-              bits.details(c, false),
+              bits.details(c, mine = false),
               c.initialSfen.map { sfen =>
                 div(
                   cls := "board-preview",
@@ -82,13 +82,13 @@ object theirs {
           case Status.Declined =>
             div(cls := "follow-up")(
               h1(trans.challengeDeclined()),
-              bits.details(c, false),
+              bits.details(c, mine = false),
               bits.failButton(c),
             )
           case Status.Accepted =>
             div(cls := "follow-up")(
               h1(trans.challengeAccepted()),
-              bits.details(c, false),
+              bits.details(c, mine = false),
               a(
                 id   := "challenge-redirect",
                 href := routes.Round.gameOrChallengeDefault(c.id),
@@ -100,7 +100,7 @@ object theirs {
           case Status.Canceled =>
             div(cls := "follow-up")(
               h1(trans.challengeCanceled()),
-              bits.details(c, false),
+              bits.details(c, mine = false),
               bits.failButton(c),
             )
         },

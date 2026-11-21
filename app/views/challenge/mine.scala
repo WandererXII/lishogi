@@ -21,7 +21,7 @@ object mine {
     views.html.base.layout(
       title = challengeTitle(c),
       openGraph = challengeOpenGraph(c).some,
-      moreJs = bits.js(c, json, true),
+      moreJs = bits.js(c, json, owner = true),
       moreCss = cssTag("challenge.page"),
     ) {
       val challengeLink = s"$netBaseUrl${routes.Round.gameOrChallengeDefault(c.id)}"
@@ -30,7 +30,7 @@ object mine {
           case Status.Created | Status.Offline =>
             div(id := "ping-challenge")(
               h1(if (c.isOpen) trans.openChallenge.txt() else trans.challengeToPlay.txt()),
-              bits.details(c, true),
+              bits.details(c, mine = true),
               c.destUserId.map { destId =>
                 div(cls := "waiting")(
                   showUsernameById(destId.some),
@@ -96,13 +96,13 @@ object mine {
           case Status.Declined =>
             div(cls := "follow-up")(
               h1(trans.challengeDeclined()),
-              bits.details(c, true),
+              bits.details(c, mine = true),
               bits.failButton(c),
             )
           case Status.Accepted =>
             div(cls := "follow-up")(
               h1(trans.challengeAccepted()),
-              bits.details(c, true),
+              bits.details(c, mine = true),
               a(
                 id   := "challenge-redirect",
                 href := routes.Round.gameOrChallengeDefault(c.id),
@@ -114,7 +114,7 @@ object mine {
           case Status.Canceled =>
             div(cls := "follow-up")(
               h1(trans.challengeCanceled()),
-              bits.details(c, true),
+              bits.details(c, mine = true),
               bits.failButton(c),
             )
         },

@@ -46,7 +46,7 @@ object captcha {
               transWithColorName(
                 trans.xCheckmatesInOneMove,
                 shogi.Color.fromSente(captcha.sente),
-                false,
+                isHandicap = false,
               ),
             ),
             br,

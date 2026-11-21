@@ -25,7 +25,7 @@ case class SocketStatus(
   def colorsOnGame: Set[Color] = Color.all.filter(onGame).toSet
 }
 case class RoomCrowd(sente: Boolean, gote: Boolean)
-case class BotConnected(color: Color, v: Boolean)
+case class BotConnected(color: Color, connected: Boolean)
 
 package round {
 

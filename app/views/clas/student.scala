@@ -33,7 +33,9 @@ object student {
         s.student.archived map { archived =>
           div(cls := "student-show__archived archived")(
             bits.showArchived(archived),
-            postForm(action := routes.Clas.studentArchive(clas.id.value, s.user.username, false))(
+            postForm(
+              action := routes.Clas.studentArchive(clas.id.value, s.user.username, archived = false),
+            )(
               form3.submit(trans.clas.inviteTheStudentBack(), icon = none)(
                 cls := "confirm button-empty",
               ),
@@ -233,7 +235,7 @@ object student {
         s.student.isActive option frag(
           hr,
           postForm(
-            action := routes.Clas.studentArchive(clas.id.value, s.user.username, true),
+            action := routes.Clas.studentArchive(clas.id.value, s.user.username, archived = true),
             cls    := "student-show__archive",
           )(
             form3.submit(trans.clas.removeStudent(), icon = none)(

@@ -705,7 +705,7 @@ object WMMatching {
         allowedge(dt_extra) = true
         queue ::= endpoint(2 * dt_extra)
       } else if (dt_tp == 4) {
-        expandBlossom(dt_extra, false)
+        expandBlossom(dt_extra, endstage = false)
       }
       dt_tp > 1
     }
@@ -754,7 +754,7 @@ object WMMatching {
 
   private def minWeightMatching(endpoint: Array[Int], weights: Array[Int]): List[(Int, Int)] = {
     val maxweight = weights.max
-    maxWeightMatching(endpoint, weights.map { x => maxweight - x }, true)
+    maxWeightMatching(endpoint, weights.map { x => maxweight - x }, maxcardinality = true)
   }
 
   private def fullGraph(nvertex: Int, pairScore: (Int, Int) => Option[Int]): (Array[Int], Array[Int]) = {

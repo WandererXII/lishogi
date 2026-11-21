@@ -103,10 +103,10 @@ final class SimulApi(
   def removeApplicant(simulId: Simul.ID, user: User): Funit =
     WithSimul(repo.findCreated, simulId) { _ removeApplicant user.id }
 
-  def accept(simulId: Simul.ID, userId: String, v: Boolean): Funit =
+  def accept(simulId: Simul.ID, userId: String, accepted: Boolean): Funit =
     userRepo byId userId flatMap {
       _ ?? { user =>
-        WithSimul(repo.findCreated, simulId) { _.accept(user.id, v) }
+        WithSimul(repo.findCreated, simulId) { _.accept(user.id, accepted) }
       }
     }
 

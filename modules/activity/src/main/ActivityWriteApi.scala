@@ -29,7 +29,7 @@ final class ActivityWriteApi(
               )
             else
               a.copy(
-                corres = a.corres.orDefault.add(GameId(game.id), false, true).some,
+                corres = a.corres.orDefault.add(GameId(game.id), moved = false, ended = true).some,
               )
           }
         }
@@ -74,7 +74,7 @@ final class ActivityWriteApi(
 
   def corresMove(gameId: Game.ID, userId: User.ID) =
     updateToday(userId) { a =>
-      a.copy(corres = ((~a.corres).add(GameId(gameId), true, false)).some)
+      a.copy(corres = ((~a.corres).add(GameId(gameId), moved = true, ended = false)).some)
     }
 
   def plan(userId: User.ID, months: Int) =

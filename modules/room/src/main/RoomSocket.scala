@@ -125,11 +125,11 @@ object RoomSocket {
           NotifyVersion("message", lila.chat.JsonView(line), line.troll),
         )
       case OnTimeout(id, userId) =>
-        rooms.tellIfPresent(id.value, NotifyVersion("chat_timeout", userId, false))
+        rooms.tellIfPresent(id.value, NotifyVersion("chat_timeout", userId, troll = false))
       case OnReinstate(id, userId) =>
-        rooms.tellIfPresent(id.value, NotifyVersion("chat_reinstate", userId, false))
+        rooms.tellIfPresent(id.value, NotifyVersion("chat_reinstate", userId, troll = false))
       case OnClear(id) =>
-        rooms.tellIfPresent(id.value, NotifyVersion("chat_clear", Json.obj(), false))
+        rooms.tellIfPresent(id.value, NotifyVersion("chat_clear", Json.obj(), troll = false))
     }
   }
 

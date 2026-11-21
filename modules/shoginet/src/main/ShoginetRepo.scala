@@ -39,10 +39,11 @@ final private class ShoginetRepo(
   def addClient(client: Client) = clientColl.insert.one(client)
   def deleteClient(key: Client.Key) =
     clientColl.delete.one(selectClient(key)) >>- clientCache.invalidate(key)
-  def enableClient(key: Client.Key, v: Boolean): Funit =
-    clientColl.update.one(selectClient(key), $set("enabled" -> v)).void >>- clientCache.invalidate(
-      key,
-    )
+  def enableClient(key: Client.Key, enabled: Boolean): Funit =
+    clientColl.update.one(selectClient(key), $set("enabled" -> enabled)).void >>- clientCache
+      .invalidate(
+        key,
+      )
   def allRecentClients =
     clientColl.list[Client](
       $doc(

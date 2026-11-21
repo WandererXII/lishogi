@@ -53,7 +53,7 @@ object watcher {
           bits.side(pov, tour, simul, userTv, analysis = false, bookmarked),
           chatOption.map(_ => chat.frag),
         ),
-        bits.roundAppPreload(pov, false),
+        bits.roundAppPreload(pov, controls = false),
         div(cls := "round__underboard")(bits.crosstable(cross, pov.game)),
         div(cls := "round__underchat")(views.html.chat.membersGame),
       ),

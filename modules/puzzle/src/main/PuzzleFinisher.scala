@@ -48,7 +48,7 @@ final private[puzzle] class PuzzleFinisher(
           PuzzleTheme.findOrAny(sol.theme).key,
           user,
           Result(sol.win),
-          false,
+          noRating = false,
         ) map {
           case Some((round, newPerf)) => {
             val rDiff = IntRatingDiff(newPerf.intRating - perf.intRating)

@@ -85,7 +85,7 @@ final class NoteApi(
   def lishogiWrite(to: User, text: String) =
     userRepo.lishogi flatMap {
       _ ?? {
-        write(to, text, _, true, false)
+        write(to, text, _, modOnly = true, dox = false)
       }
     }
 

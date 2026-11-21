@@ -16,8 +16,8 @@ object StudyMember {
 
   sealed abstract class Role(val id: String, val canWrite: Boolean)
   object Role {
-    case object Read  extends Role("r", false)
-    case object Write extends Role("w", true)
+    case object Read  extends Role("r", canWrite = false)
+    case object Write extends Role("w", canWrite = true)
     val byId = List(Read, Write).map { x =>
       x.id -> x
     }.toMap

@@ -46,5 +46,5 @@ case class LobbyPerf(rating: Int, provisional: Boolean)
 
 object LobbyPerf {
 
-  val default = LobbyPerf(Glicko.defaultIntRating, true)
+  val default = LobbyPerf(Glicko.defaultIntRating, provisional = true)
 }

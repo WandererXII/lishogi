@@ -59,7 +59,7 @@ final class PairingRepo(coll: Coll)(implicit
         }
         .takeWhile(
           r => r.sizeIs < nbUsers,
-          true,
+          inclusive = true,
         )
         .toMat(Sink.lastOption)(Keep.right)
         .run()
