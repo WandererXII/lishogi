@@ -9,6 +9,8 @@ export async function generateThemeVariables(
   extracted: string[],
   outDir: string,
 ): Promise<void> {
+  warnMixDuplicates(extracted);
+
   for (const theme of themes) {
     const defaultThemeByCategory: Theme = theme.endsWith('-new')
       ? (`${defaultTheme}-new` as Theme)
@@ -84,12 +86,7 @@ function colorFunction(variable: string, themeKeys: string[]): string | undefine
     return;
   }
 
-  const mixDups = new Set<string>();
   if (func === 'mix') {
-    const normalized = normalizeMixVariable(colors, percentage);
-    if (mixDups.has(normalized)) console.warn(`Found duplicates: ${normalized}`);
-    else mixDups.add(normalized);
-
     return `color.mix(${[colors[0], colors[1], `${percentage}%`].join(',')})`;
   } else {
     const value = func.endsWith('alpha') ? (percentage / 100).toString() : `${percentage}%`;
@@ -97,10 +94,22 @@ function colorFunction(variable: string, themeKeys: string[]): string | undefine
   }
 }
 
-// $m-accent_bg-box_mix_10
-// $m-bg-box_accent_mix_90
+// $m-accent_bg-box_mix_10 and $m-bg-box_accent_mix_90 produce the same color
+function warnMixDuplicates(extracted: string[]): void {
+  const seen = new Map<string, string>();
+  for (const variable of extracted) {
+    const parts = variable.substring(prefix.length).split('_');
+    if (parts.length !== 4 || parts[2] !== 'mix') continue;
+    const percentage = Number.parseInt(parts[3].replace('neg', '-'));
+    const normalized = normalizeMixVariable(parts.slice(0, 2), percentage);
+    const prev = seen.get(normalized);
+    if (prev) console.warn(`Found duplicates: ${prev} and ${variable}`);
+    else seen.set(normalized, variable);
+  }
+}
+
 function normalizeMixVariable(colors: string[], percentage: number): string {
   const sortedCols = colors.slice().sort();
   const sortedPerc = sortedCols[0] === colors[0] ? percentage : 100 - percentage;
-  return `${prefix}${[...sortedCols, sortedPerc, 'mix'].join('_')}`;
+  return `${prefix}${[...sortedCols, 'mix', sortedPerc].join('_')}`;
 }
