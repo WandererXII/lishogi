@@ -1,6 +1,7 @@
-import type { WatchEventType } from 'node:fs';
+import { existsSync } from 'node:fs';
 import path from 'node:path';
 import { glob } from '@build/helpers/glob';
+import type { Changes } from '@build/helpers/watcher';
 import { workspaceBuildConductor } from '@build/helpers/workspace-builder';
 import type { Project } from '@build/helpers/workspace-packages';
 import { createBuilder } from './builder.js';
@@ -26,26 +27,42 @@ await workspaceBuildConductor('css', async (rootDir: string, pkgs: Project[], ou
       await Promise.all(buildFiles.map(file => builder.build(file)));
       console.log(`Compiled ${buildFiles.length} scss files`);
     },
-    onChange: async (event: WatchEventType, filepath: string | null) => {
-      if (filepath === null || filepath.includes('/generated/')) return;
+    onChange: async (changes: Changes) => {
+      const files = [...changes].filter(([filepath]) => !filepath.includes('/generated/'));
+      if (!files.length) return;
 
-      console.log(`Change detected in: ${filepath}`);
+      console.log(`Change detected in: ${files.map(([filepath]) => filepath).join(', ')}`);
 
-      if (event === 'rename') graph.reinit();
-      else graph.update(filepath);
+      if (files.some(([, event]) => event === 'rename')) graph.reinit();
+      else for (const [filepath] of files) graph.update(filepath);
 
-      const rebuildVars = await cssVariableBuilder.update(filepath);
+      const toBuild = new Set<string>();
+
+      let rebuildVars = false;
+      for (const [filepath] of files) {
+        if (filepath.endsWith('.scss') && existsSync(filepath))
+          rebuildVars = (await cssVariableBuilder.update(filepath)) || rebuildVars;
+      }
       if (rebuildVars) {
         const themeFiles = (await glob(path.join(rootDir, '/**/common/css/build/*.scss'))).filter(
           buildFilesFilter,
         );
         console.log('Rebuilding theme files');
-        themeFiles.map(file => builder.build(file));
+        themeFiles.forEach(file => {
+          toBuild.add(file);
+        });
       }
 
-      const impacted = graph.impacted(filepath).filter(buildFilesFilter);
-      await Promise.all(impacted.map(file => builder.build(file)));
-      console.log(`Recompiled ${impacted.length} scss files`);
+      for (const [filepath] of files) {
+        graph
+          .impacted(filepath)
+          .filter(buildFilesFilter)
+          .forEach(file => {
+            toBuild.add(file);
+          });
+      }
+      await Promise.all([...toBuild].map(file => builder.build(file)));
+      console.log(`Recompiled ${toBuild.size} scss files`);
     },
     stop: async () => {
       await builder.stop();

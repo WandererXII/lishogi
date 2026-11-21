@@ -1,13 +1,13 @@
-import type { FSWatcher, WatchEventType } from 'node:fs';
+import type { FSWatcher } from 'node:fs';
 import * as fs from 'node:fs/promises';
 import * as path from 'node:path';
 import { getOutputDirectory } from './util.js';
-import { watchers } from './watcher.js';
+import { type Changes, watchers } from './watcher.js';
 import { getPackages, getRootDir, type Project } from './workspace-packages.js';
 
 interface WorkspaceBuilder {
   all: () => Promise<void>;
-  onChange: (event: WatchEventType, filepath: string | null) => Promise<void>;
+  onChange: (changes: Changes) => Promise<void>;
   stop: () => Promise<void>;
   watchPaths: string[];
 }
@@ -44,28 +44,26 @@ export async function workspaceBuildConductor(
     await builder.all();
 
     if (isWatch) {
-      const onChange = async (event: WatchEventType, filepath: string | null) => {
+      const onChange = async (changes: Changes) => {
         try {
-          await builder.onChange(event, filepath);
+          await builder.onChange(changes);
         } catch (error) {
           console.error(error);
         }
       };
 
       const packageWatch = builder.watchPaths.filter(wp => !path.isAbsolute(wp));
-      for (const pkg of pkgs) {
-        fswatchers.push(
-          ...watchers(
-            ['package.json', 'tsconfig.json', ...packageWatch].map(wp =>
-              path.join(pkg.rootDirRealPath, wp),
-            ),
-            onChange,
-          ),
-        );
-      }
-
       const absoluteWatch = builder.watchPaths.filter(wp => path.isAbsolute(wp));
-      fswatchers.push(...watchers(absoluteWatch, onChange));
+      const watchPaths = [
+        ...pkgs.flatMap(pkg =>
+          ['package.json', 'tsconfig.json', ...packageWatch].map(wp =>
+            path.join(pkg.rootDirRealPath, wp),
+          ),
+        ),
+        ...absoluteWatch,
+      ];
+      // one watcher group, so changes across packages land in the same batch
+      fswatchers.push(...watchers(watchPaths, onChange));
 
       console.log('Watching for changes...');
       process.stdin.resume();

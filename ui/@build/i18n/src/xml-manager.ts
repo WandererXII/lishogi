@@ -7,7 +7,7 @@ import type { I18nObj } from './types.js';
 
 interface TranslationManager {
   init: () => Promise<void>;
-  update: (filepath: string) => Promise<void>;
+  update: (filepaths: string[]) => Promise<void>;
   source: () => I18nObj;
   dest: () => Map<string, I18nObj>;
 }
@@ -43,11 +43,23 @@ export async function createXmlManager(rootDir: string): Promise<TranslationMana
     destI18n.clear();
     const categoryDirs = await fs.readdir(destDir);
     for (const lang of otherLangs) {
-      const i18n = await parseXmls(
-        categoryDirs.map(cd => {
-          return { name: categoryName(cd), path: path.join(destDir, cd, `${lang}.xml`) };
-        }),
+      const sources = categoryDirs.map(cd => {
+        return { name: categoryName(cd), path: path.join(destDir, cd, `${lang}.xml`) };
+      });
+      const existing = await Promise.all(
+        sources.map(s =>
+          fs.access(s.path).then(
+            () => true,
+            () => false,
+          ),
+        ),
       );
+      const missing = sources.filter((_, i) => !existing[i]);
+      if (missing.length)
+        console.warn(
+          `Missing ${lang} translation files: ${missing.map(s => path.relative(rootDir, s.path)).join(', ')}`,
+        );
+      const i18n = await parseXmls(sources.filter((_, i) => existing[i]));
       destI18n.set(lang, i18n);
     }
     console.log('Parsed translation dest directory');
@@ -57,9 +69,9 @@ export async function createXmlManager(rootDir: string): Promise<TranslationMana
     init: async () => {
       await Promise.all([initSources(), initDests()]);
     },
-    update: async filepath => {
-      if (filepath.startsWith(sourceDir)) await initSources();
-      else if (filepath.startsWith(destDir)) await initDests();
+    update: async filepaths => {
+      if (filepaths.some(fp => fp.startsWith(sourceDir))) await initSources();
+      if (filepaths.some(fp => fp.startsWith(destDir))) await initDests();
     },
     source: () => sourceI18n,
     dest: () => destI18n,

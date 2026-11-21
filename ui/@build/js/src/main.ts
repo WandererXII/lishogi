@@ -1,7 +1,7 @@
-import type { WatchEventType } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { glob } from '@build/helpers/glob';
+import type { Changes } from '@build/helpers/watcher';
 import { workspaceBuildConductor } from '@build/helpers/workspace-builder';
 import { getPackageFromPath, type Project } from '@build/helpers/workspace-packages';
 import type { BuildContext } from 'esbuild';
@@ -41,20 +41,36 @@ await workspaceBuildConductor('js', async (_rootDir: string, pkgs: Project[], ou
 
   return {
     all: all(buildOne),
-    onChange: async (event: WatchEventType, filepath: string | null) => {
-      if (filepath === null) return;
+    onChange: async (changes: Changes) => {
+      // packages that need a fresh build context (non-ts change or file added/removed)
+      const toClear = new Set<Project>();
+      const toBuild = new Set<Project>();
+      // packages whose old output files should be deleted
+      const toDelete = new Set<Project>();
 
-      const pkg = getPackageFromPath(pkgs, filepath)!;
-      const impacted = findImpactedPackages(pkg, pkgs);
+      for (const [filepath, event] of changes) {
+        const pkg = getPackageFromPath(pkgs, filepath);
+        if (!pkg) continue;
+        console.log(`Change detected in: ${filepath}`);
 
-      console.log(`Change detected in: ${filepath}`);
-
-      if (!filepath?.endsWith('.ts') || event === 'rename') {
-        await Promise.all(impacted.map(i => clearOne(i)));
-        const filesToDelete = await glob(path.join(outdir, `lishogi.${pkg.manifest.name}.*`));
-        await Promise.all(filesToDelete.map(file => fs.rm(file)));
+        const impacted = findImpactedPackages(pkg, pkgs);
+        impacted.forEach(i => {
+          toBuild.add(i);
+        });
+        if (!filepath.endsWith('.ts') || event === 'rename') {
+          impacted.forEach(i => {
+            toClear.add(i);
+          });
+          toDelete.add(pkg);
+        }
       }
-      await Promise.all(impacted.map(i => buildOne(i)));
+
+      await Promise.all([...toClear].map(i => clearOne(i)));
+      for (const pkg of toDelete) {
+        const filesToDelete = await glob(path.join(outdir, `lishogi.${pkg.manifest.name}.*`));
+        await Promise.all(filesToDelete.map(file => fs.rm(file, { force: true })));
+      }
+      await Promise.all([...toBuild].map(i => buildOne(i)));
     },
     stop: all(clearOne),
     watchPaths: ['src'],

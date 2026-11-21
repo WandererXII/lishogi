@@ -1,6 +1,6 @@
-import type { WatchEventType } from 'node:fs';
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import type { Changes } from '@build/helpers/watcher';
 import { workspaceBuildConductor } from '@build/helpers/workspace-builder';
 import { getPackageFromPath, type Project } from '@build/helpers/workspace-packages';
 import { defaultLang, otherLangs } from './constants.js';
@@ -53,8 +53,11 @@ await workspaceBuildConductor('i18n', async (rootDir: string, pkgs: Project[], o
     keysByOuputPackage.set('core', coreKeys);
 
     for (const lang of [...otherLangs, defaultLang]) {
-      const i18n = lang === defaultLang ? source : dest.get(lang)!;
-      if (!i18n) console.warn(`No i18n for ${lang}`);
+      let i18n = lang === defaultLang ? source : dest.get(lang);
+      if (!i18n) {
+        console.warn(`No i18n for ${lang}, falling back to ${defaultLang}`);
+        i18n = source;
+      }
 
       for (const [name, keys] of keysByOuputPackage) {
         const obj: Record<string, string> = {};
@@ -86,24 +89,35 @@ await workspaceBuildConductor('i18n', async (rootDir: string, pkgs: Project[], o
     all: async () => {
       await bundleI18ns();
     },
-    onChange: async (_event: WatchEventType, filepath: string | null) => {
-      if (filepath === null) return;
+    onChange: async (changes: Changes) => {
+      const changedPkgs = new Set<Project>();
+      const translationFiles: string[] = [];
 
-      await xmlManager.update(filepath);
-      const pkg = getPackageFromPath(pkgs, filepath);
-      if (pkg) {
+      for (const filepath of changes.keys()) {
+        const pkg = getPackageFromPath(pkgs, filepath);
+        if (pkg) changedPkgs.add(pkg);
+        else translationFiles.push(filepath);
+      }
+
+      let rebundle = false;
+      if (translationFiles.length) {
+        console.log(`Change detected in: ${translationFiles.join(', ')}`);
+        await xmlManager.update(translationFiles);
+        rebundle = true;
+      }
+
+      for (const pkg of changedPkgs) {
         const oldKeys = i18nPackagesMap.get(pkg.manifest.name)!;
         const newKeys = await extractI18nKeysFromPackage(pkg);
         const isSame = oldKeys.size === newKeys.size && [...oldKeys].every(el => newKeys.has(el));
         if (!isSame) {
-          console.log(`Change detected in: ${filepath}`);
+          console.log(`Change detected in: ${pkg.manifest.name}`);
           i18nPackagesMap.set(pkg.manifest.name, newKeys);
-          await bundleI18ns();
+          rebundle = true;
         }
-      } else {
-        console.log(`Change detected in: ${filepath}`);
-        await bundleI18ns();
       }
+
+      if (rebundle) await bundleI18ns();
     },
     stop: async () => {},
     watchPaths: ['src', `${rootDir}/translation`],

@@ -4,12 +4,12 @@ import type { I18nObj, PluralCategory, XmlSource } from '../types.js';
 
 interface StringResource {
   '@_name': string;
-  '#text': string;
+  '#text'?: unknown;
 }
 
 interface PluralItem {
   '@_quantity': PluralCategory;
-  '#text': string;
+  '#text'?: unknown;
 }
 
 interface PluralsResource {
@@ -30,9 +30,13 @@ const parser = new XMLParser({
   ignoreAttributes: false,
   attributeNamePrefix: '@_',
   textNodeName: '#text',
+  // keep values verbatim: no number/boolean coercion, no trimming of deliberate whitespace
+  parseTagValue: false,
+  trimValues: false,
 });
 
-function escapeText(str: string): string {
+function escapeText(value: unknown): string {
+  const str = value === undefined || value === null ? '' : String(value);
   return str.replaceAll('\\"', '"').replaceAll("\\'", "'");
 }
 
@@ -54,9 +58,7 @@ async function parseXml(source: XmlSource): Promise<I18nObj> {
 
     strings.forEach(str => {
       const key = `${prefix}${str['@_name']}`;
-      const text = str['#text'] || '';
-      const escapedText = escapeText(text);
-      result[key] = escapedText;
+      result[key] = escapeText(str['#text']);
     });
   }
 
@@ -71,9 +73,7 @@ async function parseXml(source: XmlSource): Promise<I18nObj> {
 
       result[baseKey] = items.reduce(
         (acc, item) => {
-          const text = item['#text'];
-          const escapedText = escapeText(text);
-          acc[item['@_quantity']] = escapedText;
+          acc[item['@_quantity']] = escapeText(item['#text']);
           return acc;
         },
         {} as Partial<Record<PluralCategory, string>>,
