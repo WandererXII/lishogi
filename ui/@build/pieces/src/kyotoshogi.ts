@@ -42,7 +42,7 @@ function classesWithOrientation(color: string, role: string, flipped: boolean): 
       .v-kyotoshogi .hand-bottom piece.${role}.sente,
       .spare-bottom.v-kyotoshogi piece.${role}.sente`;
     } else {
-      return dedent`.sg-wrap.orientation-sente piece.${role}.gote,
+      return dedent`.v-kyotoshogi .sg-wrap.orientation-sente piece.${role}.gote,
       .v-kyotoshogi .hand-top piece.${role}.gote,
       .spare-top.v-kyotoshogi piece.${role}.gote`;
     }
