@@ -11,9 +11,6 @@ object topnav {
   private def linkTitle(url: String, name: Frag)(implicit ctx: Context) =
     if (ctx.blind) h3(name) else a(href := url)(name)
 
-  private def canSeeClasMenu(implicit ctx: Context) =
-    ctx.hasClas || ctx.me.exists(u => u.hasTitle || u.roles.contains("ROLE_COACH"))
-
   def apply()(implicit ctx: Context) =
     st.nav(id := "topnav", cls := "hover")(
       st.section(
@@ -60,7 +57,6 @@ object topnav {
             if (shouldSeeStudy) learnGroupLink else studyGroupLink,
             a(href := langHref(routes.Coordinate.home))(trans.coordinates.coordinates()),
             ctx.noKid option a(href := routes.Coach.all(1))(trans.coaches()),
-            canSeeClasMenu option a(href := routes.Clas.index)(trans.clas.lishogiClasses()),
             a(href := routes.Article.documentation("kif"))(trans.documentation()),
           ),
         )

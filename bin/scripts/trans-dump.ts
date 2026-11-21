@@ -16,8 +16,7 @@ const translationFolder = path.join(baseFolder, 'translation');
 const sourceFolder = path.join(translationFolder, 'source');
 
 function validName(name: string): string {
-  const noExt = name.replace('.xml', '');
-  return noExt === 'class' ? 'clas' : noExt;
+  return name.replace('.xml', '');
 }
 async function writeScala(parsed: ParsedXml): Promise<void> {
   function mapKeys(el: ParsedXmlElement, nested = false): string {

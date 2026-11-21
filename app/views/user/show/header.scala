@@ -265,7 +265,7 @@ object header {
             a(href := routes.User.newPlayer)(
               trans.welcomeToX("lishogi.org"),
             )
-          else p(trans.clas.nothingHere()),
+          else p(trans.nothingHere()),
         ),
       div(cls := "profile-side")(
         div(cls := "user-infos")(

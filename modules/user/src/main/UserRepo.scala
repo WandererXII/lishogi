@@ -161,10 +161,6 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
       .void
   }
 
-  def setManagedUserInitialPerfs(id: User.ID) = {
-    coll.updateField($id(id), F.perfs, Perfs.perfsBSONHandler.write(Perfs.defaultManaged)).void
-  }
-
   def setPerf(userId: String, pt: PerfType, perf: Perf) =
     coll.update
       .one(
@@ -292,9 +288,6 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
     */
   def existingUsernameIds(usernames: Set[String]): Fu[List[User.ID]] =
     coll.primitive[String]($inIds(usernames.map(normalize)), F.id)
-
-  def userIdsLikeWithRole(text: String, role: String, max: Int = 10): Fu[List[User.ID]] =
-    userIdsLikeFilter(text, $doc(F.roles -> role), max)
 
   private[user] def userIdsLikeFilter(text: String, filter: Bdoc, max: Int): Fu[List[User.ID]] =
     User.couldBeStartOfUsername(text) ?? {

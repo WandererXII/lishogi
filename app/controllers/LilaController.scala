@@ -516,36 +516,33 @@ abstract private[controllers] class LilaController(val env: Env)
     val isPage = HTTPRequest isSynchronousHttp ctx.req
     val nonce  = isPage option Nonce.random
     ctx.me.fold(fuccess(PageData.anon(ctx.req, nonce, blindMode(ctx)))) { me =>
-      env.pref.api.getPref(me, ctx.req) zip
-        (if (isGranted(_.Teacher, me)) fuccess(true)
-         else env.clas.api.student.isStudent(me.id)) zip {
-          if (isPage) {
-            env.user.lightUserApi preloadUser me
-            env.team.api.nbRequests(me.id) zip
-              env.challenge.api.countInFor.get(me.id) zip
-              env.notifyM.api.unreadCount(Notifies(me.id)).dmap(_.value) zip
-              env.mod.inquiryApi.forMod(me)
-          } else
-            fuccess {
-              (((0, 0), 0), none)
-            }
-        } map {
-          case (
-                (pref, hasClas),
-                (((teamNbRequests, nbChallenges), nbNotifications), inquiry),
-              ) =>
-            PageData(
-              teamNbRequests,
-              nbChallenges,
-              nbNotifications,
+      env.pref.api.getPref(me, ctx.req) zip {
+        if (isPage) {
+          env.user.lightUserApi preloadUser me
+          env.team.api.nbRequests(me.id) zip
+            env.challenge.api.countInFor.get(me.id) zip
+            env.notifyM.api.unreadCount(Notifies(me.id)).dmap(_.value) zip
+            env.mod.inquiryApi.forMod(me)
+        } else
+          fuccess {
+            (((0, 0), 0), none)
+          }
+      } map {
+        case (
               pref,
-              blindMode = blindMode(ctx),
-              hasFingerprint = hasFingerPrint,
-              hasClas = hasClas,
-              inquiry = inquiry,
-              nonce = nonce,
-            )
-        }
+              (((teamNbRequests, nbChallenges), nbNotifications), inquiry),
+            ) =>
+          PageData(
+            teamNbRequests,
+            nbChallenges,
+            nbNotifications,
+            pref,
+            blindMode = blindMode(ctx),
+            hasFingerprint = hasFingerPrint,
+            inquiry = inquiry,
+            nonce = nonce,
+          )
+      }
     }
   }
 
@@ -601,12 +598,6 @@ abstract private[controllers] class LilaController(val env: Env)
     if (HTTPRequest isFacebookOrTwitterBot ctx.req) result
     else if (HTTPRequest isCrawler ctx.req) fuccess(NotFound)
     else result
-
-  protected def NotManaged(result: => Fu[Result])(implicit ctx: Context) =
-    ctx.me.??(env.clas.api.student.isManaged) flatMap {
-      case true => notFound
-      case _    => result
-    }
 
   private val jsonGlobalErrorRenamer = {
     import play.api.libs.json._

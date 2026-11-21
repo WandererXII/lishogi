@@ -101,6 +101,5 @@ export {};
 }
 
 function categoryName(name: string): string {
-  const noExt = path.basename(name, '.xml'); // if file is given
-  return noExt === 'class' ? 'clas' : noExt;
+  return path.basename(name, '.xml'); // if file is given
 }

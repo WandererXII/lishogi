@@ -536,8 +536,6 @@ final class User(
                       case Nil     => env.user.cached userIdsLike term
                       case userIds => fuccess(userIds)
                     }
-                  case None if getBool("teacher") =>
-                    env.user.repo.userIdsLikeWithRole(term, lila.security.Permission.Teacher.dbKey)
                   case None => env.user.cached userIdsLike term
                 }
             }

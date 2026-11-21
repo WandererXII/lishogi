@@ -136,16 +136,6 @@ case object Perfs {
     )
   }
 
-  val defaultManaged = {
-    val managed       = Perf.defaultManaged
-    val managedPuzzle = Perf.defaultManagedPuzzle
-    default.copy(
-      realTime = managed,
-      correspondence = managed,
-      puzzle = managedPuzzle,
-    )
-  }
-
   val perfsBSONHandler: BSON[Perfs] = new BSON[Perfs] {
 
     implicit def perfHandler: BSON[Perf] = Perf.perfBSONHandler

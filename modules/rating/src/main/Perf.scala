@@ -95,10 +95,6 @@ case object Perf {
 
   val default = Perf(Glicko.default, 0, Nil, None)
 
-  /* Set a latest date as a hack so that these are written to the db even though there are no games */
-  val defaultManaged       = Perf(Glicko.defaultManaged, 0, Nil, DateTime.now.some)
-  val defaultManagedPuzzle = Perf(Glicko.defaultManagedPuzzle, 0, Nil, DateTime.now.some)
-
   val recentMaxSize = 12
 
   // levels defeated

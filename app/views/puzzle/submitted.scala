@@ -37,7 +37,7 @@ object submitted {
               name         := "name",
               value        := query,
               cls          := "form-control user-autocomplete",
-              placeholder  := trans.clas.lishogiUsername.txt(),
+              placeholder  := trans.lishogiUsername.txt(),
               autocomplete := "off",
               dataTag      := "span",
             ),

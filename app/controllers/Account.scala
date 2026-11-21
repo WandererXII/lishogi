@@ -180,15 +180,14 @@ final class Account(
     Open { implicit ctx =>
       env.security.emailChange.confirm(token) flatMap {
         _ ?? { case (user, prevEmail) =>
-          (prevEmail.exists(_.isNoReply) ?? env.clas.api.student.release(user)) >>
-            auth.authenticateUser(
-              user,
-              result =
-                if (prevEmail.exists(_.isNoReply))
-                  Some(_ => Redirect(routes.User.show(user.username)).flashSuccess)
-                else
-                  Some(_ => Redirect(routes.Account.email).flashSuccess),
-            )
+          auth.authenticateUser(
+            user,
+            result =
+              if (prevEmail.exists(_.isNoReply))
+                Some(_ => Redirect(routes.User.show(user.username)).flashSuccess)
+              else
+                Some(_ => Redirect(routes.Account.email).flashSuccess),
+          )
         }
       }
     }
@@ -263,24 +262,20 @@ final class Account(
 
   def close =
     Auth { implicit ctx => me =>
-      env.clas.api.student.isManaged(me) flatMap { managed =>
-        env.security.forms closeAccount me map { form =>
-          Ok(html.account.close(me, form, managed))
-        }
+      env.security.forms closeAccount me map { form =>
+        Ok(html.account.close(me, form))
       }
     }
 
   def closeConfirm =
     AuthBody { implicit ctx => me =>
-      NotManaged {
-        implicit val req = ctx.body
-        env.security.forms closeAccount me flatMap { form =>
-          FormFuResult(form) { err =>
-            fuccess(html.account.close(me, err, managed = false))
-          } { _ =>
-            env.closeAccount(me.id, self = true) inject {
-              Redirect(routes.User show me.username) withCookies env.lilaCookie.newSession
-            }
+      implicit val req = ctx.body
+      env.security.forms closeAccount me flatMap { form =>
+        FormFuResult(form) { err =>
+          fuccess(html.account.close(me, err))
+        } { _ =>
+          env.closeAccount(me.id, self = true) inject {
+            Redirect(routes.User show me.username) withCookies env.lilaCookie.newSession
           }
         }
       }
@@ -288,10 +283,8 @@ final class Account(
 
   def kid =
     Auth { implicit ctx => me =>
-      env.clas.api.student.isManaged(me) flatMap { managed =>
-        env.security.forms toggleKid me map { form =>
-          Ok(html.account.kid(me, form, managed))
-        }
+      env.security.forms toggleKid me map { form =>
+        Ok(html.account.kid(me, form))
       }
     }
   def apiKid =
@@ -301,25 +294,23 @@ final class Account(
 
   def kidPost =
     AuthBody { implicit ctx => me =>
-      NotManaged {
-        implicit val req = ctx.body
-        env.security.forms toggleKid me flatMap { form =>
-          form
-            .bindFromRequest()
-            .fold(
-              err =>
+      implicit val req = ctx.body
+      env.security.forms toggleKid me flatMap { form =>
+        form
+          .bindFromRequest()
+          .fold(
+            err =>
+              negotiate(
+                html = BadRequest(html.account.kid(me, err)).fuccess,
+                json = BadRequest(errorsAsJson(err)).fuccess,
+              ),
+            _ =>
+              env.user.repo.setKid(me, getBool("v")) >>
                 negotiate(
-                  html = BadRequest(html.account.kid(me, err, managed = false)).fuccess,
-                  json = BadRequest(errorsAsJson(err)).fuccess,
+                  html = Redirect(routes.Account.kid).flashSuccess.fuccess,
+                  json = jsonOkResult.fuccess,
                 ),
-              _ =>
-                env.user.repo.setKid(me, getBool("v")) >>
-                  negotiate(
-                    html = Redirect(routes.Account.kid).flashSuccess.fuccess,
-                    json = jsonOkResult.fuccess,
-                  ),
-            )
-        }
+          )
       }
     }
 

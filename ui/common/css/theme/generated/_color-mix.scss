@@ -23,8 +23,6 @@ html {
   --m-bg-box_alpha_neg50: oklch(from var(--c-bg-box) l c h / 0.5);
   --m-bg-box_bg-page_mix_50: color-mix(in srgb, var(--c-bg-box) 50%, var(--c-bg-page) 50%);
   --m-bg-box_c-alpha_100: oklch(from var(--c-bg-box) l c h / 1);
-  --m-bg-box_clas_mix_70: color-mix(in srgb, var(--c-bg-box) 70%, var(--c-clas) 30%);
-  --m-bg-box_clas_mix_93: color-mix(in srgb, var(--c-bg-box) 93%, var(--c-clas) 7%);
   --m-bg-box_good_mix_74: color-mix(in srgb, var(--c-bg-box) 74%, var(--c-good) 26%);
   --m-bg-box_good_mix_80: color-mix(in srgb, var(--c-bg-box) 80%, var(--c-good) 20%);
   --m-bg-input_lightness_neg3: oklch(from var(--c-bg-input) calc(l - 0.03) c h);
@@ -33,17 +31,12 @@ html {
   --m-bg-page_primary_mix_40: color-mix(in srgb, var(--c-bg-page) 40%, var(--c-primary) 60%);
   --m-bg-zebra2_bad_mix_80: color-mix(in srgb, var(--c-bg-zebra2) 80%, var(--c-bad) 20%);
   --m-bg-zebra_bad_mix_80: color-mix(in srgb, var(--c-bg-zebra) 80%, var(--c-bad) 20%);
-  --m-bg-zebra_clas_mix_20: color-mix(in srgb, var(--c-bg-zebra) 20%, var(--c-clas) 80%);
   --m-border_lightness_20: oklch(from var(--c-border) calc(l + 0.2) c h);
   --m-brag_alpha_neg50: oklch(from var(--c-brag) l c h / 0.5);
   --m-brag_bg-box_mix_15: color-mix(in srgb, var(--c-brag) 15%, var(--c-bg-box) 85%);
   --m-brag_darken_mix_85: color-mix(in srgb, var(--c-brag) 85%, var(--c-darken) 15%);
   --m-brilliant_bg-box_mix_30: color-mix(in srgb, var(--c-brilliant) 30%, var(--c-bg-box) 70%);
-  --m-clas_bg-box_mix_10: color-mix(in srgb, var(--c-clas) 10%, var(--c-bg-box) 90%);
-  --m-clas_bg-box_mix_80: color-mix(in srgb, var(--c-clas) 80%, var(--c-bg-box) 20%);
-  --m-clas_white_mix_86: color-mix(in srgb, var(--c-clas) 86%, white 14%);
   --m-fancy_bg-box_mix_15: color-mix(in srgb, var(--c-fancy) 15%, var(--c-bg-box) 85%);
-  --m-font-clear_clas_mix_30: color-mix(in srgb, var(--c-font-clear) 30%, var(--c-clas) 70%);
   --m-font-clearer_c-alpha_15: oklch(from var(--c-font-clearer) l c h / 0.15);
   --m-font-clearer_c-alpha_30: oklch(from var(--c-font-clearer) l c h / 0.3);
   --m-font-clearer_c-alpha_50: oklch(from var(--c-font-clearer) l c h / 0.5);
@@ -98,5 +91,4 @@ html {
   --m-secondary_bg-zebra_mix_10: color-mix(in srgb, var(--c-secondary) 10%, var(--c-bg-zebra) 90%);
   --m-secondary_black_mix_60: color-mix(in srgb, var(--c-secondary) 60%, black 40%);
   --m-white_accent_mix_20: color-mix(in srgb, white 20%, var(--c-accent) 80%);
-  --m-white_brag_mix_20: color-mix(in srgb, white 20%, var(--c-brag) 80%);
-  --m-white_clas_mix_80: color-mix(in srgb, white 80%, var(--c-clas) 20%);}
+  --m-white_brag_mix_20: color-mix(in srgb, white 20%, var(--c-brag) 80%);}

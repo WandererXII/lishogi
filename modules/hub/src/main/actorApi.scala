@@ -43,10 +43,6 @@ package socket {
   case class ApiUserIsOnline(userId: String, isOnline: Boolean)
 }
 
-package clas {
-  case class IsTeacherOf(teacherId: String, studentId: String, promise: Promise[Boolean])
-}
-
 package report {
   case class Cheater(userId: String, text: String)
   case class Shutup(userId: String, text: String, major: Boolean)

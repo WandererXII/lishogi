@@ -526,7 +526,7 @@ You received this because you are subscribed to messages of the team $url."""
       me: UserModel,
   )(a: => Fu[A])(implicit ctx: Context): Fu[Result] =
     api.countCreatedRecently(me) flatMap { count =>
-      if (count > 10 || (count > 3 && !Granter(_.Teacher)(me) && !Granter(_.ManageTeam)(me)))
+      if (count > 10 || (count > 3 && !Granter(_.ManageTeam)(me)))
         Forbidden(views.html.site.message.teamCreateLimit).fuccess
       else a
     }

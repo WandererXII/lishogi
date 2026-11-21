@@ -94,7 +94,6 @@ final class LilaComponents(ctx: ApplicationLoader.Context)
   lazy val challenge: Challenge           = wire[Challenge]
   lazy val chatroom: Chatroom             = wire[Chatroom]
   lazy val coach: Coach                   = wire[Coach]
-  lazy val clas: Clas                     = wire[Clas]
   lazy val coordinate: Coordinate         = wire[Coordinate]
   lazy val dasher: Dasher                 = wire[Dasher]
   lazy val dev: Dev                       = wire[Dev]

@@ -51,10 +51,10 @@ final class Env(
 
   private val playerColl = CollName("tournament_player")
 
-  lazy val tournamentRepo  = new TournamentRepo(db(CollName("tournament2")), playerColl)
-  lazy val pairingRepo     = new PairingRepo(db(CollName("tournament_pairing")))
-  lazy val arrangementRepo = new ArrangementRepo(db(CollName("tournament_arrangement")))
-  lazy val playerRepo      = new PlayerRepo(db(playerColl))
+  lazy val tournamentRepo          = new TournamentRepo(db(CollName("tournament2")), playerColl)
+  lazy val pairingRepo             = new PairingRepo(db(CollName("tournament_pairing")))
+  lazy val arrangementRepo         = new ArrangementRepo(db(CollName("tournament_arrangement")))
+  lazy val playerRepo              = new PlayerRepo(db(playerColl))
   private lazy val leaderboardRepo = new LeaderboardRepo(db(CollName("tournament_leaderboard")))
 
   lazy val cached: Cached = wire[Cached]

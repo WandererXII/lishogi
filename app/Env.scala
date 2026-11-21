@@ -71,7 +71,6 @@ final class Env(
     val plan: lila.plan.Env,
     val event: lila.event.Env,
     val coach: lila.coach.Env,
-    val clas: lila.clas.Env,
     val activity: lila.activity.Env,
     val streamer: lila.streamer.Env,
     val oAuth: lila.oauth.Env,
@@ -246,7 +245,6 @@ final class EnvBoot(
   lazy val plan: lila.plan.Env               = wire[lila.plan.Env]
   lazy val event: lila.event.Env             = wire[lila.event.Env]
   lazy val coach: lila.coach.Env             = wire[lila.coach.Env]
-  lazy val clas: lila.clas.Env               = wire[lila.clas.Env]
   lazy val activity: lila.activity.Env       = wire[lila.activity.Env]
   lazy val streamer: lila.streamer.Env       = wire[lila.streamer.Env]
   lazy val oAuth: lila.oauth.Env             = wire[lila.oauth.Env]

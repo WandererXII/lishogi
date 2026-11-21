@@ -90,8 +90,6 @@ ${puts mkString "\n"}
       .exists() || Source.fromFile(file, "UTF-8").getLines.drop(1).next == "<resources></resources>"
   }
 
-  private def packageName(db: String) = if (db == "class") "clas" else db
-
   private def writeRegistry(destDir: File, locales: Iterable[String]) =
     printToFile(destDir / "Registry.scala") {
       val content = locales.map { locale =>

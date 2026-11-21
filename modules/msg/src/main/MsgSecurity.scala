@@ -6,7 +6,6 @@ import org.joda.time.DateTime
 
 import lila.common.Bus
 import lila.db.dsl._
-import lila.hub.actorApi.clas.IsTeacherOf
 import lila.hub.actorApi.report.AutoFlag
 import lila.hub.actorApi.team.IsLeaderOf
 import lila.memo.RateLimit
@@ -99,7 +98,7 @@ final private class MsgSecurity(
     ): Fu[Option[Verdict]] =
       if (unlimited) fuccess(none)
       else if (isNew) {
-        isLeaderOf(contacts) >>| isTeacherOf(contacts)
+        isLeaderOf(contacts)
       } map {
         case true => none
         case _ =>
@@ -135,10 +134,11 @@ final private class MsgSecurity(
     def post(contacts: User.Contacts, isNew: Boolean): Fu[Boolean] =
       fuccess(contacts.dest.id != User.lishogiId) >>& {
         fuccess(Granter.byRoles(_.ModMessage)(~contacts.orig.roles)) >>| {
-          !relationApi.fetchBlocks(contacts.dest.id, contacts.orig.id) >>&
-            (create(contacts) >>| reply(contacts)) >>&
-            chatPanic.allowed(contacts.orig.id, userRepo.byId) >>&
-            kidCheck(contacts, isNew)
+          kidCheck(contacts, isNew) ?? {
+            !relationApi.fetchBlocks(contacts.dest.id, contacts.orig.id) >>&
+              (create(contacts) >>| reply(contacts)) >>&
+              chatPanic.allowed(contacts.orig.id, userRepo.byId)
+          }
         }
       }
 
@@ -164,14 +164,9 @@ final private class MsgSecurity(
         ),
       )
 
-    private def kidCheck(contacts: User.Contacts, isNew: Boolean): Fu[Boolean] =
-      if (contacts.orig.isKid && isNew) isTeacherOf(contacts)
-      else if (!contacts.dest.isKid) fuTrue
-      else isTeacherOf(contacts)
+    private def kidCheck(contacts: User.Contacts, isNew: Boolean): Boolean =
+      !(contacts.orig.isKid && isNew) && !contacts.dest.isKid
   }
-
-  private def isTeacherOf(contacts: User.Contacts) =
-    Bus.ask[Boolean]("clas") { IsTeacherOf(contacts.orig.id, contacts.dest.id, _) }
 
   private def isLeaderOf(contacts: User.Contacts) =
     Bus.ask[Boolean]("teamIsLeaderOf") { IsLeaderOf(contacts.orig.id, contacts.dest.id, _) }

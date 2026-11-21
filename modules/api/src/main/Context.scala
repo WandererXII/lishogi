@@ -17,7 +17,6 @@ case class PageData(
     pref: Pref,
     blindMode: Boolean,
     hasFingerprint: Boolean,
-    hasClas: Boolean,
     inquiry: Option[lila.mod.Inquiry],
     nonce: Option[Nonce],
     error: Boolean = false,
@@ -33,7 +32,6 @@ object PageData {
       lila.pref.RequestPref fromRequest req,
       blindMode = blindMode,
       hasFingerprint = false,
-      hasClas = false,
       inquiry = none,
       nonce = nonce,
     )
@@ -57,8 +55,7 @@ sealed trait Context extends lila.user.UserContextWrapper {
   def blind           = pageData.blindMode
   def noBlind         = !blind
   def nonce           = pageData.nonce
-  def hasClas         = pageData.hasClas
-  def hasInbox        = me.exists(u => !u.kid || hasClas)
+  def hasInbox        = me.exists(!_.kid)
 
   def currentTheme = lila.pref.Theme(pref.theme)
 
