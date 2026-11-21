@@ -68,8 +68,8 @@ export async function font(rootDir: string, outDir: string): Promise<void> {
     }
     tsLines.push('} as const;\n');
     const tsWritten = await writeIfChanged(tsExportPath, tsLines.join('\n'));
-    if (tsWritten) console.log(`SCSS - Wrote ${tsExportPath}`);
-    console.log(`TS - Wrote ${tsExportPath}`);
+    if (tsWritten) console.log(`TS - Wrote ${tsExportPath}`);
+    else console.log(`TS - File ${tsExportPath} unchanged`);
 
     // SCSS export
     const scssLines = ['// Auto-generated file\n'];
