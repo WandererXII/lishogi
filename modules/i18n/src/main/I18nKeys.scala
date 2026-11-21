@@ -1875,6 +1875,7 @@ object I18nKeys {
     val `preferences` = new I18nKey("preferences:preferences")
     val `gameDisplay` = new I18nKey("preferences:gameDisplay")
     val `boardLayout` = new I18nKey("preferences:boardLayout")
+    val `defaultBoardLayout` = new I18nKey("preferences:defaultBoardLayout")
     val `clearHands` = new I18nKey("preferences:clearHands")
     val `handsBackground` = new I18nKey("preferences:handsBackground")
     val `pieceAnimation` = new I18nKey("preferences:pieceAnimation")
