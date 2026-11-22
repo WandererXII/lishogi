@@ -13,7 +13,7 @@ import lila.user.User
 private class ModConfig(
     @ConfigName("actor.name") val actorName: String,
     @ConfigName("boosting.nb_games_to_mark") val boostingNbGamesToMark: Int,
-    @ConfigName("boosting.ratio_games_to_mark") val boostingRatioToMark: Int,
+    @ConfigName("boosting.ratio_games_to_mark") val boostingRatioToMark: Double,
 )
 
 @Module
