@@ -32,13 +32,12 @@ final class Signup(
   sealed abstract private class MustConfirmEmail(val value: Boolean)
   private object MustConfirmEmail {
 
-    case object Nope                   extends MustConfirmEmail(false)
-    case object YesBecausePrintExists  extends MustConfirmEmail(true)
-    case object YesBecausePrintMissing extends MustConfirmEmail(true)
-    case object YesBecauseIpExists     extends MustConfirmEmail(true)
-    case object YesBecauseIpSusp       extends MustConfirmEmail(true)
-    case object YesBecauseMobile       extends MustConfirmEmail(true)
-    case object YesBecauseUA           extends MustConfirmEmail(true)
+    case object Nope                  extends MustConfirmEmail(false)
+    case object YesBecausePrintExists extends MustConfirmEmail(true)
+    case object YesBecauseIpExists    extends MustConfirmEmail(true)
+    case object YesBecauseIpSusp      extends MustConfirmEmail(true)
+    case object YesBecauseMobile      extends MustConfirmEmail(true)
+    case object YesBecauseUA          extends MustConfirmEmail(true)
 
     def apply(print: Option[FingerPrint])(implicit req: RequestHeader): Fu[MustConfirmEmail] = {
       val ip = HTTPRequest lastRemoteAddress req
@@ -46,12 +45,10 @@ final class Signup(
         if (ipExists) fuccess(YesBecauseIpExists)
         else if (HTTPRequest weirdUA req) fuccess(YesBecauseUA)
         else
-          print.fold[Fu[MustConfirmEmail]](fuccess(YesBecausePrintMissing)) { fp =>
-            store.recentByPrintExists(fp) map { printFound =>
-              if (printFound) YesBecausePrintExists
-              else if (ipTrust.isSuspicious(ip)) YesBecauseIpSusp
-              else Nope
-            }
+          print.fold(fuFalse)(store.recentByPrintExists) map { printFound =>
+            if (printFound) YesBecausePrintExists
+            else if (ipTrust.isSuspicious(ip)) YesBecauseIpSusp
+            else Nope
           }
       }
     }
