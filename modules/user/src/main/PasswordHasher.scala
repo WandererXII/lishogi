@@ -110,8 +110,8 @@ object PasswordHasher {
     if (enforce.value) {
       val cost = 1
       val ip   = HTTPRequest lastRemoteAddress req
-      rateLimitPerUser(User normalize username, cost = cost) {
-        rateLimitPerIP.chargeable(ip, cost = cost) { charge =>
+      rateLimitPerIP.chargeable(ip, cost = cost) { charge =>
+        rateLimitPerUser(User normalize username, cost = cost) {
           rateLimitGlobal("-", cost = cost, msg = ip.value) {
             run(charge)
           }(default)

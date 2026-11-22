@@ -329,20 +329,21 @@ final class Auth(
             forms.anyCaptcha map { captcha =>
               BadRequest(html.auth.bits.passwordReset(err, captcha, false.some))
             },
-          data => {
-            env.user.repo.enabledWithEmail(data.realEmail.normalize) flatMap {
-              case Some((user, storedEmail)) => {
-                lila.mon.user.auth.passwordResetRequest("success").increment()
-                env.security.passwordReset.send(user, storedEmail) inject Redirect(
-                  routes.Auth.passwordResetSent(storedEmail.conceal),
-                )
+          data =>
+            PasswordResetRateLimit(data.realEmail, ctx.req) {
+              env.user.repo.enabledWithEmail(data.realEmail.normalize) flatMap {
+                case Some((user, storedEmail)) => {
+                  lila.mon.user.auth.passwordResetRequest("success").increment()
+                  env.security.passwordReset.send(user, storedEmail) inject Redirect(
+                    routes.Auth.passwordResetSent(storedEmail.conceal),
+                  )
+                }
+                case _ => {
+                  lila.mon.user.auth.passwordResetRequest("noEmail").increment()
+                  fuccess(Redirect(routes.Auth.passwordResetSent(data.realEmail.conceal)))
+                }
               }
-              case _ => {
-                lila.mon.user.auth.passwordResetRequest("noEmail").increment()
-                fuccess(Redirect(routes.Auth.passwordResetSent(data.realEmail.conceal)))
-              }
-            }
-          },
+            }(rateLimitedFu),
         )
     }
 
@@ -484,6 +485,8 @@ final class Auth(
   private[controllers] def EmailConfirmRateLimit = lila.security.EmailConfirm.rateLimit[Result] _
 
   private[controllers] def MagicLinkRateLimit = lila.security.MagicLink.rateLimit[Result] _
+
+  private def PasswordResetRateLimit = lila.security.PasswordReset.rateLimit[Result] _
 
   private[controllers] def RedirectToProfileIfLoggedIn(
       f: => Fu[Result],

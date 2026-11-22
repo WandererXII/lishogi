@@ -19,7 +19,7 @@ class StringTest extends Specification {
         s"""link to <a rel="nofollow noopener noreferrer" href="$url" target="_blank">$url</a> here<br>"""
       }
 
-      String.html.richText(s"link\n", false) must_== raw("link\n")
+      String.html.richText(s"link\n", nl2br = false) must_== raw("link\n")
     }
 
     "escape chars" in {

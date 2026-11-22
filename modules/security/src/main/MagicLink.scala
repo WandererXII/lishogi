@@ -63,27 +63,27 @@ object MagicLink {
   private lazy val rateLimitPerIP = new RateLimit[IpAddress](
     credits = 5,
     duration = 1 hour,
-    key = "email.confirms.ip",
+    key = "magic.link.ip",
   )
 
   private lazy val rateLimitPerUser = new RateLimit[String](
     credits = 3,
     duration = 1 hour,
-    key = "email.confirms.user",
+    key = "magic.link.user",
   )
 
   private lazy val rateLimitPerEmail = new RateLimit[String](
     credits = 3,
     duration = 1 hour,
-    key = "email.confirms.email",
+    key = "magic.link.email",
   )
 
   def rateLimit[A](user: User, email: EmailAddress, req: RequestHeader)(
       run: => Fu[A],
   )(default: => Fu[A]): Fu[A] =
-    rateLimitPerUser(user.id, cost = 1) {
-      rateLimitPerEmail(email.value, cost = 1) {
-        rateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = 1) {
+    rateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = 1) {
+      rateLimitPerUser(user.id, cost = 1) {
+        rateLimitPerEmail(email.value, cost = 1) {
           run
         }(default)
       }(default)

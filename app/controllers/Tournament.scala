@@ -221,28 +221,37 @@ final class Tournament(
       }
     }
 
+  private val JoinWithPasswordLimitPerUser = new lila.memo.RateLimit[UserModel.ID](
+    credits = 10,
+    duration = 10.minutes,
+    key = "tournament.join.password",
+    enforce = env.net.rateLimit.value,
+  )
+
   def join(id: String) =
     AuthBody(parse.json) { implicit ctx => implicit me =>
       NoLameOrBot {
         NoPlayban {
           val password = ctx.body.body.\("p").asOpt[String]
           val teamId   = ctx.body.body.\("team").asOpt[String]
-          teamId
-            .?? {
-              env.team.cached.isLeader(_, me.id)
-            }
-            .flatMap { isLeader =>
-              api.joinWithResult(id, me, password, teamId, getUserTeamIds, isLeader) flatMap {
-                result =>
-                  negotiate(
-                    html = Redirect(routes.Tournament.show(id)).fuccess,
-                    json = fuccess {
-                      if (result) jsonOkResult
-                      else BadRequest(Json.obj("joined" -> false))
-                    },
-                  )
+          JoinWithPasswordLimitPerUser(me.id, cost = password.isDefined ?? 1) {
+            teamId
+              .?? {
+                env.team.cached.isLeader(_, me.id)
               }
-            }
+              .flatMap { isLeader =>
+                api.joinWithResult(id, me, password, teamId, getUserTeamIds, isLeader) flatMap {
+                  result =>
+                    negotiate(
+                      html = Redirect(routes.Tournament.show(id)).fuccess,
+                      json = fuccess {
+                        if (result) jsonOkResult
+                        else BadRequest(Json.obj("joined" -> false))
+                      },
+                    )
+                }
+              }
+          }(TooManyRequests(jsonError("Too many attempts, try again later.")).fuccess)
         }
       }
     }

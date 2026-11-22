@@ -1,6 +1,7 @@
 package controllers
 
 import scala.annotation.nowarn
+import scala.concurrent.duration._
 
 import play.api.libs.json._
 import play.api.mvc._
@@ -8,6 +9,8 @@ import views.html
 
 import lila.api.Context
 import lila.app._
+import lila.common.HTTPRequest
+import lila.common.IpAddress
 import lila.user.TotpSecret
 import lila.user.{ User => UserModel }
 
@@ -192,6 +195,13 @@ final class Account(
       }
     }
 
+  private val EmailConfirmHelpRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
+    credits = 10,
+    duration = 10.minutes,
+    key = "email.confirm.help.ip",
+    enforce = env.net.rateLimit.value,
+  )
+
   def emailConfirmHelp =
     OpenBody { implicit ctx =>
       import lila.security.EmailConfirm.Help._
@@ -207,9 +217,11 @@ final class Account(
             .fold(
               err => BadRequest(html.account.emailConfirmHelp(err, none)).fuccess,
               username =>
-                getStatus(env.user.repo, username) map { status =>
-                  Ok(html.account.emailConfirmHelp(helpForm fill username, status.some))
-                },
+                EmailConfirmHelpRateLimitPerIP(HTTPRequest lastRemoteAddress ctx.req) {
+                  getStatus(env.user.repo, username) map { status =>
+                    Ok(html.account.emailConfirmHelp(helpForm fill username, status.some))
+                  }
+                }(rateLimitedFu),
             )
       }
     }
@@ -269,16 +281,18 @@ final class Account(
 
   def closeConfirm =
     AuthBody { implicit ctx => me =>
-      implicit val req = ctx.body
-      env.security.forms closeAccount me flatMap { form =>
-        FormFuResult(form) { err =>
-          fuccess(html.account.close(me, err))
-        } { _ =>
-          env.closeAccount(me.id, self = true) inject {
-            Redirect(routes.User show me.username) withCookies env.lilaCookie.newSession
+      auth.HasherRateLimit(me.username, ctx.req) { _ =>
+        implicit val req = ctx.body
+        env.security.forms closeAccount me flatMap { form =>
+          FormFuResult(form) { err =>
+            fuccess(html.account.close(me, err))
+          } { _ =>
+            env.closeAccount(me.id, self = true) inject {
+              Redirect(routes.User show me.username) withCookies env.lilaCookie.newSession
+            }
           }
         }
-      }
+      }(rateLimitedFu)
     }
 
   def kid =
@@ -294,24 +308,26 @@ final class Account(
 
   def kidPost =
     AuthBody { implicit ctx => me =>
-      implicit val req = ctx.body
-      env.security.forms toggleKid me flatMap { form =>
-        form
-          .bindFromRequest()
-          .fold(
-            err =>
-              negotiate(
-                html = BadRequest(html.account.kid(me, err)).fuccess,
-                json = BadRequest(errorsAsJson(err)).fuccess,
-              ),
-            _ =>
-              env.user.repo.setKid(me, getBool("v")) >>
+      auth.HasherRateLimit(me.username, ctx.req) { _ =>
+        implicit val req = ctx.body
+        env.security.forms toggleKid me flatMap { form =>
+          form
+            .bindFromRequest()
+            .fold(
+              err =>
                 negotiate(
-                  html = Redirect(routes.Account.kid).flashSuccess.fuccess,
-                  json = jsonOkResult.fuccess,
+                  html = BadRequest(html.account.kid(me, err)).fuccess,
+                  json = BadRequest(errorsAsJson(err)).fuccess,
                 ),
-          )
-      }
+              _ =>
+                env.user.repo.setKid(me, getBool("v")) >>
+                  negotiate(
+                    html = Redirect(routes.Account.kid).flashSuccess.fuccess,
+                    json = jsonOkResult.fuccess,
+                  ),
+            )
+        }
+      }(rateLimitedFu)
     }
 
   def apiKidPost =

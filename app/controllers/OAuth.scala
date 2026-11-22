@@ -1,5 +1,7 @@
 package controllers
 
+import scala.concurrent.duration._
+
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.libs.json.Json
@@ -12,6 +14,7 @@ import scalatags.Text.all.stringFrag
 import lila.api.Context
 import lila.app._
 import lila.common.HTTPRequest
+import lila.common.IpAddress
 import lila.oauth.AccessTokenRequest
 import lila.oauth.AuthorizationRequest
 
@@ -71,26 +74,35 @@ final class OAuth(env: Env) extends LilaController(env) {
     )(AccessTokenRequest.Raw.apply)(AccessTokenRequest.Raw.unapply),
   )
 
+  private val TokenApplyRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
+    credits = 60,
+    duration = 10.minutes,
+    key = "oauth.token.ip",
+    enforce = env.net.rateLimit.value,
+  )
+
   def tokenApply =
     Action.async(parse.form(accessTokenRequestForm)) { implicit req =>
-      req.body.prepare match {
-        case Validated.Valid(prepared) =>
-          env.oAuth.authorizationApi.consume(prepared) flatMap {
-            case Validated.Valid(granted) =>
-              env.oAuth.tokenApi.create(granted) map { token =>
-                Ok(
-                  Json
-                    .obj(
-                      "token_type"   -> "Bearer",
-                      "access_token" -> token.plain.secret,
-                    )
-                    .add("expires_in" -> token.expires.map(_.getSeconds - nowSeconds)),
-                )
-              }
-            case Validated.Invalid(err) => BadRequest(err.toJson).fuccess
-          }
-        case Validated.Invalid(err) => BadRequest(err.toJson).fuccess
-      }
+      TokenApplyRateLimitPerIP(HTTPRequest lastRemoteAddress req) {
+        req.body.prepare match {
+          case Validated.Valid(prepared) =>
+            env.oAuth.authorizationApi.consume(prepared) flatMap {
+              case Validated.Valid(granted) =>
+                env.oAuth.tokenApi.create(granted) map { token =>
+                  Ok(
+                    Json
+                      .obj(
+                        "token_type"   -> "Bearer",
+                        "access_token" -> token.plain.secret,
+                      )
+                      .add("expires_in" -> token.expires.map(_.getSeconds - nowSeconds)),
+                  )
+                }
+              case Validated.Invalid(err) => BadRequest(err.toJson).fuccess
+            }
+          case Validated.Invalid(err) => BadRequest(err.toJson).fuccess
+        }
+      }(rateLimitedFu)
     }
 
   def tokenRevoke =
