@@ -1094,4 +1094,6 @@
 	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Elixe un arquivo ou arrástrao aquí</string>
 	<string name="profilePicture" comment="For streamers and coaches">Fotografía</string>
 	<string name="documentation" comment="Shown in top menu as a link">Documentación</string>
+	<string name="lishogiUsername">Lishogi username</string>
+	<string name="nothingHere">Nothing here, yet.</string>
 </resources>
