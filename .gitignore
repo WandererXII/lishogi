@@ -33,3 +33,7 @@ hs_*.log
 
 /bin/db/
 /ui/@build/**/_*
+
+# ai agents
+.claude/
+.scratch/
