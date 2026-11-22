@@ -12,7 +12,7 @@
       "types": "./src/interfaces.ts"
     },
     "./*": {
-      "sass": "./css/_*.scss"
+      "sass": "./style/_*.scss"
     }
   },
   "dependencies": {

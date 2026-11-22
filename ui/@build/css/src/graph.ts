@@ -68,13 +68,13 @@ function initGraph(rootDir: string): SassGraph {
 function localPkgSchemeResolver(rootDir: string): (importPath: string) => string | false {
   return (importPath: string) => {
     if (importPath.startsWith('ui/'))
-      importPath = importPath.replace(/^ui\/([^/]+)\/css\/(.+)$/, 'ui/$1/$2');
+      importPath = importPath.replace(/^ui\/([^/]+)\/style\/(.+)$/, 'ui/$1/$2');
     const match = importPath.match(/^(?:pkg:|ui\/)([^/]+)\/(.+)$/);
 
     if (match) {
       const packageName = match[1];
       let restOfPath = match[2];
-      const basePath = path.join(rootDir, 'ui', packageName, 'css');
+      const basePath = path.join(rootDir, 'ui', packageName, 'style');
 
       if (restOfPath === 'theme') restOfPath = 'theme/generated/theme';
 

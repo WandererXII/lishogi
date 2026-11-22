@@ -3,11 +3,11 @@
 @use 'pkg:common/abstract/uniboard';
 @use 'pkg:common/abstract/variables';
 @use 'pkg:common/theme';
-@use 'ui/editor/css/actions';
-@use 'ui/editor/css/links';
-@use 'ui/editor/css/spare';
-@use 'ui/editor/css/underboard';
-@use 'ui/editor/css/variant';
+@use 'ui/editor/style/actions';
+@use 'ui/editor/style/links';
+@use 'ui/editor/style/spare';
+@use 'ui/editor/style/underboard';
+@use 'ui/editor/style/variant';
 @use '../local';
 
 .board-editor-wrap {

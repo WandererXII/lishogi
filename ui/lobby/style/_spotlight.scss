@@ -1,7 +1,7 @@
 @use 'pkg:common/abstract/extends';
 @use 'pkg:common/abstract/mixins';
 @use 'pkg:common/theme';
-@use 'ui/tournament/css/icons';
+@use 'ui/tournament/style/icons';
 
 .lobby__spotlights {
   flex: 0 0 auto;

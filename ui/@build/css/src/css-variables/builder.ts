@@ -19,14 +19,14 @@ export async function createCssVariableBuilder(
 ): Promise<CssVariableBuilder> {
   const themeDir = path.join(
     pkgs.find(p => p.manifest.name === 'common')!.rootDirRealPath,
-    'css/theme',
+    'style/theme',
   );
   const outDir = path.join(themeDir, 'generated');
 
   await fs.rm(outDir, { recursive: true, force: true });
   await fs.mkdir(outDir, { recursive: true });
 
-  const allFiles = await glob(pkgs.map(p => path.join(p.rootDirRealPath, '/css/**/*.scss')));
+  const allFiles = await glob(pkgs.map(p => path.join(p.rootDirRealPath, '/style/**/*.scss')));
   const extractedByFile = new Map<string, Set<string>>();
   for (const f of allFiles.filter(f => !f.includes(outDir))) {
     extractedByFile.set(f, await extractFromFile(f));

@@ -5,36 +5,36 @@
   "type": "module",
   "exports": {
     "./abstract/*": {
-      "sass": "./css/abstract/_*.scss"
+      "sass": "./style/abstract/_*.scss"
     },
     "./base/*": {
-      "sass": "./css/base/_*.scss"
+      "sass": "./style/base/_*.scss"
     },
     "./component/*": {
-      "sass": "./css/component/_*.scss"
+      "sass": "./style/component/_*.scss"
     },
     "./form/*": {
-      "sass": "./css/form/_*.scss"
+      "sass": "./style/form/_*.scss"
     },
     "./header/*": {
-      "sass": "./css/header/_*.scss"
+      "sass": "./style/header/_*.scss"
     },
     "./layout/*": {
-      "sass": "./css/layout/_*.scss"
+      "sass": "./style/layout/_*.scss"
     },
     "./shogiground/*": {
-      "sass": "./css/shogiground/_*.scss"
+      "sass": "./style/shogiground/_*.scss"
     },
     "./vendor/*": {
-      "sass": "./css/vendor/_*.scss"
+      "sass": "./style/vendor/_*.scss"
     },
     "./theme": {
-      "sass": "./css/theme/generated/_theme.scss"
+      "sass": "./style/theme/generated/_theme.scss"
     },
     "./*": {
       "types": "./src/*.ts",
       "import": "./src/*.ts",
-      "sass": "./css/_*.scss"
+      "sass": "./style/_*.scss"
     }
   },
   "dependencies": {

@@ -7,7 +7,7 @@
     "./*": {
       "types": "./src/*.ts",
       "import": "./src/*.ts",
-      "sass": "./css/_*.scss"
+      "sass": "./style/_*.scss"
     }
   },
   "dependencies": {

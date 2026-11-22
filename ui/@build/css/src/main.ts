@@ -19,7 +19,7 @@ await workspaceBuildConductor('css', async (rootDir: string, pkgs: Project[], ou
   return {
     all: async () => {
       const buildFiles = (
-        await glob(pkgs.map(p => path.join(p.rootDirRealPath, '/**/css/build/*.scss')))
+        await glob(pkgs.map(p => path.join(p.rootDirRealPath, '/**/style/build/*.scss')))
       ).filter(buildFilesFilter);
 
       await cssVariableBuilder.build();
@@ -44,7 +44,7 @@ await workspaceBuildConductor('css', async (rootDir: string, pkgs: Project[], ou
           rebuildVars = (await cssVariableBuilder.update(filepath)) || rebuildVars;
       }
       if (rebuildVars) {
-        const themeFiles = (await glob(path.join(rootDir, '/**/common/css/build/*.scss'))).filter(
+        const themeFiles = (await glob(path.join(rootDir, '/**/common/style/build/*.scss'))).filter(
           buildFilesFilter,
         );
         console.log('Rebuilding theme files');
@@ -67,6 +67,6 @@ await workspaceBuildConductor('css', async (rootDir: string, pkgs: Project[], ou
     stop: async () => {
       await builder.stop();
     },
-    watchPaths: ['css'],
+    watchPaths: ['style'],
   };
 });

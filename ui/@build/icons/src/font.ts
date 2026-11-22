@@ -34,7 +34,7 @@ export async function font(rootDir: string, outDir: string): Promise<void> {
   const codepointsFile = path.join(import.meta.dirname, '../codepoints.json');
 
   const tsExportPath = path.join(rootDir, 'ui/common/src/icons.ts');
-  const scssExportPath = path.join(rootDir, 'ui/common/css/abstract/_icons.scss');
+  const scssExportPath = path.join(rootDir, 'ui/common/style/abstract/_icons.scss');
 
   await mkdir(outDir, { recursive: true });
 

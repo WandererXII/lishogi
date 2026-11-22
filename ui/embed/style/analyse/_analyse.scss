@@ -1,7 +1,7 @@
 @use 'pkg:common/abstract/extends';
 @use 'pkg:common/base/form';
-@use 'ui/analyse/css/tools';
-@use 'ui/analyse/css/action-menu';
+@use 'ui/analyse/style/tools';
+@use 'ui/analyse/style/action-menu';
 @use 'pkg:common/theme';
 @use 'layout';
 @use 'footer';
