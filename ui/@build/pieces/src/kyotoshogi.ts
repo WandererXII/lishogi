@@ -118,6 +118,7 @@ function extraCss(pieceSet: PieceSet): string {
 export function kyotoshogi(sourceDir: string, destDir: string): void {
   const pieceSets = categorizePieceSets(sourceDir);
   const roles = Object.keys(roleDict);
+  const rolesWithoutTama = roles.filter(role => roleDict[role] !== 'tama');
 
   for (const pieceSet of pieceSets.regular) {
     const cssClasses = colors.flatMap(color =>
@@ -140,7 +141,7 @@ export function kyotoshogi(sourceDir: string, destDir: string): void {
     const cssClasses = ['-1', '']
       .flatMap(up =>
         colors.flatMap(color =>
-          roles.map(role => {
+          rolesWithoutTama.map(role => {
             const piece = `${color === 'sente' ? '0' : '1'}${role}${up}`;
             const file = path.join(sourceDir, pieceSet.name, `${piece}.${pieceSet.ext}`);
             const base64 = readImageAsBase64(file);
