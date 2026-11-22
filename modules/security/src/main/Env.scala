@@ -93,7 +93,7 @@ final class Env(
 
   lazy val magicLink = {
     def mk = (s: Secret) => wire[MagicLink]
-    mk(config.passwordResetSecret)
+    mk(config.loginTokenSecret)
   }
 
   lazy val reopen = {

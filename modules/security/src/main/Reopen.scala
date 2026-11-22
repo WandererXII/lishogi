@@ -47,9 +47,9 @@ final class Reopen(
               case Some(prevEmail) if !email.similarTo(prevEmail) =>
                 fuccess(Left("differentEmail" -> "That account has a different email address."))
               case _ =>
-                hasModClose(user.id).map(_ || user.marks.alt) map {
-                  case true => Left("nope" -> "Sorry, that account can no longer be reopened.")
-                  case _    => Right(user)
+                canReopen(user, hasModClose) map {
+                  case false => Left("nope" -> "Sorry, that account can no longer be reopened.")
+                  case _     => Right(user)
                 }
             }
         }
@@ -79,12 +79,19 @@ ${Mailgun.txt.serviceNote}
       )
     }
 
-  def confirm(token: String): Fu[Option[User]] =
+  def confirm(token: String, hasModClose: User.ID => Fu[Boolean]): Fu[Option[User]] =
     tokener read token flatMap { _ ?? userRepo.disabledById } flatMap {
       _ ?? { user =>
-        userRepo reopen user.id inject user.some
+        canReopen(user, hasModClose) flatMap {
+          case true => userRepo reopen user.id inject user.some
+          case _    => fuccess(none)
+        }
       }
     }
+
+  private def canReopen(user: User, hasModClose: User.ID => Fu[Boolean]): Fu[Boolean] =
+    if (user.marks.alt) fuFalse
+    else hasModClose(user.id) map (!_)
 
   private val tokener = LoginToken.makeTokener(tokenerSecret, 20 minutes)
 }
