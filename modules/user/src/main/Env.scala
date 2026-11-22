@@ -1,7 +1,5 @@
 package lila.user
 
-import scala.concurrent.duration._
-
 import play.api.Configuration
 
 import akka.actor._
@@ -12,7 +10,6 @@ import lila.common.config._
 import lila.db.dsl.Coll
 
 private class UserConfig(
-    @ConfigName("online.ttl") val onlineTtl: FiniteDuration,
     @ConfigName("password.bpass.secret") val passwordBPassSecret: Secret,
 )
 

@@ -79,11 +79,6 @@ final class Team(
       isGranted(_.ChatTimeout)
     }
 
-  def legacyUsers(teamId: String) =
-    Action {
-      MovedPermanently(routes.Team.users(teamId).url)
-    }
-
   def users(teamId: String) =
     Action.async { implicit req =>
       api.team(teamId) flatMap {

@@ -32,7 +32,6 @@ private object SecurityConfig {
   case class EmailConfirm(
       enabled: Boolean,
       secret: Secret,
-      cookie: String,
   )
   implicit val emailConfirmLoader: ConfigLoader[EmailConfirm] = AutoConfig.loader[EmailConfirm]
 

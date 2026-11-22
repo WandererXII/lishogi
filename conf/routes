@@ -20,7 +20,6 @@ GET   /games/export/:username          controllers.Game.exportByUser(username: S
 GET   /tv                              controllers.Tv.index
 GET   /tv/frame                        controllers.Tv.frame
 GET   /tv/feed                         controllers.Tv.feed
-GET   /tv/channels                     controllers.Main.movedPermanently(to: String = "/api/tv/channels")
 GET   /tv/:chanKey                     controllers.Tv.onChannel(chanKey: String)
 GET   /tv/$gameId<\w{8}>/$color<sente|gote>/sides controllers.Tv.sides(gameId: String, color: String)
 GET   /games                           controllers.Tv.games
@@ -311,7 +310,6 @@ GET   /team/:id/leaders                       controllers.Team.leadersForm(id: S
 POST  /team/:id/leaders                       controllers.Team.leaders(id: String)
 POST  /team/:id/close                         controllers.Team.close(id: String)
 POST  /team/:id/disable                       controllers.Team.disable(id: String)
-GET   /team/:id/users                         controllers.Team.legacyUsers(id: String)
 GET   /team/:id/tournaments                   controllers.Team.tournaments(id: String)
 GET   /team/:id/pm-all                        controllers.Team.pmAll(id: String)
 POST  /team/:id/pm-all                        controllers.Team.pmAllSubmit(id: String)
@@ -329,7 +327,6 @@ POST  /$gameId<\w{8}>/request-analysis        controllers.Analyse.requestAnalysi
 
 GET   /game/export/$gameId<\w{8}>                             controllers.Game.exportOne(gameId: String)
 GET   /game/export/$gameId<\w{8}>.kif                         controllers.Game.exportOne(gameId: String)
-GET   /game/export/png/$gameId<\w{8}>.png                     controllers.Export.legacyGameThumbnail(gameId: String)
 GET   /game/export/gif/thumbnail/$gameId<\w{8}>.gif           controllers.Export.gameThumbnail(gameId: String)
 GET   /game/export/gif/$gameId<\w{8}>.gif                     controllers.Export.gif(gameId: String, color: String = "sente")
 GET   /game/export/gif/$color<sente|gote>/$gameId<\w{8}>.gif controllers.Export.gif(gameId: String, color: String)
@@ -432,7 +429,6 @@ GET   /mod/print/:fh                   controllers.Mod.print(fh: String)
 POST  /mod/print/ban/:v/:fh            controllers.Mod.printBan(v: Boolean, fh: String)
 GET   /mod/ip/:ip                      controllers.Mod.singleIp(ip: String)
 POST  /mod/ip/ban/:v/:ip               controllers.Mod.singleIpBan(v: Boolean, ip: String)
-GET   /api/stream/mod                  controllers.Mod.eventStream
 
 # Bookmark
 POST  /bookmark/$gameId<\w{8}>     controllers.Bookmark.toggle(gameId: String)
@@ -512,7 +508,6 @@ GET    /stat/rating/distribution/:perf controllers.Stat.ratingDistribution(perf:
 # API
 GET   /api                             controllers.Api.index
 POST  /api/users                       controllers.Api.usersByIds
-GET   /api/user/puzzle-activity        controllers.Puzzle.activity
 GET   /api/puzzle/daily                controllers.Puzzle.apiDaily
 GET   /api/puzzle/activity             controllers.Puzzle.activity
 GET   /api/puzzle/dashboard/:days      controllers.Puzzle.apiDashboard(days: Int)

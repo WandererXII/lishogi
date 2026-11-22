@@ -77,8 +77,6 @@ final class Env(
 
   lazy val inquiryApi = wire[InquiryApi]
 
-  lazy val stream = wire[ModStream]
-
   // api actor
   lila.common.Bus.subscribe(
     system.actorOf(

@@ -452,11 +452,6 @@ final class Mod(
       fuccess(().some)
     }(_ => _ => _ => Redirect(routes.Mod.chatPanic).fuccess)
 
-  def eventStream =
-    OAuthSecure(_.Admin) { _ => _ =>
-      noProxyBuffer(Ok.chunked(env.mod.stream())).fuccess
-    }
-
   private def withSuspect[A](username: String)(f: Suspect => Fu[A])(implicit zero: Zero[A]): Fu[A] =
     env.report.api getSuspect username flatMap {
       _ ?? f

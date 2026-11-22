@@ -2,14 +2,10 @@ package lila.security
 
 import scala.concurrent.duration._
 
-import play.api.mvc.RequestHeader
-
 import org.joda.time.DateTime
 
 import lila.common.Bus
 import lila.common.EmailAddress
-import lila.common.HTTPRequest
-import lila.common.IpAddress
 import lila.common.ThreadLocalRandom
 import lila.user.User
 
@@ -28,17 +24,16 @@ final class GarbageCollector(
 
   private val done = new lila.memo.ExpireSetMemo(10 minutes)
 
-  private case class ApplyData(user: User, ip: IpAddress, email: EmailAddress, req: RequestHeader) {
-    override def toString = s"${user.username} $ip ${email.value} $req"
+  private case class ApplyData(user: User, email: EmailAddress) {
+    override def toString = s"${user.username} ${email.value}"
   }
 
   // User just signed up and doesn't have security data yet, so wait a bit
-  def delay(user: User, email: EmailAddress, req: RequestHeader): Unit =
+  def delay(user: User, email: EmailAddress): Unit =
     if (user.createdAt.isAfter(DateTime.now minusDays 3)) {
-      val ip = HTTPRequest lastRemoteAddress req
       system.scheduler
         .scheduleOnce(6 seconds) {
-          val applyData = ApplyData(user, ip, email, req)
+          val applyData = ApplyData(user, email)
           logger.debug(s"delay $applyData")
           lila.common.Future
             .retry(
@@ -61,17 +56,12 @@ final class GarbageCollector(
 
   private def apply(data: ApplyData): Funit =
     data match {
-      case ApplyData(user, ip, email, req) =>
+      case ApplyData(user, email) =>
         for {
           spy <- userSpy(user, 300)
-          ipSusp = ipTrust.isSuspicious(ip)
           _ <- {
             val printOpt = spy.prints.headOption
             logger.debug(s"apply ${data.user.username} print=$printOpt")
-            Bus.publish(
-              lila.security.UserSignup(user, email, req, printOpt.map(_.fp.value), ipSusp),
-              "userSignup",
-            )
             printOpt.filter(_.banned).map(_.fp.value) match {
               case Some(print) => collect(user, email, msg = s"Print ban: ${print.value}")
               case _ =>

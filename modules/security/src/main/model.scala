@@ -1,10 +1,7 @@
 package lila.security
 
-import play.api.mvc.RequestHeader
-
 import org.joda.time.DateTime
 
-import lila.common.EmailAddress
 import lila.common.IpAddress
 import lila.user.User
 
@@ -36,11 +33,3 @@ case class IpAndFp(ip: IpAddress, fp: Option[String], user: User.ID)
 case class RecaptchaPublicConfig(key: String, enabled: Boolean)
 
 case class LameNameCheck(value: Boolean) extends AnyVal
-
-case class UserSignup(
-    user: User,
-    email: EmailAddress,
-    req: RequestHeader,
-    fingerPrint: Option[FingerHash],
-    suspIp: Boolean,
-)

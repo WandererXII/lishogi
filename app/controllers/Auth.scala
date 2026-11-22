@@ -213,8 +213,8 @@ final class Auth(
     env.pref.api.saveNewUserPrefs(user, ctx.req)
   }
 
-  private def garbageCollect(user: UserModel, email: EmailAddress)(implicit ctx: Context) =
-    env.security.garbageCollector.delay(user, email, ctx.req)
+  private def garbageCollect(user: UserModel, email: EmailAddress) =
+    env.security.garbageCollector.delay(user, email)
 
   def checkYourEmail =
     Open { implicit ctx =>

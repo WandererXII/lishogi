@@ -43,11 +43,6 @@ final class Export(env: Env) extends LilaController(env) {
       }
     }
 
-  def legacyGameThumbnail(id: String) =
-    Action {
-      MovedPermanently(routes.Export.gameThumbnail(id).url)
-    }
-
   def gameThumbnail(id: String) =
     Open { implicit ctx =>
       ExportImageRateLimitGlobal("-", msg = HTTPRequest.lastRemoteAddress(ctx.req).value) {
