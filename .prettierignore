@@ -15,4 +15,5 @@ pnpm-lock.yaml
 
 # biome js
 /ui/**/src/**/*.ts
+/ui/@types/**/*.ts
 /bin/scripts/**/*.ts

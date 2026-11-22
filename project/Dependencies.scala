@@ -11,18 +11,18 @@ object Dependencies {
     val commons = Seq(lilaMaven)
   }
 
-  val autoconfig  = "io.methvin.play"       %% "autoconfig-macros"               % "0.3.2" % "provided"
-  val commonsText = "org.apache.commons"     % "commons-text"                    % "1.15.0"
-  val galimatias  = "io.mola.galimatias"     % "galimatias"                      % "0.2.2-NF"
-  val geoip       = "com.sanoma.cda"        %% "maxmind-geoip2-scala"            % "1.3.1-THIB"
-  val googleOAuth = "com.google.auth"        % "google-auth-library-oauth2-http" % "1.42.1"
-  val hasher      = "com.roundeights"       %% "hasher"                          % "1.2.1"
-  val jodaTime    = "joda-time"              % "joda-time"                       % "2.14.1"
-  val lettuce     = "io.lettuce"             % "lettuce-core"                    % "7.4.0.RELEASE"
-  val scaffeine   = "com.github.blemale"    %% "scaffeine"                       % "5.3.0" % "compile"
-  val scalatags   = "com.lihaoyi"           %% "scalatags"                       % "0.13.1"
-  val shogi       = "io.github.wandererxii" %% "scalashogi"                      % "14.0.0"
-  val uaparser    = "org.uaparser"          %% "uap-scala"                       % "0.21.0"
+  val autoconfig  = "io.methvin.play"    %% "autoconfig-macros"               % "0.3.2" % "provided"
+  val commonsText = "org.apache.commons"  % "commons-text"                    % "1.15.0"
+  val galimatias  = "io.mola.galimatias"  % "galimatias"                      % "0.2.2-NF"
+  val geoip       = "com.sanoma.cda"     %% "maxmind-geoip2-scala"            % "1.3.1-THIB"
+  val googleOAuth = "com.google.auth"     % "google-auth-library-oauth2-http" % "1.42.1"
+  val hasher      = "com.roundeights"    %% "hasher"                          % "1.2.1"
+  val jodaTime    = "joda-time"           % "joda-time"                       % "2.14.1"
+  val lettuce     = "io.lettuce"          % "lettuce-core"                    % "7.4.0.RELEASE"
+  val scaffeine   = "com.github.blemale" %% "scaffeine"                       % "5.3.0" % "compile"
+  val scalatags   = "com.lihaoyi"        %% "scalatags"                       % "0.13.1"
+  val shogi    = "io.github.wandererxii" %% "scalashogi" % "14.0.0"
+  val uaparser = "org.uaparser"          %% "uap-scala"  % "0.21.0"
 
   object play {
     import _root_.play.sbt.PlayImport

@@ -5,30 +5,36 @@ on:
     paths:
       - '.github/workflows/ui.yml'
       - 'ui/**'
+      - 'bin/**'
+      - 'patches/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
+      - 'biome.json'
+      - '.stylelintrc.json'
+      - '.prettierignore'
+      - '.editorconfig'
   pull_request:
     paths:
       - '.github/workflows/ui.yml'
       - 'ui/**'
+      - 'bin/**'
+      - 'patches/**'
       - 'package.json'
       - 'pnpm-lock.yaml'
       - 'pnpm-workspace.yaml'
+      - 'biome.json'
+      - '.stylelintrc.json'
+      - '.prettierignore'
+      - '.editorconfig'
 
 jobs:
   ui:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - name: Get PNPM version from package.json
-        id: pnpm-version
-        shell: bash
-        run: echo "pnpm_version=$(node -p 'require(`./package.json`).engines.pnpm')" >> $GITHUB_OUTPUT
-      - uses: pnpm/action-setup@v4
-        with:
-          version: ${{ steps.pnpm-version.outputs.pnpm_version }}
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
           node-version-file: package.json
           cache: 'pnpm'

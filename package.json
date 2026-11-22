@@ -12,9 +12,9 @@
     "url": "https://github.com/WandererXII/lishogi/issues"
   },
   "homepage": "https://lishogi.org",
+  "packageManager": "pnpm@12.8.1",
   "engines": {
-    "node": ">=22",
-    "pnpm": ">=10.26.0"
+    "node": ">=22"
   },
   "devDependencies": {
     "@biomejs/biome": "^2.5.15",
@@ -29,12 +29,11 @@
     "typescript": "^7.0.2"
   },
   "scripts": {
-    "preinstall": "npx only-allow pnpm",
     "ui:build": "pnpm run --parallel build",
     "ui:build:watch": "pnpm run --parallel build:watch",
-    "ui:lint": "biome check && stylelint **/*.scss --cache --ignore-path .gitignore",
-    "ui:lint:fix": "biome check --write && stylelint **/*.scss --cache --ignore-path .gitignore --fix",
-    "ui:type-check": "pnpm -F './ui/*' -F './ui/@build/*' exec sh -c 'pwd && tsc --noEmit'",
+    "ui:lint": "biome check && stylelint '**/*.scss' --cache --ignore-path .gitignore",
+    "ui:lint:fix": "biome check --write && stylelint '**/*.scss' --cache --ignore-path .gitignore --fix",
+    "ui:type-check": "pnpm -F './ui/*' -F './ui/@build/*' -F './bin' exec sh -c 'pwd && tsc --noEmit'",
     "ui:format": "biome format && prettier --cache --check .",
     "ui:format:fix": "biome format --write && prettier --cache --write .",
     "i18n:lint": "pnpm -F @bin/utils run trans:lint",
