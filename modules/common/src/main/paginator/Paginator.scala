@@ -85,11 +85,21 @@ object Paginator {
       currentPage: Int = 1,
       maxPerPage: MaxPerPage = MaxPerPage(10),
   )(implicit ec: scala.concurrent.ExecutionContext): Validated[String, Fu[Paginator[A]]] =
-    if (currentPage < 1) Validated.invalid("Max per page must be greater than zero")
-    else if (maxPerPage.value <= 0) Validated.invalid("Current page must be greater than zero")
+    if (currentPage < 1) Validated.invalid("Current page must be greater than zero")
+    else if (maxPerPage.value <= 0) Validated.invalid("Max per page must be greater than zero")
     else
       Validated.valid(for {
-        results   <- adapter.slice((currentPage - 1) * maxPerPage.value, maxPerPage.value)
+        results   <- sliceOf(adapter, currentPage, maxPerPage)
         nbResults <- adapter.nbResults
       } yield new Paginator(currentPage, maxPerPage, results, nbResults))
+
+  private[paginator] def sliceOf[A](
+      adapter: AdapterLike[A],
+      currentPage: Int,
+      maxPerPage: MaxPerPage,
+  ): Fu[Seq[A]] = {
+    val offset = (currentPage - 1).toLong * maxPerPage.value
+    if (offset > Int.MaxValue) fuccess(Nil)
+    else adapter.slice(offset.toInt, maxPerPage.value)
+  }
 }
