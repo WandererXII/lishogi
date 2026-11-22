@@ -77,9 +77,15 @@ object OAuthScope {
     Web.Login,
   )
 
-  val allButWeb = all.filterNot(_.key startsWith "web:")
+  def isWeb(scope: OAuthScope) = scope.key startsWith "web:"
+
+  val allButWeb = all.filterNot(isWeb)
 
   val byKey: Map[String, OAuthScope] = all.map { s =>
+    s.key -> s
+  } toMap
+
+  val grantableByKey: Map[String, OAuthScope] = allButWeb.map { s =>
     s.key -> s
   } toMap
 
