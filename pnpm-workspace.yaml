@@ -1,5 +1,6 @@
 packages:
-  - ui/**/*
+  - ui/*
+  - ui/@*/*
   - bin
 
 allowBuilds:
@@ -7,7 +8,7 @@ allowBuilds:
   ttf2woff2: false
 catalog:
   breakpoint-sass: github:WandererXII/breakpoint#4.1
-  shogiground: ^0.10.3
+  shogiground: ^0.11.0
   shogiops: ^0.22.0
   snabbdom: ^3.6.4
 
@@ -16,7 +17,6 @@ minimumReleaseAgeExclude:
   - shogiops
   - shogiground
   - breakpoint-sass
-  - '@typescript/native-preview*'
 
 patchedDependencies:
   '@toast-ui/editor': patches/@toast-ui__editor.patch
