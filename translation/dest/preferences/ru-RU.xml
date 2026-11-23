@@ -3,6 +3,7 @@
 	<string name="preferences">Настройки</string>
 	<string name="gameDisplay">Внешний вид</string>
 	<string name="boardLayout">Позиция доски и рук сброса</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Скрыть призраков фигур вне доски</string>
 	<string name="handsBackground">Фон рук сброса (компактная позиция)</string>
 	<string name="pieceAnimation">Анимация фигур</string>
