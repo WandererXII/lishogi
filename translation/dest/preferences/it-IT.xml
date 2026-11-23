@@ -3,6 +3,7 @@
 	<string name="preferences">Preferenze</string>
 	<string name="gameDisplay">Schermata di gioco</string>
 	<string name="boardLayout">Layout di tastiera</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Nascondi i fantasmi dei pezzi in mano</string>
 	<string name="handsBackground">Show background behind pieces in hand</string>
 	<string name="pieceAnimation">Animazione dei pezzi</string>
