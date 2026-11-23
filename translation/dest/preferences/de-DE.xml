@@ -3,6 +3,7 @@
 	<string name="preferences">Einstellungen</string>
 	<string name="gameDisplay">Spieldarstellung</string>
 	<string name="boardLayout">Brettformat</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Verstecke die Schattierungen von Figuren, die auf der Hand liegen</string>
 	<string name="handsBackground">Zeige den Hintergrund von Figuren, die auf der Hand liegen</string>
 	<string name="pieceAnimation">Figurenanimation</string>
