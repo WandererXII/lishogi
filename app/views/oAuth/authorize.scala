@@ -5,10 +5,13 @@ import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
 import lila.oauth.AuthorizationRequest
+import lila.oauth.OAuthScope
 import lila.user.User
 
 object authorize {
-  def apply(prompt: AuthorizationRequest.Prompt, me: User)(implicit ctx: Context) =
+  def apply(prompt: AuthorizationRequest.Prompt, scopes: List[OAuthScope], me: User)(implicit
+      ctx: Context,
+  ) =
     views.html.base.layout(
       title = "Authorization",
       moreCss = cssTag("user.oauth"),
@@ -25,10 +28,10 @@ object authorize {
             strong(me.username),
             " account:",
           ),
-          if (prompt.maybeScopes.isEmpty) ul(li("Only public data"))
+          if (scopes.isEmpty) ul(li("Only public data"))
           else
             ul(
-              prompt.maybeScopes map { scope =>
+              scopes map { scope =>
                 li(scope.name)
               },
             ),

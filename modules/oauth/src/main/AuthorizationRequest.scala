@@ -49,18 +49,17 @@ object AuthorizationRequest {
 
     def cancelUrl = errorUrl(Error.AccessDenied)
 
-    private[oauth] def validScopes: Validated[Error, List[OAuthScope]] =
+    def validScopes: Validated[Error, List[OAuthScope]] =
       (~scope)
         .split(" ")
         .filter(_ != "")
+        .distinct
         .foldLeft(Validated.valid[Error, List[OAuthScope]](List.empty[OAuthScope])) {
           case (acc, key) =>
             acc.andThen { valid =>
-              OAuthScope.grantableByKey.get(key).toValid(Error.InvalidScope(key)).map(_ :: valid)
+              OAuthScope.grantableByKey.get(key).toValid(Error.InvalidScope(key)).map(valid :+ _)
             }
         }
-
-    def maybeScopes: List[OAuthScope] = validScopes.getOrElse(Nil)
 
     def authorize(user: User): Validated[Error, Authorized] = {
       for {

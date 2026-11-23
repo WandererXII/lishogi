@@ -6,19 +6,6 @@ import org.joda.time.DateTime
 
 import lila.common.config.Secret
 import lila.user.User
-import lila.user.UserRepo
-
-final class LoginToken(secret: Secret, userRepo: UserRepo)(implicit
-    ec: scala.concurrent.ExecutionContext,
-) {
-
-  def generate(user: User): Fu[String] = tokener make user.id
-
-  def consume(token: String): Fu[Option[User]] =
-    tokener read token flatMap { _ ?? userRepo.byId }
-
-  private val tokener = LoginToken.makeTokener(secret, 1 minute)
-}
 
 private object LoginToken {
 

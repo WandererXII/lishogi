@@ -106,8 +106,6 @@ final class Env(
     mk(config.emailChangeSecret)
   }
 
-  lazy val loginToken = new LoginToken(config.loginTokenSecret, userRepo)
-
   lazy val automaticEmail = wire[AutomaticEmail]
 
   lazy val signup = wire[Signup]

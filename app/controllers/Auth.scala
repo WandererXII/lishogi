@@ -455,27 +455,6 @@ final class Auth(
       }
     }
 
-  private def loginTokenFor(me: UserModel) = JsonOk {
-    env.security.loginToken generate me map { token =>
-      Json.obj(
-        "userId" -> me.id,
-        "url"    -> s"${env.net.baseUrl}${routes.Auth.loginWithToken(token).url}",
-      )
-    }
-  }
-
-  def makeLoginToken =
-    AuthOrScoped(_.Web.Login)(_ => loginTokenFor, _ => loginTokenFor)
-
-  def loginWithToken(token: String) =
-    Open { implicit ctx =>
-      Firewall {
-        env.security.loginToken consume token flatMap {
-          _.fold(notFound)(authenticateUser(_))
-        }
-      }
-    }
-
   implicit private val limitedDefault: Zero[Result] =
     Zero[Result](TooManyRequests("Too many requests, try again later."))
 

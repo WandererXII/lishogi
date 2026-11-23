@@ -43,10 +43,18 @@ final class OAuth(env: Env) extends LilaController(env) {
   def authorize =
     Open { implicit ctx =>
       withPrompt { prompt =>
-        fuccess(ctx.me.fold(Redirect(routes.Auth.login.url, Map("referrer" -> List(ctx.req.uri)))) {
-          me =>
-            Ok(html.oAuth.authorize(prompt, me))
-        })
+        prompt.validScopes match {
+          case Validated.Invalid(error) =>
+            BadRequest(
+              html.site.message("Bad authorization request")(stringFrag(error.description)),
+            ).fuccess
+          case Validated.Valid(scopes) =>
+            fuccess(
+              ctx.me.fold(Redirect(routes.Auth.login.url, Map("referrer" -> List(ctx.req.uri)))) {
+                me => Ok(html.oAuth.authorize(prompt, scopes, me))
+              },
+            )
+        }
       }
     }
 
