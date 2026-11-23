@@ -3,6 +3,7 @@
 	<string name="preferences">Préférences</string>
 	<string name="gameDisplay">Affichage de la partie</string>
 	<string name="boardLayout">Tableau de bord</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Cacher les pièces invisibles à la main</string>
 	<string name="handsBackground">Afficher l\'arrière-plan derrière les pièces en main</string>
 	<string name="pieceAnimation">Animation des pièces</string>
