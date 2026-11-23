@@ -41,19 +41,19 @@ class BinaryClockHistoryTest extends Specification {
     "preserve a fixed pre-migration compression fixture" in {
       val expected = Array[Byte](12, -26, 11, -96, 64)
       val times    = Vector(6000, 5900, 5700, 5600).map(Centis.apply)
-      clockHistory.writeSide(Centis(6000), times, false).value.toVector must_== expected.toVector
-      clockHistory.readSide(Centis(6000), ByteArray(expected), false) must_==
+      clockHistory.writeSide(Centis(6000), times, flagged = false).value.toVector must_== expected.toVector
+      clockHistory.readSide(Centis(6000), ByteArray(expected), flagged = false) must_==
         Vector(6003, 5899, 5699, 5600).map(Centis.apply)
-      clockHistory.readSide(Centis(6000), ByteArray(expected), true).last must_== Centis(0)
+      clockHistory.readSide(Centis(6000), ByteArray(expected), flagged = true).last must_== Centis(0)
     }
     "handle empty vectors" in {
-      clockHistory.writeSide(Centis(720000), Vector.empty, false).isEmpty must beTrue
+      clockHistory.writeSide(Centis(720000), Vector.empty, flagged = false).isEmpty must beTrue
     }
 
     "handle singleton vectors" in {
       val times    = Vector(Centis(1234))
-      val bytes    = clockHistory.writeSide(Centis(12345), times, false)
-      val restored = clockHistory.readSide(Centis(12345), bytes, false)
+      val bytes    = clockHistory.writeSide(Centis(12345), times, flagged = false)
+      val restored = clockHistory.readSide(Centis(12345), bytes, flagged = false)
 
       restored must beLike(times)
     }
@@ -63,15 +63,15 @@ class BinaryClockHistoryTest extends Specification {
         0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57, 60, 63, 66, 69,
         72, 75, 78, 81, 84, 87, 90, 93, 96, 99, 102, 105, 108, 199, 333, 567, 666, 2000, 30,
       ).map(t => Centis(21000 - 10 * t))
-      val bytes    = clockHistory.writeSide(hour * 2, times, false)
-      val restored = clockHistory.readSide(hour * 2, bytes, false)
+      val bytes    = clockHistory.writeSide(hour * 2, times, flagged = false)
+      val restored = clockHistory.readSide(hour * 2, bytes, flagged = false)
       restored must beLike(times)
     }
 
     "restore correspondence" in {
       val times    = Vector(118, 204, 80, 191, 75, 230, 48, 258).map(t => day * 2 - t)
-      val bytes    = clockHistory.writeSide(day * 2, times, false)
-      val restored = clockHistory.readSide(day * 2, bytes, false)
+      val bytes    = clockHistory.writeSide(day * 2, times, flagged = false)
+      val restored = clockHistory.readSide(day * 2, bytes, flagged = false)
       restored must beLike(times)
     }
 
@@ -80,8 +80,8 @@ class BinaryClockHistoryTest extends Specification {
       var restored = Vector.empty[Centis]
       val start    = Centis(6000)
       for (end <- times) {
-        val binary = clockHistory.writeSide(start, restored :+ end, false)
-        restored = clockHistory.readSide(start, binary, false)
+        val binary = clockHistory.writeSide(start, restored :+ end, flagged = false)
+        restored = clockHistory.readSide(start, binary, flagged = false)
       }
       restored must beLike(times)
     }

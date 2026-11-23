@@ -32,7 +32,7 @@ class GameBSONTest extends Specification {
 
   def play(game: Game, moves: String*): Game =
     moves.foldLeft(game) { (g, m) =>
-      g.applyGame(g.prepareMove(Usi(m).get, LagMetrics.empty).toOption.get, false).game
+      g.applyGame(g.prepareMove(Usi(m).get, LagMetrics.empty).toOption.get, blur = false).game
     }
 
   def roundTrip(game: Game): Game = gameBSONHandler.read(gameBSONHandler.write(game))

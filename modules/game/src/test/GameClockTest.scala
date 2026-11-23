@@ -49,7 +49,7 @@ class GameClockTest extends Specification {
 
   def prepare(game: Game, move: String) =
     game.prepareMove(Usi(move).get, LagMetrics.empty).toOption.get
-  def play(game: Game, move: String): Game = game.applyGame(prepare(game, move), false).game
+  def play(game: Game, move: String): Game = game.applyGame(prepare(game, move), blur = false).game
   def opening(game: Game): Game            = play(play(game, "7g7f"), "3c3d")
 
   "owned live clocks" should {
@@ -89,7 +89,7 @@ class GameClockTest extends Specification {
       val game = opening(make(time))
       time.advance(100)
       val candidate = prepare(game, "2g2f")
-      val next      = game.applyGame(candidate, false).game
+      val next      = game.applyGame(candidate, blur = false).game
       next.clock.get.players(Sente).remaining must_== Centis(5900)
       next.clockHistory.get.last(Sente) must_== Some(Centis(5900))
       next.binaryMoveTimes must beNone
@@ -130,7 +130,7 @@ class GameClockTest extends Specification {
       val game = opening(make(time, config = Clock.Config(60, 5, 0, 0)))
       time.advance(1000)
       val candidate  = prepare(game, "2g2f")
-      val sealedGame = game.pauseAndSealUsi(Usi("2g2f").get, candidate, false).game
+      val sealedGame = game.pauseAndSealUsi(Usi("2g2f").get, candidate, blur = false).game
       sealedGame.usis.size must_== 2
       sealedGame.clock.get.color must_== Gote
       sealedGame.clock.get.isRunning must beFalse
@@ -186,7 +186,7 @@ class GameClockTest extends Specification {
       val time = new Time
       val game = opening(make(time))
       time.advance(100)
-      val sealedGame = game.pauseAndSealUsi(Usi("2g2f").get, prepare(game, "2g2f"), false).game
+      val sealedGame = game.pauseAndSealUsi(Usi("2g2f").get, prepare(game, "2g2f"), blur = false).game
       val stored     = BSONHandlers.gameBSONHandler.write(sealedGame)
       val loaded     = BSONHandlers.gameBSONHandler.read(stored)
       loaded.turnColor must_== Sente

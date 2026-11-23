@@ -23,7 +23,7 @@ class BinaryClockTest extends Specification {
       periodEntries: PeriodEntries = PeriodEntries.default,
       berserk: Boolean = false,
   ): Clock =
-    (BinaryFormat.clock(since).read(bytes, periodEntries, berserk, false))(Sente)
+    (BinaryFormat.clock(since).read(bytes, periodEntries, berserk, goteBerserk = false))(Sente)
   def isomorphism(c: Clock): Clock = readBytes(writeBytes(c))
 
   def write(c: Clock): List[String] = writeBytes(c).showBytes.split(',').toList

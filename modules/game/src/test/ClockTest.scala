@@ -289,9 +289,9 @@ class ClockTest extends org.specs2.mutable.Specification {
       clockPers.outOfTime(Sente, withGrace = false) must beFalse
     }
 
-    "over quota stall" >> advance(fakeClock60, 6190).outOfTime(Sente, true)
-    "stall within quota" >> !advance(fakeClock600, 60190).outOfTime(Sente, true)
-    "max grace stall" >> advance(fakeClock600, 602 * 100).outOfTime(Sente, true)
+    "over quota stall" >> advance(fakeClock60, 6190).outOfTime(Sente, withGrace = true)
+    "stall within quota" >> !advance(fakeClock600, 60190).outOfTime(Sente, withGrace = true)
+    "max grace stall" >> advance(fakeClock600, 602 * 100).outOfTime(Sente, withGrace = true)
   }
 
   "kif config" in {
