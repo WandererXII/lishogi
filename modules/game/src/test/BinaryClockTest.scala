@@ -4,7 +4,7 @@ import scala.util.chaining._
 
 import org.specs2.mutable._
 
-import shogi.Sente
+import shogi.{ Gote, Sente }
 
 import lila.common.Centis
 import lila.db.ByteArray
@@ -21,9 +21,10 @@ class BinaryClockTest extends Specification {
   def readBytes(
       bytes: ByteArray,
       periodEntries: PeriodEntries = PeriodEntries.default,
-      berserk: Boolean = false,
+      senteBerserk: Boolean = false,
+      goteBerserk: Boolean = false,
   ): Clock =
-    (BinaryFormat.clock(since).read(bytes, periodEntries, berserk, goteBerserk = false))(Sente)
+    (BinaryFormat.clock(since).read(bytes, periodEntries, senteBerserk, goteBerserk))(Sente)
   def isomorphism(c: Clock): Clock = readBytes(writeBytes(c))
 
   def write(c: Clock): List[String] = writeBytes(c).showBytes.split(',').toList
@@ -115,7 +116,7 @@ class BinaryClockTest extends Specification {
       val bytes = List("00001010", _0_, _0_, "01110101", "00110000") :::
         List.fill(3)(_0_) ::: bitsA1
       write(berserk) must_== bytes
-      val loaded = readBytes(ByteArray.parseBytes(bytes), berserk = true)
+      val loaded = readBytes(ByteArray.parseBytes(bytes), senteBerserk = true)
       loaded.players(Sente).remaining must_== Centis(30000)
       loaded.players(Sente).periodsLeft must_== 0
       BinaryFormat.periodEntries.writeSide(Vector(1, 255, 256)).value.toVector must_==
@@ -153,13 +154,22 @@ class BinaryClockTest extends Specification {
 
       "with berserk" in {
         val b1 = clock.goBerserk(Sente)
-        readBytes(writeBytes(b1), berserk = true) must_== b1
+        readBytes(writeBytes(b1), senteBerserk = true) must_== b1
 
         val b2 = clock.giveTime(Sente, Centis(15)).goBerserk(Sente)
-        readBytes(writeBytes(b2), berserk = true) must_== b2
+        readBytes(writeBytes(b2), senteBerserk = true) must_== b2
 
         val b3 = Clock(60, 2, 0, 0, Sente).goBerserk(Sente)
-        readBytes(writeBytes(b3), berserk = true) must_== b3
+        readBytes(writeBytes(b3), senteBerserk = true) must_== b3
+
+        val g1 = clock.goBerserk(Gote)
+        readBytes(writeBytes(g1), goteBerserk = true) must_== g1
+
+        val g2 = Clock(60, 2, 0, 0, Sente).goBerserk(Gote)
+        readBytes(writeBytes(g2), goteBerserk = true) must_== g2
+
+        val both = clock.giveTime(Gote, Centis(15)).goBerserk(Sente).goBerserk(Gote)
+        readBytes(writeBytes(both), senteBerserk = true, goteBerserk = true) must_== both
       }
 
       "periods" in {
