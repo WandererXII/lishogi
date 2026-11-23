@@ -3,6 +3,7 @@
 	<string name="preferences">Preferencias</string>
 	<string name="gameDisplay">Configuración do taboleiro</string>
 	<string name="boardLayout">Vista do taboleiro</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Agochar as pantasmas das pezas na man</string>
 	<string name="handsBackground">Amosar o fondo tras as pezas na man</string>
 	<string name="pieceAnimation">Animación das pezas</string>
