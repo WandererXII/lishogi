@@ -3,6 +3,7 @@
 	<string name="preferences">Preferencias</string>
 	<string name="gameDisplay">Configuración visual del juego</string>
 	<string name="boardLayout">Diseño del tablero</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Ocultar la silueta de las piezas en mano</string>
 	<string name="handsBackground">Mostrar el fondo tras las piezas en mano</string>
 	<string name="pieceAnimation">Animación de las piezas</string>
