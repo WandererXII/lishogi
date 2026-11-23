@@ -24,10 +24,11 @@ final class Paginator[A] private[paginator] (
     */
   def nextPage: Option[Int] = (currentPage < nbPages) option (currentPage + 1)
 
-  /** Returns the number of pages.
+  /** Returns the number of reachable pages: results past Paginator.maxOffset are never served.
     */
   def nbPages: Int =
-    if (maxPerPage.value > 0) (nbResults + maxPerPage.value - 1) / maxPerPage.value
+    if (maxPerPage.value > 0)
+      (nbResults.min(Paginator.maxOffset) + maxPerPage.value - 1) / maxPerPage.value
     else 0
 
   /** Returns whether we have to paginate or not. This is true if the number of results is higher
@@ -58,12 +59,16 @@ final class Paginator[A] private[paginator] (
 
 object Paginator {
 
+  val maxOffset = 50_000
+
   def apply[A](
       adapter: AdapterLike[A],
       currentPage: Int,
       maxPerPage: MaxPerPage = MaxPerPage(10),
   )(implicit ec: scala.concurrent.ExecutionContext): Fu[Paginator[A]] =
-    validate(adapter, currentPage, maxPerPage) getOrElse apply(adapter, 1, maxPerPage)
+    validate(adapter, currentPage, maxPerPage) orElse
+      validate(adapter, 1, maxPerPage) getOrElse
+      fuccess(empty[A])
 
   def empty[A]: Paginator[A] = new Paginator(0, MaxPerPage(0), Nil, 0)
 
@@ -99,7 +104,7 @@ object Paginator {
       maxPerPage: MaxPerPage,
   ): Fu[Seq[A]] = {
     val offset = (currentPage - 1).toLong * maxPerPage.value
-    if (offset > Int.MaxValue) fuccess(Nil)
-    else adapter.slice(offset.toInt, maxPerPage.value)
+    if (offset >= maxOffset) fuccess(Nil)
+    else adapter.slice(offset.toInt, maxPerPage.value min (maxOffset - offset.toInt))
   }
 }
