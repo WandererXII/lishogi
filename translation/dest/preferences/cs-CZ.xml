@@ -3,6 +3,7 @@
 	<string name="preferences">Předvolby</string>
 	<string name="gameDisplay">Zobrazení hry</string>
 	<string name="boardLayout">Rozložení desky</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Skrýt průhledné kameny v rukou</string>
 	<string name="handsBackground">Zobrazit pozadí za kameny v rukou</string>
 	<string name="pieceAnimation">Animace figur</string>
