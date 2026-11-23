@@ -3,6 +3,7 @@
 	<string name="preferences">Ustawienia</string>
 	<string name="gameDisplay">Widok partii</string>
 	<string name="boardLayout">Układ szachownicy</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Ukryj podgląd nieobecnych bierek w ręce</string>
 	<string name="handsBackground">Pokaż tło pod bierkami w ręce</string>
 	<string name="pieceAnimation">Animacja ruchu bierek</string>
