@@ -92,7 +92,7 @@ ${trans.emailConfirm_ignore.txt("https://lishogi.org")}
       }
     }
 
-  private val tokener = new StringToken[User.ID](
+  private val tokener = new StringToken(
     secret = tokenerSecret,
     getCurrentValue = id => userRepo email id dmap (_.??(_.value)),
   )

@@ -1,5 +1,7 @@
 package lila.security
 
+import scala.concurrent.duration._
+
 import play.api.i18n.Lang
 
 import scalatags.Text.all._
@@ -47,11 +49,17 @@ ${Mailgun.txt.serviceNote}
     }
 
   def confirm(token: String): Fu[Option[User]] =
-    tokener read token flatMap { _ ?? userRepo.byId }
+    tokener read token flatMap { _ ?? userRepo.enabledById }
 
-  private val tokener = new StringToken[User.ID](
+  // Changing either the password or the email invalidates the link
+  private val tokener = new StringToken(
     secret = tokenerSecret,
-    getCurrentValue = id => userRepo getPasswordHash id dmap (~_),
+    getCurrentValue = id =>
+      for {
+        hash  <- userRepo getPasswordHash id
+        email <- userRepo email id
+      } yield ~hash + email.??(_.value),
+    lifetime = 1.hour.some,
   )
 }
 

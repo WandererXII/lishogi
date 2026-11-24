@@ -1,6 +1,7 @@
 package lila.security
 
 import java.nio.charset.StandardCharsets.UTF_8
+import scala.concurrent.duration._
 
 import com.roundeights.hasher.Algo
 import org.joda.time.DateTime
@@ -8,77 +9,61 @@ import org.mindrot.BCrypt
 
 import lila.common.String.base64
 import lila.common.config.Secret
-import lila.security.StringToken.ValueChecker
 
-final class StringToken[A](
+// The current value is never in the token, only a short hmac of it
+final class StringToken(
     secret: Secret,
-    getCurrentValue: A => Fu[String],
-    valueChecker: ValueChecker = ValueChecker.Same,
+    getCurrentValue: String => Fu[String],
+    lifetime: Option[FiniteDuration] = none, // never expires if none
     fullHashSize: Int = 14,
-    currentValueHashSize: Option[Int] = Some(6), // won't hash if None
-    separator: Char = '|',
-)(implicit
-    ec: scala.concurrent.ExecutionContext,
-    serializer: StringToken.Serializable[A],
-) {
+    currentValueHashSize: Int = 6,
+)(implicit ec: scala.concurrent.ExecutionContext) {
 
-  def make(payload: A) =
-    hashCurrentValue(payload) map { hashedValue =>
-      val signed   = signPayload(serializer write payload, hashedValue)
+  private val separator     = '|'
+  private val dateSeparator = ':'
+
+  def make(payload: String): Fu[String] = makeAt(payload, DateTime.now)
+
+  private[security] def makeAt(payload: String, date: DateTime): Fu[String] =
+    hashCurrentValue(payload) map { hash =>
+      val value    = if (lifetime.isDefined) s"${date.getMillis}$dateSeparator$hash" else hash
+      val signed   = signPayload(payload, value)
       val checksum = makeHash(signed)
       val token    = s"$signed$separator$checksum"
-      base64 encode token
+      base64 encodeUrl token
     }
 
-  def read(token: String): Fu[Option[A]] =
+  def read(token: String): Fu[Option[String]] =
     (base64 decode token) ?? {
-      _ split separator match {
-        case Array(payloadStr, hashed, checksum) =>
+      _.split(separator).toList match {
+        case payloadParts :+ value :+ checksum =>
+          val payload = payloadParts mkString separator.toString // may contain the separator
           BCrypt.bytesEqualSecure(
-            makeHash(signPayload(payloadStr, hashed)).getBytes(UTF_8),
+            makeHash(signPayload(payload, value)).getBytes(UTF_8),
             checksum.getBytes(UTF_8),
           ) ?? {
-            val payload = serializer read payloadStr
-            (valueChecker match {
-              case ValueChecker.Same      => hashCurrentValue(payload) map (hashed ==)
-              case ValueChecker.Custom(f) => f(hashed)
-            }) map { _ option payload }
+            unexpiredHash(value) ?? { hash =>
+              hashCurrentValue(payload) map { current => (hash == current) option payload }
+            }
           }
         case _ => fuccess(none)
       }
     }
 
-  private def makeHash(msg: String) = Algo.hmac(secret.value).sha256(msg).hex take fullHashSize
-
-  private def hashCurrentValue(payload: A) =
-    getCurrentValue(payload) map { v =>
-      currentValueHashSize.fold(v)(makeHash(v) take _)
+  private def unexpiredHash(value: String): Option[String] =
+    lifetime.fold(value.some) { duration =>
+      value split dateSeparator match {
+        case Array(millis, hash) =>
+          millis.toLongOption.exists(_ > nowMillis - duration.toMillis) option hash
+        case _ => none
+      }
     }
 
-  private def signPayload(payloadStr: String, hashedValue: String) =
-    s"$payloadStr$separator$hashedValue"
-}
+  private def makeHash(msg: String) = Algo.hmac(secret.value).sha256(msg).hex take fullHashSize
 
-object StringToken {
+  private def hashCurrentValue(payload: String) =
+    getCurrentValue(payload) map { makeHash(_) take currentValueHashSize }
 
-  trait Serializable[A] {
-    def read(str: String): A
-    def write(a: A): String
-  }
-
-  implicit final val stringSerializable: Serializable[String] = new Serializable[String] {
-    def read(str: String) = str
-    def write(a: String)  = a
-  }
-
-  sealed trait ValueChecker
-  object ValueChecker {
-    case object Same                            extends ValueChecker
-    case class Custom(f: String => Fu[Boolean]) extends ValueChecker
-  }
-
-  object DateStr {
-    def toStr(date: DateTime) = date.getMillis.toString
-    def toDate(str: String)   = str.toLongOption map { new DateTime(_) }
-  }
+  private def signPayload(payload: String, value: String) =
+    s"$payload$separator$value"
 }

@@ -63,14 +63,17 @@ final class DataForm(authenticator: Authenticator) {
             "incorrectPassword",
             p => candidate.check(ClearPassword(p)),
           ),
-          "newPasswd1" -> text(minLength = 2),
-          "newPasswd2" -> text(minLength = 2),
+          "newPasswd1" -> DataForm.newPassword,
+          "newPasswd2" -> DataForm.newPassword,
         )(Passwd.apply)(Passwd.unapply).verifying("the new passwords don't match", _.samePasswords),
       )
     }
 }
 
 object DataForm {
+
+  // Only for choosing a password, existing ones may not match
+  val newPassword = nonEmptyText(minLength = 4, maxLength = 999)
 
   val title = Form(single("title" -> optional(nonEmptyText)))
 

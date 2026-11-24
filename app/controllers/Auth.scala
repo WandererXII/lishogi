@@ -364,10 +364,9 @@ final class Auth(
       env.security.passwordReset confirm token flatMap {
         case None => {
           lila.mon.user.auth.passwordResetConfirm("tokenFail").increment()
-          notFound
+          invalidLink(routes.Auth.passwordReset)
         }
         case Some(user) => {
-          authLog(user.username, "-", "Reset password")
           lila.mon.user.auth.passwordResetConfirm("tokenOk").increment()
           fuccess(html.auth.bits.passwordResetConfirm(user, token, forms.passwdReset, none))
         }
@@ -379,7 +378,7 @@ final class Auth(
       env.security.passwordReset confirm token flatMap {
         case None => {
           lila.mon.user.auth.passwordResetConfirm("tokenPostFail").increment()
-          notFound
+          invalidLink(routes.Auth.passwordReset)
         }
         case Some(user) =>
           implicit val req = ctx.body
@@ -387,7 +386,9 @@ final class Auth(
             fuccess(html.auth.bits.passwordResetConfirm(user, token, err, false.some))
           } { data =>
             HasherRateLimit(user.username, ctx.req) { _ =>
-              env.user.authenticator.setPassword(user.id, ClearPassword(data.newPasswd1)) >>
+              env.user.authenticator
+                .setPassword(user.id, ClearPassword(data.newPasswd1))
+                .addEffect(_ => authLog(user.username, "-", "Reset password")) >>
                 env.user.repo.setEmailConfirmed(user.id).flatMap {
                   _ ?? { welcome(user, _, sendWelcomeEmail = false) }
                 } >>
@@ -450,7 +451,7 @@ final class Auth(
       env.security.magicLink confirm token flatMap {
         case None => {
           lila.mon.user.auth.magicLinkConfirm("token_fail").increment()
-          notFound
+          invalidLink(routes.Auth.magicLink)
         }
         case Some(user) => {
           authLog(user.username, "-", "Magic link")
@@ -459,6 +460,16 @@ final class Auth(
         }
       }
     }
+
+  // Expired, already used, forged... don't tell which
+  private def invalidLink(requestNew: Call)(implicit ctx: Context): Fu[Result] =
+    negotiate(
+      html = fuccess {
+        Redirect(requestNew)
+          .flashFailure("This link is invalid or has expired. Please request a new one.")
+      },
+      json = notFoundJson("Invalid or expired link"),
+    )
 
   implicit private val limitedDefault: Zero[Result] =
     Zero[Result](TooManyRequests("Too many requests, try again later."))

@@ -68,9 +68,13 @@ object String {
     import java.util.Base64
     def encode(txt: String) =
       Base64.getEncoder.encodeToString(txt getBytes UTF_8)
+    def encodeUrl(txt: String) =
+      Base64.getUrlEncoder.encodeToString(txt getBytes UTF_8)
+    // accepts both alphabets
     def decode(txt: String): Option[String] =
       try {
-        Some(new String(Base64.getDecoder decode txt, UTF_8))
+        val urlTxt = txt.replace('+', '-').replace('/', '_')
+        Some(new String(Base64.getUrlDecoder decode urlTxt, UTF_8))
       } catch {
         case _: java.lang.IllegalArgumentException => none
       }

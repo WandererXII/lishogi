@@ -14,6 +14,7 @@ import lila.user.User
 import lila.user.User.ClearPassword
 import lila.user.User.TotpToken
 import lila.user.UserRepo
+import lila.user.{ DataForm => UserDataForm }
 
 final class DataForm(
     userRepo: UserRepo,
@@ -84,7 +85,7 @@ final class DataForm(
     val website = Form(
       mapping(
         "username"                -> username,
-        "password"                -> text(minLength = 4),
+        "password"                -> UserDataForm.newPassword,
         "email"                   -> emailField,
         "agreement"               -> agreement,
         "fp"                      -> optional(nonEmptyText),
@@ -105,20 +106,14 @@ final class DataForm(
 
   def passwordResetWithCaptcha = withCaptcha(passwordReset)
 
-  val newPassword = Form(
-    single(
-      "password" -> text(minLength = 4),
-    ),
-  )
-
   case class PasswordResetConfirm(newPasswd1: String, newPasswd2: String) {
     def samePasswords = newPasswd1 == newPasswd2
   }
 
   val passwdReset = Form(
     mapping(
-      "newPasswd1" -> nonEmptyText(minLength = 2),
-      "newPasswd2" -> nonEmptyText(minLength = 2),
+      "newPasswd1" -> UserDataForm.newPassword,
+      "newPasswd2" -> UserDataForm.newPassword,
     )(PasswordResetConfirm.apply)(PasswordResetConfirm.unapply).verifying(
       "the new passwords don't match",
       _.samePasswords,
