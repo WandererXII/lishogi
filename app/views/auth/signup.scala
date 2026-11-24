@@ -7,23 +7,18 @@ import play.api.data.Form
 import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
+import lila.security.DataForm.SignupData
 
 object signup {
 
-  private val recaptchaScript = raw(
-    """<script src="https://www.google.com/recaptcha/api.js" async defer></script>""",
-  )
-
-  def apply(form: Form[_], recaptcha: lila.security.RecaptchaPublicConfig)(implicit ctx: Context) =
+  def apply(form: Form[_], formTime: String)(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.signUp.txt(),
       moreCss = cssTag("user.auth"),
       moreJs = frag(
         jsTag("user.signup"),
-        recaptcha.enabled option recaptchaScript,
         fingerprintTag,
       ),
-      csp = defaultCsp.withRecaptcha.some,
       withHrefLangs = lila.i18n.LangList.All.some,
     ) {
       main(cls := "auth auth-signup box box-pad")(
@@ -32,23 +27,20 @@ object signup {
           auth.bits
             .formFields(form("username"), form("password"), form("email").some, register = true),
           input(id := "signup-fp-input", name := "fp", tpe := "hidden"),
+          form3.hidden(SignupData.formTimerField, formTime),
+          honeypot,
           div(cls := "form-group text", dataIcon := Icons.infoCircle)(
             trans.computersAreNotAllowedToPlay(),
             br,
             small(
               trans.byRegisteringYouAgreeToBeBoundByOur(
-                a(href := routes.Article.tos)(trans.termsOfService()),
+                a(href := routes.Article.tos, targetBlank)(trans.termsOfService()),
               ),
             ),
           ),
           agreement(form("agreement"), form.errors.exists(_.key startsWith "agreement.")),
-          if (recaptcha.enabled)
-            button(
-              cls                   := "g-recaptcha submit button text big",
-              attr("data-sitekey")  := recaptcha.key,
-              attr("data-callback") := "signupSubmit",
-            )(trans.signUp())
-          else form3.submit(trans.signUp(), icon = none, klass = "big"),
+          form3.globalError(form),
+          form3.submit(trans.signUp(), icon = none, klass = "big"),
         ),
       )
     }
@@ -61,8 +53,24 @@ object signup {
         ),
       ),
       agreements.map { case (field, i18n) =>
-        form3.checkbox(form(field), i18n())
+        form3.checkbox(form(field), i18n(), required = true)
       },
+    )
+
+  // must stay empty, and must not be filled by browsers and password managers
+  private val honeypot =
+    div(cls := "auth-signup__site", attr("aria-hidden") := "true")(
+      label(`for` := "signup-site")("Leave this field empty"),
+      input(
+        id                     := "signup-site",
+        name                   := SignupData.honeypotField,
+        tpe                    := "text",
+        tabindex               := -1,
+        autocomplete           := "off",
+        attr("data-1p-ignore") := "true",
+        attr("data-bwignore")  := "true",
+        attr("data-lpignore")  := "true",
+      ),
     )
 
   private val agreements = List(

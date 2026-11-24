@@ -1,7 +1,11 @@
 import { spinnerHtml } from 'common/spinner';
 import { debounce } from 'common/timings';
 
+// see FormTimer.scala
+const minFormAge = 3000;
+
 window.lishogi.ready.then(() => {
+  const readyAt = performance.now() + minFormAge;
   const $form = $('#signup_form');
   const $exists = $form.find('.username-exists');
   const $username = $form
@@ -23,16 +27,30 @@ window.lishogi.ready.then(() => {
         });
   }, 300);
 
-  $form.on('submit', () => {
+  let submitting = false;
+  $form.on('submit', e => {
+    if (submitting) {
+      e.preventDefault();
+      return;
+    }
+    submitting = true;
+
     $form
       .find('button.submit')
       .prop('disabled', true)
       .removeAttr('data-icon')
       .addClass('frameless')
       .html(spinnerHtml);
+
+    const wait = readyAt - performance.now();
+    if (wait > 0) {
+      e.preventDefault();
+      setTimeout(() => ($form[0] as HTMLFormElement).submit(), wait);
+    }
+  });
+
+  // back button: the restored page would still be locked
+  window.addEventListener('pageshow', e => {
+    if (e.persisted) window.location.reload();
   });
 });
-(window as any).signupSubmit = () => {
-  const form = document.getElementById('signup_form') as HTMLFormElement;
-  if (form.reportValidity()) form.submit();
-};

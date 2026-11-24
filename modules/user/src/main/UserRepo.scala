@@ -272,7 +272,11 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
       _ ?? {
         val doc = newUser(username, passwordHash, email, blind, mustConfirmEmail, lang) ++
           ("len" -> BSONInteger(username.size))
-        coll.insert.one(doc) >> named(normalize(username))
+        coll.insert
+          .one(doc)
+          .inject(true)
+          .recover(lila.db.recoverDuplicateKey(_ => false)) // lost a race
+          .flatMap { _ ?? named(normalize(username)) }
       }
     }
 

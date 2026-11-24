@@ -38,9 +38,6 @@ final class Env(
 
   private val config = appConfig.get[SecurityConfig]("security")(SecurityConfig.loader)
   import net.baseUrl
-  import net.domain
-
-  val recaptchaPublicConfig = config.recaptcha.public
 
   lazy val firewall = new Firewall(
     coll = db(CollName("firewall")),
@@ -49,9 +46,7 @@ final class Env(
 
   lazy val flood = wire[Flood]
 
-  lazy val recaptcha: Recaptcha =
-    if (config.recaptcha.enabled) wire[RecaptchaGoogle]
-    else RecaptchaSkip
+  lazy val formTimer = new FormTimer(config.signupFormSecret)
 
   lazy val forms = wire[DataForm]
 

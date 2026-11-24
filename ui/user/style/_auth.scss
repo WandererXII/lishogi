@@ -49,6 +49,25 @@
   .agreement label {
     font-weight: normal;
   }
+
+  /* By default the real checkbox is moved far off screen, and its label is drawn as the toggle.
+   * The browser anchors its "please check this box" message to the checkbox,
+   * so here it stays, invisible, under the drawn toggle. */
+  .agreement .cmn-toggle {
+    width: 40px;
+    height: 24px;
+    margin: 0;
+    opacity: 0;
+  }
+
+  /* signup honeypot: invisible to humans, without the display: none that bots look for */
+  &-signup__site {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
 }
 
 /* presumably the keyboard is up */

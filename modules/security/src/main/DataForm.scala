@@ -79,34 +79,18 @@ final class DataForm(
         u => !userRepo.nameExists(u).await(3 seconds, "signupUsername"),
       )
 
-    private val agreementBool = boolean.verifying(b => b)
-
-    private val agreement = mapping(
-      "assistance" -> agreementBool,
-      "nice"       -> agreementBool,
-      "account"    -> agreementBool,
-      "policy"     -> agreementBool,
-    )(AgreementData.apply)(AgreementData.unapply)
-
     val emailField = withAcceptableDns(acceptableUniqueEmail(none))
 
     val website = Form(
       mapping(
-        "username"             -> username,
-        "password"             -> text(minLength = 4),
-        "email"                -> emailField,
-        "agreement"            -> agreement,
-        "fp"                   -> optional(nonEmptyText),
-        "g-recaptcha-response" -> optional(nonEmptyText),
+        "username"                -> username,
+        "password"                -> text(minLength = 4),
+        "email"                   -> emailField,
+        "agreement"               -> agreement,
+        "fp"                      -> optional(nonEmptyText),
+        SignupData.honeypotField  -> optional(text),
+        SignupData.formTimerField -> optional(text),
       )(SignupData.apply)(_ => None),
-    )
-
-    val mobile = Form(
-      mapping(
-        "username" -> username,
-        "password" -> text(minLength = 4),
-        "email"    -> emailField,
-      )(MobileSignupData.apply)(_ => None),
     )
   }
 
@@ -241,6 +225,16 @@ final class DataForm(
 
 object DataForm {
 
+  // a missing checkbox is false, so all of them must be ticked
+  private val agreementBool = boolean.verifying(b => b)
+
+  private[security] val agreement = mapping(
+    "assistance" -> agreementBool,
+    "nice"       -> agreementBool,
+    "account"    -> agreementBool,
+    "policy"     -> agreementBool,
+  )(AgreementData.apply)(AgreementData.unapply)
+
   case class AgreementData(
       assistance: Boolean,
       nice: Boolean,
@@ -254,21 +248,18 @@ object DataForm {
       email: String,
       agreement: AgreementData,
       fp: Option[String],
-      `g-recaptcha-response`: Option[String],
+      honeypot: Option[String],
+      formTime: Option[String],
   ) {
-    def recaptchaResponse = `g-recaptcha-response`
-
     def realEmail = EmailAddress(email)
 
     def fingerPrint = fp.filter(_.nonEmpty) map FingerPrint.apply
   }
 
-  case class MobileSignupData(
-      username: String,
-      password: String,
-      email: String,
-  ) {
-    def realEmail = EmailAddress(email)
+  object SignupData {
+    // hidden from humans, named to be tempting for bots
+    val honeypotField  = "website"
+    val formTimerField = "time"
   }
 
   case class PasswordReset(

@@ -109,6 +109,7 @@ trait FormHelper { self: I18nHelper =>
         half: Boolean = false,
         help: Option[Frag] = None,
         disabled: Boolean = false,
+        required: Boolean = false,
     ): Frag =
       div(
         cls := List(
@@ -118,7 +119,13 @@ trait FormHelper { self: I18nHelper =>
       )(
         div(
           span(cls := "form-check-input")(
-            cmnToggle(id(field), field.name, field.value.has("true"), disabled),
+            cmnToggle(
+              id(field),
+              field.name,
+              field.value.has("true"),
+              disabled,
+              required = required,
+            ),
           ),
           groupLabel(field)(labelContent),
         ),
@@ -131,6 +138,7 @@ trait FormHelper { self: I18nHelper =>
         checked: Boolean,
         disabled: Boolean = false,
         value: String = "true",
+        required: Boolean = false,
     ) =
       frag(
         st.input(
@@ -141,6 +149,7 @@ trait FormHelper { self: I18nHelper =>
           cls      := "form-control cmn-toggle",
           checked option st.checked,
           disabled option st.disabled,
+          required option st.required,
         ),
         label(`for` := fieldId),
       )

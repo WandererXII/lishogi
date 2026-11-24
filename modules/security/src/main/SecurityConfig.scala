@@ -18,11 +18,11 @@ final private class SecurityConfig(
     @ConfigName("email_confirm") val emailConfirm: EmailConfirm,
     @ConfigName("email_change.secret") val emailChangeSecret: Secret,
     @ConfigName("login_token.secret") val loginTokenSecret: Secret,
+    @ConfigName("signup_form.secret") val signupFormSecret: Secret,
     val tor: Tor,
     @ConfigName("disposable_email") val disposableEmail: DisposableEmail,
     @ConfigName("dns_api") val dnsApi: DnsApi,
     @ConfigName("check_mail_api") val checkMail: CheckMail,
-    val recaptcha: Recaptcha.Config,
     val mailgun: Mailgun.Config,
     @ConfigName("lame_name_check") val lameNameCheck: LameNameCheck,
 )

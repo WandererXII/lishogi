@@ -2,6 +2,7 @@ package controllers
 
 import scala.annotation.nowarn
 
+import play.api.data.Form
 import play.api.data.FormError
 import play.api.libs.json._
 import play.api.mvc._
@@ -13,6 +14,7 @@ import lila.api.Context
 import lila.app._
 import lila.common.EmailAddress
 import lila.common.HTTPRequest
+import lila.security.DataForm.SignupData
 import lila.security.FingerPrint
 import lila.security.Signup
 import lila.user.PasswordHasher
@@ -164,9 +166,15 @@ final class Auth(
   def signup =
     Open { implicit ctx =>
       NoTor {
-        Ok(html.auth.signup(forms.signup.website, env.security.recaptchaPublicConfig)).fuccess
+        Ok(renderSignup(forms.signup.website)).fuccess
       }
     }
+
+  private def renderSignup(form: Form[_])(implicit ctx: Context) =
+    html.auth.signup(
+      form,
+      formTime = env.security.formTimer.renew(form(SignupData.formTimerField).value),
+    )
 
   private def authLog(user: String, email: String, msg: String) =
     lila.log("auth").info(s"$user $email $msg")
@@ -176,13 +184,13 @@ final class Auth(
       implicit val req = ctx.body
       NoTor {
         Firewall {
-          forms.preloadEmailDns >> negotiate(
-            html = env.security.signup
+          negotiate(
+            html = forms.preloadEmailDns >> env.security.signup
               .website(ctx.blind)
               .flatMap {
                 case Signup.RateLimited => limitedDefault.zero.fuccess
                 case Signup.Bad(err) =>
-                  BadRequest(html.auth.signup(err, env.security.recaptchaPublicConfig)).fuccess
+                  BadRequest(renderSignup(err)).fuccess
                 case Signup.ConfirmEmail(user, email) =>
                   fuccess {
                     Redirect(routes.Auth.checkYourEmail) withCookies
@@ -192,14 +200,11 @@ final class Auth(
                 case Signup.AllSet(user, email) =>
                   welcome(user, email, sendWelcomeEmail = false) >> redirectNewUser(user)
               },
-            json = env.security.signup.mobile
-              .flatMap {
-                case Signup.RateLimited        => limitedDefault.zero.fuccess
-                case Signup.Bad(err)           => jsonFormError(err)
-                case Signup.ConfirmEmail(_, _) => Ok(Json.obj("email_confirm" -> true)).fuccess
-                case Signup.AllSet(user, email) =>
-                  welcome(user, email, sendWelcomeEmail = false) >> authenticateUser(user)
-              },
+            json = BadRequest(
+              ridiculousBackwardCompatibleJsonError(
+                Json.obj("username" -> List(s"Please sign up on ${env.net.baseUrl}/signup")),
+              ),
+            ).fuccess,
           )
         }
       }

@@ -26,12 +26,6 @@ case class ContentSecurityPolicy(
       styleSrc = "https://platform.twitter.com" :: styleSrc,
     )
 
-  def withRecaptcha =
-    copy(
-      scriptSrc = "https://www.google.com" :: scriptSrc,
-      frameSrc = "https://www.google.com" :: frameSrc,
-    )
-
   def withPeer =
     copy(
       connectSrc = "wss://0.peerjs.com" :: connectSrc,

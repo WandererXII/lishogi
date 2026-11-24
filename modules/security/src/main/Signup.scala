@@ -4,6 +4,7 @@ import scala.concurrent.duration._
 import scala.util.chaining._
 
 import play.api.data._
+import play.api.http.HeaderNames
 import play.api.i18n.Lang
 import play.api.mvc.Request
 import play.api.mvc.RequestHeader
@@ -23,7 +24,7 @@ final class Signup(
     forms: DataForm,
     emailAddressValidator: EmailAddressValidator,
     emailConfirm: EmailConfirm,
-    recaptcha: Recaptcha,
+    formTimer: FormTimer,
     authenticator: lila.user.Authenticator,
     userRepo: lila.user.UserRepo,
     netConfig: NetConfig,
@@ -36,39 +37,51 @@ final class Signup(
     case object YesBecausePrintExists extends MustConfirmEmail(true)
     case object YesBecauseIpExists    extends MustConfirmEmail(true)
     case object YesBecauseIpSusp      extends MustConfirmEmail(true)
-    case object YesBecauseMobile      extends MustConfirmEmail(true)
     case object YesBecauseUA          extends MustConfirmEmail(true)
 
-    def apply(print: Option[FingerPrint])(implicit req: RequestHeader): Fu[MustConfirmEmail] = {
-      val ip = HTTPRequest lastRemoteAddress req
-      store.recentByIpExists(ip) flatMap { ipExists =>
-        if (ipExists) fuccess(YesBecauseIpExists)
-        else if (HTTPRequest weirdUA req) fuccess(YesBecauseUA)
-        else
-          print.fold(fuFalse)(store.recentByPrintExists) map { printFound =>
-            if (printFound) YesBecausePrintExists
-            else if (ipTrust.isSuspicious(ip)) YesBecauseIpSusp
-            else Nope
-          }
-      }
+    def apply(signals: Signup.Signals): MustConfirmEmail =
+      if (signals.ipExists) YesBecauseIpExists
+      else if (signals.weirdUA) YesBecauseUA
+      else if (signals.printExists) YesBecausePrintExists
+      else if (signals.ipSusp) YesBecauseIpSusp
+      else Nope
+  }
+
+  private def getSignals(
+      print: Option[FingerPrint],
+  )(implicit req: RequestHeader): Fu[Signup.Signals] = {
+    val ip = HTTPRequest lastRemoteAddress req
+    store.recentByIpExists(ip) zip print.fold(fuFalse)(store.recentByPrintExists) map {
+      case (ipExists, printExists) =>
+        Signup.Signals(
+          ipExists = ipExists,
+          ipSusp = ipTrust.isSuspicious(ip),
+          printExists = printExists,
+          printMissing = print.flatMap(_.hash).isEmpty,
+          weirdUA = HTTPRequest weirdUA req,
+          langMissing = !req.headers.hasHeader(HeaderNames.ACCEPT_LANGUAGE),
+        )
     }
   }
 
   def website(
       blind: Boolean,
-  )(implicit req: Request[_], lang: Lang, formBinding: FormBinding): Fu[Signup.Result] =
-    forms.signup.website
-      .bindFromRequest()
+  )(implicit req: Request[_], lang: Lang, formBinding: FormBinding): Fu[Signup.Result] = {
+    val form = forms.signup.website.bindFromRequest()
+    form
       .fold[Fu[Signup.Result]](
         err => fuccess(Signup.Bad(err tap signupErrLog)),
         data =>
-          recaptcha.verify(~data.recaptchaResponse, req).flatMap {
-            case false =>
-              authLog(data.username, data.email, "Signup recaptcha fail")
-              fuccess(Signup.Bad(forms.signup.website fill data))
-            case true =>
-              signupRateLimit(data.username, if (data.recaptchaResponse.isDefined) 1 else 2) {
-                MustConfirmEmail(data.fingerPrint) flatMap { mustConfirm =>
+          Signup.trap(data, formTimer) match {
+            case Some(trap) =>
+              authLog(data.username, data.email, s"Signup trap: $trap")
+              signupRateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = trap.cost) {
+                fuccess[Signup.Result](Signup.Bad(form withGlobalError trap.message))
+              }(rateLimitDefault)
+            case None =>
+              getSignals(data.fingerPrint) flatMap { signals =>
+                signupRateLimit(data.username, signals.cost) {
+                  val mustConfirm = MustConfirmEmail(signals)
                   lila.mon.user.register.count.increment()
                   lila.mon.user.register.mustConfirmEmail(mustConfirm.toString).increment()
                   val email = emailAddressValidator
@@ -82,15 +95,19 @@ final class Signup(
                       blind,
                       mustConfirmEmail = mustConfirm.value,
                     )
-                    .orFail(s"No user could be created for ${data.username}")
-                    .addEffect { logSignup(_, email.acceptable, data.fingerPrint, mustConfirm) }
                     .flatMap {
-                      confirmOrAllSet(email, mustConfirm, data.fingerPrint)
+                      case None => // created since the form was validated, i.e. double submit
+                        authLog(data.username, data.email, "Signup username just taken")
+                        fuccess(Signup.Bad(form.withError("username", "usernameAlreadyUsed")))
+                      case Some(user) =>
+                        logSignup(user, email.acceptable, data.fingerPrint, mustConfirm)
+                        confirmOrAllSet(email, mustConfirm, data.fingerPrint)(user)
                     }
                 }
               }
           },
       )
+  }
 
   private def confirmOrAllSet(
       email: EmailAddressValidator.Acceptable,
@@ -108,35 +125,6 @@ final class Signup(
       } else fuccess(Signup.AllSet(user, email.acceptable))
     }
 
-  def mobile(implicit req: Request[_], lang: Lang, formBinding: FormBinding): Fu[Signup.Result] =
-    forms.signup.mobile
-      .bindFromRequest()
-      .fold[Fu[Signup.Result]](
-        err => fuccess(Signup.Bad(err tap signupErrLog)),
-        data =>
-          signupRateLimit(data.username, cost = 2) {
-            val email = emailAddressValidator
-              .validate(data.realEmail) err s"Invalid email ${data.email}"
-            val mustConfirm = MustConfirmEmail.YesBecauseMobile
-            lila.mon.user.register.count.increment()
-            lila.mon.user.register.mustConfirmEmail(mustConfirm.toString).increment()
-            val passwordHash = authenticator passEnc User.ClearPassword(data.password)
-            userRepo
-              .create(
-                data.username,
-                passwordHash,
-                email.acceptable,
-                blind = false,
-                mustConfirmEmail = mustConfirm.value,
-              )
-              .orFail(s"No user could be created for ${data.username}")
-              .addEffect { logSignup(_, email.acceptable, none, mustConfirm) }
-              .flatMap {
-                confirmOrAllSet(email, mustConfirm, none)
-              }
-          },
-      )
-
   private def HasherRateLimit =
     PasswordHasher.rateLimit[Signup.Result](enforce = netConfig.rateLimit) _
 
@@ -145,10 +133,10 @@ final class Signup(
     enforce = netConfig.rateLimit.value,
   )(
     ("fast", 10, 10.minutes),
-    ("slow", 150, 1 day),
+    ("slow", 60, 1 day),
   )
 
-  private val rateLimitDefault = fuccess(Signup.RateLimited)
+  private val rateLimitDefault = fuccess[Signup.Result](Signup.RateLimited)
 
   private def signupRateLimit(username: String, cost: Int)(
       f: => Fu[Signup.Result],
@@ -186,6 +174,44 @@ final class Signup(
 }
 
 object Signup {
+
+  private[security] case class Signals(
+      ipExists: Boolean,
+      ipSusp: Boolean,
+      printExists: Boolean,
+      printMissing: Boolean,
+      weirdUA: Boolean,
+      langMissing: Boolean,
+  ) {
+    // Rate limit credits. A shared IP (school, club, CGNAT) is not suspicious by itself.
+    def cost: Int =
+      1 + List(
+        ipSusp       -> 2,
+        printExists  -> 1,
+        printMissing -> 2,
+        weirdUA      -> 2,
+        langMissing  -> 2,
+      ).collect { case (true, extra) => extra }.sum
+  }
+
+  sealed abstract private[security] class Trap(val message: String, val cost: Int)
+
+  private[security] object Trap {
+    case object Honeypot extends Trap("Sign up failed. Please try again.", 5)
+    case object TooFast  extends Trap("Please wait a few seconds and try again.", 1)
+    case object Expired  extends Trap("This form has expired. Please try again.", 1)
+    case object Forged   extends Trap("This form has expired. Please try again.", 3)
+  }
+
+  private[security] def trap(data: DataForm.SignupData, formTimer: FormTimer): Option[Trap] =
+    if (data.honeypot.exists(_.nonEmpty)) Trap.Honeypot.some
+    else
+      formTimer.check(~data.formTime) match {
+        case FormTimer.Ok      => none
+        case FormTimer.TooFast => Trap.TooFast.some
+        case FormTimer.Expired => Trap.Expired.some
+        case FormTimer.Invalid => Trap.Forged.some
+      }
 
   sealed trait Result
   case class Bad(err: Form[_])                             extends Result
