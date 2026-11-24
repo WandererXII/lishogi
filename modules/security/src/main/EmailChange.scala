@@ -1,5 +1,8 @@
 package lila.security
 
+import scala.concurrent.duration._
+
+import org.joda.time.DateTime
 import scalatags.Text.all._
 
 import lila.common.EmailAddress
@@ -15,10 +18,11 @@ final class EmailChange(
     tokenerSecret: Secret,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
+  import EmailChange._
   import Mailgun.html._
 
   def send(user: User, email: EmailAddress): Funit =
-    tokener make TokenPayload(user.id, email).some flatMap { token =>
+    tokener make TokenPayload(user.id, email, DateTime.now).some flatMap { token =>
       lila.mon.email.send.change.increment()
       implicit val lang = user.realLang | lila.i18n.defaultLang
       val url           = s"$baseUrl/account/email/confirm/$token"
@@ -45,38 +49,65 @@ ${Mailgun.txt.serviceNote}
       )
     }
 
-  // also returns the previous email address
-  def confirm(token: String): Fu[Option[(User, Option[EmailAddress])]] =
+  // Opening the link proves access to the new address, not ownership of the account
+  def confirm(me: User, token: String): Fu[Result] =
     tokener read token dmap (_.flatten) flatMap {
-      _ ?? { case TokenPayload(userId, email) =>
-        userRepo.email(userId) flatMap { previous =>
-          (userRepo.setEmail(userId, email).nevermind >> userRepo.byId(userId))
-            .map2(_ -> previous)
+      case Some(TokenPayload(userId, email, date)) if userId == me.id && !isExpired(date) =>
+        userRepo.idByEmail(email.normalize) flatMap {
+          case Some(id) if id != me.id => fuccess(Result.EmailTaken)
+          case _ =>
+            userRepo
+              .setEmail(me.id, email)
+              .inject(Result.Confirmed: Result)
+              .recover(lila.db.recoverDuplicateKey(_ => Result.EmailTaken)) // lost a race
         }
-      }
-    }
-
-  case class TokenPayload(userId: User.ID, email: EmailAddress)
-
-  implicit final private val payloadSerializable: StringToken.Serializable[Option[TokenPayload]] =
-    new StringToken.Serializable[Option[TokenPayload]] {
-      private val sep = ' '
-      def read(str: String) =
-        str.split(sep) match {
-          case Array(userId, email) => EmailAddress from email map { TokenPayload(userId, _) }
-          case _                    => none
-        }
-      def write(a: Option[TokenPayload]) =
-        a ?? { case TokenPayload(userId, EmailAddress(email)) =>
-          s"$userId$sep$email"
-        }
+      case _ => fuccess(Result.InvalidToken)
     }
 
   private val tokener = new StringToken[Option[TokenPayload]](
     secret = tokenerSecret,
     getCurrentValue = p =>
-      p ?? { case TokenPayload(userId, _) =>
-        userRepo email userId dmap (_.??(_.value))
+      p ?? { payload =>
+        userRepo email payload.userId dmap (_.??(_.value))
       },
+    separator = tokenSeparator,
   )
+}
+
+object EmailChange {
+
+  sealed trait Result
+  object Result {
+    case object Confirmed    extends Result
+    case object EmailTaken   extends Result
+    case object InvalidToken extends Result
+  }
+
+  private val lifetime = 1 hour
+
+  private[security] val tokenSeparator = ','
+
+  private[security] def isExpired(date: DateTime): Boolean =
+    date.isBefore(DateTime.now.minusSeconds(lifetime.toSeconds.toInt))
+
+  private[security] case class TokenPayload(userId: User.ID, email: EmailAddress, date: DateTime)
+
+  implicit private[security] val payloadSerializable
+      : StringToken.Serializable[Option[TokenPayload]] =
+    new StringToken.Serializable[Option[TokenPayload]] {
+      private val sep = ' '
+      def read(str: String) =
+        str.split(sep) match {
+          case Array(userId, emailStr, dateStr) =>
+            for {
+              email <- EmailAddress from emailStr
+              date  <- StringToken.DateStr toDate dateStr
+            } yield TokenPayload(userId, email, date)
+          case _ => none
+        }
+      def write(a: Option[TokenPayload]) =
+        a ?? { case TokenPayload(userId, EmailAddress(email), date) =>
+          s"$userId$sep$email$sep${StringToken.DateStr toStr date}"
+        }
+    }
 }

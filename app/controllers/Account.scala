@@ -181,17 +181,24 @@ final class Account(
 
   def emailConfirm(token: String) =
     Open { implicit ctx =>
-      env.security.emailChange.confirm(token) flatMap {
-        _ ?? { case (user, prevEmail) =>
-          auth.authenticateUser(
-            user,
-            result =
-              if (prevEmail.exists(_.isNoReply))
-                Some(_ => Redirect(routes.User.show(user.username)).flashSuccess)
-              else
-                Some(_ => Redirect(routes.Account.email).flashSuccess),
-          )
-        }
+      import lila.security.EmailChange.Result
+      ctx.me match {
+        case None =>
+          fuccess {
+            Redirect(routes.Auth.login) withCookies
+              env.lilaCookie.session(env.security.api.AccessUri, ctx.req.uri)
+          }
+        case Some(me) =>
+          env.security.emailChange.confirm(me, token) map {
+            case Result.Confirmed =>
+              Redirect(routes.Account.email).flashSuccess
+            case Result.EmailTaken =>
+              Redirect(routes.Account.email)
+                .flashFailure(lila.i18n.I18nKeys.`error.email_unique`.txt())
+            case Result.InvalidToken =>
+              Redirect(routes.Account.email)
+                .flashFailure("This link is no longer valid, or is for a different account.")
+          }
       }
     }
 
