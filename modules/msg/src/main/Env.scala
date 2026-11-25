@@ -39,8 +39,6 @@ final class Env(
 
   lazy val search = wire[MsgSearch]
 
-  lazy val compat = wire[MsgCompat]
-
   def cli =
     new lila.common.Cli {
       def process = { case "msg" :: "multi" :: orig :: dests :: words =>

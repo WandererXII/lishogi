@@ -56,17 +56,4 @@ class AuthTest extends Specification {
       "vs empty" >> !auth.compare(abcUser, P(""))
     }
   }
-
-  "migrated user" in {
-    val shaToBcrypt = AuthData(
-      "",
-      salt = Some("7IzdmPSe0iZnGc1ChY32fVsfrZBLdIlN"),
-      // Sha hash extracted from mongo
-      bpass = auth.passEnc(P("1c4b2f9a0605c1af73d0ac66ab67c89a6bc76efa")),
-    )
-
-    "correct" >> auth.compare(shaToBcrypt, P("password"))
-    "wrong pass" >> !auth.compare(shaToBcrypt, P(""))
-    "wrong sha" >> !auth.compare(shaToBcrypt.copy(sha512 = Some(true)), P("password"))
-  }
 }

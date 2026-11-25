@@ -195,7 +195,7 @@ final class Challenge(
         if (isMine(c))
           Form(
             single(
-              "username" -> lila.user.UserForm.historicalUsernameField,
+              "username" -> lila.user.UserForm.usernameField,
             ),
           ).bindFromRequest()
             .fold(

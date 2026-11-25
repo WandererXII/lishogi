@@ -222,15 +222,13 @@ object User {
   implicit def playTimeHandler: BSONDocumentHandler[PlayTime] =
     reactivemongo.api.bson.Macros.handler[PlayTime]
 
-  // what existing usernames are like
-  val historicalUsernameRegex = """(?i)[a-z0-9][\w-]{0,28}[a-z0-9]""".r
-  // what new usernames should be like -- now split into further parts for clearer error messages
+  // what usernames are like -- also split into further parts for clearer signup error messages
   val newUsernameRegex  = """(?i)[a-z][\w-]{0,28}[a-z0-9]""".r
   val newUsernamePrefix = """(?i)[a-z].*""".r
   val newUsernameSuffix = """(?i).*[a-z0-9]""".r
   val newUsernameChars  = """(?i)[\w-]*""".r
 
-  def couldBeUsername(str: User.ID) = historicalUsernameRegex.matches(str)
+  def couldBeUsername(str: User.ID) = newUsernameRegex.matches(str)
 
   // at least 2 chars long
   private val startOfUsernameRegex = """(?i)[a-z0-9][\w-]{1,29}""".r
@@ -261,9 +259,7 @@ object User {
     val prevEmail            = "prevEmail"
     val colorIt              = "colorIt"
     val plan                 = "plan"
-    val salt                 = "salt"
     val bpass                = "bpass"
-    val sha512               = "sha512"
     val totpSecret           = "totp"
     val changedCase          = "changedCase"
     val marks                = "marks"

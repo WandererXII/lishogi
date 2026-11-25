@@ -78,7 +78,7 @@ final private[team] class TeamForm(
 
   val selectMember = Form(
     single(
-      "userId" -> lila.user.UserForm.historicalUsernameField,
+      "userId" -> lila.user.UserForm.usernameField,
     ),
   )
 

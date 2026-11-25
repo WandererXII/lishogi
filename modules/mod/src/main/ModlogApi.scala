@@ -31,15 +31,6 @@ final class ModlogApi(repo: ModlogRepo)(implicit
     add {
       Modlog(mod.user.id, streamerId.some, Modlog.streamerTier, v.toString.some)
     }
-  // BC
-  def streamerFeature(mod: Mod, streamerId: User.ID, v: Boolean) =
-    add {
-      Modlog(
-        mod.user.id,
-        streamerId.some,
-        if (v) Modlog.streamerFeature else Modlog.streamerUnfeature,
-      )
-    }
 
   def puzzleDelete(mod: Mod, puzzleId: String) =
     add {

@@ -77,10 +77,10 @@ object UserForm {
 
   val title = Form(single("title" -> optional(nonEmptyText)))
 
-  lazy val historicalUsernameConstraints = Seq(
+  lazy val usernameConstraints = Seq(
     Constraints minLength 2,
     Constraints maxLength 30,
-    Constraints.pattern(regex = User.historicalUsernameRegex),
+    Constraints.pattern(regex = User.newUsernameRegex),
   )
-  lazy val historicalUsernameField = text.verifying(historicalUsernameConstraints: _*)
+  lazy val usernameField = text.verifying(usernameConstraints: _*)
 }

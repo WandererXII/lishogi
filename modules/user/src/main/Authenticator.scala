@@ -16,13 +16,8 @@ final class Authenticator(
 
   def passEnc(p: ClearPassword): HashedPassword = passHasher.hash(p)
 
-  def compare(auth: AuthData, p: ClearPassword): Boolean = {
-    val newP = auth.salt.fold(p) { s =>
-      val salted = s"${p.value}{$s}" // BC
-      ClearPassword(if (~auth.sha512) salted.sha512 else salted.sha1)
-    }
-    passHasher.check(auth.bpass, newP)
-  }
+  def compare(auth: AuthData, p: ClearPassword): Boolean =
+    passHasher.check(auth.bpass, p)
 
   def loginCandidate(u: User): Fu[User.LoginCandidate] =
     loginCandidateById(u.id) dmap { _ | User.LoginCandidate(u, _ => false) }
@@ -37,22 +32,15 @@ final class Authenticator(
     userRepo.coll.update
       .one(
         $id(id),
-        $set(F.bpass -> passEnc(p).bytes) ++ $unset(F.salt, F.sha512),
+        $set(F.bpass -> passEnc(p).bytes),
       )
       .void
-
-  private def authWithBenefits(auth: AuthData)(p: ClearPassword): Boolean = {
-    val res = compare(auth, p)
-    if (res && auth.salt.isDefined)
-      setPassword(id = auth._id, p) >>- lila.mon.user.auth.bcFullMigrate.increment().unit
-    res
-  }
 
   private def loginCandidate(select: Bdoc): Fu[Option[User.LoginCandidate]] =
     userRepo.coll.one[AuthData](select, authProjection.some)(AuthDataBSONHandler) zip userRepo.coll
       .one[User](select) map {
       case (Some(authData), Some(user)) if user.enabled || !user.lameOrTroll =>
-        User.LoginCandidate(user, authWithBenefits(authData)).some
+        User.LoginCandidate(user, compare(authData, _)).some
       case _ => none
     }
 }
@@ -62,18 +50,12 @@ object Authenticator {
   case class AuthData(
       _id: User.ID,
       bpass: HashedPassword,
-      salt: Option[String] = None,
-      sha512: Option[Boolean] = None,
   ) {
 
     def hashToken: String = bpass.bytes.sha512.hex
   }
 
-  val authProjection = $doc(
-    F.bpass  -> true,
-    F.salt   -> true,
-    F.sha512 -> true,
-  )
+  val authProjection = $doc(F.bpass -> true)
 
   implicit private[user] val HashedPasswordBsonHandler: BSONHandler[HashedPassword] =
     quickHandler[HashedPassword](

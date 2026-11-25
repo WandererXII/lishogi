@@ -225,8 +225,8 @@ object BSONHandlers {
           case _    => user2
         },
         plies = r intO "t",
-        berserk1 = r.intO("b1").fold(r.boolD("b1"))(1 ==), // it used to be int = 0/1
-        berserk2 = r.intO("b2").fold(r.boolD("b2"))(1 ==),
+        berserk1 = r boolD "b1",
+        berserk2 = r boolD "b2",
       )
     }
     def writes(w: BSON.Writer, o: Pairing) =

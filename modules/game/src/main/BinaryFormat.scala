@@ -127,9 +127,8 @@ object BinaryFormat {
         val ia   = ba.value map toInt
         val size = ia.sizeIs
 
-        // ba.size might be greater than 12 with 5 bytes timers
-        // ba.size might be 8 if there was no timer.
-        // #TODO remove 5 byte timer case! But fix the DB first!
+        // ba.size is 8, + 4 if there is a timer, + 2 for byoyomi and periods
+        // (byoyomi and periods are missing in games from before 2021-01)
         val timer = {
           if (size >= 12) readTimer(readInt(ia(8), ia(9), ia(10), ia(11)))
           else None

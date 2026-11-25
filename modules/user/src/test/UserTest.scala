@@ -12,9 +12,9 @@ class UserTest extends Specification {
   "username regex" in {
     import User.couldBeUsername
     import User.couldBeStartOfUsername
-    "bad prefix: can login" in {
-      couldBeUsername("000") must beTrue
-      couldBeUsername("0foo") must beTrue
+    "bad prefix: cannot login" in {
+      couldBeUsername("000") must beFalse
+      couldBeUsername("0foo") must beFalse
       couldBeUsername("_foo") must beFalse
       couldBeUsername("-foo") must beFalse
     }

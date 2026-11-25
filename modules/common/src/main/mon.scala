@@ -201,8 +201,7 @@ object mon {
       val modConfirmEmail = counter("user.register.modConfirmEmail").withoutTags()
     }
     object auth {
-      val bcFullMigrate = counter("user.auth.bcFullMigrate").withoutTags()
-      val hashTime      = timer("user.auth.hashTime").withoutTags()
+      val hashTime = timer("user.auth.hashTime").withoutTags()
       def count(success: Boolean) =
         counter("user.auth.count").withTag("success", successTag(success))
 
