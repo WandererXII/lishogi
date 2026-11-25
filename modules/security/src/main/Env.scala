@@ -50,7 +50,7 @@ final class Env(
 
   lazy val formTimer = new FormTimer(config.signupFormSecret)
 
-  lazy val forms = wire[DataForm]
+  lazy val forms = wire[SecurityForm]
 
   lazy val geoIP: GeoIP = wire[GeoIP]
 

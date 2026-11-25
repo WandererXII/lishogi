@@ -20,7 +20,7 @@ import shogi.format.kif.KifParser
 
 import lila.game._
 
-final class DataForm {
+final class ImporterForm {
 
   lazy val importForm = Form(
     mapping(

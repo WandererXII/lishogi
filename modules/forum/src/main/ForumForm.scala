@@ -5,12 +5,12 @@ import play.api.data._
 
 import lila.common.Form.cleanText
 
-final private[forum] class DataForm(
+final private[forum] class ForumForm(
     val captcher: lila.hub.actors.Captcher,
 )(implicit ec: scala.concurrent.ExecutionContext)
     extends lila.hub.CaptchedForm {
 
-  import DataForm._
+  import ForumForm._
 
   val postMapping = mapping(
     "text"    -> cleanText(minLength = 3),
@@ -34,7 +34,7 @@ final private[forum] class DataForm(
   )
 }
 
-object DataForm {
+object ForumForm {
 
   case class PostData(
       text: String,

@@ -9,7 +9,7 @@ import lila.api.Context
 import lila.app.templating.Environment._
 import lila.app.ui.ScalatagsTemplate._
 import lila.tournament.Condition
-import lila.tournament.DataForm
+import lila.tournament.TournamentForm
 import lila.tournament.Format
 import lila.tournament.TimeControl
 import lila.tournament.Tournament
@@ -315,7 +315,7 @@ final private class TourFields(form: Form[_], tour: Option[Tournament])(implicit
     form3.group(form("variant"), trans.variant(), half = true)(
       form3.select(
         _,
-        DataForm.validVariants.map(v => (v.id.toString, transKeyTxt(v.key))),
+        TournamentForm.validVariants.map(v => (v.id.toString, transKeyTxt(v.key))),
         disabled = disabledAfterCreate,
       ),
     )
@@ -431,7 +431,7 @@ final private class TourFields(form: Form[_], tour: Option[Tournament])(implicit
       form3.group(form("minutes"), trans.duration(), klass = "f-arena", half = true)(
         form3.select(
           _,
-          DataForm.minutes.map(m => (m, trans.nbMinutes.pluralSameTxt(m))),
+          TournamentForm.minutes.map(m => (m, trans.nbMinutes.pluralSameTxt(m))),
           disabled = disabledAfterFinish || tour.exists(_.hasArrangements),
         ),
       ),

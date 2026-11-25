@@ -16,7 +16,7 @@ final class Signup(
     store: Store,
     api: SecurityApi,
     ipTrust: IpTrust,
-    forms: DataForm,
+    forms: SecurityForm,
     emailAddressValidator: EmailAddressValidator,
     emailConfirm: EmailConfirm,
     formTimer: FormTimer,
@@ -194,7 +194,7 @@ object Signup {
     case object Forged   extends Trap("This form has expired. Please try again.", 3)
   }
 
-  private[security] def trap(data: DataForm.SignupData, formTimer: FormTimer): Option[Trap] =
+  private[security] def trap(data: SecurityForm.SignupData, formTimer: FormTimer): Option[Trap] =
     if (data.honeypot.exists(_.nonEmpty)) Trap.Honeypot.some
     else
       formTimer.check(~data.formTime) match {

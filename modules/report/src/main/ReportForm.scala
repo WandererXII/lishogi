@@ -9,7 +9,7 @@ import play.api.data.validation._
 import lila.common.LightUser
 import lila.user.User
 
-final private[report] class DataForm(
+final private[report] class ReportForm(
     lightUserAsync: LightUser.Getter,
     val captcher: lila.hub.actors.Captcher,
     domain: lila.common.config.NetDomain,
@@ -29,7 +29,7 @@ final private[report] class DataForm(
 
   val create = Form(
     mapping(
-      "username" -> lila.user.DataForm.historicalUsernameField.verifying(
+      "username" -> lila.user.UserForm.historicalUsernameField.verifying(
         "Unknown username", {
           blockingFetchUser(_).isDefined
         },
@@ -55,7 +55,7 @@ final private[report] class DataForm(
 
   val flag = Form(
     mapping(
-      "username" -> lila.user.DataForm.historicalUsernameField,
+      "username" -> lila.user.UserForm.historicalUsernameField,
       "resource" -> nonEmptyText,
       "text"     -> text(minLength = 3, maxLength = 140),
     )(ReportFlag.apply)(ReportFlag.unapply),

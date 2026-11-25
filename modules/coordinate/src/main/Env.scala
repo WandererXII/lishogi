@@ -12,5 +12,5 @@ final class Env(
 
   lazy val api = wire[CoordinateApi]
 
-  lazy val forms = DataForm
+  lazy val forms = CoordinateForm
 }

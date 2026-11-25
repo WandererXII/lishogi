@@ -9,7 +9,7 @@ import lila.common.Form.cleanText
 import lila.common.Form.numberIn
 import lila.db.dsl._
 
-final private[team] class DataForm(
+final private[team] class TeamForm(
     teamRepo: TeamRepo,
     lightUserApi: lila.user.LightUserApi,
     val captcher: lila.hub.actors.Captcher,
@@ -78,7 +78,7 @@ final private[team] class DataForm(
 
   val selectMember = Form(
     single(
-      "userId" -> lila.user.DataForm.historicalUsernameField,
+      "userId" -> lila.user.UserForm.historicalUsernameField,
     ),
   )
 

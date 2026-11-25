@@ -6,7 +6,7 @@ import play.api.mvc.Request
 import lila.game.Game
 
 final class UserGameSearch(
-    forms: DataForm,
+    forms: GameSearchForm,
     paginator: lila.search.PaginatorBuilder[Game, Query],
 ) {
 

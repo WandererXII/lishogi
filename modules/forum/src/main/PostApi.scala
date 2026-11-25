@@ -37,7 +37,7 @@ final class PostApi(
   def makePost(
       categ: Categ,
       topic: Topic,
-      data: DataForm.PostData,
+      data: ForumForm.PostData,
   )(implicit ctx: UserContext): Fu[Post] =
     lastNumberOf(topic) flatMap { number =>
       detectLanguage(data.text) zip recentUserIds(topic, number) flatMap {

@@ -47,7 +47,7 @@ final class Env(
 
   private def scheduler = system.scheduler
 
-  lazy val forms = wire[DataForm]
+  lazy val forms = wire[TournamentForm]
 
   private val playerColl = CollName("tournament_player")
 

@@ -5,7 +5,7 @@ import play.api.data._
 
 import lila.common.Form.urlText
 
-object DataForm {
+object PrefForm {
 
   private def checkedNumber(choices: Seq[(Int)]) =
     number.verifying(choices contains _)

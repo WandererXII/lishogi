@@ -3,7 +3,7 @@ package lila.coordinate
 import play.api.data.Forms._
 import play.api.data._
 
-object DataForm {
+object CoordinateForm {
 
   val score = Form(
     mapping(

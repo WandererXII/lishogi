@@ -68,7 +68,7 @@ final class MsgCompat(
   )(implicit req: play.api.mvc.Request[_], formBinding: FormBinding): Either[Form[_], Fu[User.ID]] =
     Form(
       mapping(
-        "username" -> lila.user.DataForm.historicalUsernameField
+        "username" -> lila.user.UserForm.historicalUsernameField
           .verifying("Unknown username", { blockingFetchUser(_).isDefined })
           .verifying(
             "Sorry, this player doesn't accept new messages",

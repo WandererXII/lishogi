@@ -53,7 +53,7 @@ final class Env(
     score = scoreThresholdSetting.get _,
   )
 
-  lazy val forms = wire[DataForm]
+  lazy val forms = wire[ReportForm]
 
   private lazy val autoAnalysis = wire[AutoAnalysis]
 

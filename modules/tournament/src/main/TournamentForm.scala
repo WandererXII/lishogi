@@ -17,9 +17,9 @@ import lila.common.Form._
 import lila.hub.LightTeam._
 import lila.user.User
 
-final class DataForm {
+final class TournamentForm {
 
-  import DataForm._
+  import TournamentForm._
 
   def create(user: User, teamBattleId: Option[TeamID] = none) =
     form(user, none) fill TournamentSetup(
@@ -170,7 +170,7 @@ final class DataForm {
       )
 }
 
-object DataForm {
+object TournamentForm {
 
   import shogi.variant._
 
@@ -214,7 +214,7 @@ private[tournament] case class TournamentSetup(
     if (position.filterNot(_.initialOf(realVariant)).isDefined) Mode.Casual
     else Mode(rated | true)
 
-  def realVariant = variant.flatMap(DataForm.guessVariant) | shogi.variant.Standard
+  def realVariant = variant.flatMap(TournamentForm.guessVariant) | shogi.variant.Standard
 
   def realFormat = format.flatMap(Format.byKey) | Format.Arena
 
@@ -226,7 +226,7 @@ private[tournament] case class TournamentSetup(
       ((fd.getMillis - realStartDate.getMillis) / 60000).toInt
     }
     .orElse(minutes)
-    .getOrElse(DataForm.minutesDefault)
+    .getOrElse(TournamentForm.minutesDefault)
 
   def validPosition = position.fold(true) { sfen =>
     sfen.toPosition(realVariant).exists(_.playable(strict = true))
@@ -262,7 +262,7 @@ private[tournament] case class TournamentSetup(
   def isPrivate = password.isDefined || conditions.teamMember.isDefined
 
   private def minutesMax =
-    if (realFormat == Format.Arena) DataForm.minutes.last else 24 * 60 * 365 / 3
+    if (realFormat == Format.Arena) TournamentForm.minutes.last else 24 * 60 * 365 / 3
 
   private def estimateNumberOfGamesOneCanPlay: Double =
     (realMinutes * 60) / estimatedGameSeconds

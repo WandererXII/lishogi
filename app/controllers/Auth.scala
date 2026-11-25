@@ -12,7 +12,7 @@ import lila.api.Context
 import lila.app._
 import lila.common.EmailAddress
 import lila.common.HTTPRequest
-import lila.security.DataForm.SignupData
+import lila.security.SecurityForm.SignupData
 import lila.security.FingerPrint
 import lila.security.Signup
 import lila.user.User.ClearPassword

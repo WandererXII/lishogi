@@ -5,7 +5,7 @@ import play.api.data._
 
 import cats.implicits._
 
-object DataForm {
+object PlanForm {
 
   private val txnTypes =
     Set("express_checkout", "web_accept", "recurring_payment", "subscr_payment")

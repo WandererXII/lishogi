@@ -8,7 +8,7 @@ import lila.common.Form.cleanNonEmptyText
 import lila.common.Form.cleanText
 import lila.user.User.ClearPassword
 
-final class DataForm(authenticator: Authenticator) {
+final class UserForm(authenticator: Authenticator) {
 
   val note = Form(
     mapping(
@@ -63,14 +63,14 @@ final class DataForm(authenticator: Authenticator) {
             "incorrectPassword",
             p => candidate.check(ClearPassword(p)),
           ),
-          "newPasswd1" -> DataForm.newPassword,
-          "newPasswd2" -> DataForm.newPassword,
+          "newPasswd1" -> UserForm.newPassword,
+          "newPasswd2" -> UserForm.newPassword,
         )(Passwd.apply)(Passwd.unapply).verifying("the new passwords don't match", _.samePasswords),
       )
     }
 }
 
-object DataForm {
+object UserForm {
 
   // Only for choosing a password, existing ones may not match
   val newPassword = nonEmptyText(minLength = 4, maxLength = 999)

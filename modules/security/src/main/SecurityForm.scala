@@ -14,9 +14,9 @@ import lila.user.User
 import lila.user.User.ClearPassword
 import lila.user.User.TotpToken
 import lila.user.UserRepo
-import lila.user.{ DataForm => UserDataForm }
+import lila.user.UserForm
 
-final class DataForm(
+final class SecurityForm(
     userRepo: UserRepo,
     val captcher: lila.hub.actors.Captcher,
     authenticator: lila.user.Authenticator,
@@ -25,7 +25,7 @@ final class DataForm(
 )(implicit ec: scala.concurrent.ExecutionContext)
     extends lila.hub.CaptchedForm {
 
-  import DataForm._
+  import SecurityForm._
 
   case class Empty(gameId: String, move: String)
 
@@ -85,7 +85,7 @@ final class DataForm(
     val website = Form(
       mapping(
         "username"                -> username,
-        "password"                -> UserDataForm.newPassword,
+        "password"                -> UserForm.newPassword,
         "email"                   -> emailField,
         "agreement"               -> agreement,
         "fp"                      -> optional(nonEmptyText),
@@ -112,8 +112,8 @@ final class DataForm(
 
   val passwdReset = Form(
     mapping(
-      "newPasswd1" -> UserDataForm.newPassword,
-      "newPasswd2" -> UserDataForm.newPassword,
+      "newPasswd1" -> UserForm.newPassword,
+      "newPasswd2" -> UserForm.newPassword,
     )(PasswordResetConfirm.apply)(PasswordResetConfirm.unapply).verifying(
       "the new passwords don't match",
       _.samePasswords,
@@ -218,7 +218,7 @@ final class DataForm(
     text.verifying("incorrectPassword", p => candidate.check(ClearPassword(p)))
 }
 
-object DataForm {
+object SecurityForm {
 
   // a missing checkbox is false, so all of them must be ticked
   private val agreementBool = boolean.verifying(b => b)
