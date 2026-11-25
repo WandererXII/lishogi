@@ -32,7 +32,7 @@ object Iso {
 
   def strings(sep: String): StringIso[Strings] =
     Iso[String, Strings](
-      str => Strings(str.split(sep).iterator.map(_.trim).to(List)),
+      str => Strings(str.split(sep).iterator.map(_.trim).filter(_.nonEmpty).to(List)),
       strs => strs.value mkString sep,
     )
 
