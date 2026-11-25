@@ -1,13 +1,9 @@
 package lila.security
 
-import play.api.i18n.Lang
-
 import cats.implicits._
 
-import lila.common.EmailAddress
 import lila.common.config.BaseUrl
 import lila.hub.actorApi.msg.SystemMsg
-import lila.i18n.I18nKeys.{ emails => trans }
 import lila.user.User
 import lila.user.UserRepo
 
@@ -22,23 +18,6 @@ final class AutomaticEmail(
   val regards = """Regards,
 
 The Lishogi team"""
-
-  def welcome(user: User, email: EmailAddress)(implicit lang: Lang): Funit = {
-    val profileUrl = s"$baseUrl/@/${user.username}"
-    val editUrl    = s"$baseUrl/account/profile"
-    mailgun send Mailgun.Message(
-      to = email,
-      subject = trans.welcome_subject.txt(user.username),
-      text = s"""
-${trans.welcome_text.txt(profileUrl, editUrl)}
-
-${Mailgun.txt.serviceNote}
-""",
-      htmlBody = standardEmail(
-        trans.welcome_text.txt(profileUrl, editUrl),
-      ).some,
-    )
-  }
 
   def onTitleSet(username: String): Funit =
     for {

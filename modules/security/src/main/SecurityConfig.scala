@@ -22,7 +22,6 @@ final private class SecurityConfig(
     val tor: Tor,
     @ConfigName("disposable_email") val disposableEmail: DisposableEmail,
     @ConfigName("dns_api") val dnsApi: DnsApi,
-    @ConfigName("check_mail_api") val checkMail: CheckMail,
     val mailgun: Mailgun.Config,
     @ConfigName("lame_name_check") val lameNameCheck: LameNameCheck,
 )
@@ -52,12 +51,6 @@ private object SecurityConfig {
       timeout: FiniteDuration,
   )
   implicit val dnsLoader: ConfigLoader[DnsApi] = AutoConfig.loader[DnsApi]
-
-  case class CheckMail(
-      url: String,
-      key: Secret,
-  )
-  implicit val checkMailLoader: ConfigLoader[CheckMail] = AutoConfig.loader[CheckMail]
 
   implicit val lameNameCheckLoader: ConfigLoader[LameNameCheck] = boolLoader(LameNameCheck.apply)
 

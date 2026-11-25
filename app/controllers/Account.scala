@@ -1,16 +1,11 @@
 package controllers
 
-import scala.annotation.nowarn
-import scala.concurrent.duration._
-
 import play.api.libs.json._
 import play.api.mvc._
 import views.html
 
 import lila.api.Context
 import lila.app._
-import lila.common.HTTPRequest
-import lila.common.IpAddress
 import lila.user.TotpSecret
 import lila.user.{ User => UserModel }
 
@@ -18,6 +13,8 @@ final class Account(
     env: Env,
     auth: Auth,
 ) extends LilaController(env) {
+
+  private def rateLimits = env.security.rateLimits
 
   def profile =
     Auth { implicit ctx => me =>
@@ -115,15 +112,15 @@ final class Account(
 
   def passwdApply =
     AuthBody { implicit ctx => me =>
-      auth.HasherRateLimit(me.username, ctx.req) { _ =>
+      rateLimits.ownPasswordHash(me.id, ctx.req) { _ =>
         implicit val req = ctx.body
         env.user.forms passwd me flatMap { form =>
           FormFuResult(form) { err =>
             fuccess(html.account.passwd(err))
           } { data =>
-            env.user.authenticator.setPassword(me.id, UserModel.ClearPassword(data.newPasswd1))
-            env.security.store
-              .closeUserExceptSessionId(me.id, ~lila.common.HTTPRequest.userSessionId(ctx.req)) >>
+            env.user.authenticator.setPassword(me.id, UserModel.ClearPassword(data.newPasswd1)) >>
+              env.security.store
+                .closeUserExceptSessionId(me.id, ~lila.common.HTTPRequest.userSessionId(ctx.req)) >>
               env.push.webSubscriptionApi.unsubscribeByUser(me) inject
               Redirect(routes.Account.passwd).flashSuccess
           }
@@ -138,7 +135,7 @@ final class Account(
 
   def email =
     Auth { implicit ctx => me =>
-      if (getBool("check")) Ok(renderCheckYourEmail).fuccess
+      if (getBool("check")) Ok(auth.renderCheckYourEmail).fuccess
       else
         emailForm(me) map { form =>
           Ok(html.account.email(form))
@@ -154,12 +151,9 @@ final class Account(
       }
     }
 
-  def renderCheckYourEmail(implicit ctx: Context) =
-    html.auth.checkYourEmail(lila.security.EmailConfirm.cookie get ctx.req)
-
   def emailApply =
     AuthBody { implicit ctx => me =>
-      auth.HasherRateLimit(me.username, ctx.req) { _ =>
+      rateLimits.ownPasswordHash(me.id, ctx.req) { _ =>
         implicit val req = ctx.body
         env.security.forms.preloadEmailDns >> emailForm(me).flatMap { form =>
           FormFuResult(form) { err =>
@@ -168,7 +162,7 @@ final class Account(
             val email = env.security.emailAddressValidator
               .validate(data.realEmail) err s"Invalid email ${data.email}"
             val newUserEmail = lila.security.EmailConfirm.UserEmail(me.username, email.acceptable)
-            auth.EmailConfirmRateLimit(newUserEmail, ctx.req) {
+            rateLimits.emailConfirm(newUserEmail, ctx.req) {
               env.security.emailChange.send(me, newUserEmail.email) inject
                 Redirect(routes.Account.email).flashSuccess {
                   lila.i18n.I18nKeys.checkYourEmail.txt()
@@ -202,13 +196,6 @@ final class Account(
       }
     }
 
-  private val EmailConfirmHelpRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
-    credits = 10,
-    duration = 10.minutes,
-    key = "email.confirm.help.ip",
-    enforce = env.net.rateLimit.value,
-  )
-
   def emailConfirmHelp =
     OpenBody { implicit ctx =>
       import lila.security.EmailConfirm.Help._
@@ -224,7 +211,7 @@ final class Account(
             .fold(
               err => BadRequest(html.account.emailConfirmHelp(err, none)).fuccess,
               username =>
-                EmailConfirmHelpRateLimitPerIP(HTTPRequest lastRemoteAddress ctx.req) {
+                rateLimits.emailConfirmHelp(ctx.req) {
                   getStatus(env.user.repo, username) map { status =>
                     Ok(html.account.emailConfirmHelp(helpForm fill username, status.some))
                   }
@@ -247,7 +234,7 @@ final class Account(
 
   def setupTwoFactor =
     AuthBody { implicit ctx => me =>
-      auth.HasherRateLimit(me.username, ctx.req) { _ =>
+      rateLimits.ownPasswordHash(me.id, ctx.req) { _ =>
         implicit val req     = ctx.body
         val currentSessionId = ~lila.common.HTTPRequest.userSessionId(ctx.req)
         env.security.forms.setupTwoFactor(me) flatMap { form =>
@@ -266,7 +253,7 @@ final class Account(
 
   def disableTwoFactor =
     AuthBody { implicit ctx => me =>
-      auth.HasherRateLimit(me.username, ctx.req) { _ =>
+      rateLimits.ownPasswordHash(me.id, ctx.req) { _ =>
         implicit val req = ctx.body
         env.security.forms.disableTwoFactor(me) flatMap { form =>
           FormFuResult(form) { err =>
@@ -288,7 +275,7 @@ final class Account(
 
   def closeConfirm =
     AuthBody { implicit ctx => me =>
-      auth.HasherRateLimit(me.username, ctx.req) { _ =>
+      rateLimits.ownPasswordHash(me.id, ctx.req) { _ =>
         implicit val req = ctx.body
         env.security.forms closeAccount me flatMap { form =>
           FormFuResult(form) { err =>
@@ -315,7 +302,7 @@ final class Account(
 
   def kidPost =
     AuthBody { implicit ctx => me =>
-      auth.HasherRateLimit(me.username, ctx.req) { _ =>
+      rateLimits.ownPasswordHash(me.id, ctx.req) { _ =>
         implicit val req = ctx.body
         env.security.forms toggleKid me flatMap { form =>
           form
@@ -378,7 +365,7 @@ final class Account(
   def reopen =
     Open { implicit ctx =>
       auth.RedirectToProfileIfLoggedIn {
-        env.security.forms.magicLinkWithCaptcha map { case (form, captcha) =>
+        env.security.forms.reopenWithCaptcha map { case (form, captcha) =>
           Ok(html.account.reopen.form(form, captcha))
         }
       }
@@ -395,25 +382,24 @@ final class Account(
               BadRequest(html.account.reopen.form(err, captcha, none))
             },
           data =>
-            env.security.reopen
-              .prepare(data.username, data.realEmail, env.mod.logApi.hasModClose _) flatMap {
+            env.security.reopen.findClosed(data.username) flatMap {
               case Left((code, msg)) =>
                 lila.mon.user.auth.reopenRequest(code).increment()
                 env.security.forms.reopenWithCaptcha map { case (form, captcha) =>
                   BadRequest(html.account.reopen.form(form, captcha, msg.some))
                 }
               case Right(user) =>
-                auth.MagicLinkRateLimit(user, data.realEmail, ctx.req) {
-                  lila.mon.user.auth.reopenRequest("success").increment()
-                  env.security.reopen.send(user, data.realEmail) inject Redirect(
-                    routes.Account.reopenSent(data.realEmail.value),
-                  )
-                }(rateLimitedFu)
+                rateLimits.accountRecovery(data.realEmail, ctx.req) {
+                  env.security.reopen
+                    .sendIfAllowed(user, data.realEmail, env.mod.logApi.hasModClose _)
+                    .logFailure(lila.log("auth"), _ => "reopen")
+                  Redirect(routes.Account.reopenSent).fuccess
+                }(auth.limitedDefault.zero.fuccess)
             },
         )
     }
 
-  def reopenSent(@nowarn("cat=unused") email: String) =
+  def reopenSent =
     Open { implicit ctx =>
       fuccess {
         Ok(html.account.reopen.sent)

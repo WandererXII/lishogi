@@ -14,7 +14,6 @@ final class EmailAddressValidator(
     userRepo: UserRepo,
     disposable: DisposableEmailDomain,
     dnsApi: DnsApi,
-    checkMail: CheckMail,
 ) {
 
   private def isAcceptable(email: EmailAddress): Boolean =
@@ -78,7 +77,7 @@ final class EmailAddressValidator(
       else
         dnsApi.mx(domain).dmap { domains =>
           domains.nonEmpty && !domains.exists { disposable(_) }
-        } >>& checkMail(domain)
+        }
     }
 
   // the DNS emails should have been preloaded

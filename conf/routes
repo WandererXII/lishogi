@@ -382,13 +382,13 @@ POST  /signup/fix-email                controllers.Auth.fixEmail
 GET   /signup/confirm/:token           controllers.Auth.signupConfirmEmail(token: String)
 GET   /password/reset                  controllers.Auth.passwordReset
 POST  /password/reset/send             controllers.Auth.passwordResetApply
-GET   /password/reset/sent/:email      controllers.Auth.passwordResetSent(email: String)
+GET   /password/reset/sent             controllers.Auth.passwordResetSent
 GET   /password/reset/confirm/:token   controllers.Auth.passwordResetConfirm(token: String)
 POST  /password/reset/confirm/:token   controllers.Auth.passwordResetConfirmApply(token: String)
 POST  /auth/set-fp/:fp/:ms             controllers.Auth.setFingerPrint(fp: String, ms: Int)
 GET   /auth/magic-link                 controllers.Auth.magicLink
 POST  /auth/magic-link/send            controllers.Auth.magicLinkApply
-GET   /auth/magic-link/sent/:email     controllers.Auth.magicLinkSent(email: String)
+GET   /auth/magic-link/sent            controllers.Auth.magicLinkSent
 GET   /auth/magic-link/login/:token    controllers.Auth.magicLinkLogin(token: String)
 
 # Mod
@@ -582,7 +582,7 @@ POST  /account/twofactor/setup         controllers.Account.setupTwoFactor
 POST  /account/twofactor/disable       controllers.Account.disableTwoFactor
 GET   /account/reopen                  controllers.Account.reopen
 POST  /account/reopen/send             controllers.Account.reopenApply
-GET   /account/reopen/sent/:email      controllers.Account.reopenSent(email: String)
+GET   /account/reopen/sent             controllers.Account.reopenSent
 GET   /account/reopen/login/:token     controllers.Account.reopenLogin(token: String)
 # App
 GET   /account/security                controllers.Account.security

@@ -7,7 +7,6 @@ import lila.common.Domain
 final class DisposableEmailDomain(
     ws: WSClient,
     providerUrl: String,
-    checkMailBlocked: () => Fu[List[String]],
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   private val staticRegex = toRegexStr(DisposableEmailDomain.staticBlacklist.iterator)
@@ -15,15 +14,11 @@ final class DisposableEmailDomain(
   private var regex = finalizeRegex(staticRegex)
 
   private[security] def refresh(): Unit =
-    for {
-      blacklist <- ws.url(providerUrl).get().map(_.body.linesIterator) recover {
-        case e: Exception =>
-          logger.warn("DisposableEmailDomain.refresh", e)
-          Iterator.empty
-      }
-      checked <- checkMailBlocked()
-    } {
-      val regexStr  = s"${toRegexStr(blacklist)}|${toRegexStr(checked.iterator)}"
+    ws.url(providerUrl).get().map(_.body.linesIterator) recover { case e: Exception =>
+      logger.warn("DisposableEmailDomain.refresh", e)
+      Iterator.empty
+    } foreach { blacklist =>
+      val regexStr  = toRegexStr(blacklist)
       val nbDomains = regexStr.count('|' ==)
       lila.mon.email.disposableDomain.update(nbDomains)
       regex = finalizeRegex(s"$staticRegex|$regexStr")

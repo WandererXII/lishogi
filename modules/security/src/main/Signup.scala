@@ -1,6 +1,5 @@
 package lila.security
 
-import scala.concurrent.duration._
 import scala.util.chaining._
 
 import play.api.data._
@@ -11,10 +10,6 @@ import play.api.mvc.RequestHeader
 
 import lila.common.EmailAddress
 import lila.common.HTTPRequest
-import lila.common.IpAddress
-import lila.common.config.NetConfig
-import lila.memo.RateLimit
-import lila.user.PasswordHasher
 import lila.user.User
 
 final class Signup(
@@ -27,7 +22,7 @@ final class Signup(
     formTimer: FormTimer,
     authenticator: lila.user.Authenticator,
     userRepo: lila.user.UserRepo,
-    netConfig: NetConfig,
+    rateLimits: RateLimits,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
   sealed abstract private class MustConfirmEmail(val value: Boolean)
@@ -66,6 +61,13 @@ final class Signup(
 
   def website(
       blind: Boolean,
+  )(implicit req: Request[_], lang: Lang, formBinding: FormBinding): Fu[Signup.Result] =
+    rateLimits.emailForm(req) {
+      forms.preloadEmailDns >> bindWebsite(blind)
+    }(rateLimitDefault)
+
+  private def bindWebsite(
+      blind: Boolean,
   )(implicit req: Request[_], lang: Lang, formBinding: FormBinding): Fu[Signup.Result] = {
     val form = forms.signup.website.bindFromRequest()
     form
@@ -75,7 +77,7 @@ final class Signup(
           Signup.trap(data, formTimer) match {
             case Some(trap) =>
               authLog(data.username, data.email, s"Signup trap: $trap")
-              signupRateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = trap.cost) {
+              rateLimits.signup(req, trap.cost) {
                 fuccess[Signup.Result](Signup.Bad(form withGlobalError trap.message))
               }(rateLimitDefault)
             case None =>
@@ -125,24 +127,13 @@ final class Signup(
       } else fuccess(Signup.AllSet(user, email.acceptable))
     }
 
-  private def HasherRateLimit =
-    PasswordHasher.rateLimit[Signup.Result](enforce = netConfig.rateLimit) _
-
-  private lazy val signupRateLimitPerIP = RateLimit.composite[IpAddress](
-    key = "account.create.ip",
-    enforce = netConfig.rateLimit.value,
-  )(
-    ("fast", 10, 10.minutes),
-    ("slow", 60, 1 day),
-  )
-
   private val rateLimitDefault = fuccess[Signup.Result](Signup.RateLimited)
 
   private def signupRateLimit(username: String, cost: Int)(
       f: => Fu[Signup.Result],
   )(implicit req: RequestHeader): Fu[Signup.Result] =
-    HasherRateLimit(username, req) { _ =>
-      signupRateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = cost)(f)(rateLimitDefault)
+    rateLimits.passwordHash(username, req) { _ =>
+      rateLimits.signup(req, cost)(f)(rateLimitDefault)
     }(rateLimitDefault)
 
   private def logSignup(

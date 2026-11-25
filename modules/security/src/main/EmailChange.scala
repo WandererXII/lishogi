@@ -25,7 +25,7 @@ final class EmailChange(
       lila.mon.email.send.change.increment()
       implicit val lang = user.realLang | lila.i18n.defaultLang
       val url           = s"$baseUrl/account/email/confirm/$token"
-      lila.log("auth").info(s"Change email URL ${user.username} $email $url")
+      lila.log("auth").info(s"Send change email ${user.username} ${email.conceal}")
       mailgun send Mailgun.Message(
         to = email,
         subject = trans.emailChange_subject.txt(user.username),

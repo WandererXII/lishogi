@@ -46,6 +46,8 @@ final class Env(
 
   lazy val flood = wire[Flood]
 
+  lazy val rateLimits = wire[RateLimits]
+
   lazy val formTimer = new FormTimer(config.signupFormSecret)
 
   lazy val forms = wire[DataForm]
@@ -107,14 +109,11 @@ final class Env(
 
   private lazy val dnsApi: DnsApi = wire[DnsApi]
 
-  private lazy val checkMail: CheckMail = wire[CheckMail]
-
   lazy val emailAddressValidator = wire[EmailAddressValidator]
 
   private lazy val disposableEmailDomain = new DisposableEmailDomain(
     ws = ws,
     providerUrl = config.disposableEmail.providerUrl,
-    checkMailBlocked = () => checkMail.fetchAllBlocked,
   )
 
   // import reactivemongo.api.bson._

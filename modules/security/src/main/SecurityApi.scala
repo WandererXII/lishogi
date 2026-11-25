@@ -85,8 +85,13 @@ final class SecurityApi(
       password: String,
       token: Option[String],
   ): LoginCandidate.Result =
-    candidate.fold[LoginCandidate.Result](LoginCandidate.InvalidUsernameOrPassword) {
-      _(User.PasswordAndToken(User.ClearPassword(password), token map User.TotpToken.apply))
+    candidate match {
+      case Some(c) =>
+        c(User.PasswordAndToken(User.ClearPassword(password), token map User.TotpToken.apply))
+      case None =>
+        // Take as long as a wrong password would, to not reveal that the account doesn't exist
+        authenticator.passEnc(User.ClearPassword(password))
+        LoginCandidate.InvalidUsernameOrPassword
     }
 
   def saveAuthentication(userId: User.ID)(implicit

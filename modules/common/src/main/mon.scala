@@ -285,10 +285,6 @@ object mon {
     object dnsApi {
       val mx = future("security.dnsApi.mx.time")
     }
-    object checkMailApi {
-      def fetch(success: Boolean, block: Boolean) =
-        timer("checkMail.fetch").withTags(tags("success" -> successTag(success), "block" -> block))
-    }
   }
   object tv {
     object streamer {

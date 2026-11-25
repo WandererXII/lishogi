@@ -50,7 +50,7 @@ final class EmailConfirmMailgun(
     tokener make user.id flatMap { token =>
       lila.mon.email.send.confirmation.increment()
       val url = s"$baseUrl/signup/confirm/$token"
-      lila.log("auth").info(s"Confirm URL ${user.username} ${email.value} $url")
+      lila.log("auth").info(s"Send confirm email ${user.username} ${email.conceal}")
       mailgun send Mailgun.Message(
         to = email,
         subject = trans.emailConfirm_subject.txt(user.username),
@@ -129,43 +129,6 @@ object EmailConfirm {
         UserEmail(username, EmailAddress(email))
       }
   }
-
-  import scala.concurrent.duration._
-
-  import play.api.mvc.RequestHeader
-
-  import lila.common.HTTPRequest
-  import lila.common.IpAddress
-  import lila.memo.RateLimit
-
-  private lazy val rateLimitPerIP = new RateLimit[IpAddress](
-    credits = 40,
-    duration = 1 hour,
-    key = "email.confirms.ip",
-  )
-
-  private lazy val rateLimitPerUser = new RateLimit[String](
-    credits = 3,
-    duration = 1 hour,
-    key = "email.confirms.user",
-  )
-
-  private lazy val rateLimitPerEmail = new RateLimit[String](
-    credits = 3,
-    duration = 1 hour,
-    key = "email.confirms.email",
-  )
-
-  def rateLimit[A](userEmail: UserEmail, req: RequestHeader)(
-      run: => Fu[A],
-  )(default: => Fu[A]): Fu[A] =
-    rateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = 1) {
-      rateLimitPerUser(userEmail.username, cost = 1) {
-        rateLimitPerEmail(userEmail.email.value, cost = 1) {
-          run
-        }(default)
-      }(default)
-    }(default)
 
   object Help {
 

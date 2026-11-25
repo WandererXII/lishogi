@@ -54,8 +54,9 @@ final class Mailgun(
         .flatMap {
           case res if res.status >= 300 =>
             lila.mon.email.send.error(res.status.toString).increment()
+            val body = res.body.replace(msg.to.value, msg.to.conceal) take 500
             fufail(
-              s"""Can't send to mailgun: ${res.status} to: "${msg.to.value}" ${res.body take 500}""",
+              s"""Can't send to mailgun: ${res.status} to: "${msg.to.conceal}" $body""",
             )
           case _ => funit
         }

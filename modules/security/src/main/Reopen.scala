@@ -21,41 +21,47 @@ final class Reopen(
 
   import Mailgun.html._
 
-  def prepare(
-      username: String,
+  // Only looks at public information, so the visitor can be told what's wrong
+  def findClosed(username: String): Fu[Either[(String, String), User]] =
+    userRepo.byIdNotErased(User normalize username) map {
+      case None => Left("noUser" -> "No account found with this username.")
+      case Some(user) if user.enabled =>
+        Left("alreadyActive" -> "This account is already active.")
+      case Some(user) => Right(user)
+    }
+
+  // The visitor must not be told the outcome: it depends on
+  // which email the account had, and on who else uses that email.
+  def sendIfAllowed(
+      user: User,
       email: EmailAddress,
       hasModClose: User.ID => Fu[Boolean],
-  ): Fu[Either[(String, String), User]] =
+  )(implicit lang: Lang): Funit =
+    refusal(user, email, hasModClose) flatMap {
+      case Some(code) =>
+        lila.mon.user.auth.reopenRequest(code).increment()
+        funit
+      case None =>
+        lila.mon.user.auth.reopenRequest("success").increment()
+        send(user, email)
+    }
+
+  private def refusal(
+      user: User,
+      email: EmailAddress,
+      hasModClose: User.ID => Fu[Boolean],
+  ): Fu[Option[String]] =
     userRepo.enabledWithEmail(email.normalize) flatMap {
-      case Some(_) =>
-        fuccess(Left("emailUsed" -> "This email address is already in use by an active account."))
+      case Some(_) => fuccess("emailUsed".some)
       case _ =>
-        val userId = User normalize username
-        userRepo.byIdNotErased(userId) flatMap {
-          case None =>
-            fuccess(Left("noUser" -> "No account found with this username."))
-          case Some(user) if user.enabled =>
-            fuccess(Left("alreadyActive" -> "This account is already active."))
-          case Some(user) =>
-            userRepo.prevEmail(user.id) flatMap {
-              case None =>
-                fuccess(
-                  Left(
-                    "noEmail" -> "That account doesn't have any associated email, and cannot be reopened.",
-                  ),
-                )
-              case Some(prevEmail) if !email.similarTo(prevEmail) =>
-                fuccess(Left("differentEmail" -> "That account has a different email address."))
-              case _ =>
-                canReopen(user, hasModClose) map {
-                  case false => Left("nope" -> "Sorry, that account can no longer be reopened.")
-                  case _     => Right(user)
-                }
-            }
+        userRepo.prevEmail(user.id) flatMap {
+          case None                                           => fuccess("noEmail".some)
+          case Some(prevEmail) if !email.similarTo(prevEmail) => fuccess("differentEmail".some)
+          case _ => canReopen(user, hasModClose) map { !_ option "nope" }
         }
     }
 
-  def send(user: User, email: EmailAddress)(implicit lang: Lang): Funit =
+  private def send(user: User, email: EmailAddress)(implicit lang: Lang): Funit =
     tokener make user.id flatMap { token =>
       lila.mon.email.send.reopen.increment()
       val url = s"$baseUrl/account/reopen/login/$token"

@@ -62,39 +62,3 @@ ${Mailgun.txt.serviceNote}
     lifetime = 1.hour.some,
   )
 }
-
-object PasswordReset {
-
-  import scala.concurrent.duration._
-
-  import play.api.mvc.RequestHeader
-
-  import lila.common.HTTPRequest
-  import lila.common.IpAddress
-  import lila.memo.RateLimit
-
-  private lazy val rateLimitPerIP = new RateLimit[IpAddress](
-    credits = 10,
-    duration = 1 hour,
-    key = "password.reset.ip",
-  )
-
-  private lazy val rateLimitPerEmail = new RateLimit[String](
-    credits = 3,
-    duration = 1 hour,
-    key = "password.reset.email",
-  )
-
-  // Keyed by the submitted email, and charged whether or not it matches an account,
-  // so that being rate limited doesn't reveal which emails are registered.
-  // IP goes first: a request blocked by IP must not use up the email's credits,
-  // otherwise one IP could lock the owner out of resetting their password.
-  def rateLimit[A](email: EmailAddress, req: RequestHeader)(
-      run: => Fu[A],
-  )(default: => Fu[A]): Fu[A] =
-    rateLimitPerIP(HTTPRequest lastRemoteAddress req, cost = 1) {
-      rateLimitPerEmail(email.normalize.value, cost = 1) {
-        run
-      }(default)
-    }(default)
-}

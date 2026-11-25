@@ -1,7 +1,5 @@
 package controllers
 
-import scala.concurrent.duration._
-
 import play.api.data.Form
 import play.api.data.Forms._
 import play.api.libs.json.Json
@@ -14,7 +12,6 @@ import scalatags.Text.all.stringFrag
 import lila.api.Context
 import lila.app._
 import lila.common.HTTPRequest
-import lila.common.IpAddress
 import lila.oauth.AccessTokenRequest
 import lila.oauth.AuthorizationRequest
 
@@ -82,16 +79,9 @@ final class OAuth(env: Env) extends LilaController(env) {
     )(AccessTokenRequest.Raw.apply)(AccessTokenRequest.Raw.unapply),
   )
 
-  private val TokenApplyRateLimitPerIP = new lila.memo.RateLimit[IpAddress](
-    credits = 60,
-    duration = 10.minutes,
-    key = "oauth.token.ip",
-    enforce = env.net.rateLimit.value,
-  )
-
   def tokenApply =
     Action.async(parse.form(accessTokenRequestForm)) { implicit req =>
-      TokenApplyRateLimitPerIP(HTTPRequest lastRemoteAddress req) {
+      env.security.rateLimits.oAuthToken(req) {
         req.body.prepare match {
           case Validated.Valid(prepared) =>
             env.oAuth.authorizationApi.consume(prepared) flatMap {

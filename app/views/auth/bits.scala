@@ -59,13 +59,13 @@ object bits {
       )
     }
 
-  def passwordResetSent(email: String)(implicit ctx: Context) =
+  def passwordResetSent(implicit ctx: Context) =
     views.html.base.layout(
       title = trans.passwordReset.txt(),
     ) {
       main(cls := "page-small box box-pad")(
         h1(cls := "is-green text", dataIcon := Icons.correct)(trans.checkYourEmail()),
-        p(trans.weHaveSentYouAnEmailTo(email)),
+        p(trans.ifYourEmailMatchesWeHaveSentYouALink()),
         p(trans.ifYouDoNotSeeTheEmailCheckOtherPlaces()),
       )
     }
@@ -137,7 +137,7 @@ object bits {
     ) {
       main(cls := "page-small box box-pad")(
         h1(cls := "is-green text", dataIcon := Icons.correct)(trans.checkYourEmail()),
-        p("We've sent you an email with a link."),
+        p(trans.ifYourEmailMatchesWeHaveSentYouALink()),
         p(trans.ifYouDoNotSeeTheEmailCheckOtherPlaces()),
       )
     }
