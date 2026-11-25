@@ -1,5 +1,7 @@
 package lila.app
 
+import scala.annotation.unused
+
 import play.api._
 import play.api.http.FileMimeTypes
 import play.api.http.HttpRequestHandler
@@ -141,7 +143,7 @@ final class LilaComponents(ctx: ApplicationLoader.Context)
 
   // eagerly wire up all controllers
   val router: Router = {
-    val prefix: String = "/"
+    @unused val prefix: String = "/"
     wire[Routes]
   }
 
