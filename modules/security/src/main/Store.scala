@@ -7,6 +7,7 @@ import play.api.mvc.RequestHeader
 
 import org.joda.time.DateTime
 import reactivemongo.api.CursorProducer
+import reactivemongo.api.ReadPreference
 import reactivemongo.api.bson.BSONDocumentHandler
 import reactivemongo.api.bson.BSONDocumentReader
 import reactivemongo.api.bson.BSONHandler
@@ -187,8 +188,15 @@ final class Store(val coll: Coll, cacheApi: lila.memo.CacheApi, localIp: IpAddre
 
   implicit private val IpAndFpReader: BSONDocumentReader[IpAndFp] = Macros.reader[IpAndFp]
 
-  def ipsAndFps(userIds: List[User.ID], max: Int = 100): Fu[List[IpAndFp]] =
-    coll.secondaryPreferred.list[IpAndFp]($doc("user" $in userIds), max)
+  def ipsAndFps(userId: User.ID, max: Int = 50): Fu[List[IpAndFp]] =
+    coll
+      .find(
+        $doc("user" -> userId),
+        $doc("ip" -> true, "fp" -> true, "user" -> true, "_id" -> false).some,
+      )
+      .sort($sort desc "date")
+      .cursor[IpAndFp](ReadPreference.secondaryPreferred)
+      .list(max)
 
   def ips(user: User): Fu[Set[IpAddress]] =
     coll.distinctEasy[IpAddress, Set]("ip", $doc("user" -> user.id))
