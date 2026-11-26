@@ -15,7 +15,13 @@ final private[security] class Cli(userRepo: UserRepo)(implicit
       }
 
     case "security" :: "grant" :: uid :: roles =>
-      perform(uid, user => userRepo.setRoles(user.id, roles map (_.toUpperCase)).void)
+      val keys = roles.map(_.toUpperCase).map { r => if (r startsWith "ROLE_") r else s"ROLE_$r" }
+      keys.filterNot(Permission.allByDbKey.contains) match {
+        case Nil =>
+          perform(uid, user => userRepo.setRoles(user.id, keys.distinct).void)
+        case unknown =>
+          fufail(s"Unknown roles: ${unknown mkString ", "}. Nothing was changed.")
+      }
   }
 
   private def perform(username: String, op: User => Funit): Fu[String] =

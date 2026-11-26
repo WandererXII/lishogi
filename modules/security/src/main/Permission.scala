@@ -56,7 +56,7 @@ object Permission {
   case object ModMessage       extends Permission("MOD_MESSAGE", "Send mod messages")
   case object Impersonate      extends Permission("IMPERSONATE", "Impersonate")
   case object PayPal           extends Permission("PAYPAL", "PayPal")
-  case object Cli              extends Permission("ClI", "Command line")
+  case object Cli              extends Permission("CLI", "Command line")
   case object Settings         extends Permission("SETTINGS", "Lila settings")
   case object Streamers        extends Permission("STREAMERS", "Manage streamers")
   case object Puzzles          extends Permission("PUZZLES", "Manage puzzles")

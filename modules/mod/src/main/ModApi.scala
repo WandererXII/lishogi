@@ -149,9 +149,15 @@ final class ModApi(
         logApi.setEmail(mod, user.id)
     }
 
-  def setPermissions(mod: Mod, username: String, permissions: Set[Permission]): Funit =
+  // returns the permissions the user actually has after the change
+  def setPermissions(
+      mod: Mod,
+      username: String,
+      permissions: Set[Permission],
+  ): Fu[Set[Permission]] =
     withUser(username) { user =>
-      val finalPermissions = Permission(user.roles).filter { p =>
+      val origPermissions = Permission(user.roles)
+      val finalPermissions = origPermissions.filter { p =>
         // only remove permissions the mod can actually grant
         permissions.contains(p) || !Granter.canGrant(mod.user, p)
       } ++
@@ -162,8 +168,13 @@ final class ModApi(
           lila.hub.actorApi.mod.SetPermissions(user.id, finalPermissions.map(_.dbKey).toList),
           "setPermissions",
         )
-        logApi.setPermissions(mod, user.id, permissions.toList)
-      }
+        logApi.setPermissions(
+          mod,
+          user.id,
+          added = finalPermissions diff origPermissions,
+          removed = origPermissions diff finalPermissions,
+        )
+      } inject finalPermissions
     }
 
   def setReportban(mod: Mod, sus: Suspect, v: Boolean): Funit =

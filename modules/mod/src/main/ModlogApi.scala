@@ -184,9 +184,16 @@ final class ModlogApi(repo: ModlogRepo)(implicit
       Modlog(mod, user.some, Modlog.chatTimeout, details = s"$reason: $text".some)
     }
 
-  def setPermissions(mod: Mod, user: User.ID, permissions: List[Permission]) =
-    add {
-      Modlog(mod.id.value, user.some, Modlog.permissions, details = permissions.mkString(", ").some)
+  def setPermissions(
+      mod: Mod,
+      user: User.ID,
+      added: Set[Permission],
+      removed: Set[Permission],
+  ) =
+    (added.nonEmpty || removed.nonEmpty) ?? add {
+      val details = (added.toList.map(p => s"+${p.name}") ++ removed.toList.map(p => s"-${p.name}"))
+        .mkString(", ")
+      Modlog(mod.id.value, user.some, Modlog.permissions, details = details.some)
     }
 
   def reportban(mod: Mod, sus: Suspect, v: Boolean) =

@@ -399,12 +399,14 @@ final class Mod(
           .fold(
             _ => BadRequest(html.mod.permissions(user, me)).fuccess,
             permissions => {
-              val newPermissions = Permission(permissions) diff Permission(user.roles)
-              modApi.setPermissions(AsMod(me), user.username, Permission(permissions)) >> {
-                newPermissions(Permission.Coach) ?? env.security.automaticEmail.onBecomeCoach(user)
-              } >> {
-                Permission(permissions).exists(_ is Permission.SeeReport) ?? env.plan.api
-                  .setLifetime(user)
+              val origPermissions = Permission(user.roles)
+              modApi.setPermissions(AsMod(me), user.username, Permission(permissions)) flatMap {
+                finalPermissions =>
+                  val newPermissions = finalPermissions diff origPermissions
+                  (newPermissions(Permission.Coach) ?? env.security.automaticEmail
+                    .onBecomeCoach(user)) >>
+                    (finalPermissions.exists(_ is Permission.SeeReport) ?? env.plan.api
+                      .setLifetime(user))
               } inject Redirect(routes.Mod.permissions(username)).flashSuccess
             },
           )
