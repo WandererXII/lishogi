@@ -108,7 +108,7 @@ final class SecurityApi(
   def saveSignup(userId: User.ID, fp: Option[FingerPrint])(implicit
       req: RequestHeader,
   ): Funit = {
-    val sessionId = lila.common.ThreadLocalRandom nextString 22
+    val sessionId = Random secureString 22
     store.save(s"SIG-$sessionId", userId, req, up = false, fp = fp)
   }
 
@@ -116,7 +116,7 @@ final class SecurityApi(
     firewall.accepts(req) ?? HTTPRequest.userSessionId(req) ?? { sessionId =>
       store.authInfo(sessionId) flatMap {
         _ ?? { d =>
-          userRepo byId d.user dmap { _ map { FingerPrintedUser(_, d.hasFp) } }
+          userRepo enabledById d.user dmap { _ map { FingerPrintedUser(_, d.hasFp) } }
         }
       }
     }

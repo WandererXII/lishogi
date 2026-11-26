@@ -148,4 +148,8 @@ final class Env(
   Bus.subscribeFun("shoginet") { case lila.hub.actorApi.shoginet.NewKey(userId, key) =>
     automaticEmail.onShoginetKey(userId, key).unit
   }
+
+  Bus.subscribeFun("disableUser") { case lila.hub.actorApi.mod.DisableUser(userId) =>
+    store.closeAllSessionsOf(userId).unit
+  }
 }
