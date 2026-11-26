@@ -1,7 +1,5 @@
 package lila.security
 
-import scala.concurrent.duration._
-
 import play.api.mvc.RequestHeader
 
 import org.joda.time.DateTime
@@ -12,12 +10,11 @@ import lila.db.dsl._
 
 final class Firewall(
     coll: Coll,
-    scheduler: akka.actor.Scheduler,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  private var current: Set[String] = Set.empty
+  @volatile private var current: Set[String] = Set.empty
 
-  scheduler.scheduleOnce(10 minutes)(loadFromDb.unit)
+  loadFromDb.logFailure(logger, e => s"Firewall.loadFromDb: $e").unit
 
   def blocksIp(ip: IpAddress): Boolean = current contains ip.value
 

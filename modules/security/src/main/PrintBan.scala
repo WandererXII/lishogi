@@ -7,12 +7,14 @@ import lila.db.dsl._
 
 final class PrintBan(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext) {
 
-  private var current: Set[String] = Set.empty
+  @volatile private var current: Set[String] = Set.empty
 
   def blocks(hash: FingerHash): Boolean = current contains hash.value
 
   def toggle(hash: FingerHash, block: Boolean): Funit = {
-    current = if (block) current + hash.value else current - hash.value
+    synchronized {
+      current = if (block) current + hash.value else current - hash.value
+    }
     if (block)
       coll.update
         .one(
@@ -24,8 +26,14 @@ final class PrintBan(coll: Coll)(implicit ec: scala.concurrent.ExecutionContext)
     else coll.delete.one($id(hash.value)).void
   }
 
-  coll.secondaryPreferred.distinctEasy[String, Set]("_id", $empty).map { hashes =>
-    current = hashes
-    lila.mon.security.firewall.prints.update(hashes.size)
-  }
+  coll.secondaryPreferred
+    .distinctEasy[String, Set]("_id", $empty)
+    .map { hashes =>
+      synchronized {
+        current = hashes
+      }
+      lila.mon.security.firewall.prints.update(hashes.size)
+    }
+    .logFailure(logger, e => s"PrintBan load: $e")
+    .unit
 }

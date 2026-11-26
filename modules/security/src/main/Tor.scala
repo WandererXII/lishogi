@@ -8,13 +8,15 @@ final class Tor(ws: WSClient, config: SecurityConfig.Tor)(implicit
     ec: scala.concurrent.ExecutionContext,
 ) {
 
-  private var ips = Set.empty[IpAddress]
+  @volatile private var ips = Set.empty[IpAddress]
 
   private[security] def refresh: Fu[Set[IpAddress]] =
-    ws.url(config.providerUrl).get() map { res =>
-      ips = res.body.linesIterator.filterNot(_ startsWith "#").map(IpAddress.apply).toSet
-      lila.mon.security.torNodes.update(ips.size)
-      ips
+    ws.url(config.providerUrl).get() flatMap {
+      case res if res.status == 200 =>
+        ips = res.body.linesIterator.filterNot(_ startsWith "#").flatMap(IpAddress.from).toSet
+        lila.mon.security.torNodes.update(ips.size)
+        fuccess(ips)
+      case res => fufail(s"Tor.refresh ${config.providerUrl} ${res.status}")
     }
 
   def isExitNode(ip: IpAddress) = ips contains ip

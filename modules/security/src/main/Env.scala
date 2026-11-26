@@ -39,10 +39,7 @@ final class Env(
   private val config = appConfig.get[SecurityConfig]("security")(SecurityConfig.loader)
   import net.baseUrl
 
-  lazy val firewall = new Firewall(
-    coll = db(CollName("firewall")),
-    scheduler = scheduler,
-  )
+  lazy val firewall = new Firewall(coll = db(CollName("firewall")))
 
   lazy val flood = wire[Flood]
 
@@ -135,10 +132,9 @@ final class Env(
   }
 
   lazy val tor: Tor = wire[Tor]
-  scheduler.scheduleOnce(31 seconds)(tor.refresh.unit)
+  scheduler.scheduleOnce(31 seconds)(tor.refresh.logFailure(logger).unit)
   scheduler.scheduleWithFixedDelay(config.tor.refreshDelay, config.tor.refreshDelay) { () =>
-    tor.refresh flatMap firewall.unblockIps
-    ()
+    tor.refresh.logFailure(logger).unit
   }
 
   lazy val ipTrust: IpTrust = wire[IpTrust]

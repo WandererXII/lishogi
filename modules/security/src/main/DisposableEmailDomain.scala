@@ -11,7 +11,7 @@ final class DisposableEmailDomain(
 
   private val staticRegex = toRegexStr(DisposableEmailDomain.staticBlacklist.iterator)
 
-  private var regex = finalizeRegex(staticRegex)
+  @volatile private var regex = finalizeRegex(staticRegex)
 
   private[security] def refresh(): Unit =
     ws.url(providerUrl).get().map(_.body.linesIterator) recover { case e: Exception =>
