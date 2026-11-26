@@ -60,9 +60,7 @@ final class GarbageCollector(
         for {
           spy <- userSpy(user, 300)
           _ <- {
-            val printOpt = spy.prints.headOption
-            logger.debug(s"apply ${data.user.username} print=$printOpt")
-            printOpt.filter(_.banned).map(_.fp.value) match {
+            spy.prints.find(_.banned).map(_.fp.value) match {
               case Some(print) => collect(user, email, msg = s"Print ban: ${print.value}")
               case _ =>
                 badOtherAccounts(spy.otherUsers.map(_.user)) ?? { others =>

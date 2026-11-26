@@ -667,7 +667,7 @@ object mod {
         table(cls := "slist spy_filter slist--sort")(
           thead(
             tr(
-              th(pluralize("IP", spy.prints.size)),
+              th(pluralize("IP", spy.ips.size)),
               sortNumberTh("Alts"),
               sortNumberTh("Date"),
               canIpBan option sortNumberTh,

@@ -174,15 +174,9 @@ object UserSpy {
   }
 
   // distinct values, keeping the most recent of duplicated values
-  // assumes all is sorted by most recent first
+  // assumes all is sorted by most recent first, and preserves that order
   def distinctRecent[V](all: List[Dated[V]]): scala.collection.View[Dated[V]] =
-    all
-      .foldLeft(Map.empty[V, DateTime]) {
-        case (acc, Dated(v, _)) if acc.contains(v) => acc
-        case (acc, Dated(v, date))                 => acc + (v -> date)
-      }
-      .view
-      .map { case (v, date) => Dated(v, date) }
+    all.distinctBy(_.value).view
 
   case class Alts(users: Set[User]) {
     lazy val boosters = users.count(_.marks.boost)
