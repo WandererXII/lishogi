@@ -29,32 +29,32 @@ final class GifExport(
   def fromPov(pov: Pov): Fu[Option[Source[ByteString, _]]] = {
     if (Game.gifVariants.contains(pov.game.variant))
       lightUserApi preloadMany pov.game.userIds flatMap { _ =>
-        ws.url(s"${url}/game.gif")
-          .withMethod("POST")
-          .addHttpHeaders("Content-Type" -> "application/json")
-          .withBody(
-            Json.obj(
-              "black" -> Namer
-                .playerTextBlocking(pov.game.sentePlayer, withRank = false)(
-                  lightUserApi.sync,
-                  lila.i18n.defaultLang,
-                ),
-              "white" -> Namer
-                .playerTextBlocking(pov.game.gotePlayer, withRank = false)(
-                  lightUserApi.sync,
-                  lila.i18n.defaultLang,
-                ),
-              "comment" -> s"${baseUrl.value}/${pov.game.id} rendered with https://github.com/WandererXII/lishogi-gif",
-              "orientation" -> pov.color.engName,
-              "delay"       -> targetMedianTime.centis, // default delay for frames
-              "frames"      -> frames(pov.game),
-            ),
-          )
-          .stream() flatMap {
-          case res if res.status != 200 =>
-            logger.warn(s"GifExport pov ${pov.game.id} ${res.status}")
-            fufail(res.statusText)
-          case res => fuccess(res.bodyAsSource.some)
+        gifRequest {
+          ws.url(s"${url}/game.gif")
+            .withMethod("POST")
+            .addHttpHeaders("Content-Type" -> "application/json")
+            .withBody(
+              Json.obj(
+                "black" -> Namer
+                  .playerTextBlocking(pov.game.sentePlayer, withRank = false)(
+                    lightUserApi.sync,
+                    lila.i18n.defaultLang,
+                  ),
+                "white" -> Namer
+                  .playerTextBlocking(pov.game.gotePlayer, withRank = false)(
+                    lightUserApi.sync,
+                    lila.i18n.defaultLang,
+                  ),
+                "comment" -> s"${baseUrl.value}/${pov.game.id} rendered with https://github.com/WandererXII/lishogi-gif",
+                "orientation" -> pov.color.engName,
+                "delay"       -> targetMedianTime.centis, // default delay for frames
+                "frames"      -> frames(pov.game),
+              ),
+            )
+            .stream() flatMap {
+            case res if res.status != 200 => gifError(s"pov ${pov.game.id}", res.status)
+            case res                      => fuccess(res.bodyAsSource.some)
+          }
         }
       }
     else fuccess(none)
@@ -79,14 +79,14 @@ final class GifExport(
       ).flatten
 
       lightUserApi preloadMany game.userIds flatMap { _ =>
-        ws.url(s"${url}/image.gif")
-          .withMethod("GET")
-          .withQueryStringParameters(query: _*)
-          .stream() flatMap {
-          case res if res.status != 200 =>
-            logger.warn(s"GifExport gameThumbnail ${game.id} ${res.status}")
-            fufail(res.statusText)
-          case res => fuccess(res.bodyAsSource.some)
+        gifRequest {
+          ws.url(s"${url}/image.gif")
+            .withMethod("GET")
+            .withQueryStringParameters(query: _*)
+            .stream() flatMap {
+            case res if res.status != 200 => gifError(s"gameThumbnail ${game.id}", res.status)
+            case res                      => fuccess(res.bodyAsSource.some)
+          }
         }
       }
     } else fuccess(none)
@@ -104,16 +104,22 @@ final class GifExport(
       lastUsi.map { "lastMove" -> _ },
     ).flatten
 
-    ws.url(s"${url}/image.gif")
-      .withMethod("GET")
-      .withQueryStringParameters(query: _*)
-      .stream() flatMap {
-      case res if res.status != 200 =>
-        logger.warn(s"GifExport thumbnail ${sfen} ${res.status}")
-        fufail(res.statusText)
-      case res => fuccess(res.bodyAsSource)
+    gifRequest {
+      ws.url(s"${url}/image.gif")
+        .withMethod("GET")
+        .withQueryStringParameters(query: _*)
+        .stream() flatMap {
+        case res if res.status != 200 => gifError(s"thumbnail ${sfen}", res.status)
+        case res                      => fuccess(res.bodyAsSource)
+      }
     }
   }
+
+  private def gifRequest[A](fu: Fu[A]): Fu[A] = lila.base.LilaServiceUnavailable.recover("gif")(fu)
+
+  private def gifError[A](what: String, status: Int): Fu[A] =
+    if (status >= 500) fufail(lila.base.LilaServiceUnavailable("gif", s"gif $what $status"))
+    else fufail(s"gif $what $status")
 
   private def scaleMoveTimes(moveTimes: Vector[Centis]): Vector[Centis] = {
     // goal for bullet: close to real-time

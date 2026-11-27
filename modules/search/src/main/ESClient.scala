@@ -1,6 +1,7 @@
 package lila.search
 
 import scala.annotation.nowarn
+import scala.concurrent.duration._
 
 import play.api.libs.json._
 import play.api.libs.ws._
@@ -27,6 +28,8 @@ final class ESClientHttp(
 )(implicit ec: scala.concurrent.ExecutionContext)
     extends ESClient {
 
+  private val readTimeout = 15.seconds
+
   def store(id: Id, doc: JsObject) =
     config.writeable ?? monitor("store") {
       HTTP(s"store/${index.name}/${id.value}", doc)
@@ -34,12 +37,17 @@ final class ESClientHttp(
 
   def search[Q: Writes](query: Q, from: From, size: Size) =
     monitor("search") {
-      HTTP(s"search/${index.name}/${from.value}/${size.value}", query, SearchResponse.apply)
+      HTTP(
+        s"search/${index.name}/${from.value}/${size.value}",
+        query,
+        SearchResponse.apply,
+        readTimeout.some,
+      )
     }
 
   def count[Q: Writes](query: Q) =
     monitor("count") {
-      HTTP(s"count/${index.name}", query, CountResponse.apply)
+      HTTP(s"count/${index.name}", query, CountResponse.apply, readTimeout.some)
     }
 
   def deleteById(id: lila.search.Id) =
@@ -64,10 +72,20 @@ final class ESClientHttp(
   def refresh =
     HTTP(s"refresh/${index.name}", Json.obj())
 
-  private[search] def HTTP[D: Writes, R](url: String, data: D, read: String => R): Fu[R] =
-    ws.url(s"${config.endpoint}/$url").post(Json toJson data) flatMap {
-      case res if res.status == 200 => fuccess(read(res.body))
-      case res                      => fufail(s"$url ${res.status}")
+  private[search] def HTTP[D: Writes, R](
+      url: String,
+      data: D,
+      read: String => R,
+      timeout: Option[FiniteDuration] = None,
+  ): Fu[R] =
+    lila.base.LilaServiceUnavailable.recover("search") {
+      val req = ws.url(s"${config.endpoint}/$url")
+      timeout.fold(req)(req.withRequestTimeout).post(Json toJson data) flatMap {
+        case res if res.status == 200 => fuccess(read(res.body))
+        case res if res.status >= 500 =>
+          fufail(lila.base.LilaServiceUnavailable("search", s"search $url ${res.status}"))
+        case res => fufail(s"search $url ${res.status}")
+      }
     }
   private[search] def HTTP(url: String, data: JsObject): Funit = HTTP(url, data, _ => ())
 

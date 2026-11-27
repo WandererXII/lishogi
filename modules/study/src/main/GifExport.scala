@@ -12,31 +12,34 @@ final class GifExport(
     url: String,
 )(implicit ec: scala.concurrent.ExecutionContext) {
   def ofChapter(chapter: Chapter): Fu[Source[ByteString, _]] =
-    ws.url(s"$url/game.gif")
-      .withMethod("POST")
-      .addHttpHeaders("Content-Type" -> "application/json")
-      .withBody(
-        Json.obj(
-          "delay"       -> 100,
-          "orientation" -> chapter.setup.orientation.engName,
-          "black" -> List(
-            chapter.tags(_.SenteTitle),
-            chapter.tags(_.Sente),
-            chapter.tags(_.SenteElo).map(elo => s"($elo)"),
-          ).flatten.mkString(" "),
-          "white" -> List(
-            chapter.tags(_.GoteTitle),
-            chapter.tags(_.Gote),
-            chapter.tags(_.GoteElo).map(elo => s"($elo)"),
-          ).flatten.mkString(" "),
-          "frames" -> framesRec(chapter.root +: chapter.root.mainline, Json.arr()),
-        ),
-      )
-      .stream() flatMap {
-      case res if res.status != 200 =>
-        logger.warn(s"GifExport study ${chapter.studyId}/${chapter._id} ${res.status}")
-        fufail(res.statusText)
-      case res => fuccess(res.bodyAsSource)
+    lila.base.LilaServiceUnavailable.recover("gif") {
+      ws.url(s"$url/game.gif")
+        .withMethod("POST")
+        .addHttpHeaders("Content-Type" -> "application/json")
+        .withBody(
+          Json.obj(
+            "delay"       -> 100,
+            "orientation" -> chapter.setup.orientation.engName,
+            "black" -> List(
+              chapter.tags(_.SenteTitle),
+              chapter.tags(_.Sente),
+              chapter.tags(_.SenteElo).map(elo => s"($elo)"),
+            ).flatten.mkString(" "),
+            "white" -> List(
+              chapter.tags(_.GoteTitle),
+              chapter.tags(_.Gote),
+              chapter.tags(_.GoteElo).map(elo => s"($elo)"),
+            ).flatten.mkString(" "),
+            "frames" -> framesRec(chapter.root +: chapter.root.mainline, Json.arr()),
+          ),
+        )
+        .stream() flatMap {
+        case res if res.status != 200 =>
+          val msg = s"gif study ${chapter.studyId}/${chapter._id} ${res.status}"
+          if (res.status >= 500) fufail(lila.base.LilaServiceUnavailable("gif", msg))
+          else fufail(msg)
+        case res => fuccess(res.bodyAsSource)
+      }
     }
 
   @annotation.tailrec

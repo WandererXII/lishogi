@@ -2,9 +2,11 @@ package lila.app
 package http
 
 import scala.concurrent.Future
+import scala.concurrent.duration._
 
 import play.api.Configuration
 import play.api.Environment
+import play.api.Mode
 import play.api.UsefulException
 import play.api.http.DefaultHttpErrorHandler
 import play.api.mvc.Results._
@@ -24,20 +26,50 @@ final class ErrorHandler(
 )(implicit ec: scala.concurrent.ExecutionContext)
     extends DefaultHttpErrorHandler(environment, config, sourceMapper, router.some) {
 
+  override def logServerError(req: RequestHeader, exception: UsefulException): Unit =
+    if (environment.mode != Mode.Prod) super.logServerError(req, exception)
+
+  private val logServiceUnavailable = lila.memo.OnceEvery(10.seconds)
+
+  private def serviceUnavailable(e: Throwable): Option[lila.base.LilaServiceUnavailable] =
+    Iterator
+      .iterate(e)(_.getCause)
+      .takeWhile(_ != null)
+      .take(10)
+      .collectFirst { case u: lila.base.LilaServiceUnavailable => u }
+
   override def onProdServerError(req: RequestHeader, exception: UsefulException) =
+    serviceUnavailable(exception).fold(onInternalError(req, exception))(
+      onServiceUnavailable(req, _),
+    )
+
+  private def onServiceUnavailable(
+      req: RequestHeader,
+      e: lila.base.LilaServiceUnavailable,
+  ): Fu[Result] = {
+    val actionName = HTTPRequest actionName req
+    val client     = HTTPRequest clientName req
+    lila.mon.http.error(actionName, client, req.method, 503).increment()
+    if (logServiceUnavailable(e.service))
+      lila
+        .log("http")
+        .warn(s"ERROR 503 $actionName ${e.message} (muting ${e.service} errors for 10s)")
+    Future {
+      if (canShowErrorPage(req)) ServiceUnavailable(errorPage(req))
+      else ServiceUnavailable("Sorry, this service is temporarily unavailable.")
+    } recover { case util.control.NonFatal(err) =>
+      lila.log("http").error(s"""Error handler exception on "${e.message}\"""", err)
+      ServiceUnavailable("Sorry, this service is temporarily unavailable.")
+    }
+  }
+
+  private def onInternalError(req: RequestHeader, exception: UsefulException) =
     Future {
       val actionName = HTTPRequest actionName req
       val client     = HTTPRequest clientName req
       lila.mon.http.error(actionName, client, req.method, 500).increment()
       lila.log("http").error(s"ERROR 500 $actionName", exception)
-      if (canShowErrorPage(req))
-        InternalServerError(views.html.site.bits.errorPage {
-          lila.api.Context.error(
-            req,
-            lila.i18n.defaultLang,
-            HTTPRequest.isSynchronousHttp(req) option lila.common.Nonce.random,
-          )
-        })
+      if (canShowErrorPage(req)) InternalServerError(errorPage(req))
       else InternalServerError("Sorry, something went wrong.")
     } recover { case util.control.NonFatal(e) =>
       lila.log("http").error(s"""Error handler exception on "${exception.getMessage}\"""", e)
@@ -55,6 +87,15 @@ final class ErrorHandler(
         fuccess {
           Results.BadRequest("Sorry, the request could not be processed")
         }
+    }
+
+  private def errorPage(req: RequestHeader) =
+    views.html.site.bits.errorPage {
+      lila.api.Context.error(
+        req,
+        lila.i18n.defaultLang,
+        HTTPRequest.isSynchronousHttp(req) option lila.common.Nonce.random,
+      )
     }
 
   private def canShowErrorPage(req: RequestHeader): Boolean =
