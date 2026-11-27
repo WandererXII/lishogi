@@ -251,12 +251,14 @@ final class Auth(env: Env) extends LilaController(env) {
                         val newUserEmail = userEmail.copy(email = EmailAddress(email))
                         rateLimits.emailConfirm(newUserEmail, ctx.req) {
                           lila.mon.email.send.fix.increment()
-                          env.user.repo.setEmail(user.id, newUserEmail.email) >>
-                            env.security.emailConfirm.send(user, newUserEmail.email) inject {
-                              Redirect(routes.Auth.checkYourEmail) withCookies
-                                lila.security.EmailConfirm.cookie
-                                  .make(env.lilaCookie, user, newUserEmail.email)(ctx.req)
-                            }
+                          env.user.repo.setEmail(user.id, newUserEmail.email) map { _ =>
+                            env.security.emailConfirm
+                              .send(user, newUserEmail.email)
+                              .logFailure(lila.log("auth"), e => s"fixEmail: ${e.getMessage}")
+                            Redirect(routes.Auth.checkYourEmail) withCookies
+                              lila.security.EmailConfirm.cookie
+                                .make(env.lilaCookie, user, newUserEmail.email)(ctx.req)
+                          }
                         }(rateLimitedFu)
                     }
                   }

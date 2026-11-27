@@ -163,10 +163,14 @@ final class Account(
               .validate(data.realEmail) err s"Invalid email ${data.email}"
             val newUserEmail = lila.security.EmailConfirm.UserEmail(me.username, email.acceptable)
             rateLimits.emailConfirm(newUserEmail, ctx.req) {
-              env.security.emailChange.send(me, newUserEmail.email) inject
-                Redirect(routes.Account.email).flashSuccess {
+              env.security.emailChange
+                .send(me, newUserEmail.email)
+                .logFailure(lila.log("auth"), e => s"emailChange: ${e.getMessage}")
+              Redirect(routes.Account.email)
+                .flashSuccess {
                   lila.i18n.I18nKeys.checkYourEmail.txt()
                 }
+                .fuccess
             }(rateLimitedFu)
           }
         }

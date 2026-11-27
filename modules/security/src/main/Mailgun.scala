@@ -35,6 +35,7 @@ final class Mailgun(
     } else
       ws.url(s"${config.apiUrl}/messages")
         .withAuth("api", config.apiKey.value, WSAuthScheme.BASIC)
+        .withRequestTimeout(Mailgun.requestTimeout)
         .post(
           Map(
             "from"       -> Seq(msg.from | config.sender),
@@ -49,19 +50,25 @@ final class Mailgun(
         )
         .addFailureEffect {
           case _: java.net.ConnectException => lila.mon.email.send.error("timeout").increment().unit
-          case _                            =>
+          case _: java.util.concurrent.TimeoutException =>
+            lila.mon.email.send.error("timeout").increment().unit
+          case _ =>
         }
         .flatMap {
           case res if res.status >= 300 =>
             lila.mon.email.send.error(res.status.toString).increment()
             val body = res.body.replace(msg.to.value, msg.to.conceal) take 500
             fufail(
-              s"""Can't send to mailgun: ${res.status} to: "${msg.to.conceal}" $body""",
+              new Mailgun.SendError(
+                s"""Can't send to mailgun: ${res.status} to: "${msg.to.conceal}" $body""",
+                retriable = res.status == 429 || res.status >= 500,
+              ),
             )
           case _ => funit
         }
         .mon(_.email.send.time)
         .recoverWith {
+          case e: Mailgun.SendError if !e.retriable => fufail(e)
           case _ if msg.retriesLeft > 0 =>
             akka.pattern.after(15 seconds, system.scheduler) {
               send(msg.copy(retriesLeft = msg.retriesLeft - 1))
@@ -70,6 +77,11 @@ final class Mailgun(
 }
 
 object Mailgun {
+
+  private val requestTimeout = 10.seconds
+
+  // non-retriable for permanent client errors (4xx other than 429)
+  final case class SendError(message: String, retriable: Boolean) extends lila.base.LilaException
 
   case class Config(
       @ConfigName("api.url") apiUrl: String,

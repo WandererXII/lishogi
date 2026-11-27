@@ -118,12 +118,13 @@ final class Signup(
   )(user: User)(implicit req: RequestHeader, lang: Lang): Fu[Signup.Result] =
     store.deletePreviousSessions(user) >> {
       if (mustConfirm.value) {
-        emailConfirm.send(user, email.acceptable) >> {
-          if (emailConfirm.effective)
-            api.saveSignup(user.id, fingerPrint) inject
-              Signup.ConfirmEmail(user, email.acceptable)
-          else fuccess(Signup.AllSet(user, email.acceptable))
-        }
+        emailConfirm
+          .send(user, email.acceptable)
+          .logFailure(logger, e => s"Signup confirm email ${user.username}: ${e.getMessage}")
+        if (emailConfirm.effective)
+          api.saveSignup(user.id, fingerPrint) inject
+            Signup.ConfirmEmail(user, email.acceptable)
+        else fuccess(Signup.AllSet(user, email.acceptable))
       } else fuccess(Signup.AllSet(user, email.acceptable))
     }
 
