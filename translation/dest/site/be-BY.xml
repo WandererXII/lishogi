@@ -851,6 +851,7 @@
 	<string name="glicko2Rating">Рэйтынг Glicko-2</string>
 	<string name="checkYourEmail">Праверце сваю пошту</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Мы адправілі вам ліст. Націсніце на спасылку ў ім для актывацыі акаўнта.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Калі ліст не прыходзіць, праверце тэчку для спаму і іншыя месцы, куды яно магло трапіць.</string>
 	<string name="weHaveSentYouAnEmailTo">Мы адправілі ліст на вашу пошту %s. Перайдзіце па спасылцы ў лісце, каб аднавіць ваш пароль.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Звярніце ўвагу: рэгіструючыся, вы прымаеце нашыя %s.</string>
