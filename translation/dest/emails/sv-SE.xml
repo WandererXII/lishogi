@@ -9,12 +9,6 @@
   <string name="emailChange_subject">%s, bekräfta din nya e-postadress</string>
   <string name="emailChange_intro">Du har begärt att ändra din e-postadress.</string>
   <string name="emailChange_click">För att bekräfta att du har tillgång till denna e-postadress, vänligen klicka på länken nedan:</string>
-  <string name="welcome_subject">Välkommen till lishogi.org, %s</string>
-  <string name="welcome_text">Du har skapat ditt konto på https://lishogi.org. 
-
-Här är din profilsida: %1$s. Du kan anpassa den på %2$s. 
-
-Ha kul, och må dina pjäser alltid leta sig fram till motståndarens kung!</string>
   <string name="logInToLishogi">Log in to lishogi.org, %s</string>
   <string name="common_orPaste">(Fungerar det inte att klicka? Prova att klistra in länken i din webbläsare!)</string>
   <string name="common_note">Detta är ett servicemejl relaterat till din användning av %s.</string>
