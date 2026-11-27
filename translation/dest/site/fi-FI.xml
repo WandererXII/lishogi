@@ -781,6 +781,7 @@
 	<string name="glicko2Rating">Glicko-2 -vahvuusluku</string>
 	<string name="checkYourEmail">Tarkista sähköpostisi</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Olemme lähettäneet sinulle sähköpostiviestin. Klikkaa viestissä olevaa linkkiä aktivoidaksesi tilisi.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Jos et näe viestiä, tarkista muut paikat joihin se voi olla joutunut (kuten roskaposti- ja spämmikansiot).</string>
 	<string name="weHaveSentYouAnEmailTo">Olemme lähettäneet sähköpostiviestin osoitteeseen %s. Klikkaa viestissä olevaa linkkiä nollataksesi salasanasi.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Rekistöitymällä hyväksyt lishogiin %s ja sitoudut noudattamaan niitä.</string>
@@ -1094,4 +1095,6 @@
 	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
 	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
 	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
+	<string name="lishogiUsername">Lishogi username</string>
+	<string name="nothingHere">Nothing here, yet.</string>
 </resources>

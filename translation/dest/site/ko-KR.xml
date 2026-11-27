@@ -746,6 +746,7 @@
 	<string name="glicko2Rating">Glicko-2 레이팅</string>
 	<string name="checkYourEmail">메일을 확인해 주세요.</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">메일을 보냈습니다. 메일에서 링크를 클릭해서 계정을 활성화해 주세요.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">메일을 확인할 수 없다면, 스팸 메일함이나 다른 폴더에 메일이 있지 않은지 확인해 주세요.</string>
 	<string name="weHaveSentYouAnEmailTo">%s 주소로 메일을 보냈습니다. 메일을 확인하고 비밀번호를 재설정하세요.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">이곳에 등록하면 당신은 이곳의 %s 약관에 동의하시는 것입니다.</string>
@@ -1052,4 +1053,6 @@
 	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
 	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
 	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
+	<string name="lishogiUsername">Lishogi username</string>
+	<string name="nothingHere">Nothing here, yet.</string>
 </resources>

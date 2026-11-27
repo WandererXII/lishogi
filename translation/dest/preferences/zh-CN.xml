@@ -3,6 +3,7 @@
 	<string name="preferences">偏好设置</string>
 	<string name="gameDisplay">棋局显示</string>
 	<string name="boardLayout">版面布局</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">隐藏手中的幽灵棋驹</string>
 	<string name="handsBackground">在手中棋驹之后显示背景图像</string>
 	<string name="pieceAnimation">棋子动画</string>

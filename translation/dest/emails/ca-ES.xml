@@ -9,12 +9,6 @@
   <string name="emailChange_subject">Confirma l\'adreça de correu electrònic, %s</string>
   <string name="emailChange_intro">Heu demanat canviar el correu electrònic.</string>
   <string name="emailChange_click">Per confirmar que teniu accés a aquest correu electrònic, feu clic a l\'enllaç següent:</string>
-  <string name="welcome_subject">Benvinguts a lishogi.org, %s</string>
-  <string name="welcome_text">Heu creat correctament el vostre compte en https://lishogi.org.
-
-Aquí teniu la pàgina del perfil: %1$s. Podeu personalitzar-la a %2$s.
-
-Divertiu-vos, i porteu les peces sempre a trobar el seu camí cap al rei del teu oponent!</string>
   <string name="logInToLishogi">Log in to lishogi.org, %s</string>
   <string name="common_orPaste">(No funciona clicar? Prova enganxant-ho en el navegador!)</string>
   <string name="common_note">Aquest és un correu de servei relatiu al teu ús de %s.</string>

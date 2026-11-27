@@ -746,6 +746,7 @@
 	<string name="glicko2Rating">Glicko-2 積分</string>
 	<string name="checkYourEmail">請檢查您的電子郵件</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">一封电子邮件已发到您的邮箱. 点击邮件中的链接以激活您的账号.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">若您沒收到郵件，請檢查您的其他收件箱，例如垃圾箱、促銷、社交等。</string>
 	<string name="weHaveSentYouAnEmailTo">我們發送了一封郵件到 %s。點擊郵件中的連結來重置您的密碼。</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">您一登记，我们就假设您同意尊重我们的使用规则（%s）。</string>
@@ -1052,4 +1053,6 @@
 	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
 	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
 	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
+	<string name="lishogiUsername">Lishogi username</string>
+	<string name="nothingHere">Nothing here, yet.</string>
 </resources>

@@ -10,7 +10,7 @@
 	<string name="xAcceptedTime" comment="Notification when player accepts suggested time">%s accepted your suggested time</string>
 	<string name="suggestedTime" comment="Currently suggested time to start a game">Suggested time</string>
 	<string name="scheduledAt" comment="Date/time when game is scheduled for">Đã lên lịch lúc</string>
-	<string name="startedAt" comment="Date/time when game started">Started at</string>
+	<string name="startedAt" comment="Date/time when game started">Bắt đầu lúc</string>
 	<string name="upcomingGameWithX" comment="Upcoming game with username">Upcoming game with %s</string>
 	<string name="yourUpcomingGames">Các ván đấu sắp tới của bạn</string>
 	<string name="allUpcomingAndOngoingGames">All upcoming and ongoing games</string>

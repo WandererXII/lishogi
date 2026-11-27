@@ -3,6 +3,7 @@
 	<string name="preferences">Seçenekler</string>
 	<string name="gameDisplay">Oyun görünümü</string>
 	<string name="boardLayout">Tahta düzeni</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Elindeki parçaların hayaletlerini gizle</string>
 	<string name="handsBackground">Elindeki taşların arkasındaki arka planı göster.</string>
 	<string name="pieceAnimation">Hamle animasyonu</string>

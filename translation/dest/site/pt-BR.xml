@@ -781,6 +781,7 @@
 	<string name="glicko2Rating">Classificação Glicko-2</string>
 	<string name="checkYourEmail">Verifique seu e-mail</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Enviamos um e-mail. Clique no link do e-mail para ativar sua conta.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Se você não vir o e-mail, verifique outros locais onde possa estar, como lixeira, spam ou outras pastas.</string>
 	<string name="weHaveSentYouAnEmailTo">Enviamos um e-mail para %s. Clique no link do e-mail para redefinir sua senha.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Ao registrar, você concorda em se comprometer com nossa %s.</string>
@@ -1094,4 +1095,6 @@
 	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
 	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
 	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
+	<string name="lishogiUsername">Lishogi username</string>
+	<string name="nothingHere">Nothing here, yet.</string>
 </resources>

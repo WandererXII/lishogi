@@ -9,12 +9,6 @@
   <string name="emailChange_subject">%s, пацвердзіце новы адрас пошты</string>
   <string name="emailChange_intro">Мы атрымалі запыт на змену вашага адраса электроннай пошты.</string>
   <string name="emailChange_click">Для пацвярджэння таго, што ў вас ёсць доступ да адраса электроннай пошты, калі ласка, націсніце спасылку ніжэй:</string>
-  <string name="welcome_subject">Вітаем вас на lishogi.org, %s</string>
-  <string name="welcome_text">Вы паспяхова зарэгістравалі свой уліковы запіс на https://lishogi.org.
-
-Вось спасылка на ваш профіль: %1$s. Вы можаце наладзіць яго тут %2$s.
-
-Поспехаў, і ды знойдуць Вашы фігуры шлях да караля суперніка!</string>
   <string name="logInToLishogi">Уваход на lishogi.org, %s</string>
   <string name="common_orPaste">(Націсканне на спасылку не працуе? Паспрабуйце ўставіць у ваш браўзер!)</string>
   <string name="common_note">Гэта службовы ліст, які звязаны з вашым выкарыстаннем %s.</string>

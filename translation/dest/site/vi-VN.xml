@@ -111,7 +111,7 @@
 	<string name="recentGames">Ván gần đây</string>
 	<string name="topGames">Các ván đấu hàng đầu</string>
 	<string name="noGameFound">Không tìm thấy trò chơi</string>
-	<string name="pageNotFound">Page not found</string>
+	<string name="pageNotFound">Không tìm thấy trang</string>
 	<string name="returnToHomepage">Return to homepage</string>
 	<string name="maybeIncludeMoreGamesFromThePreferencesMenu">Bạn có muốn thêm nhiều ván đấu hơn từ mục lục?</string>
 	<string name="openingExplorer">Sách khai cuộc</string>
@@ -747,6 +747,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="glicko2Rating">Xếp hạng Glicko-2</string>
 	<string name="checkYourEmail">Kiểm tra Email của bạn</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Chúng tôi gửi cho bạn một Email. Nhấn vào link trong Email để kích hoạt tài khoản của bạn</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Nếu bạn không thấy ở trong Email, kiểm tra lại ở các nơi khác có thể có, như rác, thư rác, xã hội hay các thư mục khác</string>
 	<string name="weHaveSentYouAnEmailTo">Chúng tôi đã gửi một email đến %s. Nhấp vào liên kết trong email để đặt lại mật khẩu của bạn.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Bằng cách đăng ký, bạn đồng ý tuân thủ %s của chúng tôi.</string>
@@ -1041,7 +1042,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="translate" comment="Button text used to translate forum posts for example">Translate</string>
 	<string name="newPlayerIntro">Welcome to lishogi. If you\'re new here, this quick overview will help you get started and discover what the site offers.</string>
 	<string name="newPlayerRegisterCta">Create an account to unlock all features</string>
-	<string name="newPlayerPreferences">Customize the look and feel of the site - piece sets, boards, notation, sounds and more.</string>
+	<string name="newPlayerPreferences"></string>
 	<string name="newPlayerLearn">Learn how each piece moves, understand the basic rules, and practice with guided lessons.</string>
 	<string name="newPlayerPlayPeople">Play rated or casual games against other players, or challenge your friends.</string>
 	<string name="newPlayerPlayAi">Practice against the computer and choose a difficulty that matches your level.</string>
@@ -1052,5 +1053,7 @@ phân tích bằng máy tính, trò chuyện trong ván đấu và có một URL
 	<string name="begForDonations">Everything on Lishogi is free for everyone forever. If you can, please consider donating to help the project.</string>
 	<string name="chooseFileOrDrag" comment="Instructions for uploading an image">Choose a file or drag it here</string>
 	<string name="profilePicture" comment="For streamers and coaches">Picture</string>
-	<string name="documentation" comment="Shown in top menu as a link">Documentation</string>
+	<string name="documentation" comment="Shown in top menu as a link">Tài liệu</string>
+	<string name="lishogiUsername">Lishogi username</string>
+	<string name="nothingHere">Nothing here, yet.</string>
 </resources>

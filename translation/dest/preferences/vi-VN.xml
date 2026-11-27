@@ -3,6 +3,7 @@
 	<string name="preferences">Sửa giao diện</string>
 	<string name="gameDisplay">Chế độ hiển thị</string>
 	<string name="boardLayout">Bố cục bàn cờ</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Ẩn ảnh ảo các quân trên tay</string>
 	<string name="handsBackground">Hiện ảnh nền sau quân trên tay</string>
 	<string name="pieceAnimation">Tính linh hoạt của quân cờ</string>

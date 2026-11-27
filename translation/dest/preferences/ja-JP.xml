@@ -3,6 +3,7 @@
 	<string name="preferences">設定</string>
 	<string name="gameDisplay">表示設定</string>
 	<string name="boardLayout">盤面のレイアウト</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">持ち駒にある駒の影を隠す</string>
 	<string name="handsBackground">持ち駒の背景を表示する</string>
 	<string name="pieceAnimation">駒のアニメーション速度</string>

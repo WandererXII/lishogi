@@ -3,6 +3,7 @@
 	<string name="preferences">Налады</string>
 	<string name="gameDisplay">Выгляд дошкі</string>
 	<string name="boardLayout">Расклад дошкі</string>
+	<string name="defaultBoardLayout" comment="Default option for the game board layout preference">Default</string>
 	<string name="clearHands">Схаваць фігуры, калі яны на руцэ</string>
 	<string name="handsBackground">Show background behind pieces in hand</string>
 	<string name="pieceAnimation">Анімацыя фігур</string>
