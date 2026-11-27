@@ -31,7 +31,6 @@ final class SecurityApi(
     firewall: Firewall,
     geoIP: GeoIP,
     authenticator: lila.user.Authenticator,
-    emailValidator: EmailAddressValidator,
     oAuthServer: OAuthServer,
     tor: Tor,
 )(implicit ec: scala.concurrent.ExecutionContext) {
@@ -71,9 +70,8 @@ final class SecurityApi(
     )
 
   def loadLoginForm(str: String): Fu[Form[LoginCandidate.Result]] = {
-    emailValidator.validate(EmailAddress(str)) match {
-      case Some(EmailAddressValidator.Acceptable(acceptable)) =>
-        authenticator.loginCandidateByEmail(acceptable.normalize)
+    EmailAddress.from(str) match {
+      case Some(address)                     => authenticator.loginCandidateByEmail(address.normalize)
       case None if User.couldBeUsername(str) => authenticator.loginCandidateById(User normalize str)
       case _                                 => fuccess(none)
     }

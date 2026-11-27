@@ -153,7 +153,7 @@ final class SecurityForm(
     authenticator loginCandidate u map { candidate =>
       Form(
         mapping(
-          "secret" -> nonEmptyText,
+          "secret" -> totpSecretMapping,
           "passwd" -> passwordMapping(candidate),
           "token"  -> nonEmptyText,
         )(TwoFactor.apply)(TwoFactor.unapply).verifying(
@@ -219,6 +219,9 @@ final class SecurityForm(
 }
 
 object SecurityForm {
+
+  private[security] val totpSecretMapping =
+    nonEmptyText.verifying("invalidTotpSecret", s => TotpSecret(s).secret.lengthIs == 20)
 
   // a missing checkbox is false, so all of them must be ticked
   private val agreementBool = boolean.verifying(b => b)
