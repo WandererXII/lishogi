@@ -415,31 +415,42 @@ final class Mod(
 
   def emailConfirm =
     SecureBody(_.SetEmail) { implicit ctx => me =>
-      get("q") match {
-        case None => Ok(html.mod.emailConfirm("", none, none)).fuccess
-        case Some(rawQuery) =>
-          val query = rawQuery.trim.split(' ').toList
-          val email = query.headOption
-            .map(EmailAddress.apply) flatMap env.security.emailAddressValidator.validate
-          val username = query lift 1
-          def tryWith(setEmail: EmailAddress, q: String): Fu[Option[Result]] =
-            env.mod.search(UserSearch.exact(q)) flatMap {
-              case List(UserModel.WithEmails(user, _)) =>
-                (!user.everLoggedIn).?? {
-                  lila.mon.user.register.modConfirmEmail.increment()
-                  modApi.setEmail(me.id, user.id, setEmail)
-                } >>
-                  env.user.repo.email(user.id) map { userEmail =>
-                    Ok(html.mod.emailConfirm("", user.some, userEmail)).some
-                  }
-              case _ => fuccess(none)
-            }
-          email.?? { em =>
-            tryWith(em.acceptable, em.acceptable.value) orElse {
-              username ?? { tryWith(em.acceptable, _) }
-            }
-          } getOrElse BadRequest(html.mod.emailConfirm(rawQuery, none, none)).fuccess
-      }
+      emailConfirmWith(get("q"), me, apply = false)
+    }
+
+  def emailConfirmApply =
+    SecureBody(_.SetEmail) { implicit ctx => me =>
+      implicit def req = ctx.body
+      emailConfirmWith(Form(single("q" -> text)).bindFromRequest().value, me, apply = true)
+    }
+
+  private def emailConfirmWith(q: Option[String], me: UserModel, apply: Boolean)(implicit
+      ctx: BodyContext[_],
+  ): Fu[Result] =
+    q match {
+      case None => Ok(html.mod.emailConfirm("", none, none)).fuccess
+      case Some(rawQuery) =>
+        val query = rawQuery.trim.split(' ').toList
+        val email = query.headOption
+          .map(EmailAddress.apply) flatMap env.security.emailAddressValidator.validate
+        val username = query lift 1
+        def tryWith(setEmail: EmailAddress, q: String): Fu[Option[Result]] =
+          env.mod.search(UserSearch.exact(q)) flatMap {
+            case List(UserModel.WithEmails(user, _)) =>
+              (apply && !user.everLoggedIn).?? {
+                lila.mon.user.register.modConfirmEmail.increment()
+                modApi.setEmail(me.id, user.id, setEmail)
+              } >>
+                env.user.repo.email(user.id) map { userEmail =>
+                  Ok(html.mod.emailConfirm(rawQuery, user.some, userEmail)).some
+                }
+            case _ => fuccess(none)
+          }
+        email.?? { em =>
+          tryWith(em.acceptable, em.acceptable.value) orElse {
+            username ?? { tryWith(em.acceptable, _) }
+          }
+        } getOrElse BadRequest(html.mod.emailConfirm(rawQuery, none, none)).fuccess
     }
 
   def chatPanic =

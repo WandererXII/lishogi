@@ -14,7 +14,7 @@ object emailConfirm {
     views.html.base.layout(
       title = "Email confirmation",
       moreCss = cssTag("user.mod.misc"),
-      moreJs = embedJsUnsafe("""$('.mod-confirm form input').on('paste', function() {
+      moreJs = embedJsUnsafe("""$('.mod-confirm form.search input').on('paste', function() {
 setTimeout(function() { $(this).parent().submit(); }.bind(this), 50);
 }).each(function() {
 this.setSelectionRange(this.value.length, this.value.length);
@@ -25,16 +25,16 @@ this.setSelectionRange(this.value.length, this.value.length);
         div(cls := "mod-confirm page-menu__content box box-pad")(
           h1("Confirm a user email"),
           p(
-            "If you provide an email, it will confirm the corresponding account, if any.",
+            "If you provide an email, it will find the corresponding account, if any, and let you confirm it.",
             br,
-            "If you provide an email and a username, it will set the email to that user, ",
+            "If you provide an email and a username, it will let you set the email to that user, ",
             "but only if the user has not yet confirmed their email.",
           ),
           st.form(cls := "search", action := routes.Mod.emailConfirm, method := "GET")(
             input(
               name        := "q",
               placeholder := "<email> <username (optional)>",
-              value       := query,
+              value       := user.fold(query)(_ => ""),
               autofocus,
             ),
           ),
@@ -70,6 +70,12 @@ this.setSelectionRange(this.value.length, this.value.length);
                   ),
                 ),
               ),
+            )
+          },
+          user.filterNot(_.everLoggedIn).map { _ =>
+            postForm(action := routes.Mod.emailConfirmApply)(
+              form3.hidden("q", query),
+              submitButton(cls := "button")("Set email and confirm"),
             )
           },
         ),
