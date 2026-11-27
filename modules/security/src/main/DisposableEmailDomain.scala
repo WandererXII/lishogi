@@ -9,29 +9,30 @@ final class DisposableEmailDomain(
     providerUrl: String,
 )(implicit ec: scala.concurrent.ExecutionContext) {
 
-  private val staticRegex = toRegexStr(DisposableEmailDomain.staticBlacklist.iterator)
-
-  @volatile private var regex = finalizeRegex(staticRegex)
+  @volatile private var domains: Set[String] = DisposableEmailDomain.staticBlacklist
 
   private[security] def refresh(): Unit =
-    ws.url(providerUrl).get().map(_.body.linesIterator) recover { case e: Exception =>
-      logger.warn("DisposableEmailDomain.refresh", e)
-      Iterator.empty
-    } foreach { blacklist =>
-      val regexStr  = toRegexStr(blacklist)
-      val nbDomains = regexStr.count('|' ==)
-      lila.mon.email.disposableDomain.update(nbDomains)
-      regex = finalizeRegex(s"$staticRegex|$regexStr")
-    }
+    ws.url(providerUrl).get() map {
+      case res if res.status == 200 =>
+        val fetched = res.body.linesIterator
+          .map(_.trim.toLowerCase)
+          .filter(l => l.nonEmpty && !l.startsWith("#"))
+          .toSet
+        lila.mon.email.disposableDomain.update(fetched.size)
+        domains = DisposableEmailDomain.staticBlacklist ++ fetched
+      case res =>
+        logger.warn(s"DisposableEmailDomain.refresh: status ${res.status}, keeping current list")
+    } recover { case e: Exception =>
+      logger.warn("DisposableEmailDomain.refresh: keeping current list", e)
+    } unit
 
-  private def toRegexStr(domains: Iterator[String]) =
-    domains.map(l => l.replace(".", "\\.")).mkString("|")
-
-  private def finalizeRegex(regexStr: String) = s"(^|\\.)($regexStr)$$".r
-
+  // matches the domain itself and any parent suffix (a.b.c -> a.b.c, b.c, c)
   def apply(domain: Domain): Boolean = {
     val lower = domain.lower
-    !DisposableEmailDomain.whitelisted(lower) && regex.find(lower.value)
+    !DisposableEmailDomain.whitelisted(lower) && {
+      val current = domains
+      lower.value.split('.').tails.exists(parts => parts.nonEmpty && current(parts.mkString(".")))
+    }
   }
 
   def isOk(domain: Domain) = !apply(domain)
