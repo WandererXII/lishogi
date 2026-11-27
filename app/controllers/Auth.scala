@@ -146,18 +146,6 @@ final class Auth(env: Env) extends LilaController(env) {
         ).dmap(_.withCookies(env.lilaCookie.newSession))
     }
 
-  // mobile app BC logout with GET
-  def logoutGet =
-    Open { implicit ctx =>
-      negotiate(
-        html = notFound,
-        json = {
-          ctxReq.session get lila.common.HTTPRequest.userSessionIdKey foreach env.security.store.delete
-          Ok(Json.obj("ok" -> true)).withCookies(env.lilaCookie.newSession).fuccess
-        },
-      )
-    }
-
   def signup =
     Open { implicit ctx =>
       NoTor {
