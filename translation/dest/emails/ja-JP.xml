@@ -9,10 +9,6 @@
   <string name="emailChange_subject">%s さん 新しいメールアドレスの認証をしてください</string>
   <string name="emailChange_intro">メールアドレスの変更を申請しました。</string>
   <string name="emailChange_click">このメールアドレスが利用できることを確認するため、下のリンクをクリックしてください。</string>
-  <string name="welcome_subject">%s さん Lishogi.org へようこそ</string>
-  <string name="welcome_text">https://lishogi.org にアカウントを作成しました。
-プロフィールページは %1$s です。%2$s でさまざまな設定ができます。
-お楽しみください、そしてあなたの駒が相手の玉に迫れますように！</string>
   <string name="logInToLishogi">%s でlishogi.orgにログインする</string>
   <string name="common_orPaste">（クリックでうまくいかない場合、URLをブラウザにペーストしてください）</string>
   <string name="common_note">これは %s のご利用に関するメールです。</string>
