@@ -26,8 +26,17 @@ final class RateLimits(net: NetConfig) {
     enforce = enforce,
   )
 
+  // Only spends the credits of that IP, so it can go before the IP limit
+  private val passwordHashPerUserAndIP = new RateLimit[(String, IpAddress)](
+    credits = 5,
+    duration = 1 hour,
+    key = "password.hashes.user.ip",
+    enforce = enforce,
+  )
+
+  // more than per user and IP, so that one IP can't lock the owner out
   private val passwordHashPerUser = new RateLimit[String](
-    credits = 10,
+    credits = 20,
     duration = 1 hour,
     key = "password.hashes.user",
     enforce = enforce,
@@ -51,10 +60,12 @@ final class RateLimits(net: NetConfig) {
   // The charge is an extra cost for the IP.
   def passwordHash[A](usernameOrEmail: String, req: RequestHeader)(
       run: RateLimit.Charge => Fu[A],
-  )(default: => Fu[A]): Fu[A] =
-    passwordHashBy(passwordHashPerUser, EmailAddress(usernameOrEmail).normalize.value, req)(run)(
-      default,
-    )
+  )(default: => Fu[A]): Fu[A] = {
+    val key = EmailAddress(usernameOrEmail).normalize.value
+    passwordHashPerUserAndIP(key -> HTTPRequest.lastRemoteAddress(req)) {
+      passwordHashBy(passwordHashPerUser, key, req)(run)(default)
+    }(default)
+  }
 
   // For users already identified by a session or an emailed token.
   // Visitors can't use up these credits by failing to log in as them.
