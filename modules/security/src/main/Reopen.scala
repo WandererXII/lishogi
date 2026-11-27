@@ -89,7 +89,11 @@ ${Mailgun.txt.serviceNote}
     tokener read token flatMap { _ ?? userRepo.disabledById } flatMap {
       _ ?? { user =>
         canReopen(user, hasModClose) flatMap {
-          case true => userRepo reopen user.id inject user.some
+          case true =>
+            userRepo reopen user.id map { hasEmail =>
+              if (!hasEmail) logger.warn(s"Reopened ${user.id} without email, previous email is taken")
+              user.some
+            }
           case _    => fuccess(none)
         }
       }

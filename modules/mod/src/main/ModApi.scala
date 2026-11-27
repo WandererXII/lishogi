@@ -114,7 +114,9 @@ final class ModApi(
   def reopenAccount(mod: String, username: String): Funit =
     withUser(username) { user =>
       !user.enabled ?? {
-        (userRepo reopen user.id) >> logApi.reopenAccount(mod, user.id)
+        (userRepo reopen user.id) flatMap { hasEmail =>
+          logApi.reopenAccount(mod, user.id, hasEmail)
+        }
       }
     }
 

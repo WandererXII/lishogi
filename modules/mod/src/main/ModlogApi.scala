@@ -96,9 +96,14 @@ final class ModlogApi(repo: ModlogRepo)(implicit
   def hasModClose(user: User.ID): Fu[Boolean] =
     coll.exists($doc("user" -> user, "action" -> Modlog.closeAccount))
 
-  def reopenAccount(mod: User.ID, user: User.ID) =
+  def reopenAccount(mod: User.ID, user: User.ID, hasEmail: Boolean) =
     add {
-      Modlog(mod, user.some, Modlog.reopenAccount)
+      Modlog(
+        mod,
+        user.some,
+        Modlog.reopenAccount,
+        (!hasEmail) option "Previous email is now used by another account, reopened without email",
+      )
     }
 
   def addTitle(mod: User.ID, user: User.ID, title: String) =

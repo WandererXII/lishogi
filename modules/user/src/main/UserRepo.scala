@@ -342,7 +342,8 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
       )
       .void
 
-  def reopen(id: ID) =
+  // returns false when the previous email has since been taken by another account
+  def reopen(id: ID): Fu[Boolean] =
     coll.updateField($id(id), F.enabled, true) >>
       coll.update
         .one(
@@ -350,15 +351,20 @@ final class UserRepo(val coll: Coll)(implicit ec: scala.concurrent.ExecutionCont
           $doc("$rename" -> $doc(F.prevEmail -> F.email)),
         )
         .void
-        .recover(lila.db.recoverDuplicateKey(_ => ()))
+        .recover(lila.db.recoverDuplicateKey(_ => ())) >>
+      coll.exists($id(id) ++ $doc(F.email $exists true)) flatMap { hasEmail =>
+        (!hasEmail ?? coll.unsetField($id(id), F.verbatimEmail).void) inject hasEmail
+      }
 
   def disable(userId: User.ID, keepEmail: Boolean): Funit =
     coll.update
       .one(
         $id(userId),
-        $set(F.enabled -> false) ++ $unset(F.roles, "profile.bio") ++ {
-          if (keepEmail) $unset(F.mustConfirmEmail)
-          else $doc("$rename" -> $doc(F.email -> F.prevEmail))
+        $set(F.enabled -> false) ++ {
+          if (keepEmail) $unset(F.roles, "profile.bio", F.mustConfirmEmail)
+          else
+            $unset(F.roles, "profile.bio", F.verbatimEmail) ++
+              $doc("$rename" -> $doc(F.email -> F.prevEmail))
         },
       )
       .void
