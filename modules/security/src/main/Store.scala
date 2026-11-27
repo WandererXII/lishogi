@@ -158,9 +158,6 @@ final class Store(val coll: Coll, cacheApi: lila.memo.CacheApi, localIp: IpAddre
   private[security] def deletePreviousSessions(user: User) =
     coll.delete.one($doc("user" -> user.id, "date" $lt user.createdAt)).void
 
-  private case class DedupInfo(_id: String, ip: String, ua: String) {
-    def compositeKey = s"$ip $ua"
-  }
   implicit private val DedupInfoReader: BSONDocumentReader[DedupInfo] = Macros.reader[DedupInfo]
 
   def dedup(userId: User.ID, keepSessionId: String): Funit =
@@ -175,16 +172,9 @@ final class Store(val coll: Coll, cacheApi: lila.memo.CacheApi, localIp: IpAddre
       .cursor[DedupInfo]()
       .list()
       .flatMap { sessions =>
-        val olds = sessions
-          .groupBy(_.compositeKey)
-          .view
-          .values
-          .map(_ drop 1)
-          .flatten
-          .filter(_._id != keepSessionId)
-          .map(_._id)
-        coll.delete.one($inIds(olds)).void
-      } >> uncacheAllOf(userId)
+        val olds = dedupIds(sessions, keepSessionId)
+        coll.delete.one($inIds(olds)).void >>- blocking { olds foreach blockingUncache }
+      }
 
   implicit private val IpAndFpReader: BSONDocumentReader[IpAndFp] = Macros.reader[IpAndFp]
 
@@ -215,6 +205,20 @@ final class Store(val coll: Coll, cacheApi: lila.memo.CacheApi, localIp: IpAddre
 }
 
 object Store {
+
+  private[security] case class DedupInfo(_id: String, ip: String, ua: String) {
+    def compositeKey = s"$ip $ua"
+  }
+
+  // sessions sorted by date desc; keeps the most recent per ip+ua, and keepSessionId
+  private[security] def dedupIds(sessions: List[DedupInfo], keepSessionId: String): List[String] =
+    sessions
+      .groupBy(_.compositeKey)
+      .values
+      .flatMap(_ drop 1)
+      .filter(_._id != keepSessionId)
+      .map(_._id)
+      .toList
 
   case class Info(ip: IpAddress, ua: String, fp: Option[FingerHash], date: DateTime) {
     def datedIp = Dated(ip, date)
