@@ -781,6 +781,7 @@
 	<string name="glicko2Rating">Glicko-2 puanı</string>
 	<string name="checkYourEmail">E-postanızı kontrol edin</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Size e-posta yolladık. Hesabınızı aktifleştirmek için e-postanızdaki linke tıklayın.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Eğer e-postayı görmüyorsanız, spam, sosyal veya diğer klasörlere göz atmayı deneyin.</string>
 	<string name="weHaveSentYouAnEmailTo">%s adresine e-posta yolladık. Şifrenizi tekrar ayarlamak için e-postadaki linke tıklayın.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Kaydolarak, %s \'ı kabul etmiş sayılırsınız.</string>
