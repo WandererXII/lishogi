@@ -851,6 +851,7 @@
 	<string name="glicko2Rating">Glicko-2 hodnocení</string>
 	<string name="checkYourEmail">Zkontrolujte svoji emailovou složku</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Zaslali jsme vám email. Klikněte na odkaz v emailu pro aktivaci vašeho účtu.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Pokud email nenaleznete v doručené poště, zkontrolujte další místa, kde by mohl být, jako spam, zprávy ze sociálních sítí, koš nebo jiné složky.</string>
 	<string name="weHaveSentYouAnEmailTo">Zaslali jsme vám email na %s. Klikněte na odkaz v emailu pro přenastavení vašeho hesla.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Registrací berete na vědomí naše %s.</string>
