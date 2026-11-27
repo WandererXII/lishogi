@@ -782,6 +782,7 @@
 	<string name="glicko2Rating">Glicko-2 रेटिंग</string>
 	<string name="checkYourEmail">अपना ईमेल देखें</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">हम आपको एक ईमेल भेज दिया है। अपने खाते को सक्रिय करने के लिए ईमेल में लिंक पर क्लिक करें।</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">आप ईमेल नहीं देखते हैं, तो अन्य स्थानों पर यह हो सकता है, आपकी कबाड़, स्पैम, सामाजिक, या अन्य फ़ोल्डर की तरह की जाँच करें।</string>
 	<string name="weHaveSentYouAnEmailTo">हम ने %s के लिए एक ईमेल भेज दिया है। अपना पासवर्ड रिसेट करने के लिए ईमेल में लिंक पर क्लिक करें।</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">दर्ज करके, आप हमारे %s द्वारा बाध्य होने के लिए सहमत हैं।</string>
