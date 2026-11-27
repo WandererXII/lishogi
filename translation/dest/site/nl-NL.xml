@@ -781,6 +781,7 @@
 	<string name="glicko2Rating">Glicko-2 rating</string>
 	<string name="checkYourEmail">Controleer je email</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">We hebben je een email gestuurd. Klik op de link in de email om je account te activeren.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Als je de email niet ziet, kijk dan op andere plaatsen, zoals je spam of andere mappen.</string>
 	<string name="weHaveSentYouAnEmailTo">We hebben een email verstuurd naar %s. Klik op de link in de email om je wachtwoord te resetten.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Door je registratie ben je gebonden aan onze %s.</string>
