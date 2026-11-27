@@ -782,6 +782,7 @@ Jou verslag sal vinniger geantwoord word as dit in Engels geskryf is.</string>
 	<string name="glicko2Rating">Glicko-2 gradering</string>
 	<string name="checkYourEmail">Kyk na jou e-pos</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Ons het vir jou \'n e-pos gestuur. Klik die skakel in die e-pos om jou rekening te aktiveer.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">As jy nie die e-pos sien nie, kyk na ander plekke waar dit kan wees, soos jou gemorspos, sosiaal en ander leêrs.</string>
 	<string name="weHaveSentYouAnEmailTo">Ons het \'n e-pos na %s gestuur. Klik die skakel in die e-pos om die wagwoord te herstel.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Deur te regisreer, stem jy in om aan ons %s gebonde te wees.</string>
