@@ -781,6 +781,7 @@
 	<string name="glicko2Rating">Glicko-2 rating</string>
 	<string name="checkYourEmail">Check your Email</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">We\'ve sent you an email. Click the link in the email to activate your account.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">If you don\'t see the email, check other places it might be, like your junk, spam, social, or other folders.</string>
 	<string name="weHaveSentYouAnEmailTo">We\'ve sent an email to %s. Click the link in the email to reset your password.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Sa pagrerehistro, ikaw ay pumapayag sa aming %s.</string>
