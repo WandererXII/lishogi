@@ -781,6 +781,7 @@
 	<string name="glicko2Rating">Glicko-2 rating</string>
 	<string name="checkYourEmail">Tjek din email</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Vi har sendt dig en email. Klik på linket i emailen for at aktivere din konto.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Hvis du ikke kan se emailen, bør du kontrollere andre steder den kan være endt, som i din junk, spam eller andre mapper.</string>
 	<string name="weHaveSentYouAnEmailTo">Vi har sendt en e-mail til %s. Klik på linket i e-mailen for at nulstille din adgangskode.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Ved at registrere, accepterer du at være bundet af vores %s.</string>
