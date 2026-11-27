@@ -816,6 +816,7 @@
 	<string name="glicko2Rating">Glicko-2 рејтинг</string>
 	<string name="checkYourEmail">Проверите е-пошту.</string>
 	<string name="weHaveSentYouAnEmailClickTheLink">Послали смо вам е-маил. Кликните на линк да бисте активирали вашу рачун.</string>
+	<string name="ifYourEmailMatchesWeHaveSentYouALink">If your email address matches an eligible account, we\'ve sent you an email with a link.</string>
 	<string name="ifYouDoNotSeeTheEmailCheckOtherPlaces">Ако не видите е-пошту у пријемном сандучету, проверите је у другим местима (датотекама): Јунк, Социал.</string>
 	<string name="weHaveSentYouAnEmailTo">Послали смо Вам е-поруку на %s. Кликните на дати линк да промените Вашу лозинку.</string>
 	<string name="byRegisteringYouAgreeToBeBoundByOur">Registracijom prihvatate ograničenja predviđe našim %s.</string>
